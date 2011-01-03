@@ -1,1 +1,3 @@
-Welcome to the jruby wiki!
+This is a forked repository. Have a look at
+        "jruby's jruby wiki":/jruby/jruby
+        for more information.
