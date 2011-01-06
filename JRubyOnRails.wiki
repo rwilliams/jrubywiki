@@ -17,7 +17,7 @@ Get started with these tutorials:
 === Deployment ===
 
 ==== War File Deployment ====
-If you don't use a traditional Ruby application server like [http://mongrel.rubyforge.org/ Mongrel], you can use a Java application server.  To deploy to a Java app server, you can use the tool [[Warbler]]  to bundle your Rails application in a Java Web Application Archive (<tt>.war</tt> file). (Warbler is a minimal, flexible, Ruby-like way to create a <tt>.war</tt> file). Once you have a <tt>.war</tt> file, you can deploy to any Java app server using their war deployment mechanism.  
+If you don't use a traditional Ruby application server like [http://mongrel.rubyforge.org/ Mongrel], you can use a Java application server.  To deploy to a Java app server, you can use the tool <a href="{{project warbler page Home}}">Warbler</a> to bundle your Rails application in a Java Web Application Archive (<tt>.war</tt> file). (Warbler is a minimal, flexible, Ruby-like way to create a <tt>.war</tt> file). Once you have a <tt>.war</tt> file, you can deploy to any Java app server using their war deployment mechanism.  
 
 '''Some links to information on various Java App Servers:'''
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat]
@@ -48,7 +48,7 @@ See also:
 * [http://modrails.com Passenger]
 
 === Miscellaneous Rails Topics ===
-* '''[[Rails_2_3_2|Important note about Rails 2.3.2]]'''
+* '''''[[Rails_2_3_2|Important note about Rails 2.3.2]]'''''
 * [http://blarg.slackworks.com/posts/jndi-with-rails Blog entry on setting up JNDI]
 * [[RailsJSR286Portlets|Write Portlets using Rails]]
 * [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
