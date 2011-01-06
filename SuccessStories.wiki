@@ -18,6 +18,22 @@ Here is a list of sites and projects using JRuby. Please add descriptions if pos
 </tr>
 
 <tr>
+<td>[http://telegard.org OpenTelegard/2]</td>
+<td>
+OpenSource implementation of the Telegard BBS.</td>
+
+<td>JRuby offered advantages of many existing Java libraries not available for MRI Ruby.</td>
+
+<td>Primary Lanaguage</td>
+
+<td>OpenJDK 6</td>
+
+<td>None</td>
+
+<td></td>
+</tr>
+
+<tr>
 <td>[http://uploadbooth.com/about UploadBooth.com]</td>
 <td>
 UploadBooth is a service that enables you to upload and share tagged files with others online in a simple way. You can start using UploadBooth right away by uploading your first batch of files.</td>
