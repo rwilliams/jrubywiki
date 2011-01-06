@@ -274,6 +274,8 @@ However, this does not mean that you cannot call methods expecting a primitive t
 
 If JRuby cannot find a matching method, it tries to pass the actual JRuby objects instead (that is, the Java objects from the JRuby implementation). A consequence of this is that if this fails you will see an error message stating that JRuby hasn't found a method taking an object of class <tt>org.jruby.RubyObject</tt> instead of the actual type.
 
+If JRuby is not finding the exact method you want to call, perhaps because of extreme ambiguity like <tt>foo(int)</tt> vs. <tt>foo(long)</tt>, the <tt>java_send</tt> method can be used to disambiguate. See below.
+
 ==== Java to Ruby ====
 When primitive Java types are passed to JRuby they are converted to the following Ruby types:
 
