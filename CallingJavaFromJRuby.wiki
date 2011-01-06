@@ -90,29 +90,29 @@ This <tt>require</tt> makes the resources in <tt>mycode.jar</tt> discoverable by
 Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH for them, like it would for normal ruby files.
 
 === Naming a Java Class ===
-You can name a Java class in JRuby in at least three different ways. The idea is to map Java names like <tt>org.foo.department.Widget</tt> to Ruby nested modules. This works as follows:
+You can reference a Java class in JRuby in at least two different ways. 
+
+* The first is to map Java names like <tt>org.foo.department.Widget</tt> to Ruby nested modules format. This works as follows:
 
    Java: org.foo.department.Widget
    Ruby: Java::OrgFooDepartment::Widget
 
 That is:
 
-* Java packages reside in the <tt>Java</tt> module.
-* The package path is transformed by removing the dots and converting to ''CamelCase''
+** Java packages all reside within the <tt>Java</tt> module.
+** The package path is then transformed by removing the dots and converting to ''CamelCase''
 
-This also means that, just as in Java, packages are not nested.
+This also means that, just as in Java, packages are not nested, but are each associated with their own unique module name (within the Java main module).
 
-* For the top-level Java packages <tt>java</tt>, <tt>javax</tt>, <tt>org</tt>, and <tt>com</tt> you can type in a fully qualified class name basically as in Java, for example, <tt>java.lang.System</tt>.
-
-You can get the same effect for your own top-level packages, as follows. Let's assume that your packages are called <tt>edu.school.department.Class</tt>. Then, you define
+* Second way: for the top-level Java packages <tt>java</tt>, <tt>javax</tt>, <tt>org</tt>, and <tt>com</tt> you can type in a fully qualified class name basically as in Java, for example, <tt>java.lang.System</tt> or <tt>org.abc.def.className</tt>
+You can get the same effect for your own (custom) top-level packages, as follows. Let's assume that your packages are called <tt>edu.school.department.Class</tt>. Then, you define
 
    def edu
       Java::Edu
    end
 
-And you can use the usual Java package names.
-
-As of JRuby-1.1.5, the <tt>import</tt> statement only works with either Java-style names or strings, but not with the <tt>Java::PackagePath::Class</tt> variant.
+And then you can use use usual Java package names like <tt>edu.abc.def.ClassName</tt>
+Note also that you must use the right capitalization, though see below for how you can change and assign it to your own liking.
 
 === Import a Java Class to Use It Without The Full Path Name ===
 
