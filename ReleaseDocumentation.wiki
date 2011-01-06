@@ -1,28 +1,29 @@
 JRuby release preparation
 
 * Make sure a release has no blockers (tests in later steps are good at shagging issues out)
-* Try and determine if we break any common extensions (goldspike, ar-jdbc, joni, jsr233 impl, ...)
+* Try and determine if we break any common extensions (jruby-rack, ar-jdbc, joni, jsr233 impl, ...)
 * Update build-config.xml to reflect new version
 * Update the '''version.jruby''' property in '''src/org/jruby/jruby.properties''' to reflect new version
-** Example: '''1.1.3RC1"
-* Check out svn.codehaus.org/jruby/trunk/updatepoms.rb (curl it)
-** run from jruby source tree root with new version (e.g. ../updatepoms.rb 1.1RC3)
-* Make tag using svn copy (e.g. svn copy https://svn.codehaus.org/jruby/trunk/jruby https://svn.codehaus.org/jruby/tags/jruby-1_1b2)
-* Check out new tag
-* Set your java version to Java 1.4 for 1.0 branch and Java 5 for trunk.
-* Run 'ant dist' to generate source and binary distribution files, jruby-complete jar, and MD5 files.
-* Make 'ant test' runs on Linux, MacOS, and Windows (Solaris is fine since our CI system is a Solaris boxen) with produced source distribution
+** Example: '''1.4RC1"
+* Update maven poms: jruby -S rake updatepoms VERSION={newversion}
+* On release branch ('''jruby-X_Y'''):
+* Make tag using git tag: '''git tag X.Y'''
+* Check out clean clone of release branch: cd .. && rm -rf release && git clone jruby release && cd release (for example)
+* Set your java version to Java 5 for building the release.
+* Run '''ant dist''' to generate source and binary distribution files, jruby-complete jar, and MD5/SHA checksum files.
+* Run '''jruby -S rake installer''' to generate both Windows installers.
+* Make 'ant test' runs on Linux, MacOS, and Windows with produced source distribution
 * Verify common tasks as extra sanity check (Windows + one other system) [with binary distro -- try some with .zip dist and some with .tar.gz dist]:
 ** jruby samples/swing2.rb
 ** jruby -S jirb
 ** install rails + ar-jdbc
 *** setup simple web app and exercise it
 *** install and run goldberg (actually any more sophisticated app you know works)
-* Upload dist files, jruby-complete.jar, and MD5 files to https://dav.codehaus.org/dist/jruby/{version}
-* Replace existing content in https://dav.codehaus.org/dist/jruby/current with the updated release files
-* Build and release jruby-jars gem
+* Upload dist files, jruby-complete.jar, and MD5 files to https://kenai.com/website/jruby/downloads/{version}
+* Replace existing content in https://kenai.com/website/jruby/downloads/current with the updated release files
+* Build and release jruby-jars gem: cd gem && jruby -S rake package && jruby -S rake release VERSION={final-version}
 * [[Build maven artifacts]]
-* Add news item to www.jruby.org page (need to get to confluence editing page for this -- xircles is easy way there if you don't have bookmark)
+* Add news item to www.jruby.org page 
 * Update MainPage on JRuby wiki pointing to new binary
 * Update Ruby Application Archive
 * Close all resolved bugs associated with the release in JIRA
