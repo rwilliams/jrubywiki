@@ -2,38 +2,14 @@
 ==JRuby With Wrong Java==
 [''ed: This page needs revision because some other linux distros have the same problem as Ubuntu.'']
 
-You may find that even though you have an up-to-date JDK installed, JRuby does not work on Ubuntu.  When running
+You may find that even though you have an up-to-date JDK installed, JRuby does not work on Ubuntu.  When running <tt>jruby -v</tt>,  you might get exceptions from Java. The reason for these errors might be that, even though you have an up-to-date JDK installed, Ubuntu is not using it by default. You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
 
- jruby -v
-
-You may get errors like:
-
- java.lang.NoSuchFieldException: fd
- at java.lang.Class.getDeclaredField(libgcj.so.81)
-
-'''Note:''' This will be fixed with JRuby 1.1 RC3, though it's uncertain whether all issues running under GCJ will be resolved.
-
-The reason for these errors might be that, even though you have an up-to-date JDK installed, Ubuntu is not using it by default. You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
-
-On Ubuntu 7.10, when I ran:
-
+On Ubuntu 7.10, I ran
  java -version
-
-I saw the following:
-
- java version "1.5.0"
- gij (GNU libgcj) version 4.2.1 (Ubuntu 4.2.1-5ubuntu5)
-
-I then ran:
-
+which said that I was running  Java version 1.5.0 when I knew I had Java version 1.6 installed. I then ran:
  sudo update-alternatives --config java
-
-I picked the option that said <tt>/usr/lib/jvm/java-6-sun/jre/bin/java</tt>.  Following that, running:
-
- java -version
-
-Gave me:
-
+I picked the option <tt>/usr/lib/jvm/java-6-sun/jre/bin/java</tt>.  Following that, running <tt>java -version</tt> 
+gave me
  java version "1.6.0_03"
  Java(TM) SE Runtime Environment (build 1.6.0_03-b05)
  Java HotSpot(TM) Server VM (build 1.6.0_03-b05, mixed mode)
