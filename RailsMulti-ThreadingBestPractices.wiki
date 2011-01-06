@@ -1,0 +1,14 @@
+# How to enable multi-threading in rails
+# Code Best Practices for thread-safety
+# Application Server Optimization/Configuration
+
+
+
+1.  How to Enable multi-threading in rails
+
+    * set min/max runtimes in warble.rb to 1/1 respectively
+    * in config/environment.rb put the line ''config.threadsafe!''
+
+2. TBD
+
+3.  TBD
