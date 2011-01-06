@@ -562,7 +562,19 @@ manager.exec("jruby", “<script>”, 1, 0, script);</pre>
 
 === Other Ruby Runtime Configurations ===
 
-When you want to configure Ruby runtime more than explained here, you can use methods of org.jruby.RubyInstanceConfig on Embed Core. Get the reference of RubyInstanceConfig by ScriptingContainer.getProvider().getRubyInstanceConfig() and set values in it before you set/get key-value pairs, get runtime, or parse/eval/runScriptlet. However, JSR223/BSF can't do more configurations. If you want some configurations to work, file it in the issue tracker.
+If you need more control over the Ruby runtime than we've explained here, you can use methods of <code>org.jruby.RubyInstanceConfig</code> in Embed Core. Here's the recommended sequence:
+
+<pre name="java">
+ScriptingContainer container = new ScriptingContainer();
+RubyInstanceConfig config = container.getProvider().getRubyInstanceConfig();
+
+# First, make the configuration changes you need.
+config.someConfigMethod(...);
+
+# Now, you can set variables or run Ruby code.
+container.runScriptlet(...);</pre>
+
+JSR223 and BSF don't support as many configuration options as Embed Core. If you need additional options in these APIs, please file a request in the [http://jra.codehau.org/browe/JRUBY issue tracker].
 
 
 == Red Bridge Code Examples ==
@@ -579,4 +591,4 @@ See the [[RedBridgeServletExamples]] page.
 * [http://jruby-embed.kenai.com/docs/ JRuby Embed API document]
 
 = Previous Embedding JRuby Page=
-We recommend using Embed Core instead; however, if you're maintaining code that uses the old API, you can find information on it on the [[JavaIntegration|legacy]] embedding page.
+We recommend using Embed Core; however, if you're maintaining code that uses the old API, you can find its documentation on the [[JavaIntegration|legacy embedding]] page.
