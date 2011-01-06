@@ -22,7 +22,7 @@ For example, say you have file <tt>foo.bat</tt> on your PATH and want to run it.
 JRuby doesn't implement <tt>fork()</tt> on any platform, including those where <tt>fork()</tt> is available in MRI.
 
 == Native Endian is Big Endian ==
-Since the JVM presents a ''compatible'' CPU to JRuby, the ''native'' endianness of JRuby is Big Endian. This does matter for operations that depend on that behavior, like <tt>String.pack()</tt> and <tt>Array.unpack()</tt> for formats like "I", "i", "S" and "s".
+Since the JVM presents a ''compatible'' CPU to JRuby, the ''native'' endianness of JRuby is Big Endian. This does matter for operations that depend on that behavior, like <tt>String.pack()</tt> and <tt>Array.unpack()</tt> for formats like <tt> I</tt>, <tt> i</tt>, <tt> S</tt>, and <tt> s</tt>.
 
 == Time precision ==
 Since it is not possible to obtain <tt>usec</tt> precision under a JVM, <tt>Time.now.usec</tt> cannot return values with microsecond precision.
