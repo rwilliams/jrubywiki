@@ -1,3 +1,4 @@
+==Redhat Linux
 {|- border="1"
 !JRuby Version
 !jruby-openssl
@@ -14,4 +15,16 @@
 |2.0.4
 | 
 }
+
+
+==Installing old gems
+Specify the version to install, e.g.:
+ jruby -S gem install jruby-openssl -v 0.3
+
+==Using old gems in your script
+ require 'rubygems'   # not required in a rails controller
+ gem 'jruby-openssl', '0.3'
+ gem 'net-ssh', '2.0.4'
+ require 'net/ssh'
+ 
 
