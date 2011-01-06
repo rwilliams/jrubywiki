@@ -135,11 +135,6 @@ Delete any build and compile artifacts:
 Run the JRuby tests:
   ant test
 
-Retrieve revision 6130 of the JRuby source:
- svn co -r 6130 http://svn.codehaus.org/jruby/trunk/jruby jruby
-
-You can easily automate all of this and more into a single script, see: http://pastie.caboo.se/165048.
-
 ==Benchmarking==
 
 The current popular way to benchmark JRuby performance is to perform a gem installation of Rake. The install process exercises a number of APIs and represents a fairly general-purpose application of Ruby. It's also extremely interpreter-heavy.
