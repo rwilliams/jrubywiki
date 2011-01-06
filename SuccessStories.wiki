@@ -18,6 +18,22 @@ Here is a list of sites and projects using JRuby. Please add descriptions if pos
 </tr>
 
 <tr>
+<td>[http://uploadbooth.com/about UploadBooth.com]</td>
+<td>
+UploadBooth is a service that enables you to upload and share tagged files with others online in a simple way. You can start using UploadBooth right away by uploading your first batch of files.</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
 <td>[https://www.blissmessage.com blissmessage.com]</td>
 
 <td>BlissMessage is an iPhone app which lets you send free text messages from iPhone to iPhone and from the web to iPhones as well. It leverages push notifications for instant delivery of the messages. While the basic use case is sending free text messages to other users, you can also get notified about your Twitter replies and mentions if you enter your Twitter name in the profile.</td>
