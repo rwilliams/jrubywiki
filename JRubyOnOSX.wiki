@@ -1,0 +1,3 @@
+==Example Code==
+
+[http://teach.alternamatch.com/jruby/ An Xcode template for a self-contained JRuby application bundle on OS X]
