@@ -30,11 +30,11 @@
 * Release the version in JIRA
 * Send emails to dev@jruby.codehaus.org, user@jruby.codehaus.org, ruby-talk@ruby-lang.org (plus any thing else you may find useful -- internal lists, etc...)
 * Update wikipedia entry
-* Request MacPorts update
+* Request MacPorts update [not for RCs]
 ** File a request ticket to update MacPorts at http://guide.macports.org/#project.tickets
 *** Provide a portfile patch, ideally, similar to http://guide.macports.org/#development.patches.portfile
 ** Email macports-dev list to ensure the ticket gets noticed: http://lists.macosforge.org/mailman/listinfo/macports-dev/
-* Send kmeyer email about Redhat/Fedora packaging
+* Send kmeyer email about Redhat/Fedora packaging [not for RCs]
 * if new release is final then also update '''version.jruby''' property in '''src/org/jruby/jruby.properties''' in '''trunk''' to reflect new dev version. 
 ** Example: '''1.1.4-dev'''
 * update [[Getting_Started]] to point to the latest release.
