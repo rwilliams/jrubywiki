@@ -1,0 +1,186 @@
+http://caldersphere.rubyforge.org/warbler/
+
+''Warbler is a gem to make a .war file out of a Rails project. The intent is to provide a minimal, flexible, ruby-like way to bundle up all of your application files for deployment to a Java application server.''
+
+''Warbler provides a sane set of out-of-the box defaults that should allow most Rails applications without external gem dependencies (aside from Rails itself) to assemble and Just Work.''
+
+''Warbler bundles JRuby and [[JRuby_Rack|JRuby-Rack]] for dispatching requests to your application inside the java application server, and assembles all jar files in WARBLER_HOME/lib/*.jar into your application. No external dependencies are downloaded. ''
+
+Created by [http://blog.nicksieger.com Nick Sieger]
+[http://blog.nicksieger.com/articles/2007/09/04/warbler-a-little-birdie-to-introduce-your-rails-app-to-java Announcement: Warbler, A Little Birdie To Introduce Your Rails App To Java] (Nick Sieger)
+
+__TOC__
+
+== Defaults ==
+
+* Currently, the Warbler gem includes JRuby 1.1.1 and JRuby-Rack 0.9.
+* It is also possible to set different versions of JRuby and JRuby-Rack (or GoldSpike, the previously used servlet adapter) without modifying the gem files. This ensures that your build is reproducible. There are a couple ways to do this.
+** Use Warbler as a plugin
+**# Install Warbler as a plugin: <pre>jruby -S warble pluginize</pre>
+**# Remove existing jar files in vendor/plugins/warbler/lib and replace with the versions you wish to use.
+** Override java_libs
+*** Override warbler's java_libs in order to provide your own. You can override individual jar files, or you can remove all of the defaults and provide all of your own.
+*** For example, to replace the version of jruby that is bundled with your app, add the following code to config/warble.rb <pre>config.java_libs.reject! { |lib| lib =~ /jruby-complete/ }</pre> and put the desired jruby-complete jar into the lib directory of your rails application.
+*** If you want to provide all of the jars, set <pre>config.java_libs = []</pre> and place a copy of all of the required jars into lib.
+
+== Automatically figure out gems ==
+The following code snippet in config/warble.rb will cause Warbler to automatically bundle all gems loaded by the web application.
+<pre>
+  # Include all gems which are used by the web application
+  require "#{RAILS_ROOT}/config/boot"
+  BUILD_GEMS = %w(warbler rake rcov)
+  for gem in Gem.loaded_specs.values
+    next if BUILD_GEMS.include?(gem.name)
+    config.gems[gem.name] = gem.version.version
+  end
+</pre>
+
+== Upgrades ==
+
+=== to 0.9.9 ===
+The introduction of JRuby Rack with this release requires some changes. While it does attempt to make a smooth gentle transition from Goldspike, if you are upgrading from a previous version, you may want to invest the time to make a clean break.
+
+==== Required Changes to Upgrade to JRuby Rack ====
+
+===== warbler.rb sample diff =====
+<pre>
+- config.java_libs.reject! {|lib| lib =~ /jruby-complete|goldspike/ }
+- # Control the pool of Rails runtimes
+- # (Goldspike-specific; see README for details)
+- config.webxml.pool.maxActive = ENV['max'] ||= '10'
+- config.webxml.pool.minIdle = ENV['min'] ||= '4'
+- config.webxml.pool.c​heckInterval = 0
+- config.webxml.pool.maxWait = 30000
+
++ config.webxml.jruby.​min.runtimes = 2
++ config.webxml.jruby.​max.runtimes = 10
+</pre>
+
+===== web.xml.erb sample diff =====
+<pre>
+ <web-app>
+- <context-param>
+- <param-name>jr​uby.standalone</p​aram-name>
+- <param-value><%= webxml.standalone %></param-value>
+- </context-param>
+-
+- <% if !webxml.standalone && webxml.jruby_home %>
+- <!-- jruby.home can be set either here, or as the system property jruby.home -->
+- <context-param>
+- <param-name>jr​uby.home</param-n​ame>
+- <param-value><%= webxml.jruby_home %></param-value>
+- </context-param>
+- <% end %>
+-
+- <context-param>
+- <param-name>ra​ils.root</param-n​ame>
+- <param-value>/​WEB-INF</param-va​lue>
+- </context-param>
+-
+- <context-param>
+- <param-name>ra​ils.env</param-na​me>
+- <param-value><%= webxml.rails_env || 'production' %></param-value>
+- </context-param>
+-
+- <% webxml.pool.marshal_dump.each do |k,v| %>
+- <context-param>
+- <param-name>jr​uby.pool.<%= k %></param-name>
+- <param-value><%= v %></param-value>
+- </context-param>
+- <% end %>
+-
+- <context-param>
+- <param-name>fi​les.default</para​m-name>
+- <param-value>r​ails</param-value​>
+- <description>
+- The files servlet should forward to the rails servlet if no file could be found
+- </description>
+- </context-param>
+-
+- <context-param>
+- <param-name>fi​les.prefix</param​-name>
+- <param-value>​</param-value>
+- <description>
+- Prefix added to static files
+- </description>
+- </context-param>
+-
+- <context-param>
+- <param-name>jr​uby.session_store​</param-name>
+- <param-value>d​b</param-value​> <!-- This value really means let Rails take care of session store -->
+- </context-param>
+-
+- <listener>
+- <listener-class​>org.jruby.webapp.R​ailsContextListener​</listener-class​>
+- </listener>
+-
+- <servlet>
+- <servlet-name>​rails</servlet-na​me>
+- <servlet-class​>org.jruby.webapp.Ra​ilsServlet</servl​et-class>
+- </servlet>
+- <servlet>
+- <servlet-name>​files</servlet-na​me>
+- <servlet-class​>org.jruby.webapp.Fi​leServlet</servle​t-class>
+- </servlet>
+-
+- <!-- Allow all requests to go to the files servlet first -->
+- <% servlet_name = Warbler::VERSION < "0.9.9" ?
+- webxml.servlet_name :
+- webxml.context_param​s['servlet_name'] %>
+- <servlet-mapping>
+- <servlet-name><%= servlet_name || 'files' %></servlet-name>
+- <url-pattern>/​</url-pattern>​
+- </servlet-mapping>
+-
+- <% if webxml.jndi %>
+- <resource-ref>
+- <res-ref-name><%= webxml.jndi %></res-ref-name>
+- <res-type>java​x.sql.DataSource<​/res-type>
+- <res-auth>Cont​ainer</res-auth​>
+- </resource-ref>
+- <% end %>
++<% webxml.context_params.each do |k,v| %>
++ <context-param>
++ <param-name><%= k %></param-name>
++ <param-value><%= v %></param-value>
++ </context-param>
++<% end %>
++
++ <filter>
++ <filter-name>R​ackFilter</filter​-name>
++ <filter-class>​org.jruby.rack.RackF​ilter</filter-cla​ss>
++ </filter>
++ <filter-mapping>
++ <filter-name>R​ackFilter</filter​-name>
++ <url-pattern>/​*</url-pattern​>
++ </filter-mapping>
++
++ <listener>
++ <listener-class><%= webxml.servlet_context_listener %></listener-class>
++ </listener>
++
++<% if webxml.jndi then webxml.jndi.each do |jndi| %>
++ <resource-ref>
++ <res-ref-name><%= jndi %></res-ref-name>
++ <res-type>java​x.sql.DataSource<​/res-type>
++ <res-auth>Cont​ainer</res-auth​>
++ </resource-ref>
++<% end; end %>
+</pre>
+
+==== Known Issue - PoolableObjectFactory NoClassDefFoundError ====
+This error indicates that the application still is attempting to use Goldspike. Ensure that you do not have goldspike.jar included in the .war file and ensure that your web.xml file is not attempting to use the old Goldspike servlet. While you are add it, ensure that you don't have the goldspike rails plug-in if you are running Rails.
+
+<pre>
+org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Error configuring application listener of class org.jruby.webapp.RailsContextListener
+java.lang.NoClassDefFoundError: org/apache/commons/pool/PoolableObjectFactory
+        at java.lang.Class.getDeclaredConstructors0(Native Method)
+        at java.lang.Class.privateGetDeclaredConstructors(Class.java:2389)
+        at java.lang.Class.getConstructor0(Class.java:2699) 
+</pre>
+
+== See Also ==
+* [http://blogs.sun.com/arungupta/entry/rails_and_java_ee_integration1 Rails and Java EE integration - Warbler instead of Goldspike] (Arun Gupta)
+* [http://fuzzypanic.blogspot.com/2008/01/jruby-war-packaging.html JRuby .war packaging (Warbler) for Rails 2.0] (Mike Herrick)
+* [http://blog.nicksieger.com/articles/2007/09/04/warbler-a-little-birdie-to-introduce-your-rails-app-to-java | Warbler, A Little Birdie To Introduce Your Rails App To Java] (Nick Sieger)
