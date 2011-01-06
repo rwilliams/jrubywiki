@@ -210,6 +210,19 @@ Whereas in jruby, you can get at that using the following:
 
 =Java and JRuby interop
 
+== How do I create a primitive Java array in JRuby?
+
+You can convert existing ruby arrays to primitive Java arrays very simply:
+
+ [1,2,3].to_java => makes an object array
+ [1,2,3].to_java :byte => makes a byte array
+ [1,2,3].to_java :String => makes a String array
+
+To create empty arrays:
+
+ Java::byte[12].new => makes a new byte[]
+ java.lang.String[12].new => makes a new String[]
+
 ==How do I handle Java Lists on JRuby?
 
 Take a look at the [http://kenai.com/projects/jruby/pages/JRubyCookbook JRuby Cookbook], specifically the sections [http://kenai.com/projects/jruby/pages/JRubyCookbook#Java_Arrays_on_jRuby Java Arrays in JRuby] and [http://kenai.com/projects/jruby/pages/JRubyCookbook#Creating_Java_Arrays Creating Java Arrays]
