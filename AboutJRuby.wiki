@@ -9,13 +9,14 @@ See [[DifferencesBetweenMriAndJruby|Differences Between MRI And JRuby]] for more
 ==Development Team==
 JRuby's current core development team consists of six developers:
 
-*Charles Oliver Nutter (Sun Microsystems) aka headius
-*Thomas Enebo (Sun Microsystems) aka enebo
-*Nick Sieger (Sun Microsystems)
+*Charles Oliver Nutter (Engine Yard) aka headius
+*Thomas Enebo (Engine Yard) aka enebo
+*Nick Sieger (Engine Yard)
 *Ola Bini (Thoughtworks)
 *Marcin Mielzynski aka lopex
 *Bill Dortch
 *Wayne Meissner
+*MenTaLguY
 
 ==Links==
 *[http://jruby.codehaus.org JRuby's project page at Codehaus]
