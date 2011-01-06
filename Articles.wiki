@@ -7,3 +7,4 @@
 * [http://code.trampolinesystems.com/springy Springy: configure Spring contexts with JRuby]
 * [http://www.trampolinesystems.com/weblog/wiring-up-spring-with-jruby/  Trampoline Systems Weblog -- Wiring up Spring with JRuby]
 * Try [http://kessel.ilrt.bris.ac.uk/~pldms/2006/12/jruby-applet.html running the JRuby interactive shell as an applet in your browser!]
+* [http://www.heise.de/developer/artikel/Java-6-Scripting-mit-JRuby-920124.html Polyglotte Bohnen - Java-6-Scripting mit JRuby] (German)
