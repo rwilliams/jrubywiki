@@ -76,7 +76,7 @@ To test whether JRuby installed correctly, open a command window and run:
 If it installed correctly, JRuby will return the current version.
 
 ==How Do I Run rake, gem, etc?==
-The recommended way to run these commands (known as ''system-level executable commands'') in JRuby is to '''always''' use ''jruby -S''
+The recommended way to run these commands (known as ''system-level executable commands'') in JRuby is to '''always''' use <tt>jruby -S</tt>.
 
   jruby -S gem list --local
   jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
@@ -88,8 +88,7 @@ The recommended way to run these commands (known as ''system-level executable co
 The <tt>-S</tt> parameter tells JRuby to use '''its''' version of the installed binary.
 
 ==How Do I Run a Ruby Program?==
-
-To run any other ruby program using JRuby, run it using the <tt>jruby</tt> command in a command window. For example,
+To run any other ruby program by using JRuby, run it using the <tt>jruby</tt> command in a command window. For example,
 
   jruby script/server
   jruby my_ruby_script.rb
@@ -108,8 +107,12 @@ Many Gems will work fine in JRuby; however, some Gems build native C libraries a
 
 Mongrel and Hpricot are two examples of Gems that build their native library in a platform independent manner. Each of them specify a parsing library using the Ragel language and a Ragel program can be automatically converted into either C or Java as part of the compile process.
 
-Also, keep in mind that installing gems from behind a firewall will require setting the HTTP_PROXY (e.g.  <nowiki>export http_proxy=http://${http-proxy-host}:${http-proxy-port}/</nowiki> or <nowiki>export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/</nowiki> if it's authenticated)
- 
+Also, keep in mind that installing gems from behind a firewall will require setting the HTTP_PROXY. For example:
+
+<tt> &nbsp;<nowiki>export http_proxy=http://${http-proxy-host}:${http-proxy-port}/</nowiki></tt> <br/>
+If it's authenticated:<br/>
+<tt> &nbsp;<nowiki>export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/</nowiki></tt>
+
 See also [[Troubleshooting]].
 
 ==JRuby Command Parameters==
