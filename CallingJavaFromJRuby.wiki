@@ -1,16 +1,15 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]]
-<h1>Scripting Java from JRuby</h1>
+<h1>Scripting Java from JRuby (jruby 1.0+)</h1>
 __TOC__
 == An example ==
 
-As of JRuby 1.0, a special <tt>require</tt> <tt>'java'</tt> directive in your file will give you access to the bundled Java libraries. However, this will ''not'' give you access to non-bundled libraries. A bit more is needed for that, which will be discussed later.
+All the following examples can be "demonstrated" using '''jirb_swing''', the Swing-based IRB console that comes with JRuby.  To run it run <tt>$ jruby -S jirb_swing</tt>.
 
-All the following examples can be tested using '''jirb_swing''', the Swing-based IRB console that comes with JRuby.
+A special <tt>require</tt> <tt>'java'</tt> directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will ''not'' give you access to any non-bundled libraries. A bit more is needed for that, which will be discussed later.
 
-The following code shows this. Unless it was messed up while adding wiki tags, it should pop up a small window showing "Hello" on your screen.
+The following code shows typical use. It should pop up a small window showing "Hello" on your screen.
+
 <pre name="ruby">
-    # Valid as of JRuby 1.0
-    
     # This is the 'magical Java require line'.
     require 'java'
     
