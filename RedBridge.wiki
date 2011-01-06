@@ -189,7 +189,10 @@ With Embed Core, you can also set <code>jruby.home</code> individually for each 
 * Core
 <pre name="java">
 ScriptingContainer container = new ScriptingContainer();
-container.getProvider().getRubyInstanceConfig().setJRubyHome("/Users/yoko/Tools/jruby-1.3.1");</pre>
+// JRuby 1.5.x
+container.setHomeDirectory("/Users/yoko/Tools/jruby-1.5.6");
+// JRuby 1.4.0
+//container.getProvider().getRubyInstanceConfig().setJRubyHome("/Users/yoko/Tools/jruby-1.3.1");</pre>
 
 === Class Path (Load Path) ===
 
@@ -217,7 +220,10 @@ public class LoadPathSample {
         ScriptingContainer container = new ScriptingContainer();
         List<String> loadPaths = new ArrayList();
         loadPaths.add(jrubyhome);
-        container.getProvider().setLoadPaths(loadPaths);
+        // JRuby 1.5.x
+        container.setLoadPaths(loadPaths);
+        // JRuby 1.4.0
+        //container.getProvider().setLoadPaths(loadPaths);
         container.runScriptlet(PathType.ABSOLUTE, filename);
     }
 
@@ -287,7 +293,7 @@ public class BsfLoadPathSample {
 
 Scope: Per Container<br/>
 Property Name: org.jruby.embed.localcontext.scope<br/>
-Value: '''singleton'''(default in JRuby 1.4.0 and JRuby trunk; rev. 9e557a2 and later, JRuby Embed 0.1.3),<br/>
+Value: '''singleton'''(default in JRuby 1.5.x/1.4.0 and JRuby trunk; rev. 9e557a2 and later, JRuby Embed 0.1.3),<br/>
 '''theadsafe''' (default in JRuby 1.4.0RC1, RC2, RC3, and JRuby Embed 0.1.2),<br/>
 or '''singlethread'''
 
@@ -465,13 +471,17 @@ System.setProperty("org.jruby.embed.compilemode", "jit");
 
 Scope: Per Container<br/>
 Property Name: org.jruby.embed.compat.version<br/>
-Value: jruby19, JRuby1_9, ruby1.9….matches [jJ]?(r|R)(u|U)(b|B)(y|Y)1[\\._]?9
+Value: jruby19, JRuby1_9, ruby1.9….matches j?ruby1[\\._]?9 (case insensitive)
 
 Default Ruby version is 1.8. When you want to use Ruby 1.9 on JRuby Embed, you need to specify the version. In case of Embed Core, the method to set the version is available to use. JSR223 needs system property to recognize the version. BSF judges the registered name. If the system property name or registered name matches the regular expression, [jJ]?(r|R)(u|U)(b|B)(y|Y)1[\\._]?9, Ruby 1.9 is chosen to run scripts. If no system property is there, or matching fails, Ruby 1.8 is chosen.
 
 * Core
 <pre name="java">
-ScriptingContainer container = new ScriptingContainer();    container.getProvider().getRubyInstanceConfig().setCompatVersion(CompatVersion.RUBY1_9);
+ScriptingContainer container = new ScriptingContainer();
+// JRuby 1.5.x
+container.setCompatVersion(CompatVersion.RUBY1_9);
+// JRuby 1.4.0
+//container.getProvider().getRubyInstanceConfig().setCompatVersion(CompatVersion.RUBY1_9);
 </pre>
 
 * JSR223
