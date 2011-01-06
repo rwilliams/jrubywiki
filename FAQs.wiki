@@ -48,6 +48,8 @@ And you can also control this from Ruby code for the current JRuby runtime:
 
 With the <tt>inproc</tt> setting disabled, you can now pass <tt>-J</tt> arguments to the sub-JRuby as it will be launching a new JVM.
 
+In the future, as JRuby and JVM startup performance increases, we may flip the default in-process launching behavior to <tt>false</tt> to match most peoples' expectations. See also [http://www.mail-archive.com/dev@jruby.codehaus.org/msg02861.html this thread on the JRuby mailing list] for a discussion of <tt>jruby.launch.inproc</tt>.
+
 ==General==
 ====Where can I find more information about the Ruby language?====
 [http://www.ruby-lang.org The Ruby Language Home Page] has links to a wide range of resources for learning about Ruby, downloading releases of the C implementation of Ruby, documentation on Ruby, and community outlets for talking about Ruby.
