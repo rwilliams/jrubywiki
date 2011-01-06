@@ -31,9 +31,9 @@ If you're getting an <tt>java.securityAccessControlException</tt> with the messa
  keytool -selfcert -alias myself -keystore myKeystore
 
 You also need to include to following lines in your jnlp-file:
- <security> 
-   <all-permissions/> 
- </security>
+ &lt;security&gt; 
+   &lt;all-permissions/&gt; 
+ &lt;/security&gt;
 
 And whenever you modify the jar, you need to do an
 
