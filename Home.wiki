@@ -33,12 +33,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 ==[[JRuby on Rails]]==
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
 * [[ActiveRecord-JDBC]]
-* [[JRuby on Rails#Deployment|Deployment]]   <span style="font-size:70%; font-style:italic">([[Warbler]])</span>
-* [[Running Rails with Firebird]]
-* [[Rails AOT]] <span style="font-size:90%; font-style:italic">(Compiling Rails' controllers and models AOT)</span>
-* [[Rails Eclipse Jetty Maven]] <span style="font-size:90%; font-style:italic">(Rails on Eclipse + Run Jetty Run + Maven)</span>
-* [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapter]
-* [[Rails Multi-Threading Best Practices]]
+* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   <span style="font-size:70%; font-style:italic">([[Warbler]])</span>
 </td>
 
 </tr>
