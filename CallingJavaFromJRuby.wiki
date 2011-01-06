@@ -406,8 +406,15 @@ In this example, the <tt>JButton</tt>'s <tt>addActionListener</tt> method takes 
 
 This not only works for event listeners or <tt>Runnable</tt>, but basically for any interface. When calling a method that expects an interface, JRuby checks if a block is passed and automatically converts the block to an object implementing the interface.
 
-=== Calling the Java initialization method ===
-Sometimes you need to call <tt>initialize</tt> AFTER the <tt>.new()</tt> call, for example the <tt>RTPManager</tt> class in JMF. Here is one way to do it:
+=== Calling the a Java initialization method ===
+Sometimes you need to call <tt>initialize</tt> AFTER the <tt>.new()</tt> call, for example the <tt>RTPManager</tt> class in JMF. Unfortunately, this method is masked by Ruby's <tt>initialize</tt> constructor method.  As of JRuby 1.4, the <tt>java_send</tt> method can be used to call this, and any other, masked method:
+
+  @mgr = javax.media.rtp.RTPManager.newInstance
+  localhost = java.net.InetAddress.getByName("127.0.0.1")
+  localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
+  @mgr.java_send :initialize, localaddr
+
+In previous versions of JRuby, the same thing can be accomplised with reflection:
 
   @mgr = javax.media.rtp.RTPManager.newInstance
   localhost = java.net.InetAddress.getByName("127.0.0.1")
