@@ -1,12 +1,11 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]]
 <h1>JRuby on Rails</h1>
-You can use JRuby with [http://www.rubyonrails.org/ Ruby on Rails]. JRuby gives Rails the power and functionality of the Java Platform,  providing
+You can use JRuby with [http://www.rubyonrails.org/ Ruby on Rails]. JRuby gives Rails the power and functionality of the Java Platform,  providing it with:
 * Excellent garbage collection for endless uptimes
 * Hotspot profiled dynamic optimizations for great performance
 * Access to Java ecosphere for additional technology options
 * Deployment to Java application servers for ubiquity
 __TOC__
-
 ===Getting Started===
 Get started with this blog:
 
