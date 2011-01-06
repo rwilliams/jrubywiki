@@ -15,9 +15,8 @@ On Microsoft Windows, JRuby is a little smarter when launching external processe
 
 For example, say you have file <tt>foo.bat</tt> on your PATH and want to run it. 
 
-system( 'foo' ) # works on JRuby, fails on MRI
-
-system( 'foo.bat' ) # works both in JRuby and MRI
+ system( 'foo' ) # works on JRuby, fails on MRI
+ system( 'foo.bat' ) # works both in JRuby and MRI
 
 == Fork is not implemented ==
 JRuby doesn't implement <tt>fork()</tt> on any platform, including those where <tt>fork()</tt> is available in MRI.
