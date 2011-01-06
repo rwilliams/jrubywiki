@@ -1,15 +1,17 @@
-This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an 100% pure-Java implementation of the [http://www.ruby-lang.org/en Ruby] programming language..
+This is a community wiki dedicated to [http://jruby.org JRuby], an 100% pure-Java implementation of the [http://www.ruby-lang.org/en Ruby] programming language..
 
-'''NOTE: This wiki is located at wiki.jruby.org; please update your links.'''
+'''NOTE: This wiki is located at http://kenai.com/projects/jruby/pages/Home; please update your links.'''
 
 * [[About JRuby]]
 * [[Getting Started]]
 * [[Roadmap]]
+* [[FAQs]]
 
 ==News and Updates==
-* 2008-07-19 [[JRuby 1.1.3|Latest Release in 1.1 series: 1.1.3]]
+Latest Release is JRuby 1.2.0:
+* 2009-03-16 [[JRuby 1_2_0|JRuby 1.2.0]]
+* [[GSoC_2009|Google Summer of Code Ideas for 2009]]
 * [[Script Bowl 2008|JRuby's entries in JavaOne Script Bowl 2008]]
-* [[JRuby 1.0|Latest Release in 1.0 series: 1.0.3]]
 
 <table width="100%" cellpadding="10">
 <tr valign="top">
@@ -20,35 +22,39 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 * [[Applications]]
 * [[Java Integration | Java Integration (Calling JRuby from Java)]]
 * [[Calling Java from JRuby]]
+* [[Calling C from JRuby]]
 * [[JRuby on OS X]]
 * [[JRuby on Ubuntu]]
 * [[JRuby Compiler]]
 * [[Performance Tuning]]
-* [[Ruby/JRuby_Security| Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
+* [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
 * NEW! [[Walkthroughs and Tutorials]]
 * [[Success Stories]]
 * [[GUI Frameworks]]
-* [[JRuby on Eclipse RCP]] A case study
+* [[Case_Study:_JRuby on Eclipse RCP]]
 * [[JRuby on Java Micro Edition]]
 * [[JRuby on Web Start]]
 * [[JRuby and Continuous Integration]]
 * [[Hpricot]]
-* [[Mentawai]] <span style="font-size:90%; font-style:italic">A Java web framework fully supporting Ruby through JRuby</span>
 * [[Rubygems]]
+* [http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html Mr Bones on JRuby]
 </td>
 <td>
 
 ==[[JRuby on Rails]]==
-* [[Running Rails with ActiveRecord-JDBC|ActiveRecord-JDBC]]
+* [[ActiveRecord-JDBC]]
 * [[Warbler]] <span style="font-size:90%; font-style:italic">(minimal, flexible, ruby-like way to create .war file)</span>
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
 * [[Goldspike]] <span style="font-size:90%; font-style:italic">Servlet to Rails bridge (deprecated, see [[Warbler]])</span>
 * [[Jruby on Rails on Tomcat]] <span style="font-size:90%; font-style:italic">(Rails 1.1 & 2.0)</span>
+* [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html JRuby on Rails on Tomcat] <span style="font-size:90%; font-style:italic">(Rails 2.2.2, JRuby 1.1.6RC1, Warbler, Tomcat 6.x, MySQL, Mac OS X)</span>
+* [[Rails_2_3_2|Rails 2.3.2]]
 * [[JRuby on Rails on Jetty]]
 * [[JRuby on Rails in GlassFish]] <span style="font-size:90%; font-style:italic">(Open Source Java EE Application Server)</span>
 * [[JRuby on Rails on WebSphere]]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 JRuby on Rails on Oracle OC4J]
 * [[JRuby on Rails on BEA Weblogic]]
+* [http://oddthesis.org/theses/jboss-rails JRuby on Rails on JBoss]
 * [[Running Rails with Firebird]]
 * [[Rails AOT]] <span style="font-size:90%; font-style:italic">(Compiling Rails' controllers and models AOT)</span>
 * [[Rails Eclipse Jetty Maven]] <span style="font-size:90%; font-style:italic">(Rails on Eclipse + Run Jetty Run + Maven)</span>
@@ -56,14 +62,20 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 * [[Rails with H2 in JNDI on Jetty]]
 * [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
 * [http://blarg.slackworks.com/posts/jndi-with-rails JNDI with Rails]
+* [[Rails JSR286 portlets]]
 </td>
 
 <td>
 
-==[[JRuby on ...]]==
+==JRuby on ...==
 * [[JRuby Rack|JRuby-Rack]] <span style="font-size:90%; font-style:italic">(Servlet to Rails bridge, plus other Ruby web frameworks)</span>
 * [[Merb|Merb]]
-
+* [[Merb debugging with Netbeans 6_5|Merb Netbeans Debugging]]
+* [[DataMapper|DataMapper]]
+* [[Mentawai]] <span style="font-size:90%; font-style:italic">A Java web framework fully supporting Ruby through JRuby</span>
+* [[Radiant_CMS|Radiant CMS]]
+* [[RCov | RCov coverage tool]]
+* [[Sparrow]] <span style="font-size:90%; font-style:italic">A JMS client for messaging based on JRuby</span>
 </td>
 </tr>
 
@@ -84,6 +96,8 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 * [[IRC]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to contribute to JRuby effectively]
 * [[JRuby and RubySpecs]]
+* [[Hacking JRuby]]
+* [[Ruby 1_9 Support|Ruby 1.9 Support]]
 </td>
 
 <td>
@@ -97,13 +111,13 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 * [[Using the JRuby Debugger]]
 * [[Troubleshooting]]
 * [[Differences between mri and jruby]]
-* [[JRuby on HPUX 11.23]]
+* [[JRuby on HPUX 11_23|JRuby on HPUX 11.23]]
 * [[Spring | JRuby and Spring]]
 * [[Release Documentation]]
 * [[JRuby hash bang]]
 * [[JRuby with Nailgun]]  <span style="font-size:90%; font-style:italic">(background JRuby server to speed startup)</span>
 * [[JRuby Internal Design]]
-* [[JDBC | JRuby and JDBC]]   <span style="font-size:90%; font-style:italic">(how to use JDBC directly within JRuby)</span>
+* [[JDBC | JRuby and JDBC]] <span style="font-size:90%; font-style:italic">(how to use JDBC directly within JRuby)</span>
 * [http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html JRuby JMS Producer / Consumer Example]
 </td>
 
@@ -122,14 +136,16 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 
 <tr valign="top">
 <td>
+
 ==Downloads==
 
 * [http://dist.codehaus.org/jruby Latest Releases]
-* '''JRuby 1.1.3'''
-** [http://dist.codehaus.org/jruby/jruby-bin-1.1.3.tar.gz JRuby 1.1.3 Binary .tar.gz]
-** [http://dist.codehaus.org/jruby/jruby-bin-1.1.3.zip    JRuby 1.1.3 Binary .zip]
-** [http://dist.codehaus.org/jruby/jruby-src-1.1.3.tar.gz JRuby 1.1.3 Source .tar.gz]
-** [http://dist.codehaus.org/jruby/jruby-src-1.1.3.zip    JRuby 1.1.3 Source .zip]
+
+* '''JRuby 1.2'''
+** [http://dist.codehaus.org/jruby/1.2.0/jruby-bin-1.2.0.tar.gz JRuby 1.2.0 Binary .tar.gz]
+** [http://dist.codehaus.org/jruby/1.2.0/jruby-bin-1.2.0.zip    JRuby 1.2.0 Binary .zip]
+** [http://dist.codehaus.org/jruby/1.2.0/jruby-src-1.2.0.tar.gz JRuby 1.2.0 Source .tar.gz]
+** [http://dist.codehaus.org/jruby/1.2.0/jruby-src-1.2.0.zip    JRuby 1.2.0 Source .zip]
 * '''JRuby 1.0.3'''
 ** [http://dist.codehaus.org/jruby/jruby-bin-1.0.3.tar.gz JRuby 1.0.3 Binary .tar.gz]
 ** [http://dist.codehaus.org/jruby/jruby-bin-1.0.3.zip    JRuby 1.0.3 Binary .zip]
@@ -147,7 +163,8 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 
 ==[http://repository.codehaus.org/org/jruby/ JRuby Maven Artifacts]==
 
-* [http://repository.codehaus.org/org/jruby/jruby-complete/1.1.3/jruby-complete-1.1.3.jar jruby-complete 1.1.3]
+* [http://repository.codehaus.org/org/jruby/jruby-complete/1.1.6RC1/jruby-complete-1.1.6RC1.jar jruby-complete 1.1.6RC1]
+* [http://repository.codehaus.org/org/jruby/jruby-complete/1.1.4/jruby-complete-1.1.4.jar jruby-complete 1.1.4]
 * [http://repository.codehaus.org/org/jruby/jruby-complete/1.0.3/jruby-complete-1.0.3.jar jruby-complete 1.0.3]
 * [http://snapshots.repository.codehaus.org/org/jruby/jruby-complete/TRUNK-SNAPSHOT jruby-complete trunk snapshot]
 * [http://repository.codehaus.org/org/jruby/jruby/1.1.2/jruby-1.1.2.jar jruby 1.1.2]
@@ -160,6 +177,14 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 * [http://repository.codehaus.org/org/jruby/extras/bytelist/0.1/bytelist-0.1.jar bytelist 0.1]
 
 </td>
+
+
+<td>
+== Evangelism ==
+* [[Benchmarks]]
+
+</td>
+
 </tr>
 </table>
 
@@ -179,3 +204,5 @@ This is a community wiki dedicated to [http://jruby.codehaus.org/Home JRuby], an
 * [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war Deploying JRuby on Rails application on Sun Java System Web Server 7]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Oracle+SSO+Integration Integrating Oracle SSO with a JRuby on Rails app]
 * [https://scripting.dev.java.net/ JSR 223 scripting project home]
+* [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Migrating Ruby on Rails 2.2.2 (and MySQL) web app to JRuby 1.1.6RC1 running on Tomcat 6.x]
+* [http://jeanderuelle.blogspot.com/2009/03/my-jruby-rails-app-on-jboss-can-make.html My JRuby-Rails app on JBoss and Mobicents can make Phone calls !]
