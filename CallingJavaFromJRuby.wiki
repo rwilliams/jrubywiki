@@ -117,13 +117,15 @@ As of JRuby-1.1.5, the <tt>import</tt> statement only works with either Java-sty
 
 === Import a Java Class to Use It Without The Full Path Name ===
 
-You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the <tt>import</tt> statement, you can make the Java class available only by its name, just as in Java.
+You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the <tt>java_import</tt> statement or <tt>import</tt> statement, you can make the Java class available only by its name, just as in Java.
 
 '''Example''': import and use the <tt>java.lang.System</tt> class.
 
   require 'java'
-  import java.lang.System
+  java_import java.lang.System
   version = System.getProperties["java.runtime.version"]
+
+'''Note:''' As noted in [http://jira.codehaus.org/browse/JRUBY-3171 this bug report], <tt>java_import</tt> is the preferred, and safer, way to import Java classes.
 
 === Use include_package within a Ruby Module to import a Java Package ===
 
