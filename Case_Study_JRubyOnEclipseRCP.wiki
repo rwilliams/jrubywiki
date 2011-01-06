@@ -19,33 +19,33 @@ At the end of the day reports on all transactions and the state of the trucks an
 
 * Eclipse RCP 3.4
 * Java 6
-* JRuby 1.1.6 in the entire application except Application, Activator and Editor and View classes.
+* JRuby 1.2.0 in the entire application except Application, Activator and Editor and View classes.
 * Firefox 3
 * ActiveMessaging 0.5.0
-* ActiveSupport 2.2.2
-* ActiveRecord 2.2.2
+* ActiveSupport 2.3.2
+* ActiveRecord 2.3.2
 
 ===Operator===
 
 * SWT+JFace 3.4
 * Java 6
-* JRuby 1.1.6 in selected parts.
+* JRuby 1.2.0 in complete application.
 * ActiveMessaging 0.5.0
-* ActiveSupport 2.2.2
-* ActiveRecord 2.2.2
+* ActiveSupport 2.3.2
+* ActiveRecord 2.3.2
 
 ===Administration===
 
-* Ruby on Rails 2.2.2
-* JRuby 1.1.6
+* Ruby on Rails 2.3.2
+* JRuby 1.2.0
 * Java 6
 * PostgreSQL 8.3
 * ActiveMessaging Plugin
 
 ===Communicator===
 
-* Ruby on Rails 2.2.2
-* JRuby 1.1.6
+* Ruby on Rails 2.3.2
+* JRuby 1.2.0
 * Java 6
 * ActiveMessaging Plugin
 * ActiveMQ 5.2
@@ -55,8 +55,8 @@ At the end of the day reports on all transactions and the state of the trucks an
 
 Polls flights from an Oracle 10 database using ActiveRecord.
 
-* Ruby on Rails 2.2.2
-* JRuby 1.1.6
+* Ruby on Rails 2.3.2
+* JRuby 1.2.0
 * Java 6
 * ActiveMessaging Plugin
 * ActiveMQ 5.2
@@ -65,13 +65,17 @@ Polls flights from an Oracle 10 database using ActiveRecord.
 
 ==Progress==
 
-===0.10.0 2009-02-08 Last sprint before full production usage...===
+===0.10.0 2009-04-17 Last sprint before full production usage...===
 
-* Not far off...
+* 4 cars in production :)
+* Still going on...
 
 ===0.9.0 2009-03-08 Administration and reporting===
 
-* JVM Crash!
+* Reports and drill down analysis is finished.
+* The one vehicle in production gives good feedback on what works, but also draws time from development.
+* JVM Crash!  A mystical JVM crash appeared on one terminal.  We never found the cause, but a re-installation of OS and application solved it.
+* Added interaction with ActiveMQ JMX MBeans to purge queues automatically when needed. See [[Accessing JMX]]
 
 ===0.8.0 2009-02-08 Improve in-vehicle and dispatcher systems using the experience from actual use===
 
