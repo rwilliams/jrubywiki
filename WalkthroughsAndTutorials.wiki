@@ -25,6 +25,9 @@ Here's a list of Walkthroughs and Tutorials for JRuby. Feel free to add links to
 * [http://devmull.blogspot.com/2008/02/neat-jruby-soap-calls.html Neat JRuby SOAP calls using Mule ]  (Steven Shingler)
 
 ==NetBeans Ruby Support==
+* [http://www.netbeans.org/kb/61/ruby/java-ruby.html Using Java Libraries in Rails Applications]
+* [http://www.apress.com/book/view/1430216360 NetBeans Ruby and Rails IDE with JRuby]
+* [http://blogs.sun.com/divas/entry/getting_your_feet_wet_with Getting Your Feet Wet With JRuby] 
 * [http://blogs.sun.com/arungupta/entry/totd_7_switch_between_jruby Switching between JRuby and CRuby in NetBeans Ruby Support] (Arun Gupta)
 * [http://netbeans.tv/technologies/Tor-Norbye-uses-NetBeans-Ruby-Editor-Code-Completion-169/ NetBeans Code Completion Demo Screencast] (Tor Norbye)
 * [http://netbeans.tv/technologies/Tor-Norbye-uses-hints-and-quick-fixes-in-NetBeans-Ruby-Editor-170/ NetBeans Hints and Quick Fixes Screencast] (Tor Norbye)
