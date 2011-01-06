@@ -37,11 +37,11 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 '''Getting Involved'''
 * Communicate: [[Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
 * Code: [http://kenai.com/projects/jruby/sources/main/show Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
-* Status: [http://jruby.headius.com:8080/hudson/ build server]
+* Status: [http://jruby.headius.com:8080/hudson/ Build Server]
 * Design/Internals: [[Internals]]
 * [[JRuby Bug Reporting Style Guide]]
 * [[JRuby Style Guide]]
-* [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to contribute to JRuby effectively]
+* [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
 * [[JRuby and RubySpecs]]
 * [[Ruby 1_9 Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
 * [[Release Documentation]]
