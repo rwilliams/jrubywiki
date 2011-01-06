@@ -156,7 +156,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td>
 == Evangelism ==
-* [[Benchmarks]]
+* [[Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
 
 </td>
