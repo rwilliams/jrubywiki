@@ -308,6 +308,7 @@ This does not:
     i = res.get_ulong(0)
   end
 
+This turned out to be a limitation of the C library used.  It stores information in thread local storage during initialization.  Nothing to do with JRuby or FFI.
 
 =Compressing messages=
 
