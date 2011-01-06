@@ -41,7 +41,7 @@ Here is a list of sites and projects using JRuby. Please add descriptions if pos
 
 <td>To share large in-process caches and lucene indeces between multiple rails instances and to reuse Java libraries.</td>
 
-<td>Thin Java App handles perfomance critical dictionary search requests, whilst JRuby on Rails runs everything else.</td>
+<td>Optimized Java App handles perfomance critical dictionary search requests, whilst JRuby on Rails runs everything else.</td>
 
 <td>Yes</td>
 
