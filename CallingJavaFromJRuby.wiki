@@ -468,6 +468,33 @@ This not only works for event listeners or <tt>Runnable</tt>, but basically for 
 === Java classes can't inherit from a JRuby class ===
 Hopefully this feature will be added in the planned re-write of the Java integration layer in a future release of JRuby.
 
+== Exception Handling ==
+Native Java exceptions can be caught in Ruby code as expected:
+
+ begin
+   java.lang.Integer.parse_int("asdf")
+ rescue java.lang.NumberFormatException => e
+   puts "Failed to parse integer: #{e.message}"
+ end
+
+Furthermore, Ruby code can throw Java exceptions:
+
+ begin
+   raise java.lang.IllegalArgumentException.new("Bad param")
+ rescue java.lang.IllegalArgumentException => e
+   puts "Illegal argument: #{e}"
+ end
+
+This is useful if you happen to be implementing a Java interface in Ruby that requires a particular exception to be thrown on error.
+
+Note that this can also be written:
+
+ begin
+   raise Java::JavaLang::IllegalArgumentException.new("Bad param")
+ rescue Java::JavaLang::IllegalArgumentException => e
+   puts "Illegal argument: #{e}"
+ end
+
 == Synchronization in JRuby ==
 When interacting with Java APIs from JRuby, it is occasionally necessary to synchronize on an object for thread safety. In JRuby, a <tt>synchronize</tt> method is provided on every wrapped Java object to support this functionality. For example, the following Java code:
 
@@ -481,7 +508,7 @@ is implement like this in Ruby:
 
  
  obj.synchronized do
-     obj.wait 1000
+   obj.wait 1000
  end
  
 The expression evaluates to the result of the block, e.g.,
@@ -538,4 +565,5 @@ com.whatever.Whatever.doSomething
 * [http://jruby.codehaus.org/Java+Integration Java Integration] From the JRuby main page.
 * [http://jtestr.codehaus.org/ JtestR] A testing framework for Java based on JRuby.
 * [http://github.com/leandrosilva/sparrow Sparrow] A JMS client for messaging based on JRuby.
+
 
