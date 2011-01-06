@@ -31,7 +31,7 @@ Latest Release is JRuby 1.2.0:
 * NEW! [[Walkthroughs and Tutorials]]
 * [[Success Stories]]
 * [[GUI Frameworks]]
-* [[Case_Study:_JRuby on Eclipse RCP]]
+* [[Case_Study_JRuby on Eclipse RCP|Case Study: JRuby on Eclipse RCP]]
 * [[JRuby on Java Micro Edition]]
 * [[JRuby on Web Start]]
 * [[JRuby and Continuous Integration]]
