@@ -27,7 +27,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[CallingJavaFromJRuby|Scripting Java from JRuby]]
 * [[Performance Tuning]]
 * [[FAQs]]
-* [[JRuby Cookbook]]
 </td>
 <td>
 
