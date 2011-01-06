@@ -57,7 +57,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * <a href="{{project warbler page Home}}">Warbler</a> (bundling JRuby on Rails apps into a WAR)
 
 ''' Evangelism'''
-* [[Benchmarking Tips and Tricks]]
+* [[Benchmarks | Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
 * [[Success Stories]]
 * [[Case Studies]]
