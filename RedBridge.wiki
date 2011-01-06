@@ -554,7 +554,7 @@ See [[RedBridgeExamples]] page.
 
 
 == Red Bridge Servlet Examples ==
-See [[RedBrigeServletExamples]] page.
+See [[RedBridgeServletExamples]] page.
 
 = See Also =
 * [[Calling Java from JRuby]]
