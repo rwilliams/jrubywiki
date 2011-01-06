@@ -10,7 +10,7 @@
  # List available RMI objects
  names = registry.list
  puts 'Available RMI objects:'
- p names
+ p names.to_a
  puts
  
  # Fetch a remote proxy to the JMX RMI object
