@@ -2,7 +2,7 @@ Here is a list of sites and projects using JRuby. Please add descriptions if pos
 
 <table>
 <tr>
-<th align="left" width="10%">Project</th>
+<th align="left">Project</th>
 
 <th align="left">Description</th>
 
@@ -156,8 +156,7 @@ collaboration with ThoughtWorks.</td>
 </tr>
 
 <tr>
-<td>[http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby
-"Desktop Application Development in JRuby"]</td>
+<td>[http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby Desktop Application Development in JRuby]</td>
 
 <td></td>
 
