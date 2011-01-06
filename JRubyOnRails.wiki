@@ -8,7 +8,7 @@ JRuby gives Rails the power and functionality of the Java Platform:
 * Excellent garbage collection for endless uptimes
 * Hotspot profiled dynamic optimizations for great performance
 * Access to Java ecosphere for additional technology options
-* Deploy to Java Application Servers for ubiquity
+* Deployment to Java application servers for ubiquity
 
 ===Getting Started===
 Get started with this blog:
@@ -41,24 +41,4 @@ If you don't use a traditional Ruby application server like [http://mongrel.ruby
 * [[Running Rails with Firebird]]
 * [[Rails AOT|Compiling Rails' controllers and models AOT]]
 * [[Rails Eclipse Jetty Maven|Rails on Eclipse + Run Jetty Run + Maven]]
-* [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapter]
-* [[Rails Multi-Threading Best Practices]]
-
-=== Old Topics ===
-* [[Goldspike|Goldpsike Servlet to Rails bridge]] - Deprecated, see [[Warbler]]
-* [[RailsWithH2InJNDIOnJetty]] - This page is out of date
-
-===See Also===
-'''JRuby Wiki pages'''
-* [[Warbler | Warbler (minimal, flexible, ruby-like way to create .war file)]] 
-* [[Goldspike | Goldspike (Servlet to Rails bridge)]] 
-* [[Jruby on Rails on Tomcat]] - Rails 1.1 & 2.0
-* [[JRuby on Rails in GlassFish | GlassFish (Open Source Application Server for Java EE 5)]]
-'''External links'''
-* [http://www.ibm.com/developerworks/websphere/techjournal/0801_shillington/0801_shillington.html JRuby on Rails on WebSphere]
-* [http://headius.blogspot.com/2006/11/advanced-rails-deployment-with-jruby.html Advanced Rails Deployment with JRuby]
-* [http://blogs.sun.com/whacko/entry/deploying_a_ruby_on_rails Deploying JRuby on Rails as a WAR]
-* [http://wiki.sprocket.slackworks.com/instiki/published/Slackocity A Rails plugin that uses Velocity as the templating engine for ActionView]
-* [http://smartic.us/2007/8/11/smarticast-3-jruby-on-rails-on-jboss Screencast that demos deploying JRuby on Rails]
-* [http://recompile.net/2007/09/a_brief_introduction_to_jruby.html A Brief Introduction to JRuby on Rails with Grizzly]
-* [http://bitnami.org/stack/jrubystack All-in-one installer for quickly running a dev environment of Rails on JRuby]. It is open source and supports Windows, Linux and Mac.
+* [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapte
