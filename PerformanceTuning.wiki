@@ -1,0 +1,149 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+<h1>Performance Tuning</h1>
+JRuby supports a number of options to help you tune performance. They range from turning on experimental features to turning off inefficient emulations of Ruby features.This document describes these options and their effects.<br/><br/>
+
+__TOC__
+
+
+===Tuning the compiler===
+JRuby's compiler can be enabled in JIT mode or specified to run before execution. See [[JRuby Compiler]] for more details.
+
+===Disabling ObjectSpace===
+ObjectSpace has been disabled by default since version 1.1b1.  To reenable ObjectSpace, use the <tt>+O</tt> flag. The following description applies tor previous versions of JRuby.
+
+ObjectSpace is a feature in Ruby that allows you to enumerate all objects of a given type in the current runtime. In the C implementation, this is easy to provide, since ObjectSpace is basically a thin wrapper around the memory manager. Under JRuby, however, where we can't enumerate objects managed by Java's memory model, we have to provide a separate structure that governs a collection of references to such objects. This results in substantial overhead per object when run under JRuby, since we have to create two or three times as many objects as are needed to run, just to implement ObjectSpace.
+
+JRuby can be told to run without ObjectSpace by specifying the <tt>-O</tt> flag as follows:
+
+ jruby -O bin/gem install rake
+
+Obviously, any programs that depend on ObjectSpace will not run correctly with the <tt>-O</tt> flag, but this is generally limited to a few of Rails' own development-time scripts and test unit test runners.
+
+There is also a property you can use to disable ObjectSpace:
+
+ jruby -J-Djruby.objectspace.enabled=false
+
+===Enabling ObjectSpace Dynamically===
+As of JRuby trunk r6137, a program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example, this enables jirb to turn on ObjectSpace to have fully-functional code-completion. This chage was made in response to [http://jira.codehaus.org/browse/JRUBY-2186 JRUBY-2186]. To enable ObjectSpace support in a ruby program, add the following code:
+
+  require 'jruby'
+  JRuby.objectspace=true
+
+===Enabling Thread Pooling===
+Ruby scripts frequently take advantage of the C implementation's lightweight (green) threading by spinning up hundreds or thousands of threads during a run. Under JRuby, this can often mean that hundreds or thousands of native threads are spun up and thrown away, which is inefficient in many cases and on many platforms. 
+
+As an alternative to straight-up 1:1 threading in JRuby, you can enable ''thread pooling''. When pooling is enabled, JRuby starts only as many threads as needed for concurrent tasks. Repeatedly launching short-lived Ruby threads then reuses native threads. This can improve performance in many cases, especially when libraries like <tt>timeout</tt> are employed that spin up a thread per call.
+
+To enable thread pooling, set the Java system property <tt>jruby.thread.pooling</tt> to <tt>true</tt>:
+
+ jruby -J-Djruby.thread.pooling=true myscript.rb
+
+===JRuby's Fast Mode===
+JRuby 1.2 and later ships with a <tt>--fast</tt> flag that turns on a number of runtime features to provide optimal performance without breaking Ruby features needed by common applications. It enables the following modes:
+
+* '''Frameless compilation:''' Avoids using heap-based frames to track cross-call data like <tt>backref</tt>, <tt>lastline</tt>, and <tt>visibility</tt> when it's not needed.
+* '''Fast math operations on Fixnum:''' When the target of a binary operator (<tt>+</tt>, <tt>-</tt>, and so on) is <tt>Fixnum</tt>, dispatches directly rather than through JRuby's dynamic call logic.
+* '''Positionless compilation:'''  To avoid introducing overhead, uses Java's stack tracing mechanisms rather than JRuby's artificial mechanisms.
+* '''Precompile all code''' Because we no longer maintain artificial heap frames and artificial traces, code must be compiled before execution to use Java's backtrace logic. This can impact startup time.
+* '''Fast <tt>__send__</tt>:'''  When calling <tt>__send__</tt> with a literal symbol, compiles it as a call to the method named by the symbol instead. Useful for meta-programmed logic looking to do a visibility-ignoring call but trying to avoid the <tt>__send__</tt> overhead.
+
+To make these settings ''safe'', a few assumptions are made:
+
+* Core methods that require access to the caller's frame must not be aliased to other names. This includes methods like <tt>eval</tt> and <tt>binding</tt>, several <tt>String</tt>, <tt>Regexp</tt>, and IO methods that access <tt>$~</tt> and <tt>$_</tt>, any methods that mutate visibility, and so on. In general, aliasing these methods is only useful if you intend to wrap them with a new piece of code, which breaks the frame-based logic for callers anyway.
+* Rigid adherence to Ruby's backtrace format and content must not be a requirement. Backtraces will generally include both Ruby and Java calls, and are formatted somewhat differently. The information is still there, but it can be a bit trickier to interpret. This will be cleaned up in future revisions.
+* Because all code is compiled before execution, it should be expected that startup performance degrades when using <tt>--fast</tt>. 
+
+===Using JVM Parameters===
+
+====Using the Java Server Virtual Machine====
+JRuby benefits greatly from running under the Java '''server''' VM, which trades startup and early run performance for a much higher level of long term optimization. JRuby will use the server VM of whatever Java version you're running if you specifically pass the <tt>-server</tt> flag to the underlying JVM as follows:
+
+ jruby -J-server myscript.rb
+
+There is also a convenience flag for JRuby directly:
+
+ jruby --server myscript.rb
+
+Combining use of the server VM with use ofthe compiler and disabling ObjectSpace generally results in the fastest performance.
+
+====Setting Heap Space Parameters for JRuby====
+'''Maximum heap space'''
+  jruby -J-Xmx512m
+
+'''Initial heap space'''
+  jruby -J-Xms512m
+
+'''Heap space for Young/Eden Garbage Collection'''
+  jruby -J-Xmn128m
+
+'''All together now'''
+
+First some suggestions: 
+*Set the minimum <tt>-Xms</tt> and maximum <tt>-Xmx</tt> heap sizes to the same value. 
+* Set the <tt>-Xmn</tt> value lower than the <tt>-Xmx</tt> value. 
+  jruby -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server
+
+===JRuby's Runtime Properties===
+'''<tt>jruby --properties</tt>'''<br/>
+:These properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line.
+
+'''Compiler Settings'''
+    jruby.compile.mode=JIT|FORCE|OFF
+       Set compilation mode. JIT is default; FORCE compiles all, OFF disables
+    jruby.compile.fastest=true|false
+       (EXPERIMENTAL) Turn on all experimental compiler optimizations
+    jruby.compile.boxed=true|false
+       (EXPERIMENTAL) Use boxed variables; this can speed up some methods. 
+       Default is false
+    jruby.compile.frameless=true|false
+       (EXPERIMENTAL) Turn on frameless compilation where possible
+    jruby.compile.positionless=true|false
+       (EXPERIMENTAL) Turn on compilation that avoids updating Ruby position info. 
+       Default is false
+    jruby.compile.threadless=true|false
+       (EXPERIMENTAL) Turn on compilation without polling for "unsafe" thread events. 
+       Default is false
+    jruby.compile.fastops=true|false
+       (EXPERIMENTAL) Turn on fast operators for Fixnum. Default is false.
+
+'''JIT Settings'''
+    jruby.jit.threshold=<invocation count>
+       Set the JIT threshold to the specified method invocation count. Default is 20
+    jruby.jit.max=<method count>
+       Set the max count of active methods eligible for JIT-compilation.
+       Default is 2048 per runtime. A value of 0 disables JIT, -1 disables max.
+    jruby.jit.logging=true|false
+       Enable JIT logging (reports successful compilation). Default is false
+    jruby.jit.logging.verbose=true|false
+       Enable verbose JIT logging (reports failed compilation). Default is false
+    jruby.jit.logEvery=<method count>
+       Log a message every n methods JIT compiled. Default is 0 (off).
+
+'''Native Support'''
+    jruby.native.enabled=true|false
+       Enable/disable native extensions (like JNA for non-Java APIs). Default is true.
+       This affects all JRuby instances in a given JVM.
+    jruby.native.verbose=true|false
+       Enable verbose logging of native extension loading. Default is false.
+    jruby.fork.enabled=true|false
+       (EXPERIMENTAL, maybe dangerous) Enable fork(2) on platforms that support it.
+
+'''Thread Pooling'''
+    jruby.thread.pool.enabled=true|false
+       Enable reuse of native backing threads via a thread pool. Default is false.
+    jruby.thread.pool.min=<min thread count>
+       The minimum number of threads to keep alive in the pool. Default is 0.
+    jruby.thread.pool.max=<max thread count>
+       The maximum number of threads to allow in the pool. Default is unlimited.
+    jruby.thread.pool.ttl=<time to live, in seconds>
+       The maximum number of seconds to keep alive an idle thread. Default is 60.
+
+'''Miscellaneous Settings'''
+    jruby.compat.version=RUBY1_8|RUBY1_9
+       Specify the major Ruby version to be compatible with. Default is RUBY1_8.
+    jruby.indexed.methods=true|false
+       Generate "invokers" for core classes using a single indexed class
+    jruby.objectspace.enabled=true|false
+       Enable or disable ObjectSpace.each_object (default is disabled)
+    jruby.launch.inproc=true|false
+       Set in-process launching of e.g. system('ruby ...'). Default is true
