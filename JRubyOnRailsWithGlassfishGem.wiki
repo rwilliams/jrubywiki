@@ -1,33 +1,35 @@
-= JRuby on Rails with Glassfish gem =
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+= JRuby on Rails With Glassfish Gem =
 
-=== Prerequisites ===
-====JRuby 1.3.1 or newer====
+== Prerequisites ==
+Required software, JRuby 1.3.1 or later and the Glassfish gem, are described below.
 
-I suggest you install it in /opt/jruby-1.3.1 and symlink /opt/jruby to /opt/jruby-1.3.1 for future convenience.
+===JRuby 1.3.1 or Later===
 
- # cd /opt && curl -O http://url.to/jruby-1.3.1.tar.gz
- # tar xzvf jruby-1.3.1.tar.gz
- # ln -s jruby-1.3.1 jruby
+Install JRuby in <tt>/opt/jruby-1.3.1</tt> and symlink <tt>/opt/jruby</tt> to <tt>/opt/jruby-1.3.1</tt> for future convenience.
 
-====Glassfish gem by Vivek Pandey====
+ # <tt>cd /opt && curl -O http://url.to/jruby-1.3.1.tar.gz</tt>
+ # <tt>tar xzvf jruby-1.3.1.tar.gz</tt>
+ # <tt>ln -s jruby-1.3.1 jruby</tt>
+
+===Glassfish Gem by Vivek Pandey===
 
  $ gem i glassfish
 
-If you install glassfish in userland (as non-root user), you should for your own convenience add ~/.gem/jruby/1.8/bin to your PATH:
+If you install Glassfish in userland (as a non-root user), you should for your own convenience add <tt>~/.gem/jruby/1.8/bin</tt> to your PATH. You should also have JRuby in your PATH. 
 
-You should also have JRuby in your path. If you install glassfish as root, the glassfish bin will by default be installed in the JRuby bin directory.
+If you install Glassfish as root, the Glassfish bin will by default be installed in the JRuby bin directory.
 
+I recommend putting something like this in your <tt>.bashrc</tt> so it's set whenever you log in:
  $ export JRUBY_HOME=/opt/jruby 
  $ export PATH=~/.gem/jruby/1.8/bin:$JRUBY_HOME/bin:$PATH
 
-I recommend putting something this in your .bashrc so it's set whenever you log in.
-
-=== Configure your glassfish instance for your Rails Application ===
+== Configure Your Glassfish Instance for Your Rails Application ==
 
  $ cd /path/to/rails-app
  $ jruby -S gfrake config         # Sets up initial config/glassfish.yml
 
-Now edit ''config/glassfish.yml' to configure the instance to your liking. For instance:
+Now edit <tt>config/glassfish.yml</tt> to configure the instance to your liking. For instance:
 
 <pre name="yaml">
  environment: production
