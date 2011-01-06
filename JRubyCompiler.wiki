@@ -120,7 +120,7 @@ Binding occurs in one of two ways:
 
 In our testing, generating stub ''invoker'' classes has always been faster than reflection, especially on older JVMs. For the time being, that's the preferred way to bind methods, but I'm going to get reflection-based binding working again for limited/restricted environments like applets. With reflection-based binding and pre-compiled Ruby code with no <tt>evals</tt>, JIT compilation could be completely turned off and no classes would ever be generated in memory by JRuby.
 
-===Walkthrough of a Simple Script===
+==Walkthrough of a Simple Script==
 Here's a walkthrough of a simple script:
 
  # we enter into the script body in the __file__ method
@@ -168,7 +168,7 @@ Here's a walkthrough of a simple script:
    puts 'ensured!'
  end
 
-===Sample Run of the JRuby Compiler===
+==Sample Run of the JRuby Compiler==
 
  ~/NetBeansProjects/jruby $ jruby sample_script.rb
  here we go
