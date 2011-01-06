@@ -1,6 +1,6 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]]
 <h1>Getting Started with JRuby</h1>
-To get JRuby on your system, you can either install a binary file for your system, or you can download and build JRuby yourself.
+To get JRuby on your system, install a binary file for your system and then work with it from the command line in a terminal window or command window.
 __TOC__
 ==Installing JRuby==
 The easiest way to get up and running with JRuby is to download the latest binary, extract it, and add the directory to your PATH environment variable. 
@@ -76,7 +76,7 @@ One of the few standard Ruby utilities that has a different name in JRuby than i
 To enable tab completion within jirb, add the following line to the configuration file .irbrc:
   require 'irb/completion'
 
-'''Note:''' If you're on Linux, BSD, OSX, Solaris, and other UNIXes, the .irbrc file must be in your home directory. If you're on Windows, it goes in your My Documents folder.
+'''Note:''' If you're on Linux, BSD, OSX, Solaris, and other UNIXes, the .irbrc file must be in your home directory. If you're on Windows, it goes in your My Documents folder or the folder specified in the HOME environment variable.
 
 '''See Also:''' [[JirbCommandLineParameters|Jirb Command Line Parameters]]
 
