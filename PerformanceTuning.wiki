@@ -27,7 +27,7 @@ There is also a property you can use to disable ObjectSpace:
  jruby -J-Djruby.objectspace.enabled=false
 
 ===Enabling ObjectSpace Dynamically===
-As of JRuby trunk r6137, a program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example, this enables jirb to turn on ObjectSpace to have fully-functional code-completion. This change was made in response to [http://jira.codehaus.org/browse/JRUBY-2186 JRUBY-2186]. To enable ObjectSpace support in a ruby program, add the following code:
+A program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example,  jirb uses this feature to turn on ObjectSpace so it can have fully functional code completion. To enable ObjectSpace support in a ruby program, add the following code:
 
   require 'jruby'
   JRuby.objectspace=true
@@ -59,22 +59,20 @@ To make these settings ''safe'', a few assumptions are made:
 * Because all code is compiled before execution, it should be expected that startup performance degrades when using <tt>--fast</tt>. 
 
 ===Java Virtual Machine (JVM) Settings===
-All JVM runtime settings use the <tt>-J</tt> option, followed by the specific JVM setting. For example:
+Except for the JRuby convenience parameter <tt>--server</tt>, all JVM runtime parameters use the <tt>-J</tt> option, followed by the specific JVM setting. For example:
 * Heap space settings: <tt>jruby -J-X&lt;heap-space-setting&gt;</tt>
 * JRuby runtime settings: <tt>jruby -J-D&lt;runtime-setting&gt;</tt>
 
-The settings described in the following sections are all JVM settings.
+All the settings described in the following sections are JVM settings.
 
 ====Using the Java Server Virtual Machine====
-JRuby benefits greatly from running under the Java '''server''' VM, which trades startup and early run performance for a much higher level of long term optimization. JRuby will use the server VM of whatever Java version you're running if you specifically pass the <tt>-server</tt> flag to the underlying JVM as follows:
-
- jruby -J-server myscript.rb
-
-There is also a convenience flag for JRuby directly:
+JRuby benefits greatly from running under the Java '''Server''' VM, which trades startup and early run performance for a much higher level of long term optimization. JRuby will use the server VM of whatever Java version you're running if you use the <tt>--server</tt> parameter, which passes the <tt>-server</tt> flag to the underlying JVM. For example:
 
  jruby --server myscript.rb
 
-Combining use of the server VM with use of the compiler and disabling ObjectSpace generally results in the fastest performance.
+Combining use of the server VM with using the compiler and disabling ObjectSpace generally results in the fastest performance.
+
+'''Note:''' The <tt>--server</tt> parameter is a convenient shorthand for the JVM parameter  <tt>-J-server</tt>.
 
 ====Setting Heap Space Parameters for JRuby====
 '''Maximum heap space'''
