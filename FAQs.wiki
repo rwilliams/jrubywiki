@@ -227,7 +227,8 @@ To create empty arrays:
 
 There are two separate ways:
 
-# include an interface into the class
+1.  include an interface into the class
+
  class MyListener
    include java.awt.event.ActionListener
  
@@ -235,7 +236,9 @@ There are two separate ways:
      button.text = "I have been pressed"
    end
  end
-# Use implicit closure conversion
+
+2. Use implicit closure conversion
+
  button.add_action_listener { |event|  button.text = "I have been pressed" }
 
 = Compiler-related questions
