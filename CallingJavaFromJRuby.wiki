@@ -82,13 +82,13 @@ Because JRuby supports the <tt>#each</tt> method on Java Enumerations you can do
 == Accessing and Importing Java Classes ==
 
 === Require a jar file to make resources in the jar discoverable within JRuby ===
-To use resources within a jar file from JRuby, the jar file must either be on the classpath or be made available with the <tt>require</tt> method:
+To use resources within a jar file from JRuby, the jar file must either be on the classpath *or* be made available with the <tt>require</tt> method:
 
   require 'path/to/mycode.jar'
 
 This <tt>require</tt> makes the resources in <tt>mycode.jar</tt> discoverable by commands like <tt>import</tt> and <tt>include_package</tt>.
 
-Note that loading jar-files via <tt>require</tt> searches along the RUBYLIB path, like normal ruby files.
+Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH for them, like it would for normal ruby files.
 
 === Naming a Java Class ===
 You can name a Java class in JRuby in at least three different ways. The idea is to map Java names like <tt>org.foo.department.Widget</tt> to Ruby nested modules. This works as follows:
