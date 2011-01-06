@@ -52,6 +52,11 @@ Staff Engineer at Sun Microsystems currently working on http://kenai.com . Speak
 * Rob Heittman <heittman.rob@gmail.com>
 Java heretic and RESTafarian who believes JRuby is the best Ruby.  Using JRuby on large projects, especially biodiversity and conservation.  (Oct 09) adapting JRuby-Rack to the Restlet framework and writing plugins for JRuby support in various OSGi environments.  Interests: leveraging Java concurrency, crusading to replace C-based gems, and someday, achieving refactoring tool parity with Java.
 
+===Ohio===
+====Cincinnati====
+* Chris Nelson, Gaslight Software <chris@gaslightsoftware.com>
+I've used JRuby on a number of projects, and have contributed code to the JRuby project.  I've presented on JRuby at java user's groups and several conferences.  I'm very interested in getting the word out about JRuby being awesome and ready to use now.  I'd be more that happy to speak with anyone considering JRuby and help get them going in the right direction
+
 ===Kentucky===
 ====Lexington====
 * Todd Willey <todd@rubidine.com>
