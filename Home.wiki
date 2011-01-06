@@ -39,9 +39,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Rails AOT]] <span style="font-size:90%; font-style:italic">(Compiling Rails' controllers and models AOT)</span>
 * [[Rails Eclipse Jetty Maven]] <span style="font-size:90%; font-style:italic">(Rails on Eclipse + Run Jetty Run + Maven)</span>
 * [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapter]
-* [[Rails with H2 in JNDI on Jetty]]
-* [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
-* [[Rails JSR286 portlets]]
 * [[Rails Multi-Threading Best Practices]]
 </td>
 
