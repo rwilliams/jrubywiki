@@ -19,7 +19,7 @@ JRuby release preparation
 *** setup simple web app and exercise it
 *** install and run goldberg (actually any more sophisticated app you know works)
 * Upload dist files, jruby-complete.jar, and MD5 files to https://dav.codehaus.org/dist/jruby/{version}
-* Replace existing dist files and jar-complete in https://dav.codehaus.org/dist/jruby/current
+* Replace existing content in https://dav.codehaus.org/dist/jruby/current with the updated release files
 * [[Build maven artifacts]]
 * Add news item to www.jruby.org page (need to get to confluence editing page for this -- xircles is easy way there if you don't have bookmark)
 * Update MainPage on JRuby wiki pointing to new binary
