@@ -24,7 +24,8 @@ If you do not use a traditional Ruby application server like mongrel, you can us
 Here is information of various JAS:
 
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat]
-* [[JRuby on Rails on Jetty|Jetty]], [[JRuby on Rails in GlassFish|Glassfish]]
+* [[JRuby on Rails on Jetty|Jetty]]
+* [[JRuby on Rails in GlassFish|Glassfish]]
 * [[JRuby on Rails on WebSphere|Websphere]]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J]
 * [[JRuby on Rails on BEA Weblogic|Weblogic]]
