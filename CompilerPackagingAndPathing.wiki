@@ -17,7 +17,7 @@ So assume <tt>baz.class</tt> contains a class named <tt>foo.bar.baz</tt>, existi
 * Load path contains <tt>&lt;home&gt;</tt>.
 * Executing <tt>require 'foo/bar/baz'</tt> should pick up the class file and load it.
 * Executing <tt>jruby foo/bar/baz.class</tt> should execute it correctly.
-* Executing <tt>jruby -e "require 'baz'</tt> from within <tt>&lt;home&gt;/foo/bar</tt> should pick it up correctly.
+* Executing <tt>jruby -e "require 'baz'"</tt> from within <tt>&lt;home&gt;/foo/bar</tt> should pick it up correctly.
 
 Load path locations are typically expected by the source; <tt>require</tt>s and such depend on their being correct. If the load path points at <tt>&lt;home&gt;</tt> normally, pointing it at <tt>&lt;home&gt;/foo</tt> instead would likely cause <tt>require</tt>s in <tt>baz</tt> to fail. So:
 * We can reasonably expect that the load path structure is a good representation of a unique class name, and that execution would not expect something more unique. 
@@ -28,7 +28,7 @@ Load path locations are typically expected by the source; <tt>require</tt>s and 
 
 '''Given that compilation may happen from any arbitrary directory:'''
 
-We need a way to determine the appropriate load path for a file under compilation. Because load paths may differ at runtime for the script/app in question, we should do two things:
+We need a way to determine the appropriate load path for a file under compilation. Because load paths may differ at runtime for the script/app in question, we should do three things:
 
 * Provide a command-line means to specify the base dir from which the source is being compiled. This is similar to the requirement in <tt>.java</tt> files to specify a host dir that represents the "root" of the path.
 * Default to current directory as the "root" of the path, if the filename to be compiled does not contain relative path modifiers and is a subpath under the current directory.
@@ -36,7 +36,7 @@ We need a way to determine the appropriate load path for a file under compilatio
 
 '''Addendums:'''
 
-* For any given file that must use a canonical path containing a device name to generate package name, the device indicator (<tt>C:\</tt>, <tt>\\somehost\</tt>, etc) will be considered the root and omitted from the resulting package.
+* For any given file that must use a canonical path containing a device name to generate package name, the device indicator (<tt>C:\</tt>, <tt>\\somehost\</tt>, etc.) will be considered the root and omitted from the resulting package.
 
 '''A few cases:'''
 
@@ -50,7 +50,7 @@ We need a way to determine the appropriate load path for a file under compilatio
 * package generated is <tt>foo.bar</tt>
 * <tt>baz.class</tt> file is placed in <tt>C:\home\foo\bar\baz.class</tt>
 
-'''2.'''
+'''2. Second Case'''
 :current dir<nowiki>:</nowiki> <tt>C:\home2</tt>
 :file to compile<nowiki>:</nowiki> <tt>C:\home\foo\bar\baz.rb</tt>, specified as <tt>..\home\foo\bar\baz.rb</tt>
 :no basedir specified
@@ -59,14 +59,14 @@ We need a way to determine the appropriate load path for a file under compilatio
 * canonical path is <tt>C:\home\foo\bar\baz.rb</tt>
 * package generated is <tt>home.foo.bar</tt>
 
-'''3.'''
+'''3. Third Case'''
 :current dir<nowiki>:</nowiki> <tt>C:\home2</tt>
 :file to compile<nowiki>:</nowiki> <tt>C:\home\foo\bar\baz.rb</tt>, specified as<tt>C:\home\foo\bar\baz.rb</tt>
 :basedir<nowiki>:</nowiki> <tt>C:\home</tt>
 
 * basedir is specified
 * target file is in a subpath of basedir with no relative modifiers
-* package and result same as in (1) above
+* package and result same as in (1) Simple Case above
 
 '''Execution cases that should succeed in loading a<tt> baz.class</tt>, given any of the results above''
 
