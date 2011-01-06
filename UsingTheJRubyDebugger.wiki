@@ -2,6 +2,14 @@ There is a Java-based JRuby implementation of the fast ruby debugger rdebug.
 
 See: [http://debug-commons.rubyforge.org/#jruby-debug JRuby Fast Debugger]
 
+Note that more recent versions of jruby (1.5+) already include the gem pre-bundled, so a
+
+require 'rubygems'
+require 'ruby-debug'
+debugger
+
+is probably all you'll need.
+
 1. Manually download the most recent ruby-debug-base-0.10.3.x-java.gem from [http://rubyforge.org/frs/?group_id=3085 debug-commons].
 
 2. Install the Gem into your JRuby Gem repository:
