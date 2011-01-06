@@ -34,4 +34,5 @@ See [[GUIFrameworks]]
 * [[Spring]] - Using Spring framework to use JRuby
 
 == Other links ==
+* [[JRubyProjects]] - Projects that JRuby project maintains
 * [http://rubyforge.org/projects/jruby-extras jruby-extras] <span style="font-size:90%; font-style:italic">(Support for Libraries and Applications not included in standard JRuby)</span>
