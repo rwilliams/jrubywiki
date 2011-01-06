@@ -137,21 +137,21 @@ Use <tt>include_package "package_name"</tt> in a Ruby Module to support namespac
 
 '''Example''': create a Ruby Module called <tt>JavaLang</tt> that includes the classes in the Java package <tt>java.lang</tt>.
 
-  module JavaLang
+  module JavaLangDemo
     include_package "java.lang"
     # alternately, use the #import method
     import "java.lang"
   end
 
-Prefix the Class name with <tt>JavaLang::</tt> to access the included Classes:
+Now you can prefix the desired Java Class name with <tt>JavaLangDemo::</tt> to access the included Classes:
 
-  version = JavaLang::System.getProperties["java.runtime.version"]
+  version = JavaLangDemo::System.getProperties["java.runtime.version"]
   => "1.5.0_13-b05-237"
 
-  processors = JavaLang::Runtime.getRuntime.availableProcessors
+  processors = JavaLangDemo::Runtime.getRuntime.availableProcessors
   => 2
 
-The Java classes in the package will become available in this class/module, unless a constant with the same name as a Java class is already defined.
+All Java classes in the package will become be available in this class/module, unless a constant with the same name as a Java class is already defined.
 
 The use of the Module name to scope access to the imported Java class is also helpful in cases where the Java class has the same name as an existing Ruby class. 
 
@@ -180,13 +180,14 @@ You can now create a new instance of the Java class File without shadowing the R
   newfile = JavaIO::File.new("file.txt")
   => #<Java::JavaIo::File:0x15619c @java_object=file.txt>
 
-The Ruby File class is still accessible:
+And the Ruby File class is still accessible:
 
   File.open('README', 'r') {|f| puts f.readline }
   JRuby -  A Java implementation of the Ruby language
   => nil
 
-=== Accessing Java Enumerations ===
+=== Using Static Java Enumerations ===
+
 Java <tt>enum</tt>s are accessible from Ruby code as constants:
 
   lock.try_lock(5000, java.util.concurrent.TimeUnit::MILLISECONDS)
@@ -253,7 +254,7 @@ You don't have to use these alternatives, but they can make the interaction with
 
 If a Java class is defined with Java generics, the types are erased during compilation for backwards compatibility. As a result. JRuby will have problems with automatic type conversion. For example, if you have a <tt>Map<String,String></tt>, it will be seen as a simple <tt>Map</tt>, and JRuby will not be able to determine the correct types using reflection.
 
-=== Additional Methods ===
+=== Additional Java Method Access ===
 
 JRuby defines a number of additional methods for Java objects.
 
@@ -291,7 +292,6 @@ Note the second argument, which is an array of types indicating the exact method
 
 === Bound and Unbound Java methods with <tt>java_method</tt> ===
 <tt>java_send</tt> relies on reflection and may lead to poor performance in some cases. Each time it is called, the desired method must be relocated. With the <tt>java_method</tt> method you can get a reference to any overloaded Java method as a Ruby Method object:
-
  
  # get a bound Method based on the add(int, Object) method from ArrayList
  add = list.java_method :add, [Java::int, java.lang.Object]
