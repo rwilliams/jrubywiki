@@ -92,7 +92,8 @@ Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH f
 
 If you need to load from an existing .class file(or one that's not camelcase), the following has examples: http://www.ruby-forum.com/topic/216572#939791
 
-=== Naming a Java Class ===
+=== Referencing a Java Class by Full Class Name ===
+
 You can reference a Java class in JRuby in at least two different ways. 
 
 * The first is to map Java names like <tt>org.foo.department.Widget</tt> to Ruby nested modules format. This works as follows:
@@ -117,22 +118,32 @@ You can get the same effect for your own (custom) top-level packages, as follows
 And then you can use use usual Java package names like <tt>edu.abc.def.ClassName</tt>
 Note also that you must use the right capitalization, though see below for how you can change and assign it to your own liking.
 
-=== Import a Java Class to Use It Without The Full Path Name ===
+=== Using a Java Class Without The Full Path Name ===
 
-You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the <tt>java_import</tt> statement or <tt>import</tt> statement, you can make the Java class available only by its name, just as in Java.
+You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the <tt>java_import</tt> statement or <tt>import</tt> statement, you can make the Java class available only by its class name, just as in Java.
 
-'''Example''': import and use the <tt>java.lang.System</tt> class.
+'''Example''': java_import and use the <tt>java.lang.System</tt> class.
 
   require 'java'
   java_import java.lang.System
   version = System.getProperties["java.runtime.version"]
 
-'''Note:''' As noted in [http://jira.codehaus.org/browse/JRUBY-3171 this bug report], <tt>java_import</tt> is the and safer, way to import Java classes.  You can do it with just straight import, as well.
+You could also do it with just straight import, as well.
 
   require 'java'
   import java.lang.System
   version = System.getProperties["java.runtime.version"]
 
+'''Note:''' As noted in [http://jira.codehaus.org/browse/JRUBY-3171 this bug report], <tt>java_import</tt> is the newer and safer, way to import Java classes.  
+
+After this point, the "System" constant will be available in the global name space (i.e. available to any script).
+The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
+
+You can also get the same effect by reassigning a Java class to a new constant, like
+
+  require 'java'
+  Sys = java.lang.System
+  version = Sys.getProperties["java.runtime.version"]
 
 === Use include_package within a Ruby Module to import a Java Package ===
 
