@@ -180,6 +180,31 @@ The Ruby File class is still accessible:
   JRuby -  A Java implementation of the Ruby language
   => nil
 
+=== Gotchas ===
+
+JRuby automatically binds the following names in the context of a class to the top-level Java packages: com, org, java, javax. This means that you can reference these packages without having to explicitly require or import them. This takes effect for all Ruby classes in an application where a require 'java' appears. This binding takes place in precedence to the classes "method_missing" handling.
+
+If you do not want this behaviour for a specific class, you can undefine it for that class. Here's an example that will execute identically under Ruby and JRuby:
+
+<pre>
+# Note: Comment out for Ruby test. Uncomment for JRuby test.
+require 'java'
+
+class MethodMissing
+  # JRuby: Undefine the standard "automatic" bindings to Java, to avoid any automatic binding.
+  undef org, com, java, javax
+  
+  def method_missing(m, *args)
+    puts "method_missing: #{m}."
+    "This is what I return from method missing."
+  end
+end
+
+mm = MethodMissing.new
+result = mm.org
+puts "Result: #{result} Type: #{result.class.name}"
+</pre>
+
 == Calling a Java Method ==
 
 === Alternative Names and Beans Convention ===
