@@ -22,7 +22,7 @@ If you don't use a traditional Ruby application server like [http://mongrel.ruby
 '''Some links to information on various Java App Servers:'''
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat]
 * [[JRuby on Rails on Jetty|Jetty]]
-* [[JRuby on Rails on WebSphere|Websphere]]
+* [[JRuby on Rails on WebSphere|WebSphere]]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J]
 * [[JRuby on Rails on BEA Weblogic|Weblogic]]
 * [http://oddthesis.org/theses/jboss-rails JBoss]
