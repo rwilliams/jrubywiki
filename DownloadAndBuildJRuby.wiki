@@ -2,7 +2,7 @@
 =Downloading JRuby Source and Building It Yourself=
 If you prefer to download JRuby source and build it yourself, rather than installing a binary as described in [[GettingStarted|Getting Started with JRuby]], you can either download the source files from our web site or get JRuby source code directly from our git repository. 
 
-* To get JRuby source from the web in a tar or zip file, [http://dist.codehaus.org/jruby/ Download the latest JRuby source .tar or .zip file] and unzip it. 
+* To get JRuby source from the web in a tar or zip file, [http://jruby.org/download Download the latest JRuby Source .tar or .zip file] and unzip it. 
 ** For OSX, Linux, BSD, Solaris, and other UNIX varieties, get the most recent <tt>jruby-src-X.Y.Z.tar.gz</tt> file.
 ** If you're on Microsoft Windows, get the most recent <tt>jruby-src-X.Y.Z.zip</tt> file.
 * To get JRuby source from our git repository, retrieve the trunk version of the JRuby source.
