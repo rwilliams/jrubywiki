@@ -2,6 +2,7 @@
 
 JRuby tools to make the UI development with Swing a more Ruby-like experience:
 * Cheri::Swing - http://cheri.rubyforge.org/
+* Limelight - http://limelight.8thlight.com/
 * Monkeybars - http://monkeybars.org/
 * Profligacy (with markup language LEL) - http://ihate.rubyforge.org/profligacy/
 * RSwing - http://github.com/bakkdoor/rswing/
