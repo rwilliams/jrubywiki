@@ -1,13 +1,11 @@
  require 'java'
  
  import java.rmi.MarshalledObject
- import java.rmi.Remote
  import java.rmi.registry.LocateRegistry
- import java.rmi.registry.Registry
  import javax.management.ObjectName
  
  # Connect to the JNDI lookup server
- registry = LocateRegistry.getRegistry("localhost", 1099) 
+ registry = LocateRegistry.get_registry("localhost", 1099) 
  
  # List available RMI objects
  names = registry.list
