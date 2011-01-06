@@ -1,0 +1,560 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+<h1>Embedding JRuby</h1>
+Using Java from Ruby is a really nice feature that JRuby brings to you, but you can also use Ruby from Java. You can execute Ruby scripts in a Java program and invoke Ruby methods. You can even implement Java interface by Ruby and call implemented methods from Java.  We call it embedding, and this section explains how you can use it.
+
+__TOC__
+
+=Red Bridge (JRuby Embed) =
+
+JRuby’s embedding has vastly changed since JRuby 1.4.0RC1, and, of course, it has been much improved. In that pivoted version, JRuby had Red Bridge (or JRuby Embed, new embedding API).  Red Bridge has its own Java API to run Ruby scripts as well as implementations of JSR223 and BSF on top of it. You don’t need to download separate archive to use JSR223 anymore. Although JRuby still has a former implementation of BSF, Red Bridge’s implementation fixed issues filed and became a better one for BSF users. We illustrates how you can code embedding by Red Bridge here, but you can reach to a [[JavaIntegration|previous embedding page]], too, if you want to keep a legacy embedding style.
+
+== Features of Red Bridge ==
+Red Bridge is consists of two layers, Embed Core on the bottom and JSR223/BSF implementations on the top. Embed Core is focused only on JRuby and designed to leverage JRuby’s power as much as possible. This is a big difference from JSR223/BSF, which are intended to provide common interfaces to many scripting languages. When you use Embed Core, you don’t need to rely on VM wide System property to configure. For example, you can set classpath Ruby version directly through the method of org.jruby.RubyInstanceConfig. You can read scripts using JRuby friendly java.io.InputStream, or get them from a classpath, too. Also Embed Core has various kinds of convenient, flexible methods. Those are shortcut methods or methods that return Java friendly objects. The methods defined in JRuby Embed will help you to avoid writing boilerplate code in your Java programs. We recommend Embed Core if you don’t use other scripting language than Ruby. See  [http://jruby-embed.kenai.com/docs/ API document] for further detail.
+
+
+However, Red Bridge doesn’t leave JSR223/BSF behind. Many of useful features are also available to use in those implementations. You can choose local context type, local variable behavior and compile mode, and set line numbers displayed in parsing error. Since Red Bridge is highly configurable, it will fit in various use cases. A downside of this might be that you need to walk through the document to find what you should do to get the best result.
+
+
+Among configurations, choosing a right local context type is really important. If you make a wrong choice, you might be puzzled by unexpected results. If you want only one Ruby runtime, variable map or attribute map on JVM, choose singleton. If you run Ruby scripts on multi-threaded environment, you should choose threadsafe so that you don’t worry about race condition to use Ruby runtime or other. Please be sure your choice is the best for your case.
+
+
+Choosing a local variable behavior would be interesting.  Sharing variables mechanism of Red Bridge is one of the most improved features compared with JSR223 reference implementation. By sharing variables mechanism of Red Bridge, local, instance, and global variables and constants are going back and forth between Java and Ruby. In case of Java to Ruby, variables are given through method arguments or directly injected to Ruby scripts. On the other hand, from Ruby, variables are implicitly handed over to Java. Ruby code doesn’t need to do something special for sharing variables. When Ruby scripts return values, Java program can get them as normal Java objects. When Ruby scripts use variables, those names and values are available to take in to Java. What Java program should do is just getting a value with a variables name from a variable map. Local, instance, global variables and constants used in Ruby scripts are collected and hold in the variable map that Red Bridge takes care of. The variable map is also used to give values to Ruby from Java; thus, when you put key-value pair into the map, the pair is injected into Ruby code. Although sharing local and instance variables are limited in the current version, you don’t need to heavily rely on global variables. Not like other scripting languages, when a variable name starts with “$” in Ruby, it becomes a global variable and is a globally shared on Ruby runtime. You can avoid relying on such globally shared variables to hand some states from Java to Ruby on Red Bridge. 
+
+== Download ==
+
+JRuby Embed (Red Bridge) binary is included in JRuby 1.4.0RC1. Visit [http://www.jruby.org/download] to get the archive.The Archive of JRuby Embed version 1.2.0 is also available to download at: [http://kenai.com/projects/jruby-embed/downloads], too. JRuby Embed source codes are not included in JRuby 1.4.0x source archives. Get them at the Source Code Repository of this project, [http://kenai.com/projects/jruby-embed/sources]. However, JRuby 1.5.0 source archives will have JRuby Embed.
+
+All users, please understand. Embed Core API may change in future releases.
+
+For maven users:<br/>
+JRuby 1.4.0x archives in maven repo doesn't have JRuby Embed in it. It is on codehause maven repo, so add below to your pom.xml:
+<pre name="xml">
+.....
+    <repository>
+      <id>codehaus</id>
+      <name>Maven Codehaus repository</name>
+      <url>http://repository.codehaus.org/</url>
+    </repository>
+....
+....
+   <dependency>
+      <groupId>org.jruby.embed</groupId>
+      <artifactId>jruby-embed</artifactId>
+      <version>0.1.2</version>
+    </dependency>
+....
+</pre>
+
+Also, JRuby 1.5.0 will have JRuby Embed in it, so you don't need to add jruby-embed dependency.
+
+== Getting Started ==
+
+To get to know how to develop it, a simple 'Hello World' sample is always the first friend. Here are samples to say 'Hello World' in a JRuby Embed way. 
+
+Before you start programming, make sure necessary jar archives are in your classpath.
+;- Core
+:jruby-complete.jar (or jruby.jar)
+;- JSR223
+:jruby-complete.jar (or jruby.jar), script-api.jar(if you are using JDK1.5)
+;- BSF
+:jruby-complete.jar (or jruby.jar), bsf.jar, commons-logging-[version].jar
+
+
+Programs to execute a simple Ruby script, puts "Hello World!," using JRuby Embed are:
+* Core
+<pre name="java">
+package vanilla;
+
+import org.jruby.embed.ScriptingContainer;
+
+public class HelloWorld {
+
+    private HelloWorld() {
+        ScriptingContainer container = new ScriptingContainer();
+        container.runScriptlet("puts \"Hello World!\"");
+    }
+
+    public static void main(String[] args) {
+        new HelloWorld();
+    }
+}</pre>
+
+* JSR223
+<pre name="java">
+package redbridge;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class Jsr223HelloWorld {
+
+    private Jsr223HelloWorld() throws ScriptException {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("jruby");
+        engine.eval("puts \"Hello World!\"");
+    }
+
+    public static void main(String[] args) throws ScriptException {
+        new Jsr223HelloWorld();
+    }
+}</pre>
+
+* BSF
+<pre name="java">
+package azuki;
+
+import org.apache.bsf.BSFException;
+import org.apache.bsf.BSFManager;
+
+public class BsfHelloWorld {
+    private BsfHelloWorld() throws BSFException {
+        BSFManager.registerScriptingEngine("jruby", "org.jruby.embed.bsf.JRubyEngine", new String[] {"rb"});
+        BSFManager manager = new BSFManager();
+        manager.exec("jruby", "<script>", 0, 0, "puts \"Hello World!\"");
+    }
+
+    public static void main(String[] args) throws BSFException {
+        new BsfHelloWorld();
+    }
+
+}</pre>
+
+All three programs print out "Hello World!" to standard output.
+
+== Configurations ==
+
+Although default setting works well, JRuby Embed allows you to configure its environment and behavior. In this section, you can find what configuration options are and how to configure them. In case of Embed core, most options are set through arguments of constructors or methods easily. Meanwhile, JSR223/BSF are often not flexible to accept JRuby specific parameters. Therefore, System properties and JSR223’s attributes are used for this purpose.
+
+Please remember you need to set parameters before instantiating a container/engine when you want to make per container configurations work.
+
+;The per container configurations are:
+:JRuby Home
+:Class Path
+:Context Instance Type
+:Local Variable Behavior
+:Compile Mode
+:Ruby Version
+
+If you want set per evaluation configurations, set them just before the evaluation or the method arguments.
+
+; The per evaluations configuration is:
+:Line Number
+
+=== JRuby Home ===
+
+Scope: Per Container<br/>
+Propety Name: jruby.home
+
+
+
+JRuby Home is a home directory (or folder) of JRuby and is used to load JRuby’s built-in libraries and for other purposes by JRuby. Internally, JRuby Embed tries to get a directory from the order of JRUBY_HOME environment variable, , jruby.home system property, then jruby.home assembled in jruby-complete.jar. If you are using jruby-complete.jar, you are free from worrying about this configuration. If you aren’t using jruby-complete.jar, it is better to set it to avoid unexpected troubles although setting JRuby Home is optional in the domain of JRuby Embed.
+
+When you write a web application, you should use jruby-complete.jar because setting an absolute path to JRuby does not make sense. You should keep a war archive portable.
+
+JRUBY_HOME environment variable setting depends on OS. For example, on bash of Unix and OS X:
+<pre>
+export JRUBY_HOME=/Users/yoko/Tools/jruby-1.3.1</pre>
+
+When you want to use jruby.home system property, you have two ways of setting the value: a command line option or java.langSystem#setProperty().
+
+* Core, JSR223, BSF
+<pre>
+java –J-Djruby.home=/Users/yoko/Tools/jruby-1.3.1 –cp …</pre>
+<pre name="java">
+System.setProperty("jruby.home", "/Users/yoko/Tools/jruby-1.3.1");
+ScriptingContainer container = new ScriptingContainer();</pre>
+
+If you use Embed Core, then you can directly set jruby.home using the method:
+
+* Core
+<pre name="java">
+ScriptingContainer container = new ScriptingContainer();
+container.getProvider().getRubyInstanceConfig().setJRubyHome("/Users/yoko/Tools/jruby-1.3.1");</pre>
+
+
+=== Class Path ===
+
+Scope: Per Container<br/>
+Propety Name: org.jruby.embed.class.path (or java.class.path)
+
+
+
+Classpaths are used to load Ruby scripts as well as Java classes and jar archives. Embed Core and BSF have a method to set classpath. However, JSR223 doesn't have such method or method argument. Thus, JSR223 need to be set classpath by system property. Either org.jruby.embed.class.path or java.class.path property names can be used to set classpath. The org.jruby.embed.class.path system property is avaiable to use in Embed Core and BSF, too. In case of Embed Core and JSR223, a value assigned to org.jruby.embed.class.path is looked up first, then java.class.path. This means that only org.jruby.embed.class.path is used if exists.  As for BSF, after java.class.path is looked up, org.jruby.embed.class.path  is added to if exists. The format of the paths is the same as Java's class path syntax, :(colon) separated path string on Unix and OS X or ;(semi-colon) separated one on Windows. Be sure to set classpaths before you instantiate javax.script.ScriptEngineManager or register engine to org.apache.bsf.BSFManager.
+Samples below run testMath.rb, which is included in JRuby’s source archive. The script, testMath.rb, needs minirunit.rb, which should be loaded from the classpath.
+
+* Core
+<pre name="java">
+package vanilla;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.jruby.embed.PathType;
+import org.jruby.embed.ScriptingContainer;
+
+public class LoadPathSample {
+    private final static String jrubyhome = "/Users/yoko/Tools/jruby-1.3.1";
+    private final String filename = jrubyhome + "/test/testMath.rb";
+
+    private LoadPathSample() {
+        ScriptingContainer container = new ScriptingContainer();
+        List<String> loadPaths = new ArrayList();
+        loadPaths.add(jrubyhome);
+        container.getProvider().setLoadPaths(loadPaths);
+        container.runScriptlet(PathType.ABSOLUTE, filename);
+    }
+
+    public static void main(String[] args) {
+        new LoadPathSample();
+    }
+}</pre>
+
+
+* JSR223
+<pre name="java">
+package redbridge;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class Jsr223LoadPathSample {
+    private final static String jrubyhome = "/Users/yoko/Tools/jruby-1.3.1";
+    private final String filename = jrubyhome + "/test/testMath.rb";
+
+    private Jsr223LoadPathSample() throws ScriptException, FileNotFoundException {
+        System.setProperty("org.jruby.embed.class.path", jrubyhome);
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("jruby");
+        Reader reader = new FileReader(filename);
+        engine.eval(reader);
+    }
+
+    public static void main(String[] args) throws ScriptException, FileNotFoundException {
+        new Jsr223LoadPathSample();
+    }
+} </pre>
+
+
+* BSF
+<pre name="java">
+package azuki;
+
+import java.io.FileNotFoundException;
+import org.apache.bsf.BSFException;
+import org.apache.bsf.BSFManager;
+import org.jruby.embed.PathType;
+
+public class BsfLoadPathSample {
+    private final static String jrubyhome = "/Users/yoko/Tools/jruby-1.3.1";
+    private final String filename = jrubyhome + "/test/testMath.rb";
+    
+    private BsfLoadPathSample() throws BSFException, FileNotFoundException {
+        BSFManager.registerScriptingEngine("jruby", "org.jruby.embed.bsf.JRubyEngine", new String[] {"rb"});
+        BSFManager manager = new BSFManager();
+        manager.setClassPath(jrubyhome);
+        manager.exec("jruby", filename, 0, 0, PathType.ABSOLUTE);
+    }
+
+    public static void main(String[] args) throws BSFException, FileNotFoundException {
+        new BsfLoadPathSample();
+    }
+}</pre>
+
+
+
+=== Context Instance Type ===
+
+Scope: Per Container<br/>
+Property Name: org.jruby.embed.localcontext.scope<br/>
+Value: singleton(default in JRuby trunk; rev. 9e557a2 and later), theadsafe (default in version 0.1.2) or singlethread
+
+The context instance type is a type of a local context. The local context holds Ruby runtime, name-value pairs for sharing variables between Java and Ruby, default I/O streams (reader/writer/error writer), and attributes. The context is saved in one of three types, threadsafe, singlethread, or singleton. Three types are defined in org.jruby.embed.LocalContextScope and also can be set by a system property. 
+
+Make sure to set the context type before you instantiate javax.script.ScriptEngineManager or register engine to org.apache.bsf.BSFManager.
+
+==== Singleton ====
+This model uses a well known Singleton pattern, and the only one instance of a local context will exist on JVM.<br/>
+
+* Core
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalContextScope.SINGLETON);
+</pre>
+
+* JSR223/BSF
+<pre name="java">
+System.setProperty("org.jruby.embed.localcontext.scope", "singleton");
+</pre>
+
+
+
+==== ThreadSafe ====
+Script's parsings and evaluations should be safely performed on a multi-threaded environment such as servlet container. A supposed usage is that ScriptEngine is instantiateted in servlet's init() method and evaluates scripts in servlet's service() method.<br/>
+
+* Core
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalContextScope.THREADSAFE);
+</pre>
+
+* JSR223/BSF
+<pre name="java">
+System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
+</pre>
+
+==== SingleThread ====
+This model pretends as if there is only one thread in the world, and does not mind race condition at all. Users are resposnsible to thread safety. If you want to instantiate ScriptEngine in servlet's service() method, this model would be the best suited one.
+
+* Core
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalContextScope.SINGLETHREAD);
+</pre>
+
+* JSR223/BSF
+<pre name="java">
+System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
+</pre>
+
+
+
+=== Local Variable Behavior Options ===
+
+Scope: Per Container<br/>
+Property Name: org.jruby.embed.localvariable.behavior<br/>
+Value: transient (default for core), persistent, global (default for JSR223), or bsf (for BSF)
+
+JRuby Embed enables to share Ruby's local, instance, global variables, and constants. To share these variables between Ruby and Java, JRuby Embed offers four types of local variable behaviors, transient, persistent, global, and bsf. Four types are defined in org.jruby.embed.LocalVariableBehavior and also can be set by a system property.
+
+
+==== Transient Local Variable Behavior ====
+
+Default for Embed Core. Local variables' scope is faithful to Ruby semantics. This means local variable does not survive over the multiple evaluations. After the each evaluation, local variable will vanish away. However, instance and global variables, and constants survive unless those are removed explicitly. If you use global variables, the variables can be referred literally globally in Ruby runtime and exist as long as the runtime is alive. Be careful to the scope of global variables so that you don’t mix in vulnerabilities in a web application.<br/>
+
+* Core
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer();
+</pre>
+or
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalVariableBehavior.TRANSIENT);
+</pre>
+or
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalContextScope.SINGLETHREAD, LocalVariableBehavior.TRANSIENT);
+</pre>
+
+* JSR223
+<pre name="java">
+System.setProperty("org.jruby.embed.localvariable.behavior", "transient");
+ScriptEngineManager manager = new ScriptEngineManager();
+ScriptEngine engine = manager.getEngineByName("jruby");
+</pre>
+
+* BSF
+BSF can choose only BSF type.
+
+==== Persistent Local Variable Behavior ====
+
+When this type is chosen, JRuby Embed keeps sharing all local variables' over multiple evaluations. This might not be a semantically correct usage, but is useful in some cases especially for users who have BSF background.<br/>
+
+* Core
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalVariableBehavior.PERSISTENT);
+</pre>
+or
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalContextScope.SINGLETHREAD, LocalVariableBehavior.PERSISTENT);
+</pre>
+
+* JSR223
+<pre name="java">
+System.setProperty("org.jruby.embed.localvariable.behavior", "persistent");
+ScriptEngineManager manager = new ScriptEngineManager();
+ScriptEngine engine = manager.getEngineByName("jruby");
+</pre>
+
+* BSF
+BSF can choose only BSF type.
+
+==== Global Local Variable Behavior ====
+
+Default for JSR223. This behavior might be convenient to users who have used JSR 223 reference implementation released at scripging.dev.java.net and don't want change any code at all. With names like Ruby's local variable name, variables are mapped to Ruby's global variables. Only global variables can be shared between Ruby and Java, when this behavior is chosen. The values of global variables of this type are not kept over the evaluations. <br/>
+
+* Core
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalVariableBehavior.GLOBAL);
+</pre>
+
+
+* JSR223
+<pre name="java">
+System.setProperty("org.jruby.embed.localvariable.behavior", "global");
+ScriptEngineManager manager = new ScriptEngineManager();
+ScriptEngine engine = manager.getEngineByName("jruby");
+</pre>
+
+* BSF
+BSF can choose only BSF type.
+
+==== BSF Local Variable Behavior ====
+
+Default for BSF. Local and global variables are available to share between Java and Ruby. Variable names doesn’t start with “$” no matter what the variable types are. Since BSF has a method defined for sharing local variables, it doesn’t confuse. However, core and JSR223 will confuse variables, so don’t use this type for them.<br/>
+
+
+* Core/JSR223
+Don’t choose this behavior.
+
+*BSF
+<pre name="java">
+BSFManager.registerScriptingEngine("jruby", "org.jruby.embed.bsf.JRubyEngine", new String[] {"rb"});
+BSFManager manager = new BSFManager();
+</pre>
+or
+<pre name="java">
+System.setProperty("org.jruby.embed.localvariable.behavior", "bsf");
+BSFManager.registerScriptingEngine("jruby", "org.jruby.embed.bsf.JRubyEngine", new String[] {"rb"});
+BSFManager manager = new BSFManager();
+</pre>
+
+
+=== CompileMode ===
+
+Scope: Per Container<br/>
+Property Name: org.jruby.embed.compilemode<br/>
+Value: off (default), jit, or force
+
+JRuby has jit and force options to compile Ruby scripts. This configuration provides users a way of setting a compile mode. When jit or force is specified, only a global variable can be shared between Ruby and Java.
+
+This option is not for pre-compiled Ruby scripts. Ruby2java [http://kenai.com/projects/ruby2java] generated Java classes are not executable on current JRuby Embed.
+
+* Core
+<pre name="java">
+ScriptingContainer container = new ScriptingContainer();
+container.getProvider().getRubyInstanceConfig().setCompileMode(CompileMode.JIT);
+</pre>
+
+
+*JSR223/BSF
+<pre name="java">
+System.setProperty("org.jruby.embed.compilemode", "jit");
+</pre>
+
+
+=== Ruby Version ===
+
+Scope: Per Container<br/>
+Property Name: org.jruby.embed.compat.version<br/>
+Value: jruby19, JRuby1_9, ruby1.9….matches [jJ]?(r|R)(u|U)(b|B)(y|Y)1[\\._]?9
+
+Default Ruby version is 1.8. When you want to use Ruby 1.9 on JRuby Embed, you need to specify the version. In case of Embed Core, the method to set the version is available to use. JSR223 needs system property to recognize the version. BSF judges the registered name. If the system property name or registered name matches the regular expression, [jJ]?(r|R)(u|U)(b|B)(y|Y)1[\\._]?9, Ruby 1.9 is chosen to run scripts. If no system property is there, or matching fails, Ruby 1.8 is chosen.
+
+* Core
+<pre name="java">
+ScriptingContainer container = new ScriptingContainer();    container.getProvider().getRubyInstanceConfig().setCompatVersion(CompatVersion.RUBY1_9);
+</pre>
+
+* JSR223
+<pre name="java">
+System.setProperty("org.jruby.embed.compat.version", "JRuby1.9");
+JRubyScriptEngineManager manager = new JRubyScriptEngineManager();
+JRubyEngine engine = (JRubyEngine) manager.getEngineByName("jruby");
+</pre>
+
+*BSF
+<pre name="java">
+BSFManager.registerScriptingEngine("jruby19", "org.jruby.embed.bsf.JRubyEngine", new String[] {"rb"});
+BSFManager manager = new BSFManager();
+manager.exec("jruby19", "ruby/block-param-scope.rb", 0, 0, PathType.CLASSPATH);
+</pre>
+
+
+=== Line Number ===
+
+Scope: Per Evaluation<br/>
+Attribute Name: org.jruby.embed.linenumber<br/>
+Value: 1, 2, 3,,,, (integer)
+
+Embed Core and BSF have a method argument to set a line number to display for parse errors and backtracks, but JSR223 doesn’t. When you want to specify a line number on JSR223, use the attribute.
+
+
+* Core
+<pre name="java">
+private final String script =
+            "puts \"Hello World.\"\n" +
+            "puts \"Error is here.";
+ScriptingContainer container = new ScriptingContainer();
+EvalUnit unit = container.parse(script, 1);
+Object ret = unit.run();</pre>
+
+* JSR223
+<pre name="java">
+import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+import org.jruby.embed.jsr223.JRubyScriptEngineManager;
+
+public class LineNumberSample {
+    private final String script =
+            "puts \"Hello World.\"\n" +
+            "puts \"Error is here.";
+
+    private LineNumberSample() throws ScriptException {
+        JRubyScriptEngineManager manager = new JRubyScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("jruby");
+        try {
+            engine.eval(script);    // Since no line number is given, 0 is applied to.
+        } catch (Exception e) {
+            ;
+        }
+        try {
+            engine.getContext().setAttribute("org.jruby.embed.linenumber", 1, ScriptContext.ENGINE_SCOPE);
+            engine.eval(script);
+        } catch (Exception e) {
+            ;
+        }
+        try {
+            engine.getContext().setAttribute("org.jruby.embed.linenumber", 2, ScriptContext.ENGINE_SCOPE);
+            engine.eval(script);
+        } catch (Exception e) {
+            ;
+        }
+    }
+
+    public static void main(String[] args)
+            throws ScriptException {
+        new LineNumberSample();
+    }
+}</pre>
+
+Outputs:<pre>
+:1: <script>:2: unterminated string meets end of file (SyntaxError)
+:1: <script>:3: unterminated string meets end of file (SyntaxError)
+:1: <script>:4: unterminated string meets end of file (SyntaxError)
+</pre>
+
+* BSF
+<pre name="java">
+private final String script =
+            "puts \"Hello World.\"\n" +
+            "puts \"Error is here.";
+BSFManager.registerScriptingEngine("jruby", "org.jruby.embed.bsf.JRubyEngine", new String[] {"rb"});
+BSFManager manager = new BSFManager();
+manager.exec("jruby", “<script>”, 1, 0, script);</pre>
+
+
+=== Other Ruby Runtime Configurations ===
+
+When you want to configure Ruby runtime more than explained here, you can use methods of org.jruby.RubyInstanceConfig on Embed Core. Get the reference of RubyInstanceConfig by ScriptingContainer.getProvider().getRubyInstanceConfig() and set values in it before you set/get key-value pairs, get runtime, or parse/eval/runScriptlet. However, JSR223/BSF can't do more configurations. If you want some configurations to work, file it in the issue tracker.
+
+
+== Red Bridge Code Examples ==
+See [[RedBridgeExamples]] page.
+
+
+== Red Bridge Servlet Examples ==
+See [[RedBrigeServletExamples]] page.
+
+= Previous Embedding JRuby Page=
+[[JavaIntegration|Embedding JRuby]]
