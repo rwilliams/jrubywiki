@@ -1,14 +1,13 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+<h1>Walkthroughs and Tutorials</h1>
+This page shows a list of Walkthroughs and Tutorials for JRuby. Feel free to add links to your favorites!<br/><br/>
 __TOC__
-
-Here's a list of Walkthroughs and Tutorials for JRuby. Feel free to add links to your favorites!
-
 ==JRuby (General)==
 * [http://java.sun.com/developer/technicalArticles/scripting/jruby/ JRuby and the Java Platform] (Sun Microsystems)
 * [http://blogs.sun.com/coolstuff/entry/using_java_classes_in_jruby Using Java Classes in JRuby]
 * [http://www.builderau.com.au/program/java/soa/JRuby-An-Introduction/0,339024620,339283504,00.htm JRuby - An Introduction (Builder AU)]
 * [http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html Ruby for the Java world] (JavaWorld)
 * [http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html Scripting on the Java platform] (JavaWorld)
-
 ==JRuby on Rails==
 * [http://blogs.sun.com/arungupta/entry/jruby_on_rails_netbeans_and JRuby on Rails, NetBeans 6, and GlassFish V2 Simplified Steps] (Arun Gupta)
 * [http://netbeans.tv/technologies/First-JRuby-app-in-GlassFish-86/ First JRuby app in GlassFish Screencast] (Arun Gupta)
@@ -23,7 +22,6 @@ Here's a list of Walkthroughs and Tutorials for JRuby. Feel free to add links to
 * [http://localbiz404.blogspot.com/2007/09/jruby-101-on-edge-rails-1237605.html JRuby 1.0.1 on Edge Rails 1.2.3.7605] (Adam Payne)
 * [http://fuzzypanic.blogspot.com/2008/01/jruby-war-packaging.html JRuby .war packaging (Warbler) for Rails 2.0] (Mike Herrick)
 * [http://devmull.blogspot.com/2008/02/neat-jruby-soap-calls.html Neat JRuby SOAP calls using Mule ]  (Steven Shingler)
-
 ==NetBeans Ruby Support==
 * [http://www.netbeans.org/kb/61/ruby/java-ruby.html Using Java Libraries in Rails Applications]
 * [http://www.apress.com/book/view/1430216360 NetBeans Ruby and Rails IDE with JRuby]
@@ -31,13 +29,11 @@ Here's a list of Walkthroughs and Tutorials for JRuby. Feel free to add links to
 * [http://blogs.sun.com/arungupta/entry/totd_7_switch_between_jruby Switching between JRuby and CRuby in NetBeans Ruby Support] (Arun Gupta)
 * [http://netbeans.tv/technologies/Tor-Norbye-uses-NetBeans-Ruby-Editor-Code-Completion-169/ NetBeans Code Completion Demo Screencast] (Tor Norbye)
 * [http://netbeans.tv/technologies/Tor-Norbye-uses-hints-and-quick-fixes-in-NetBeans-Ruby-Editor-170/ NetBeans Hints and Quick Fixes Screencast] (Tor Norbye)
-
 ==Ola Bini's Tutorials==
 ''these need to be updated for JRuby 1.1''
 * [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+1+-+Getting+Started Part 1 - Getting Started]
 * [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+1.5+-+Using+JIRB+to+Check+Java+Behaviour Part 1.5 - Using JIRB to Check Java Behaviour]
 * [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+2+-+Going+Camping Part 2 - Going Camping]
-
 ==JSR 223 scripting==
 * [http://java.sun.com/developer/technicalArticles/J2SE/Desktop/scripting/ Scripting for the Java Platform] (Sun Microsystems)
 * [http://gceclub.sun.com.cn/java_one_online/2006/TS-1382/TS-1382.pdf Scripting for the Java Platform (presentation at JavaOne 2006)] (Sun Microsystems)
