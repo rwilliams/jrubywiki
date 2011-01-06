@@ -1,5 +1,5 @@
 The post-1.0 roadmap is currently being firmed up.
 
-See the following links for thoughts on where JRuby is headed post-1.0: [http://headius.blogspot.com/2007/06/jruby-10-released.html], [http://blog.nicksieger.com/articles/2007/06/10/jruby-1-0], [http://www.artima.com/forums/flat.jsp?forum=276&thread=208264].  You can also join the [[Mailing Lists]] and participate in the discussion!
+See the following links for thoughts on where JRuby is headed post-1.0: [http://headius.blogspot.com/2007/06/jruby-10-released.html 1], [http://blog.nicksieger.com/articles/2007/06/10/jruby-1-0 2], [http://www.artima.com/forums/flat.jsp?forum=276&thread=208264 3].  You can also join the [[Mailing Lists]] and participate in the discussion!
 
 The [[Roadmap (January 2007 - June 2007)|archived 1.0 roadmap is here]].
