@@ -3,18 +3,15 @@
 !JRuby Version
 !jruby-openssl
 !net-ssh
-!Note
 |-
-|1.1.6
-|0.3
-|2.0.4
-|
+| 1.1.6
+| 0.3
+| 2.0.4
 |-
-|1.2.0
-|0.3
-|2.0.4
-| 
-}
+| 1.2.0
+| 0.3
+| 2.0.4
+|}
 
 
 ==Installing old gems
