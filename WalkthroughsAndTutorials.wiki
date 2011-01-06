@@ -1,0 +1,46 @@
+__TOC__
+
+Here's a list of Walkthroughs and Tutorials for JRuby. Feel free to add links to your favorites!
+
+==JRuby (General)==
+* [http://java.sun.com/developer/technicalArticles/scripting/jruby/ JRuby and the Java Platform] (Sun Microsystems)
+* [http://blogs.sun.com/coolstuff/entry/using_java_classes_in_jruby Using Java Classes in JRuby]
+* [http://www.builderau.com.au/program/java/soa/JRuby-An-Introduction/0,339024620,339283504,00.htm JRuby - An Introduction (Builder AU)]
+* [http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html Ruby for the Java world] (JavaWorld)
+* [http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html Scripting on the Java platform] (JavaWorld)
+
+==JRuby on Rails==
+* [http://blogs.sun.com/arungupta/entry/jruby_on_rails_netbeans_and JRuby on Rails, NetBeans 6, and GlassFish V2 Simplified Steps] (Arun Gupta)
+* [http://netbeans.tv/technologies/First-JRuby-app-in-GlassFish-86/ First JRuby app in GlassFish Screencast] (Arun Gupta)
+* [http://blog.louspringer.com/2007/09/11/using-jdbc-connection-pools-with-netbeans-6-jruby-ror-mysql-and-glassfish/ Setting up JRuby on Rails in NetBeans 6 with MySQL, GlassFish V2, and JNDI Connection Pooling] (Lou Springer)
+* [http://blogs.sun.com/arungupta/entry/totd_9_using_jdbc_connection Using JNDI Connection Pool from GlassFish in Rails Apps] (Arun Gupta)
+* [http://ias.springbook.playmaru.net/pages/336101 JRuby in Action (Korean)] (Changshin Lee)
+* [http://www.digitalsanctum.com/2007/08/01/connecting-to-oracle-from-rails/ Connecting to Oracle from Rails] (Shane Witbeck)
+* [http://www.digitalsanctum.com/2007/07/25/calling-rubys-activerecord-from-java-using-the-bean-scripting-framework/ Calling Ruby’s ActiveRecord from Java Using the Bean Scripting Framework] (Shane Witbeck)
+* [http://www.digitalsanctum.com/2007/07/24/jruby-deploying-a-rails-application-on-tomcat/ Deploying a Rails Application on Tomcat] (Shane Witbeck)
+* [http://www.digitalsanctum.com/2007/07/23/jruby-an-introduction-and-install-guide/ JRuby: An Introduction and Install Guide] (Shane Witbeck)
+* [http://www.digitalsanctum.com/jruby JRuby and Spring Resources] (Shane Witbeck)
+* [http://localbiz404.blogspot.com/2007/09/jruby-101-on-edge-rails-1237605.html JRuby 1.0.1 on Edge Rails 1.2.3.7605] (Adam Payne)
+* [http://fuzzypanic.blogspot.com/2008/01/jruby-war-packaging.html JRuby .war packaging (Warbler) for Rails 2.0] (Mike Herrick)
+* [http://devmull.blogspot.com/2008/02/neat-jruby-soap-calls.html Neat JRuby SOAP calls using Mule ]  (Steven Shingler)
+
+==NetBeans Ruby Support==
+* [http://blogs.sun.com/arungupta/entry/totd_7_switch_between_jruby Switching between JRuby and CRuby in NetBeans Ruby Support] (Arun Gupta)
+* [http://netbeans.tv/technologies/Tor-Norbye-uses-NetBeans-Ruby-Editor-Code-Completion-169/ NetBeans Code Completion Demo Screencast] (Tor Norbye)
+* [http://netbeans.tv/technologies/Tor-Norbye-uses-hints-and-quick-fixes-in-NetBeans-Ruby-Editor-170/ NetBeans Hints and Quick Fixes Screencast] (Tor Norbye)
+
+==Ola Bini's Tutorials==
+''these need to be updated for JRuby 1.1''
+* [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+1+-+Getting+Started Part 1 - Getting Started]
+* [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+1.5+-+Using+JIRB+to+Check+Java+Behaviour Part 1.5 - Using JIRB to Check Java Behaviour]
+* [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+2+-+Going+Camping Part 2 - Going Camping]
+
+==JSR 223 scripting==
+* [http://java.sun.com/developer/technicalArticles/J2SE/Desktop/scripting/ Scripting for the Java Platform] (Sun Microsystems)
+* [http://gceclub.sun.com.cn/java_one_online/2006/TS-1382/TS-1382.pdf Scripting for the Java Platform (presentation at JavaOne 2006)] (Sun Microsystems)
+* [http://www.ibm.com/developerworks/java/library/j-javascripting1/ Invoke dynamic languages dynamically, Part 1: Introducing the Java scripting API] (developerWorks)
+* [http://www.ibm.com/developerworks/java/library/j-javascripting2/ Invoke dynamic languages dynamically, Part 2: Find, execute, and change scripts at run time] (developerWorks)
+* [http://www.ociweb.com/jnb/jnbFeb2006.html Scripting Support in Mustang] (OCI)
+* [http://www.ociweb.com/jnb/jnbJan2007.html Embedding DSLs in Java using JRuby] (OCI)
+* [http://www.ociweb.com/jnb/jnbApr2007.html JRuby] (OCI)
+* [http://yokolet.blogspot.com/search/label/tips%20for%20JRuby%20engine Tips for JRuby engine] (Yoko Harada)
