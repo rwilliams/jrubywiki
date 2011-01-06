@@ -1,5 +1,5 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#Glassfish_v3_Deployment|&raquo; JRuby on Rails: Glassfish V3 Deployment]]
-<h1>JRuby and Glassfish</h1>
+<h1>JRuby on Rails in Glassfish</h1>
 [https://glassfish.dev.java.net Glassfish] is an open source Java EE 5 application server. Java EE is a long tested deployment environment and by combining the benefits of GlassFish with JRuby, we should be able to provide the best deployment environment for Rails applications. Here are some of the benefits of using GlassFish as the deployment environment for JRuby on Rails applications :
 * Use the time tested Java EE deployment platform
 * Avoid the complex Mongrel based deployment environment that one has to use to deploy Rails application.
