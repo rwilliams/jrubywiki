@@ -1,0 +1,15 @@
+==Installing Hpricot==
+The current version of Hpricot found through RubyGems should now work with JRuby trunk.
+
+To use Hpricot with JRuby 1.3+ you will need to run these commands
+
+ jruby -S gem install hpricot
+
+You should see something like this
+
+ JRuby limited openssl loaded. gem install jruby-openssl for full support.
+ http://wiki.jruby.org/wiki/JRuby_Builtin_OpenSSL
+ Successfully installed hpricot-0.6.161-java
+ 1 gem installed
+ Installing ri documentation for hpricot-0.6.161-java...
+ Installing RDoc documentation for hpricot-0.6.161-java...
