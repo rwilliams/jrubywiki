@@ -6,7 +6,9 @@ __TOC__
 
 
 ===Tuning the compiler===
-JRuby's compiler can be enabled in JIT mode or specified to run before execution. See [[JRuby Compiler]] for more details.
+JRuby's compiler can be enabled in JIT mode or specified to run before execution. 
+* See [[JRuby Compiler]] for more details.
+* For a list of compiler runtime settings, [[#Compiler_Runtime_Properties|Compiler Runtime Properties]].
 
 ===Disabling ObjectSpace===
 ObjectSpace has been disabled by default since version 1.1b1.  To reenable ObjectSpace, use the <tt>+O</tt> flag. The following description applies tor previous versions of JRuby.
@@ -38,7 +40,9 @@ To enable thread pooling, set the Java system property <tt>jruby.thread.pooling<
 
  jruby -J-Djruby.thread.pooling=true myscript.rb
 
-===JRuby's Fast Mode===
+For a list of all the thread pooling parameters, see [[#Thread_Pooling_Runtime_Properties|Thread Pooling Runtime Properties]].
+
+===Using JRuby's Fast Mode===
 JRuby 1.2 and later ships with a <tt>--fast</tt> flag that turns on a number of runtime features to provide optimal performance without breaking Ruby features needed by common applications. It enables the following modes:
 
 * '''Frameless compilation:''' Avoids using heap-based frames to track cross-call data like <tt>backref</tt>, <tt>lastline</tt>, and <tt>visibility</tt> when it's not needed.
@@ -53,7 +57,12 @@ To make these settings ''safe'', a few assumptions are made:
 * Rigid adherence to Ruby's backtrace format and content must not be a requirement. Backtraces will generally include both Ruby and Java calls, and are formatted somewhat differently. The information is still there, but it can be a bit trickier to interpret. This will be cleaned up in future revisions.
 * Because all code is compiled before execution, it should be expected that startup performance degrades when using <tt>--fast</tt>. 
 
-===Using JVM Parameters===
+===Java Virtual Machine (JVM) Settings===
+All JVM runtime settings use the <tt>-J</tt> option, followed by the specific JVM setting. For example:
+* Heap space settings: <tt>jruby -J-X&lt;heap-space-setting&gt;</tt>
+* JRuby runtime settings: <tt>jruby -J-D&lt;runtime-setting&gt;</tt>
+
+The settings described in the following sections are all JVM settings.
 
 ====Using the Java Server Virtual Machine====
 JRuby benefits greatly from running under the Java '''server''' VM, which trades startup and early run performance for a much higher level of long term optimization. JRuby will use the server VM of whatever Java version you're running if you specifically pass the <tt>-server</tt> flag to the underlying JVM as follows:
@@ -64,7 +73,7 @@ There is also a convenience flag for JRuby directly:
 
  jruby --server myscript.rb
 
-Combining use of the server VM with use ofthe compiler and disabling ObjectSpace generally results in the fastest performance.
+Combining use of the server VM with use of the compiler and disabling ObjectSpace generally results in the fastest performance.
 
 ====Setting Heap Space Parameters for JRuby====
 '''Maximum heap space'''
@@ -83,8 +92,8 @@ First some suggestions:
 * Set the <tt>-Xmn</tt> value lower than the <tt>-Xmx</tt> value. 
   jruby -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server
 
-===Setting JRuby Runtime Properties===
-To see all the runtime properties, enter the following command in the Command window or Terminal window:
+====Setting JRuby Runtime Properties====
+To see all the Java system runtime properties for JRuby, enter the following command in the Command window or Terminal window:
  jruby --properties
 
 All these properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line. For example:
