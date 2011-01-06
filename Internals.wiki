@@ -1,3 +1,5 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]] 
+=Design: Internals=
 This page is dedicated to the Internals of JRuby and specifications for how we behave:
 
 * [[Compiler Packaging and Pathing]]
