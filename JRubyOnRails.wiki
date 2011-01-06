@@ -24,7 +24,7 @@ If you don't use a traditional Ruby application server like [http://mongrel.ruby
 * [[JRuby on Rails on Jetty|Jetty]]
 * [[JRuby on Rails on WebSphere|WebSphere]]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J]
-* [[JRuby on Rails on BEA Weblogic|Weblogic]]
+* [[JRuby on Rails on BEA Weblogic|Oracle WebLogic]]
 * [http://oddthesis.org/theses/jboss-rails JBoss]
 * [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war JWS 7]
 
