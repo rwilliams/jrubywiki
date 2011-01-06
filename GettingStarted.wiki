@@ -44,6 +44,7 @@ you'll need to add <tt>C:\JRuby\jruby1.3.1\bin</tt> to the end of your <tt>%PATH
 # Click OK at the bottom of the Environment Variables window.
 # Click OK to close the System Properties window.
 
+<span id="Did_It_Work"></span>
 ==Did It Work?==
 To test whether JRuby installed correctly, open a command window or terminal window and run:
   jruby -v
