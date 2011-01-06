@@ -37,4 +37,4 @@
 * Send kmeyer email about Redhat/Fedora packaging [not for RCs]
 * if new release is final then also update '''version.jruby''' property in '''src/org/jruby/jruby.properties''' in '''trunk''' to reflect new dev version. 
 ** Example: '''1.1.4-dev'''
-* update [[Getting_Started]] to point to the latest release.
+* update [[GettingStarted]] to point to the latest release [not for RCs].
