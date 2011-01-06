@@ -1,6 +1,6 @@
 ==ActiveRecord-JDBC Database Support==
 
-ActiveRecord-JDBC 0.8.1 supports normal AR operations and basic migrations for the following databases:
+ActiveRecord-JDBC 0.9.1 supports normal AR operations and basic migrations for the following databases:
 
 * SQLite3
 * MySQL
@@ -51,7 +51,7 @@ You should see something like the following:
       #SQLite3
       development:
         adapter: jdbcsqlite3
-        url: jdbc:sqlite:test.db # path to sqlite3 dbfile
+        database: db/testapp_development.db
 
       #MYSQL
       development:
@@ -78,25 +78,23 @@ You should see something like the following:
         username: myUser
         password: myPass        
 
-9. Create a testapp_development database, grants for testapp user, and widgets table in MySQL (use migrations if you like)
+8. Create a testapp_development database, grants for testapp user, and widgets table in MySQL (use migrations if you like)
 
-10. Scaffold Widgets CRUD
+9. Scaffold Widgets CRUD
 
       jruby script/generate scaffold widget
 
-11. Start up the server
+10. Start up the server
 
       jruby script/server
 
-12. In your browser, go to http://localhost:3000/widgets
+11. In your browser, go to http://localhost:3000/widgets
 
 And that's about it. You've got a scaffolded widget page running in JRuby over JDBC to MySQL.
 
 ==Troubleshooting==
 
-* ActiveRecord-JDBC does not install: I had some trouble myself; I think something's up with either RubyForge or with our released gem. You can always download ActiveRecord-JDBC and install it locally, of course.
-* scaffold fails with an error about "nonexistent jdbc adapter": Ensure you've added the require line to environment.rb (hopefully this will be unnecessary in the future)
-* scaffold and script/server terminate without running: Make sure you've successfully installed the ActiveRecord-JDBC gem. The additional require in environment.rb causes Rails scripts to die silently if there are any errors.
+* scaffold fails with an error about "nonexistent jdbc adapter" OR scaffold and script/server terminate without running: Make sure you've successfully installed the activerecord-jdbc-adapter gem.
 * scaffold fails with the error "cannot convert NilClass into String": Make sure you've correctly specified the driver and url lines in database.yml
 * "unable to choose type from ... for decimal": postgresql and oracle don't report a type for decimal. Fixed in ActiveRecord-JDBC trunk.
 * If you are using Microsoft SQL Server and your migration do not work or you data is all String instead of the proper type, check this issue [http://jira.codehaus.org/browse/JRUBY-1352 JRUBY-1352] for a workaround.
