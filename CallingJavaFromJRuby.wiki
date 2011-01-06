@@ -429,28 +429,56 @@ In previous versions of JRuby, the same thing can be accomplised with reflection
 
 Here is another example of calling the <tt>ArrayList.add</tt> method with <tt>java_send</tt>:
 
+ 
  import java.util.ArrayList
  list = ArrayList.new
  list.java_send :add, [Java::int, java.lang.Object], 0, 'foo'
  puts list.java_send :toString # => "[foo]"
+ 
 
 Note the second argument, which is an array of types indicating the exact method signature desired. This is useful for disambiguating methods that are overloaded on similar types such as <tt>int</tt> and <tt>long</tt>.
 
 === Bound and Unbound Java methods with <tt>java_method</tt> ===
 <tt>java_send</tt> relies on reflection and may lead to poor performance in some cases. Each time it is called, the desired method must be relocated. With the <tt>java_method</tt> method you can get a reference to any overloaded Java method as a Ruby Method object:
 
+ 
  # get a bound Method based on the add(int, Object) method from ArrayList
  add = list.java_method :add, [Java::int, java.lang.Object]
  add.call(0, 'foo')
+ 
 
 Similarly, an Unbound method object can be retrieved:
 
+ 
  # get an UnboundMethod from the ArrayList class:
  toString = ArrayList.java_method :toString
  toString.bind(list).call # => [foo, foo]
+ 
 
 === Java classes can't inherit from a JRuby class ===
 Hopefully this feature will be added in the planned re-write of the Java integration layer in a future release of JRuby.
+
+== Synchronization in JRuby ==
+When interacting with Java APIs from JRuby, it is occasionally necessary to synchronize on an object for thread safety. In JRuby, a <tt>synchronize</tt> method is provided on every wrapped Java object to support this functionality. For example, the following Java code:
+
+ 
+ synchronized(obj) {
+     obj.wait(1000); 
+ }
+ 
+
+is implement like this in Ruby:
+
+ 
+ obj.synchronized do
+     obj.wait 1000
+ end
+ 
+The expression evaluates to the result of the block, e.g.,
+
+ 
+ obj.synchronized { 99 }  # => 99
+ 
 
 == Material from Before JRuby 1.0 ==
 One powerful feature of JRuby is its ability to invoke the classes of the Java Platform. The following example uses JRuby 0.9.2 to create a Java <tt>JFrame</tt> with a <tt>JLabel</tt>. 
