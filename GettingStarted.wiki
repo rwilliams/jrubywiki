@@ -3,6 +3,7 @@ To get JRuby on your system, you can either install a binary file for your syste
 __TOC__
 ==Installing a JRuby Binary Fille==
 Getting up and running with JRuby is very easy. You can either use your operating system's package manager, or if you're on Windows or your package manager doesn't include JRuby, you can use a three-step process to download, extract, and add the directory to your PATH environment variable. 
+
 ===Install With Package Manager===
 The easiest way to get started with JRuby is to use your operating system's package manager. 
 *'''MacPorts:''' <tt>sudo port install jruby</tt>
@@ -93,6 +94,8 @@ To run any other ruby program by using JRuby, run it using the <tt>jruby</tt> co
   jruby script/server
   jruby my_ruby_script.rb
 
+''See Also:''' [[JRubyCommandLineParameters|JRuby Command Line Parameters]].
+
 == jirb: Ruby Interactive Console ==
 One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: <tt>'''jirb'''</tt>. In C Ruby this utility is simply called <tt>irb</tt>.
 
@@ -116,46 +119,6 @@ Authenticated:<br/>
 
 See also [[Troubleshooting]].
 
-==JRuby Command Parameters==
-
-  $ jruby --help
-  Usage: jruby [switches] [--] [programfile] [arguments]
-    -0[octal]       specify record separator (, if no argument)
-    -a              autosplit mode with -n or -p (splits $_ into $F)
-    -b              benchmark mode, times the script execution
-    -c              check syntax only
-    -Cdirectory     cd to directory, before executing your script
-    -d              set debugging flags (set $DEBUG to true)
-    -e 'command'    one line of script. Several -e's allowed. Omit [programfile]
-    -Fpattern       split() pattern for autosplit (-a)
-    -Idirectory     specify $LOAD_PATH directory (may be used more than once)
-    -J[java option] pass an option on to the JVM (e.g. -J-Xmx512m)
-                      use --properties to list JRuby properties
-                      run 'java -help' for a list of other Java options
-    -Kkcode         specifies code-set (e.g. -Ku for Unicode
-    -l              enable line ending processing
-    -n              assume 'while gets(); ... end' loop around your script
-    -p              assume loop like -n but print line also like sed
-    -rlibrary       require the library, before executing your script
-    -s              enable some switch parsing for switches after script name
-    -S              look for the script in bin or using PATH environment variable
-    -T[level]       turn on tainting checks
-    -v              print version number, then turn on verbose mode
-    -w              turn warnings on for your script
-    -W[level]       set warning level; 0=silence, 1=medium, 2=verbose (default)
-    -X[option]      enable extended option (omit option to list)
-    --copyright     print the copyright
-    --debug         sets the execution mode most suitable for debugger functionality
-    --jdb           runs JRuby process under JDB
-    --properties    List all configuration Java properties (pass -J-Dproperty=value)
-    --sample        run with profiling using the JVM's sampling profiler
-    --client        use the non-optimizing "client" JVM (improves startup; default)
-    --server        use the optimizing "server" JVM (improves perf)
-    --manage        enable remote JMX management and monitoring of the VM and JRuby
-    --1.8           specify Ruby 1.8.x compatibility (default)
-    --1.9           specify Ruby 1.9.x compatibility
-    --bytecode      show the JVM bytecode produced by compiling specified code
-    --version       print the version  Usage: jruby [switches] [--] [programfile] [arguments]
 
 ==Benchmarking==
 
