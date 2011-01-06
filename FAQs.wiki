@@ -23,6 +23,31 @@ To run the script directly, you need to set the "x" flag on it:
 You can now start your script with 
  ./your_script.rb
 
+You can also try the <tt>jruby-launcher gem</tt>, which installs a native <tt>jruby</tt> program.
+  jruby -S gem install jruby-launcher
+
+Now you can place the full path to JRuby in the shebang line, along with parameters if you wish:
+  #!/usr/local/jruby/bin/jruby -w
+
+====How can I increase the heap/memory size when launching a sub-JRuby?====
+
+You can try passing the usual <tt>-J-Xmx[size]</tt> to the sub-JRuby. But beware:
+
+  $ jruby -e '%x{jruby -J-Xmx256m -e true}'
+  warning: -J-Xmx256m argument ignored (launched in same VM?)
+
+Historically, JRuby has been very slow to start up, so we have tried to recognize some commands that look like they may be launching more Ruby programs and we start those in the same JVM. In that case, you actually can't adjust the heap.
+
+We have a special system property that controls this behavior VM-wide:
+    jruby.launch.inproc=true|false
+       Set in-process launching of e.g. system('ruby ...'). Default is true
+
+And you can also control this from Ruby code for the current JRuby runtime:
+  require 'jruby'
+  JRuby.runtime.instance_config.run_ruby_in_process = false
+
+With the <tt>inproc</tt> setting disabled, you can now pass <tt>-J</tt> arguments to the sub-JRuby as it will be launching a new JVM.
+
 ==General==
 ====Where can I find more information about the Ruby language?====
 [http://www.ruby-lang.org The Ruby Language Home Page] has links to a wide range of resources for learning about Ruby, downloading releases of the C implementation of Ruby, documentation on Ruby, and community outlets for talking about Ruby.
