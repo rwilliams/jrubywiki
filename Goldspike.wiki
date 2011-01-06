@@ -231,7 +231,7 @@ I can't think of a circumstance when you wouldn't want to exclude these files fr
 
 ''After running warbler and looking at the resulting web.xml I was able to infer the following - please add or correct. Thx''
 
-Within your web.xml you can set the following to tailor the WAR structure to your liking. Set inside <nowiki><web-app></nowiki> like:
+Within your web.xml you can set the following to tailor the WAR structure to your liking. Set inside &lt;web-app&gt; like:
 
  <context-param>
  	<param-name>jruby.standalone</param-name>
