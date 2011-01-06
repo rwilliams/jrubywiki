@@ -19,8 +19,8 @@ If you're on Windows or if your package manager doesn't include JRuby, you'll ne
 #* If you're on Microsoft Windows, grab the most recent <tt>jruby-bin-X.Y.Z.zip</tt> file.
 # Extract JRuby into a directory.
 # Add that directory's bin subdirectory to the ''end'' of your <tt>path</tt> environment variable.
-#* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and the JRuby path might be <tt>/opt/jruby1.3/bin</tt>.
-#* On Microsoft Windows, the variable is '''%PATH%''', and the JRuby path might be <tt>C:\JRuby\jruby-1.3\bin</tt>.<br/> Also, make sure your <tt>JAVA_HOME</tt> environment variable points to your Java installation. For example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>
+#* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and the JRuby path might be <tt>/opt/jruby1.3.0/bin</tt>.
+#* On Microsoft Windows, the variable is '''%PATH%''', and the JRuby path might be <tt>C:\JRuby\jruby-1.3.0\bin</tt>.<br/> Also, make sure your <tt>JAVA_HOME</tt> environment variable points to your Java installation. For example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>
 
 '''Note:''' On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby with wrong Java]].
 
@@ -37,12 +37,12 @@ On Mac OS X and Linux, you can add to the <tt>PATH</tt> variable with the export
 
 '''Microsoft Windows XP Example'''
 
-Once you've downloaded or built a JRuby installation and it is located in the directory <tt>C:\JRuby\jruby1.3\</tt>,
-you'll need to add <tt>C:\JRuby\jruby1.3\bin</tt> to the end of your <tt>%PATH%</tt> environment variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
+Once you've downloaded or built a JRuby installation and it is located in the directory <tt>C:\JRuby\jruby1.3.0\</tt>,
+you'll need to add <tt>C:\JRuby\jruby1.3.0\bin</tt> to the end of your <tt>%PATH%</tt> environment variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
 # In Windows XP, choose Start > Control Panel > System to open the System Properties window.
 # Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
 # In the System Variables section, scroll down to <tt>Path</tt> and click Edit.
-# Add the path to the JRuby bin directory to the end of the path. For example, add:<br/>;<tt>C:\JRuby\jruby1.3\bin</tt>
+# Add the path to the JRuby bin directory to the end of the path. For example, add:<br/>;<tt>C:\JRuby\jruby1.3.0\bin</tt>
 # Look for <tt>JAVA_HOME</tt> in both the User Variables section and the System Variables section and make sure it points to your current Java installation. If necessary, create a new JAVA_HOME variable as follows:
 ## Under the User Variables section, click New.
 ##* '''Variable name:''' enter <tt>JAVA_HOME</tt>
