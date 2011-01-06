@@ -583,4 +583,5 @@ The expression evaluates to the result of the block, e.g.,
 * [http://jtestr.codehaus.org/ JtestR] A testing framework for Java based on JRuby.
 * [http://github.com/leandrosilva/sparrow Sparrow] A JMS client for messaging based on JRuby.
 * [http://www.flashpapers.com/ Term Papers]
+* [http://www.startpottytraining.com Potty Training]
 
