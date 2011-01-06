@@ -7,7 +7,7 @@
 ** Example: '''1.4RC1'''
 * Update maven poms: jruby -S rake maven:updatepoms VERSION={newversion}
 * On release branch ('''jruby-X_Y'''):
-* Make tag using git tag: '''git tag X.Y'''
+* Make tag using git tag: '''git tag X.Y'''  (Note: git push --tags otherwise tag will just be in your local repo)
 * Check out clean clone of release branch: cd .. && rm -rf release && git clone jruby release && cd release (for example)
 * Set your java version to Java 5 for building the release.
 * Run '''ant dist''' to generate source and binary distribution files, jruby-complete jar, and MD5/SHA checksum files.
