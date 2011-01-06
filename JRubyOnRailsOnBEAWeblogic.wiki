@@ -1,5 +1,9 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#War_File_Deployment|&raquo; JRuby on Rails: War File Deployment]]
 <h1> JRuby on Rails on Oracle WebLogic</h1>
+This page describes how to use Oracle WebLogic 10 with JRuby and Rails.
+
+'''Note:''' ''We could use some help verifying the information on this page with later versions of [http://www.oracle.com/appserver/appserver_family.html Oracle WebLogic], such as version 11g.''
+<br/><br/>
 
 __TOC__
 
