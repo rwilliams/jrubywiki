@@ -453,6 +453,12 @@ Sometimes a Java library will need a fixed-length array, say for example a byte 
 
   io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
 
+=== Gotcha ===
+
+Note that currently you cannot call java methods from within a ruby class that inherits from a java class, without calling
+  super
+first, or it results in a stack overflow http://www.ruby-forum.com/topic/217475#new
+
 == Referencing a <tt>java.lang.Class</tt> object ==
 If you call a Java class from JRuby and need to pass a Java class as an argument, if you use this form:
 
