@@ -1,0 +1,87 @@
+Packaging and pathing specification for JRuby compiler.
+
+Given:
+
+* a baz.rb file exists in some directory foo/bar, which exists under user's home directory
+
+Requirements
+
+* Compilation of baz.rb should produce baz.class in the same location
+* Java's requirement for unique class names means baz.class must have a unique class name
+* baz.class may be executed from locations other than from which compiled
+
+So assume baz.class contains a class named foo.bar.baz, existing under &lt;home&gt;/foo/bar.
+
+Load path contains &lt;home&gt;
+
+Executing "require 'foo/bar/baz'" should pick up the class file and load it.
+
+Executing "jruby foo/bar/baz.class" should execute it correctly
+
+Executing "jruby -e "require 'baz'" from within &lt;home&gt;/foo/bar should pick it up correctly.
+
+Load path locations are typically expected by the source; requires and such depend on them being correct. If load path points at &lt;home&gt; normally, pointing it at &lt;home&gt;/foo instead would likely cause requires in baz to fail. So we can reasonably expect that the load path structure is a good representation of a unique class name, and that execution would not expect something more unique.
+
+Therefore, subpath within load path is a good enough indicator of package for the compiled class.
+
+However load path searching should still be done. If we switch to foo/bar and try to require baz, it should continue to load. If we try to run baz directly, it should continue to load.
+
+Therefore, we should continue to use load path searching as the primary mechanism for finding the compiled class file.
+Therefore, we should also examine the class file directly for the contained class name, rather than expecting it to match package structure.
+
+Given that compilation may happen from any arbitrary directory...
+
+We need a way to determine the appropriate load path for a file under compilation. Because load paths may differ at runtime for the script/app in question, we should do two things:
+
+* provide a command-line means to specify the base dir from which the source is being compiled. This is similar to the requirement in .java files to specify a host dir that represents the "root" of the path.
+* default to current directory as the "root" of the path, if the filename to be compiled does not contain relative path modifiers and is a subpath under the current directory
+* if no base is given and there are relative modifiers in the full file path, generate a package name based on the full canonical filename. Perhaps print a warning.
+
+Addendums:
+
+* For any given file that must use a canonical path containing a device name to generate package name, the device indicator (C:\, \\somehost\, etc) will be considered the root and omitted from the resulting package.
+
+A few cases:
+
+1. simple case
+:current dir: C:\home
+:file to compile C:\home\foo\bar\baz.rb, specified as "foo\bar\baz.rb"
+:no basedir specified
+
+* filename given has no relative modifiers
+* filename is within a subpath of current directory
+* package generated is "foo.bar"
+* baz.class file placed in C:\home\foo\bar\baz.class
+
+2.
+:current dir: C:\home2
+:file to compile C:\home\foo\bar\baz.rb, specified as "..\home\foo\bar\baz.rb"
+:no basedir specified
+
+* filename has relative elements
+* canonical path is "C:\home\foo\bar\baz.rb"
+* package generated is "home.foo.bar"
+
+3.
+:current dir: C:\home2
+:file to compile: C:\home\foo\bar\baz.rb, specified as "C:\home\foo\bar\baz.rb"
+:basedir: C:\home
+
+* basedir is specified
+* target file is in a subpath of basedir with no relative modifiers
+* package and result same as in (1)
+
+Execution cases that should succeed to load baz.class, given any of the results above
+
+1.
+:load path contains C:\home
+:jruby -e "require 'baz'"
+
+2.
+:load path contains C:\home2
+:current dir is C:\home2
+:jruby -e "require '../home/foo/bar/baz"
+
+3.
+:current dir is C:\home2
+:jruby ../home/foo/bar/baz.class
