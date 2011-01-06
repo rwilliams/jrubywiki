@@ -1,3 +1,5 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [[Internals|&raquo; Design: Internals]]
+=Static Compiler=
 JRuby plans to support a static AOT compiler in the future, which will produce compiled Java classes that are actually implemented with Ruby code behind the scenes. This document discusses possible ways this compiler will function.
 
 Given the following simple method:
@@ -17,12 +19,12 @@ We would expect the compiler to produce the following code:
 
 This is a simple place to start.
 
-Questions, concerns:
+'''Questions, concerns:'''
 
 * Should underscore_case methods be compiled as camelCase? configurable?
-* We need to clearly specify what JavaUtil will do for all sorts of types
+* We need to clearly specify what <tt>JavaUtil</tt> will do for all sorts of types.
 
-Primary requirements:
+'''Primary requirements:'''
 
 * No modification of Ruby's grammar should be necessary; the code should be runnable in interpreted mode.
 * To the greatest extent possible, support all of Ruby's grammar being compiled into a static set of classes and methods.
@@ -68,11 +70,11 @@ A few possible syntaxes
 
 It's mostly a no-brainer that attributes should get compiled into Java get/set methods.
 
+The following class
  class Blah
    attr_accessor :foo
  end
 
 should produce the following in the resulting Java class:
-
  public Object getFoo();
  public void setFoo(Object foo);
