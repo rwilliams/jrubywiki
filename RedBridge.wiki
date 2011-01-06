@@ -161,6 +161,8 @@ RedBridge supports both per-container ("per-engine," in JSR223 parlance) and per
 *Per-evaluation configurations:
 ** Line Number
 
+As of JRuby 1.5.0, Reg Bridge had a bunch of configuration methods. This is to hide internal API from publicly used one. Please see [[JRubyOptions]] to know what JRuby options are supported by Red Bridge.
+
 === JRuby Home ===
 
 Scope: Per Container<br/>
@@ -586,6 +588,7 @@ See the [[RedBridgeExamples]] page.
 See the [[RedBridgeServletExamples]] page.
 
 = See Also =
+* [[JRubyOptions]]
 * [[Calling Java from JRuby]]
 * [[Accessing JRuby Object in Java]]
 * [http://www.blogger.com/posts.g?blogID=22066395&searchType=ALL&txtKeywords=&label=RedBridge JRuby Embed (Red Bridge) info]
