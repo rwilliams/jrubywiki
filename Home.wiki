@@ -57,25 +57,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 </td>
 
 <td>
-
-==Specifications==
-
-* [[Compiler Packaging and Pathing]]
-* [[Compiler Name Mangling]]
-* [[JIT Compiler]]
-* [[Static Compiler]]
-* [[Classpath and Load Path]]
-* [[Require and Load behavior]]
-* [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
-* [[JRubyMethod_Signatures|JRuby Method Binding]] - How to wire up Java methods in a JRuby extension
-* [[JRuby Internal Design]]
-</td>
-
-</tr>
-
-<tr valign="top">
-
-<td>
 == Evangelism ==
 * [[Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
@@ -83,9 +64,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Case Studies]]
 * [[Articles]]
 
-</td>
-
-<td>
 ==Related Websites==
 
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
