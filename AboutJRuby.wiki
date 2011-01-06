@@ -12,13 +12,14 @@ JRuby's current core development team consists of six developers:
 *Ola Bini (Thoughtworks)
 *Marcin Mielzynski aka lopex
 *Bill Dortch
+*Wayne Meissner
 
 ==Links==
 
 *[http://jruby.codehaus.org JRuby's project page at Codehaus]
 *[http://headius.blogspot.com Charles Oliver Nutter's blog]
 *[http://www.bloglines.com/blog/ThomasEEnebo/ Thomas Enebo's blog]
-*[http://ola-bini.blogspot.com/ Ola Bini's blog]
+*[http://olabini.com/blog Ola Bini's blog]
 *[http://blog.nicksieger.com/ Nick Sieger's blog]
 *[http://www.java201.com/resources/browse/jruby.html JRuby related articles]
 *[http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
