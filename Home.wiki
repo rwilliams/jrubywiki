@@ -93,11 +93,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://blogs.sun.com/theaquarium/tags/jruby GlassFish Aquarium JRuby posts]
 * [http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw Fresh JRuby news Yahoo Pipes aggregator]
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
-* [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Oracle+SSO+Integration Integrating Oracle SSO with a JRuby on Rails app]
-* [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Migrating Ruby on Rails 2.2.2 (and MySQL) web app to JRuby running on Tomcat]
-* [http://code.trampolinesystems.com/springy Springy: configure Spring contexts with JRuby]
-* [http://www.trampolinesystems.com/weblog/wiring-up-spring-with-jruby/  Trampoline Systems Weblog -- Wiring up Spring with JRuby]
-* Try [http://kessel.ilrt.bris.ac.uk/~pldms/2006/12/jruby-applet.html running the JRuby interactive shell as an applet in your browser!]
 
 </td>
 </tr>
