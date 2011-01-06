@@ -96,7 +96,7 @@ Not authenticated:<br/>
 Authenticated:<br/>
 <tt> &nbsp;<nowiki>export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/</nowiki></tt>
 
-See also [[Troubleshooting]].
+See also [[FAQs|JRuby Frequently Asked Questions (FAQs)]].
 
 ==Code Examples==
 For some examples of calling JRuby from Java and calling Java from JRuby, see [[JRubyAndJavaCodeExamples|JRuby and Java Code Examples]].
