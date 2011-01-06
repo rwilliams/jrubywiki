@@ -71,6 +71,7 @@ These are done but need more testing. Where noted, pieces are missing.
 * Fixnum
 * Float
 * Math
+* Mathn
 * Range
 * Struct
 * Kernel (mostly)
@@ -89,6 +90,5 @@ These are entire areas that need to be worked on.
 * some RubyBignum changes
 * possible other changes in Numerics
 * changes in Dir/IO/File (some obvious things are done, like enumeratorize)
-* mathn ([http://jira.codehaus.org/browse/JRUBY-4008 JRUBY-4008] [http://jira.codehaus.org/browse/JRUBY-4072 JRUBY-4072])
 * encoding information in exception messages (now passed via java String)
 * BigDecimal changes ?
