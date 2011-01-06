@@ -530,48 +530,6 @@ The expression evaluates to the result of the block, e.g.,
  obj.synchronized { 99 }  # => 99
  
 
-== Material from Before JRuby 1.0 ==
-One powerful feature of JRuby is its ability to invoke the classes of the Java Platform. The following example uses JRuby 0.9.2 to create a Java <tt>JFrame</tt> with a <tt>JLabel</tt>. 
-
-'''Note:''' Several package paths are magic: <tt>java</tt>, <tt>javax</tt>, <tt>org</tt>, <tt>com</tt>.  Many package paths will need to be prefixed with <tt>Java</tt>:
-
-<pre name="ruby">
-require 'java'
-
-JFrame = javax.swing.JFrame
-JLabel = javax.swing.JLabel
-
-frame = JFrame.new()
-frame.getContentPane().add(JLabel.new("This is an example."))
-frame.pack()
-frame.setVisible(true)
-
-MyClass = Java::my.package.MyClass
-myClass = MyClass.new()
-myClass.doit()
-</pre>
-
-'''Note:''' Older versions of JRuby require you to use the following code as the import preamble:
-
-<pre name="ruby">
-require 'java'
-
-include_class "javax.swing.JFrame"
-include_class "javax.swing.JLabel"
-</pre>
-
-JRuby also allows you to call Java code by using the more Ruby-like <tt>underscore_method_naming</tt> and to refer to JavaBean properties as attributes. The translation rule is that the Java method name is split by capital letters, lowercased, and prepended with <tt>_</tt>.
-<pre name="ruby">
-frame.content_pane.add(label)
-frame.visible = true
-</pre>
-
-JRuby also lets you call Java libraries ''not'' included in the standard set of class libraries associated with the Java Platform. By copying jars to <tt>$JRUBY_HOME/lib</tt> or by modifying the CLASSPATH environment variable, you can access third-party Java libraries from JRuby scripts or from jirb, an interactive JRuby shell. It is also possible to add a jar to the classpath by requiring the jar (if it exists in the JRuby library load path):
-<pre name="ruby">
-require 'whatever.jar'
-com.whatever.Whatever.doSomething
-</pre>
-
 == Related Articles ==
 * [http://mikiobraun.blogspot.com/2008/11/java-integration-in-jruby.html Java Integration in JRuby] Short overview article on JRuby and Java integration.
 * [http://blogs.sun.com/sundararajan/entry/java_integration_javascript_groovy_and Java Integration: JavaScript, Groovy and JRuby] Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
