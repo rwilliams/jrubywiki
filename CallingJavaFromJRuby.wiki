@@ -85,7 +85,7 @@ To use resources within a jar file from JRuby, the jar file must either be on th
 
   require 'path/to/mycode.jar'
 
-This <tt>require</tt> makes the resources in <tt>mycode.jar</tt> discoverable by commands like <tt>import</tt> and <tt>include_package</tt>.
+This <tt>require</tt> makes the resources in <tt>mycode.jar</tt> discoverable by later commands like <tt>import</tt> and <tt>include_package</tt>.
 
 Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH for them, like it would for normal ruby files.
 ===Load a .class File===
@@ -219,6 +219,10 @@ And the Ruby File class is still accessible:
 ==== Making them accessible in the main name space ====
 
 You can set const_missing to make them accessible in more than just a module. http://www.ruby-forum.com/topic/216629 though there might be a better way.
+
+==== Using within classes within module ====
+
+NB that currently there's a bug with include_package (it propagates correctly in the module, but not within class within a module).  http://jira.codehaus.org/browse/JRUBY-5107
 
 === Using Static Java Enumerations ===
 
