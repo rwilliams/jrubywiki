@@ -54,10 +54,6 @@ __TOC__
 
 === JREXML ===
 
-=== Monkeybars ===
-
-=== Rawr ===
-
 == Contributing projects
 
 === Mongrel ===
