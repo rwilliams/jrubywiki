@@ -60,7 +60,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 ==Hints, Tips and Documents==
 
-* [[Status]]  <span style="font-size:90%; font-style:italic">(Standard libraries, supported applications, Ruby 1.8.5 compatibility)</span>
 * [[JRuby Cookbook]]
 * [[Using the JRuby Debugger]]
 * [[Differences between mri and jruby]]
