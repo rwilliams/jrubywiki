@@ -49,7 +49,7 @@ Latest Release is JRuby 1.3.0:
 * [[Warbler]] <span style="font-size:90%; font-style:italic">(minimal, flexible, ruby-like way to create .war file)</span>
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
 * [[Goldspike]] <span style="font-size:90%; font-style:italic">Servlet to Rails bridge (deprecated, see [[Warbler]])</span>
-* [[Jruby on Rails on Tomcat]] <span style="font-size:90%; font-style:italic">(Rails 1.1 & 2.0)</span>
+* [[JRuby on Rails on Tomcat]] <span style="font-size:90%; font-style:italic">(Rails 1.1 & 2.0)</span>
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html JRuby on Rails on Tomcat] <span style="font-size:90%; font-style:italic">(Rails 2.2.2, JRuby 1.1.6RC1, Warbler, Tomcat 6.x, MySQL, Mac OS X)</span>
 * [[Rails_2_3_2|Rails 2.3.2]]
 * [[JRuby on Rails on Jetty]]
@@ -93,8 +93,8 @@ Latest Release is JRuby 1.3.0:
 ==Getting Involved==
 
 * [[Mailing Lists]]
-* [http://kenai.com/projects/jruby/sources/main/show JRuby Source Repository]<br/>For Windows users, the [http://wiki.github.com/schacon/hg-git Mercurial to Git bridge] may help in working with the source
-* [http://svn.jruby.codehaus.org Fisheye (track changes, SVN RSS feed)]
+* [http://kenai.com/projects/jruby/sources/main/show JRuby Source Repository]<br/>For Windows users, the [http://code.google.com/p/msysgit/ git installer for Windows] or the [http://wiki.github.com/schacon/hg-git Mercurial to Git bridge] may help in working with the source
+* [http://github.com/jruby/jruby/tree/master Public GitHub mirror (fork, track changes)]
 * [http://jira.codehaus.org/browse/JRUBY JIRA (bug tracking)]
 * [http://jruby.headius.com:8080/hudson/ JRuby build server]
 * [[JRuby Bug Reporting Style Guide]]
