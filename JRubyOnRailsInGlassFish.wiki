@@ -1,7 +1,7 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#Glassfish_v3_Deployment|&raquo; JRuby on Rails: GlassFish V3 Deployment]]
 <h1>JRuby on Rails in GlassFish</h1>
 [https://glassfish.dev.java.net GlassFish v2] is an open source Java EE 5 application server. 
-GlassFish v3 will offer Java EE 6 technologies and the new Java EE 6 Web Profile. For early access to v3 and these two technologies, see [https://glassfish.dev.java.net/downloads/v3-preview.html GlassFish Project - v3 Preview]
+GlassFish v3 will offer Java EE 6 technologies and the new Java EE 6 Web Profile. 
 
 Java EE is a well tested deployment environment, and combining the benefits of GlassFish with JRuby provides the best deployment environment for Rails applications. Here are some of the benefits of using GlassFish as the deployment environment for JRuby on Rails applications :
 * Use the time-tested Java EE deployment platform.
@@ -12,12 +12,11 @@ Java EE is a well tested deployment environment, and combining the benefits of G
 * Reuse your database connections with GlassFish's database connection pooling mechanism.
 * Leverage the extensive set of Java libraries in your JRuby on Rails applications.. 
 
-The following article provides details about why GlassFish is a preferred development and deployment environment for deploying Rails applications: [http://developers.sun.com/appserver/reference/techart/rails_gf/ Rails powered by GlassFish Application Server].
+The following article provides details about why GlassFish is a preferred development and deployment environment for deploying Rails applications: [http://developers.sun.com/appserver/reference/techart/rails_gf/ Rails powered by GlassFish Application Server].<br/><br/>
 
 __TOC__
-
 == GlassFish v2 ==
-In GlassFish v2, we currently support the WAR mode of deployment for your JRuby on Rails applications. You can create the <tt>.war</tt> file from your existing Rails applications by using <a href="{{project warbler page Home}}">Warbler</a>.
+GlassFish v2 supports the WAR mode of deployment for JRuby on Rails applications. You can create the <tt>.war</tt> file from your existing Rails applications by using <a href="{{project warbler page Home}}">Warbler</a>.
 
 === GlassFish v2 Setup ===
 Refer to the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide Getting Started Guide].  At the end of the GlassFish v2 setup steps, ensure that you have the following environment variables defined:
@@ -26,7 +25,7 @@ Refer to the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide G
  PATH           - Ensure that $GLASSFISH_ROOT/bin and $JRUBY_HOME/bin are in this environment variable.
 
 === Create a Simple Hello Application ===
-If you're ready to deploy your own JRuby on Rails application, skip this section and go to the next section, [[#How_to_deploy_JRuby_on_Rails_applications|How to deploy JRuby on Rails applications]].
+If you're ready to deploy your own JRuby on Rails application, skip this section and go to the next section, [[#Deploying_JRuby_on_Rails_Applications_in_GlassFish_v2|Deploying JRuby on Rails Applications in GlassFish v2]].
 
 Here are some steps for creating a very simple JRuby on Rails "hello" application. The application uses the JRuby version that you installed in the "Setup" section above.
 
