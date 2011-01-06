@@ -1,3 +1,5 @@
+__TOC__
+
 ==Using the JRuby Interpreter from Java==
 
 ===Java 6 (using JSR 223: Scripting) ===
