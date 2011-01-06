@@ -62,7 +62,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 * [[JRuby Cookbook]]
 * [[Using the JRuby Debugger]]
-* [[Differences between mri and jruby]]
 * [[JRuby Internal Design]]
 </td>
 
