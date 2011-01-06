@@ -1,0 +1,48 @@
+<h1>JRuby Projects</h1>
+
+This page is an ongoing list of all projects the JRuby team maintains, until we can get more organization around them.
+
+__TOC__
+
+=== JRuby ===
+
+* Project: [http://jruby.org], [http://jruby.kenai.com]
+* Source: [http://jruby.kenai.com/sources]
+* Issues: [http://jira.codehaus.org/browse/JRUBY]
+* Lists: [http://xircles.codehaus.org/projects/jruby/lists]
+
+=== ActiveRecord-JDBC ===
+
+* Project: [http://activerecord-jdbc.kenai.com]
+* Source: [http://activerecord-jdbc.kenai.com/sources]
+
+=== Warbler ===
+
+=== JRuby-Rack ===
+
+=== Bytescript ===
+
+=== Ruby2Java ===
+
+=== JRuby-OpenSSL ===
+
+=== Rcov ===
+
+=== ImageVoodoo ===
+
+=== JavaInline ===
+
+=== JMX gem ===
+
+=== JRuby parser ===
+
+=== RMagick4j ===
+
+=== Joni ===
+
+=== JFFI ===
+
+=== Bytelist ===
+
+=== Jvyamlb ===
+
