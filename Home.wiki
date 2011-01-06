@@ -74,7 +74,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Status]]  <span style="font-size:90%; font-style:italic">(Standard libraries, supported applications, Ruby 1.8.5 compatibility)</span>
 * [[JRuby Cookbook]]
 * [[Using the JRuby Debugger]]
-* [[Troubleshooting]]
 * [[Differences between mri and jruby]]
 * [[Release Documentation]]
 * [[JRuby hash bang]]
