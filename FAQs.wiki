@@ -231,7 +231,7 @@ There are two separate ways:
 
  class MyListener
    include java.awt.event.ActionListener
-
+ 
    def actionPerformed(event)
      button.text = "I have been pressed"
    end
