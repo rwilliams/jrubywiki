@@ -87,6 +87,8 @@ Here's a walkthrough for MySQL in ultra-condensed form:
         adapter: jdbc
         driver: org.apache.derby.jdbc.EmbeddedDriver
         url: jdbc:derby:{database};create=true
+        username: myUser
+        password: myPass
         
 
 '''8.''' If you're using Rails 2.0, you're done. The rest of configuration, including the JDBC driver jar, is done automatically.  If you're running Rails 1.2.x, you'll need to modify <tt>environment.rb</tt>. Add the following snippet inside the <tt>Rails::Initializer</tt> block:
