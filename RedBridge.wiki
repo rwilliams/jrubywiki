@@ -4,21 +4,35 @@ Using Java from Ruby is JRuby's best-known feature---but you can also go in the 
 
 __TOC__
 
-=Red Bridge (JRuby Embed) =
+= Red Bridge (JRuby Embed) =
 
 JRuby has long had a private embedding API, which was closely tied to the runtime's internals and therefore changed frequently as JRuby evolved. Since version 1.4, however, we have also provided a more stable public API, known as Red Bridge or JRuby Embed. Existing Java programs written to the [[DirectJRubyEmbedding|legacy API]] should still work, but we strongly recommend Red Bridge for all new projects.
 
 == Features of Red Bridge ==
-Red Bridge is consists of two layers, Embed Core on the bottom and JSR223/BSF implementations on the top. Embed Core is focused only on JRuby and designed to leverage JRuby’s power as much as possible. This is a big difference from JSR223/BSF, which are intended to provide common interfaces to many scripting languages. When you use Embed Core, you don’t need to rely on VM wide System property to configure. For example, you can set classpath Ruby version directly through the method of org.jruby.RubyInstanceConfig. You can read scripts using JRuby friendly java.io.InputStream, or get them from a classpath, too. Also Embed Core has various kinds of convenient, flexible methods. Those are shortcut methods or methods that return Java friendly objects. The methods defined in JRuby Embed will help you to avoid writing boilerplate code in your Java programs. We recommend Embed Core if you don’t use other scripting language than Ruby. See  [http://jruby-embed.kenai.com/docs/ API document] for further detail.
+Red Bridge consists of two layers: Embed Core on the bottom, and implementations of [http://www.jcp.org/en/jsr/detail?id=223 JSR223] and [http://jakarta.apache.org/bsf/ BSF] on top. Embed Core is JRuby-specific, and can take advantage of much of JRuby's power. JSR223 and BSF are more general interfaces that provide a common ground across scripting languages.
 
+Which API should you use? For projects where Ruby is the only scripting language involved, we recommend Embed Core for the following reasons:
 
-However, Red Bridge doesn’t leave JSR223/BSF behind. Many of useful features are also available to use in those implementations. You can choose local context type, local variable behavior and compile mode, and set line numbers displayed in parsing error. Since Red Bridge is highly configurable, it will fit in various use cases. A downside of this might be that you need to walk through the document to find what you should do to get the best result.
+# With Embed Core, you can create several Ruby environments in one JVM, and configure them individually (via <code>org.jruby.RubyInstanceConfig</code>. With the other APIs, configuration options can only be set globally, via the <code>System</code> properties.
+# Embed Core offers several shortcuts, such as loading scripts from a <code>java.io.InputStream</code>, or returning Java-friendly objects from Ruby code. These allow you to skip a lot of boilerplate.
 
+For projects requiring multiple scripting languages, JSR223 is a good fit. Though the API is language-independent, JRuby's implementation of it allows you to set some Ruby-specific options. In particular, you can control the threading model of the scripting engine, the lifetime of local variables, compilation mode, and how line numbers are displayed.
 
-Among configurations, choosing a right local context type is really important. If you make a wrong choice, you might be puzzled by unexpected results. If you want only one Ruby runtime, variable map or attribute map on JVM, choose singleton. If you run Ruby scripts on multi-threaded environment, you should choose threadsafe so that you don’t worry about race condition to use Ruby runtime or other. Please be sure your choice is the best for your case.
+The full [http://jruby-embed.kenai.com/docs/ API documentation] has all the gory details. It's worth talking about a couple of the finer points here.
 
+=== Context Type ===
 
-Choosing a local variable behavior would be interesting.  Sharing variables mechanism of Red Bridge is one of the most improved features compared with JSR223 reference implementation. By sharing variables mechanism of Red Bridge, local, instance, and global variables and constants are going back and forth between Java and Ruby. In case of Java to Ruby, variables are given through method arguments or directly injected to Ruby scripts. On the other hand, from Ruby, variables are implicitly handed over to Java. Ruby code doesn’t need to do something special for sharing variables. When Ruby scripts return values, Java program can get them as normal Java objects. When Ruby scripts use variables, those names and values are available to take in to Java. What Java program should do is just getting a value with a variables name from a variable map. Local, instance, global variables and constants used in Ruby scripts are collected and hold in the variable map that Red Bridge takes care of. The variable map is also used to give values to Ruby from Java; thus, when you put key-value pair into the map, the pair is injected into Ruby code. Although sharing local and instance variables are limited in the current version, you don’t need to heavily rely on global variables. Not like other scripting languages, when a variable name starts with “$” in Ruby, it becomes a global variable and is a globally shared on Ruby runtime. You can avoid relying on such globally shared variables to hand some states from Java to Ruby on Red Bridge. 
+The context type (singleton, thread-safe, or single-threaded) determines how JRuby maintains its internal Ruby state. Choosing the wrong type can lead to surprising results, so it's worth talking about how to choose the right one.
+
+For simple cases where you're only using one Ruby runtime across your Java program, and you don't need to access it from multiple threads, choose the singleton type. If you want to run Ruby scripts in a multi-threaded environment, you should use the thread-safe type instead.
+
+=== Variables ===
+
+Variable sharing is one area where RedBridge provides additional power to you. Typical scripting APIs rely on the blunt instrument of global variables to share data. With this approach, you'd set a few globals (remembering to use <code>$</code> at the beginning of the variable name for Ruby), run a script, and then retrieve the results through other globals.
+
+RedBridge allows this use, of course, but offers better choices as well. You can easily share not just global variables, but also local and instance variables, across the Ruby / Java divide. JRuby uses a mechanism called a ''variable map'' to track variable names and values between Ruby and Java. Various options control how this variable map is reused from one invocation to another.
+
+You can also pass data in through method arguments, and work directly with return values. These values are accessible on the Java side as normal Java objects: you're not forced to convert everything to strings or primitive types.
 
 == Download ==
 
@@ -382,7 +396,7 @@ BSF can choose only BSF type.
 
 ==== Global Local Variable Behavior ====
 
-Default for JSR223. This behavior might be convenient to users who have used JSR 223 reference implementation released at scripging.dev.java.net and don't want change any code at all. With names like Ruby's local variable name, variables are mapped to Ruby's global variables. Only global variables can be shared between Ruby and Java, when this behavior is chosen. The values of global variables of this type are not kept over the evaluations. <br/>
+Default for JSR223. This behavior might be convenient to users who have used JSR223 reference implementation released at scripging.dev.java.net and don't want change any code at all. With names like Ruby's local variable name, variables are mapped to Ruby's global variables. Only global variables can be shared between Ruby and Java, when this behavior is chosen. The values of global variables of this type are not kept over the evaluations. <br/>
 
 * Core
 <pre name="java">
