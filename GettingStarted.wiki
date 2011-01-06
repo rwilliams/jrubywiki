@@ -24,7 +24,7 @@ If you're on Windows, or if your package manager doesn't include JRuby you'll ne
 
 '''Note:''' If you're on HP-UX, see [[JRubyOnHPUX11_23|Using JRuby on HPUX]].
 
-====Examples====
+====Installation Examples====
 '''UNIXes: Linux, OSX, BSD, Solaris Example'''
 
 Once you've downloaded or built a JRuby installation and it is located in the directory <tt> /opt/jruby</tt>,
