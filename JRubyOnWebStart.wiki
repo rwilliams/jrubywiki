@@ -5,7 +5,10 @@ __TOC__
 [http://jira.codehaus.org/secure/IssueNavigator.jspa?reset=true&query=%22web+start%22+%7C%7C+jnlp+%7C%7C+webstart+%7C%7C+javaws&summary=true&description=true&body=true&pid=11295&status=1&status=3 Open JIRA Issues matching "Web Start or jnlp or javaws"]
 
 ===Samples===
-The samples directory distributed with JRuby (as of Dec 29 2007 this sample is only on the subversion trunk version of JRuby) has an example jnlp, [http://svn.codehaus.org/jruby/trunk/jruby/samples/jirb.jnlp/ jirb.jnlp] that will start the JRuby Swing IRB console as a Java Web Start application. 
+The samples directory distributed with JRuby has an example jnlp, [http://github.com/jruby/jruby/blob/master/samples/irb-applet.html] that will start the JRuby Swing IRB console as a Java Web Start application.
+See also [http://github.com/jruby/jruby/tree/master/samples/jnlp/]
+
+Here is  deployed instance: [http://tim.lossen.de/2007/03/jruby/applet.html]
 
 ====Getting jirb.jnlp sample to work in Java 1.5====
 The [http://svn.codehaus.org/jruby/trunk/jruby/samples/jirb.jnlp/ jirb.jnlp] needs to be modified to work on Java 1.5 because of the use of <tt>..</tt> in the codebase attribute, which only works in Java 1.6.
@@ -44,3 +47,7 @@ If you have a signed jar and the startup fails because of a <tt>java.lang.reflec
 Disclaimer: I'm not an expert on Java Security, so I don't know if disabling the Security Manager has unintended side effects. <nowiki>[User:Mstocker|Mstocker]</nowiki> 10:49, 30 December 2007 (PST)
 
 See: [http://jira.codehaus.org/browse/JRUBY-1821/ JRUBY-1821] and [http://jira.codehaus.org/browse/JRUBY-1782/ JRUBY-1782].
+
+=== External Links ===
+
+http://almaer.com/blog/running-ruby-in-the-browser-via-script-typetextruby has some interesting stuff
