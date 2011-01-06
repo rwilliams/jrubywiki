@@ -39,6 +39,10 @@ You can now start you script with
 
 Almost everything you learn about the Ruby language is directly applicable to working with JRuby. JRuby aims to be a drop-in replacement for the C implementation of Ruby.
 
+==What incompatibilities does JRuby have with the C implementation of Ruby? ==
+
+See [[DifferencesBetweenMriAndJruby]].
+
 ==How do I run JRuby without the command-line scripts?==
 
 Frequently users want to run JRuby via Eclipse, launched from an existing Java application, or other ways that do not use the command-line scripts. In addition to having jruby.jar and its dependency jars available in CLASSPATH, you must also have the following system properties set:
