@@ -90,7 +90,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
 * [http://wiki.glassfish.java.net/Wiki.jsp?page=JRuby GlassFish JRuby Wiki]
-* [http://blogs.sun.com/theaquarium/tags/jruby GlassFish Aquarium JRuby posts]
 * [http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw Fresh JRuby news Yahoo Pipes aggregator]
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
 
