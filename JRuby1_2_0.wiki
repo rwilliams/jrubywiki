@@ -1,1 +1,1 @@
-'''This page has moved to [[GSoC_2009]]
+[http://jruby.codehaus.org/]
