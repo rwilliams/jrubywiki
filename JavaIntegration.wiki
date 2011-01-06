@@ -45,7 +45,7 @@ See [http://wiki.jruby.org/wiki/Walkthroughs_and_Tutorials#JSR_223_scripting Wal
 
 ===Embedding with Bean Scripting Framework (BSF) ===
 
-The [[Bean Scripting Framework]], when used with JRuby, will allow you to conveniently to pass your own Java objects to your JRuby script. You can then use these objects in JRuby, and changes will affect your Java program directly. To run a JRuby script using BSF, you must first copy the &lt;code&gt;BSF.jar</code> file into your &lt;JAVA_HOME&gt;/lib/ext/ folder. Then, try the following:
+The [[Bean Scripting Framework]], when used with JRuby, will allow you to conveniently to pass your own Java objects to your JRuby script. You can then use these objects in JRuby, and changes will affect your Java program directly. To run a JRuby script using BSF, you must first copy the <code>BSF.jar</code> file into your JAVA_HOME/lib/ext/ folder. Then, try the following:
 <pre>
 import org.jruby.Ruby.*;
 import org.jruby.*;
@@ -65,6 +65,77 @@ BSFManager manager = new BSFManager();
 manager.declareBean("label", mylabel, JFrame.class);
 manager.exec("ruby", "(java)", 1, 1, "$label.setText(\"This is a test.\")");
 </pre>
+
+===Comparing the performance of JRuby script invocation in BSF with JSR223===
+
+Invoking JRuby scripts using JSR223 appear to be about 17  times faster than invoking them with BSF.
+
+{| class="wikitable" style="text-align:left" border="1" cellpadding="5" cellspacing="0"
+|+'''JRuby Invocation Timings (500x)'''
+|-
+!  !! BSF !! JSR223 !!  rowspan="2" | &nbsp;
+|-
+! Initial Invocation (ms) || 1465 || 155
+|-
+! Average (ms) || 110 || 6 || rowspan="2" | these values do not  include the initial invocation time
+|-
+! Maximum (ms) || 826 || 96 
+|}
+
+''* The data were collected using Java 1.5.0_16 on a 2.5 GHz Core 2 Duo MacBook Pro.''
+
+The following code samples and graphs show the timing results for creating 500 JRuby script engines and evaluating a short Ruby script.
+
+  file: TestJRubyBSF.java
+  
+  package org.concord.bsf.jruby;
+  import org.apache.bsf.BSFException;
+  import org.apache.bsf.BSFManager;
+  public class TestJRubyBSF {
+    public static void main(String[] args) throws BSFException {
+      BSFManager.registerScriptingEngine("ruby",
+          "org.jruby.javasupport.bsf.JRubyEngine", new String[] { "rb" });
+      for (int i = 1; i <= 500; i++) {
+        try {
+          long start = System.currentTimeMillis();
+          BSFManager manager = new BSFManager();
+          manager.exec("ruby", "script", 1, 1, "Array.new(16) { rand(256) }.pack('C*').unpack('H*').first");
+          System.out.println(i + "," + (System.currentTimeMillis() - start));
+        }
+        catch (Exception e) {
+          e.printStackTrace();
+          throw new RuntimeException(e);
+        }
+      }
+    }
+  }
+
+[[image:Jruby_bsf_invocation.png]]
+
+  file: TestJRubyJSR223.java
+
+  package org.concord.jsr223.jruby;
+  import com.sun.script.jruby.JRubyScriptEngineManager;
+  import javax.script.ScriptEngine;
+  public class TestJRubyJSR223 {
+    public static void main(String[] args) {
+      JRubyScriptEngineManager manager = new JRubyScriptEngineManager();
+      for (int i = 1; i <= 500; i++) {
+        try {     
+          long start = System.currentTimeMillis();
+          ScriptEngine engine = manager.getEngineByName("jruby");
+          engine.eval("Array.new(16) { rand(256) }.pack('C*').unpack('H*').first");
+          System.out.println(i + "," + (System.currentTimeMillis() - start));
+        }
+        catch (Exception e) {
+          e.printStackTrace();
+          throw new RuntimeException(e);
+        }
+      }
+    }
+  }
+
+[[Image:Jruby_jsr223_invocation.png]]
 
 ===Directly calling JRuby APIs===
 
@@ -104,3 +175,6 @@ If you declare a bean using BSF, make sure you undeclare it when you are done us
 ==See also==
 * [[Calling Java from JRuby]]
 * [[Accessing JRuby Object in Java]]
+
+==Related Articles==
+* [http://leandrosilva.com.br/2008/08/14/executar-jruby-a-partir-do-java Executar JRuby a partir do Java (pt_BR)] Article about integration of Java with JRuby, showing how running JRuby code from Java.
