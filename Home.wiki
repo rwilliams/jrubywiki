@@ -89,10 +89,10 @@ Latest Release is JRuby 1.2.0:
 ==Getting Involved==
 
 * [[Mailing Lists]]
-* [http://svn.codehaus.org/jruby JRuby Source Repository]
+* [http://kenai.com/projects/jruby/sources/main/show JRuby Source Repository]<br/>For Windows users, the [http://wiki.github.com/schacon/hg-git Mercurial to Git bridge] may help in working with the source
 * [http://svn.jruby.codehaus.org Fisheye (track changes, SVN RSS feed)]
 * [http://jira.codehaus.org/browse/JRUBY JIRA (bug tracking)]
-* [http://jruby.thresher.com/ JRuby build server]
+* [http://jruby.headius.com:8080/hudson/ JRuby build server]
 * [[JRuby Bug Reporting Style Guide]]
 * [[JRuby Style Guide]]
 * [[Making a Patch on NetBeans]]
