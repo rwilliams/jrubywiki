@@ -450,10 +450,7 @@ Sometimes a Java library will need a fixed-length array, say for example a byte 
 
 === Convert a Java InputStream to a ruby IO object ===
 
-  io = Java.java_to_ruby(org.jruby.RubyIO.new(JRuby.runtime, input_stream).java_object)
-
-[http://logs.jruby.org/jruby/2009-06-23.html#T21-34-32 from ribrdb on irc]
- 
+  io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
 
 == Referencing a <tt>java.lang.Class</tt> object ==
 If you call a Java class from JRuby and need to pass a Java class as an argument, if you use this form:
