@@ -15,21 +15,12 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td width="50%">
 '''[http://dist.codehaus.org/jruby JRuby Downloads]'''
-* [http://dist.codehaus.org/jruby/1.3.1/jruby-bin-1.3.1.tar.gz JRuby 1.3.1 Binary.tar.gz]
-* [http://dist.codehaus.org/jruby/1.3.1/jruby-bin-1.3.1.zip JRuby 1.3.1 Binary.zip]
-* [http://dist.codehaus.org/jruby/1.3.1/jruby-src-1.3.1.tar.gz JRuby 1.3.1 Source.tar.gz]
-* [http://dist.codehaus.org/jruby/1.3.1/jruby-src-1.3.1.zip    JRuby 1.3.1 Source.zip]
+* UNIX variants: Linux, OSX, Solaris, BSD:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.3.1/jruby-bin-1.3.1.tar.gz JRuby 1.3.1 Binary.tar.gz]'''
+* Windows and Vista:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.3.1/jruby-bin-1.3.1.zip JRuby 1.3.1 Binary.zip]'''
+* UNIX variants to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.3.1/jruby-src-1.3.1.tar.gz JRuby 1.3.1 Source.tar.gz]''' 
+* Windows and Vista to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.3.1/jruby-src-1.3.1.zip    JRuby 1.3.1 Source.zip]'''
 </td>
 <td>
-'''[[JRuby on Rails]]'''
-* [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
-* [[ActiveRecord-JDBC]]
-* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   <span style="font-size:70%; font-style:italic">([[Warbler]])</span>
-* [[JRuby on Rails|More...]]
-</td>
-</tr>
-<tr valign="top">
-<td width="50%">
 '''JRuby Basics'''
 * [[About JRuby]]
 * [[Getting Started]]
@@ -40,7 +31,9 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Performance Tuning]]
 * [[FAQs]]
 </td>
-<td>
+</tr>
+<tr valign="top">
+<td width="50%">
 '''Getting Involved'''
 * Communicate: [[Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
 * Code: [http://kenai.com/projects/jruby/sources/main/show Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
@@ -54,9 +47,13 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Release Documentation]]
 * [[RoadMap]]
 </td>
-</tr>
-<tr valign="top">
 <td>
+'''[[JRuby on Rails]]'''
+* [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
+* [[ActiveRecord-JDBC]]
+* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   <span style="font-size:70%; font-style:italic">([[Warbler]])</span>
+* [[JRuby on Rails|More...]]
+
 ''' Evangelism'''
 * [[Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
@@ -64,12 +61,15 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Case Studies]]
 * [[Articles]]
 </td>
+</tr>
+<tr valign="top">
 <td>
 '''Related Websites'''
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
 * [http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw Fresh JRuby news Yahoo Pipes aggregator]
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
 </td>
+<td> &nbsp; </td>
 </tr>
 </table>
 
