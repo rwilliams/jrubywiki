@@ -124,6 +124,7 @@ Latest Release is JRuby 1.2.0:
 * [[JRuby Internal Design]]
 * [[JDBC | JRuby and JDBC]] <span style="font-size:90%; font-style:italic">(how to use JDBC directly within JRuby)</span>
 * [http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html JRuby JMS Producer / Consumer Example]
+* [[NetSsh Compatability]]
 </td>
 
 <td>
