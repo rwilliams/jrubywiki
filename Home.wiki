@@ -9,8 +9,8 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an 100% pure-Jav
 * [[FAQs]]
 
 ==News and Updates== 
-Latest Release is JRuby 1.2.0:
-* 2009-03-16 [[JRuby 1_2_0|JRuby 1.2.0]]
+Latest Release is JRuby 1.3.0:
+* 2009-06-03 [[JRuby 1_3_0|JRuby 1.3.0]]
 * [[GSoC_2009|Google Summer of Code Ideas for 2009]]
 * [[Script Bowl 2008|JRuby's entries in JavaOne Script Bowl 2008]]
 
@@ -154,6 +154,11 @@ Latest Release is JRuby 1.2.0:
 
 * [http://dist.codehaus.org/jruby Latest Releases]
 
+* '''JRuby 1.3'''
+** [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.tar.gz JRuby 1.3.0 Binary .tar.gz]
+** [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.zip    JRuby 1.3.0 Binary .zip]
+** [http://dist.codehaus.org/jruby/1.3.0/jruby-src-1.3.0.tar.gz JRuby 1.3.0 Source .tar.gz]
+** [http://dist.codehaus.org/jruby/1.3.0/jruby-src-1.3.0.zip    JRuby 1.3.0 Source .zip]
 * '''JRuby 1.2'''
 ** [http://dist.codehaus.org/jruby/1.2.0/jruby-bin-1.2.0.tar.gz JRuby 1.2.0 Binary .tar.gz]
 ** [http://dist.codehaus.org/jruby/1.2.0/jruby-bin-1.2.0.zip    JRuby 1.2.0 Binary .zip]
