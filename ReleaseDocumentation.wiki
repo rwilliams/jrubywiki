@@ -1,10 +1,10 @@
-JRuby release preparation
+= JRuby release preparation =
 
 * Make sure a release has no blockers (tests in later steps are good at shagging issues out)
 * Try and determine if we break any common extensions (jruby-rack, ar-jdbc, joni, jsr233 impl, ...)
 * Update build-config.xml to reflect new version
 * Update the '''version.jruby''' property in '''src/org/jruby/jruby.properties''' to reflect new version
-** Example: '''1.4RC1"
+** Example: '''1.4RC1'''
 * Update maven poms: jruby -S rake updatepoms VERSION={newversion}
 * On release branch ('''jruby-X_Y'''):
 * Make tag using git tag: '''git tag X.Y'''
