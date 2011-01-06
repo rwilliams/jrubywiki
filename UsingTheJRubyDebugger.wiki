@@ -30,6 +30,8 @@ or you can call it programmatically within the script
   require 'ruby-debug'
   debugger
 
+just make sure to run it under a jruby with the --debug flags passed to it, or "next" will always act as if it were  the "step" command.
+
 External Resources:
 * [http://debug-commons.rubyforge.org/svn/jruby-debug/trunk/README trunk jruby-debug README]
 * [http://bashdb.sourceforge.net/ruby-debug.html Debugging with ruby-debug]
