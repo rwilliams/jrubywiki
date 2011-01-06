@@ -6,7 +6,6 @@ You can use JRuby with [http://www.rubyonrails.org/ Ruby on Rails]. JRuby gives 
 * Access to the Java ecosphere for additional technology options
 * Deployment to Java application servers for ubiquity
 
-
 __TOC__
 ===Getting Started===
 Get started with these tutorials:
@@ -33,9 +32,7 @@ The Glassfish gem by Vivek Pandey enables you to easily deploy a JRuby on Rails 
 See also:
 * [[JRuby on Rails in GlassFish|JRuby on Rails in Glassfish]]
 
-
 ==== Traditional Rails Deployment ====
-
 * [http://glassfishgem.rubyforge.org/ Glassfish Gem on Rubyforge]
 * [http://weblogs.java.net/blog/vivekp/archive/2009/03/new_features_in.html New features in GlassFish 0.9.3 gem]
 * [http://mongrel.rubyforge.org/ Mongrel web site]
