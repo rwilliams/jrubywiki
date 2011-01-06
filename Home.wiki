@@ -57,7 +57,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 * Communicate: [[Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bug tracking)]
 * Code: [http://kenai.com/projects/jruby/sources/main/show Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
-** For Windows users, the [http://code.google.com/p/msysgit/ git installer for Windows] or the [http://wiki.github.com/schacon/hg-git Mercurial to Git bridge] may help in working with the source
+** Windows users: Use [http://code.google.com/p/msysgit/ git installer for Windows] or [http://wiki.github.com/schacon/hg-git Mercurial to Git bridge]
 * [http://jruby.headius.com:8080/hudson/ JRuby build server]
 * [[JRuby Bug Reporting Style Guide]]
 * [[JRuby Style Guide]]
