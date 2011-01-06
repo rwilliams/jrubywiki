@@ -32,3 +32,6 @@ See [[GUIFrameworks]]
 * [[Using the JRuby Debugger|rdebug]] - instructions on getting JRuby's fast debugger support
 * [[Sparrow]] <span style="font-size:90%; font-style:italic">A JMS client for messaging based on JRuby</span>
 * [[Spring]] - Using Spring framework to use JRuby
+
+== Other links ==
+* [http://rubyforge.org/projects/jruby-extras jruby-extras] <span style="font-size:90%; font-style:italic">(Support for Libraries and Applications not included in standard JRuby)</span>
