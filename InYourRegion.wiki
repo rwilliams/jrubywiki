@@ -63,6 +63,8 @@ Rails deployments on Glassfish, integration with java libraries, active in [http
 GlassFish Evangelist and can talk about JRuby, Rails, GlassFish, NetBeans [http://blogs.sun.com/arungupta blog].
 
 
+* L. David Varvel <dave@madwombat.com>
+JRuby on Rails, Java library integration, practiced public speaker.  Interested in bridging the gap between the Java and JRuby communities. 
 
 ==Spain==
 * David Calavera <calavera@apache.org>
