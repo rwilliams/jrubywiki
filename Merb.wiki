@@ -1,6 +1,6 @@
 = Merb =
 
-At the time of writing, Merb 1.0.10 has been released.
+At the time of writing, Merb 1.0.15 has been released.
 
 Execute the following:
 <code>jgem install merb-core merb-more</code>
