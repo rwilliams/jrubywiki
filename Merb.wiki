@@ -1,6 +1,8 @@
-At the time of writing, Merb 1.0.3 has been released.
+= Merb =
+
+At the time of writing, Merb 1.0.10 has been released.
 
 Execute the following:
-<nowiki>jgem install merb-core merb-more</nowiki>
+<code>jgem install merb-core merb-more</code>
 
-There're currently Active Record and Sequel ORMs working properly with Merb. Both will require additional jdbc drivers (jgem install postgres-pr for PostgreSQL driver)
+There're currently Active Record and Sequel ORMs working properly with Merb. Both will require additional jdbc drivers (jgem install postgres-pr for PostgreSQL driver). [[DataMapper]] support is in development.
