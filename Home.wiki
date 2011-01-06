@@ -26,7 +26,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 ==Using JRuby==
 
-* [[Applications]]
 * [[Java Integration | Java Integration (Calling JRuby from Java)]]
 * [[Calling Java from JRuby]]
 * [[Calling C from JRuby]]
@@ -177,3 +176,5 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [https://scripting.dev.java.net/ JSR 223 scripting project home]
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Migrating Ruby on Rails 2.2.2 (and MySQL) web app to JRuby running on Tomcat]
 * [http://jeanderuelle.blogspot.com/2009/03/my-jruby-rails-app-on-jboss-can-make.html My JRuby-Rails app on JBoss and Mobicents can make Phone calls !]
+* [http://code.trampolinesystems.com/springy Springy: configure Spring contexts with JRuby]
+* [http://www.trampolinesystems.com/weblog/wiring-up-spring-with-jruby/  Trampoline Systems Weblog -- Wiring up Spring with JRuby]
