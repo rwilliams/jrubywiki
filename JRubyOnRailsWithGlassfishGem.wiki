@@ -29,6 +29,7 @@ I recommend putting something this in your .bashrc so it's set whenever you log 
 
 Now configure the instance to your liking. For instance:
 
+<pre name="yaml">
  environment: production
  http:
     port: 3000
@@ -47,6 +48,7 @@ Now configure the instance to your liking. For instance:
     enable: true
     pid: tmp/pids/glassfish-production.pid
     jvm-options: -server -Xmx2500m -Xms64m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:NewRatio=2 -XX:+DisableExplicitGC -Dhk2.file.directory.changeIntervalTimer=6000
+</pre>
 
 '''Running the application'''
 
@@ -56,18 +58,19 @@ Running your glassfish application server is very simple:
 The application is started with the Akuma wrapper, which by default exits when passed a SIGINT (2) (default value of ''kill''). For instance:
  $ kill `cat tmp/pids/glassfish-production.pid`  
 
-=== Integrating glassfish gem with Solaris Management Facility (SMF) ===
+===Integrating glassfish gem with Solaris Management Facility (SMF)===
 
 In Solaris 10 and OpenSolaris, you get an excellent service management facility called SMF which you can easily configure to run your applications on startup (and much more). It can be compared with Linux' init.rd / rc.d, but is much more powerful (out of scope).
 
 Importing an application into SMF is not so trivial for first time users, so here is a brief description.
 
-First off you need to define a manifest. This is done with a simple XML file. Underneath you will find a manifest with support of two instances or rails applications. Modify these to your liking. I usually prefer to run applications with a non-root-user. I have not included ACLs, and tried to minimize the complexity in the example... I usually recommend placing webapplications such as rails somewhere under /var. In the example I use /var/apps, I also use i.e. /var/rails, etc, but you can place them in your home directory if you please.
+First off you need to define a manifest. This is done with a simple XML file. Underneath you will find a manifest with support of two instances or rails applications. Modify these to your liking. I usually prefer to run applications with a non-root-user. I have not included ACLs, and tried to minimize the complexity in the example... I usually recommend placing webapplications such as rails somewhere under /var. In the example I use /var/apps, I also use i.e. /var/rails, etc, but you can place them in your home directory if you please. (Due to Wiki Markup the XML is not indented):
 
- <?xml version='1.0'?>
- <!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
- <service_bundle type='manifest' name='glassfish-gem'>
-   <service name='network/glassfish-gem' type='service' version='0'>
+<pre name="xml">
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<service_bundle type='manifest' name='glassfish-gem'>
+  <service name='network/glassfish-gem' type='service' version='0'>
     <dependency name='fs' grouping='require_all' restart_on='none' type='service'>
       <service_fmri value='svc:/system/filesystem/local'/>
     </dependency>
@@ -79,38 +82,35 @@ First off you need to define a manifest. This is done with a simple XML file. Un
     </dependent>
     <exec_method name='start' type='method' exec='/opt/jruby/bin/glassfish' timeout_seconds='60' />
     <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60' />
-          <!-- INSTANCES -->        
-          <instance name='my-railsapp_production' enabled='false'>
-                  <method_context working_directory='/var/apps/my-railsapp/development/my-railsapp'>
-                          <method_credential user='railsuser' group='daemon' />
-                          <method_environment>
-                            <envvar name="PATH" value="/opt/jruby/bin:/usr/bin:/bin" />
-                          </method_environment>
-                  </method_context>
-          </instance>
-          <instance name='MYRAILSAPP_ENVIRONMENT' enabled='false'>
-                  <method_context working_directory='/FULL/PATH/TO/MY/RAILS/APP/ENVIRONMENT'>
-                          <method_credential user='RUNASTHISUSER' group='RUNASTHISGROUP' />
-                          <method_environment>
-                            <envvar name="PATH" value="/PATH/TO/JRUBY/bin:/usr/bin:/bin" />
-                          </method_environment>
-                  </method_context>
-          </instance>
+    <!-- INSTANCES -->        
+    <instance name='my-railsapp_production' enabled='false'>
+      <method_context working_directory='/var/apps/my-railsapp/development/my-railsapp'>
+        <method_credential user='railsuser' group='daemon' />
+        <method_environment>
+          <envvar name="PATH" value="/opt/jruby/bin:/usr/bin:/bin" />
+        </method_environment>
+      </method_context>
+    </instance>
+    <instance name='MYRAILSAPP_ENVIRONMENT' enabled='false'>
+      <method_context working_directory='/FULL/PATH/TO/MY/RAILS/APP/ENVIRONMENT'>
+        <method_credential user='RUNASTHISUSER' group='RUNASTHISGROUP' />
+        <method_environment>
+          <envvar name="PATH" value="/PATH/TO/JRUBY/bin:/usr/bin:/bin" />
+        </method_environment>
+      </method_context>
+    </instance>
   </service>
- </service_bundle>
+</service_bundle>
+</pre>
 
-Import the manifest 
+'''Import the manifest''' 
  $ pfexec svccfg validate config/glassfish-gem.smf.xml
  $ pfexec svccfg import config/glassfish-gem.smf.xml
 
-Now run it
- $ pfexec svcadm enable glassfish-gem:smidig2009_oc
+'''Start your appserver'''
+ $ pfexec svcadm enable glassfish-gem:my-railsapp_production
 
-=== Nginx Frontend ===
-
-TODO
-
-=== Apache 2.2 Frontend === 
+===Apache 2.2 Frontend=== 
 
 On OpenSolaris you can install Apache 2.2 with IPS:
 
@@ -128,14 +128,12 @@ File ''/etc/apache2/2.2/sites/myrailsapp.jruby.org''
 
  ServerName myrailsapp.jruby.org
  DocumentRoot /var/apps/my-railsapp/production/my-railsapp/public
-
  <Directory /var/apps/my-railsapp/production/my-railsapp/public>
   Options FollowSymLinks
   AllowOverride All
   Order allow,deny
   Allow from all
  </Directory>
-
  <Proxy balancer://myrailsapp>
   BalancerMember http://127.0.0.1:3000
  </Proxy>
@@ -153,3 +151,5 @@ Since I place my virtual hosts in separate files, I need to add include to these
 Now just enable (or restart your apache 2.2 server) 
  $ pfexec svcadm enable apache22 
  $ pfexec svcadm restart apache22
+
+TODO: Nginx frontend, Linux init.rd start/stop script. Formatting
