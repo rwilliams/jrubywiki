@@ -1,3 +1,9 @@
-See http://jetty-rails.rubyforge.org/
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+=Jetty=
+Jetty Rails is a lightweight Java Web Server that runs Ruby on Rails and Merb applications with the Jetty Container, leveraging the power of JRuby and jruby-rack.
 
-Capistrano recipes to deploy to a jetty-rails installation are described here: http://blog.raphinou.com/2008/12/capistrano-deployment-for-jetty-rails.html 
+For more information, see [http://jetty-rails.rubyforge.org/].
+
+Capistrano recipes to deploy to a jetty-rails installation are described here:
+
+[http://blog.raphinou.com/2008/12/capistrano-deployment-for-jetty-rails.html]
