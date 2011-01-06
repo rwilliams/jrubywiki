@@ -14,7 +14,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <table width="100%" cellpadding="10">
 <tr valign="top">
 <td width="50%">
-'''[http://dist.codehaus.org/jruby JRuby Downloads]'''
+'''[http://jruby.org/download JRuby Downloads]'''
 * UNIX variants: Linux, OSX, Solaris, BSD:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.3.1/jruby-bin-1.3.1.tar.gz JRuby 1.3.1 Binary.tar.gz]'''
 * Windows and Vista:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.3.1/jruby-bin-1.3.1.zip JRuby 1.3.1 Binary.zip]'''
 * UNIX variants to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.3.1/jruby-src-1.3.1.tar.gz JRuby 1.3.1 Source.tar.gz]''' 
