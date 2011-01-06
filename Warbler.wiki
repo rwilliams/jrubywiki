@@ -1,28 +1,27 @@
-http://caldersphere.rubyforge.org/warbler/
+[[Home|&raquo; JRuby Project Wiki Home Page]] 
+<h1>Warbler</h1>
 
-''Warbler is a gem to make a .war file out of a Rails project. The intent is to provide a minimal, flexible, ruby-like way to bundle up all of your application files for deployment to a Java application server.''
+The Warbler readme at [http://caldersphere.rubyforge.org/warbler/] describes Warbler as follows:
 
-''Warbler provides a sane set of out-of-the box defaults that should allow most Rails applications without external gem dependencies (aside from Rails itself) to assemble and Just Work.''
+:''[http://caldersphere.rubyforge.org/warbler/classes/Warbler.html Warbler] is a gem to make a <tt>.war</tt> file out of a [http://caldersphere.rubyforge.org/warbler/classes/Rails.html Rails], Merb, or Rack-based application. The intent is to provide a minimal, flexible, Ruby-like way to bundle up all of your application files for deployment to a Java application server. [http://caldersphere.rubyforge.org/warbler/classes/Warbler.html Warbler] provides a sane set of out-of-the box defaults that should allow most [http://caldersphere.rubyforge.org/warbler/classes/Rails.html Rails] applications without external gem dependencies (aside from Rails itself) to assemble and Just Work. Warbler bundles JRuby and [[JRuby_Rack|JRuby-Rack]] for dispatching requests to your application inside the Java application server, and assembles all jar files in <tt>WARBLER_HOME/lib/*.jar</tt> into your application. No external dependencies are downloaded.''
 
-''Warbler bundles JRuby and [[JRuby_Rack|JRuby-Rack]] for dispatching requests to your application inside the java application server, and assembles all jar files in WARBLER_HOME/lib/*.jar into your application. No external dependencies are downloaded. ''
+Created by [http://blog.nicksieger.com Nick Sieger].
 
-Created by [http://blog.nicksieger.com Nick Sieger]
-
-[http://blog.nicksieger.com/articles/2007/09/04/warbler-a-little-birdie-to-introduce-your-rails-app-to-java Announcement: Warbler, A Little Birdie To Introduce Your Rails App To Java] (Nick Sieger)
+[http://blog.nicksieger.com/articles/2007/09/04/warbler-a-little-birdie-to-introduce-your-rails-app-to-java Announcement: Warbler, A Little Birdie To Introduce Your Rails App To Java] (Nick Sieger blog, September, 2007)<br/><br/>
 
 __TOC__
 
 == Defaults ==
 
-* Currently, the Warbler gem includes JRuby 1.1.1 and JRuby-Rack 0.9.
-* It is also possible to set different versions of JRuby and JRuby-Rack (or GoldSpike, the previously used servlet adapter) without modifying the gem files. This ensures that your build is reproducible. There are a couple ways to do this.
-** Use Warbler as a plugin
-**# Install Warbler as a plugin: <pre>jruby -S warble pluginize</pre>
-**# Remove existing jar files in vendor/plugins/warbler/lib and replace with the versions you wish to use.
-** Override java_libs
-*** Override warbler's java_libs in order to provide your own. You can override individual jar files, or you can remove all of the defaults and provide all of your own.
-*** For example, to replace the version of jruby that is bundled with your app, add the following code to config/warble.rb <pre>config.java_libs.reject! { |lib| lib =~ /jruby-complete/ }</pre> and put the desired jruby-complete jar into the lib directory of your rails application.
-*** If you want to provide all of the jars, set <pre>config.java_libs = []</pre> and place a copy of all of the required jars into lib.
+Currently, the Warbler gem includes JRuby 1.1.1 and JRuby-Rack 0.9.
+
+It's also possible to set different versions of JRuby and JRuby-Rack (or GoldSpike, the previously used servlet adapter) without modifying the gem files. This ensures that your build is reproducible. There are a couple of ways to do this:
+* '''Use Warbler as a plugin.'''
+*# Install Warbler as a plugin:<br/> &nbsp;<tt>jruby -S warble pluginize</tt>
+*# Remove existing <tt>jar</tt> files from <tt>vendor/plugins/warbler/lib</tt> and replace them with the versions you want to use.
+* '''Override <tt>java_libs</tt>'''<br/>Override warbler's <tt>java_libs</tt> so you can provide your own. You can override individual jar files, or you can remove all the defaults and provide all of your own.
+**For example, to replace the version of JRruby that is bundled with your app, add the following code to <tt>config/warble.rb</tt> and put the desired <tt>jruby-complete</tt> jar into the <tt>lib</tt> directory of your rails application:<br/><tt> &nbsp;config.java_libs.reject! { |lib| lib =~ /jruby-complete/ }</tt>
+** If you want to provide all the jars, set <tt>config.java_libs = []</tt> and put copies of all of the required jars in <tt>lib</tt>.
 
 == Automatically figure out gems ==
 The following code snippet in config/warble.rb will cause Warbler to automatically bundle all gems loaded by the web application.
