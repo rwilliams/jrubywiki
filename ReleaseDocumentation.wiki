@@ -5,7 +5,7 @@
 * Update build-config.xml to reflect new version
 * Update the '''version.jruby''' property in '''src/org/jruby/jruby.properties''' to reflect new version
 ** Example: '''1.4RC1'''
-* Update maven poms: jruby -S rake updatepoms VERSION={newversion}
+* Update maven poms: jruby -S rake maven:updatepoms VERSION={newversion}
 * On release branch ('''jruby-X_Y'''):
 * Make tag using git tag: '''git tag X.Y'''
 * Check out clean clone of release branch: cd .. && rm -rf release && git clone jruby release && cd release (for example)
