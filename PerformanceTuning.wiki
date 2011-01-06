@@ -84,10 +84,15 @@ First some suggestions:
   jruby -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server
 
 ===JRuby's Runtime Properties===
-'''<tt>jruby --properties</tt>'''<br/>
-:These properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line.
+To see the runtime properties, enter the following command in the Command window or Terminal window:
+'''<tt>jruby --properties</tt>'''
 
-'''Compiler Settings'''
+All these properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line. For example:
+  jruby -J-Djruby.thread.pooling=true myscript.rb
+
+====Compiler Runtime Properties====
+Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+  jruby -J-Djruby.thread.pooling=true myscript.rb
     jruby.compile.mode=JIT|FORCE|OFF
        Set compilation mode. JIT is default; FORCE compiles all, OFF disables
     jruby.compile.fastest=true|false
@@ -106,7 +111,8 @@ First some suggestions:
     jruby.compile.fastops=true|false
        (EXPERIMENTAL) Turn on fast operators for Fixnum. Default is false.
 
-'''JIT Settings'''
+====JIT Runtime Properties====
+Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
     jruby.jit.threshold=<invocation count>
        Set the JIT threshold to the specified method invocation count. Default is 20
     jruby.jit.max=<method count>
@@ -119,7 +125,8 @@ First some suggestions:
     jruby.jit.logEvery=<method count>
        Log a message every n methods JIT compiled. Default is 0 (off).
 
-'''Native Support'''
+====Native Support Runtime Properties====
+Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
     jruby.native.enabled=true|false
        Enable/disable native extensions (like JNA for non-Java APIs). Default is true.
        This affects all JRuby instances in a given JVM.
@@ -128,7 +135,8 @@ First some suggestions:
     jruby.fork.enabled=true|false
        (EXPERIMENTAL, maybe dangerous) Enable fork(2) on platforms that support it.
 
-'''Thread Pooling'''
+====Thread Pooling Runtime Properties====
+Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
     jruby.thread.pool.enabled=true|false
        Enable reuse of native backing threads via a thread pool. Default is false.
     jruby.thread.pool.min=<min thread count>
@@ -138,12 +146,13 @@ First some suggestions:
     jruby.thread.pool.ttl=<time to live, in seconds>
        The maximum number of seconds to keep alive an idle thread. Default is 60.
 
-'''Miscellaneous Settings'''
+====Miscellaneous Runtime Properties====
+Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
     jruby.compat.version=RUBY1_8|RUBY1_9
        Specify the major Ruby version to be compatible with. Default is RUBY1_8.
     jruby.indexed.methods=true|false
-       Generate "invokers" for core classes using a single indexed class
+       Generate "invokers" for core classes using a single indexed class.
     jruby.objectspace.enabled=true|false
-       Enable or disable ObjectSpace.each_object (default is disabled)
+       Enable or disable ObjectSpace.each_object. Default is disabled (false).
     jruby.launch.inproc=true|false
-       Set in-process launching of e.g. system('ruby ...'). Default is true
+       Set in-process launching of e.g. system('ruby ...'). Default is true.
