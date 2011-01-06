@@ -11,3 +11,4 @@ If you prefer to download JRuby source and build it yourself, rather than instal
 # Generate an up-to-date set of the JavaDoc for JRuby located at <tt>docs/api/index.html</tt>:<br/><tt> &nbsp; ant create-apidocs</tt>
 # Delete any build and compile artifacts:<br/><tt> &nbsp; ant clean</tt>
 # Run the JRuby tests:<br/><tt> &nbsp; ant test</tt>
+# See [[GettingStarted#Did_It_Work|Did It Work?]] on the Getting Started page for information on using JRuby.
