@@ -24,7 +24,7 @@ Start key with a 'V'.
 
 
 == Click next. ==
- 
+
 
 On the source repository page, change the URL to the release tag URL
 
