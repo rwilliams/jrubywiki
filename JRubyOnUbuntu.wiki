@@ -1,4 +1,6 @@
-[ed: This page needs revision because some other linux distros have the same problem as Ubuntu]
+[[Home|&raquo; JRuby Project Home Page]] &nbsp;&nbsp; [[Getting Started|&raquo; Getting Started with JRuby]]
+==JRuby With Wrong Java==
+[''ed: This page needs revision because some other linux distros have the same problem as Ubuntu.'']
 
 You may find that even though you have an up-to-date JDK installed, JRuby does not work on Ubuntu.  When running
 
@@ -6,15 +8,12 @@ You may find that even though you have an up-to-date JDK installed, JRuby does n
 
 You may get errors like:
 
-'''java.lang.NoSuchFieldException: fd'''
+ java.lang.NoSuchFieldException: fd
+ at java.lang.Class.getDeclaredField(libgcj.so.81)
 
-'''at java.lang.Class.getDeclaredField(libgcj.so.81)'''
+'''Note:''' This will be fixed with JRuby 1.1 RC3, though it's uncertain whether all issues running under GCJ will be resolved.
 
-(Note: this will be fixed with JRuby 1.1 RC3, though it's uncertain whether all issues running under GCJ will be resolved.)
-
-And so on.
-
-The reason for this may be that even though you have an up-to-date JDK installed, Ubuntu is not using it by default.  You need to update your configuration to use the proper JDK.  See https://help.ubuntu.com/community/Java for more information on this issue.
+The reason for this may be that even though you have an up-to-date JDK installed, Ubuntu is not using it by default.  You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
 
 On Ubuntu 7.10, when I ran:
 
@@ -22,24 +21,21 @@ On Ubuntu 7.10, when I ran:
 
 I saw the following:
 
-'''java version "1.5.0"'''
-
-'''gij (GNU libgcj) version 4.2.1 (Ubuntu 4.2.1-5ubuntu5)'''
+ java version "1.5.0"
+ gij (GNU libgcj) version 4.2.1 (Ubuntu 4.2.1-5ubuntu5)
 
 I then ran:
 
  sudo update-alternatives --config java
 
-I picked the option that said "/usr/lib/jvm/java-6-sun/jre/bin/java"  Following that, running:
+I picked the option that said <tt>/usr/lib/jvm/java-6-sun/jre/bin/java</tt>.  Following that, running:
 
  java -version
 
 Gave me:
 
-'''java version "1.6.0_03"'''
-
-'''Java(TM) SE Runtime Environment (build 1.6.0_03-b05)'''
-
-'''Java HotSpot(TM) Server VM (build 1.6.0_03-b05, mixed mode)'''
+ java version "1.6.0_03"
+ Java(TM) SE Runtime Environment (build 1.6.0_03-b05)
+ Java HotSpot(TM) Server VM (build 1.6.0_03-b05, mixed mode)
 
 And JRuby then worked fine.
