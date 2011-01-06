@@ -1,96 +1,81 @@
-__TOC__
-=Execution Environments=
-==Can I run JRuby on Java Micro Edition?==
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+<h1>JRuby Frequently Asked Questions (FAQs)</h1>
 
+__TOC__
+==Execution Environments==
+====Can I run JRuby on Java Micro Edition?====
 Somewhat.  See [[JRubyOnJavaMicroEdition|JRuby on JME]].
 
-==How can I run JRuby using Java Web Start?==
+====How can I run JRuby using Java Web Start?====
+Here is a page dedicated to answering this question: [[JRuby on Web Start]]
 
-Here is a page dedicated to this: [[JRuby on Web Start]]
-
-==How can I make my Ruby scripts execute with JRuby on unix systems like other scripts?==
-
+====How can I make my Ruby scripts execute with JRuby on unix systems like other scripts?====
 Include a "hash bang" line on the top of your jruby script like this:
-
  #!/usr/bin/env jruby
-
 That will use the system wide installed jruby interpreter to run your script.
 
 If you would like to use a local copy of JRuby to run your script, give the relative or absolute path to the jruby program:
-
  #!/usr/bin/env jruby-1.1RC2/bin/jruby
 
 To run the script directly, you need to set the "x" flag on it:
-
  chmod +x your_script.rb
 
-You can now start you script with 
-
+You can now start your script with 
  ./your_script.rb
 
-
-=General=
-
-==Where can I find more information about the Ruby language?==
-
+==General==
+====Where can I find more information about the Ruby language?====
 [http://www.ruby-lang.org The Ruby Language Home Page] has links to a wide range of resources for learning about Ruby, downloading releases of the C implementation of Ruby, documentation on Ruby, and community outlets for talking about Ruby.
 
 [http://www.pragmaticprogrammer.com/ The Pragmatic Programmers] are the publishers of the de facto standard Ruby text, "Programming Ruby". It is considered a must-have manual to the Ruby language and libraries.
 
 Almost everything you learn about the Ruby language is directly applicable to working with JRuby. JRuby aims to be a drop-in replacement for the C implementation of Ruby.
 
-==What incompatibilities does JRuby have with the C implementation of Ruby? ==
+====What incompatibilities does JRuby have with the C implementation of Ruby? ====
+See [[DifferencesBetweenMriAndJruby|Differences Between MRI and JRuby]].
 
-See [[DifferencesBetweenMriAndJruby]].
+====How do I run JRuby without the command-line scripts?====
+Frequently users want to run JRuby from NetBeans, from Eclipse, launched from an existing Java application, or in other ways that don't use the command-line scripts. In addition to having <tt>jruby.jar</tt> and its dependency jars available in CLASSPATH, you must also have the following system property set:
+ jruby.home=''path-to-root-of-JRuby-installation''
 
-==How do I run JRuby without the command-line scripts?==
+You might also want to ensure the maximum memory is set higher than the JVM default. JRuby's own command-line scripts use a maximum of 256MB.
 
-Frequently users want to run JRuby via Eclipse, launched from an existing Java application, or other ways that do not use the command-line scripts. In addition to having jruby.jar and its dependency jars available in CLASSPATH, you must also have the following system properties set:
-
-jruby.home=<path to root of JRuby installation>
-
-You may also want to ensure the maximum memory is set higher than the JVM default; JRuby's own command-line scripts use a maximum of 256MB.
-
-==What if I want to use JRuby alongside C Ruby?  How do I keep from getting confused?==
+====What if I want to use JRuby alongside C Ruby?  How do I keep from getting confused?====
 You have two options:
-#Always invoke JRuby with e.g., <tt>jruby -S gem</tt>.
-#Put a handy bash snippet like this in your .bashrc to create "j" aliases to all the available commands (rails becomes jrails, rake becomes jrake, etc.)
+* Always invoke JRuby with e.g., <tt>jruby -S gem</tt>.
+* Put a handy bash snippet like this in your .bashrc to create <tt>j</tt> aliases to all the available commands (<tt>rails</tt> becomes <tt>jrails</tt>, <tt>rake</tt> becomes <tt>jrake</tt>, etc.)
     for f in $JRUBY_HOME/bin/*; do
       f=$(basename $f)
       case $f in jruby*|jirb*|*.bat|*.rb|_*) continue ;; esac
       eval "alias j$f='jruby -S $f'"
     done
 
-==Why can't JRuby find my installed gems?==
+====Why can't JRuby find my installed gems?====
+JRuby can only see the gems installed with the gem command shipped with JRuby. The gems installed this way will be stored under <tt>$JRUBY_HOME/lib/ruby</tt>. If you try to run Rails and get the error, "Cannot find gem for Rails ~>1.2.2.0:" (or whatever version you are using), the problem is probably that you haven't installed the Rails-gem and its dependencies with the JRuby gem-command.
 
-JRuby can only see the gems installed with the gem command shipped with JRuby. The gems installed this way will be stored under $JRUBY_HOME/lib/ruby. If you try to run Rails and get the following error "Cannot find gem for Rails ~>1.2.2.0:" (or whatever version you are using) the problem is probably that you haven't installed the Rails-gem and its dependencies with the JRuby gem-command.
+====When I implement a Java interface and provide my own initialize method, I can't construct it anymore.====
+In JRuby 0.9.0, any class implementing a Java interface must explicitly call <tt>super</tt> in their initializers to set up the interface proxy. Add a <tt>super</tt> call to your implementation's <tt>initialize</tt> method and it should work.
 
-==When I implement a Java interface and provide my own initialize method, I can't construct it anymore.==
+====How do I call JRuby from my existing Java program?====
+If you don't want to launch JRuby as a separate process, we recommend you use the [http://jakarta.apache.org/bsf/ Bean Scripting Framework] (BSF) or [https://scripting.dev.java.net/ Java 6's Scripting Support] (JSR223). We do not recommend calling directly into the JRuby runtime, since that code is subject to change before 1.0.
 
-In JRuby 0.9.0, any class implementing a Java interface must explicitly call "super" in their initializers to set up the interface proxy. Add a super call to your implementation's initialize method and it should function.
-
-==How do I call JRuby from my existing Java program?==
-
-If you do not intend to launch JRuby as a separate process, we recommend you use the [http://jakarta.apache.org/bsf/ Bean Scripting Framework] (BSF) or [https://scripting.dev.java.net/ Java 6's Scripting Support] (JSR223). We do not recommend calling directly into the JRuby runtime, since that code is subject to change before 1.0.
-
-== Where can I find the javadoc? ==
+==== Where can I find the javadoc? ====
 
 
-==Why do I get a NoSuchMethodError when running JRuby 0.9.0?==
-
+====Why do I get a NoSuchMethodError when running JRuby 0.9.0?====
 Some users will see the following error when running JRuby 0.9.0:
 
-Exception in thread "main" java.lang.NoSuchMethodError:           java.lang.StringBuffer.append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
+ Exception in thread "main" java.lang.NoSuchMethodError:
+    java.lang.StringBuffer.append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
        at org.jruby.RubyString.cat(RubyString.java:223)
        at org.jruby.RubyString.append(RubyString.java:508)
        at org.jruby.RubyString.concat(RubyString.java:518) 
 
-This error comes about when JRuby is built under Java 5 or higher and run on Java 1.4. Java 5 has the append(CharSequence) method, so it uses that during compilation. Java 1.4 does not have that method.
+This error occurs when JRuby is built under Java 5 or higher and run on Java 1.4. Java 5 has the <tt>append(CharSequence)</tt> method, so it uses that during compilation. Java 1.4 does not have that method.
 
 The first release of JRuby 0.9.0 was mistakenly build with Java 5, so we released a second version compiled with Java 1.4. Make sure you're using a JRuby compiled with Java 1.4 if that's the version of Java you intend to run it under.
 
-==How do I get a Ruby backtrace when calling JRuby code from Java?==
-
+====How do I get a Ruby backtrace when calling JRuby code from Java?====
 You need to do something along the lines of:
 
    try {
@@ -99,13 +84,12 @@ You need to do something along the lines of:
      e.getException().printBacktrace(System.err);
    }
 
-Note that Java 6's scripting via the BSF libraries may not preserve stack traces (and also launches much slower).  It is often preferable (as of February 2007) to use JRuby's own integration.
+Note that Java 6's scripting via the BSF libraries might not preserve stack traces, and also launches more slowly.  It's often preferable (as of February 2007) to use JRuby's own integration.
 
-==Why do I get a java.lang.NoSuchMethodError: org.objectweb.asm.ClassWriter.visit() error when running jruby 1.X with a custom classpath?==
+====Why do I get a <tt>java.lang.NoSuchMethodError: org.objectweb.asm.ClassWriter.visit()</tt> error when running JRuby 1.X with a custom classpath?====
+The problem stems from an ASM jar conflict. It was found by setting a custom classpath, which includes a version of Spring that has a conflicting ASM jar, and then invoking JRuby. The easiest workaround is to build <tt>jruby-complete</tt> as a single jar and edit the JRuby config file (not sure about Windows, but it should be similar) to source only the <tt>jruby-complete</tt> jar. You will need to add ALL other jars, which I  believe includes your jdbc driver as well.
 
-The problem stems from a ASM jar conflict. It was found by  setting a custom classpath, which includes a version of Spring that has a conflicting ASM jar, and then invoking jruby.  The easiest workaround is to build jruby-complete as a single jar and edit the jruby config file (not sure about windows, but it should be similar) to source only the jruby-complete jar. You will need to add ALL other jars, which i believe includes your jdbc driver as well.
-
-  svn co http://svn.codehaus.org/jruby/tags/jruby-1_0/
+  svn co <nowiki>http://svn.codehaus.org/jruby/tags/jruby-1_0/</nowiki>
   cd jruby-1_0
   ant jar-complete
   vi bin/jruby (see diff for edit)
@@ -115,103 +99,84 @@ The problem stems from a ASM jar conflict. It was found by  setting a custom cla
     #---
     #>     for j in "$JRUBY_HOME"/lib/*.jar; do
 
-==How come Java can't find resources in class folders that I've appended to the $CLASSPATH global variable at runtime? ==
+====How come Java can't find resources in class folders that I've appended to the $CLASSPATH global variable at runtime? ====
+JRubyClassLoader extends <tt>java.net.URLClassLoader</tt>, which treats any URL that doesn't end with a slash as a jar. See [http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html URLClassLoader][http://www.usome.com]
 
-JRubyClassLoader extends java.net.URLClassLoader which treats any URL that doesn't end with a slash as a jar. See [http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html URLClassLoader][http://www.usome.com]
+====Why don't my special characters (like ção) appear correctly in my Swing app ?====
+The file encoding for the <tt>.rb</tt> file containing the special characters must be set to UTF-8. There were also issues in versions of JRuby before 1.2 where unicode characters were not properly pulled out via the <tt>toString</tt> method on Ruby objects. Try upgrading to 1.2 or higher.
 
-==Why don't my special characters (like ção) appear correctly in my swing app ?==
+====Under OSX I get this error when trying to execute jruby:  "Exception in thread 'main' java.lang.NoClassDefFoundError: org/jruby/Main" ====
+The source of this problem is the inclusion of <tt>'.'</tt> (current directory) in your $PATH. You're also trying to execute JRuby from <tt>$JRUBY_HOME/bin</tt>. There's a bug in the JRuby bash script that prevents this from working.
 
-The file encoding for the .rb file containing the special characters must be set to UTF-8. There were also issues in versions of JRuby before 1.2 where unicode characters were not properly pulled out via the toString method on Ruby objects. Try upgrading to 1.2 or higher.
-
-==Under OSX I get this error when trying to execute jruby:  Exception in thread "main" java.lang.NoClassDefFoundError: org/jruby/Main ==
-
-The source of this problem is the inclusion of '.' (current directory) in your $PATH. You are also trying to execute jruby from $JRUBY_HOME/bin. There is a bug in the jruby bash script which prevents this from working.
-
-To correct the issue, remove '.' from your $PATH and relaunch the shell. Alternately, if you really want to keep '.' in your $PATH (which you shouldn't, but see google for reasons why), then just change your working directory to something other than $JRUBY_HOME/bin and execute the 'jruby' command. It should launch just fine.
+To correct the issue, remove <tt>'.'</tt> from your $PATH and relaunch the shell. Alternately, if you really want to keep <tt>'.'</tt> in your $PATH (which you shouldn't, but see google for reasons why), then just change your working directory to something other than <tt>$JRUBY_HOME/bin</tt> and execute the <tt>jruby</tt> command. It should launch just fine.
   % cd /any/path/other/than/jruby_home
   % jruby # should work
 
 Note that this bug has been fixed in JRuby 1.2.
 
-==How do I check which version of the JVM JRuby is running on?==
-
+====How do I check which version of the JVM JRuby is running on?====
   % jruby -rjava -e "puts java.lang.System.get_property('java.version')"
 
-=Running Rails=
+==Running Rails==
+====Why does script/server (WEBrick) terminate right after saying "Booting WEBrick..."?====
+This happens if you require ActiveRecord-JDBC in your environment, but you haven't installed the gem. Make sure you have the ActiveRecord-JDBC gem installed.
 
-==Why does script/server (WEBrick) terminate right after saying "Booting WEBrick..."?==
-
-If you are requiring ActiveRecord-JDBC in your environment and have not installed the gem, this will happen. Make sure you have the ActiveRecord-JDBC gem installed.
-
-==How do I avoid installing the Rails gem twice for both CRuby and JRuby?==
-
+====How do I avoid installing the Rails gem twice for both CRuby and JRuby?====
 You just need to set GEM_HOME to point to your CRuby's gem directory.  For example, in tcsh:
+ setenv GEM_HOME /usr/local/lib/ruby/gems/1.8
 
-<pre>
-setenv GEM_HOME /usr/local/lib/ruby/gems/1.8
-</pre>
+Note that on Windows, you should specify the path using unix-style directory separators. For example, if ruby is installed in <tt>C:\ruby</tt>:
+ set GEM_HOME=c:/ruby/lib/ruby/gems/1.8
 
-Note that on Windows, you should specify the path using unix-style directory separators. For example, if ruby is installed in c:\ruby:
+====I get the error "undefined method 'cattr_accessor' for ActiveRecord::Base:Class (NoMethodError)" after configuring activerecord-jdbc.  What is wrong?====
+You're not requiring activerecord-jdbc properly. Try requiring activerecord-jdbc in <tt>config/environment.rb</tt> this way:
+ require 'jdbc_adapter'
 
-<pre>
-set GEM_HOME=c:/ruby/lib/ruby/gems/1.8
-</pre>
+====I keep getting "500.html running rails app built by goldspike in a JEE Container". What is wrong?====
+You might not have set the production DB settings in <tt>database.yml</tt> properly. Goldspike by default builds a war that runs the app in production mode. 
 
-==I get the error 'undefined method `cattr_accessor' for ActiveRecord::Base:Class (NoMethodError)' after configuring activerecord-jdbc.  What is wrong?==
+You can confirm the problem by finding the <tt>production.log</tt> file. If you're using JBoss, then it lives in <tt>$JBOSS_HOME/server/my_app/tmp/my_rails_war</tt>''1234''<tt>.war</tt>, where ''1234'' is a random number generated by JBoss.
 
-You are not requiring activerecord-jdbc properly.  Try requiring activerecord-jdbc in config/environment.rb this way:
+In <tt>production.log</tt>, you'll see an error this:
+ RuntimeError (The driver encountered an error: can't convert nil into String)
 
-<pre>
-require 'jdbc_adapter'
-</pre>
+To fix this, just set the production DB settings in <tt>database.yml</tt> properly.
 
-==I keep getting 500.html running rails app built by goldspike in a JEE Container. What is wrong?==
-
-You may not have set the production DB settings in database.yml properly. goldspike by default builds a war that runs the app
-in production mode. You can confirm the problem by finding the production.log file. If you are using JBoss, then it lives in
-<pre>$JBOSS_HOME/server/my_app/tmp/my_rails_war1234.war</pre> where 1234 is some random number generated by JBoss.
-
-You would find you have en error in the log like this:
-<pre>RuntimeError (The driver encountered an error: can't convert nil into String)</pre>
-
-To fix this, just set the production DB settings in database.yml properly.
-
-==How can I load a ResourceBundle from Rails config directory ?==
-You can add the config directory to jruby classpath in config/environment.rb
+====How can I load a ResourceBundle from the Rails config directory ?====
+You can add the config directory to the JRuby classpath in <tt>config/environment.rb</tt>:
   $CLASSPATH << "file:///#{File.expand_path(File.join(RAILS_ROOT, 'config'))}/"
 
-Now, because ResourcceBundle.getBundle do not seem to use the jruby classloader, we need to pass it explicitely. In the file you want to use the resource bundle do :
+Now, because <tt>ResourceBundle.getBundle</tt> doesn't seem to use the JRuby class loader, we need to pass it explicitly. In the file where you want to use the resource bundle do :
   include Java
   require 'jruby'
   ...
-  bundle = java.util.ResourceBundle::getBundle("i18n", java.util.Locale::FRENCH, JRuby.runtime.j_ruby_class_loader)
+  bundle = java.util.ResourceBundle::getBundle
+     ("i18n", java.util.Locale::FRENCH, JRuby.runtime.j_ruby_class_loader)
 
-Now you just need to put you i18n[_*].properties files in config/ et voilà!
+Now you just need to put your <tt>i18n[_*].properties</tt> files in <tt>config/</tt>, et voilà!
 
-=Calling Into Java=
+==Calling Into Java==
 
-==Why do I get ClassNotFoundException when I call java.lang.Class.forName from Ruby?==
+====Why do I get <tt>ClassNotFoundException</tt> when I call <tt>java.lang.Class.forName</tt> from Ruby?====
+When JRuby runs at the command line, it loads into the bootstrap class loader. This class loader lives above CLASSPATH, so libraries you add to CLASSPATH are not normally visible. Because <tt>Class.forName</tt> uses the class loader of the nearest non-system class that called it, it ends up seeing JRuby as the caller and looking for classes only in CLASSPATH.
 
-When JRuby runs at the command line, it loads into the bootstrap classloader. This classloader lives above CLASSPATH, so libraries you add to CLASSPATH are not normally visible. Because Class.forName uses the classloader of the nearest non-system class that called it, it ends up seeing JRuby as the caller and looking for classes only in CLASSPATH.
+The workaround for this is simple: Uuse JRuby's import or include_class methods to load the class, or just reference it directly as in <tt>Java::my.package.MyClass</tt> or <tt>org.postgresql.Driver</tt>.
 
-The workaround for this is simple: use JRuby's import or include_class methods to load the class, or just reference it directly as in Java::my.package.MyClass or org.postgresql.Driver.
+====How do I access an inner class with a lowercase name?====
+Sometimes, developers name their inner classes beginning with a lowercase letter. This prevents JRuby from accessing it the "normal way" (it thinks it's a method). For example:
 
-==How do I access an inner class with a lowercase name?==
-
-Sometimes, developers name their inner classes beginning with a lowercase letter. This prevents jruby from accessing it the "normal way" (it thinks it's a method). For example:
-
-In java (from the com.sun.enterprise.ee.cms.core package of the [https://shoal.dev.java.net/ Shoal project])
+In Java (from the <tt>com.sun.enterprise.ee.cms.core</tt> package of the [https://shoal.dev.java.net/ Shoal project])
 
  GMSConstants.shutdownType.INSTANCE_SHUTDOWN
 
-Whereas in jruby, you can get at that using the following:
+Whereas in JRuby, you can get at that using the following:
 
- >> ShutdownType = JavaUtilities.get_proxy_class('com.sun.enterprise.ee.cms.core.GMSConstants$shutdownType')
+ >> ShutdownType = JavaUtilities.get_proxy_class(
+          'com.sun.enterprise.ee.cms.core.GMSConstants$shutdownType')
 
-=Java and JRuby interop
+==Java and JRuby Interoperation==
 
-== How do I create a primitive Java array in JRuby?
-
+==== How do I create a primitive Java array in JRuby?====
 You can convert existing ruby arrays to primitive Java arrays very simply:
 
  [1,2,3].to_java => makes an object array
@@ -223,67 +188,59 @@ To create empty arrays:
  Java::byte[12].new => makes a new byte[]
  java.lang.String[12].new => makes a new String[]
 
-==How can I implement a Java Interface using a Ruby Class?==
-
+====How can I implement a Java Interface using a Ruby Class?====
 There are two separate ways:
 
-1.  include an interface into the class
-
- class MyListener
-   include java.awt.event.ActionListener
+* Include an interface into the class.
+   class MyListener
+     include java.awt.event.ActionListener
  
-   def actionPerformed(event)
-     button.text = "I have been pressed"
+     def actionPerformed(event)
+       button.text = "I have been pressed"
+     end
    end
- end
 
-2. Use implicit closure conversion
+* Use implicit closure conversion.
+   button.add_action_listener { |event|  button.text = "I have been pressed" }
 
- button.add_action_listener { |event|  button.text = "I have been pressed" }
+== Compiler-related questions==
 
-= Compiler-related questions
+====How can I compile my Ruby into Java?====
+You can do an Ahead-Of-Time (AOT) compile by using these [[JRubyCompiler|instructions]].
 
-==How can I Compile my Ruby into Java?
+== Troubleshooting==
 
-You can do Ahead-Of-Time (AOT) compile via these [[JRubyCompiler|instructions]]
+==== Why do my ruby scripts under cygwin get executed as if they are bourne shell scripts?====
+Add <tt>.bat</tt> extension to JRuby scripts.
 
-= Troubleshooting
+If you try to run JRuby on cygwin for Windows and use the commands without the <tt>.bat</tt> extension, it will default to the bourne shell versions, which might not work properly.
 
-== My ruby scripts under cygwin get executed as if they are bourne shell scripts
+'''Example using gems:'''
+ $JRUBY_HOME/bin/gem.bat install rails -y --no-ri --no-rdoc
 
-* Add ''.bat'' extension to jruby scripts
-**If you try to run JRuby on cygwin for Windows and use the commands without the ''.bat'' extension it will default to the bourne shell versions.  I'm not sure these work properly.
-**'''Example using gems:''' ''$JRUBY_HOME/bin/gem.bat install rails -y --no-ri --no-rdoc''
-
-== My db:migrate fails with "undefined method `create_database' for class `#<Class:01x1e30857>'"?
-
+==== Why does my db:migrate fail with "undefined method 'create_database' for class '#<Class:01x1e30857>'"?====
 In this case, try to run the migrations with:
-
  jruby -S rake db:migrate SKIP_AR_JDBC_RAKE_REDEFINES=1
 
-You can also just put
-
+You can also just put the following line somewhere in your Rakefile, or in a custom Rakefile in <tt>lib/tasks/*.rake</tt>:
  ENV['SKIP_AR_JDBC_RAKE_REDEFINES'] = '1'
 
-somewhere in your Rakefile, or in a custom Rakefile in lib/tasks/*.rake.
+==== I am having a weird JNI problem. Help me!====
+There are two scenarios in which JNI problems occur: 
+* When the jar is in JRuby 1.1.2's lib.
+* When the jar is loaded using ruby's "require" statement in JRuby < 1.1.
+These two scenarios are described below.
 
-== I am having a weird JNI problem? help me?
+===== JRuby 1.1.2 + =====
+JRuby 1.1.2 changed how it set up the classpath. Earlier versions merged the CLASSPATH environment variable with all .jar files in <tt>JRUBY_HOME/lib</tt> and passed them to the JVM via the <tt>-classpath</tt> option. JRuby 1.1.2 instead passes all <tt>.jar</tt> files in <tt>lib</tt> to the JVM via the <tt>-Xbootclasspath/a:</tt> option, while CLASSPATH is passed using <tt>-classpath</tt>. Jar files that use JNI (e.g. <tt>sqljdbc.jar</tt>) don't work correctly when they're in the boot classpath, so they should not be placed in JRuby's <tt>lib</tt> directory. Instead, they should be loaded with <tt>require</tt> or by setting the CLASSPATH environment variable.
 
-There are two scenarios in which JNI problems occur: [1] when the jar is in jruby 1.1.2's lib, or [2] when the jar is loaded using ruby's "require" statement in jruby < 1.1.
-
-=== jruby 1.1.2 + ===
-
-Jruby 1.1.2 changes how it sets up the classpath. Earlier versions merged the CLASSPATH environment variable with all .jar files in JRUBY_HOME/lib and passed them to the JVM via the -classpath option. Jruby 1.1.2 instead passes all .jar files in lib to the JVM via the -Xbootclasspath/a: option, while CLASSPATH is passed using -classpath. Jjar files that use JNI (e.g. sqljdbc.jar) don't work correctly when they're in the boot classpath, so they should not be placed in jruby's lib directory. Instead, they should be loaded with 'require' or by setting the CLASSPATH environment variable.
-
-=== jruby < 1.1 ===
-
-In older versions of jruby (pre 1.1), loading a jar into multiple jruby runtimes with <code>require</code> can cause problems with JNI. For example, when using MS SQL Server and integrated security in a rails application and if sqljdbc is loaded with a <code>require</code> statement, running <code>jruby -S rake test:units</code> results in the following error:
-
+===== JRuby < 1.1 =====
+In older versions of JRuby (pre 1.1), loading a jar into multiple JRuby runtimes with <tt>require</tt> can cause problems with JNI. For example, when using Microsoft SQL Server and integrated security in a rails application with <tt>sqljdbc</tt> loaded with a <tt>require</tt> statement, running <tt>jruby</tt> <tt>-S</tt> <tt>rake</tt> <tt>test:units</tt> results in the following error:
  com.microsoft.sqlserver.jdbc.AuthenticationJNI
  &lt;clinit&gt;
  WARNING: Failed to load the sqljdbc_auth.dll
 
-The error message is displayed because sqljdbc.jar is loaded twice, but the OS and/or JVM and/or native library will only allow the native library to be loaded and initialized once. Two ways to work around this problem are:
+The error message is displayed because <tt>sqljdbc.jar</tt> is loaded twice, but the OS and/or JVM and/or native library will only allow the native library to be loaded and initialized once. There are two ways to work around this problem.
 
-# Load the jar on the classpath instead of with a <code>require</code>. This will cause it to be loaded by a different classloader, so the jar file will only be loaded once per process.
-# Tell jruby to launch other jrubies out-of-proc with <code>jruby '''-J-Djruby.launch.inproc=false''' ''rest of command''</code>. This will cause a second JVM to be launched in the <code>rake test:units</code> example above.
+* Load the jar on the classpath instead of using <tt>require</tt>. This will cause it to be loaded by a different class loader, so the jar file will only be loaded once per process.
+* Tell JRuby to launch other jrubies out-of-proc with <br/><tt>jruby '''-J-Djruby.launch.inproc=false''' ''rest of command''</tt><br/> This will cause a second JVM to be launched in the <tt>rake</tt> <tt>test:units</tt> example above.
