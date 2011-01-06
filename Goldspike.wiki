@@ -14,24 +14,20 @@ See also [[Jruby on Rails on Tomcat]] (Warbler related info).
 ''Note this section will be expanded in the near future.''
 
 === Goldspike Rake Plugin ===
-
 First, install the plugin:
-      script/plugin install http://jruby-extras.rubyforge.org/svn/trunk/rails-integration/plugins/goldspike
+  script/plugin install http://jruby-extras.rubyforge.org/svn/trunk/rails-integration/plugins/goldspike
 
-The above doesn't work on JRuby under Windows XP.
-
-You'll need to install the [[Running Rails with ActiveRecord-JDBC|ActiveRecord-JDBC]] gem before you can use the rake-tasks below. You install it with the command:
-
-      gem install activerecord-jdbc-adapter --no-rdoc --no-ri
+'''Note:''' The script above doesn't work on JRuby under Windows XP. You'll need to install the [[Running Rails with ActiveRecord-JDBC|ActiveRecord-JDBC]] gem before you can use the rake-tasks below. You install it with the command:
+ gem install activerecord-jdbc-adapter --no-rdoc --no-ri
 
 Make sure that the plugin is installed, and run the following command:
-* rake war:standalone:create
+ rake war:standalone:create
 
-If you want to run a lot of JRuby webapps on an application server, it may be more efficient to install JRuby on your servers classpath, and create a war containing just the application code:
-* rake war:shared:create
+If you want to run a lot of JRuby web applications on an application server, it might be more efficient to install JRuby on your server's classpath and create a war containing just the application code:
+ rake war:shared:create
 
 Try out your application as a web archive using Jetty:
-* rake war:standalone:run
+ rake war:standalone:run
 
 == Building Goldspike from source ==
 
@@ -45,9 +41,9 @@ Check out the source once:
 
 ==== Eclipse ====
 The following command will download all the required jar files and create the Eclipse project for you:
-<pre>mvn eclipse:eclipse</pre>
+ mvn eclipse:eclipse
 
-After this you need to set the M2_REPO variable within Eclipse to point to your local Maven repository. This is typically at ~/.m2/repository
+After this you need to set the M2_REPO variable within Eclipse to point to your local Maven repository. This is typically at <tt>~/.m2/repository</tt>.
 
 ==== NetBeans ====
 ??? 
@@ -55,7 +51,7 @@ After this you need to set the M2_REPO variable within Eclipse to point to your 
 
 ==== IntelliJ IDEA ====
 The following command will download all the required jar files and create the project for you:
-<pre>mvn idea:idea</pre>
+ mvn idea:idea 
 
 Alternatively, you can open the pom directly on newer versions of IDEA, which will automatically convert it into a project.
 
@@ -64,14 +60,16 @@ Alternatively, you can open the pom directly on newer versions of IDEA, which wi
 == Frequently Asked Questions ==
 
 === Connecting to a database ===
-To enable ActiveRecord you'll need to specify a database connection, and package appropriate JDBC drivers.
+To enable ActiveRecord you'll need to specify a database connection and package appropriate JDBC drivers.
 
-Adding the JDBC driver is done by adding library dependencies into <i>config/war.rb</i> (create it if it doesn't exist).
+Adding the JDBC driver is done by adding library dependencies into <tt>config/war.rb</tt>. Create it if it doesn't exist.
 
-For example, the MySQL driver can be included in the WAR with the following line:<br />
-<pre>maven_library 'mysql', 'mysql-connector-java', '5.0.4'</pre>
+For example, the MySQL driver can be included in the WAR with the following line:
+ maven_library 'mysql', 'mysql-connector-java', '5.0.4'
 
-Next, configure database.yml to enable the use of ActiveRecord-JDBC as the ActiveRecord database driver. Please note that at present WAR files are set to <b>production by default</b>.
+Next, configure <tt>database.yml</tt> to enable the use of <tt>ActiveRecord-JDBC</tt> as the ActiveRecord database driver. 
+
+'''Note:''' At present WAR files are set to <b>production by default</b>.
 
 Using our MySQL example again, this becomes:
 <pre>
@@ -84,18 +82,20 @@ production:
   host: localhost
 </pre>
 
-Update config/environment.rb see step '9' of [[Running Rails with ActiveRecord-JDBC]]
+Update <tt>config/environment.rb</tt>.  See step '9' of [[Running Rails with ActiveRecord-JDBC]].
 
 Now when you use the web application, it should use JDBC drivers from Java to connect to the database.
 
 === Using a connection from a pool via JNDI ===
 
-Rails-Integration comes with rake tasks to create a war file for the rails app and configure [http://jetty.mortbay.org jetty]
+Rails-Integration comes with rake tasks to create a war file for the rails app and configure a [http://jetty.mortbay.org jetty]
 web server. To configure JNDI support, the following changes are required to be done...
 
-1. Add the data source configuration to the jetty.xml file. However, Please note that everytime you run the rake task - war:standalone:run, the jetty.xml is recreated.   Therefore, I suggest that you modify the rails-integration war plugin library, called run.rb and add the below entries in the appropriate place.
+'''1. Add the data source configuration to the <tt>jetty.xml</tt> file.'''
 
-For instance, for oracle data source,
+'''Note:''' Every time you run the rake task - war:standalone:run, the <tt>jetty.xml</tt> is recreated. Therefore, I suggest that you modify the rails-integration war plugin library, called <tt>run.rb</tt> and add the entries below in the appropriate place.
+
+For instance, for Oracle data source:
 
     &lt;new id="MyApp1" class="org.mortbay.jetty.plus.naming.Resource"&gt;
     &lt;arg&gt;jdbc/MyApp&lt;/arg&gt;
@@ -107,21 +107,15 @@ For instance, for oracle data source,
     &lt;/new&gt;
     &lt;/arg&gt;
     &lt;/new&gt;
-
  
+For the full list of configuration details for various databases, see [http://docs.codehaus.org/display/JETTY/DataSource+Examples Jetty DataSource+Examples].
 
-For the full list of configuration details for various databases, please go [http://docs.codehaus.org/display/JETTY/DataSource+Examples here]
+'''Note:''' As stated in the Jetty documentation, the above entries can be updated in <tt>jetty-env.xml</tt> or <tt>jetty-web.xml</tt> as well. The scope of this configuration depends on where you put this configuration information.
 
-Please note that, as per jetty documentation, the above entries can be updated in jetty-env.xml or jetty-web.xml as well. The scope of this configuration depends on where you put this configuration information.
-
-2. Now, search for the section
-
+'''2. Now, search for the following section in your <tt>jetty.xml</tt> (or the <tt>run.rb</tt> file):'''
     &lt;New class="org.mortbay.jetty.webapp.WebAppContext"&gt;
 
-
-
-in your jetty.xml(or the run.rb file) and add the following entries after the two &lt;Arg&gt; entries...
-
+Add the following entries after the two &lt;Arg&gt; entries:
     &lt;Set name="ConfigurationClasses"&gt;
     &lt;Array id="plusConfig" type="java.lang.String"&gt;
     &lt;Item&gt;org.mortbay.jetty.webapp.WebInfConfiguration&lt;/Item&gt;
@@ -132,11 +126,11 @@ in your jetty.xml(or the run.rb file) and add the following entries after the tw
     &lt;/Array&gt;
     &lt;/Set&gt;
 
+'''3. Specify the JNDI Logical Name for the web application.'''
 
+Add the following entries in your <tt>web.xml</tt> under WEB-INF folder of your war file. 
 
-
-3. Now, we need to specify the JNDI Logical Name for our web application, add the following entries in your web.xml under WEB-INF folder of your war file. However, Please note that every time you run the rake task - war:standalone:run, web.xml is recreated.  Therefore, I suggest that you modify the rails-integration war plugin library, called create_war.rb and add the below entries in the appropriate place.
-
+'''Note:''' Every time you run the rake task - war:standalone:run, web.xml is recreated.  Therefore, I suggest that you modify the rails-integration war plugin library <tt>create_war.rb</tt> and add the entries below in the appropriate place.
     &lt;resource-ref&gt;
     &lt;description&gt;My DataSource Reference&lt;/description&gt;
     &lt;res-ref-name&gt;jdbc/MyApp&lt;/res-ref-name&gt;
@@ -144,16 +138,15 @@ in your jetty.xml(or the run.rb file) and add the following entries after the tw
     &lt;res-auth&gt;Container&lt;/res-auth&gt;
     &lt;/resource-ref&gt;
 
-'''In the trunk version, the above entries are already added.  All you have to do is setup the jndi name in the property "datasource_jndi_name" inside war_config.rb.'''
+'''Note:''' In the trunk version, the above entries are already added.  All you have to do is setup the JNDI name in the property <tt>datasource_jndi_name</tt> inside <tt>war_config.rb</tt>.
 
-4. Lastly, to add JNDI support, jetty requires two more libraries Jetty-Naming and Jetty-Plus.
-The best way to do this is to modify the rails-integration war plugin library, called war_config.rb. Search for the word add_jetty_library and append the following lines telling the war_config to download the two libraries as well.
+'''4. To add JNDI support, Jetty requires two more libraries: Jetty-Naming and Jetty-Plus.'''
 
+The best way to do this is to modify the rails-integration war plugin library <tt>war_config.rb</tt>. Search for <tt>add_jetty_library</tt> and append the following lines telling the war_config to download the two libraries as well:
     add_jetty_library(maven_library('org.mortbay.jetty', 'jetty-plus', '6.1.1'))
     add_jetty_library(maven_library('org.mortbay.jetty', 'jetty-naming', '6.1.1'))
 
-5. Now for the final step, modify your database.yml to use jndi...
-
+'''5. Modify your <tt>database.yml</tt> to use JNDI.'''
     production:
       adapter: jdbc
       jndi: java:comp/env/jdbc/MyApp
@@ -162,26 +155,23 @@ The best way to do this is to modify the rails-integration war plugin library, c
 Thats it! Your rails web application is ready to run with JNDI Data source.
 
 === How do I use a specific JRuby release? ===
-Add the following line to <i>config/war.rb</i>
-<pre>maven_library 'org.jruby', 'jruby-complete', '0.9.9-SNAPSHOT'</pre>
+Add the following line to <tt>config/war.rb</tt>
+ maven_library 'org.jruby', 'jruby-complete', '0.9.9-SNAPSHOT'
 
 === Which version of Rails is used? ===
-If RAILS_GEM_VERSION is set in environment.rb, then this will be used, otherwise the latest installed release of Ruby on Rails is used.
+If RAILS_GEM_VERSION is set in <tt>environment.rb</tt>, this will be used. Otherwise, the latest installed release of Ruby on Rails is used.
 
-However, you may want to manually specify a version of Rails to use. This can be done by adding a gem dependency to <i>config/war.rb</i>, such as:
-<pre>add_gem 'rails', '= 1.2.3'</pre>
+However, you might want to manually specify a version of Rails to use. This can be done by adding a gem dependency to <tt>config/war.rb</tt>, such as:
+ add_gem 'rails', '= 1.2.3'
 
 === Can I use servlet filters? ===
-
 Yes you can. There is an example on how to do this on the [[CAS filter]] page.
 
 === How do you add JAR files to the resulting webapp? ===
+Put them under <tt>lib/java</tt> (create that directory if needed), and they'll propagate to the resulting web application.  
 
-Put them under lib/java (create that dir if needed) and they'll propagate to the resulting webapp.  
-
-''I had to add a maven_library directive to my config/war.rb as well in order to make this work.''
-
-''In goldspike 1.3, include_library(name,version) in config/war.rb is supposed to provide the ability to add java libraries from either lib/java or jruby_home/lib, but the functionality has been broken for a while. A patch is available here: http://rubyforge.org/tracker/index.php?func=detail&aid=13963&group_id=2014&atid=7859''
+'''Note:''' I had to add a maven_library directive to my <tt>config/war.rb</tt> to make this work. In Goldspike 1.3, <tt>include_library(name,version)</tt> in <tt>config/war.rb</tt> is supposed to provide the ability to add Java libraries from either <tt>lib/java</tt> or <tt>JRUBY_HOME/lib</tt>, but the functionality has been broken for a while. A patch is available here:<br/>
+http://rubyforge.org/tracker/index.php?func=detail&aid=13963&group_id=2014&atid=7859
 
 === Which Java EE servers can I use ? ===
 GoldSpike has been tested on:
@@ -192,40 +182,42 @@ GoldSpike has been tested on:
 * [http://www.ibm.com/developerworks/websphere/techjournal/0801_shillington/0801_shillington.html WebSphere]
 
 === How do I add dependent gems to the war? ===
-Use 'add_gem' in war.rb.  Example:
+Use 'add_gem' in war.rb.  For example:
  add_gem 'rmagick4j', '= 0.3.3'
 
 === How do I configure the number of requests GoldSpike can handle? ===
 The number of simultaneous requests GoldSpike can process is based on the number of JRuby runtimes it creates.
 
-Once GoldSpike has been run, it will create WEB-INF/web.xml under your Rails application.
-The following context-params in web.xml can be used to configure GoldSpike:
+Once GoldSpike has been run, it will create <tt>WEB-INF/web.xml</tt> under your Rails application.
+The following <tt>context-params</tt> in <tt>web.xml</tt> can be used to configure GoldSpike:
 
-* jruby.pool.maxActive (defaults to 4)
-** maximum number of runtimes
-* jruby.pool.minIdle (defaults to 2)
-** minimum number of runtimes
-* jruby.pool.initialSize (defaults to jruby.pool.minIdle)
-** initial number of runtimes 
-* jruby.pool.checkInterval (defaults to 1000)
-** How often in milliseconds should we check whether more runtimes are needed?
+Maximum number of runtimes:
+ jruby.pool.maxActive (defaults to 4)
+Minimum number of runtimes:  
+ jruby.pool.minIdle (defaults to 2)
+Initial number of runtimes:
+ jruby.pool.initialSize (defaults to jruby.pool.minIdle)
+How often in milliseconds to check if more runtimes are needed:
+ jruby.pool.checkInterval (defaults to 1000)
 
 === What should I do? I get "Could not load Rails. See the logs for more details." error message. ===
-
 This means that an exception was thrown while Goldspike attempted to initialize the Rails application. This can be caused by a number of problems, for example:
 * Failure to connect to the database
 * Missing gems from the war
-* Missing required jars which are loaded from environment.rb
+* Missing required jars which are loaded from <tt>environment.rb</tt>
 
 The best way to go about debugging this is to check the container log file. It should show the message and trace for the exception that was encountered.
 
 === How do I avoid bundling files such as .svn, .DS_Store, etc. into the WAR file? ===
-I would LOVE to find the "proper" answer to this. I tried adding this to war.rb, but it only caused an exclusion at the top level, possibly because the file list that finally gets passed to the "jar" command is only a list of the top-level files/directories:
+I would LOVE to find the "proper" answer to this. I tried adding the following to <tt>war.rb</tt>, but it only caused an exclusion at the top level, possibly because the file list that finally gets passed to the <tt>jar</tt> command is only a list of the top-level files and directories:
  exclude_files File.join(".","**",".svn")
 
-I ended up having to hack the Goldspike code to run this zip command immediately after the WAR file was built (in packer.rb), which removes the designated files from the jar manually, throughout the ENTIRE jar file:
+I ended up having to hack the Goldspike code to run the following zip command immediately after the WAR file was built (in <tt>packer.rb</tt>), which removes the designated files from the jar manually, throughout the ENTIRE jar file:
  zip -q -d #{os_target_file} \*.svn/\* \*.DS_Store
-(os_target_file is the .jar filename, .DS_Store is the OS X directory metadata file. Backslashes are significant/necessary, see the zip man page!)
+
+*os_target_file is the .jar filename
+* .DS_Store is the OS X directory metadata file. 
+* Backslashes are significant and necessary: See the zip man page!
 
 I can't think of a circumstance when you wouldn't want to exclude these files from a WAR, so I didn't make it an option. Works great.
 
@@ -235,23 +227,24 @@ I can't think of a circumstance when you wouldn't want to exclude these files fr
 
 Within your web.xml you can set the following to tailor the WAR structure to your liking. Set inside &lt;web-app&gt; like:
 
+<pre>
  <context-param>
  	<param-name>jruby.standalone</param-name>
  	<param-value>true</param-value>
  </context-param>
+</pre>
 
-
- jruby.standalone - true/false (what's this do?)
+ jruby.standalone - true/false (what does this do?)
  jruby.session_store - "db"
  jruby.home
  jruby.pool.maxActive - 4
  jruby.pool.minIdle - 2
  jruby.pool.checkInterval - 1000 (ms)
  jruby.pool.maxWait - 30000 (ms)
-
+ 
  rails.root - path to rails app within the war file / webapp dir
  rails.env  - development|test|production
-
+ 
  files.root - absolute path to public files within the war file / webapp dir
  files.default - servlet id to use if a file cannot be found
  files.prefix - prefix added to static files
@@ -259,19 +252,19 @@ Within your web.xml you can set the following to tailor the WAR structure to you
 
 As with Rails, if a static file exists it will be served, otherwise it will try to dispatch via Rails.
 
-Static file requests are (can be) serviced via org.jruby.webapp.FileServlet
+Static file requests are (can be) serviced via <tt>org.jruby.webapp.FileServlet</tt>.
 
-Rails requests are serviced via org.jruby.webapp.RailsServlet
+Rails requests are serviced via <tt>org.jruby.webapp.RailsServlet</tt>.
 
 You should map / through the FileServlet
-
+<pre>
  <servlet-mapping>
  	<servlet-name>files</servlet-name>
  	<url-pattern>/</url-pattern>
  </servlet-mapping>
+</pre>
 
-
-Additionally - System Properties you can set:
+Additionally, System Properties you can set:
 
  jruby.objectspace.enabled
  gem.path
