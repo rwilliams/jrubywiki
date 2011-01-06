@@ -216,6 +216,10 @@ And the Ruby File class is still accessible:
   JRuby -  A Java implementation of the Ruby language
   => nil
 
+==== Making them accessible in the main name space ====
+
+You can set const_missing to make them accessible in more than just a module. http://www.ruby-forum.com/topic/216629 though there might be a better way.
+
 === Using Static Java Enumerations ===
 
 Java <tt>enum</tt>s are accessible from Ruby code as constants:
