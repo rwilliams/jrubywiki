@@ -27,16 +27,14 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 ==JRuby Basics==
 
 * [[Getting Started]]
-* [[ApplicationsAndLibraries|Help with common libraries and applications]]
+* [[Walkthroughs and Tutorials]]
+* [[ApplicationsAndLibraries|Help with common libraries/applications]]
 * [[Java Integration | Java Integration (Calling JRuby from Java)]]
 * [[Calling Java from JRuby]]
 * [[Calling C from JRuby]]
+* [[Performance Tuning]]
 * [[JRuby on Ubuntu]]
 * [[JRuby Compiler]]
-* [[Performance Tuning]]
-* [[Walkthroughs and Tutorials]]
-* [[Success Stories]]
-* [[GUI Frameworks]]
 * [[Case_Study_JRuby on Eclipse RCP|Case Study: JRuby on Eclipse RCP]]
 * [[JRuby on Java Micro Edition]]
 * [[JRuby on Web Start]]
@@ -145,6 +143,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 == Evangelism ==
 * [[Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
+* [[Success Stories]]
 
 </td>
 <td></td>
