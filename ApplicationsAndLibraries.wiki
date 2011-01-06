@@ -20,7 +20,8 @@ See [[GUIFrameworks]]
 * [[Hpricot]] - Installing a version of Hpricot which works on JRuby
 * [[JDBC]] - Accessing JDBC directly from JRuby
 * [[JRuby Rack|JRuby-Rack]] <span style="font-size:90%; font-style:italic">(Servlet to Rails bridge, plus other Ruby web frameworks)</span>
-* [[Accessing JMX]] - Code snippet and mention of some external gems which can interact with JMX
+* [http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html JMS] - JMS Producer / Consumer Example
+* [[JMX]] - Code snippet and mention of some external gems which can interact with JMX
 * [[Mentawai]] <span style="font-size:90%; font-style:italic">A Java web framework fully supporting Ruby through JRuby</span>
 * [[Merb|Merb]]
 * [http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html Mr Bones] - work around some RUBY_PLATFORM errors in Mr Bones using JRuby
