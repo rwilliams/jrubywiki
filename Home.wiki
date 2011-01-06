@@ -79,7 +79,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Release Documentation]]
 * [[JRuby hash bang]]
 * [[JRuby Internal Design]]
-* [[NetSsh Compatability]]
 </td>
 
 </tr>
