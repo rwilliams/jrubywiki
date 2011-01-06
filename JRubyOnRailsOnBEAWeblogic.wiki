@@ -1,0 +1,86 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#War_File_Deployment|&raquo; JRuby on Rails: War File Deployment]]
+<h1> JRuby on Rails on Oracle WebLogic</h1>
+
+__TOC__
+
+== Prerequisites ==
+* JRuby 1.1.1
+* Java 5
+* Oracle WebLogic 10 
+* MySQL database v 5
+* Warbler
+
+The JRuby 1.1 series releases require Java 5, which was first supported in BEA WebLogic version 9.2. In this example we're using Oracle WebLogic 10.
+
+== Installation ==
+# Download and install JDK 5 and JRuby 1.1.1, and make sure you set <tt>JAVA_HOME/bin</tt> and <tt>JRUBY_HOME/bin</tt> in your PATH environment variable.
+# Install Rails 2.0:<br/><tt> &nbsp;  jruby -S gem install rails</tt>
+# Install the activerecord-jdbcmysql-adapter gem:<br/><tt> &nbsp; jruby -S gem install activerecord-jdbcmysql-adapter</tt>
+# Install the JRuby Open SSL gem:<br/><tt> &nbsp; jruby -S gem install jruby-openssl</tt>
+
+== Create a Rails 2.0 Application ==
+# Create a Rails application:<br/><tt> &nbsp; jruby -S rails books --database=mysql</tt><br/>This will generate the skeleton of a Rails application.
+# Navigate to the <tt>books/</tt> directory and scaffold a book controller and model:<br/><tt> &nbsp; jruby script/generate scaffold book title:string author:string isbn:string desription:text</tt>
+# Start the MySQL database server.
+# Set the username and password for your database server in <tt>config/database.yml</tt>. The default for MySQL is <tt>username: root</tt> and a blank password.
+# Change the adapter from <tt>mysql</tt> to <tt>jdbcmysql</tt> in <tt>config/database.yml</tt>.
+# Create the required databases:<br/><tt> &nbsp; jruby -S rake db:create:all</tt><br/>This creates the three databases in <tt>database.yml</tt>, namely:
+#* books_development
+#* books_test
+#* books_production    
+# Create required tables by running your migrations in all environments:<br/><tt> &nbsp; jruby -S rake db:migrate</tt><br/><tt> &nbsp; jruby -S rake db:migrate RAILS_ENV=test</tt><br/><tt> &nbsp; jruby -S rake db:migrate RAILS_ENV=production</tt>
+# Start your application by using WEBrick:<br/><tt> &nbsp; jruby script\server</tt>
+# Point your browser at:<br/><tt> &nbsp; <nowiki>http://localhost:3000/books</nowiki></tt>
+
+Your Rails application is now running on Java with the Ruby MySQL adapter.
+
+== Packaging a Rails Application Into a WAR ==
+# Install the warbler gem:<br/><tt> &nbsp;  jruby -S gem install warbler</tt>
+# Generate the warbler configuration file:<br/><tt> &nbsp;  jruby -S warble config</tt>
+# Modify <tt>books/config/warble.rb</tt> to include additional gems:<br/><tt> &nbsp; config.gems += ["activerecord-jdbcmysql-adapter", "jruby-openssl"]</tt><br/> These gems will be included in the generated war file. The Rails gem will be included by default.
+# Use warbler to package the rails app into a war and create <tt>books.war</tt>:<br/><tt> &nbsp; warble war</tt>
+# If for some reason the Rails gem was not included, try freezing Rails:<br/><tt> &nbsp; jruby -S rake rails:freeze:gems</tt>
+
+== Deploying to Oracle WebLogic ==
+# Create a new WebLogic domain.
+# Start the admin server.
+# Point your browser at:<br/><tt> &nbsp; <nowiki>http://localhost:7001/console</nowiki></tt>
+# Install the WAR application you previously packaged and start it. (For this example it can be installed on the Admin server.)
+# Point your browser at:<br/><tt> &nbsp;  <nowiki>http://localhost:7001/books/books</nowiki></tt>
+# Replace the application context (first <tt>books</tt>) with your context if needed.
+
+The first time you access the application it will take quite a while to load. If you get an error message saying something like <tt>the server is currently overloaded</tt>, you should try to reload it.
+
+== Using a JDBC Datasource in WebLogic==
+
+=== WebLogic configuration ===
+Create a new datasource in the WebLogic console.
+# JDBC datasoure properties:<br/><tt> &nbsp; Name: books_production_ds<br/> &nbsp; JNDI name: jdbc/books_production_ds <br/> &nbsp; Databse type: MySQL <br/> &nbsp; Database driver: com.mysql.jdbc.Driver</tt>
+# Transaction options: Keep default transaction options.
+# Connection properties:<br/><tt> &nbsp; Database_name: books_production<br/> &nbsp; Host name: localhost<br/> &nbsp; Port: 3306<br/> &nbsp; Database user name: root <br/> &nbsp; Password: &lt;leave blank&gt;</tt>
+# Test configuration: Connection test should succeed.
+# Targets
+## Select AdminServer.
+## Finish and activate changes.
+
+=== Rails application configuration ===
+# Edit <tt>books/config/database.yml</tt>.
+# Replace the <tt>production</tt> block with:<br/><tt> &nbsp; production:<br/> &nbsp; adapter: jdbc<br/> &nbsp; jndi: jdbc/books_production_ds</tt>
+# Package your application using warble:<br/><tt> &nbsp; jruby -S warble</tt>
+
+=== Updating application in WebLogic ===
+# Update the WAR application in the WebLogic console
+# Point your browser at:<br/><tt> &nbsp; <nowiki>http://localhost:7001/books/books</nowiki></tt>
+
+That's it!
+
+== Known Issues ==
+
+If you get this [http://www.ruby-forum.com/topic/155930 error], you need to update JRuby-Rack (currently version 0.9.2) to handle WebLogic returning null from the call to <tt>ServletContext.getRealPath(String)</tt>.
+
+If you get this error on windows, (note the extra C: at the end of the path.)
+     org.jruby.rack.RackInitializationException: No such file or directory - 
+     No such file or directory - 
+     C:/bea/10.1/wlserver_10.0/samples/domains/wl_server/servers/examplesServer/tmp/_WL_user/books/2htmyu/war/WEB-INF/C:
+you need to apply [http://jira.codehaus.org/browse/JRUBY-1401 this patch] to JRuby, and include your patched <tt>jruby-complete.jar</tt> in your rails app's <tt>lib</tt> directory. Add the following line to your <tt>config/warble.rb</tt> file to prevent Warbler from overwriting your patched jar:
+     config.java_libs.reject! { |lib| lib =~ /jruby-complete/ }
