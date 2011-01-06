@@ -157,6 +157,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <td>
 == Evangelism ==
 * [[Benchmarks]]
+* [[JRubyPresentations | JRuby Talks and Presentations
 
 </td>
 <td></td>
