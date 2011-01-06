@@ -1,40 +1,46 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]]  |  [[PerformanceTuning|&raquo; JRuby Performance Tuning]]
+<h1>JRuby Compiler</h1>
 __TOC__
 
-The compiler supports both ahead-of-time (AOT) and just-in-time (JIT) compiling.
+The JRuby compiler supports both ahead-of-time (AOT) and just-in-time (JIT) compiling.
 
-==Ahead-of-time (AOT) Compilation==
+==Ahead-Of-Time (AOT) Compilation==
+The typical way to run the AOT compiler is to run 
+ jrubyc <script name>
 
-The typical way to run the AOT compiler is to run "jrubyc <script name>". It will output a .class file in the current dir with parent dirs and package matching where the file lives. So...
+Or, on Microsoft Windows:
+ jruby -S jrubyc <script name>
 
- jrubyc foo/bar/test.rb
+This command outputs a <tt>.class</tt> file in the current directory with parent directories and package matching where the file lives. So the following command
+ jrubyc foo/bar/test.rb 
 
 will output
  foo/bar/test.class
 
-To run, include jruby.jar in CP along with current dir (parent dir for foo/bar/test.class above), and execute like a normal Java class (named foo.bar.test):
+To run the file produced by the compiler, use the <tt>-cp</tt> (class searchpath) parameter with both the current directory (parent directory for foo/bar/test.class above) and the path to <tt>jruby.jar</tt>, and execute it as you would a normal Java class named foo.bar.test:
 
  java -cp .:/path/to/jruby.jar foo.bar.test
 
-===Not quite enough===
-([[User:Dhjdhj|Dhjdhj]] 08:17, 6 November 2008 (PST)
+'''Note from [[User:Dhjdhj|Dhjdhj]] 08:17, 6 November 2008 (PST)'''
+
 If you're getting errors about missing requires, then you need to use the [http://repository.codehaus.org/org/jruby/jruby-complete jruby-complete jar] for running. I do not know why this jar file is not included with the standard distribution.  
 
-Also, if you're trying to do this from Windows (not cygwin), then to compile your code you need to say
+Also, if you're trying to do this from a Microsoft Windows command window (not cygwin), then to compile your code you need to use the command
 
-   jruby -S jrubyc for/bar/test.rb
-)
+ jruby -S jrubyc foo/bar/test.rb
 
-==Just-in-time (JIT) compilation==
+which outputs <tt>test.class</tt> to the <tt>foo\bar\</tt> subdirectory of the current directory.
 
-JRuby also supports using the compiler in JIT mode, where it will attempt to compile methods as they're called. After a call threshold is reached, the JIT tries to compile the method body in question (including any blocks it contains). If the compilation succeeds, the compiled version is used from then on. Otherwise, the method is permanently marked "interpret only".
+==Just-In-Time (JIT) Compilation==
+In addition to AOT compiling described above, JRuby supports using the compiler in JIT mode, where it will attempt to compile methods as they're called. After a call threshold is reached, the JIT tries to compile the method body in question, including any blocks it contains. If the compilation succeeds, the compiled version is used from then on. Otherwise, the method is permanently marked "interpret only".
 
-As of JRuby 0.9.9, the JIT is enabled by default with a threshold of 20. You can turn it off using the following flag.
-
+The JIT is enabled by default with a threshold of 50. You can turn it off by using the <tt>-J-Djruby.jit.enabled=false</tt> flag. For example:
  jruby -J-Djruby.jit.enabled=false myscript.rb
 
-==Performance==
+For more information on JIT flags, see [[PerformanceTuning#JIT_Runtime_Properties|JIT Runtime Properties]].
 
-A few microbenchmarks comparing Ruby, JRuby interpreted, and JRuby compiled (server VM numbers show worst and best numbers):
+==Performance==
+Here are a few microbenchmarks comparing Ruby, JRuby interpreted, and JRuby compiled (server VM numbers show worst and best numbers):
 
  fib(30) Ruby:                1.67s
  fib(30) JRuby interp (client VM):    3.93s
@@ -43,75 +49,79 @@ A few microbenchmarks comparing Ruby, JRuby interpreted, and JRuby compiled (ser
  fib(30) JRuby compiled (server VM):    1.66s to 0.86s
 
 ==Tweaking and troubleshooting==
+There are other interesting properties you can use.
 
-There are other interesting properties of use:
+'''Note:''' To see all the JRuby properties, use the <tt>jruby --properties</tt> command:
 
-;jruby.compile.mode=OFF|JIT|FORCE (default JIT)
-:sets compilation to none, JIT, or AOT
+ jruby.compile.mode=OFF|JIT|FORCE (default JIT)
+:Sets compilation to none, JIT, or AOT
 
-;jruby.jit.threshold=## (default 50)
-:sets the threshold for methods to get jitted (I usually use it to make all methods compile before execution, using threshold=0)
+ ruby.jit.threshold=## (default 50)
+:Sets the threshold for methods to get jitted. (I usually use it to make all methods compile before execution, using threshold=0.)
 
-;jruby.jit.logging=true|false (default false)
-:logs each method as it's compiled, so you can see what kind of coverage you're getting or if the methods you want to JIT are getting JITed.
+ jruby.jit.logging=true|false (default false)
+:Logs each method as it's compiled, so you can see what kind of coverage you're getting or if the methods you want to JIT are getting JITed.
 
-;jruby.jit.logging.verbose=true|false (default false)
-:logs each method that fails to compile, so you can see if compilation problems are keeping methods from JITing.
+ jruby.jit.logging.verbose=true|false (default false)
+:Logs each method that fails to compile, so you can see if compilation problems are keeping methods from JITing.
 
-;jruby.jit.exclude=&lt;class_or_module_name&gt;|&lt;class_or_module_name&gt;#&lt;methodname&gt;|&lt;methodname&gt;
-:excludes either the class, module, instance_method on a class, instance_method on a module, or a global method name
+ jruby.jit.exclude=&lt;class_or_module_name&gt;|&lt;class_or_module_name&gt;#&lt;methodname&gt;|&lt;methodname&gt;
+:Excludes either the class, module, instance_method on a class, instance_method on a module, or a global method name.
 
-As of late September 2007, the JRuby compiler is considered complete. Any features missing are to be considered bugs, but as part of JRuby's test run the entire Ruby standard library is compiled to Java bytecode.
+As of late September 2007, the JRuby compiler is considered complete. Any features missing are to be considered bugs. As part of JRuby's test run, the entire Ruby standard library is compiled to Java bytecode.
 
-There are two known issues with the JRuby compiler at present, which may or may not get fixed:
+There are two known issues with the JRuby compiler at present, which might or might not get fixed:
 
-* Calling a method with a "while false" loop as its parameter will fail to execute
+* Calling a method with a <tt>while false</tt> loop as its parameter will fail to execute
 
  foo(while false; end) # results in an error
 
-* The retry keyword is not currently supported outside a rescue block, largely because of performance considerations, general confusion around how it's supposed to work, and due to the fact that nobody appears to use retry outside rescue.
+* The <tt>retry</tt> keyword is not currently supported outside a <tt>rescue</tt> block, largely because of performance considerations and general confusion around how it's supposed to work. Additionally, no one appears to use <tt>retry</tt> outside <tt>rescue</tt>.
 
-==Design==
+==JRuby Compiler Design==
+JRuby compiles Ruby code to Java bytecode. Once complete, there's no interpretation done, except for <tt>eval</tt> calls. Evaluated code never gets compiled; however, if the <tt>eval</tt> defines a method that's called enough, it will also eventually get JIT compiled to bytecode. JRuby is a mixed-mode engine.
 
-JRuby compiles Ruby code to Java bytecode. Once complete, there's no interpretation done, except for eval calls. evaluated code never gets compiled; however, if the eval defines a method that's called enough, it will also eventually get JIT compiled to bytecode. JRuby is a mixed-mode engine.
+===Output Is a Class File===
+Given a single input <tt>.rb</tt> file, JRuby produces a single output <tt>.class</tt> file. This was a key design goal for the compiler. Other languages (including Groovy) and other Ruby implementations (including XRuby) produce numerous classes from an input file, in some cases, dozens and dozens of classes if the input file is very large and complex. JRuby produces one <tt>.class</tt> file.
 
-Given a single input .rb file, JRuby produces a single output .class file. This was a key design goal I wanted for the compiler; other languages (including Groovy) and other Ruby implementations (including XRuby) produce numerous classes from an input file; in some cases, dozens and dozens of classes if the input file is very large and complex. JRuby produces one .class file.
+===Multiple Passes Over AST===
+JRuby compiles from the same AST as it interprets from. There is a first pass over the AST before compilation to determine certain runtime characteristics:
 
-JRuby compiles from the same AST it interprets from. There is a first pass over the AST before compilation to determine certain runtime characteristics:
-
-* does a method have closures in it?
-* does a method have calls to eval or other scope and frame-aware methods?
-* does a method have class definitions in it?
-* does a method define other methods?
+* Does a method have closures in it?
+* Does a method have calls to eval or other scope and frame-aware methods?
+* Does a method have class definitions in it?
+* Does a method define other methods?
 * .... and so on
 
-Based on this pass, we determine scoping characteristics of all code in the method, selectively choosing pure heap-based variables or pure stack-based variables. Only methods and leaf closures without eval, closures, etc can use normal stack-based local variables. Performance is significantly faster with stack variables.
+Based on this pass, the compiler determines scoping characteristics of all code in the method, selectively choosing pure heap-based variables or pure stack-based variables. Only methods and leaf closures without <tt>eval</tt>, <tt>closures</tt>, and so on, can use normal stack-based local variables. Performance is significantly faster with stack variables.
 
-The resulting class file from JRuby contains at a minimum methods to start:
+===Methods in Output Class File===
+The resulting class file from JRuby contains at a minimum the following methods to start:
 
-* a normal main() method for running from the command line (grabs a default JRuby runtime and launches itself)
-* a load() instance method that represents a normal top-level loading of the script into a runtime. This performs pre/post script setup and teardown.
-* a run() instance method that represents a bare execution of the script's contents. This is used by the JIT, where setup/teardown is handled outside the JITed code on a method-by-method basis
-* a __file__() method that represents the body of the script. This is where script execution eventually starts.
+* A normal <tt>main()</tt> method for running from the command line. (It grabs a default JRuby runtime and launches itself.)
+* A <tt>load()</tt> instance method that represents a normal top-level loading of the script into a runtime. This performs pre and post script setup and teardown.
+* A <tt>run()</tt> instance method that represents a bare execution of the script's contents. This is used by the JIT, where setup and teardown is handled outside the JITed code on a method-by-method basis
+* A <tt>__file__()</tt> method that represents the body of the script. This is where script execution eventually starts.
 
 Then, depending on the contents of the file, additional methods are added:
 
-* normal method definition bodies become Java methods
-* class/module bodies become Java methods
-* closure bodies become Java methods
-* rescue/ensure bodies become synthetic methods
-* if the normal top-level script method is too long, it's split every 500 top-level syntactic elements and chained (we did run into one large flat file that broke the method size limit). We do not yet perform chaining on normal method bodies, because we have not encountered any that are too large.
+* Normal method definition bodies become Java methods.
+* Class and module bodies become Java methods.
+* Closure bodies become Java methods.
+* Rescue and ensure bodies become synthetic methods.
+* If the normal top-level script method is too long, it's split every 500 top-level syntactic elements and chained. (We did run into one large flat file that broke the method size limit.) We do not yet perform chaining on normal method bodies because we have not encountered any that are too large.
 
-Of these, only class bodies, rescue/ensure bodies, and chained top-level script methods get directly invoked during script execution. The others are bound into the MOP at runtime.
+===Direct Invocation, Binding Into the MOP, and Reflection===
+Only class bodies, <tt>rescue/ensure</tt> bodies, and chained top-level script methods get directly invoked during script execution. The others are bound into the MetaObject Protocol (MOP) at runtime.
 
 Binding occurs in one of two ways:
+* By generating a small stub class that implements <tt>DynamicMethod</tt> and invokes the target method on the target script directly
+* By doing the same with reflection
 
-* by generating a small stub class that implements DynamicMethod and invokes the target method on the target script directly
-* by doing the same with reflection
+In our testing, generating stub ''invoker'' classes has always been faster than reflection, especially on older JVMs. For the time being, that's the preferred way to bind methods, but I'm going to get reflection-based binding working again for limited/restricted environments like applets. With reflection-based binding and pre-compiled Ruby code with no <tt>evals</tt>, JIT compilation could be completely turned off and no classes would ever be generated in memory by JRuby.
 
-In our testing, generating stub "invoker" classes has always been faster than reflection, especially on older JVMs. For the time being, that's the preferred way to bind methods, but I'm going to get reflection-based binding working again for limited/restricted environments like applets. With reflection-based binding and pre-compiled Ruby code with no evals, JIT compilation could be completely turned off and no classes would ever be generated in memory by JRuby.
-
-So then here's a walkthrough of a simple script:
+===Walkthrough of a Simple Script===
+Here's a walkthrough of a simple script:
 
  # we enter into the script body in the __file__ method
  # require would first look for .rb files, then try to load .class
@@ -158,7 +168,7 @@ So then here's a walkthrough of a simple script:
    puts 'ensured!'
  end
 
-A sample run of the JRuby compiler:
+===Sample Run of the JRuby Compiler===
 
  ~/NetBeansProjects/jruby $ jruby sample_script.rb
  here we go
