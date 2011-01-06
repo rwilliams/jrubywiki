@@ -62,3 +62,6 @@ __TOC__
 
 === Hpricot ===
 
+=== RedCloth 4 ===
+
+=== Nokogiri ===
