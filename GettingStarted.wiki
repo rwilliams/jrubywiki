@@ -2,23 +2,17 @@
 <h1>Getting Started with JRuby</h1>
 To get JRuby on your system, you can either install a binary file for your system, or you can download and build JRuby yourself.
 __TOC__
-==Installing a JRuby Binary Fille==
-Getting up and running with JRuby is very easy. You can either use your operating system's package manager, or if you're on Windows or your package manager doesn't include JRuby, you can use a three-step process to download, extract, and add the directory to your PATH environment variable. 
+==Installing JRuby==
+The easiest way to get up and running with JRuby is to download the latest binary, extract it, and add the directory to your PATH environment variable. 
 
-===Install With Package Manager===
-The easiest way to get started with JRuby is to use your operating system's package manager. 
-*'''MacPorts:''' <tt>sudo port install jruby</tt>
-*'''Emerge:''' <tt>emerge jruby</tt>
-*'''apt-get:''' <tt>apt-get install jruby</tt>
-*'''yum:''' <tt>yum install jruby</tt>
-Once you're done, go to [[#Did_it_work|Did it work?]] to continue.
+'''Note:''' It's best to avoid using a package manager because of issues with keeping the downloaded versions current.
 
-===Download and Install It Yourself===
-If you're on Windows or if your package manager doesn't include JRuby, you'll need to extract the downloaded file yourself.
+If you prefer to build your own JRuby, see [[DownloadAndBuildJRuby|Downloading JRuby and Building It Yourself]].
 
-# [http://dist.codehaus.org/jruby/ Download JRuby]. 
-#* For OSX, Linux, BSD, Solaris, and other UNIX varieties, grab the most recent <tt>jruby-bin-X.Y.Z.tar.gz</tt> file.
-#* If you're on Microsoft Windows, grab the most recent <tt>jruby-bin-X.Y.Z.zip</tt> file.
+'''To download and install JRuby:'''
+# [http://dist.codehaus.org/jruby/ Download a JRuby .tar or .zip file]. 
+#* For OSX, Linux, BSD, Solaris, and other UNIX varieties, get the most recent <tt>jruby-bin-X.Y.Z.tar.gz</tt> file.
+#* If you're on Microsoft Windows, get the most recent <tt>jruby-bin-X.Y.Z.zip</tt> file.
 # Extract JRuby into a directory.
 # Add that directory's bin subdirectory to the ''end'' of your <tt>PATH</tt> environment variable.
 #* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and a sample JRuby path is <tt>/opt/jruby/bin</tt>.
@@ -28,17 +22,14 @@ If you're on Windows or if your package manager doesn't include JRuby, you'll ne
 
 '''Note:''' If you're on HP-UX, see [[JRubyOnHPUX11_23|Using JRuby on HPUX]].
 
-====Installation Examples====
-'''Linux and OSX Example'''
-
+===Linux and OSX Installation Example===
 Once you've downloaded or built a JRuby installation and it is located in the directory <tt>/opt/jruby</tt>,
 you'll need to add <tt>/opt/jruby/bin</tt> to the end of your <tt>$PATH</tt> environment variable.
 
 On Mac OS X and Linux, you can add to the <tt>PATH</tt> variable with the export command:
   export PATH=$PATH:/opt/local/bin
 
-'''Microsoft Windows XP Example'''
-
+===Microsoft Windows XP Installation Example===
 Once you've downloaded or built a JRuby installation and it is located in the directory <tt>C:\JRuby\jruby1.3.0\</tt>,
 you'll need to add <tt>C:\JRuby\jruby1.3.0\bin</tt> to the end of your <tt>%PATH%</tt> environment variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
 # In Windows XP, choose Start > Control Panel > System to open the System Properties window.
@@ -52,15 +43,6 @@ you'll need to add <tt>C:\JRuby\jruby1.3.0\bin</tt> to the end of your <tt>%PATH
 ## Click OK to add the variable.
 # Click OK at the bottom of the Environment Variables window.
 # Click OK to close the System Properties window.
-
-==Downloading Source and Building Yourself==
-The JRuby source code is available in a git repository. 
-
-# Retrieve the trunk version of the JRuby source and build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):<br/><tt> &nbsp; git clone git://kenai.com/jruby~main jruby <br/> &nbsp; cd jruby <br/> &nbsp; ant</tt>
-# Create an up-to-date version of <tt>jruby-complete.jar</tt> with this ant task: <br/><tt> &nbsp; ant jar-complete</tt>
-# Generate an up-to-date set of the JavaDoc for JRuby located here: <tt> &nbsp; docs/api/index.html</tt>:<br/><tt> &nbsp; ant create-apidocs</tt>
-# Delete any build and compile artifacts:<br/><tt> &nbsp; ant clean</tt>
-# Run the JRuby tests:<br/><tt> &nbsp; ant test</tt>
 
 ==Did It Work?==
 To test whether JRuby installed correctly, open a command window and run:
