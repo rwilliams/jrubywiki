@@ -5,13 +5,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td>
 
-* [[About JRuby]]
-* [[Getting Started]]
-* [[Roadmap]]
-* [[FAQs]]
-
-</td><td>
-
 * [http://dist.codehaus.org/jruby JRuby Downloads]
 ** [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.tar.gz JRuby 1.3.0 Binary .tar.gz]
 ** [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.zip    JRuby 1.3.0 Binary .zip]
@@ -26,18 +19,19 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 ==JRuby Basics==
 
+* [[About JRuby]]
 * [[Getting Started]]
 * [[Walkthroughs and Tutorials]]
 * [[ApplicationsAndLibraries|Help with common libraries/applications]]
 * [[Java Integration | Embedding JRuby]]
 * [[Scripting Java from JRuby]]
 * [[Performance Tuning]]
+* [[FAQs]]
 * [[JRuby on Ubuntu]]
 * [[JRuby Compiler]]
 * [[Case_Study_JRuby on Eclipse RCP|Case Study: JRuby on Eclipse RCP]]
 * [[JRuby on Java Micro Edition]]
 * [[JRuby on Web Start]]
-* [[JRuby and Continuous Integration]]
 * [[JRuby With Nailgun]]
 </td>
 <td>
@@ -80,6 +74,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JRuby and RubySpecs]]
 * [[Hacking JRuby]]
 * [[Ruby 1_9 Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
+* [[RoadMap]]
 </td>
 
 </tr>
