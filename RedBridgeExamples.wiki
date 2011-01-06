@@ -982,4 +982,4 @@ Output
 
 
 == Servlet Examples ==
-See [[ServletExamples]] page.
+See [[RedBridgeServletExamples]] page.
