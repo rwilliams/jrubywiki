@@ -85,9 +85,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 </td>
 
-</tr>
-</table>
-
+<td>
 ==Related Websites==
 
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
@@ -104,3 +102,8 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://jeanderuelle.blogspot.com/2009/03/my-jruby-rails-app-on-jboss-can-make.html My JRuby-Rails app on JBoss and Mobicents can make Phone calls !]
 * [http://code.trampolinesystems.com/springy Springy: configure Spring contexts with JRuby]
 * [http://www.trampolinesystems.com/weblog/wiring-up-spring-with-jruby/  Trampoline Systems Weblog -- Wiring up Spring with JRuby]
+
+</td>
+</tr>
+</table>
+
