@@ -88,13 +88,14 @@ To use resources within a jar file from JRuby, the jar file must either be on th
 This <tt>require</tt> makes the resources in <tt>mycode.jar</tt> discoverable by later commands like <tt>import</tt> and <tt>include_package</tt>.
 
 Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH for them, like it would for normal ruby files.
+
 ===Load a .class File===
 
 If you need to load from an existing .class file(or one that's not camelcase), the following has examples: http://www.ruby-forum.com/topic/216572#939791
 
-Basically it's <tt>$CLASSPATH << "target/classes"</tt> where "target/classes/org/asdf/ClassName.class" exists.
+Basically it's <tt>$CLASSPATH << "target/classes"; import org.asdf.ClassName</tt> where "target/classes/org/asdf/ClassName.class" exists.
 
-Note also that this will need to be a full path name or relative to the directory the script starts in, as the JVM doesn't seem to respond to Dir.pwd very well.
+Note also that this will need to be a full path name or relative to the directory the script starts in, as the JVM doesn't seem to respond to Dir.chdir very well.
 
 === Referencing a Java Class by Full Class Name ===
 
@@ -218,7 +219,7 @@ And the Ruby File class is still accessible:
 
 ==== Making them accessible in the main name space ====
 
-You can set const_missing to make them accessible in more than just a module. http://www.ruby-forum.com/topic/216629 though there might be a better way.
+You can set const_missing to make them accessible in more than just a module. See http://www.ruby-forum.com/topic/216629 though there might be a better way.
 
 ==== Using within classes within module ====
 
@@ -461,11 +462,12 @@ Sometimes a Java library will need a fixed-length array, say for example a byte 
 
   io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
 
-=== Gotcha ===
+=== Gotchas ===
 
-Note that currently you cannot call java methods from within a ruby class that inherits from a java class, without calling
+Note that currently you cannot call java methods from within a ruby class' constructor that inherits from a java class, without first calling
   super
-first, or it results in a stack overflow http://www.ruby-forum.com/topic/217475#new
+or it results in a stack overflow http://www.ruby-forum.com/topic/217475
+
 
 == Referencing a <tt>java.lang.Class</tt> object ==
 If you call a Java class from JRuby and need to pass a Java class as an argument, if you use this form:
