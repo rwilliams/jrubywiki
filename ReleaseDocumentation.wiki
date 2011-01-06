@@ -21,7 +21,7 @@
 * Upload dist files, jruby-complete.jar, and MD5 files to https://kenai.com/website/jruby/downloads/{version}
 * Replace existing content in https://kenai.com/website/jruby/downloads/current with the updated release files
 * Build and release jruby-jars gem: cd gem && jruby -S rake package && jruby -S rake release VERSION={final-version}
-* [[Build maven artifacts]]
+* mvn compile; mvn deploy -DupdateReleaseInfo=true for each mvn artifact
 * Add news item to www.jruby.org page 
 * Update MainPage on JRuby wiki pointing to new binary
 * Update Ruby Application Archive
