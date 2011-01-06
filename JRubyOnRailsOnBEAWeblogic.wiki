@@ -8,16 +8,16 @@ This page describes how to use Oracle WebLogic 10 with JRuby and Rails.
 __TOC__
 
 == Prerequisites ==
-* JRuby 1.1.1
-* Java 5
-* Oracle WebLogic 10 
-* MySQL database v 5
-* Warbler
+* [http://dist.codehaus.org/jruby/1.1.1/ JRuby 1.1.1]
+* [http://java.sun.com/javase/downloads/index_jdk5.jsp Java JDK 5] 
+* [http://e-docs.bea.com/platform/suppconfigs/configs100/100_over/overview.html Oracle WebLogic 10] 
+* [http://dev.mysql.com/downloads/mysql/5.0.html MySQL Database v 5]
+* <a href="{{project warbler page home}}">Warbler</a>
 
-The JRuby 1.1 series releases require Java 5, which was first supported in BEA WebLogic version 9.2. In this example we're using Oracle WebLogic 10.
+The JRuby 1.1.x series releases require Java 5, which was first supported in BEA WebLogic version 9.2. In this example we're using Oracle WebLogic 10.
 
 == Installing Java, JRuby, Rails, and Required Gems ==
-# Download and install JDK 5 and JRuby 1.1.1, and make sure you set <tt>JAVA_HOME/bin</tt> and <tt>JRUBY_HOME/bin</tt> in your PATH environment variable.
+# Download and install [http://java.sun.com/javase/downloads/index_jdk5.jsp JDK 5] and [http://dist.codehaus.org/jruby/1.1.1/ JRuby 1.1.1], and make sure you set <tt>JAVA_HOME/bin</tt> and <tt>JRUBY_HOME/bin</tt> in your PATH environment variable.
 # Install Rails 2.0:<br/><tt> &nbsp;  jruby -S gem install rails</tt>
 # Install the activerecord-jdbcmysql-adapter gem:<br/><tt> &nbsp; jruby -S gem install activerecord-jdbcmysql-adapter</tt>
 # Install the JRuby Open SSL gem:<br/><tt> &nbsp; jruby -S gem install jruby-openssl</tt>
