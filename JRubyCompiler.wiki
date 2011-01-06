@@ -15,6 +15,15 @@ To run, include jruby.jar in CP along with current dir (parent dir for foo/bar/t
 
  java -cp .:/path/to/jruby.jar foo.bar.test
 
+===Not quite enough===
+([[User:Dhjdhj|Dhjdhj]] 08:17, 6 November 2008 (PST)
+If you're getting errors about missing requires, then you need to use the [http://repository.codehaus.org/org/jruby/jruby-complete jruby-complete jar] for running. I do not know why this jar file is not included with the standard distribution.  
+
+Also, if you're trying to do this from Windows (not cygwin), then to compile your code you need to say
+
+   jruby -S jrubyc for/bar/test.rb
+)
+
 ==Just-in-time (JIT) compilation==
 
 JRuby also supports using the compiler in JIT mode, where it will attempt to compile methods as they're called. After a call threshold is reached, the JIT tries to compile the method body in question (including any blocks it contains). If the compilation succeeds, the compiled version is used from then on. Otherwise, the method is permanently marked "interpret only".
