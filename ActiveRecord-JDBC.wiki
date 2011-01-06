@@ -25,14 +25,15 @@ Here's a walkthrough for MySQL in ultra-condensed form:
 
       jruby -S gem install rails
 
-'''4.''' Install ActiveRecord-JDBC for MySQL (see [http://jruby-extras.rubyforge.org/activerecord-jdbc-adapter the documentation] for other options). This will also install the dependent gem activerecord-jdbc-adapter.
+'''4.''' Install ActiveRecord-JDBC for MySQL (see [http://jruby-extras.rubyforge.org/activerecord-jdbc-adapter the documentation] for other options). This will also install the dependent gems.
 
       jruby -S gem install activerecord-jdbcmysql-adapter
 
 :You should see something like the following:
 
-    Successfully installed activerecord-jdbc-adapter-0.9.1
-    Successfully installed activerecord-jdbcmysql-adapter-0.9.1
+      Successfully installed activerecord-jdbc-adapter-0.9.2
+      Successfully installed jdbc-mysql-5.0.4
+      Successfully installed activerecord-jdbcmysql-adapter-0.9.2
 
 '''5.''' Generate a Rails App
 
