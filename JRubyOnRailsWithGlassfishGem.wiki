@@ -18,7 +18,7 @@ If you install GlassFish as a non-root user, you should for your own convenience
 
 If you install GlassFish as root, the GlassFish <tt>bin</tt> will be installed by default in the JRuby <tt>bin</tt> directory.
 
-I recommend putting something like this in your <tt>.bashrc</tt> so it's set whenever you log in:
+You could put something like this in your <tt>.bashrc</tt> so it's set whenever you log in:
  $ export JRUBY_HOME=/opt/jruby 
  $ export PATH=~/.gem/jruby/1.8/bin:$JRUBY_HOME/bin:$PATH
 
@@ -62,7 +62,7 @@ In Solaris 10 and OpenSolaris, you get an excellent service management facility 
 
 Importing an application into SMF is not so trivial for first time users, so here is a brief description. For more informaiton, see [http://www.sun.com/bigadmin/content/selfheal/smf-quickstart.jsp Solaris Service Management Facility - Quickstart Guide].
 
-===Define a Manifest===
+===1. Define a Manifest===
 First off you need to define a manifest. This is done with a simple XML file. 
 
 Underneath, you will find a manifest with support of two instances or rails applications. Modify these to your liking. I usually prefer to run applications with a non-root user. I haven't included Access Control Lists (ACLs) to minimize the complexity in the example. 
@@ -106,11 +106,11 @@ I usually recommend placing web applications such as Rails somewhere under <tt>/
 </service_bundle>
 </pre>
 
-===Import the Manifest Into SMF===
+===2. Import the Manifest Into SMF===
  $ pfexec svccfg validate config/glassfish-gem.smf.xml
  $ pfexec svccfg import config/glassfish-gem.smf.xml
 
-===Start Your Appserver===
+===3. Start Your Appserver===
  $ pfexec svcadm enable glassfish-gem:my-railsapp_production
 
 To verify that your application started, use <tt>svcs</tt>.
@@ -121,10 +121,10 @@ You should see something like:
 
 If it fails to start, it will say <tt>offline</tt> or <tt>maintenance</tt> instead of <tt>online</tt>. In that case, try <tt>svcs</tt> <tt>-xv</tt> and look at the logfile.
 
-===Stop Your Appserver===
+===4. Stop Your Appserver===
  $ pfexec svcadm disable glassfish-gem:my-railsapp_production
 
-===Restart Your Appserver===
+===5. Restart Your Appserver===
  $ pfexec svcadm restart glassfish-gem:my-railsapp_production
 
 ==Apache 2.2 Frontend== 
