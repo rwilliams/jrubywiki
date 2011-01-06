@@ -16,7 +16,7 @@ If you prefer to build your own JRuby, see [[DownloadAndBuildJRuby|Downloading J
 # Extract JRuby into a directory.
 # Add that directory's bin subdirectory to the ''end'' of your <tt>PATH</tt> environment variable.
 #* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and a sample JRuby path is <tt>/opt/jruby/bin</tt>.
-#* On Microsoft Windows, the variable is '''%PATH%''', and a sample JRuby path is <tt>C:\JRuby\jruby-1.3.0\bin</tt>.<br/> Also, make sure your <tt>JAVA_HOME</tt> environment variable points to your Java installation. For example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
+#* On Microsoft Windows, the variable is '''%PATH%''', and a sample JRuby path is <tt>C:\JRuby\jruby-1.3.1\bin</tt>.<br/> Also, make sure your <tt>JAVA_HOME</tt> environment variable points to your Java installation. For example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
 
 '''Note:''' On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby With Wrong Java]].
 
@@ -30,12 +30,12 @@ On Mac OS X and Linux, you can add to the <tt>PATH</tt> variable with the export
   export PATH=$PATH:/opt/local/bin
 
 ===Microsoft Windows XP Installation Example===
-Once you've downloaded or built a JRuby installation and it is located in the directory <tt>C:\JRuby\jruby1.3.0\</tt>,
-you'll need to add <tt>C:\JRuby\jruby1.3.0\bin</tt> to the end of your <tt>%PATH%</tt> environment variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
+Once you've downloaded or built a JRuby installation and it is located in the directory <tt>C:\JRuby\jruby1.3.1\</tt>,
+you'll need to add <tt>C:\JRuby\jruby1.3.1\bin</tt> to the end of your <tt>%PATH%</tt> environment variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
 # In Windows XP, choose Start > Control Panel > System to open the System Properties window.
 # Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
 # In the System Variables section, scroll down to <tt>Path</tt>, select it, and click Edit.
-# Add the path to the JRuby bin directory to the end of the Path. For example, add:<br/>;<tt>C:\JRuby\jruby1.3.0\bin</tt>
+# Add the path to the JRuby bin directory to the end of the Path. For example, add:<br/>;<tt>C:\JRuby\jruby1.3.1\bin</tt>
 # Look for <tt>JAVA_HOME</tt> in both the User Variables section and the System Variables section and make sure it points to your current Java installation. If necessary, create a new JAVA_HOME variable as follows:
 ## Under the User Variables section, click New.
 ##* '''Variable name:''' enter <tt>JAVA_HOME</tt>
@@ -97,241 +97,5 @@ Authenticated:<br/>
 
 See also [[Troubleshooting]].
 
-==Benchmarking==
-The current popular way to benchmark JRuby performance is to perform a gem installation of Rake. The install process exercises a number of APIs and represents a fairly general-purpose application of Ruby. It's also extremely interpreter-heavy.
-
-After getting a build of JRuby, as above, the following steps can be used to benchmark JRuby using Gem and Rake:
-
-*Fetch the current Rake gem from [http://rubyforge.org/frs/?group_id=50 RubyForge]
-*Execute the following command (putting JRUBY_HOME/bin in your path or referencing it directly):
- JRUBY_HOME/bin/gem install <rake gem file>
-*By preceding this command line with the unix "time" command you can test end-to-end performance. Of course there are other ways to wire in profiling and performance-monitoring tools that won't be detailed here.
-
-A sample run from a MacBook Pro under Apple's Java 6 JVM is shown below:
-
- Nutters-Computer:~/Documents/workspace/jruby headius$ time bin/gem install rake-0.7.1.gem 
- Successfully installed rake, version 0.7.1
- Installing ri documentation for rake-0.7.1...
- Installing RDoc documentation for rake-0.7.1...
- 
- real    0m52.596s
- user    0m51.740s
- sys     0m2.146s
-
 ==Code Examples==
-Below are some code examples showing how to call ruby from within Java and Java from ruby.
-
-===Ruby:  <tt>call_java.rb</tt>===
-  require "java"
-  
-  include_class "java.util.TreeSet"
-  include_class "com.example.CallMe"
-  include_class "com.example.ISpeaker"
-  
-  puts "Hello from ruby"
-  set = TreeSet.new
-  set.add "foo"
-  set.add "Bar"
-  set.add "baz"
-  set.each { |v| puts "value: #{v}" }
-  
-  cm = CallMe.new
-  cm.hello
-  $globalCM.hello
-  
-  class CallJava
-    include ISpeaker
-    def initialize
-      super
-      @count = 0
-    end
-  
-    def say(msg)
-      puts "Ruby saying #{msg}"
-    end
-    
-    def addOne(from)
-  #    m.synchronize {
-        @count += 1
-        puts "Now got #@count from #{from}"
-  #    }
-    end
-  end
-
-===Java: <tt>ISpeaker.java</tt>===
-    package com.example;
-    
-    public interface ISpeaker {
-        public void say(String msg);
-        
-        public void addOne(String from);
-    }
-
-===Java: <tt>CallMe.java</tt>===
-
-    package com.example;
-    
-    public class CallMe {
-    
-        String mName;
-    
-        public CallMe() {
-            this("Default");
-        }
-        
-        public CallMe(String name) {
-            mName = name;
-        }
-        
-        public void hello() {
-            System.out.println("Hello from "+mName);
-        }
-        
-        public static void main(String []args) {
-            System.out.println("Called main");
-        }
-    }
-
-===Java: <tt>CallRuby.java</tt>===
-    package com.example;
-    
-    import org.apache.bsf.BSFManager;
-    import org.apache.bsf.util.IOUtils;
-    import org.jruby.Ruby;
-    import org.jruby.javasupport.Java;
-    import org.jruby.javasupport.JavaEmbedUtils;
-    import org.jruby.javasupport.JavaUtil;
-    import org.jruby.runtime.Block;
-    import org.jruby.runtime.GlobalVariable;
-    import org.jruby.runtime.builtin.IRubyObject;
-    
-    import java.io.FileReader;
-    import java.io.IOException;
-    
-    /**
-     * Example of how to:
-     * 1. Use java objects in ruby
-     * 2. Subclass/implement java objects in ruby
-     * 3. Get ruby objects for use in java world
-     * 4. Proxy ruby objects for normal use as java objects (interfaces/class)
-     */
-    public class CallRuby {
-    
-        public static void main(String[] args) throws Exception {
-    
-            String dir = "/dclark/workspace/jrubytest/ruby/";
-    
-            double[] deltas = new double[3];
-            for (int i = 0; i < 3; i++) {
-                boolean useBSF = (i == 0);
-                long start = System.currentTimeMillis();
-    
-                if (useBSF) {
-                    //--- Initialise ruby
-                    BSFManager.registerScriptingEngine("ruby", "org.jruby.javasupport.bsf.JRubyEngine", new String[]{"rb"});
-                    BSFManager manager = new BSFManager();
-    
-                    //--- Define a global variable
-                    CallMe javaCallMe = new CallMe("globalCallMeInJava");
-                    manager.declareBean("globalCM", javaCallMe, javaCallMe.getClass());
-    
-                    //--- Load a ruby file
-                    manager.exec("ruby", "call_java.rb", -1, -1, getFileContents(dir + "call_java.rb"));
-    
-                    //--- Make a new ruby object
-                    String expr = "CallJava.new";
-                    ISpeaker ruby = (ISpeaker) manager.eval("ruby", "call_java.rb", -1, -1, expr);
-    
-                    testMultiThreadsCallingRubyObject(ruby);
-    
-                } else {
-    
-                    //--- Initialise ruby
-                    final Ruby runtime = Ruby.getDefaultInstance();
-    
-                    // Need the blank object so can get a nice runtime for the Java.staticMethods calls
-                    runtime.eval(runtime.parse("require \"java\"\nclass BlankForJva\nend\n", "BlankForJva.rb", runtime.getCurrentContext().getCurrentScope(), 0));
-                    final IRubyObject blankRuby = runtime.evalScript("BlankForJva.new");
-    
-                    //--- Define a global variable
-                    CallMe javaCallMe = new CallMe("globalCallMeInJava");
-                    IRubyObject globValue = JavaUtil.convertJavaToRuby(runtime, javaCallMe);
-    
-                    // Wrap so that all methods are visible to ruby
-                    globValue = Java.java_to_ruby(blankRuby, globValue, Block.NULL_BLOCK);
-    
-                    GlobalVariable globVar = new GlobalVariable(runtime, "$globalCM", globValue);
-                    runtime.defineVariable(globVar);
-    
-                    //--- Load a ruby file
-                    runtime.eval(runtime.parse(getFileContents(dir + "call_java.rb"), "call_java.rb", runtime.getCurrentContext().getCurrentScope(), 0));
-    
-                    //--- Make a new ruby object
-                    String expr = "CallJava.new";
-                    final IRubyObject rawRuby = runtime.evalScript(expr);
-                    ISpeaker ruby;
-                    if (i == 1) {
-                        // Standard wrapper using Java Proxies
-                        ruby = (ISpeaker) JavaEmbedUtils.rubyToJava(runtime, rawRuby, ISpeaker.class);
-                    } else {
-                        // Or manually wrap ruby object so can be used as the interface (can optionally add synchronization as required on methods)
-                        ruby = new ISpeaker() {
-                            public void addOne(String from) {
-                                //                            synchronized (rawRuby) {
-                                rawRuby.callMethod(runtime.getCurrentContext(), "addOne", JavaUtil.convertJavaToRuby(runtime, from));
-                                //                            }
-                            }
-    
-                            public void say(String msg) {
-                                rawRuby.callMethod(runtime.getCurrentContext(), "say", JavaUtil.convertJavaToRuby(runtime, msg));
-                            }
-                        };
-                    }
-                    testMultiThreadsCallingRubyObject(ruby);
-                }
-                long end = System.currentTimeMillis();
-                deltas[i] = (end - start) / 1000.0;
-            }
-    
-            for (int i = 0; i < deltas.length; i++) {
-                System.out.println("Took " + deltas[i] + " on pass " + i);
-            }
-        }
-    
-        private static String getFileContents(String filename) throws IOException {
-            FileReader in = new FileReader(filename);
-            return IOUtils.getStringFromReader(in);
-        }
-    
-        public static void testMultiThreadsCallingRubyObject(final ISpeaker ruby) throws InterruptedException {
-            Thread t1 = new Thread(new Runnable() {
-                public void run() {
-                    for (int i = 0; i < 1000; i++) {
-                        ruby.addOne("t1");
-                    }
-                }
-            });
-            Thread t2 = new Thread(new Runnable() {
-                public void run() {
-                    for (int i = 0; i < 1000; i++) {
-                        ruby.addOne("t2");
-                    }
-                }
-            });
-            t1.start();
-            t2.start();
-            t1.join();
-            t2.join();
-            ruby.addOne("end");
-        }
-    }
-
-'''Note:''' If you have only simple interface requirements, you can use the second method of proxying the ruby object to include method level synchronization.
-
-'''Note:''' BSF calling does not preserve ruby stack traces (add an error to a script and run both ways using the code above).
-
-'''Note Also:''' The times you get from running this example are interesting (on my old Windows box using Java5):
-
-  Took 5.469 on pass 0  // This is the Standard BSF Wrapping
-  Took 1.75 on pass 1   // Using normal Java Proxies
-  Took 1.359 on pass 2  // Rolling your own redirector class to call Ruby
+For some examples of calling JRuby from Java and calling Java from JRuby, see [[JRubyAndJavaCodeExamples|JRuby and Java Code Examples]].
