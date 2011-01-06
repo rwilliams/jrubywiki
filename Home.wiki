@@ -80,8 +80,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
 * [[Success Stories]]
-* [[Case_Study_JRuby on Eclipse RCP|Case Study: JRuby on Eclipse RCP]]
-* [http://www.infoq.com/news/2008/05/csi-disease-management-jruby Case Study: Infectious disease reporting and management]
+* [[Case Studies]]
 
 </td>
 
