@@ -4,12 +4,6 @@
 <span style="font-family:Georgia, Thorndale, Times, serif;font-size:xx-large">JRuby</span><br/><br/>
 <span style="font-family:Georgia, Thorndale, Times, serif;font-size:large">Java powered Ruby implementation</span><br/><br/>
 This is a community wiki dedicated to [http://jruby.org JRuby], an implementation of the [http://www.ruby-lang.org/en Ruby] programming language atop the Java Virtual Machine (JVM).
-<br/><br/>
-* [http://dist.codehaus.org/jruby JRuby Downloads]
-** [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.tar.gz JRuby 1.3.0 Binary .tar.gz] (Linux, BSD, Solaris, Ubuntu, other *NIXes)
-** [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.zip    JRuby 1.3.0 Binary .zip] (Microsoft Windows)
-** [http://dist.codehaus.org/jruby/1.3.0/jruby-src-1.3.0.tar.gz JRuby 1.3.0 Source .tar.gz]
-** [http://dist.codehaus.org/jruby/1.3.0/jruby-src-1.3.0.zip    JRuby 1.3.0 Source .zip]
 </td>
 <td align="center">
 [[image: jrubylogo-medium.png]]
@@ -18,12 +12,25 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 </table>
 
 <table width="100%" cellpadding="10">
-
 <tr valign="top">
+<td width="50%">
+'''[http://dist.codehaus.org/jruby JRuby Downloads]'''
+* [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.tar.gz JRuby 1.3.0 Binary.tar.gz] (OSX, BSD, Solaris, Linux, other UNIX varieties)
+* [http://dist.codehaus.org/jruby/1.3.0/jruby-bin-1.3.0.zip JRuby 1.3.0 Binary.zip] (Microsoft Windows)
+* [http://dist.codehaus.org/jruby/1.3.0/jruby-src-1.3.0.tar.gz JRuby 1.3.0 Source.tar.gz]
+* [http://dist.codehaus.org/jruby/1.3.0/jruby-src-1.3.0.zip    JRuby 1.3.0 Source.zip]
+</td>
 <td>
-
-==JRuby Basics==
-
+'''[[JRuby on Rails]]'''
+* [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
+* [[ActiveRecord-JDBC]]
+* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   <span style="font-size:70%; font-style:italic">([[Warbler]])</span>
+* [[JRuby on Rails|More...]]
+</td>
+</tr>
+<tr valign="top">
+<td width="50%">
+'''JRuby Basics'''
 * [[About JRuby]]
 * [[Getting Started]]
 * [[Walkthroughs and Tutorials]]
@@ -34,21 +41,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[FAQs]]
 </td>
 <td>
-
-==[[JRuby on Rails]]==
-* [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
-* [[ActiveRecord-JDBC]]
-* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   <span style="font-size:70%; font-style:italic">([[Warbler]])</span>
-* [[JRuby on Rails|More...]]
-</td>
-
-</tr>
-
-<tr valign="top">
-<td>
-
-==Getting Involved==
-
+'''Getting Involved'''
 * Communicate: [[Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
 * Code: [http://kenai.com/projects/jruby/sources/main/show Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
 * Status: [http://jruby.headius.com:8080/hudson/ build server]
@@ -61,21 +54,21 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Release Documentation]]
 * [[RoadMap]]
 </td>
-
+</tr>
+<tr valign="top">
 <td>
-== Evangelism ==
+''' Evangelism'''
 * [[Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
 * [[Success Stories]]
 * [[Case Studies]]
 * [[Articles]]
-
-==Related Websites==
-
+</td>
+<td>
+'''Related Websites'''
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
 * [http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw Fresh JRuby news Yahoo Pipes aggregator]
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
-
 </td>
 </tr>
 </table>
