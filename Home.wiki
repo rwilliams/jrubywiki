@@ -1,7 +1,5 @@
 This is a community wiki dedicated to [http://jruby.org JRuby], an implementation of the [http://www.ruby-lang.org/en Ruby] programming language atop the Java Virtual Machine.
 
-'''NOTE: This wiki is located at [http://kenai.com/projects/jruby/pages/Home];  Please update your links.'''
-
 <table width="100%" cellpadding="10">
 
 <tr valign="top">
