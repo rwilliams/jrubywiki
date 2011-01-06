@@ -16,13 +16,13 @@ __TOC__
 
 The JRuby 1.1 series releases require Java 5, which was first supported in BEA WebLogic version 9.2. In this example we're using Oracle WebLogic 10.
 
-== Installation ==
+== Installing Java, JRuby, Rails, and Required Gems ==
 # Download and install JDK 5 and JRuby 1.1.1, and make sure you set <tt>JAVA_HOME/bin</tt> and <tt>JRUBY_HOME/bin</tt> in your PATH environment variable.
 # Install Rails 2.0:<br/><tt> &nbsp;  jruby -S gem install rails</tt>
 # Install the activerecord-jdbcmysql-adapter gem:<br/><tt> &nbsp; jruby -S gem install activerecord-jdbcmysql-adapter</tt>
 # Install the JRuby Open SSL gem:<br/><tt> &nbsp; jruby -S gem install jruby-openssl</tt>
 
-== Create a Rails 2.0 Application ==
+== Creating and Running a Rails 2.0 Application ==
 # Create a Rails application:<br/><tt> &nbsp; jruby -S rails books --database=mysql</tt><br/>This will generate the skeleton of a Rails application.
 # Navigate to the <tt>books/</tt> directory and scaffold a book controller and model:<br/><tt> &nbsp; jruby script/generate scaffold book title:string author:string isbn:string desription:text</tt>
 # Start the MySQL database server.
@@ -57,7 +57,7 @@ The first time you access the application it will take quite a while to load. If
 
 == Using a JDBC Datasource in WebLogic==
 
-=== WebLogic configuration ===
+===Configuring WebLogic ===
 Create a new datasource in the WebLogic console.
 # JDBC datasoure properties:<br/><tt> &nbsp; Name: books_production_ds<br/> &nbsp; JNDI name: jdbc/books_production_ds <br/> &nbsp; Databse type: MySQL <br/> &nbsp; Database driver: com.mysql.jdbc.Driver</tt>
 # Transaction options: Keep default transaction options.
@@ -67,12 +67,12 @@ Create a new datasource in the WebLogic console.
 ## Select AdminServer.
 ## Finish and activate changes.
 
-=== Rails application configuration ===
+=== Configuring the Rails Application ===
 # Edit <tt>books/config/database.yml</tt>.
 # Replace the <tt>production</tt> block with:<br/><tt> &nbsp; production:<br/> &nbsp; adapter: jdbc<br/> &nbsp; jndi: jdbc/books_production_ds</tt>
 # Package your application using warble:<br/><tt> &nbsp; jruby -S warble</tt>
 
-=== Updating application in WebLogic ===
+=== Updating the Application in WebLogic ===
 # Update the WAR application in the WebLogic console
 # Point your browser at:<br/><tt> &nbsp; <nowiki>http://localhost:7001/books/books</nowiki></tt>
 
