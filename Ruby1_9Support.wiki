@@ -1,4 +1,4 @@
-JRuby 1.2 will be the first release of JRuby to officially include large portions of Ruby 1.9's feature set. There's a lot of work to do, however, and we probably won't get it all done in time for the final 1.2 release. There are two areas people really could pitch in: writing specs and helping with implementation.
+JRuby 1.2 was the first release of JRuby to officially include large portions of Ruby 1.9's feature set. There's still work to be done to get JRuby fully 1.9 compliant. There are two areas people really could pitch in: writing specs and helping with implementation.
 
 =Writing Specs=
 
