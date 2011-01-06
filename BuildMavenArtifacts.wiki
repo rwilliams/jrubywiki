@@ -1,0 +1,38 @@
+== Start by creating a new build plan: ==
+
+[[Image:Bamboo-create-plan.jpg]]
+
+
+== Select JRuby Releases Project: ==
+
+
+[[Image:Bamboo-project-select.jpg]]
+
+
+== Enter the release name and key: ==
+
+Start key with a 'V'.
+
+
+[[Image:Bamboo-name-key.jpg]]
+
+
+== Choose a previous release build to clone: ==
+
+
+[[Image:Bamboo-plan-clone.jpg]]
+
+
+== Click next. ==
+ 
+
+On the source repository page, change the URL to the release tag URL
+
+
+[[Image:Bamboo-repository-url.jpg]]
+
+
+== Click next through the remaining screens. ==
+
+
+That's it! If the build is successful, the artifacts will be deployed to the codehaus repository, which eventually is synched to the central maven repository.
