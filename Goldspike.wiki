@@ -20,7 +20,7 @@ The above doesn't work on JRuby under Windows XP.
 
 You'll need to install the [[Running Rails with ActiveRecord-JDBC|ActiveRecord-JDBC]] gem before you can use the rake-tasks below. You install it with the command:
 
-      gem install ActiveRecord-JDBC --no-rdoc --no-ri
+      gem install activerecord-jdbc-adapter --no-rdoc --no-ri
 
 Make sure that the plugin is installed, and run the following command:
 * rake war:standalone:create
