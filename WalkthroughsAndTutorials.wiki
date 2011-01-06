@@ -8,6 +8,7 @@ __TOC__
 * [http://www.builderau.com.au/program/java/soa/JRuby-An-Introduction/0,339024620,339283504,00.htm JRuby - An Introduction (Builder AU)]
 * [http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html Ruby for the Java world] (JavaWorld)
 * [http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html Scripting on the Java platform] (JavaWorld)
+* [[NailGunBasics|Nailgun Basics - How to install, run and execute with nailgun]]
 ==JRuby on Rails==
 * [http://blogs.sun.com/arungupta/entry/jruby_on_rails_netbeans_and JRuby on Rails, NetBeans 6, and GlassFish V2 Simplified Steps] (Arun Gupta)
 * [http://netbeans.tv/technologies/First-JRuby-app-in-GlassFish-86/ First JRuby app in GlassFish Screencast] (Arun Gupta)
