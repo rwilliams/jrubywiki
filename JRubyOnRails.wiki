@@ -19,20 +19,19 @@ Get started with these tutorials:
 ==== War File Deployment ====
 If you don't use a traditional Ruby application server like [http://mongrel.rubyforge.org/ Mongrel], you can use a Java application server.  To deploy to a Java app server, you can use the tool <a href="{{project warbler page Home}}">Warbler</a> to bundle your Rails application in a Java Web Application Archive (<tt>.war</tt> file). (Warbler is a minimal, flexible, Ruby-like way to create a <tt>.war</tt> file). Once you have a <tt>.war</tt> file, you can deploy to any Java app server using their war deployment mechanism.  
 
-'''Some links to information on various Java App Servers:'''
+'''Some links to information on various Java appllication servers:'''
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat]
 * [[JRuby on Rails on Jetty|Jetty]]
 * [[JRuby on Rails on WebSphere|WebSphere]]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J]
 * [[JRuby on Rails on BEA Weblogic|Oracle WebLogic]]
 * [http://oddthesis.org/theses/jboss-rails JBoss]
-* [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war JWS 7]
 
 ==== Glassfish v3 Deployment ====
-You can use the glassfish gem by Vivek Pandey to deploy JRuby on Rails very easily and robustly. With the glassfish gem, you can deploy your application to the Glassfish v3 modularized Java Application Server. The glassfish gem wraps the essential technologies in 3 mbs and enables you to run your application just like you would with a traditional approach with Mongrel, Rack, and so on. A brief tutorial can be found here: [[JRuby on Rails with Glassfish gem]].
+The Glassfish gem by Vivek Pandey enables you to easily deploy a JRuby on Rails application to the Glassfish v3 modularized Java application server. The Glassfish gem wraps the essential technologies in 3 MB and allows you to run your application using a traditional approach, as if you were running Mongrel, Rack, and so on. A brief tutorial can be found here:<br/> [[JRuby on Rails with Glassfish Gem]].
 
 See also:
-* [[JRuby on Rails in GlassFish|Glassfish]]
+* [[JRuby on Rails in GlassFish|JRuby on Rails in Glassfish]]
 
 
 ==== Traditional Rails Deployment ====
