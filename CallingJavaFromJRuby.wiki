@@ -102,7 +102,7 @@ That is:
 ** Java packages all reside within the <tt>Java</tt> module.
 ** The package path is then transformed by removing the dots and converting to ''CamelCase''
 
-This also means that, just as in Java, packages are not nested, but are each associated with their own unique module name (within the Java main module).
+This also means that, just as in Java, packages are not nested, but are each associated with their own unique module name.
 
 * Second way: for the top-level Java packages <tt>java</tt>, <tt>javax</tt>, <tt>org</tt>, and <tt>com</tt> you can type in a fully qualified class name basically as in Java, for example, <tt>java.lang.System</tt> or <tt>org.abc.def.className</tt>
 You can get the same effect for your own (custom) top-level packages, as follows. Let's assume that your packages are called <tt>edu.school.department.Class</tt>. Then, you define
