@@ -1,0 +1,50 @@
+Here is a list of sites and projects using JRuby. Please add descriptions if possible.
+
+<table>
+<tr>
+<th> Project </th>
+<th> Description </th>
+<th> Why is JRuby Needed? </th>
+<th> How is it Used? </th>
+<th> Using Java </th>
+<th> Any Regrets? </th>
+<th> Hits/day </th>
+</tr>
+<tr>
+<td>[http://labs.openmaru.com/projects/springbook/pages/484920?lang=en SpringBook]</td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td>[http://openwferu.rubyforge.org OpenWFEru]</td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td>[http://studios.thoughtworks.com/mingle-project-intelligence Mingle]</td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td>[http://mix.oracle.com Oracle Mix]</td><td>Running on Oracle Application Server, Oracle Database, Oracle Internet Directory, Oracle SSO, and JRuby 1.1RC2 on Rails (1.2.6).  Built by the Oracle AppsLab in collaboration with ThoughtWorks.</td><td></td><td></td><td>Yes</td><td>No</td>
+</tr>
+
+<tr>
+<td>[http://the-shoebox.org/apps/44 Ruby-Processing]</td><td>A Wrapper for Processing, a visual coding sketchbook.</td><td>To access the Processing library.</td><td></td><td>Yes</td><td>No</td>
+</tr>
+
+<tr>
+<td>[http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby "Desktop Application Development in JRuby"]</td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<td>[http://sonar.hortis.ch Sonar]</td><td>An open-source entreprise dashboard which gauges quality of Java applications through the observance of coding rules conventions, metric measures and advanced indicators.</td><td>Embed Ruby/Rails into a JEE application</td><td>Jetty server + goldspike + activerecord-jdbc-adapter. Build with maven.</td><td>Yes</td><td>No</td>
+</tr>
+<tr>
+<td>[http://mediacast.sun.com Mediacast]</td><td>A (media)file hosting application. [http://blog.igorminar.com/2008/01/jruby-on-rails-rewrite-of.html Development and deployment details]</td><td></td><td></td><td>Yes</td><td>No</td>
+</tr>
+<tr>
+<td>[http://www.medienservice.sachsen.de/ Medienservice Sachsen]</td>
+<td>The local government of Saxony (Germany) publishes all its press releases via this application.</td>
+<td>App built on Rails, target environment is J2EE-only</td>
+<td>Running Rails, acessing Java libraries from the Rails app.</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+</table>
