@@ -29,8 +29,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[FAQs]]
 * [[JRuby Compiler]]
 * [[Case_Study_JRuby on Eclipse RCP|Case Study: JRuby on Eclipse RCP]]
-* [[JRuby on Java Micro Edition]]
-* [[JRuby on Web Start]]
 </td>
 <td>
 
