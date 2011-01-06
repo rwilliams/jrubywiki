@@ -92,6 +92,10 @@ Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH f
 
 If you need to load from an existing .class file(or one that's not camelcase), the following has examples: http://www.ruby-forum.com/topic/216572#939791
 
+Basically it's <tt>$CLASSPATH << "target/classes"</tt> where "target/classes/org/asdf/ClassName.class" exists.
+
+Note also that this will need to be a full path name or relative to the directory the script starts in, as the JVM doesn't seem to respond to Dir.pwd very well.
+
 === Referencing a Java Class by Full Class Name ===
 
 You can reference a Java class in JRuby in at least two different ways. 
