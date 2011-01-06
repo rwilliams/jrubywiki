@@ -1,8 +1,10 @@
 <h1>JRuby Projects</h1>
 
-This page is an ongoing list of all projects the JRuby team maintains, until we can get more organization around them.
+This page is an ongoing list of all projects the JRuby team maintains or contributes to, until we can get more organization around them.
 
 __TOC__
+
+== Maintained by JRuby Team
 
 === JRuby ===
 
@@ -49,3 +51,10 @@ __TOC__
 === Maven gem plugin ===
 
 === JREXML ===
+
+== Contributing projects
+
+=== Mongrel ===
+
+=== Hpricot ===
+
