@@ -179,12 +179,11 @@ A sample run from a MacBook Pro under Apple's Java 6 JVM is shown below:
  user    0m51.740s
  sys     0m2.146s
 
-==Example Code==
+==Code Examples==
 
-Below is some example code of calling ruby from within java and java from ruby
+Below are some code examples showing how to call ruby from within Java and Java from ruby.
 
 ===Ruby:  <tt>call_java.rb</tt>===
-
   require "java"
   
   include_class "java.util.TreeSet"
@@ -222,7 +221,6 @@ Below is some example code of calling ruby from within java and java from ruby
   end
 
 ===Java: <tt>ISpeaker.java</tt>===
-
     package com.example;
     
     public interface ISpeaker {
@@ -257,7 +255,6 @@ Below is some example code of calling ruby from within java and java from ruby
     }
 
 ===Java: <tt>CallRuby.java</tt>===
-
     package com.example;
     
     import org.apache.bsf.BSFManager;
