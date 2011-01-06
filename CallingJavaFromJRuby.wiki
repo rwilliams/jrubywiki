@@ -183,7 +183,7 @@ The Ruby File class is still accessible:
   => nil
 
 === Accessing Java Enumerations ===
-Java <tt>enum</tt>s are accessible from Rub code as constants:
+Java <tt>enum</tt>s are accessible from Ruby code as constants:
 
   lock.try_lock(5000, java.util.concurrent.TimeUnit::MILLISECONDS)
 
