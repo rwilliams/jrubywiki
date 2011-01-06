@@ -24,7 +24,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Walkthroughs and Tutorials]]
 * [[ApplicationsAndLibraries|Help with libraries/applications]]
 * [[Java Integration | Embedding JRuby]]
-* [[Scripting Java from JRuby]]
+* [[CallingJavaFromJRuby|Scripting Java from JRuby]]
 * [[Performance Tuning]]
 * [[FAQs]]
 </td>
