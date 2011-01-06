@@ -89,19 +89,6 @@ If you don't want to launch JRuby as a separate process, we recommend you use th
 ==== Where can I find the javadoc? ====
 
 
-====Why do I get a NoSuchMethodError when running JRuby 0.9.0?====
-Some users will see the following error when running JRuby 0.9.0:
-
- Exception in thread "main" java.lang.NoSuchMethodError:
-    java.lang.StringBuffer.append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
-       at org.jruby.RubyString.cat(RubyString.java:223)
-       at org.jruby.RubyString.append(RubyString.java:508)
-       at org.jruby.RubyString.concat(RubyString.java:518) 
-
-This error occurs when JRuby is built under Java 5 or higher and run on Java 1.4. Java 5 has the <tt>append(CharSequence)</tt> method, so it uses that during compilation. Java 1.4 does not have that method.
-
-The first release of JRuby 0.9.0 was mistakenly build with Java 5, so we released a second version compiled with Java 1.4. Make sure you're using a JRuby compiled with Java 1.4 if that's the version of Java you intend to run it under.
-
 ====How do I get a Ruby backtrace when calling JRuby code from Java?====
 You need to do something along the lines of:
 
