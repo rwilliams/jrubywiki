@@ -65,6 +65,7 @@ Latest Release is JRuby 1.2.0:
 * [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
 * [http://blarg.slackworks.com/posts/jndi-with-rails JNDI with Rails]
 * [[Rails JSR286 portlets]]
+* [[Rails Multi-Threading Best Practices]]
 </td>
 
 </tr>
