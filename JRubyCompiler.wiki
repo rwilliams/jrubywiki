@@ -58,7 +58,7 @@ There are other interesting properties of use:
 ;jruby.jit.logging.verbose=true|false (default false)
 :logs each method that fails to compile, so you can see if compilation problems are keeping methods from JITing.
 
-:jruby.jit.exclude=&lt;class_or_module_name&gt;|&lt;class_or_module_name&gt;#&lt;methodname&gt;|&lt;methodname&gt;
+;jruby.jit.exclude=&lt;class_or_module_name&gt;|&lt;class_or_module_name&gt;#&lt;methodname&gt;|&lt;methodname&gt;
 :excludes either the class, module, instance_method on a class, instance_method on a module, or a global method name
 
 As of late September 2007, the JRuby compiler is considered complete. Any features missing are to be considered bugs, but as part of JRuby's test run the entire Ruby standard library is compiled to Java bytecode.
