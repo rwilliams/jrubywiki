@@ -65,22 +65,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td>
 
-==JRuby on ...==
-* [[JRuby Rack|JRuby-Rack]] <span style="font-size:90%; font-style:italic">(Servlet to Rails bridge, plus other Ruby web frameworks)</span>
-* [[Merb|Merb]]
-* [[Merb debugging with Netbeans 6_5|Merb Netbeans Debugging]]
-* [[DataMapper|DataMapper]]
-* [[Mentawai]] <span style="font-size:90%; font-style:italic">A Java web framework fully supporting Ruby through JRuby</span>
-* [[Radiant_CMS|Radiant CMS]]
-* [[RCov | RCov coverage tool]]
-* [[Sparrow]] <span style="font-size:90%; font-style:italic">A JMS client for messaging based on JRuby</span>
-* [http://olabini.com/blog/2009/04/jruby-on-rails-on-google-app-engine/ JRuby on Rails on Google AppEngine]
-* [http://code.google.com/p/appengine-jruby/ Google App Engine API Wrappers for JRuby (appengine-jruby)]
-* Sinatra on Google AppEngine [http://blog.bigcurl.de/2009/04/running-sinatra-apps-on-google.html (part 1] | [http://dev.massivebraingames.com/past/2009/4/15/writing_sinatra_apps_for_google/ part 2)]
-</td>
-
-<td>
-
 ==Getting Involved==
 
 * [[Mailing Lists]]
