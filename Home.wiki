@@ -30,7 +30,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Java Integration | Java Integration (Calling JRuby from Java)]]
 * [[Calling Java from JRuby]]
 * [[Calling C from JRuby]]
-* [[JRuby on OS X]]
 * [[JRuby on Ubuntu]]
 * [[JRuby Compiler]]
 * [[Performance Tuning]]
