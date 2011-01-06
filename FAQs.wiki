@@ -225,6 +225,7 @@ In this case, try to run the migrations with:
 You can also just put the following line somewhere in your Rakefile, or in a custom Rakefile in <tt>lib/tasks/*.rake</tt>:
  ENV['SKIP_AR_JDBC_RAKE_REDEFINES'] = '1'
 
+<span id="troubleshooting_JNI"></span>
 ==== I am having a weird JNI problem. Help me!====
 There are two scenarios in which JNI problems occur: 
 * When the jar is in JRuby 1.1.2's lib.
