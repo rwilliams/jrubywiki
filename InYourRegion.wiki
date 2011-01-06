@@ -29,6 +29,11 @@ The three primary members of the JRuby core team are based in this area and atte
 Actively using JRuby and JRuby on Rails at work, specifically spent time deploying apps to Glassfish and tomcat, performance testing, creating windows services with JRuby.
 Spend time working on RCov and getting it to work with Jruby
 
+===Illinois===
+====Chicago====
+* Josh Graham (joshua.graham@grahamis.com)
+Using JRuby since 2007 in enterprise projects, "wrote the paper" on introducing JRuby into the enterprise for ThoughtWorks.
+
 ===Colorado===
 ====Boulder/Denver Area====
 * Frederic Jean (frederic.jean@sun.com, fred@fredjean.net)
