@@ -566,11 +566,11 @@ When you want to configure Ruby runtime more than explained here, you can use me
 
 
 == Red Bridge Code Examples ==
-See [[RedBridgeExamples]] page.
+See the [[RedBridgeExamples]] page.
 
 
 == Red Bridge Servlet Examples ==
-See [[RedBridgeServletExamples]] page.
+See the [[RedBridgeServletExamples]] page.
 
 = See Also =
 * [[Calling Java from JRuby]]
@@ -579,4 +579,4 @@ See [[RedBridgeServletExamples]] page.
 * [http://jruby-embed.kenai.com/docs/ JRuby Embed API document]
 
 = Previous Embedding JRuby Page=
-[[JavaIntegration|Embedding JRuby]]
+We recommend using Embed Core instead; however, if you're maintaining code that uses the old API, you can find information on it on the [[JavaIntegration|legacy]] embedding page.
