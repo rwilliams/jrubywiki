@@ -34,6 +34,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * Code: [http://jruby.org/git Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
 * Status: [http://ci.jruby.org Build Server]
 * Design/Internals: [[Internals]]
+* Distributions: [[JRubyDistributions]]
 * [[JRuby Bug Reporting Style Guide]]
 * [[JRuby Style Guide]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
