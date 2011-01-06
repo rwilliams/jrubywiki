@@ -1,6 +1,6 @@
 [[Home|&raquo; JRuby Project Home Page]] &nbsp;&nbsp; [[Getting Started|&raquo; Getting Started with JRuby]]
 ==JRuby With Wrong Java==
-[''ed: This page needs revision because some other linux distros have the same problem as Ubuntu.'']
+[''ed: This page needs revision because some other Linux distros have the same problem as Ubuntu. What we might want to add is proper instructions for getting a hotspot-based JVM on those Linux versions, either as OpenJDK (like RedHat's "icedtea" builds) or a Sun build.'']
 
 You may find that even though you have an up-to-date JDK installed, JRuby does not work on Ubuntu.  When running <tt>jruby -v</tt>,  you might get exceptions from Java. The reason for these errors might be that, even though you have an up-to-date JDK installed, Ubuntu is not using it by default. You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
 
