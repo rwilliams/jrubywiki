@@ -100,10 +100,11 @@ To run any other ruby program by using JRuby, run it using the <tt>jruby</tt> co
 == jirb: Ruby Interactive Console ==
 One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: <tt>'''jirb'''</tt>. In C Ruby this utility is simply called <tt>irb</tt>.
 
-To enable tab completion within jirb:
+To enable tab completion within jirb, add the following line to the configuration file .irbrc:
   require 'irb/completion'
+'''See Also:''' [[JirbCommandLineParameters|Jirb Command Line Parameters]]
 
-==Installing and Using Gems in JRuby==
+==Installing and Using Ruby Gems==
 The RubyGems can be easily installed with JRuby with the following command:
  jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
 
@@ -120,9 +121,7 @@ Authenticated:<br/>
 
 See also [[Troubleshooting]].
 
-
 ==Benchmarking==
-
 The current popular way to benchmark JRuby performance is to perform a gem installation of Rake. The install process exercises a number of APIs and represents a fairly general-purpose application of Ruby. It's also extremely interpreter-heavy.
 
 After getting a build of JRuby, as above, the following steps can be used to benchmark JRuby using Gem and Rake:
@@ -144,7 +143,6 @@ A sample run from a MacBook Pro under Apple's Java 6 JVM is shown below:
  sys     0m2.146s
 
 ==Code Examples==
-
 Below are some code examples showing how to call ruby from within Java and Java from ruby.
 
 ===Ruby:  <tt>call_java.rb</tt>===
