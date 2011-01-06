@@ -144,39 +144,36 @@ All three programs print out "Hello World!" to standard output.
 
 == Configurations ==
 
-Although default setting works well, JRuby Embed allows you to configure its environment and behavior. In this section, you can find what configuration options are and how to configure them. In case of Embed core, most options are set through arguments of constructors or methods easily. Meanwhile, JSR223/BSF are often not flexible to accept JRuby specific parameters. Therefore, System properties and JSR223’s attributes are used for this purpose.
+JRuby Embed allows you to configure its environment and behavior. In many cases, the default options are all you need. For situations when you want more control, you can use the options described in this section.
 
-Please remember you need to set parameters before instantiating a container/engine when you want to make per container configurations work.
+With Embed Core, you typically set options through constructor or method arguments. With JSR223, you use <code>System</code> properties instead.
 
-;The per container configurations are:
-:JRuby Home
-:Class Path
-:Context Instance Type
-:Local Variable Behavior
-:Compile Mode
-:Ruby Version
+RedBridge supports both per-container ("per-engine," in JSR223 parlance) and per-evaluation options. Per-container options must be set before instantiating a scripting container or engine. Per-evaluation options should be set just before running Ruby code.
 
-If you want set per evaluation configurations, set them just before the evaluation or the method arguments.
+*Per-container configurations:
+**JRuby Home
+**Classpath
+**Context Instance Type
+**Local Variable Behavior
+**Compile Mode
+**Ruby Version
 
-; The per evaluations configuration is:
-:Line Number
+*Per-evaluation configurations:
+** Line Number
 
 === JRuby Home ===
 
 Scope: Per Container<br/>
 Propety Name: jruby.home
 
+JRuby Home is is where JRuby looks for its built-in libraries. Internally, JRuby Embed first checks for the <code>JRUBY_HOME</code> environment variable, then the <code>jruby.home</code> system property, then the value embedded in <code>jruby-complete.jar</code>. Using <code>jruby-complete.jar</code> is the simplest approach, because it frees you from having to set this option yourself.
 
+If you'd rather use the environment variable, you can set it from your OS . Here's what that looks like on UNIX and OS X (assuming your shell is <code>bash</code>):
 
-JRuby Home is a home directory (or folder) of JRuby and is used to load JRuby’s built-in libraries and for other purposes by JRuby. Internally, JRuby Embed tries to get a directory from the order of JRUBY_HOME environment variable, , jruby.home system property, then jruby.home assembled in jruby-complete.jar. If you are using jruby-complete.jar, you are free from worrying about this configuration. If you aren’t using jruby-complete.jar, it is better to set it to avoid unexpected troubles although setting JRuby Home is optional in the domain of JRuby Embed.
-
-When you write a web application, you should use jruby-complete.jar because setting an absolute path to JRuby does not make sense. You should keep a war archive portable.
-
-JRUBY_HOME environment variable setting depends on OS. For example, on bash of Unix and OS X:
 <pre>
 export JRUBY_HOME=/Users/yoko/Tools/jruby-1.3.1</pre>
 
-When you want to use jruby.home system property, you have two ways of setting the value: a command line option or java.langSystem#setProperty().
+The other alternative is the <code>jruby.home system</code> property. There are two ways to set its value: via the command line, or using <code>java.langSystem#setProperty()</code>.
 
 * Core, JSR223, BSF
 <pre>
@@ -185,20 +182,17 @@ java –J-Djruby.home=/Users/yoko/Tools/jruby-1.3.1 –cp …</pre>
 System.setProperty("jruby.home", "/Users/yoko/Tools/jruby-1.3.1");
 ScriptingContainer container = new ScriptingContainer();</pre>
 
-If you use Embed Core, then you can directly set jruby.home using the method:
+With Embed Core, you can also set <code>jruby.home</code> individually for each scripting container instance:
 
 * Core
 <pre name="java">
 ScriptingContainer container = new ScriptingContainer();
 container.getProvider().getRubyInstanceConfig().setJRubyHome("/Users/yoko/Tools/jruby-1.3.1");</pre>
 
-
 === Class Path ===
 
 Scope: Per Container<br/>
 Propety Name: org.jruby.embed.class.path (or java.class.path)
-
-
 
 Classpaths are used to load Ruby scripts as well as Java classes and jar archives. Embed Core and BSF have a method to set classpath. However, JSR223 doesn't have such method or method argument. Thus, JSR223 need to be set classpath by system property. Either org.jruby.embed.class.path or java.class.path property names can be used to set classpath. The org.jruby.embed.class.path system property is avaiable to use in Embed Core and BSF, too. In case of Embed Core and JSR223, a value assigned to org.jruby.embed.class.path is looked up first, then java.class.path. This means that only org.jruby.embed.class.path is used if exists.  As for BSF, after java.class.path is looked up, org.jruby.embed.class.path  is added to if exists. The format of the paths is the same as Java's class path syntax, :(colon) separated path string on Unix and OS X or ;(semi-colon) separated one on Windows. Be sure to set classpaths before you instantiate javax.script.ScriptEngineManager or register engine to org.apache.bsf.BSFManager.
 Samples below run testMath.rb, which is included in JRuby’s source archive. The script, testMath.rb, needs minirunit.rb, which should be loaded from the classpath.
