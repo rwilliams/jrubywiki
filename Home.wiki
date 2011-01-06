@@ -37,6 +37,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td width="50%">
 '''Getting Involved'''
+* [[RubySummerOfCode2010|Ruby Summer of Code 2010!]]
 * Communicate: [[Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
 * Code: [http://kenai.com/projects/jruby/sources/main/show Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
 * Status: [http://ci.jruby.org Build Server]
