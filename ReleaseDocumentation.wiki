@@ -10,7 +10,7 @@ JRuby release preparation
 * Make tag using svn copy (e.g. svn copy https://svn.codehaus.org/jruby/trunk/jruby https://svn.codehaus.org/jruby/tags/jruby-1_1b2)
 * Check out new tag
 * Set your java version to Java 1.4 for 1.0 branch and Java 5 for trunk.
-* Run 'ant dist' to generate source and binary distribution files.
+* Run 'ant dist' to generate source and binary distribution files, jruby-complete jar, and MD5 files.
 * Make 'ant test' runs on Linux, MacOS, and Windows (Solaris is fine since our CI system is a Solaris boxen) with produced source distribution
 * Verify common tasks as extra sanity check (Windows + one other system) [with binary distro -- try some with .zip dist and some with .tar.gz dist]:
 ** jruby samples/swing2.rb
@@ -18,8 +18,7 @@ JRuby release preparation
 ** install rails + ar-jdbc
 *** setup simple web app and exercise it
 *** install and run goldberg (actually any more sophisticated app you know works)
-* ant jar-complete
-* Upload dist files and jar-complete to https://dav.codehaus.org/dist/jruby/{version}
+* Upload dist files, jruby-complete.jar, and MD5 files to https://dav.codehaus.org/dist/jruby/{version}
 * Replace existing dist files and jar-complete in https://dav.codehaus.org/dist/jruby/current
 * [[Build maven artifacts]]
 * Add news item to www.jruby.org page (need to get to confluence editing page for this -- xircles is easy way there if you don't have bookmark)
