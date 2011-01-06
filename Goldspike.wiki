@@ -1,3 +1,5 @@
+[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails|&raquo; JRuby on Rails]
+<h1>Goldspike</h1>
 Java web applications are typically packaged as WAR files in preparation for distribution and deployment to Java EE servers. It is useful to be able to package Ruby on Rails applications in a similar form, to enable seamless deployment to Java servers. This is what Goldspike does.
 
 __TOC__
@@ -5,9 +7,9 @@ __TOC__
 == Creating a WAR of a Rails application ==
 
 === Warbler ===
-See [[Warbler]]
+See <a href="{{project warbler page Home}}>Warbler</a> for our currently recommended software to package your Rails applications as a <tt>.war</tt> file for deployment to a Java app server.
 
-See also [[Jruby on Rails on Tomcat]] (Warbler releated info)
+See also [[Jruby on Rails on Tomcat]] (Warbler related info).
 
 ''Note this section will be expanded in the near future.''
 
