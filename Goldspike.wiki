@@ -1,5 +1,7 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails|&raquo; JRuby on Rails]
 <h1>GoldSpike</h1>
+'''Note: GoldSpike is being discontinued. Use <a href="{{project warbler page Home}}">Warbler</a> instead of GoldSpike for packaging JRuby on Rails applications into WAR files.'''
+
 Java web applications are typically packaged as WAR files in preparation for distribution and deployment to Java EE servers. It is useful to be able to package Ruby on Rails applications in a similar form, to enable seamless deployment to Java servers. This is what GoldSpike does.
 
 __TOC__
