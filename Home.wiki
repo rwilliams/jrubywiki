@@ -27,6 +27,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[CallingJavaFromJRuby|Scripting Java from JRuby]]
 * [[Performance Tuning]]
 * [[FAQs]]
+* [[JRuby Cookbook]]
 </td>
 <td>
 
@@ -58,19 +59,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 <td>
 
-==Hints, Tips and Documents==
-
-* [[JRuby Cookbook]]
-* [[Using the JRuby Debugger]]
-* [[JRuby Internal Design]]
-</td>
-
-</tr>
-
-<tr valign="top">
-
-<td>
-
 ==Specifications==
 
 * [[Compiler Packaging and Pathing]]
@@ -81,7 +69,12 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Require and Load behavior]]
 * [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
 * [[JRubyMethod_Signatures|JRuby Method Binding]] - How to wire up Java methods in a JRuby extension
+* [[JRuby Internal Design]]
 </td>
+
+</tr>
+
+<tr valign="top">
 
 <td>
 == Evangelism ==
