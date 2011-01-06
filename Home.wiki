@@ -35,7 +35,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[ActiveRecord-JDBC]]
 * [[Warbler]] <span style="font-size:90%; font-style:italic">(minimal, flexible, ruby-like way to create .war file)</span>
 * [[Rails_2_3_2|Rails 2.3.2]]
-* JRuby on Rails on [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat], [[JRuby on Rails on Jetty|Jetty]], [[JRuby on Rails in GlassFish|Glassfish]], [[JRuby on Rails on WebSphere|Websphere]], [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J],  [[JRuby on Rails on BEA Weblogic|Weblogic]], [http://oddthesis.org/theses/jboss-rails JBoss]
+* JRuby on Rails on [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat], [[JRuby on Rails on Jetty|Jetty]], [[JRuby on Rails in GlassFish|Glassfish]], [[JRuby on Rails on WebSphere|Websphere]], [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J],  [[JRuby on Rails on BEA Weblogic|Weblogic]], [http://oddthesis.org/theses/jboss-rails JBoss], [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war JWS 7]
 * [[Running Rails with Firebird]]
 * [[Rails AOT]] <span style="font-size:90%; font-style:italic">(Compiling Rails' controllers and models AOT)</span>
 * [[Rails Eclipse Jetty Maven]] <span style="font-size:90%; font-style:italic">(Rails on Eclipse + Run Jetty Run + Maven)</span>
@@ -122,7 +122,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://blogs.sun.com/theaquarium/tags/jruby GlassFish Aquarium JRuby posts]
 * [http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw Fresh JRuby news Yahoo Pipes aggregator]
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
-* [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war Deploying JRuby on Rails application on Sun Java System Web Server 7]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Oracle+SSO+Integration Integrating Oracle SSO with a JRuby on Rails app]
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Migrating Ruby on Rails 2.2.2 (and MySQL) web app to JRuby running on Tomcat]
 * [http://jeanderuelle.blogspot.com/2009/03/my-jruby-rails-app-on-jboss-can-make.html My JRuby-Rails app on JBoss and Mobicents can make Phone calls !]
