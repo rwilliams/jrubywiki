@@ -65,7 +65,7 @@ Polls flights from an Oracle 10 database using ActiveRecord.
 
 * The release went well and the customer is happy!  Below is a screen shot of the flight list.
 
-[[media:dispatcher_0.1.0.jpg]]
+[[image: Dispatcher_0.1.0.jpg]]
 
 Currently, JRuby is used to fetch data from an external Oracle database, post flight updates to an ActiveMQ topic, handle all administration using a Rails application, and to unmarshal a YAML stream of flight updates on the dispatcher.
 
