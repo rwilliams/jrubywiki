@@ -44,6 +44,11 @@ Java heretic and RESTafarian who believes JRuby is the best Ruby.  Using JRuby o
 * Todd Willey <todd@rubidine.com>
 Rails deployments on Glassfish, integration with java libraries, active in [http://kyrug.org/ KYRUG].
 
+===California===
+====San Francisco Bay Area====
+* Arun Gupta <arun.gupta@sun.com>
+GlassFish Evangelist and can talk about JRuby, Rails, GlassFish, NetBeans [http://blogs.sun.com/arungupta blog].
+
 
 ==Spain==
 * David Calavera <calavera@apache.org>
