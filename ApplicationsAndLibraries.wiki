@@ -1,0 +1,30 @@
+This page has a list of help pages for commonly used libraries and applications. 
+
+__TOC__
+
+== Common Applications ==
+* [[Hpricot]] - Installing a version of Hpricot which works on JRuby
+* [http://kenai.com/projects/ruby-ffi/pages/Home FFI] - Use FFI to bind to dynamic load libraries
+
+== GUI Frameworks ==
+See [[GUIFrameworks]]
+
+== All Applications ==
+* [[JRubyAndContinuousIntegration|ci_reporter]] - Run test/unit and spec runs via Continuous Integration
+* [[DataMapper]]
+* [http://kenai.com/projects/ruby-ffi/pages/Home FFI] - Use FFI to bind to dynamic load libraries
+* Google AppEngine
+** [http://olabini.com/blog/2009/04/jruby-on-rails-on-google-app-engine/ Using JRuby on Rails]
+** [http://code.google.com/p/appengine-jruby/  API Wrappers for JRuby (appengine-jruby)]
+** Using Sinatra [http://blog.bigcurl.de/2009/04/running-sinatra-apps-on-google.html (part 1] | [http://dev.massivebraingames.com/past/2009/4/15/writing_sinatra_apps_for_google/ part 2)]
+* [[Hpricot]] - Installing a version of Hpricot which works on JRuby
+* [[JRuby Rack|JRuby-Rack]] <span style="font-size:90%; font-style:italic">(Servlet to Rails bridge, plus other Ruby web frameworks)</span>
+* [[Accessing JMX]] - Code snippet and mention of some external gems which can interact with JMX
+* [[Mentawai]] <span style="font-size:90%; font-style:italic">A Java web framework fully supporting Ruby through JRuby</span>
+* [[Merb|Merb]]
+* [http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html Mr Bones] - work around some RUBY_PLATFORM errors in Mr Bones using JRuby
+* [[JRubyWithNailgun|Nailgun]] - Single background JRuby JVM process for fast execution
+* [[Radiant_CMS|Radiant CMS]]
+* [[RCov | RCov coverage tool]]
+* [[Sparrow]] <span style="font-size:90%; font-style:italic">A JMS client for messaging based on JRuby</span>
+* [[Spring]] - Using Spring framework to use JRuby
