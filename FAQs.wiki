@@ -57,7 +57,7 @@ JRuby can only see the gems installed with the gem command shipped with JRuby. T
 In JRuby 0.9.0, any class implementing a Java interface must explicitly call <tt>super</tt> in their initializers to set up the interface proxy. Add a <tt>super</tt> call to your implementation's <tt>initialize</tt> method and it should work.
 
 ====How do I call JRuby from my existing Java program?====
-If you don't want to launch JRuby as a separate process, we recommend you use the [http://jakarta.apache.org/bsf/ Bean Scripting Framework] (BSF) or [https://scripting.dev.java.net/ Java 6's Scripting Support] (JSR223). We do not recommend calling directly into the JRuby runtime, since that code is subject to change before 1.0.
+If you don't want to launch JRuby as a separate process, we recommend you use the [http://jakarta.apache.org/bsf/ Bean Scripting Framework] (BSF) or [https://scripting.dev.java.net/ Java 6's Scripting Support] (JSR223). We do not recommend calling directly into the JRuby runtime, since that code is subject to change.
 
 ==== Where can I find the javadoc? ====
 
