@@ -88,6 +88,9 @@ To use resources within a jar file from JRuby, the jar file must either be on th
 This <tt>require</tt> makes the resources in <tt>mycode.jar</tt> discoverable by commands like <tt>import</tt> and <tt>include_package</tt>.
 
 Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH for them, like it would for normal ruby files.
+===Load a .class File===
+
+If you need to load from an existing .class file(or one that's not camelcase), the following has examples: http://www.ruby-forum.com/topic/216572#939791
 
 === Naming a Java Class ===
 You can reference a Java class in JRuby in at least two different ways. 
