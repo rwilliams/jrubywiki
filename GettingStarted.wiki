@@ -49,8 +49,23 @@ you'll need to add <tt>C:\JRuby\jruby1.3\bin</tt> to the end of your <tt>%PATH%<
 # Click OK at the bottom of the Environment Variables window.
 # Click OK to close the System Properties window.
 
-==Building JRuby From Source==
-Instead of downloading the latest release, you can build JRuby from source. See the instructions [[#Downloading_Source_and_Building_Yourself]] later on this page for more details.
+==Downloading Source and Building Yourself==
+The JRuby source code is available in a git repository. Retrieve the trunk version of the JRuby source and build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):
+ git clone git://kenai.com/jruby~main jruby
+ cd jruby
+ ant
+
+Create an up-to-date version of <tt>jruby-complete.jar</tt> with this ant task: 
+ ant jar-complete
+
+Generate an up-to-date set of the JavaDoc for JRuby located here: <tt>docs/api/index.html</tt>:
+ ant create-apidocs
+
+Delete any build and compile artifacts:
+  ant clean
+
+Run the JRuby tests:
+  ant test
 
 ==Did It Work?==
 To test whether JRuby installed correctly, open a command window and run:
@@ -135,25 +150,6 @@ See also [[Troubleshooting]].
     --1.9           specify Ruby 1.9.x compatibility
     --bytecode      show the JVM bytecode produced by compiling specified code
     --version       print the version  Usage: jruby [switches] [--] [programfile] [arguments]
-
-==Downloading Source and Building Yourself==
-
-The JRuby source code is available in a git repository. Retrieve the trunk version of the JRuby source and build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):
- git clone git://kenai.com/jruby~main jruby
- cd jruby
- ant
-
-Create an up-to-date version of <tt>jruby-complete.jar</tt> with this ant task: 
- ant jar-complete
-
-Generate an up-to-date set of the JavaDoc for JRuby located here: <tt>docs/api/index.html</tt>:
- ant create-apidocs
-
-Delete any build and compile artifacts:
-  ant clean
-
-Run the JRuby tests:
-  ant test
 
 ==Benchmarking==
 
