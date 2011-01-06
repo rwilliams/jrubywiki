@@ -32,7 +32,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JRuby on Ubuntu]]
 * [[JRuby Compiler]]
 * [[Performance Tuning]]
-* [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
 * [[Walkthroughs and Tutorials]]
 * [[Success Stories]]
 * [[GUI Frameworks]]
@@ -138,6 +137,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JIT Compiler]]
 * [[Static Compiler]]
 * [[Classpath and Load Path]]
+* [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
 </td>
 
 </tr>
