@@ -109,8 +109,9 @@ Mongrel and Hpricot are two examples of Gems that build their native library in 
 
 Also, keep in mind that installing gems from behind a firewall will require setting the HTTP_PROXY. For example:
 
+Not authenticated:<br/>
 <tt> &nbsp;<nowiki>export http_proxy=http://${http-proxy-host}:${http-proxy-port}/</nowiki></tt> <br/>
-If it's authenticated:<br/>
+Authenticated:<br/>
 <tt> &nbsp;<nowiki>export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/</nowiki></tt>
 
 See also [[Troubleshooting]].
