@@ -33,3 +33,13 @@ Since it is not possible to obtain <tt>usec</tt> precision under a JVM, <tt>Time
  => 582000
 
 Keep this in mind when counting on <tt>usec</tt> precision in your code.
+
+== Regular Expressions == 
+
+JRuby only has one regular expression engine, which matches Onigurama's behavior. It is not changed in --1.8 mode, so code depending on regular expressions behaving precisely as on MRI 1.8.n may fail on JRuby in --1.8 mode. For instance:
+
+  ruby-1.8.7-p302 > "a".match(/^(.*)+$/)[1]
+  => "a"
+
+  jruby-head > "a".match(/^(.*)+$/)[1]
+  => ""
