@@ -126,7 +126,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
 * [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war Deploying JRuby on Rails application on Sun Java System Web Server 7]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Oracle+SSO+Integration Integrating Oracle SSO with a JRuby on Rails app]
-* [https://scripting.dev.java.net/ JSR 223 scripting project home]
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Migrating Ruby on Rails 2.2.2 (and MySQL) web app to JRuby running on Tomcat]
 * [http://jeanderuelle.blogspot.com/2009/03/my-jruby-rails-app-on-jboss-can-make.html My JRuby-Rails app on JBoss and Mobicents can make Phone calls !]
 * [http://code.trampolinesystems.com/springy Springy: configure Spring contexts with JRuby]
