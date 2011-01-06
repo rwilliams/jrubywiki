@@ -189,12 +189,13 @@ With Embed Core, you can also set <code>jruby.home</code> individually for each 
 ScriptingContainer container = new ScriptingContainer();
 container.getProvider().getRubyInstanceConfig().setJRubyHome("/Users/yoko/Tools/jruby-1.3.1");</pre>
 
-=== Class Path ===
+=== Class Path (Load Path) ===
 
 Scope: Per Container<br/>
 Propety Name: org.jruby.embed.class.path (or java.class.path)
 
-Classpaths are used to load Ruby scripts as well as Java classes and jar archives. Embed Core and BSF have a method to set classpath. However, JSR223 doesn't have such method or method argument. Thus, JSR223 need to be set classpath by system property. Either org.jruby.embed.class.path or java.class.path property names can be used to set classpath. The org.jruby.embed.class.path system property is avaiable to use in Embed Core and BSF, too. In case of Embed Core and JSR223, a value assigned to org.jruby.embed.class.path is looked up first, then java.class.path. This means that only org.jruby.embed.class.path is used if exists.  As for BSF, after java.class.path is looked up, org.jruby.embed.class.path  is added to if exists. The format of the paths is the same as Java's class path syntax, :(colon) separated path string on Unix and OS X or ;(semi-colon) separated one on Windows. Be sure to set classpaths before you instantiate javax.script.ScriptEngineManager or register engine to org.apache.bsf.BSFManager.
+Classpaths are used to load Ruby scripts as well as Java classes and jar archives. Embed Core and BSF have a method to set classpath. However, JSR223 doesn't have such method or method argument. Thus, JSR223 need to be set classpath by system property. Either org.jruby.embed.class.path or java.class.path property names can be used to set classpath. The org.jruby.embed.class.path system property is avaiable to use in Embed Core and BSF, too. In case of Embed Core and JSR223, a value assigned to org.jruby.embed.class.path is looked up first, then java.class.path. This means that only org.jruby.embed.class.path is used if exists.  As for BSF, after java.class.path is looked up, org.jruby.embed.class.path  is added to if exists. The format of the paths is the same as Java's class path syntax, :(colon) separated path string on Unix and OS X or ;(semi-colon) separated one on Windows. Be sure to set classpaths before you instantiate javax.script.ScriptEngineManager or register engine to org.apache.bsf.BSFManager. A related topic is in [[ClasspathAndLoadPath]]
+
 Samples below run testMath.rb, which is included in JRuby’s source archive. The script, testMath.rb, needs minirunit.rb, which should be loaded from the classpath.
 
 * Core
