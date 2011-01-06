@@ -1,0 +1,17 @@
+This page describes the logic used for dispatchign from Ruby to Java, including how methods are selected and how users can modify the process from Ruby.
+
+==Background==
+
+JRuby allows calling Java classes from Ruby by wrapping those classes with Ruby-friendly class/module structures we call "proxies". The proxies look and feel like normal Ruby classes or modules, and can be modified, monkey-patched, and re-opened. All methods of a given name in the Java class are bound to a single Ruby method of the same name.
+
+For Java methods with no overloads, the dispatching process is simply to coerce passed arguments to the types of the one target method. For Java methods with overloads, the process is more complicated, and a "best match" is selected before proceeding with coercion.
+
+==Selecting a Target Method==
+
+==Coercing Values==
+
+==Overriding Coercion or Selection Behavior==
+
+==Forcibly Casting Values==
+
+==Troubleshooting==
