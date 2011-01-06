@@ -20,18 +20,18 @@ If you're on Windows or if your package manager doesn't include JRuby, you'll ne
 #* For OSX, Linux, BSD, Solaris, and other UNIX varieties, grab the most recent <tt>jruby-bin-X.Y.Z.tar.gz</tt> file.
 #* If you're on Microsoft Windows, grab the most recent <tt>jruby-bin-X.Y.Z.zip</tt> file.
 # Extract JRuby into a directory.
-# Add that directory's bin subdirectory to the ''end'' of your <tt>path</tt> environment variable.
-#* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and the JRuby path might be <tt>/opt/jruby1.3.0/bin</tt>.
-#* On Microsoft Windows, the variable is '''%PATH%''', and the JRuby path might be <tt>C:\JRuby\jruby-1.3.0\bin</tt>.<br/> Also, make sure your <tt>JAVA_HOME</tt> environment variable points to your Java installation. For example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>
+# Add that directory's bin subdirectory to the ''end'' of your <tt>PATH</tt> environment variable.
+#* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and a sample JRuby path is <tt>/opt/jruby/bin</tt>.
+#* On Microsoft Windows, the variable is '''%PATH%''', and a sample JRuby path is <tt>C:\JRuby\jruby-1.3.0\bin</tt>.<br/> Also, make sure your <tt>JAVA_HOME</tt> environment variable points to your Java installation. For example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
 
-'''Note:''' On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby with wrong Java]].
+'''Note:''' On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby With Wrong Java]].
 
 '''Note:''' If you're on HP-UX, see [[JRubyOnHPUX11_23|Using JRuby on HPUX]].
 
 ====Installation Examples====
 '''Linux and OSX Example'''
 
-Once you've downloaded or built a JRuby installation and it is located in the directory <tt> /opt/jruby</tt>,
+Once you've downloaded or built a JRuby installation and it is located in the directory <tt>/opt/jruby</tt>,
 you'll need to add <tt>/opt/jruby/bin</tt> to the end of your <tt>$PATH</tt> environment variable.
 
 On Mac OS X and Linux, you can add to the <tt>PATH</tt> variable with the export command:
@@ -43,8 +43,8 @@ Once you've downloaded or built a JRuby installation and it is located in the di
 you'll need to add <tt>C:\JRuby\jruby1.3.0\bin</tt> to the end of your <tt>%PATH%</tt> environment variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
 # In Windows XP, choose Start > Control Panel > System to open the System Properties window.
 # Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
-# In the System Variables section, scroll down to <tt>Path</tt> and click Edit.
-# Add the path to the JRuby bin directory to the end of the path. For example, add:<br/>;<tt>C:\JRuby\jruby1.3.0\bin</tt>
+# In the System Variables section, scroll down to <tt>Path</tt>, select it, and click Edit.
+# Add the path to the JRuby bin directory to the end of the Path. For example, add:<br/>;<tt>C:\JRuby\jruby1.3.0\bin</tt>
 # Look for <tt>JAVA_HOME</tt> in both the User Variables section and the System Variables section and make sure it points to your current Java installation. If necessary, create a new JAVA_HOME variable as follows:
 ## Under the User Variables section, click New.
 ##* '''Variable name:''' enter <tt>JAVA_HOME</tt>
@@ -54,22 +54,13 @@ you'll need to add <tt>C:\JRuby\jruby1.3.0\bin</tt> to the end of your <tt>%PATH
 # Click OK to close the System Properties window.
 
 ==Downloading Source and Building Yourself==
-The JRuby source code is available in a git repository. Retrieve the trunk version of the JRuby source and build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):
- git clone git://kenai.com/jruby~main jruby
- cd jruby
- ant
+The JRuby source code is available in a git repository. 
 
-Create an up-to-date version of <tt>jruby-complete.jar</tt> with this ant task: 
- ant jar-complete
-
-Generate an up-to-date set of the JavaDoc for JRuby located here: <tt>docs/api/index.html</tt>:
- ant create-apidocs
-
-Delete any build and compile artifacts:
-  ant clean
-
-Run the JRuby tests:
-  ant test
+# Retrieve the trunk version of the JRuby source and build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):<br/><tt> &nbsp; git clone git://kenai.com/jruby~main jruby <br/> &nbsp; cd jruby <br/> &nbsp; ant</tt>
+# Create an up-to-date version of <tt>jruby-complete.jar</tt> with this ant task: <br/><tt> &nbsp; ant jar-complete</tt>
+# Generate an up-to-date set of the JavaDoc for JRuby located here: <tt> &nbsp; docs/api/index.html</tt>:<br/><tt> &nbsp; ant create-apidocs</tt>
+# Delete any build and compile artifacts:<br/><tt> &nbsp; ant clean</tt>
+# Run the JRuby tests:<br/><tt> &nbsp; ant test</tt>
 
 ==Did It Work?==
 To test whether JRuby installed correctly, open a command window and run:
@@ -102,6 +93,9 @@ One of the few standard Ruby utilities that has a different name in JRuby than i
 
 To enable tab completion within jirb, add the following line to the configuration file .irbrc:
   require 'irb/completion'
+
+'''Note:''' If you're on Linux, BSD, OSX, Solaris, and other UNIXes, the .irbrc file must be in your home directory. If you're on Windows, it goes in your My Documents folder.
+
 '''See Also:''' [[JirbCommandLineParameters|Jirb Command Line Parameters]]
 
 ==Installing and Using Ruby Gems==
