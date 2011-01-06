@@ -31,10 +31,9 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <td>
 
 ==[[JRuby on Rails]]==
+* [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
 * [[ActiveRecord-JDBC]]
 * [[Warbler]] <span style="font-size:90%; font-style:italic">(minimal, flexible, ruby-like way to create .war file)</span>
-* [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
-* [[Goldspike]] <span style="font-size:90%; font-style:italic">Servlet to Rails bridge (deprecated, see [[Warbler]])</span>
 * [[Rails_2_3_2|Rails 2.3.2]]
 * JRuby on Rails on [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat], [[JRuby on Rails on Jetty|Jetty]], [[JRuby on Rails in GlassFish|Glassfish]], [[JRuby on Rails on WebSphere|Websphere]], [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J],  [[JRuby on Rails on BEA Weblogic|Weblogic]], [http://oddthesis.org/theses/jboss-rails JBoss]
 * [[Running Rails with Firebird]]
@@ -45,6 +44,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
 * [http://blarg.slackworks.com/posts/jndi-with-rails JNDI with Rails]
 * [[Rails JSR286 portlets]]
+* [[Goldspike]] <span style="font-size:90%; font-style:italic">Servlet to Rails bridge (deprecated, see [[Warbler]])</span>
 * [[Rails Multi-Threading Best Practices]]
 </td>
 
