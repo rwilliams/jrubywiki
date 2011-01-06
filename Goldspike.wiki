@@ -7,7 +7,7 @@ __TOC__
 == Creating a WAR of a Rails application ==
 
 === Warbler ===
-See <a href="{{project warbler page Home}}>Warbler</a> for our currently recommended software to package your Rails applications as a <tt>.war</tt> file for deployment to a Java app server.
+See <a href="{{project warbler page Home}}">Warbler</a> for our currently recommended software to package your Rails applications as a <tt>.war</tt> file for deployment to a Java app server.
 
 See also [[Jruby on Rails on Tomcat]] (Warbler related info).
 
