@@ -3,7 +3,7 @@
 
 The Warbler readme at [http://caldersphere.rubyforge.org/warbler/] describes Warbler as follows:
 
-:''[http://caldersphere.rubyforge.org/warbler/classes/Warbler.html Warbler] is a gem to make a <tt>.war</tt> file out of a [http://caldersphere.rubyforge.org/warbler/classes/Rails.html Rails], Merb, or Rack-based application. The intent is to provide a minimal, flexible, Ruby-like way to bundle all your application files for deployment to a Java application server. [http://caldersphere.rubyforge.org/warbler/classes/Warbler.html Warbler] provides a sane set of out-of-the box defaults that should allow most [http://caldersphere.rubyforge.org/warbler/classes/Rails.html Rails] applications without external gem dependencies (aside from Rails itself) to assemble and ''just work''. Warbler bundles JRuby and [[JRuby_Rack|JRuby-Rack]] for dispatching requests to your application inside the Java application server, and assembles all jar files in <tt>WARBLER_HOME/lib/*.jar</tt> into your application. No external dependencies are downloaded.''
+:''[http://caldersphere.rubyforge.org/warbler/classes/Warbler.html Warbler] is a gem to make a <tt>.war</tt> file out of a [http://caldersphere.rubyforge.org/warbler/classes/Rails.html Rails], Merb, or Rack-based application. The intent is to provide a minimal, flexible, Ruby-like way to bundle all your application files for deployment to a Java application server. [http://caldersphere.rubyforge.org/warbler/classes/Warbler.html Warbler] provides a sane set of out-of-the box defaults that should allow most [http://caldersphere.rubyforge.org/warbler/classes/Rails.html Rails] applications without external gem dependencies (aside from Rails itself) to assemble and ''just work''. Warbler bundles JRuby and [http://kenai.com/projects/jruby-rack/pages/Home JRuby-Rack] for dispatching requests to your application inside the Java application server, and assembles all jar files in <tt>WARBLER_HOME/lib/*.jar</tt> into your application. No external dependencies are downloaded.''
 
 Created by [http://blog.nicksieger.com Nick Sieger].
 
@@ -177,7 +177,7 @@ Here's a sample of the error:
 ==Later Releases==
 ===0.9.10===
 * Upgraded to JRuby-Rack 0.9.1. Fixes JRUBY-2620, JRUBY-2594, JRUBY-2507.
-* Now verified to work with Camping and Sinatra. See <tt>github.com/nicksieger/jruby-rack/tree/master/examples</tt> for examples of how to configure Warbler to package your Camping and Sinatra apps.
+* Now verified to work with Camping and Sinatra. See [http://github.com/nicksieger/jruby-rack/tree/master/examples] for examples of how to configure Warbler to package your Camping and Sinatra apps.
 * Upgraded to JRuby 1.1.3.
 * Log files are no longer packaged in the <tt>.war</tt> file.
 * Fix <tt>#&lt;Warbler::WebxmlOpenStruct …&gt;</tt> appearing in <tt>web.xml</tt> and document workarounds.
