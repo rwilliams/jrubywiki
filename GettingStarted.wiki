@@ -21,6 +21,7 @@ Getting up and running with JRuby is very easy:
 # (On windows, make sure that your '''JAVA_HOME''' environment variable points to your Java installation)
 
 [Note: On some linux's you will need to get the proper Java installed: [[JRubyOnUbuntu|JRuby with wrong Java]]]
+
 [Note: HP-UX users should [[JRubyOnHPUX11_23|Using JRuby on HPUX]]]
 
 ====Example====
