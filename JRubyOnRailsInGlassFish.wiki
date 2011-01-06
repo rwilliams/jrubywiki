@@ -61,7 +61,7 @@ asadmin deploy hello
 
 * Access the following URLs in a browser : 
 http://localhost:8080/hello/say/message<br/>
-http://localhost:8080/hello
+http://localhost:8080/hello <br/>
 
 ==== Shared Mode ====
 
