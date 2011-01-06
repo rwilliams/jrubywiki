@@ -6,6 +6,7 @@ JRuby tools to make the UI development with Swing a more Ruby-like experience:
 * Profligacy (with markup language LEL) - http://ihate.rubyforge.org/profligacy/
 * Swiby - http://swiby.codehaus.org/
 * RSwing - http://github.com/bakkdoor/rswing/
+* http://code.google.com/p/rubeus/
 
 == Framework for SWT ==
 SWT can be used directly with JRuby, with full access to all SWT features.  In addition, there are frameworks building on top of SWT:
