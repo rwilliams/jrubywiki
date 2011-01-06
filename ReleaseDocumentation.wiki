@@ -17,8 +17,7 @@
 * Check out clean clone of release branch: cd .. && rm -rf release && git clone jruby release && cd release (for example)
 * Set your java version to Java 5 for building the release.
 * If you use rvm then 'rvm use system' to prevent gem accident [http://jira.codehaus.org/browse/JRUBY-5231 JRUBY-5231]
-* Run '''ant dist''' to generate source and binary distribution files, jruby-complete jar, and MD5/SHA checksum files.
-* Run '''jruby -S rake installer''' to generate both Windows installers.
+* Run '''ant dist''' to generate source and binary distribution files, jruby-complete jar, installers, jruby-jars gem, and MD5/SHA checksum files.
 * Make 'ant test' runs on Linux, MacOS, and Windows with produced source distribution
 * Verify common tasks as extra sanity check (Windows + one other system) [with binary distro -- try some with .zip dist and some with .tar.gz dist]:
 ** jruby samples/swing2.rb
@@ -26,8 +25,8 @@
 ** install rails + ar-jdbc
 *** setup simple web app and exercise it
 *** install and run goldberg (actually any more sophisticated app you know works)
-* Upload dist files, jruby-complete.jar, and MD5 files to S3: https://jruby.org.s3.amazonaws.com/downloads/{version}
-* Build and release jruby-jars gem: cd gem && jruby -S rake package && jruby -S rake release VERSION={final-version}
+* Upload dist files, jruby-complete.jar, jruby-jars gem and MD5 files to S3: https://jruby.org.s3.amazonaws.com/downloads/{version}
+* Release jruby-jars gem: gem push dist/jruby-jars-{VERSION}.gem
 * mvn deploy -DupdateReleaseInfo=true at the root of the project to build and deploy all maven artifacts
 * Add news item to www.jruby.org page 
 * Update MainPage on JRuby wiki pointing to new binary
