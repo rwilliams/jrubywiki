@@ -7,11 +7,11 @@ Hello all,
 
 Since the Rails 2.3.2 update, session management problems can occur with Ruby using Tomcat or Glassfish when deploying a production Rails application. To resolve the problem, you need to activate your database sessions with JRuby. 
 
-# In the file <tt>initializers/session_store.rb</tt>,  uncomment the line  <tt>ActionController::Base.session_store = :active_record_store</tt>.
+# In the file <tt>initializers/session_store.rb</tt>,  uncomment the line<br/><tt> &nbsp; ActionController::Base.session_store = :active_record_store</tt>.
 # Then execute the following Rake commands to deploy the tables that manage sessions:<br/><tt> &nbsp; rake db:sessions:create<br/> &nbsp; rake db:migrate</tt>
 # Do a « warble config ».
 # Add the following line to tell the Java container that you want to use database sessions:<br/><tt> &nbsp; config.webxml.jruby.session_store = 'db'</tt><br/>This line will modify the file <tt>WEB-INF/web.xml</tt>.
-# Finally, use a little hack in the file <tt>environment.rb</tt>. Above the line <tt>Rails::Initializer.run do |config|</tt>, add the following code: 
+# Finally, in the <tt>environment.rb</tt> file, add the following code above the line <tt>Rails::Initializer.run do |config|</tt>: 
     if defined?(JRUBY_VERSION)
       # hack to fix jruby-rack's incompatibility with rails edge
       module ActionController
