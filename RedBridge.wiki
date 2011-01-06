@@ -562,7 +562,7 @@ manager.exec("jruby", “<script>”, 1, 0, script);</pre>
 
 === Other Ruby Runtime Configurations ===
 
-If you need more control over the Ruby runtime than we've explained here, you can use methods of <code>org.jruby.RubyInstanceConfig</code> in Embed Core. Here's the recommended sequence:
+If you need more fine-grained control over the Ruby runtime than what's shown here, you can use the various methods of <code>org.jruby.RubyInstanceConfig</code> in Embed Core. Here's the recommended sequence:
 
 <pre name="java">
 ScriptingContainer container = new ScriptingContainer();
