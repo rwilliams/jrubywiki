@@ -31,7 +31,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[ApplicationsAndLibraries|Help with common libraries/applications]]
 * [[Java Integration | Embedding JRuby]]
 * [[Scripting Java from JRuby]]
-* [[Calling C from JRuby]]
 * [[Performance Tuning]]
 * [[JRuby on Ubuntu]]
 * [[JRuby Compiler]]
