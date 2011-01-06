@@ -11,8 +11,8 @@ The easiest way to get started with JRuby is to use your operating system's pack
 *'''yum:''' <tt>yum install jruby</tt>
 Once you're done, go to [[#Did_it_work|Did it work?]] to continue.
 
-===Download and Install Yourself===
-If you're on Windows, or if your package manager doesn't include JRuby you'll need to extract it yourself.
+===Download and Install It Yourself===
+If you're on Windows or if your package manager doesn't include JRuby, you'll need to extract the downloaded file yourself.
 
 # [http://dist.codehaus.org/jruby/ Download JRuby]. 
 #* For OSX, Linux, BSD, Solaris, and other UNIX varieties, grab the most recent <tt>jruby-bin-X.Y.Z.tar.gz</tt> file.
