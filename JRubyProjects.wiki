@@ -22,9 +22,11 @@ __TOC__
 
 === JRuby-Rack ===
 
-=== Bytescript ===
+=== Bitescript ===
 
 === Ruby2Java ===
+
+=== Duby ===
 
 === JRuby-OpenSSL ===
 
@@ -51,6 +53,10 @@ __TOC__
 === Maven gem plugin ===
 
 === JREXML ===
+
+=== Monkeybars ===
+
+=== Rawr ===
 
 == Contributing projects
 
