@@ -1,0 +1,63 @@
+JRuby 1.2 will be the first release of JRuby to officially include large portions of Ruby 1.9's feature set. There's a lot of work to do, however, and we probably won't get it all done in time for the final 1.2 release. There are two areas people really could pitch in: writing specs and helping with implementation.
+
+=Writing Specs=
+
+The new features in Ruby 1.9 are very lightly specified. The RubySpec project has some specs, but there's a lot missing, especially in API areas like String M17N support.
+
+If you're interested in contributing RubySpecs, check out http://www.rubyspec.org for information on how to help out.
+
+=Implementation=
+
+Here's the status of Ruby 1.9 feature support and work remaining:
+
+==Done==
+
+These are done but need more testing. Where noted, pieces are missing.
+
+* Array
+** missing encoding aware pack ([http://jira.codehaus.org/browse/JRUBY-3426 JRUBY-3426])
+** sort should obey modified Fixnum and String class (but 1.9 still optimizes these case) ([http://jira.codehaus.org/browse/JRUBY-3427 JRUBY-3427])
+* Hash
+* String
+** missing encoding aware % ([http://jira.codehaus.org/browse/JRUBY-3428 JRUBY-3428]), unpack ([http://jira.codehaus.org/browse/JRUBY-3429 JRUBY-3429]), crypt ([http://jira.codehaus.org/browse/JRUBY-3430 JRUBY-3430])
+** missing encode/decode (via Encoding::Converter) ([http://jira.codehaus.org/browse/JRUBY-3431 JRUBY-3431])
+** possible gotchas with to_sym
+** String#hash is not encoding aware yet ([http://jira.codehaus.org/browse/JRUBY-3432 JRUBY-3432])
+** string constructions in multiple places in core should taint/set coderanges and encoding
+* Symbol
+** intern gotchas due to encoding information in symbols (needs to be done)
+** might loose encodings in some cases
+* Regexp
+* Encoding
+** missing default_internal/default_external ([http://jira.codehaus.org/browse/JRUBY-3433 JRUBY-3433])
+** missing system encoding guess ([http://jira.codehaus.org/browse/JRUBY-3434 JRUBY-3434])
+* Enumerable
+* Enumerator
+** missing next/rewind/with_index (fibers) ([http://jira.codehaus.org/browse/JRUBY-3435 JRUBY-3435])
+* Complex
+* Rational
+* Numeric
+* Integer
+* Fixnum
+* Float
+* Range
+* Struct
+* Kernel (mostly)
+* some (most?) of Object, Method, Module, Class
+* Thread?
+* Fiber?
+
+==Missing==
+
+These are entire areas that need to be worked on.
+
+* Encoding::Converter
+* Yielder/Generator
+* key Marshal changes
+* cli options
+* some RubyBignum changes
+* possible other changes in Numerics
+* changes in Dir/IO/File (some obvious things are done, like enumeratorize)
+* some changes in Math
+* encoding information in exception messages (now passed via java String)
+* BigDecimal changes ?
