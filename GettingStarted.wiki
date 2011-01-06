@@ -118,11 +118,8 @@ See also [[Troubleshooting]].
 
 ==Downloading Source and Building Yourself==
 
-The JRuby source code is available in a Subversion repository here:
-http://svn.codehaus.org/jruby/trunk/jruby
-
-Retrieve the trunk version of the JRuby source and build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):
- svn co http://svn.codehaus.org/jruby/trunk/jruby jruby
+The JRuby source code is available in a git repository. Retrieve the trunk version of the JRuby source and build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):
+ git clone git://kenai.com/jruby~main jruby
  cd jruby
  ant
 
