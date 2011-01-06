@@ -4,6 +4,7 @@ Below are some code examples showing how to call JRuby from Java and how to call
 
 __TOC__
 ===Ruby:  <tt>call_java.rb</tt>===
+<pre name="ruby">
   require "java"
   
   include_class "java.util.TreeSet"
@@ -39,8 +40,9 @@ __TOC__
   #    }
     end
   end
-
+</pre>
 ===Java: <tt>ISpeaker.java</tt>===
+<pre name="java">
     package com.example;
     
     public interface ISpeaker {
@@ -48,9 +50,9 @@ __TOC__
         
         public void addOne(String from);
     }
-
+</pre>
 ===Java: <tt>CallMe.java</tt>===
-
+<pre name="java">
     package com.example;
     
     public class CallMe {
@@ -73,8 +75,9 @@ __TOC__
             System.out.println("Called main");
         }
     }
-
+</pre>
 ===Java: <tt>CallRuby.java</tt>===
+<pre name="java">
     package com.example;
     
     import org.apache.bsf.BSFManager;
@@ -207,13 +210,7 @@ __TOC__
             ruby.addOne("end");
         }
     }
-
+</pre>
 '''Note:''' If you have only simple interface requirements, you can use the second method of proxying the ruby object to include method level synchronization.
 
 '''Note:''' BSF calling does not preserve ruby stack traces (add an error to a script and run both ways using the code above).
-
-'''Note Also:''' The times you get from running this example are interesting (on my old Windows box using Java5):
-
-  Took 5.469 on pass 0  // This is the Standard BSF Wrapping
-  Took 1.75 on pass 1   // Using normal Java Proxies
-  Took 1.359 on pass 2  // Rolling your own redirector class to call Ruby
