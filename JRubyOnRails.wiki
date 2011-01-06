@@ -33,6 +33,7 @@ Here is information of various JAS:
 
 === Traditional Rails Deployment ===
 
+'''Looking for content and pages to GFV3 gem, mongrel, webrick, etc...'''
 
 == Miscellaneous Rails Topics ==
 
