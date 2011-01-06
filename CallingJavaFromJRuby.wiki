@@ -564,5 +564,5 @@ The expression evaluates to the result of the block, e.g.,
 * [http://www.bestessays.com Essays term papers] Some essay stuff.
 * [http://jtestr.codehaus.org/ JtestR] A testing framework for Java based on JRuby.
 * [http://github.com/leandrosilva/sparrow Sparrow] A JMS client for messaging based on JRuby.
-
+* [[FAQs#Calling_Into_Java]]
 
