@@ -47,9 +47,9 @@ Your Rails application is now running on Java with the Ruby MySQL adapter.
 # Point your browser at:<br/><tt> &nbsp; <nowiki>http://localhost:7001/console</nowiki></tt>
 # Install the WAR application you previously packaged and start it. (For this example it can be installed on the Admin server.)
 # Point your browser at:<br/><tt> &nbsp;  <nowiki>http://localhost:7001/books/books</nowiki></tt>
-# Replace the application context (first <tt>books</tt>) with your context if needed.
+# Replace the application context (first ''books'') with your context if needed.
 
-The first time you access the application it will take quite a while to load. If you get an error message saying something like <tt>the server is currently overloaded</tt>, you should try to reload it.
+The first time you access the application it will take quite a while to load. If you get an error message saying something like''the server is currently overloaded'', you should try to reload it.
 
 == Using a JDBC Datasource in WebLogic==
 
@@ -75,8 +75,7 @@ Create a new datasource in the WebLogic console.
 That's it!
 
 == Known Issues ==
-
-If you get this [http://www.ruby-forum.com/topic/155930 error], you need to update JRuby-Rack (currently version 0.9.2) to handle WebLogic returning null from the call to <tt>ServletContext.getRealPath(String)</tt>.
+If you get this [http://www.ruby-forum.com/topic/155930 error], you need to update JRuby-Rack (currently version 0.9.4) to handle WebLogic returning null from the call to <tt>ServletContext.getRealPath(String)</tt>.
 
 If you get this error on windows, (note the extra C: at the end of the path.)
      org.jruby.rack.RackInitializationException: No such file or directory - 
