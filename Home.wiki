@@ -40,6 +40,7 @@ Latest Release is JRuby 1.2.0:
 * [[Rubygems]]
 * [http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html Mr Bones on JRuby]
 * [[Direct JRuby Embedding]]
+* [[JRuby With Nailgun]]
 </td>
 <td>
 
