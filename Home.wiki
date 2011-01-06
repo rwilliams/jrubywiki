@@ -77,8 +77,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Using the JRuby Debugger]]
 * [[Troubleshooting]]
 * [[Differences between mri and jruby]]
-* [[JRuby on HPUX 11_23|JRuby on HPUX 11.23]]
-* [[Spring | JRuby and Spring]]
 * [[Release Documentation]]
 * [[JRuby hash bang]]
 * [[JRuby Internal Design]]
