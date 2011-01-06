@@ -1,0 +1,3 @@
+== DataMapper ==
+
+DataMapper has emerging support for JRuby. For the moment, please refer to [http://www.datamapper.org/doku.php?id=jruby:contribute contribute to JRuby wiki page].
