@@ -1,3 +1,5 @@
+__TOC__
+
 == Start by creating a new build plan: ==
 
 [[image:Bamboo-create-plan.jpg]]
