@@ -35,12 +35,8 @@ Here's a walkthrough for MySQL in ultra-condensed form:
 
 You should see something like the following:
 
-    Successfully installed activerecord-jdbc-adapter-0.7.1
-    Successfully installed activerecord-jdbcmysql-adapter-0.7.1
-
-If the RubyForge gem repositories do not yet have v0.7.1 or later of these gems you can try installing it from here:
-
-     jruby -S gem install activerecord-jdbcmysql-adapter --source http://caldersphere.net
+    Successfully installed activerecord-jdbc-adapter-0.9.1
+    Successfully installed activerecord-jdbcmysql-adapter-0.9.1
 
 5. Generate a Rails App
 
@@ -50,7 +46,7 @@ If the RubyForge gem repositories do not yet have v0.7.1 or later of these gems 
 
       cd ~/testapp
 
-7. If you're using Rails 2.0 modify database.yml by prepending "jdbc" to the adapter name. For PostgreSQL, you'll need to add the "host" parameter as well. If you're NOT using Rails 2.0, don't modify your database.yml file.
+7. Modify database.yml by prepending "jdbc" to the adapter name. For PostgreSQL, you'll need to add the "host" parameter as well.
 
       #SQLite3
       development:
@@ -80,17 +76,7 @@ If the RubyForge gem repositories do not yet have v0.7.1 or later of these gems 
         driver: oracle.jdbc.OracleDriver
         url: jdbc:oracle:thin:@myOracleHost:1521:mySID
         username: myUser
-        password: myPass
-        
-
-8. If you're using Rails 2.0, you're done. The rest of configuration (including JDBC driver jar) is done automatically.  If you're running Rails 1.2.x, you'll need to modify environment.rb. Add the following snippet just above the Rails::Initializer line:
-
-      if RUBY_PLATFORM =~ /java/
-        require 'rubygems'
-        gem 'activerecord-jdbcmysql-adapter'
-        #require 'active_record/connection_adapters/jdbcmysql_adapter'
-        require 'jdbc_adapter' # Changed to comply with this [http://wiki.jruby.org/wiki/FAQs#I_get_the_error_.27undefined_method_.60cattr_accessor.27_for_ActiveRecord::Base:Class_.28NoMethodError.29.27_after_configuring_activerecord-jdbc.__What_is_wrong.3F FAQ] question.
-      end
+        password: myPass        
 
 9. Create a testapp_development database, grants for testapp user, and widgets table in MySQL (use migrations if you like)
 
@@ -102,7 +88,7 @@ If the RubyForge gem repositories do not yet have v0.7.1 or later of these gems 
 
       jruby script/server
 
-12. In your browser, go to http://localhost:3000/widget
+12. In your browser, go to http://localhost:3000/widgets
 
 And that's about it. You've got a scaffolded widget page running in JRuby over JDBC to MySQL.
 
