@@ -1,20 +1,24 @@
-==English==
+[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#War_File_Deployment|&raquo; JRuby on Rails: War File Deployment]]
+=Rails 2.3.2 Notice=
+
+==English Notice==
 
 Hello all,
-Since Rails 2.3.2 update, certain problems may arise with Ruby using Tomcat or Glassfish, when deploying a production Rails app. To make it short, these problems are in the area of sessions management. 
 
-Database sessions must be activated since Rails 2.3.2 with JRuby. In the file initializers/session_store.rb, you have to uncomment the line  ActionController::Base.session_store = :active_record_store.
+Since the Rails 2.3.2 update, some problems can come up with Ruby using Tomcat or Glassfish when deploying a production Rails application. These problems are in the area of session management. 
 
-Then, as suggested, execute the following Rake commands:
-rake db:sessions:create
-rake db:migrate
+Since Rails 2.3.2, database sessions must be activated with JRuby. In the file <tt>initializers/session_store.rb</tt>, you have to uncomment the line  <tt>ActionController::Base.session_store = :active_record_store</tt>.
 
-This is necessary to deploy the tables which manage sessions.
-After having performed a « warble config », it is necessary to add this line:
-config.webxml.jruby.session_store = 'db'
-It will inform the Java container that we want to use database sessions. This line will only modify the file WEB-INF/web.xml
+Then execute the following Rake commands:
+ rake db:sessions:create
+ rake db:migrate
 
-Finally we need to us a little hack. In the file environment.rb, just above the line "Rails::Initializer.run do |config|", add the following code: 
+This is necessary to deploy the tables that manage sessions.
+After having performed a « warble config », you need to add this line:
+ config.webxml.jruby.session_store = 'db'
+That will tell the Java container that you want to use database sessions. This line will modify only the file <tt>WEB-INF/web.xml</tt>.
+
+Finally , you need to use a little hack. In the file <tt>environment.rb</tt>, just above the line <tt>Rails::Initializer.run do |config|</tt>, add the following code: 
   if defined?(JRUBY_VERSION)
     # hack to fix jruby-rack's incompatibility with rails edge
     module ActionController
@@ -32,28 +36,26 @@ That's all !
 ==Français==
 
 Bonjour à tous,
-Depuis la mise à jour de rails en 2.3.2, lors du déploiement d’une application rails en production avec JRUBY sur Tomcat ou glassish, certains problèmes se présentent. Pour faire court, c’est la gestion des sessions qui pose problème.
+
+Depuis la mise à jour de rails en 2.3.2, lors du déploiement d’une application rails en production avec JRUBY sur Tomcat ou Glassish, certains problèmes se présentent. Pour faire court, c’est la gestion des sessions qui pose problème.
 Je vous fais profiter de mon retour car j’ai un peu galérer pour trouver de la doc dessus.
 
 Donc, depuis la version 2.3.2 de rails pour une mise en production avec JRUBY, il faut activer les sessions en base de données.
 
-Dans le fichier initializers/session_store.rb, il faut décommenter la ligne
-ActionController::Base.session_store = :active_record_store
-
+Dans le fichier <tt>initializers/session_store.rb</tt>, il faut décommenter la ligne
+ ActionController::Base.session_store = :active_record_store
 
 Puis, comme sugéré, exécuter les commandes rake suivantes :
-rake db:sessions:create
-rake db:migrate
+ rake db:sessions:create
+ rake db:migrate
 Ceci, afin de déployer les tables nécessaires à la gestion des sessions.
 
-
 Après avoir fait un « warble config », il est nécessaire d’ajouter la ligne :
-config.webxml.jruby.session_store = 'db'
+ config.webxml.jruby.session_store = 'db'
 
-Ceci dans le but, d’informer le container java que l’on désire utiliser les sessions en base. Cette ligne aura simplement pour effet de modifier le fichier WEB-INF/web.xml
+Ceci dans le but, d’informer le container java que l’on désire utiliser les sessions en base. Cette ligne aura simplement pour effet de modifier le fichier <tt>WEB-INF/web.xml</tt>.
 
-
-Puis utiliser un petit hack. Dans le fichier environment.rb, au dessus de la ligne "Rails::Initializer.run do |config|", mettre :
+Puis utiliser un petit hack. Dans le fichier <tt>environment.rb</tt>, au dessus de la ligne <tt>Rails::Initializer.run do |config|</tt>, mettre :
   if defined?(JRUBY_VERSION)
     # hack to fix jruby-rack's incompatibility with rails edge
     module ActionController
