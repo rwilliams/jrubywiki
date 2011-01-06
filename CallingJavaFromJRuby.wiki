@@ -150,10 +150,10 @@ You can also get the same effect by reassigning a Java class to a new constant, 
   Sys = java.lang.System
   version = Sys.getProperties["java.runtime.version"]
 
-=== Use include_package within a Ruby Module to import a Java Package ===
+=== Use include_package within a Ruby Module to import a Java Package's classes on const_missing ===
 
-Use <tt>include_package "package_name"</tt> in a Ruby Module to support namespaced access to the Java classes in the package. It is also legal to use <tt>import "package_name"</tt>.
-This is similar to java's "package xxx.yyy.zzz;" format.
+Use <tt>include_package "package_name"</tt> in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's "package xxx.yyy.zzz;" format.  It is also legal to use <tt>import "package_name"</tt>.
+
 
 "Example 1": 
 
@@ -163,7 +163,6 @@ This is similar to java's "package xxx.yyy.zzz;" format.
    # this module, ex if "org.xxx.yyy.MyClass" exists
    # a = MyClass.new
  end
-
 
 
 '''Example''': create a Ruby Module called <tt>JavaLang</tt> that includes the classes in the Java package <tt>java.lang</tt>.
@@ -223,7 +222,9 @@ You can set const_missing to make them accessible in more than just a module. Se
 
 ==== Using within classes within module ====
 
-NB that currently there's a bug with include_package (it propagates correctly in the module, but not within class within a module).  http://jira.codehaus.org/browse/JRUBY-5107
+NB that currently this "include_package" lookup doesn't work within any sub-modules or sub-classes.  See  http://jira.codehaus.org/browse/JRUBY-5107
+
+You could override const_missing, though (see above), if you wanted that behavior.
 
 === Using Static Java Enumerations ===
 
