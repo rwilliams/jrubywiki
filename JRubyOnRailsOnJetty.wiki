@@ -1,1 +1,3 @@
 See http://jetty-rails.rubyforge.org/
+
+Capistrano recipes to deploy to a jetty-rails installation are described here: http://blog.raphinou.com/2008/12/capistrano-deployment-for-jetty-rails.html 
