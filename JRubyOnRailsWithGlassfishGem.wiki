@@ -1,7 +1,7 @@
 = JRuby on Rails with Glassfish gem =
 
 === Prerequisites ===
-'''JRuby 1.3.1 or newer'''
+====JRuby 1.3.1 or newer====
 
 I suggest you install it in /opt/jruby-1.3.1 and symlink /opt/jruby to /opt/jruby-1.3.1 for future convenience.
 
@@ -9,7 +9,7 @@ I suggest you install it in /opt/jruby-1.3.1 and symlink /opt/jruby to /opt/jrub
  # tar xzvf jruby-1.3.1.tar.gz
  # ln -s jruby-1.3.1 jruby
 
-'''Glassfish gem by Arun Gupta'''
+====Glassfish gem by Arun Gupta====
 
  $ gem i glassfish
 
@@ -27,7 +27,7 @@ I recommend putting something this in your .bashrc so it's set whenever you log 
  $ cd /path/to/rails-app
  $ jruby -S gfrake config         # Sets up initial config/glassfish.yml
 
-Now configure the instance to your liking. For instance:
+Now edit ''config/glassfish.yml' to configure the instance to your liking. For instance:
 
 <pre name="yaml">
  environment: production
@@ -50,11 +50,12 @@ Now configure the instance to your liking. For instance:
     jvm-options: -server -Xmx2500m -Xms64m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:NewRatio=2 -XX:+DisableExplicitGC -Dhk2.file.directory.changeIntervalTimer=6000
 </pre>
 
-'''Running the application'''
+====Running the appserver====
 
 Running your glassfish application server is very simple:
  $ jruby -S glassfish 
 
+====Stopping the appserver====
 The application is started with the Akuma wrapper, which by default exits when passed a SIGINT (2) (default value of ''kill''). For instance:
  $ kill `cat tmp/pids/glassfish-production.pid`  
 
@@ -64,7 +65,7 @@ In Solaris 10 and OpenSolaris, you get an excellent service management facility 
 
 Importing an application into SMF is not so trivial for first time users, so here is a brief description.
 
-First off you need to define a manifest. This is done with a simple XML file. Underneath you will find a manifest with support of two instances or rails applications. Modify these to your liking. I usually prefer to run applications with a non-root-user. I have not included ACLs, and tried to minimize the complexity in the example... I usually recommend placing webapplications such as rails somewhere under /var. In the example I use /var/apps, I also use i.e. /var/rails, etc, but you can place them in your home directory if you please. (Due to Wiki Markup the XML is not indented):
+First off you need to define a manifest. This is done with a simple XML file. Underneath you will find a manifest with support of two instances or rails applications. Modify these to your liking. I usually prefer to run applications with a non-root-user. I have not included ACLs, and tried to minimize the complexity in the example... I usually recommend placing webapplications such as rails somewhere under /var. In the example I use /var/apps, I also use i.e. /var/rails, etc, but you can place them in your home directory if you please.
 
 <pre name="xml">
 <?xml version='1.0'?>
@@ -103,12 +104,28 @@ First off you need to define a manifest. This is done with a simple XML file. Un
 </service_bundle>
 </pre>
 
-'''Import the manifest''' 
+====Import the manifest into SMF====
  $ pfexec svccfg validate config/glassfish-gem.smf.xml
  $ pfexec svccfg import config/glassfish-gem.smf.xml
 
-'''Start your appserver'''
+====Start your appserver====
  $ pfexec svcadm enable glassfish-gem:my-railsapp_production
+
+To verify your application is started, use ''svcs''
+ $ pfexec svcs
+
+You should see something like:
+ online         Jun_30   svc:/network/glassfish-gem:my-railsapp_production
+
+If it fails to start, it will say ''offline*'' or ''maintenance'' instead of ''online''. In that case try ''svcs -xv'' and check out the logfile.
+
+====Stop your appserver====
+ $ pfexec svcadm disable glassfish-gem:my-railsapp_production
+
+====Restart your appserver====
+ $ pfexec svcadm restart glassfish-gem:my-railsapp_production
+
+
 
 ===Apache 2.2 Frontend=== 
 
