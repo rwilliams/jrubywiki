@@ -186,6 +186,23 @@ You call then the method as:
 
 Be aware that the Ruby object y has been created from "scratch" and is not initialized. Obviously it is not possible to inherit/copy field values from a Java object x of type X at initialization. You can only access the values of x on Ruby side by passing x to y as a parameter in some call from Java (and then possibly saving as Ruby instance variable etc.) - just like any other Java object. This makes switching between Java and Ruby implementations in a Java framework a bit harder.
 
+=== Passing Java parameters to a Ruby object's new method ===
+
+<pre>
+IRubyObject rubyClass = evaler.eval(runtime, "MyRubyClass");
+Object[] parameters = {javaObject, otherJavaObject};
+JavaEmbedUtils.invokeMethod(runtime, rubyClass "new", parameters, IRubyObject.class);
+</pre>
+
+If your Ruby subclass is extending or implementing a Java type, you can set the return type parameter and cast the return value of invokeMethod to the appropriate type.
+
+<pre>
+IRubyObject rubyClass = evaler.eval(runtime, "MyRubyClass");
+Object[] parameters = {javaObject, otherJavaObject};
+MyJavaType rubyObject = (MyJavaType)JavaEmbedUtils.invokeMethod(runtime, rubyClass "new", parameters, MyJavaType.class);
+</pre>
+
+
 ===Ruby code in your classpath, Mixed with java===
 For those who don't want BSF, and want to have lots of their application code in ruby files on their classpath, the following very simple utility can be useful (feel free to re-use as is):
 
