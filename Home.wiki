@@ -75,10 +75,8 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 ==Hints, Tips and Documents==
 
-* [[FAQs]]
 * [[Status]]  <span style="font-size:90%; font-style:italic">(Standard libraries, supported applications, Ruby 1.8.5 compatibility)</span>
 * [[JRuby Cookbook]]
-* [[Require and Load behavior]]
 * [[Using the JRuby Debugger]]
 * [[Troubleshooting]]
 * [[Differences between mri and jruby]]
@@ -89,7 +87,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JRuby Internal Design]]
 * [[JDBC | JRuby and JDBC]] <span style="font-size:90%; font-style:italic">(how to use JDBC directly within JRuby)</span>
 * [http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html JRuby JMS Producer / Consumer Example]
-* [[Accessing JMX]]
 * [[NetSsh Compatability]]
 </td>
 
@@ -106,6 +103,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JIT Compiler]]
 * [[Static Compiler]]
 * [[Classpath and Load Path]]
+* [[Require and Load behavior]]
 * [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
 </td>
 
