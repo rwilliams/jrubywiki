@@ -21,12 +21,18 @@ If you don't use a traditional Ruby application server like [http://mongrel.ruby
 '''Some links to information on various Java App Servers:'''
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat]
 * [[JRuby on Rails on Jetty|Jetty]]
-* [[JRuby on Rails in GlassFish|Glassfish]]
 * [[JRuby on Rails on WebSphere|Websphere]]
 * [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J]
 * [[JRuby on Rails on BEA Weblogic|Weblogic]]
 * [http://oddthesis.org/theses/jboss-rails JBoss]
 * [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war JWS 7]
+
+==== Glassfish v3 Deployment ====
+You can use the glassfish gem by Arun Gupta to deploy JRuby on Rails very easily and robustly. With the glassfish gem, you can deploy your application to the Glassfish v3 modularized Java Application Server. The glassfish gem wraps the essential technologies in 3 mbs, and enable you to run your application, just like you would with a traditional approach with mongrel, rack, etc. A brief tutorial can be found here: [[JRuby on Rails with Glassfish gem]].
+
+See also:
+* [[JRuby on Rails in GlassFish|Glassfish]]
+
 
 ==== Traditional Rails Deployment ====
 ''Looking for content and links to pages on GFV3 gem, mongrel, webrick, etc...''
