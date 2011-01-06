@@ -11,16 +11,10 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 </tr>
 </table>
 
+<span style="font-family:Georgia, Thorndale, Times, serif;font-size:x-large">[http://jruby.org/download JRuby Downloads]</span>
+
 <table width="100%" cellpadding="10">
 <tr valign="top">
-<td width="50%">
-'''[http://jruby.org/download JRuby Downloads]'''
-* UNIX variants: Linux, OSX, Solaris, BSD:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0/jruby-bin-1.4.0.tar.gz JRuby 1.4.0 Binary.tar.gz]'''
-* Windows and Vista:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0/jruby-bin-1.4.0.zip JRuby 1.4.0 Binary.zip]'''
-* UNIX variants to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0/jruby-src-1.4.0.tar.gz JRuby 1.4.0 Source.tar.gz]''' 
-* Windows installer:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0/jruby_windows_1_4_0.exe    JRuby 1.4.0 installer]'''
-* Windows and Vista to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0/jruby-src-1.4.0.zip    JRuby 1.4.0 Source.zip]'''
-</td>
 <td>
 '''JRuby Basics'''
 * [[About JRuby]]
@@ -33,8 +27,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Performance Tuning]]
 * [[FAQs]]
 </td>
-</tr>
-<tr valign="top">
 <td width="50%">
 '''Getting Involved'''
 * [[RubySummerOfCode2010|Ruby Summer of Code 2010!]]
@@ -50,6 +42,8 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Release Documentation]]
 * [[RoadMap]]
 </td>
+</tr>
+<tr valign="top">
 <td>
 '''JRuby on Rails'''
 * [[JRuby on Rails]]
@@ -67,8 +61,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Articles]]
 * [[In Your Region]]
 </td>
-</tr>
-<tr valign="top">
 <td>
 '''Related Websites'''
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
