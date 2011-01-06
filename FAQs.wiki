@@ -100,7 +100,7 @@ The problem stems from an ASM jar conflict. It was found by setting a custom cla
     #>     for j in "$JRUBY_HOME"/lib/*.jar; do
 
 ====How come Java can't find resources in class folders that I've appended to the $CLASSPATH global variable at runtime? ====
-JRubyClassLoader extends <tt>java.net.URLClassLoader</tt>, which treats any URL that doesn't end with a slash as a jar. See [http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html URLClassLoader][http://www.usome.com]
+JRubyClassLoader extends <tt>java.net.URLClassLoader</tt>, which treats any URL that doesn't end with a slash as a jar. See [http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html URLClassLoader].
 
 ====Why don't my special characters (like ção) appear correctly in my Swing app ?====
 The file encoding for the <tt>.rb</tt> file containing the special characters must be set to UTF-8. There were also issues in versions of JRuby before 1.2 where unicode characters were not properly pulled out via the <tt>toString</tt> method on Ruby objects. Try upgrading to 1.2 or higher.
@@ -112,7 +112,7 @@ To correct the issue, remove <tt>'.'</tt> from your $PATH and relaunch the shell
   % cd /any/path/other/than/jruby_home
   % jruby # should work
 
-Note that this bug has been fixed in JRuby 1.2.
+'''Note:'''' This bug has been fixed in JRuby 1.2.
 
 ====How do I check which version of the JVM JRuby is running on?====
   % jruby -rjava -e "puts java.lang.System.get_property('java.version')"
