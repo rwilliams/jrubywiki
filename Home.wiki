@@ -71,9 +71,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[RoadMap]]
 </td>
 
-</tr>
-
-<tr valign="top">
 <td>
 
 ==Hints, Tips and Documents==
@@ -96,6 +93,10 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[NetSsh Compatability]]
 </td>
 
+</tr>
+
+<tr valign="top">
+
 <td>
 
 ==Specifications==
@@ -108,9 +109,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
 </td>
 
-</tr>
-
-<tr valign="top">
 <td>
 == Evangelism ==
 * [[Benchmarking Tips and Tricks]]
@@ -119,7 +117,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Case_Study_JRuby on Eclipse RCP|Case Study: JRuby on Eclipse RCP]]
 
 </td>
-<td></td>
+
 </tr>
 </table>
 
