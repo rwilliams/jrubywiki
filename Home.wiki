@@ -24,8 +24,10 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td>
 
-==Using JRuby==
+==JRuby Basics==
 
+* [[Getting Started]]
+* [[ApplicationsAndLibraries|Help with common libraries and applications]]
 * [[Java Integration | Java Integration (Calling JRuby from Java)]]
 * [[Calling Java from JRuby]]
 * [[Calling C from JRuby]]
@@ -39,8 +41,6 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JRuby on Java Micro Edition]]
 * [[JRuby on Web Start]]
 * [[JRuby and Continuous Integration]]
-* [[Hpricot]]
-* [http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html Mr Bones on JRuby]
 * [[JRuby With Nailgun]]
 </td>
 <td>
