@@ -8,6 +8,27 @@ Somewhat.  See [[JRubyOnJavaMicroEdition|JRuby on JME]].
 
 Here is a page dedicated to this: [[JRuby on Web Start]]
 
+==How can I make my Ruby scripts execute with JRuby on unix systems like other scripts?==
+
+Include a "hash bang" line on the top of your jruby script like this:
+
+ #!/usr/bin/env jruby
+
+That will use the system wide installed jruby interpreter to run your script.
+
+If you would like to use a local copy of JRuby to run your script, give the relative or absolute path to the jruby program:
+
+ #!/usr/bin/env jruby-1.1RC2/bin/jruby
+
+To run the script directly, you need to set the "x" flag on it:
+
+ chmod +x your_script.rb
+
+You can now start you script with 
+
+ ./your_script.rb
+
+
 =General=
 
 ==Where can I find more information about the Ruby language?==
