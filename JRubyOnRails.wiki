@@ -5,6 +5,8 @@ You can use JRuby with [http://www.rubyonrails.org/ Ruby on Rails]. JRuby gives 
 * Hotspot profiled dynamic optimizations for great performance
 * Access to Java ecosphere for additional technology options
 * Deployment to Java application servers for ubiquity
+
+
 __TOC__
 ===Getting Started===
 Get started with this blog:
