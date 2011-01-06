@@ -24,7 +24,7 @@ Refer to the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide G
  JRUBY_HOME     - Points to the JRuby version in $GLASSFISH_ROOT/jruby/jruby-1_0_3/jruby-1.0.3.
  PATH           - Ensure that $GLASSFISH_ROOT/bin and $JRUBY_HOME/bin are in this environment variable.
 
-=== Create a Simple Hello Application ===
+=== Creating a Simple Hello Application ===
 If you're ready to deploy your own JRuby on Rails application, skip this section and go to the next section, [[#Deploying_JRuby_on_Rails_Applications_in_GlassFish_v2|Deploying JRuby on Rails Applications in GlassFish v2]].
 
 Here are some steps for creating a very simple JRuby on Rails "hello" application. The application uses the JRuby version that you installed in the "Setup" section above.
