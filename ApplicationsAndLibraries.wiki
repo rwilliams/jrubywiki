@@ -1,4 +1,6 @@
-This page has a list of help pages for commonly used libraries and applications. 
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+<h1>Help With Libraries and Applications</h1>
+This page provides links to help pages for commonly used libraries and applications.<br/><br/>
 
 __TOC__
 
