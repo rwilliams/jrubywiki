@@ -100,7 +100,6 @@ Latest Release is JRuby 1.3.0:
 * [http://jruby.headius.com:8080/hudson/ JRuby build server]
 * [[JRuby Bug Reporting Style Guide]]
 * [[JRuby Style Guide]]
-* [[JRuby presentations]]
 * [[IRC]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to contribute to JRuby effectively]
 * [[JRuby and RubySpecs]]
