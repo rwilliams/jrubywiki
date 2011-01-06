@@ -30,10 +30,6 @@ __TOC__
 * [http://blogs.sun.com/arungupta/entry/totd_7_switch_between_jruby Switching between JRuby and CRuby in NetBeans Ruby Support] (Arun Gupta)
 * [http://netbeans.tv/technologies/Tor-Norbye-uses-NetBeans-Ruby-Editor-Code-Completion-169/ NetBeans Code Completion Demo Screencast] (Tor Norbye)
 * [http://netbeans.tv/technologies/Tor-Norbye-uses-hints-and-quick-fixes-in-NetBeans-Ruby-Editor-170/ NetBeans Hints and Quick Fixes Screencast] (Tor Norbye)
-==Ola Bini's Tutorials==
-''these need to be updated for JRuby 1.1''
-* [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+1+-+Getting+Started Part 1 - Getting Started]
-* [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+1.5+-+Using+JIRB+to+Check+Java+Behaviour Part 1.5 - Using JIRB to Check Java Behaviour]
 * [http://jruby.codehaus.org/The+JRuby+Tutorial+Part+2+-+Going+Camping Part 2 - Going Camping]
 ==JSR 223 scripting==
 * [http://java.sun.com/developer/technicalArticles/J2SE/Desktop/scripting/ Scripting for the Java Platform] (Sun Microsystems)
