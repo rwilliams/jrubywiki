@@ -1,3 +1,5 @@
+__TOC__
+
 JRuby participated in the JavaOne Script Bowl 2008 with Groovy, Jython, and Scala. JRuby was represented by Charles Oliver Nutter, Groovy was represented by Guillaume Laforge, Jython was represented by Frank Wierzbicki, and Scala was represented by Jorge Ortiz.
 
 ==The Challenge==
