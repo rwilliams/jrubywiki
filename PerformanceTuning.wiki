@@ -83,60 +83,74 @@ First some suggestions:
 * Set the <tt>-Xmn</tt> value lower than the <tt>-Xmx</tt> value. 
   jruby -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server
 
-===JRuby's Runtime Properties===
-To see the runtime properties, enter the following command in the Command window or Terminal window:
-'''<tt>jruby --properties</tt>'''
+===Setting JRuby Runtime Properties===
+To see all the runtime properties, enter the following command in the Command window or Terminal window:
+ jruby --properties
 
 All these properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line. For example:
   jruby -J-Djruby.thread.pooling=true myscript.rb
 
 ====Compiler Runtime Properties====
-Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
-  jruby -J-Djruby.thread.pooling=true myscript.rb
+JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+
     jruby.compile.mode=JIT|FORCE|OFF
-       Set compilation mode. JIT is default; FORCE compiles all, OFF disables
+       Set compilation mode. JIT is default; FORCE compiles all, OFF disables.
     jruby.compile.fastest=true|false
-       (EXPERIMENTAL) Turn on all experimental compiler optimizations
-    jruby.compile.boxed=true|false
-       (EXPERIMENTAL) Use boxed variables; this can speed up some methods. 
-       Default is false
+       (EXPERIMENTAL) Turn on all experimental compiler optimizations.
     jruby.compile.frameless=true|false
-       (EXPERIMENTAL) Turn on frameless compilation where possible
+       (EXPERIMENTAL) Turn on frameless compilation where possible.
     jruby.compile.positionless=true|false
-       (EXPERIMENTAL) Turn on compilation that avoids updating Ruby position info. 
+       (EXPERIMENTAL) Turn on compilation that avoids updating Ruby position info.
        Default is false
     jruby.compile.threadless=true|false
        (EXPERIMENTAL) Turn on compilation without polling for "unsafe" thread events. 
-       Default is false
+       Default is false.
     jruby.compile.fastops=true|false
        (EXPERIMENTAL) Turn on fast operators for Fixnum. Default is false.
+    jruby.compile.fastcase=true|false
+       (EXPERIMENTAL) Turn on fast case/when for all-Fixnum whens. Default is false.
+    jruby.compile.chainsize=<line count>
+       Set the number of lines at which compiled bodies are "chained". Default is 500.
+    jruby.compile.lazyHandles=true|false
+       Generate method bindings (handles) for compiled methods lazily. Default is false.
+    jruby.compile.peephole=true|false
+       Enable or disable peephole optimizations. Default is true (on).
 
 ====JIT Runtime Properties====
-Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+
     jruby.jit.threshold=<invocation count>
-       Set the JIT threshold to the specified method invocation count. Default is 20
+       Set the JIT threshold to the specified method invocation count. Default is 50.
     jruby.jit.max=<method count>
        Set the max count of active methods eligible for JIT-compilation.
-       Default is 2048 per runtime. A value of 0 disables JIT, -1 disables max.
+       Default is 4096 per runtime. A value of 0 disables JIT, -1 disables max.
+    jruby.jit.maxsize=<jitted method size (full .class)>
+       Set the maximum full-class byte size allowed for jitted methods. 
+       Default is Integer.MAX_VALUE.
     jruby.jit.logging=true|false
-       Enable JIT logging (reports successful compilation). Default is false
+       Enable JIT logging (reports successful compilation). Default is false.
     jruby.jit.logging.verbose=true|false
-       Enable verbose JIT logging (reports failed compilation). Default is false
+       Enable verbose JIT logging (reports failed compilation). Default is false.
     jruby.jit.logEvery=<method count>
        Log a message every n methods JIT compiled. Default is 0 (off).
+    jruby.jit.exclude=<ClsOrMod,ClsOrMod::method_name,-::method_name>
+       Exclude methods from JIT by class/module short name, c/m::method_name,
+       or -::method_name for anon/singleton classes/modules. Comma-delimited.
 
 ====Native Support Runtime Properties====
-Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+
     jruby.native.enabled=true|false
        Enable/disable native extensions (like JNA for non-Java APIs). Default is true.
-       This affects all JRuby instances in a given JVM.
+       (This affects all JRuby instances in a given JVM.)
     jruby.native.verbose=true|false
        Enable verbose logging of native extension loading. Default is false.
     jruby.fork.enabled=true|false
        (EXPERIMENTAL, maybe dangerous) Enable fork(2) on platforms that support it.
 
 ====Thread Pooling Runtime Properties====
-Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+
     jruby.thread.pool.enabled=true|false
        Enable reuse of native backing threads via a thread pool. Default is false.
     jruby.thread.pool.min=<min thread count>
@@ -147,12 +161,17 @@ Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command l
        The maximum number of seconds to keep alive an idle thread. Default is 60.
 
 ====Miscellaneous Runtime Properties====
-Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
+
     jruby.compat.version=RUBY1_8|RUBY1_9
-       Specify the major Ruby version to be compatible with. Default is RUBY1_8.
-    jruby.indexed.methods=true|false
-       Generate "invokers" for core classes using a single indexed class.
+       Specify the major Ruby version to be compatible with; Default is RUBY1_8.
     jruby.objectspace.enabled=true|false
        Enable or disable ObjectSpace.each_object. Default is disabled (false).
     jruby.launch.inproc=true|false
-       Set in-process launching of e.g. system('ruby ...'). Default is true.
+       Set in-process launching of e.g. system('ruby ...'). Default is true
+    jruby.bytecode.version=1.5|1.6
+       Set bytecode version for JRuby to generate. Default is current JVM version.
+    jruby.management.enabled=true|false
+       Set whether JMX management is enabled. Default is true.
+    jruby.debug.fullTrace=true|false
+       Set whether full traces are enabled (c-call/c-return). Default is false.
