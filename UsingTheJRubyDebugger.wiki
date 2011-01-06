@@ -25,6 +25,11 @@ Starting the debugger to test a local ruby program and adding ''lib/'' to the lo
 
   ruby --debug -S rdebug -Ilib rubyprogram.rb 
 
+or you can call it programmatically within the script
+
+  require 'ruby-debug'
+  debugger
+
 External Resources:
 * [http://debug-commons.rubyforge.org/svn/jruby-debug/trunk/README trunk jruby-debug README]
 * [http://bashdb.sourceforge.net/ruby-debug.html Debugging with ruby-debug]
