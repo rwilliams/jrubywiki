@@ -65,6 +65,9 @@ Latest Release is JRuby 1.2.0:
 * [[Rails JSR286 portlets]]
 </td>
 
+</tr>
+
+<tr valign="top">
 <td>
 
 ==JRuby on ...==
@@ -77,9 +80,7 @@ Latest Release is JRuby 1.2.0:
 * [[RCov | RCov coverage tool]]
 * [[Sparrow]] <span style="font-size:90%; font-style:italic">A JMS client for messaging based on JRuby</span>
 </td>
-</tr>
 
-<tr valign="top">
 <td>
 
 ==Getting Involved==
@@ -100,6 +101,9 @@ Latest Release is JRuby 1.2.0:
 * [[Ruby 1_9 Support|Ruby 1.9 Support]]
 </td>
 
+</tr>
+
+<tr valign="top">
 <td>
 
 ==Hints, Tips and Documents==
@@ -179,12 +183,15 @@ Latest Release is JRuby 1.2.0:
 </td>
 
 
+</tr>
+
+<tr valign="top">
 <td>
 == Evangelism ==
 * [[Benchmarks]]
 
 </td>
-
+<td></td>
 </tr>
 </table>
 
