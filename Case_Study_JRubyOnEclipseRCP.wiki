@@ -4,12 +4,12 @@ EVERYONE is allowed to comment, add or edit to this page!  The more views the be
 
 Add your question here:
 
-Bla, bla, bla...
+I wonder...
 
 
 ==Purpose==
 
-AIFUDIS offers information about flights at one airport to a Dispatcher controlling the fuel trucks at the airport.  The dispatcher then assigns operators and their trucks to specific flights.  The operators then fuel the aircrafts and report progress and the finished transaction back to the central system and the dispatcher.
+AIFUDIS offers information about flights at one airport to a human Dispatcher controlling the fuel trucks at the airport.  The dispatcher then assigns operators and their trucks to specific flights.  The operators then fuel the aircrafts and report progress and the finished transaction back to the central system and the dispatcher.
 
 At the end of the day reports on all transactions and the state of the trucks and fuel tanks are used to send invoices and order more fuel.
 
@@ -19,7 +19,7 @@ At the end of the day reports on all transactions and the state of the trucks an
 
 * Eclipse RCP 3.4
 * Java 6
-* JRuby 1.2.0 in the entire application except Application, Activator and Editor and View classes.
+* JRuby 1.2.0 in the entire application except Application, Activator and Editor and View skeleton classes.
 * Firefox 3
 * ActiveMessaging 0.5.0
 * ActiveSupport 2.3.2
@@ -65,10 +65,25 @@ Polls flights from an Oracle 10 database using ActiveRecord.
 
 ==Progress==
 
-===0.10.0 2009-04-17 Last sprint before full production usage...===
+===1.1.0 2009-05-24 Customer acceptance test and finishing touches===
+
+* Fix bugs and change requests from customer acceptance testing.
+* Handbooks and accompanying documentation :)
+* Improve Nagios monitoring
+* GPS geofencing warning operators that have driven to the wrong gate.
+* Dump of transactions to USB memory stick in case of communications break down.
+* Improve startup time of the system as a whole.
+
+===1.0.0 2009-04-27 Last sprint before customer acceptance test===
 
 * 4 cars in production :)
-* Still going on...
+* Fixed lots of bugs detected in the pilot.
+* Drill down analysis completed.
+* Stock accounting completed.
+* Lots of nice and helpful touches in the GUIs like warnings when trying to dispatch a small vehicle to a 747 :)
+* XML Export of transactions to the supplying oil companies finished.
+* Configurable IO using JRuby FFI finished.  Dynamic setting high/low/absent per vehicle IO signal.
+* Controlled shutdown of the system initiated by detecting power down of the vehicle.
 
 ===0.9.0 2009-03-08 Administration and reporting===
 
