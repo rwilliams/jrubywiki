@@ -25,10 +25,9 @@
 ** install rails + ar-jdbc
 *** setup simple web app and exercise it
 *** install and run goldberg (actually any more sophisticated app you know works)
-* Upload dist files, jruby-complete.jar, and MD5 files to https://kenai.com/website/jruby/downloads/{version}
-* Replace existing content in https://kenai.com/website/jruby/downloads/current with the updated release files
+* Upload dist files, jruby-complete.jar, and MD5 files to S3: https://jruby.org.s3.amazonaws.com/downloads/{version}
 * Build and release jruby-jars gem: cd gem && jruby -S rake package && jruby -S rake release VERSION={final-version}
-* mvn deploy -DupdateReleaseInfo=true for each mvn artifact
+* mvn deploy -DupdateReleaseInfo=true at the root of the project to build and deploy all maven artifacts
 * Add news item to www.jruby.org page 
 * Update MainPage on JRuby wiki pointing to new binary
 * Update Ruby Application Archive
