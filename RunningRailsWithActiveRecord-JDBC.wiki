@@ -78,13 +78,17 @@ You should see something like the following:
         username: myUser
         password: myPass        
 
-8. Create a testapp_development database, grants for testapp user, and widgets table in MySQL (use migrations if you like)
+8. Create a testapp_development database and grants for testapp user,
 
 9. Scaffold Widgets CRUD
 
       jruby script/generate scaffold widget
 
-10. Start up the server
+10.
+
+      jruby -S rake db:migrate
+
+11. Start up the server
 
       jruby script/server
 
