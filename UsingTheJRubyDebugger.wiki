@@ -1,21 +1,31 @@
 There is a Java-based JRuby implementation of the fast ruby debugger rdebug.
 
-1. Manually download the ruby-debug-base-0.10.1-java.gem from [http://rubyforge.org/frs/?group_id=3085 debug-commons] to a local directory.
+See: [http://debug-commons.rubyforge.org/#jruby-debug JRuby Fast Debugger]
+
+1. Manually download the most recent ruby-debug-base-0.10.3.x-java.gem from [http://rubyforge.org/frs/?group_id=3085 debug-commons].
 
 2. Install the Gem into your JRuby Gem repository:
-  jruby -S gem install -l ruby-debug-base-0.10.1-java.gem
+  jruby -S gem install ruby-debug-base-0.10.3.1-java.gem
 
-3. Now install ruby-debug with: 
-  jruby -S gem install --ignore-dependencies -v 0.10.1 ruby-debug
+3. '''Leave the directory or remove ruby-debug-base-0.10.3.1-java.gem from the directory''' and install ruby-debug with:
+  jruby -S gem install --ignore-dependencies ruby-debug
   jruby -S gem install --ignore-dependencies ruby-debug-ide # needed only for IDEs
 
-'''Note''': <tt>--debug</tt> options used below works only with JRuby 1.1.2. More over there is a [http://jira.codehaus.org/browse/JRUBY-2664 bug] on Windows so <tt>--debug</tt> the flag works there only with JRuby trunk. Thus you need to stick with the old option, using <tt>-J-Djruby.reflection=true -J-Djruby.compile.mode=OFF</tt> instead <tt>--debug</tt> on Windows or older JRuby releases (1.1.1 and lower).
+4. If you don't have the columnize gem installed install that also:
+  jruby -S gem install columnize
+
+'''Note''': <tt>--debug</tt> options used below works only with JRuby 1.1.3 and later. For older versions you need to stick with the old option, using <tt>-J-Djruby.reflection=true -J-Djruby.compile.mode=OFF</tt> instead <tt>--debug</tt>.
 
 Starting the debugger on a Rails application:
 
-  $ cd my_rails_app
-  $ jruby --debug -S rdebug script/server
+  cd my_rails_app
+  jruby --debug -S rdebug script/server
+
+Starting the debugger to test a local ruby program and adding ''lib/'' to the load path:
+
+  ruby --debug -S rdebug -Ilib rubyprogram.rb 
 
 External Resources:
-* [http://bashdb.sourceforge.net/ruby-debug.html Debugging with ruby-debug]
 * [http://debug-commons.rubyforge.org/svn/jruby-debug/trunk/README trunk jruby-debug README]
+* [http://bashdb.sourceforge.net/ruby-debug.html Debugging with ruby-debug]
+* [http://www.intellij.net/forums/thread.jspa?messageID=5225735 JRuby Debugger Troubleshooting - Forum Thread]
