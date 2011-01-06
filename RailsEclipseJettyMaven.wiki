@@ -17,6 +17,7 @@ If you don't have it and want to try - you can add the site (and install) to you
 
 I'm going to assume that you're familiar with Maven. What I've determined you'll need at a minimum is the following additional dependencies:
 
+<pre>
     <dependency>
       <groupId>org.jruby</groupId>
       <artifactId>jruby</artifactId>
@@ -27,7 +28,7 @@ I'm going to assume that you're familiar with Maven. What I've determined you'll
       <artifactId>goldspike</artifactId>
       <version>1.6</version>
     </dependency>
-
+</pre>
 3 - Setting up your webapp
 
 Create a directory "src/main/webapp/WEB-INF" if necessary
