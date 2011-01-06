@@ -1,0 +1,3 @@
+* [http://www.tbray.org/ongoing/When/200x/2006/08/17/JRuby Why JRuby?][http://www.usome.com] <span style="font-size:90%; font-style:italic">(Tim Bray)</span>
+* [http://www.ociweb.com/jnb/jnbApr2007.html Introduction to JRuby]
+* [http://jeanderuelle.blogspot.com/2009/03/my-jruby-rails-app-on-jboss-can-make.html My JRuby-Rails app on JBoss and Mobicents can make Phone calls !]
