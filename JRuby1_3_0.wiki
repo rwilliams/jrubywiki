@@ -1,1 +1,3 @@
 [http://dist.codehaus.org/jruby/1.3.0/]
+
+[http://docs.codehaus.org/display/JRUBY/2009/06/03/JRuby+1.3.0+Released]
