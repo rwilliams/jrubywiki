@@ -1,3 +1,6 @@
+<h1>Getting Started with JRuby</h1>
+To get JRuby on your system, you can either install a binary file for your system, or you can download and build JRuby yourself.
+__TOC__
 ==Installing JRuby==
 Getting up and running with JRuby is very easy. You can either use your operating system's package manager, or if you're on Windows or your package manager doesn't include JRuby, you can use a three-step process to download, extract, and add the directory to your PATH environment variable. 
 ===Install With Package Manager===
@@ -25,7 +28,7 @@ If you're on Windows, or if your package manager doesn't include JRuby you'll ne
 '''UNIXes: Linux, OSX, BSD, Solaris Example'''
 
 Once you've downloaded or built a JRuby installation and it is located in the directory <tt> /opt/jruby</tt>,
-you'll need to add <tt>/opt/jruby/bin</tt> to the end of your <tt>$PATH</tt> environmental variable.
+you'll need to add <tt>/opt/jruby/bin</tt> to the end of your <tt>$PATH</tt> environment variable.
 
 On Mac OS X and Linux, you can add to the <tt>PATH</tt> variable with the export command:
   export PATH=$PATH:/opt/local/bin
@@ -33,7 +36,7 @@ On Mac OS X and Linux, you can add to the <tt>PATH</tt> variable with the export
 '''Microsoft Windows XP Example'''
 
 Once you've downloaded or built a JRuby installation and it is located in the directory <tt>C:\JRuby\jruby1.3\</tt>,
-you'll need to add <tt>C:\JRuby\jruby1.3\bin</tt> to the end of your <tt>%PATH%</tt> environmental variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
+you'll need to add <tt>C:\JRuby\jruby1.3\bin</tt> to the end of your <tt>%PATH%</tt> environment variable. You'll also need to ensure that your <tt>JAVA_HOME</tt> variable is set to the location of your current Java installation, for example, <tt>C:\Program Files\Java\jdk1.6.0_14\</tt>.
 # In Windows XP, choose Start > Control Panel > System to open the System Properties window.
 # Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
 # In the System Variables section, scroll down to <tt>Path</tt> and click Edit.
@@ -46,16 +49,16 @@ you'll need to add <tt>C:\JRuby\jruby1.3\bin</tt> to the end of your <tt>%PATH%<
 # Click OK at the bottom of the Environment Variables window.
 # Click OK to close the System Properties window.
 
-==Alternatives==
+==Building JRuby From Source==
 Instead of downloading the latest release, you can build JRuby from source. See the instructions [[#Downloading_Source_and_Building_Yourself]] later on this page for more details.
 
-==Did it work==
-To test whether it installed correctly, run:
+==Did It Work?==
+To test whether JRuby installed correctly, open a command window and run:
   jruby -v
 
 If it installed correctly, JRuby will return the current version.
 
-==How do I run rake, gem, etc.==
+==How Do I Run rake, gem, etc?==
 The recommended way to run these commands (known as ''system-level executable commands'') in JRuby is to '''always''' use ''jruby -S''
 
   jruby -S gem list --local
@@ -65,27 +68,26 @@ The recommended way to run these commands (known as ''system-level executable co
   jruby -S rake -T
   jruby -S rake db:migrate
 
-The '''-S''' parameter tells JRuby to use '''its''' version of the installed binary.
+The <tt>-S</tt> parameter tells JRuby to use '''its''' version of the installed binary.
 
-==How do I run a Ruby program?==
+==How Do I Run a Ruby Program?==
 
-To run any other ruby program using JRuby, run it using the '''jruby''' command:
+To run any other ruby program using JRuby, run it using the <tt>jruby</tt> command in a command window. For example,
 
   jruby script/server
   jruby my_ruby_script.rb
 
 == jirb: Ruby Interactive Console ==
-One of the few (perhaps only) standard Ruby utility that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: <tt>'''jirb'''</tt>. In C Ruby this utility is simply called <tt>irb</tt>.
+One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: <tt>'''jirb'''</tt>. In C Ruby this utility is simply called <tt>irb</tt>.
 
 To enable tab completion within jirb:
   require 'irb/completion'
 
-==Installing and using Gems in JRuby==
-
-The RubyGems can be easily installed with JRuby as follows:
+==Installing and Using Gems in JRuby==
+The RubyGems can be easily installed with JRuby with the following command:
  jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
 
-Many Gems will work fine in JRuby, however some Gems build native C libraries as part of their install process. These Gems will not work in JRuby unless the Gem has also provided a Java equivalent to the native library. 
+Many Gems will work fine in JRuby; however, some Gems build native C libraries as part of their install process. These Gems will not work in JRuby unless the Gem has also provided a Java equivalent to the native library. 
 
 Mongrel and Hpricot are two examples of Gems that build their native library in a platform independent manner. Each of them specify a parsing library using the Ragel language and a Ragel program can be automatically converted into either C or Java as part of the compile process.
 
