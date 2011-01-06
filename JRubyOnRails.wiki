@@ -44,6 +44,8 @@ See also:
 * [http://en.wikipedia.org/wiki/WEBrick WEBrick entry on Wikipedia]
 * [http://microjet.ath.cx/WebWiki/WEBrick.html Gnome's Guide to WEBrick]
 * [http://modrails.com Passenger]
+* [http://torquebox.org TorqueBox] (based on JBoss)
+* [http://calavera.github.com/trinidad Trinidad] (based on Tomcat)
 
 === Miscellaneous Rails Topics ===
 * '''''[[Rails_2_3_2|Important note about Rails 2.3.2]]'''''
