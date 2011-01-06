@@ -29,7 +29,7 @@ If you don't use a traditional Ruby application server like [http://mongrel.ruby
 * [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war JWS 7]
 
 ==== Glassfish v3 Deployment ====
-You can use the glassfish gem by Arun Gupta to deploy JRuby on Rails very easily and robustly. With the glassfish gem, you can deploy your application to the Glassfish v3 modularized Java Application Server. The glassfish gem wraps the essential technologies in 3 mbs, and enable you to run your application, just like you would with a traditional approach with mongrel, rack, etc. A brief tutorial can be found here: [[JRuby on Rails with Glassfish gem]].
+You can use the glassfish gem by Vivek Pandey to deploy JRuby on Rails very easily and robustly. With the glassfish gem, you can deploy your application to the Glassfish v3 modularized Java Application Server. The glassfish gem wraps the essential technologies in 3 mbs, and enable you to run your application, just like you would with a traditional approach with mongrel, rack, etc. A brief tutorial can be found here: [[JRuby on Rails with Glassfish gem]].
 
 See also:
 * [[JRuby on Rails in GlassFish|Glassfish]]
