@@ -245,3 +245,8 @@ The error message is displayed because <tt>sqljdbc.jar</tt> is loaded twice, but
 
 * Load the jar on the classpath instead of using <tt>require</tt>. This will cause it to be loaded by a different class loader, so the jar file will only be loaded once per process.
 * Tell JRuby to launch other jrubies out-of-proc with <br/><tt>jruby '''-J-Djruby.launch.inproc=false''' ''rest of command''</tt><br/> This will cause a second JVM to be launched in the <tt>rake</tt> <tt>test:units</tt> example above.
+
+==== I tried the --server option and received an error====
+You tried the performance tuning option --server but received an error like "Error: no `server' JVM at `c:\Program Files\Java\jre6\bin\server\jvm.dll'."
+On windows the Java Runtime Environment (JRE) does not include the server VM. You should download an install the Java Development Kit (JDK). 
+If you want to use the server with the JRE, you can copy JDK's jre\bin\server folder to a bin\server directory in the Java SE Runtime Environment.
