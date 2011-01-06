@@ -54,4 +54,4 @@ See also:
 * [[Running Rails with Firebird]]
 * [[Rails AOT|Compiling Rails' controllers and models AOT]]
 * [[Rails Eclipse Jetty Maven|Rails on Eclipse + Run Jetty Run + Maven]]
-* [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapte
+* [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapter]
