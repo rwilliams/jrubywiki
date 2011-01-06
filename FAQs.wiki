@@ -38,7 +38,7 @@ You can try passing the usual <tt>-J-Xmx[size]</tt> to the sub-JRuby. But beware
 
 Historically, JRuby has been very slow to start up, so we have tried to recognize some commands that look like they may be launching more Ruby programs and we start those in the same JVM. In that case, you actually can't adjust the heap.
 
-We have a special system property that controls this behavior VM-wide:
+We have a special system property that controls this behavior VM-wide (pass on the command-line as <tt>-J-Djruby.launch.inproc=false</tt>):
     jruby.launch.inproc=true|false
        Set in-process launching of e.g. system('ruby ...'). Default is true
 
