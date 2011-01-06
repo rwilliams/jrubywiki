@@ -1,12 +1,19 @@
 = JRuby release preparation =
 
 * Make sure a release has no blockers (tests in later steps are good at shagging issues out)
-* Try and determine if we break any common extensions (jruby-rack, ar-jdbc, joni, jsr233 impl, ...)
-* Update default.build.properties to reflect new version
-** Example: '''1.4RC1'''
-* Update maven poms: jruby -S rake maven:updatepoms VERSION={newversion}
-* On release branch ('''jruby-X_Y'''):
-* Make tag using git tag: '''git tag X.Y'''  (Note: git push --tags otherwise tag will just be in your local repo)
+* Preliminary testing
+** Try and determine if we break any common extensions (jruby-rack, ar-jdbc, joni, jsr233 impl, ...)
+** Create a test dist file
+*** Verify bin works
+*** Verify src with 'ant test' and 'ant spec'
+*** Install a gem or two
+* Create new branch [Only for RC1]
+** grb create jruby-1_5
+* [branch] Update default.build.properties to reflect new version [1.5.0.RC1]
+* [branch] Update maven poms: jruby -S rake maven:updatepoms VERSION={newversion}
+* [master] Update default.build.properties to reflect next version [ -> 1.6.0.dev]
+* [master] Update maven poms: jruby -S rake maven:updatepoms VERSION={newversion}
+* Make tag using git tag: '''git tag X.Y'; git push --tags'' 
 * Check out clean clone of release branch: cd .. && rm -rf release && git clone jruby release && cd release (for example)
 * Set your java version to Java 5 for building the release.
 * Run '''ant dist''' to generate source and binary distribution files, jruby-complete jar, and MD5/SHA checksum files.
@@ -21,7 +28,7 @@
 * Upload dist files, jruby-complete.jar, and MD5 files to https://kenai.com/website/jruby/downloads/{version}
 * Replace existing content in https://kenai.com/website/jruby/downloads/current with the updated release files
 * Build and release jruby-jars gem: cd gem && jruby -S rake package && jruby -S rake release VERSION={final-version}
-* mvn compile; mvn deploy -DupdateReleaseInfo=true for each mvn artifact
+* mvn deploy -DupdateReleaseInfo=true for each mvn artifact
 * Add news item to www.jruby.org page 
 * Update MainPage on JRuby wiki pointing to new binary
 * Update Ruby Application Archive
@@ -34,7 +41,4 @@
 *** Provide a portfile patch, ideally, similar to http://guide.macports.org/#development.patches.portfile
 ** Email macports-dev list to ensure the ticket gets noticed: http://lists.macosforge.org/mailman/listinfo/macports-dev/
 * Send kmeyer email about Redhat/Fedora packaging [not for RCs]
-* if new release is final then also update '''version.jruby''' property in '''src/org/jruby/jruby.properties''' in '''trunk''' to reflect new dev version. 
-** Example: '''1.1.4-dev'''
-* update [[Home]] to point to latest downloads [for any release]
 * update [[GettingStarted]] to point to the latest release [not for RCs].
