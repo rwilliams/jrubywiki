@@ -556,5 +556,10 @@ See [[RedBridgeExamples]] page.
 == Red Bridge Servlet Examples ==
 See [[RedBrigeServletExamples]] page.
 
+= See Also =
+* [[Calling Java from JRuby]]
+* [[Accessing JRuby Object in Java]]
+* [http://jruby-embed.kenai.com/docs/ JRuby Embed API document]
+
 = Previous Embedding JRuby Page=
 [[JavaIntegration|Embedding JRuby]]
