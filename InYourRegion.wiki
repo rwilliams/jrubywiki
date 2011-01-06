@@ -14,6 +14,13 @@ In return, the JRuby community will help you fulfill the role of JRuby Delegate,
 Welcome to the JRuby Community!
 
 ==United States==
+
+===Arizona===
+====Phoenix====
+* Logan Barnett <logustus@gmail.com>
+[http://monkeybars.org/ Monkeybars] GUI framework, packaging via Rawr [http://kenai.com/projects/rawr Rawr], game development with [http://jemini.org Jemini].
+
+
 ===Minnesota===
 ====Twin Cities (Minneapolis, St Paul)====
 
@@ -54,6 +61,7 @@ Rails deployments on Glassfish, integration with java libraries, active in [http
 ====San Francisco Bay Area====
 * Arun Gupta <arun.gupta@sun.com>
 GlassFish Evangelist and can talk about JRuby, Rails, GlassFish, NetBeans [http://blogs.sun.com/arungupta blog].
+
 
 
 ==Spain==
