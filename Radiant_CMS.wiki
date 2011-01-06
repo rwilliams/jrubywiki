@@ -31,7 +31,7 @@ The bootstrap task will populate your database and set up a basic administration
 
   jruby script/server -e production
 
-Fire up your browser and play around a little with your new CMS - http://localhost:3000
+Fire up your browser and play around a little with your new CMS - [http://localhost:3000]
 
 ==Deployment==
 
