@@ -8,7 +8,7 @@ __TOC__
 ===Tuning the compiler===
 JRuby's compiler can be enabled in JIT mode or specified to run before execution. 
 * See [[JRuby Compiler]] for more details.
-* For a list of compiler runtime settings, [[#Compiler_Runtime_Properties|Compiler Runtime Properties]].
+* For a list of compiler runtime settings, see [[#Compiler_Runtime_Properties|Compiler Runtime Properties]] below.
 
 ===Disabling ObjectSpace===
 ObjectSpace has been disabled by default since version 1.1b1.  To reenable ObjectSpace, use the <tt>+O</tt> flag. The following description applies tor previous versions of JRuby.
