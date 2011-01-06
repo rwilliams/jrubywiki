@@ -1,3 +1,11 @@
+==Installation==
+
+You can use the JRuby package from [http://www.macports.org/ macports].
+
+<code>
+$ sudo port install jruby
+</code>
+
 ==Example Code==
 
 [http://teach.alternamatch.com/jruby/ An Xcode template for a self-contained JRuby application bundle on OS X]
