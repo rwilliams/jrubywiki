@@ -1,10 +1,14 @@
-JRuby 1.2 was the first release of JRuby to officially include large portions of Ruby 1.9's feature set. There's still work to be done to get JRuby fully 1.9 compliant. There are two areas people really could pitch in: writing specs and helping with implementation.
+JRuby 1.2 was the first release of JRuby to officially include large portions of Ruby 1.9's feature set. Work has continued, piecemeal, over releases since then. The current plan as of December 2010 is to have JRuby 1.6 be the first release where we really expect people to start using 1.9 support and reporting bugs against it. That release is slated for at least an RC in December 2010, and likely a final release sometime after January 1, 2011.
+
+There are two areas people really could pitch in: writing specs and helping with implementation.
 
 =Writing Specs=
 
-The new features in Ruby 1.9 are very lightly specified. The RubySpec project has some specs, but there's a lot missing, especially in API areas like String M17N support.
+RubySpec has improved substantially over the past 6-9 months, due to a push by the 1.9 maintainer Yuki Sonoda to start using RubySpec for MRI development. As a result, we now have at least a good starting point to use when verifying 1.9 compatibility.
 
-If you're interested in contributing RubySpecs, check out http://www.rubyspec.org for information on how to help out.
+There are still many weak areas, however. If you're interested in contributing RubySpecs, check out http://www.rubyspec.org for information on how to help out.
+
+In general, the first step to finding a JRuby 1.9 feature to help implement would be looking at spec/tags/1.9 subdirs in JRuby, reading the associated spec, and implementing the missing or broken behavior.
 
 =Code conventions=
 
@@ -61,20 +65,17 @@ These are done but need more testing. Where noted, pieces are missing.
 * Encoding
 ** missing default_internal/default_external ([http://jira.codehaus.org/browse/JRUBY-3433 JRUBY-3433])
 ** missing system encoding guess ([http://jira.codehaus.org/browse/JRUBY-3434 JRUBY-3434])
-* Enumerable
-* Enumerator
-** missing next/rewind/with_index (fibers) ([http://jira.codehaus.org/browse/JRUBY-3435 JRUBY-3435])
 * Complex
 * Rational
 * Numeric
-* Integer
-* Fixnum
 * Float
+** remaining rubyspec deals with formatting to_s properly, which we've always had some issues with (even in 1.8 mode)
 * Math
 * Mathn
 * Range
 * Struct
 * Kernel (mostly)
+** Some of the remaining RubySpec failures are shared with 1.8 mode.
 * some (most?) of Object, Method, Module, Class
 * Thread?
 * Fiber?
@@ -85,6 +86,7 @@ These are entire areas that need to be worked on.
 
 * Encoding::Converter
 * Yielder/Generator
+** At least partially implemented for 1.8.7 support, but it's unknown whether the impl is sufficient for 1.9 mode.
 * key Marshal changes
 * cli options
 * some RubyBignum changes
@@ -92,3 +94,4 @@ These are entire areas that need to be worked on.
 * changes in Dir/IO/File (some obvious things are done, like enumeratorize)
 * encoding information in exception messages (now passed via java String)
 * BigDecimal changes ?
+* Symbol to be represented as encoded bytes, rather than a UTF-16 Java String (wide-reaching implications, since we use String many places where a "string key" is needed, like in method and variable tables).
