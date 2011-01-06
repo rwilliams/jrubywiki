@@ -1,0 +1,51 @@
+==Deploying JRuby applications with [http://java.sun.com/j2se/1.5.0/docs/guide/javaws// Java Web Start]==
+
+===Known Issues===
+[http://jira.codehaus.org/secure/IssueNavigator.jspa?reset=true&query=%22web+start%22+%7C%7C+jnlp+%7C%7C+webstart+%7C%7C+javaws&summary=true&description=true&body=true&pid=11295&status=1&status=3 Open JIRA Issues matching "Web Start or jnlp or javaws"]
+
+===Samples===
+The samples directory distributed with JRuby (as of Dec 29 2007 this sample is only on the subversion trunk version of JRuby) has an example jnlp, [http://svn.codehaus.org/jruby/trunk/jruby/samples/jirb.jnlp/ jirb.jnlp] which will start the JRuby Swing IRB console as a Java Web Start application. 
+
+====Getting jirb.jnlp sample to work in Java 1.5====
+The [http://svn.codehaus.org/jruby/trunk/jruby/samples/jirb.jnlp/ jirb.jnlp] needs to be modified to work on Java 1.5 because of the use of ".." in the codebase attribute which only works in Java 1.6.
+1. make a symbolic link to the directory $JRUBY_HOME/lib in the samples directory (or make a copy of the lib directory).
+  $ cd $JRUBY_HOME/samples
+  $ ln -s ../lib
+2, change the codebase attribute in the jnlp element to use a reference to the local directory
+  &lt;jnlp spec="1.0+" codebase="file:."&gt;
+3. start the jnlp using javaws from the command line
+  $ javaws jirb.jnlp
+
+====New jnlp samples dir====
+This Jira issue:
+* [http://jira.codehaus.org/browse/JRUBY-2040 JRUBY-2040: new samples/jnlp dir: includes both unsigned and signed examples that work in Java 1.5 and 1.6]
+includes an attachment which when extracted in samples/ adds s both unsigned and signed examples that work in Java 1.5 and 1.6. It is projected to be included in JRUBY 1.1 RC2.
+
+===JAR Signing===
+If you're getting an <tt>java.securityAccessControlException</tt> with the message <tt>access denied (java.lang.RuntimePermission accessDeclaredMembers)</tt> on startup or when running your JRuby application, then you'll need to sign your jar. The whole process is described 
+[http://java.sun.com/products/javawebstart/1.2/docs/developersguide.html#dev here], under "Signing JAR Files with a Test Certificate". You basically have to perform the following steps:
+
+ keytool -genkey -keystore myKeystore -alias myself
+ keytool -selfcert -alias myself -keystore myKeystore
+
+You also need to include to following lines in your jnlp-file:
+ <security> 
+   <all-permissions/> 
+ </security>
+
+And whenever you modify the jar, you need to do an
+
+ jarsigner -keystore myKeystore test.jar myself
+
+to update the signature.
+
+===Disabling the Security Manager===
+If you have a signed jar and the startup fails because of an <tt>java.lang.reflect.ReflectPermission</tt> or you continue to have <tt>access denied (java.lang.RuntimePermission accessDeclaredMembers)</tt> errors, you can just disable the security manager:
+
+JRuby:
+ java.lang.System.setSecurityManager(nil)
+Java:
+ System.setSecurityManager(null);
+Disclaimer: I'm not an expert on Java Security, so I don't know if disabling the Security Manager has unintended sideeffects. [[User:Mstocker|Mstocker]] 10:49, 30 December 2007 (PST)
+
+See: [http://jira.codehaus.org/browse/JRUBY-1821/ JRUBY-1821] and [http://jira.codehaus.org/browse/JRUBY-1782/ JRUBY-1782].
