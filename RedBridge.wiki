@@ -316,7 +316,7 @@ ScriptingContainer instance = new ScriptingContainer(LocalContextScope.SINGLETHR
 
 * JSR223/BSF
 <pre name="java">
-System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
+System.setProperty("org.jruby.embed.localcontext.scope", "singlethread");
 </pre>
 
 
