@@ -48,11 +48,12 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[RoadMap]]
 </td>
 <td>
-'''[[JRuby on Rails]]'''
+'''JRuby on Rails'''
+* [[JRuby on Rails]]
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
 * [[ActiveRecord-JDBC]]
-* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   ([[Warbler]])
-* [[JRuby on Rails|More...]]
+* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   
+* <a href="{{project warbler page Home}}">Warbler</a> (bundling JRuby on Rails apps into a WAR)
 
 ''' Evangelism'''
 * [[Benchmarking Tips and Tricks]]
