@@ -24,7 +24,7 @@ There is also a property you can use to disable ObjectSpace:
  jruby -J-Djruby.objectspace.enabled=false
 
 ===Enabling ObjectSpace Dynamically===
-As of JRuby trunk r6137, a program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example, this enables jirb to turn on ObjectSpace to have fully-functional code-completion. This chage was made in response to [http://jira.codehaus.org/browse/JRUBY-2186 JRUBY-2186]. To enable ObjectSpace support in a ruby program, add the following code:
+As of JRuby trunk r6137, a program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example, this enables jirb to turn on ObjectSpace to have fully-functional code-completion. This change was made in response to [http://jira.codehaus.org/browse/JRUBY-2186 JRUBY-2186]. To enable ObjectSpace support in a ruby program, add the following code:
 
   require 'jruby'
   JRuby.objectspace=true
