@@ -1,0 +1,67 @@
+This document describes a workaround to get JRUBY working on HPUX as untaring jruby-bin-1.0.tar yields the following error in addition to missing jar files in $JRUBY_HOME/lib
+
+  x jruby-1.0/lib/ruby/gems/1.8/doc/rspec-1.0.5/ri/Spec/Runner/Formatter/RdocForma
+  tter/example_passed-i., 216 bytes, 1 tape blocks
+  tar: ././@LongLink creating as regular file.
+  x ././@LongLink, 125 bytes, 1 tape blocks
+  directory checksum error 
+ 
+
+== Workaround: ==
+
+This document was authored by a newbie. There might be better ways to make JRUBY work on HPUX. (Don't know how to test or check if all jruby functions, features are working with this workaround, atleast my scripts seems to work):
+
+* tar xvf jruby-bin-1.0.tar (ignore the @LongLink errors)
+* copy the following jars to JRUBY_HOME/lib directory (I had a copy of these jar files on a linux box where the untar worked successfully)
+
+    asm-2.2.3.jar
+    asm-commons-2.2.3.jar
+    backport-util-concurrent.jar
+    bsf.jar
+    emma.jar
+    emma_ant.jar
+    jarjar-0.7.jar
+    jline-0.9.91.jar
+    jruby.jar
+    junit.jar
+
+
+* Modified $JRUBY_HOME/bin/jruby bash file to the following: (had to do this as I don't have bash on my HP box and don't know how to convert a bash script into ksh or some other shell script)
+
+  JRUBY_HOME="<nowiki><<jruby_home>></nowiki>" #Substitute your jruby_home
+  JRUBY_OPTS=""
+  JAVA_CMD='java'
+  JRUBY_SHELL=/bin/sh
+  CP="$JRUBY_HOME/lib/asm-2.2.3.jar:              \
+  $JRUBY_HOME/lib/asm-commons-2.2.3.jar:          \
+  $JRUBY_HOME/lib/backport-util-concurrent.jar:   \
+  $JRUBY_HOME/lib/bsf.jar:                        \
+  $JRUBY_HOME/lib/emma.jar:                       \
+  $JRUBY_HOME/lib/emma_ant.jar:                   \
+  $JRUBY_HOME/lib/jarjar-0.7.jar:                 \
+  $JRUBY_HOME/lib/jline-0.9.91.jar:               \
+  $JRUBY_HOME/lib/jruby.jar:                      \
+  $JRUBY_HOME/lib/junit.jar"
+  JRUBY_BASE="$JRUBY_HOME"
+  JAVA_MEM=-Xmx256m
+  JAVA_STACK=-Xss1024k
+  JAVA_OPTS="$JAVA_MEM $JAVA_STACK -Xverify:none -da"
+  exec "$JAVA_CMD" $JAVA_OPTS -classpath "$CP"    \
+    "-Djruby.base=$JRUBY_BASE" "-Djruby.home=$JRUBY_HOME" \
+    "-Djruby.lib=$JRUBY_BASE/lib" -Djruby.script=jruby    \
+    "-Djruby.shell=$JRUBY_SHELL"                          \
+    org.jruby.Main $JRUBY_OPTS "$@"
+
+* Setup your environment variables
+
+   export JAVA_HOME="<nowiki><<java_home>></nowiki>" #Substitute your java_home
+   export JRUBY_HOME="<nowiki><<jruby_home>></nowiki>" #Substitute your jruby_home
+   export PATH=$PATH:$JRUBY_HOME/bin:$JAVA_HOME/bin:.
+
+* Test JRUBY
+
+   jruby -e '  puts "jruby is working"   '
+
+==Alternative approach==
+
+Before going through all of the work above, you may want to try downloading and building GNU tar. I used GNU tar to unpack the JRuby tar and everything worked great. No errors.
