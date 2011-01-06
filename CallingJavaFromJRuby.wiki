@@ -236,6 +236,9 @@ JRuby defines a number of additional methods for Java objects.
 
 * <tt>java_class</tt> returns the Java class of an object.
 * <tt>java_kind_of?</tt> works like the <tt>instanceof</tt> operator.
+* <tt>java_object</tt> returns the underlying Java object. This is useful for reflection.
+* <tt>java_send</tt> overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as <tt>initialize</tt>, with names that conflict with built-in Ruby methods. More below. ''Added in JRuby 1.4''
+* <tt>java_method</tt> retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in <tt>java_send</tt>. More below. ''Added in JRuby 1.4''
 
 === Convert a Java InputStream to a ruby IO object ===
 
@@ -406,13 +409,13 @@ In this example, the <tt>JButton</tt>'s <tt>addActionListener</tt> method takes 
 
 This not only works for event listeners or <tt>Runnable</tt>, but basically for any interface. When calling a method that expects an interface, JRuby checks if a block is passed and automatically converts the block to an object implementing the interface.
 
-=== Calling the a Java initialization method ===
+=== Calling masked or unreachable Java methods with <tt>java_send</tt> ===
 Sometimes you need to call <tt>initialize</tt> AFTER the <tt>.new()</tt> call, for example the <tt>RTPManager</tt> class in JMF. Unfortunately, this method is masked by Ruby's <tt>initialize</tt> constructor method.  As of JRuby 1.4, the <tt>java_send</tt> method can be used to call this, and any other, masked method:
 
   @mgr = javax.media.rtp.RTPManager.newInstance
   localhost = java.net.InetAddress.getByName("127.0.0.1")
   localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
-  @mgr.java_send :initialize, localaddr
+  @mgr.java_send :initialize, [javax.media.rtp.SessionAddress], localaddr
 
 In previous versions of JRuby, the same thing can be accomplised with reflection:
 
@@ -421,6 +424,28 @@ In previous versions of JRuby, the same thing can be accomplised with reflection
   localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
   method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
   method.invoke @mgr.java_object, localaddr.java_object
+
+Here is another example of calling the <tt>ArrayList.add</tt> method with <tt>java_send</tt>:
+
+ import java.util.ArrayList
+ list = ArrayList.new
+ list.java_send :add, [Java::int, java.lang.Object], 0, 'foo'
+ puts list.java_send :toString # => "[foo]"
+
+Note the second argument, which is an array of types indicating the exact method signature desired. This is useful for disambiguating methods that are overloaded on similar types such as <tt>int</tt> and <tt>long</tt>.
+
+=== Bound and Unbound Java methods with <tt>java_method</tt> ===
+<tt>java_send</tt> relies on reflection and may lead to poor performance in some cases. Each time it is called, the desired method must be relocated. With the <tt>java_method</tt> method you can get a reference to any overloaded Java method as a Ruby Method object:
+
+ # get a bound Method based on the add(int, Object) method from ArrayList
+ add = list.java_method :add, [Java::int, java.lang.Object]
+ add.call(0, 'foo')
+
+Similarly, an Unbound method object can be retrieved:
+
+ # get an UnboundMethod from the ArrayList class:
+ toString = ArrayList.java_method :toString
+ toString.bind(list).call # => [foo, foo]
 
 === Java classes can't inherit from a JRuby class ===
 Hopefully this feature will be added in the planned re-write of the Java integration layer in a future release of JRuby.
