@@ -1,7 +1,7 @@
 [https://glassfish.dev.java.net GlassFish] is an open source Java EE 5 application server. Java EE is a long tested deployment environment and by combining the benefits of GlassFish with JRuby, we should be able to provide the best deployment environment for Rails applications. Here are some of the benefits of using GlassFish as the deployment environment for JRuby on Rails applications :
 * Use the time tested Java EE deployment platform
 * Avoid the complex Mongrel based deployment environment that one has to use to deploy Rails application.
-* With the availability of [http://wiki.jruby.org/wiki/Goldspike Goldspike] one can deploy a war file of your Rails application directly to a GlassFish instance.
+* With the availability of [[Goldspike]] one can deploy a war file of your Rails application directly to a GlassFish instance.
 * Java EE and Ruby-on-Rails applications can be easily integrated in one container. This allows to host JRuby-on-Rails applications in organizations who have already made investment in Java EE.
 * Rails applications can certainly benefit from the out-of-the-box clustering and high-availability support provided by GlassFish.
 * Reuse your database connections by using the database connection pooling mechanism provided by GlassFish.
@@ -12,7 +12,7 @@ Read details about why GlassFish is a preferred development & deployment environ
 __TOC__
 
 == Glassfish v2 ==
-In GlassFish v2 we currently support the war mode of deployment for your JRuby on Rails applications. The war can be created from your existing Rails applications by using [http://wiki.jruby.org/wiki/Warbler Warbler].
+In GlassFish v2 we currently support the war mode of deployment for your JRuby on Rails applications. The war can be created from your existing Rails applications by using [[Warbler]].
 
 === Setup ===
 Refer to the section titled "GlassFish V2" of the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide Getting Started Guide]. <br/>At the end of these steps ensure that you have the following environment variables defined :
