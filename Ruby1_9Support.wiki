@@ -56,7 +56,6 @@ These are done but need more testing. Where noted, pieces are missing.
 ** missing encoding aware % ([http://jira.codehaus.org/browse/JRUBY-3428 JRUBY-3428]), unpack ([http://jira.codehaus.org/browse/JRUBY-3429 JRUBY-3429]), crypt ([http://jira.codehaus.org/browse/JRUBY-3430 JRUBY-3430])
 ** missing encode/decode (via Encoding::Converter) ([http://jira.codehaus.org/browse/JRUBY-3431 JRUBY-3431])
 ** possible gotchas with to_sym
-** String#hash is not encoding aware yet ([http://jira.codehaus.org/browse/JRUBY-3432 JRUBY-3432])
 ** string constructions in multiple places in core should taint/set coderanges and encoding
 * Symbol
 ** intern gotchas due to encoding information in symbols (needs to be done)
@@ -76,7 +75,8 @@ These are done but need more testing. Where noted, pieces are missing.
 * Struct
 * Kernel (mostly)
 ** Some of the remaining RubySpec failures are shared with 1.8 mode.
-* some (most?) of Object, Method, Module, Class
+* Method
+* Module
 * Thread?
 * Fiber?
 
