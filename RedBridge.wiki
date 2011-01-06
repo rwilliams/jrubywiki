@@ -36,12 +36,13 @@ You can also pass data in through method arguments, and work directly with retur
 
 == Download ==
 
-JRuby Embed (Red Bridge) binary is included in JRuby 1.4.0RC1. Visit [http://www.jruby.org/download] to get the archive.The Archive of JRuby Embed version 1.2.0 is also available to download at: [http://kenai.com/projects/jruby-embed/downloads], too. JRuby Embed source codes are not included in JRuby 1.4.0x source archives. Get them at the Source Code Repository of this project, [http://kenai.com/projects/jruby-embed/sources]. However, JRuby 1.5.0 source archives will have JRuby Embed.
+JRuby Embed (Red Bridge) binaries have been included in the official [http://www.jruby.org/download JRuby download] since 1.4.0RC1. Starting with version 1.5, the Red Bridge ''source'' will be included in JRuby source archives as well. Until then, the source will be available separately from the JRuby Embed [http://kenai.com/projects/jruby-embed/sources repository] and [http://kenai.com/projects/jruby-embed/downloads archives].
 
-All users, please understand. Embed Core API may change in future releases.
+JSR 223 and BSF are stable APIs. The Embed Core API is somewhat stable, but may change slightly from release to release.
 
-For maven users:<br/>
-JRuby 1.4.0x archives in maven repo doesn't have JRuby Embed in it. It is on codehause maven repo, so add below to your pom.xml:
+=== Maven ===
+
+The JRuby 1.4.0x archives in maven repo don't include JRuby Embed. The codehaus repo does, though, so please add the following to your <code>pom.xml</code> if you need embedding support:
 <pre name="xml">
 .....
     <repository>
@@ -59,22 +60,27 @@ JRuby 1.4.0x archives in maven repo doesn't have JRuby Embed in it. It is on cod
 ....
 </pre>
 
-Also, JRuby 1.5.0 will have JRuby Embed in it, so you don't need to add jruby-embed dependency.
+This extra step will be unnecessary starting with JRuby 1.5.
 
 == Getting Started ==
 
-To get to know how to develop it, a simple 'Hello World' sample is always the first friend. Here are samples to say 'Hello World' in a JRuby Embed way. 
+A simple 'Hello World' example is a great way to get to know Red Bridge.
 
-Before you start programming, make sure necessary jar archives are in your classpath.
+Before you start programming, make sure the necessary jar archives are in your classpath:
+
 ;- Core
-:jruby-complete.jar (or jruby.jar)
+* <code>jruby-complete.jar</code> or <code>jruby.jar</code>
+
 ;- JSR223
-:jruby-complete.jar (or jruby.jar), script-api.jar(if you are using JDK1.5)
+* <code>jruby-complete.jar</code> or <code>jruby.jar</code>
+* <code>script-api.jar</code> (if you are using JDK1.5)
+
 ;- BSF
-:jruby-complete.jar (or jruby.jar), bsf.jar, commons-logging-[version].jar
+* <code>jruby-complete.jar</code> or <code>jruby.jar</code>
+* <code>bsf.jar</code>
+* <code>commons-logging-[version].jar</code>
 
-
-Programs to execute a simple Ruby script, puts "Hello World!," using JRuby Embed are:
+Here's how to execute a simple Ruby script (<code>puts "Hello World!"</code>) using the three JRuby Embed APIs:
 * Core
 <pre name="java">
 package vanilla;
