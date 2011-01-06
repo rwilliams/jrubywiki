@@ -1,4 +1,4 @@
-Here is a list of sites and projects using JRuby. Please add descriptions if possible.
+Here is a list of sites and projects using JRuby. Please add descriptions if possible. 
 
 <table>
 <tr>
@@ -297,3 +297,7 @@ in the average consumer price range.</td>
 <td></td>
 </tr>
 </table>
+
+See also:
+
+* [http://ruby.sys-con.com/node/1192377/mobile Engine Yard Announces Momentum of JRuby]
