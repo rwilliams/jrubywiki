@@ -27,7 +27,7 @@ If you're on Windows, or if your package manager doesn't include JRuby you'll ne
 '''Note:''' If you're on HP-UX, see [[JRubyOnHPUX11_23|Using JRuby on HPUX]].
 
 ====Installation Examples====
-'''UNIXes: Linux, OSX, BSD, Solaris Example'''
+'''Linux and OSX Example'''
 
 Once you've downloaded or built a JRuby installation and it is located in the directory <tt> /opt/jruby</tt>,
 you'll need to add <tt>/opt/jruby/bin</tt> to the end of your <tt>$PATH</tt> environment variable.
