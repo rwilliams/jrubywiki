@@ -1,11 +1,12 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#Glassfish_v3_Deployment|&raquo; JRuby on Rails: GlassFish V3 Deployment]]
+[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#Glassfish_v3_Deployment|&raquo; JRuby on Rails: GlassFish Deployment]]
 <h1>JRuby on Rails in GlassFish</h1>
-[https://glassfish.dev.java.net GlassFish v2] is an open source Java EE 5 application server. 
-GlassFish v3 will offer Java EE 6 technologies and the new Java EE 6 Web Profile. 
+[https://glassfish.dev.java.net/downloads/v2.1-b60e.html GlassFish v2.1] is an open source Java EE 5 application server. 
+
+[https://glassfish.dev.java.net GlassFish v3 Preview] offers early access to Java EE 6 technologies and the new Java EE 6 Web Profile.  Developers building traditional enterprise applications have access to the rich features of the full Java EE 6 platform.  Developers building web applications targeting the Web container can use the Java EE 6 Web Profile.  Because GlassFish v3 uses a microkernel architecture based on OSGi, developers can begin with the Java EE 6 Web Profile and use the Update Center to dynamically upgrade to the full Java EE 6 platform.
 
 Java EE is a well tested deployment environment, and combining the benefits of GlassFish with JRuby provides the best deployment environment for Rails applications. Here are some of the benefits of using GlassFish as the deployment environment for JRuby on Rails applications :
 * Use the time-tested Java EE deployment platform.
-* Avoid the complex Mongrel-based deployment environment for Rails applications.
+* Avoid complex Mongrel-based deployment.
 * Use <a href="{{project warbler page Home}}">Warbler</a> to bundle your Rails application in a Java Web Application Archive (<tt>.war</tt> file) that you can deploy to a GlassFish instance.
 * Java EE and Ruby-on-Rails applications can be easily integrated in one container. This enables you to host JRuby-on-Rails applications in organizations that have already made investment in Java EE.
 * Rails applications benefit from the out-of-the-box clustering and high-availability support provided by GlassFish.
@@ -114,9 +115,13 @@ Setting up SSL is pretty straightforward.  However, you might encounter some odd
 Setting this option caused another problem to come up for this installation.  It was handling 400 simultaneous users under a supremely heavy load, and the memory was holding great until the application crashed because Microsoft Windows ran out of nonpaged pool memory.  The problem is described at  [http://docs.sun.com/app/docs/doc/820-3530/gfqse?l=fr)&a=view Win 2k3 non paged pool]. Changing the blocking characteristic to <tt>true</tt> for Grizzly stopped the nonpaged pool leak but had the potential to reduce the load the application could handle. The fix was applied only to the SSL listener because the problem didn't occur before switching to SSL.
 
 == GlassFish v3 ==
-GlassFish v3 is the next major release of the GlassFish application server, with the focus on modularization, enabling of non-Java EE containers, and embedability. GlassFish V3 has a gem that helps users launch their Ruby on Rails (ROR) applications embedded within the JRuby VM space. 
+GlassFish v3 is the next major release of the GlassFish application server, with the focus on modularization, enabling of non-Java EE containers, embedability, Java EE 6, and. 
 
-For more information on using this gem, see [[JRubyOnRailsWithGlassfishGem|JRuby on Rails With GlassFish Gem]].
+===JRuby on Rails With GlassFish v3 Gem==
+GlassFish v3 has a gem that helps users launch their Ruby on Rails (ROR) applications embedded within the JRuby VM space. For more information on using this gem, see [[JRubyOnRailsWithGlassfishGem|JRuby on Rails With GlassFish Gem]].
+
+===JRuby on Rails With GlassFish v3===
+While the GlassFish gem offers a robust and easy-to-use deployment environment, sometimes you need to use Java EE features from inside your Rails application, and for this you need to [http://wiki.glassfish.java.net/Wiki.jsp?page=DeployAndRunRailsOnGlassFishV3 deploy the application to the GlassFish v3 server]. 
 
 == Success Stories ==
 * [http://blogs.sun.com/arungupta/entry/jruby_and_glassfish_v2_another WorldxChange Communication NZ]
