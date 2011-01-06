@@ -28,6 +28,7 @@ JRuby release preparation
 * Close all resolved bugs associated with the release in JIRA
 * Release the version in JIRA
 * Send emails to dev@jruby.codehaus.org, user@jruby.codehaus.org, ruby-talk@ruby-lang.org (plus any thing else you may find useful -- internal lists, etc...)
+* Update wikipedia entry
 * Request MacPorts update
 ** File a request ticket to update MacPorts at http://guide.macports.org/#project.tickets
 *** Provide a portfile patch, ideally, similar to http://guide.macports.org/#development.patches.portfile
