@@ -1,0 +1,50 @@
+There are JRuby users all over the world! This is a good thing, too, since there are Ruby, Java, and JRuby conferences, events, and user groups all over the world.
+
+The users listed on this wiki page have volunteered to act as local "JRuby Delegates" when the JRuby core team members are unable to travel. They can answer questions about JRuby, meet up for lunch/dinner/hacking, speak at nearby conferences, and generally act as a local JRuby "expert" for some definition of "expert". You should feel comfortable contacting them directly with questions, and know that they'll either help you or put you in contact with someone who can.
+
+If you are interested in joining this list, we would recommend you meet the following criteria:
+
+* Day to day JRuby user
+* Have implemented something nontrivial using JRuby or contributed nontrivial patches
+* Comfortable with open-source ethos
+* Comfortable speaking to people, either one on one or as a group (presentation)
+
+In return, the JRuby community will help you fulfill the role of JRuby Delegate, providing speaking tips, presentation material, demos, and more. And of course the community and the core team are always standing by to assist you.
+
+Welcome to the JRuby Community!
+
+==United States==
+===Minnesota===
+====Twin Cities (Minneapolis, St Paul)====
+
+The three primary members of the JRuby core team are based in this area and attend the local Ruby user group.
+
+* Charles Nutter <headius@headius.com>
+* Thomas Enebo <thomas.enebo@gmail.com>
+* Nick Sieger <nicksieger@gmail.com>
+
+===Massachusetts===
+==== Boston Area and Southern NH====
+* Jay McGaffigan <hooligan495 at gmail dot com>
+Actively using JRuby and JRuby on Rails at work, specifically spent time deploying apps to Glassfish and tomcat, performance testing, creating windows services with JRuby.
+Spend time working on RCov and getting it to work with Jruby
+
+===Colorado===
+====Boulder/Denver Area====
+* Frederic Jean (frederic.jean@sun.com, fred@fredjean.net)
+Staff Engineer at Sun Microsystems currently working on http://kenai.com . Speaker coordinator for the [http://boulderjug.org Boulder JUG] and attends Derailed and Boulder Ruby. Works on [http://github.com/ikai/jruby-memcache-client JRuby MemCache Client].
+
+===Virginia===
+====Tidewater Area====
+* Rob Heittman <heittman.rob@gmail.com>
+Java heretic and RESTafarian who believes JRuby is the best Ruby.  Using JRuby on large projects, especially biodiversity and conservation.  (Oct 09) adapting JRuby-Rack to the Restlet framework and writing plugins for JRuby support in various OSGi environments.  Interests: leveraging Java concurrency, crusading to replace C-based gems, and someday, achieving refactoring tool parity with Java.
+
+===Kentucky===
+====Lexington====
+* Todd Willey <todd@rubidine.com>
+Rails deployments on Glassfish, integration with java libraries, active in [http://kyrug.org/ KYRUG].
+
+
+==Spain==
+* David Calavera <calavera@apache.org>
+JRuby contributor, Hudson commiter and JRuby on Rails user. Works on [http://calavera.github.com/trinidad Trinidad], [http://wiki.hudson-ci.org/display/HUDSON/Rake+plugin Rake plugin for hudson] or [http://wiki.hudson-ci.org/display/HUDSON/Ruby+Metrics+plugin Ruby metrics for Hudson] among others.
