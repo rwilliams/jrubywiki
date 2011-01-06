@@ -148,7 +148,7 @@ JRuby Embed allows you to configure its environment and behavior. In many cases,
 
 With Embed Core, you typically set options through constructor or method arguments. With JSR223, you use <code>System</code> properties instead.
 
-RedBridge supports both per-container ("per-engine," in JSR223 parlance) and per-evaluation options. Per-container options must be set before instantiating a scripting container or engine. Per-evaluation options should be set just before running Ruby code.
+RedBridge supports both per-container ("per-engine," in JSR223 parlance) and per-evaluation options. When you set per-container options using system properties, you must set before instantiating a scripting container or engine. When you set options using methods of Embed Core, you must set before using put/parse/runScriptlet methods. These methods instantiate and initialize Ruby runtime based on the configuration. Once Ruby runtime has been initialized, per-container configuration won't be referred anymore. Per-evaluation options should be set just before running Ruby code.
 
 *Per-container configurations:
 **JRuby Home
