@@ -31,6 +31,7 @@ Spend time working on RCov and getting it to work with Jruby
 
 ===Illinois===
 ====Chicago====
+* Micah Martin <micah@8thlight.com> - 8th Light, Inc. - Deployed JRuby in a variety of systems.
 * Josh Graham (joshua.graham@grahamis.com)
 Using JRuby since 2007 in enterprise projects, "wrote the paper" on introducing JRuby into the enterprise for ThoughtWorks.
 
