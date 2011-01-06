@@ -16,6 +16,7 @@
 * Make tag using git tag: '''git tag X.Y'; git push --tags'' 
 * Check out clean clone of release branch: cd .. && rm -rf release && git clone jruby release && cd release (for example)
 * Set your java version to Java 5 for building the release.
+* If you use rvm then 'rvm use system' to prevent gem accident [http://jira.codehaus.org/browse/JRUBY-5231 JRUBY-5231]
 * Run '''ant dist''' to generate source and binary distribution files, jruby-complete jar, and MD5/SHA checksum files.
 * Run '''jruby -S rake installer''' to generate both Windows installers.
 * Make 'ant test' runs on Linux, MacOS, and Windows with produced source distribution
@@ -35,9 +36,4 @@
 * Release the version in JIRA
 * Send emails to dev@jruby.codehaus.org, user@jruby.codehaus.org, ruby-talk@ruby-lang.org (plus any thing else you may find useful -- internal lists, etc...)
 * Update wikipedia entry
-* Request MacPorts update [not for RCs]
-** File a request ticket to update MacPorts at http://guide.macports.org/#project.tickets
-*** Provide a portfile patch, ideally, similar to http://guide.macports.org/#development.patches.portfile
-** Email macports-dev list to ensure the ticket gets noticed: http://lists.macosforge.org/mailman/listinfo/macports-dev/
-* Send kmeyer email about Redhat/Fedora packaging [not for RCs]
-* update [[GettingStarted]] to point to the latest release [not for RCs].
+* Send out to all known packagers [[JRubyDistributions]]
