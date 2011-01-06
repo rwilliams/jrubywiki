@@ -40,7 +40,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
 * [[JRuby and RubySpecs]]
 * [[Ruby 1_9 Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
-* [[Release Documentation|Release-Documentation]]
+* [[Release Documentation|ReleaseDocumentation]]
 * [[RoadMap]]
 </td>
 </tr>
