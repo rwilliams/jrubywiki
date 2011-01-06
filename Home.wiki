@@ -63,6 +63,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Success Stories]]
 * [[Case Studies]]
 * [[Articles]]
+* [[In Your Region]]
 </td>
 </tr>
 <tr valign="top">
