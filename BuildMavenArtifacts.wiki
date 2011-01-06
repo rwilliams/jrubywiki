@@ -1,12 +1,12 @@
 == Start by creating a new build plan: ==
 
-[[Image:Bamboo-create-plan.jpg]]
+[[image:Bamboo-create-plan.jpg]]
 
 
 == Select JRuby Releases Project: ==
 
 
-[[Image:Bamboo-project-select.jpg]]
+[[image:Bamboo-project-select.jpg]]
 
 
 == Enter the release name and key: ==
@@ -14,13 +14,13 @@
 Start key with a 'V'.
 
 
-[[Image:Bamboo-name-key.jpg]]
+[[image:Bamboo-name-key.jpg]]
 
 
 == Choose a previous release build to clone: ==
 
 
-[[Image:Bamboo-plan-clone.jpg]]
+[[image:Bamboo-plan-clone.jpg]]
 
 
 == Click next. ==
@@ -29,7 +29,7 @@ Start key with a 'V'.
 On the source repository page, change the URL to the release tag URL
 
 
-[[Image:Bamboo-repository-url.jpg]]
+[[image:Bamboo-repository-url.jpg]]
 
 
 == Click next through the remaining screens. ==
