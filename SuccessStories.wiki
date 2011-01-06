@@ -2,49 +2,265 @@ Here is a list of sites and projects using JRuby. Please add descriptions if pos
 
 <table>
 <tr>
-<th> Project </th>
-<th> Description </th>
-<th> Why is JRuby Needed? </th>
-<th> How is it Used? </th>
-<th> Using Java </th>
-<th> Any Regrets? </th>
-<th> Hits/day </th>
-</tr>
-<tr>
-<td>[http://labs.openmaru.com/projects/springbook/pages/484920?lang=en SpringBook]</td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-<tr>
-<td>[http://openwferu.rubyforge.org OpenWFEru]</td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-<tr>
-<td>[http://studios.thoughtworks.com/mingle-project-intelligence Mingle]</td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-<tr>
-<td>[http://mix.oracle.com Oracle Mix]</td><td>Running on Oracle Application Server, Oracle Database, Oracle Internet Directory, Oracle SSO, and JRuby 1.1RC2 on Rails (1.2.6).  Built by the Oracle AppsLab in collaboration with ThoughtWorks.</td><td></td><td></td><td>Yes</td><td>No</td>
+<th align="left">Project</th>
+
+<th align="left">Description</th>
+
+<th>Why is JRuby Needed?</th>
+
+<th>How is it Used?</th>
+
+<th>Using Java</th>
+
+<th>Any Regrets?</th>
+
+<th>Hits/day</th>
 </tr>
 
 <tr>
-<td>[http://the-shoebox.org/apps/44 Ruby-Processing]</td><td>A Wrapper for Processing, a visual coding sketchbook.</td><td>To access the Processing library.</td><td></td><td>Yes</td><td>No</td>
-</tr>
+<td>[http://getjotbot.com JotBot]</td>
 
-<tr>
-<td>[http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby "Desktop Application Development in JRuby"]</td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-<tr>
-<td>[http://sonar.hortis.ch Sonar]</td><td>An open-source entreprise dashboard which gauges quality of Java applications through the observance of coding rules conventions, metric measures and advanced indicators.</td><td>Embed Ruby/Rails into a JEE application</td><td>Jetty server + goldspike + activerecord-jdbc-adapter. Build with maven.</td><td>Yes</td><td>No</td>
-</tr>
-<tr>
-<td>[http://mediacast.sun.com Mediacast]</td><td>A (media)file hosting application. [http://blog.igorminar.com/2008/01/jruby-on-rails-rewrite-of.html Development and deployment details]</td><td></td><td></td><td>Yes</td><td>No</td>
-</tr>
-<tr>
-<td>[http://www.medienservice.sachsen.de/ Medienservice Sachsen]</td>
-<td>The local government of Saxony (Germany) publishes all its press releases via this application.</td>
-<td>App built on Rails, target environment is J2EE-only</td>
-<td>Running Rails, acessing Java libraries from the Rails app.</td>
+<td>Desktop based time tracking and reporting tool</td>
+
+<td>Gives access to Swing, JDBC, JDIC, etc.</td>
+
+<td>Ruby logic layer drives app and calls into Java libraries</td>
+
 <td>Yes</td>
+
+<td>No</td>
+
+<td></td>
+</tr>
+
+<tr>
+<td>[http://labs.openmaru.com/projects/springbook/pages/484920?lang=en SpringBook]</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
+<td>[http://openwferu.rubyforge.org OpenWFEru]</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
+<td>[http://kenai.com Project Kenai]</td>
+
+<td>Open Source, Student and Developer Collaboration Site for Software Projects</td>
+
+<td></td>
+
+<td>JRuby on Rails running on Glassfish</td>
+
+<td>Not directly</td>
+
+<td>No</td>
+
+<td>~15K/day (as of 2008-10-29) and growing</td>
+</tr>
+
+<tr>
+<td>[http://studios.thoughtworks.com/mingle-project-intelligence Mingle]</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
+<td>[http://mix.oracle.com Oracle Mix]</td>
+
+<td>Running on Oracle Application Server, Oracle Database, Oracle Internet Directory,
+Oracle SSO, and JRuby 1.1RC2 on Rails (1.2.6). Built by the Oracle AppsLab in
+collaboration with ThoughtWorks.</td>
+
+<td></td>
+
+<td></td>
+
+<td>Yes</td>
+
 <td>No</td>
 </tr>
+
 <tr>
-<td></td><td></td><td></td><td></td><td></td><td></td>
+<td>[http://the-shoebox.org/apps/44 Ruby-Processing]</td>
+
+<td>A Wrapper for Processing, a visual coding sketchbook.</td>
+
+<td>To access the Processing library.</td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td>No</td>
+</tr>
+
+<tr>
+<td>[http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby
+"Desktop Application Development in JRuby"]</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
+<td>[http://sonar.hortis.ch Sonar]</td>
+
+<td>An open-source entreprise dashboard which gauges quality of Java applications through
+the observance of coding rules conventions, metric measures and advanced indicators.</td>
+
+<td>Embed Ruby/Rails into a JEE application</td>
+
+<td>Jetty server + goldspike + activerecord-jdbc-adapter. Build with maven.</td>
+
+<td>Yes</td>
+
+<td>No</td>
+</tr>
+
+<tr>
+<td>[http://mediacast.sun.com Mediacast]</td>
+
+<td>A (media)file hosting application.
+[http://blog.igorminar.com/2008/01/jruby-on-rails-rewrite-of.html Development and
+deployment details]</td>
+
+<td></td>
+
+<td></td>
+
+<td>Yes</td>
+
+<td>No</td>
+</tr>
+
+<tr>
+<td>[http://www.medienservice.sachsen.de/ Medienservice Sachsen]</td>
+
+<td>The local government of Saxony (Germany) publishes all its press releases via this
+application.</td>
+
+<td>App built on Rails, target environment is J2EE-only</td>
+
+<td>Running Rails, acessing Java libraries from the Rails app.</td>
+
+<td>Yes</td>
+
+<td>No</td>
+</tr>
+
+<tr>
+<td>[http://code.google.com/p/schnell-jruby/ schnell]</td>
+
+<td>schnell is a zippy (Fast), yippy (Easy) and hippy (Cool) tool for testing
+websites.</td>
+
+<td>Written on jruby using webdriver (formerly htmlunit)</td>
+
+<td>schnell is a headless browser web application testing tool and uses webdriver
+(formerly htmlunit) as its driver.</td>
+
+<td>Yes</td>
+
+<td>No</td>
+</tr>
+
+<tr>
+<td>[http://www.trisano.org TriSano]</td>
+
+<td>TriSano&acirc;&bdquo;&cent; is an open source, citizen-focused surveillance and
+outbreak management system for infectious disease, environmental hazards, and
+bioterrorism attacks. It allows local, state and federal entities to track, control and
+ultimately prevent illness and death.</td>
+
+<td>Extensive roadmap - didn't think Ruby alone could get it done and want to fall back
+to Java rather than C.</td>
+
+<td>Running Rails</td>
+
+<td>Not yet, but will likely soon</td>
+
+<td>No</td>
+</tr>
+
+<tr>
+<td>[http://www.auktionskompaniet.com Auktionskompaniet.com]</td>
+
+<td>Auktionskompaniet.com is a Swedish chain of auction houses owned by Bukowskis
+Auktioner AB, Swedens biggest auction house. Auktionskompaniet hold auctions with objects
+in the average consumer price range.</td>
+
+<td>Third-party library integration</td>
+
+<td>Rails (2.1.2), Warbler 0.9.11, Glassfish v2, Ubuntu 8.04</td>
+
+<td>Yes</td>
+
+<td>No</td>
+
+<td>~100k page views / day (2008-10)</td>
+</tr>
+
+<tr>
+<td>[http://scrip-safe.com SCRIP-SAFE]</td>
+
+<td>Secure transcript delivery system developed by [http://theedgecase.com EdgeCase]</td>
+
+<td>to make use of java libraries</td>
+
+<td>Rails</td>
+
+<td>No</td>
+
+<td>No</td>
+
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
 </tr>
 </table>
