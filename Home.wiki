@@ -55,15 +55,13 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 ==Getting Involved==
 
-* [[Mailing Lists]]
+* Communicate: [[Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bug tracking)]
 * [http://kenai.com/projects/jruby/sources/main/show JRuby Source Repository]
 ** For Windows users, the [http://code.google.com/p/msysgit/ git installer for Windows] or the [http://wiki.github.com/schacon/hg-git Mercurial to Git bridge] may help in working with the source
 * [http://github.com/jruby/jruby/tree/master Public GitHub mirror] (fork, track changes)
-* [http://jira.codehaus.org/browse/JRUBY JIRA (bug tracking)]
 * [http://jruby.headius.com:8080/hudson/ JRuby build server]
 * [[JRuby Bug Reporting Style Guide]]
 * [[JRuby Style Guide]]
-* [[IRC]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to contribute to JRuby effectively]
 * [[JRuby and RubySpecs]]
 * [[Hacking JRuby]]
