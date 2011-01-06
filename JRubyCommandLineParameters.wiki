@@ -1,3 +1,4 @@
+[[Home|&raquo; JRuby Project Home Page]] &nbsp;&nbsp; [[Getting Started|&raquo; Getting Started with JRuby]]
 ==JRuby Command Line Parameters==
 
   $ jruby --help
