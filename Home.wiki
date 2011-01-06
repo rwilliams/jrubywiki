@@ -53,14 +53,8 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[Warbler]] <span style="font-size:90%; font-style:italic">(minimal, flexible, ruby-like way to create .war file)</span>
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
 * [[Goldspike]] <span style="font-size:90%; font-style:italic">Servlet to Rails bridge (deprecated, see [[Warbler]])</span>
-* [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html JRuby on Rails on Tomcat] <span style="font-size:90%; font-style:italic">(Rails 2.2.2, JRuby 1.1.6RC1, Warbler, Tomcat 6.x, MySQL, Mac OS X)</span>
 * [[Rails_2_3_2|Rails 2.3.2]]
-* [[JRuby on Rails on Jetty]]
-* [[JRuby on Rails in GlassFish]] <span style="font-size:90%; font-style:italic">(Open Source Java EE Application Server)</span>
-* [[JRuby on Rails on WebSphere]]
-* [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 JRuby on Rails on Oracle OC4J]
-* [[JRuby on Rails on BEA Weblogic]]
-* [http://oddthesis.org/theses/jboss-rails JRuby on Rails on JBoss]
+* JRuby on Rails on [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat], [[JRuby on Rails on Jetty|Jetty]], [[JRuby on Rails in GlassFish|Glassfish]], [[JRuby on Rails on WebSphere|Websphere]], [http://wiki.oracle.com/page/JRuby+on+Rails%3A+Deploying+to+Oracle+Containers+for+Java+EE+%28OC4J%29 Oracle OC4J],  [[JRuby on Rails on BEA Weblogic|Weblogic]], [http://oddthesis.org/theses/jboss-rails JBoss]
 * [[Running Rails with Firebird]]
 * [[Rails AOT]] <span style="font-size:90%; font-style:italic">(Compiling Rails' controllers and models AOT)</span>
 * [[Rails Eclipse Jetty Maven]] <span style="font-size:90%; font-style:italic">(Rails on Eclipse + Run Jetty Run + Maven)</span>
