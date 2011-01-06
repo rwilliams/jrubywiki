@@ -1,6 +1,6 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]]
 ==JRuby and Java Code Examples==
-Below are some code examples showing how to call ruby from within Java and Java from ruby.
+Below are some code examples showing how to call JRuby from Java and how to call Java from JRuby.
 
 ===Ruby:  <tt>call_java.rb</tt>===
   require "java"
