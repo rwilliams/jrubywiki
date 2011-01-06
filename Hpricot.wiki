@@ -1,9 +1,7 @@
 ==Installing Hpricot==
-The current version of Hpricot found through RubyGems should now work with JRuby trunk.
+The current version of Hpricot (0.7) does not yet work with JRuby. Previous versions (0.6.x) should work with JRuby. As such, to use Hpricot with JRuby 1.2+ you will need to force the appropriate version when installing: 
 
-To use Hpricot with JRuby 1.3+ you will need to run these commands
-
- jruby -S gem install hpricot
+ jruby -S gem install hpricot --version '~>0.6.1'
 
 You should see something like this
 
