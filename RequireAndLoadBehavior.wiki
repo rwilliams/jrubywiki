@@ -1,102 +1,101 @@
-Documentation on LoadService behavior pre-patch and post-patch, in an attempt to simplify and speed loading. The two issues addressed are [http://jira.codehaus.org/browse/JRUBY-335 JRUBY-335] and [http://jira.codehaus.org/browse/JRUBY-288 JRUBY-288].
+[[Home|&raquo; JRuby Project Wiki Home Page]]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [[Internals|&raquo; Design: Internals]]
+<h1>Require and Load Behavior</h1>
+This page provides documentation on <tt>LoadService</tt> behavior pre-patch and post-patch, in an attempt to simplify and speed loading. The two issues addressed are [http://jira.codehaus.org/browse/JRUBY-335 JRUBY-335] and [http://jira.codehaus.org/browse/JRUBY-288 JRUBY-288].
 
 The altered version is simpler, more correct, and faster in some cases (rails, specifically). It's a pretty tangled web regardless.
 
 __TOC__
 
-=0.9.2 behavior=
+==0.9.2 behavior==
+* <tt>Kernel.load </tt> calls <tt>findLibrary</tt> with an exact filename only.
+* <tt>Kernel.require </tt> calls <tt>findLibrary</tt> with the specified filename appended with four possible extensions in turn:
+*#<tt>rb</tt>
+*#<tt>ast.ser</tt>
+*#<tt>rb.ast.ser</tt>
+*#<tt>jar</tt>
+* <tt>require</tt> also tries the filename as-is, which is incorrect behavior.
 
-Kernel.load calls "findLibrary" with an exact filename only.
-Kernel.require calls "findLibrary" with the specified filename appended with four possible extensions in turn:
-#rb
-#ast.ser
-#rb.ast.ser
-#jar
-require also tries the filename as-is, which is incorrect behavior.
+===Default load path includes===
+# Current dir (implicit, during searches).
+# The &lt;JRuby lib&gt; dir (as specified by <tt>jruby.lib</tt> system property).
+#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby/1.8</tt> (note this and subsequent paths are using <tt>jruby.home</tt> property, not <tt>jruby.lib</tt> property).
+#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby/1.8/java</tt>
+#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby</tt>
+#<tt><nowiki><JRuby home></nowiki>/lib/ruby/1.8</tt>
+#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby/1.8/java</tt>
+#<tt><nowiki><JRuby home></nowiki>/lib/ruby</tt>
+#<tt>'.'</tt>
 
-==Default load path includes==
-#current dir (implicit, during searches)
-#the <JRuby lib> dir (as specified by jruby.lib system property)
-#<JRuby home>/lib/ruby/site_ruby/1.8 (note this and subsequent paths are using jruby.home property, not jruby.lib property)
-#<JRuby home>/lib/ruby/site_ruby/1.8/java
-#<JRuby home>/lib/ruby/site_ruby
-#<JRuby home>/lib/ruby/1.8
-#<JRuby home>/lib/ruby/site_ruby/1.8/java
-#<JRuby home>/lib/ruby
-#'.'
+===findLibrary===
+# Checks builtin libraries first for supplied filename.
+# Calls <tt>findFile</tt> with given filename, returning <tt>null</tt> if result is null.
+# If file (resource) is found:
+## If file ends with <tt>.jar</tt>, returns a <tt>JarredScript</tt> with specified resource.
+## If file ends with <tt>.rb.ast.ser</tt>, returns a <tt>PreparsedScript</tt> with specified resource.
+## Otherwise returns <tt>ExternalScript</tt> with resource and supplied filename.
 
-==findLibrary==
-#checks builtin libraries first for supplied filename
-#calls "findFile" with given filename, returning null if result is null
-#if file (resource) is found:
-##if file ends with ".jar", returns a JarredScript with specified resource
-##if file ends with ".rb.ast.ser", returns a PreparsedScript with specified resource
-##otherwise returns ExternalScript with resource and supplied filename
+===findFile===
+# If file starts with <tt>jar:</tt>, returns <tt>LoadServiceResource</tt> using supplied filename directly as a URL.
+# If file is found in current dir and resulting ''current-dir + filename'' is absolute, returns <tt>LoadServiceResource</tt> with ''current-dir + filename'' as URL
+# Retrieves a classloader from the <tt>JavaSupport</tt> object for this runtime (which ends up using the classloader in which that <tt>JavaSupport</tt> was loaded, usually <tt>System</tt> classloader).
+# Replaces <tt>\\</tt> with <tt>/</tt> in filename.
+# If filename starts with <tt>/</tt>, attempts to load from classloader resources. (This is incorrect: classloader resources ''cannot'' start with a <tt>/</tt>.)
+# Iterates over all entries in the load path:
+## If load path entry starts with <tt>jar:</tt> attempts to load from an associated <tt>JarFile</tt>, caching <tt>JarFile</tt> objects as they are encountered and instantiated.
+## Attempts to load file from the absolute path of ''current dir + load path entry''. (Seems wrong to me, and creates two JRubyFile objects every time.)
+## Attempts to load file from load path entry with <tt>\\</tt> substituted with <tt>/</tt>. (Also seems quite wrong, since most files' load paths will be absolute paths for <tt>ruby/1.8</tt> and similar directories, which would never work in a classloader.)
+# Attempts to load the filename directly from the classloader (again) regardless of whether it starts with <tt>/</tt> or not.
+# Failing all of the above, returns <tt>null</tt>, usually resulting in <tt>findLibrary</tt> returning <tt>nil</tt>. For <tt>require</tt>, this will then advance to the next extension.
 
-==findFile==
-#if file starts with "jar:" returns LoadServiceResource using supplied filename directly as a URL
-#if file is found in current dir and resulting current-dir + filename is absolute, returns LoadServiceResource with current-dir + filename as URL
-#retrieves a classloader from the JavaSupport object for this runtime (which ends up using the classloader in which that JavaSupport was loaded, usually System classloader)
-#replaces \\ with / in filename
-#if filename starts with /, attempts to load from classloader resources (this is incorrect; classloader resources *can not* start with a '/'.
-#Iterates over all entries in the load path:
-##If load path entry starts with "jar:" attempts to load from an associated JarFile, caching JarFile objects as they are encountered and instantiated.
-##Attempts to load file from the absolute path of (current dir + load path entry) (seems wrong to me, and creates two JRubyFile objects every time)
-##Attempts to load file from load path entry with '\\' substituted with '/' (also seems quite wrong, since most files' load paths will be absolute paths for ruby/1.8 and similar dirs, which would never work in a classloader)
-#attempts to load the filename directly from the classloader (again) regardless of whether it starts with / or not.
-#Failing all of the above, returns null, usually resulting in findLibrary returning nil. For require, this will then advance to the next extension
+==Problems with 0.9.2 behavior==
 
-=Problems with 0.9.2 behavior=
+* <tt>require</tt> should never attempt to load the supplied name without appending extensions. With a file <tt>foo</tt> in the current dir, <tt>require</tt> <tt>'foo'</tt> should still fail, only accepting <tt>foo</tt> with some extension.
+* For each extension, all possible locations are checked first, many involving classloader resources. This means that resources on the filesystem can take longer to look up since they can come after many classloader hits.
+* We have no files with extension <tt>.ast.ser</tt> that aren't <tt>.rb.ast.ser</tt>, and I know of no reason why we ever would.
+* Classloader resources are checked for all supplied filenames that start with <tt>/</tt>, even though this is not valid for classloader resources.
+* Classloader resources are (possibly again) checked for each load path, even though most load paths will be absolute paths to <tt>ruby/1.8</tt> and related directories.
+* Classloader resources are checked a third time if nothing has been found by using the same bare filename. If the file starts with <tt>/</tt> and nothing was found for the first classloader resource check above, this results in a repeat of the same search.
+* We do not have a <tt>site_ruby/1.8/java</tt> directory. I'm not sure we ever will need it.
+* We should not search <tt>"."</tt> since changing the current dir (<tt>Dir.chdir</tt>) should cause files in our initial PWD to no longer be implicitly locatable (and <tt>"."</tt> will always resolve to the JVM's startup PWD).
 
-*require should never attempt to load the supplied name without appending extensions. With a file 'foo' in the current dir, require 'foo' should still fail, only accepting foo with some extension.
-*For each extension, all possible locations are checked first, many involving classloader resources. This means that resources on the filesystem may take longer to lookup since they may come after many classloader hits.
-*We have no files with extension ".ast.ser" that aren't ".rb.ast.ser", and I know of no reason why we ever would.
-*Classloader resources are checked for all supplied filenames that start with '/', even though this is not valid for classloader resources.
-*Classloader resources are (possibly again) checked for each load path, even though most load paths will be absolute paths to ruby/1.8 and related dirs.
-*Classloader resources are checked a third time if nothing has been found using the same bare filename. If the file starts with '/' and nothing was found for the first classloader resource check above, this results in a repeat of the same search.
-*We do not have a site_ruby/1.8/java dir. I'm not sure we ever will need it.
-*We should not search ".", since changing the current dir (Dir.chdir) should cause files in our initial PWD to no longer be implicitly locatable (and "." will always resolve to the JVM's startup PWD)
+==New behavior (provided by supplied patch in JRUBY-335)==
 
-=New behavior (provided by supplied patch in JRUBY-335)=
+* <tt>Kernel.load</tt> behavior is unchanged, other than incidental changes in classloader resource lookup as a result of calling <tt>findLibrary</tt> and <tt>findLibraryWithClassloaders</tt> (documented below).
+* <tt>Kernel.require</tt> behavior excludes as-is filenames from search.
+* The <tt>ast.ser</tt> extension is eliminated.
+* The <tt>site_ruby/1.8/java</tt> load path entry is removed.
+* The <tt>'.'</tt> load path entry is removed.
 
-*Kernel.load behavior is unchanged, other than incidental changes in classloader resource lookup as a result of calling findLibrary and findLibraryWithClassloaders (documented below)
-*Kernel.require behavior excludes as-is filenames from search
-*the ast.ser extension is eliminated
-*the site_ruby/1.8/java load path entry is removed
-*the '.' load path entry is removed
+===The <tt>smartLoad</tt> method used for searching all expected extensions is changed as follows===
 
-==The "smartLoad" method used for searching all expected extensions is changed as follows==
+* It performs one search of all extensions against only filesystem-based locations.
+* It performs a second search of all extensions using classloader resource lookups or using direct URL-based resources (i.e. jar: urls).
 
-*it performs one search of all extensions against only filesystem-based locations
-*it performs a second search of all extensions using classloader resource lookups or using direct URL-based resources (i.e. jar: urls)
+===Both searches:===
 
-==Both searches==
+* Eliminate substituting <tt>\\</tt> for <tt>/</tt> in filenames. (<tt>JRubyFile</tt> and Java's own logic should handle this ok, but this should be tested on Windows.)
 
-*eliminate substituting '\\' for '/' in filenames (JRubyFile and Java's own logic should handle this ok, but this should be tested on Windows)
+===The filesystem-based search:===
 
-==The filesystem-based search==
+# Checks for the file in the current directory.
+# Checks for the file using each load path entry in turn.
 
-#checks for the file in the current directory
-#checks for the file using each load path entry in turn
+===The classloader and URL-based search:===
 
-==The classloader and URL-based search==
+# Checks for <tt>jar:</tt> URLs and loads if found.
+# Retrieves <tt>Thread</tt>'s context classloader (rather than always using the classloader JRuby was loaded in).
+# For each entry in the load path:
+## If entry is a <tt>jar:</tt> URL, uses that to load and cache <tt>JarFile</tt> objects that are then used to load the file if possible.
+## If entry does not start with <tt>/</tt>, attempts to load from classloader resources.
+# If filename does not start with <tt>/</tt>, attempts to load from classloader resources.
+# If all else fails, returns <tt>null</tt>, usually resulting in the <tt>smartLoad</tt> search proceeding to the next extension.
 
-#checks for jar: URLs and loads if found
-#retrieves Thread's context classloader (rather than always using the classloader JRuby was loaded in)
-#For each entry in the load path:
-##if entry is a jar: URL, uses that to load and cache JarFile objects that are then used to load the file if possible
-##if entry does not start with /, attempts to load from classloader resources
-#if filename does not start with /, attempts to load from classloader resources
-#if all else fails, returns null, usually resulting in the smartLoad search proceeding to the next extension
-
-=Justification for changes=
-
-The changes
-
-*simplify the loading process
-*eliminate extraneous paths that can not or should not be searched
-*eliminate repetitive classloader resource searching
-*eliminate searching of classloaders or jar loading until all potential filesystem locations have been exhausted
-*appear to speed a simple "jirb" load by a very small amount
-*improves the load time of a rails script from 8.7 seconds to 7.7 seconds (time jruby script/console --help)
-*improves the load time of the same script with a very large classpath from 9 seconds to 7.8 seconds
+==Justification for Changes==
+The changes:
+* Simplify the loading process.
+* Eliminate extraneous paths that cannot or should not be searched.
+* Eliminate repetitive classloader resource searching.
+* Eliminate searching of classloaders or jar loading until all potential filesystem locations have been exhausted.
+* Appear to speed a simple <tt>jirb</tt> load by a very small amount.
+* Improve the load time of a rails script from 8.7 seconds to 7.7 seconds (<tt>time jruby script/console --help</tt>).
+* Improve the load time of the same script with a very large classpath from 9 seconds to 7.8 seconds.
