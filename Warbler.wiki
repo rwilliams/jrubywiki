@@ -7,6 +7,7 @@ http://caldersphere.rubyforge.org/warbler/
 ''Warbler bundles JRuby and [[JRuby_Rack|JRuby-Rack]] for dispatching requests to your application inside the java application server, and assembles all jar files in WARBLER_HOME/lib/*.jar into your application. No external dependencies are downloaded. ''
 
 Created by [http://blog.nicksieger.com Nick Sieger]
+
 [http://blog.nicksieger.com/articles/2007/09/04/warbler-a-little-birdie-to-introduce-your-rails-app-to-java Announcement: Warbler, A Little Birdie To Introduce Your Rails App To Java] (Nick Sieger)
 
 __TOC__
@@ -49,94 +50,94 @@ The introduction of JRuby Rack with this release requires some changes. While it
 - # (Goldspike-specific; see README for details)
 - config.webxml.pool.maxActive = ENV['max'] ||= '10'
 - config.webxml.pool.minIdle = ENV['min'] ||= '4'
-- config.webxml.pool.c​heckInterval = 0
+- config.webxml.pool.c?heckInterval = 0
 - config.webxml.pool.maxWait = 30000
 
-+ config.webxml.jruby.​min.runtimes = 2
-+ config.webxml.jruby.​max.runtimes = 10
++ config.webxml.jruby.?min.runtimes = 2
++ config.webxml.jruby.?max.runtimes = 10
 </pre>
 
 ===== web.xml.erb sample diff =====
 <pre>
  <web-app>
 - <context-param>
-- <param-name>jr​uby.standalone</p​aram-name>
+- <param-name>jr?uby.standalone</p?aram-name>
 - <param-value><%= webxml.standalone %></param-value>
 - </context-param>
 -
 - <% if !webxml.standalone && webxml.jruby_home %>
 - <!-- jruby.home can be set either here, or as the system property jruby.home -->
 - <context-param>
-- <param-name>jr​uby.home</param-n​ame>
+- <param-name>jr?uby.home</param-n?ame>
 - <param-value><%= webxml.jruby_home %></param-value>
 - </context-param>
 - <% end %>
 -
 - <context-param>
-- <param-name>ra​ils.root</param-n​ame>
-- <param-value>/​WEB-INF</param-va​lue>
+- <param-name>ra?ils.root</param-n?ame>
+- <param-value>/?WEB-INF</param-va?lue>
 - </context-param>
 -
 - <context-param>
-- <param-name>ra​ils.env</param-na​me>
+- <param-name>ra?ils.env</param-na?me>
 - <param-value><%= webxml.rails_env || 'production' %></param-value>
 - </context-param>
 -
 - <% webxml.pool.marshal_dump.each do |k,v| %>
 - <context-param>
-- <param-name>jr​uby.pool.<%= k %></param-name>
+- <param-name>jr?uby.pool.<%= k %></param-name>
 - <param-value><%= v %></param-value>
 - </context-param>
 - <% end %>
 -
 - <context-param>
-- <param-name>fi​les.default</para​m-name>
-- <param-value>r​ails</param-value​>
+- <param-name>fi?les.default</para?m-name>
+- <param-value>r?ails</param-value?>
 - <description>
 - The files servlet should forward to the rails servlet if no file could be found
 - </description>
 - </context-param>
 -
 - <context-param>
-- <param-name>fi​les.prefix</param​-name>
-- <param-value>​</param-value>
+- <param-name>fi?les.prefix</param?-name>
+- <param-value>?</param-value>
 - <description>
 - Prefix added to static files
 - </description>
 - </context-param>
 -
 - <context-param>
-- <param-name>jr​uby.session_store​</param-name>
-- <param-value>d​b</param-value​> <!-- This value really means let Rails take care of session store -->
+- <param-name>jr?uby.session_store?</param-name>
+- <param-value>d?b</param-value?> <!-- This value really means let Rails take care of session store -->
 - </context-param>
 -
 - <listener>
-- <listener-class​>org.jruby.webapp.R​ailsContextListener​</listener-class​>
+- <listener-class?>org.jruby.webapp.R?ailsContextListener?</listener-class?>
 - </listener>
 -
 - <servlet>
-- <servlet-name>​rails</servlet-na​me>
-- <servlet-class​>org.jruby.webapp.Ra​ilsServlet</servl​et-class>
+- <servlet-name>?rails</servlet-na?me>
+- <servlet-class?>org.jruby.webapp.Ra?ilsServlet</servl?et-class>
 - </servlet>
 - <servlet>
-- <servlet-name>​files</servlet-na​me>
-- <servlet-class​>org.jruby.webapp.Fi​leServlet</servle​t-class>
+- <servlet-name>?files</servlet-na?me>
+- <servlet-class?>org.jruby.webapp.Fi?leServlet</servle?t-class>
 - </servlet>
 -
 - <!-- Allow all requests to go to the files servlet first -->
 - <% servlet_name = Warbler::VERSION < "0.9.9" ?
 - webxml.servlet_name :
-- webxml.context_param​s['servlet_name'] %>
+- webxml.context_param?s['servlet_name'] %>
 - <servlet-mapping>
 - <servlet-name><%= servlet_name || 'files' %></servlet-name>
-- <url-pattern>/​</url-pattern>​
+- <url-pattern>/?</url-pattern>?
 - </servlet-mapping>
 -
 - <% if webxml.jndi %>
 - <resource-ref>
 - <res-ref-name><%= webxml.jndi %></res-ref-name>
-- <res-type>java​x.sql.DataSource<​/res-type>
-- <res-auth>Cont​ainer</res-auth​>
+- <res-type>java?x.sql.DataSource<?/res-type>
+- <res-auth>Cont?ainer</res-auth?>
 - </resource-ref>
 - <% end %>
 +<% webxml.context_params.each do |k,v| %>
@@ -147,12 +148,12 @@ The introduction of JRuby Rack with this release requires some changes. While it
 +<% end %>
 +
 + <filter>
-+ <filter-name>R​ackFilter</filter​-name>
-+ <filter-class>​org.jruby.rack.RackF​ilter</filter-cla​ss>
++ <filter-name>R?ackFilter</filter?-name>
++ <filter-class>?org.jruby.rack.RackF?ilter</filter-cla?ss>
 + </filter>
 + <filter-mapping>
-+ <filter-name>R​ackFilter</filter​-name>
-+ <url-pattern>/​*</url-pattern​>
++ <filter-name>R?ackFilter</filter?-name>
++ <url-pattern>/?*</url-pattern?>
 + </filter-mapping>
 +
 + <listener>
@@ -162,14 +163,14 @@ The introduction of JRuby Rack with this release requires some changes. While it
 +<% if webxml.jndi then webxml.jndi.each do |jndi| %>
 + <resource-ref>
 + <res-ref-name><%= jndi %></res-ref-name>
-+ <res-type>java​x.sql.DataSource<​/res-type>
-+ <res-auth>Cont​ainer</res-auth​>
++ <res-type>java?x.sql.DataSource<?/res-type>
++ <res-auth>Cont?ainer</res-auth?>
 + </resource-ref>
 +<% end; end %>
 </pre>
 
 ==== Known Issue - PoolableObjectFactory NoClassDefFoundError ====
-This error indicates that the application still is attempting to use Goldspike. Ensure that you do not have goldspike.jar included in the .war file and ensure that your web.xml file is not attempting to use the old Goldspike servlet. While you are add it, ensure that you don't have the goldspike rails plug-in if you are running Rails.
+This error indicates that the application still is attempting to use Goldspike. Ensure that you do not have goldspike.jar included in the .war file and ensure that your web.xml file is not attempting to use the old Goldspike servlet. While you are at it, ensure that you don't have the goldspike rails plug-in if you are running Rails.
 
 <pre>
 org.apache.catalina.core.StandardContext listenerStart
