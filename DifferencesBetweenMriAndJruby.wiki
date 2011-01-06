@@ -1,5 +1,5 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]]
-=Differences Between MRI And JRuby=
+<h1>Differences Between MRI And JRuby</h1>
 Although ideally [http://en.wikipedia.org/wiki/Ruby_MRI MRI] and JRuby would behave 100% the same in all situations, there are some minor differences. Some differences are due to bugs, and those are not reported here. This page is for differences that are not bugs.
 
 __TOC__
