@@ -1,110 +1,92 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#Glassfish_v3_Deployment|&raquo; JRuby on Rails: Glassfish V3 Deployment]]
-<h1>JRuby on Rails in Glassfish</h1>
-[https://glassfish.dev.java.net Glassfish] is an open source Java EE 5 application server. Java EE is a long tested deployment environment and by combining the benefits of GlassFish with JRuby, we should be able to provide the best deployment environment for Rails applications. Here are some of the benefits of using GlassFish as the deployment environment for JRuby on Rails applications :
-* Use the time tested Java EE deployment platform
-* Avoid the complex Mongrel based deployment environment that one has to use to deploy Rails application.
-* With the availability of [[Goldspike]] one can deploy a war file of your Rails application directly to a GlassFish instance.
-* Java EE and Ruby-on-Rails applications can be easily integrated in one container. This allows to host JRuby-on-Rails applications in organizations who have already made investment in Java EE.
-* Rails applications can certainly benefit from the out-of-the-box clustering and high-availability support provided by GlassFish.
-* Reuse your database connections by using the database connection pooling mechanism provided by GlassFish.
-* Last, but not the least, JRuby-on-Rails can leverage the extensive set of Java libraries. 
+[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp; &nbsp; [[JRubyOnRails#Glassfish_v3_Deployment|&raquo; JRuby on Rails: GlassFish V3 Deployment]]
+<h1>JRuby on Rails in GlassFish</h1>
+[https://glassfish.dev.java.net GlassFish V2] is an open source Java EE 5 application server. Java EE is a long tested deployment environment, and by combining the benefits of GlassFish with JRuby, we provide the best deployment environment for Rails applications. Here are some of the benefits of using GlassFish as the deployment environment for JRuby on Rails applications :
+* Use the time-tested Java EE deployment platform.
+* Avoid the complex Mongrel-based deployment environment for Rails applications.
+* With the availability of [[Goldspike]], you can deploy a WAR file of your Rails application directly to a GlassFish instance.
+* Java EE and Ruby-on-Rails applications can be easily integrated in one container. This enables you to host JRuby-on-Rails applications in organizations that have already made investment in Java EE.
+* Rails applications benefit from the out-of-the-box clustering and high-availability support provided by GlassFish.
+* Reuse your database connections with GlassFish's database connection pooling mechanism.
+* Leverage the extensive set of Java libraries in your JRuby on Rails applications.. 
 
-Read details about why GlassFish is a preferred development & deployment environment for deploying Rails applications in an article at [http://developers.sun.com/appserver/reference/techart/rails_gf/ Rails powered by GlassFish Application Server].
+The following article provides details about why GlassFish is a preferred development and deployment environment for deploying Rails applications: [http://developers.sun.com/appserver/reference/techart/rails_gf/ Rails powered by GlassFish Application Server].
 
 __TOC__
 
 == Glassfish v2 ==
-In GlassFish v2 we currently support the war mode of deployment for your JRuby on Rails applications. The war can be created from your existing Rails applications by using [[Warbler]].
+In GlassFish v2, we currently support the WAR mode of deployment for your JRuby on Rails applications. You can create the <tt>.war</tt> file from your existing Rails applications by using <a href="{{project warbler page Home}}">Warbler</a>.
 
 === Setup ===
-Refer to the section titled "GlassFish V2" of the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide Getting Started Guide]. <br/>At the end of these steps ensure that you have the following environment variables defined :
+Refer to the section titled "GlassFish V2" of the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide Getting Started Guide].  At the end of these steps ensure that you have the following environment variables defined :
  GLASSFISH_ROOT - pointing to the directory where GlassFish V2 is installed
- JRUBY_HOME     - the jruby version which would point to $GLASSFISH_ROOT/jruby/jruby-1_0_3/jruby-1.0.3.
+ JRUBY_HOME     - the JRuby version which would point to $GLASSFISH_ROOT/jruby/jruby-1_0_3/jruby-1.0.3.
  PATH           - add $GLASSFISH_ROOT/bin and $JRUBY_HOME/bin to your existing PATH environment variable.
 
 === Create a simple hello application ===
-For those of you would like to deploy their own JRuby on Rails application, skip this section and refer to the next section titled "How to deploy JRuby on Rails applications".
+If you're ready to deploy your own JRuby on Rails application, skip this section and go to the next section, [[#How_to_deploy_JRuby_on_Rails_applications|How to deploy JRuby on Rails applications]].
 
-Below you would find steps that would help you create a very simple JRuby on Rails "hello" application using the JRuby version that you have installed using the steps mentioned in the "Setup" section above.
-<pre>
-cd $GLASSFISH_ROOT/jruby/samples
-jruby -S rails hello
-jruby script/generate controller say message       ( to create a controller "say" with a view "message" )
-</pre>
+Here are some steps for creating a very simple JRuby on Rails "hello" application. The application uses the JRuby version that you installed in the "Setup" section above.
+
+ cd $GLASSFISH_ROOT/jruby/samples
+ jruby -S rails hello
+ jruby script/generate controller say message
+
+The last line creates a controller <tt>say</tt> with a view <tt>message</tt>.
 
 === How to deploy JRuby on Rails applications ===
-Let us see how we could deploy this application to GlassFish v2 in both the '''Standalone Mode''' and '''Shared Mode'''. In the instructions listed below change the directory name if you are trying to deploy your own JRuby on Rails application.
+This section describes how to deploy this application to GlassFish v2 in both ''Standalone Mode'' and ''Shared Mode''. 
 
-If you already have a war file of your JRuby on Rails application (created using Warbler or Goldspike) then you could directly refer to the section "To deploy the Rails application".
+'''Note:''' In the instructions listed below, change the directory name if you are deploying your own JRuby on Rails application.
+
+If you already have a <tt>.war</tt> file for your JRuby on Rails application (created using Warbler or Goldspike), skip the prelminary instructions and go to "To deploy the Rails application" in either the Standalone Mode section or the Shared Mode section below.
 
 ==== Standalone Mode ====
-
-* Go the Rails application directory :
-<pre>
-cd $GLASSFISH_ROOT/jruby/samples/hello
-$GLASSFISH_ROOT/lib/ant/bin/ant -f $GLASSFISH_ROOT/jruby/install.xml create-standalone
-</pre>
- 
-You would now find a WEB-INF directory under "hello" sample directory which would contain '''web.xml''' and 2 directories '''lib''' and '''gems'''
-
-* Before we do a directory deployment of the sample to Glassfish, ensure that the GlassFish application server is running :
-<pre>
-cd ..
-asadmin start-domain 
-</pre>
-
-'''Note''' : If the application server is already running the command safely exits
-
-To deploy the Rails application :
-<pre>
-cd $GLASSFISH_ROOT/jruby/samples
-asadmin deploy hello
-</pre>
-
-* Access the following URLs in a browser : 
-http://localhost:8080/hello/say/message<br/>
-http://localhost:8080/hello <br/>
+# Go the Rails application directory and enter the following commands:<br/><tt> &nbsp; cd $GLASSFISH_ROOT/jruby/samples/hello<br/> &nbsp; 
+$GLASSFISH_ROOT/lib/ant/bin/ant -f $GLASSFISH_ROOT/jruby/install.xml create-standalone</tt> <br/>You can now see a <tt>WEB-INF</tt> directory under the <tt>hello</tt> sample directory that contains <tt>web.xml</tt> and the two directories <tt>lib</tt> and <tt>gems</tt>.
+# Before doing a directory deployment of the sample to GlassFish, ensure that the GlassFish application server is running as follows:<br/><tt> &nbsp;  cd ..<br/> &nbsp;  asadmin start-domain</tt><br/>'''Note:''' If the application server is already running, the command safely exits.
+# To deploy the Rails application, enter the following commands:<br/><tt> &nbsp;  cd $GLASSFISH_ROOT/jruby/samples<br/>  &nbsp; asadmin deploy hello</tt>
+# Access the following URLs in a browser:<br/><tt> &nbsp; <nowiki>http://localhost:8080/hello/say/message</nowiki><br/> &nbsp; <nowiki>http://localhost:8080/hello</nowiki></tt>
 
 ==== Shared Mode ====
+To deploy an application in shared mode, ensure that you have followed the "Post Installations" steps of the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide Getting Started Guide]. Please note that the steps have to be done only once for a GlassFish installation.
 
-For having an application deployed in shared mode, first ensure that you have followed the "Post Installations" of the [http://wiki.glassfish.java.net/Wiki.jsp?page=GettingStartedGuide Getting Started Guide]. Please note that the steps have to done only once for a GlassFish installation.
+'''''Note:''''' I don't see a Post Installations section in the GlassFish Getting Started Guide above.
             
-You would now find a WEB-INF directory under "hello" sample directory which would just contain '''web.xml'''
+You can now see a <tt>WEB-INF</tt> directory under the <tt>hello</tt> sample directory that contains just the file <tt>web.xml</tt>.
 
-* To deploy the Rails application :
-<pre>
-cd $GLASSFISH_ROOT/jruby/samples/hello
-$GLASSFISH_ROOT/lib/ant/bin/ant -f $GLASSFISH_ROOT/jruby/install.xml create-shared
-</pre>
+'''To deploy the Rails application:'''
+ cd $GLASSFISH_ROOT/jruby/samples/hello
+ $GLASSFISH_ROOT/lib/ant/bin/ant -f $GLASSFISH_ROOT/jruby/install.xml create-shared
 
-* Access the following URLs in a browser : 
-http://localhost:8080/hello/say/message<br/>
-http://localhost:8080/hello<br/>
+'''Access the following URLs in a browser:''' 
+ <nowiki>http://localhost:8080/hello/say/message</nowiki>
+ <nowiki>http://localhost:8080/hello</nowiki>
 
-== V2 On Windows ==
-
-Are you deploying on Glassfish on Windows?  Well before you do think long and hard.  Windows brings with it a unique set of challenges.  First off the Jruby team admittedly has not devoted as much time as they would like testing on the Windows platform.  Having said that, I've found that they have generally done a good job but from time to time we have found issues.  So I thought I could share some of the issues we've run into and how we've worked around them.
+== GlassFish v2 On Microsoft Windows ==
+Before deploying Glassfish on Microsoft Windows, be aware that this operating system presents a unique set of challenges.  JRuby doesn't seem to be as well tested on Microsoft Windows as on other platforms. Here are some of the issues you might encounter and some workarounds for them.
 
 === Windows likes to lock files ===
-If you are new to windows, it is worth knowing that windows likes to "lock" files on you.  What do I mean by this?  Well when you go to delete a file or move it or change it windows sometimes tells you that "the file is in use."  (Sometimes it doesn't tell you this).  DON'T IGNORE this message.  When we redeploy our war file we always get : "The file jnidispatch.dll is in use and wasn't overwritten".  You can safely ignore this if you haven't updated your version of jruby.  But if you have.  You should :
+If you are new to Microsoft Windows, be aware that it likes to "lock" files on you. When you try to delete, move, or change a file, you can get a message saying, "The file is in use." What can cause this message? For example, if you redploy your <tt>.war</tt> file, you often see, "The file <tt>jnidispatch.dll</tt> is in use and wasn't overwritten".  You can ignore this message if you haven't updated your version of JRuby.  But if you have, you should :
 * undeploy your app
 * stop your domain
 * start your domain
 * deploy the new version of your app
 
-We ran into lots of problems on this.
+=== Case of File Names Matters in Glassfish ===
+You especially have to watch case in Microsoft Windows because the operating system doesn't pay attention to case, so you might forget that GlassFish does. When deploying a <tt>.war</tt> file via script (for example, you layer Ruby over the asadmin command set and use rake to deploy the file), watch the case of the file name in your script. 
 
-=== Casing in may not matter in Windows but it does in Glassfish ===
-When deploying a war file via script (we layered ruby over the asadmin command set and did our deploys with rake), if you deploy your war file as such:
-<pre>
+For example, a file is deployed with the following capitalization:
   asadmin deploy "MyApp.war"
-</pre>
-Make sure if you undeploy your script you are undeploying "MyApp" and not myApp.  Apparently it doesn't matter if the casing on your War file is myapp.war... it really only matters what you typ into your deploy step.  (if you are coming from linux you probably are a guru with casing already)
 
-=== Make sure you tune your Glassfish JVM parameters! ===
-Can't stress this enough (and this doesn't necessarily apply just to windows).  Take the time to profile your application under load and at steady state and find the right set of JVM parameters that will make your app sing.  Glassfish can really handle a heavy load.  But you have to TUNE TUNE TUNE.
+Make sure if you undeploy in your script, you undeploy <tt>MyApp.war</tt> and not <tt>myApp.war</tt>.  
 
-*Here is a subset of our JVM options in our domain xml:
+=== Make Sure to Tune Your Glassfish JVM Parameters ===
+'''Note:''' This tip applies to all operating systems, not just Microsoft Windows.  
+
+Take the time to profile your application under load and at steady state and find the right set of JVM parameters that will make your app sing.  Glassfish handles a heavy load well, but you have to tune to get the best performance.
+
+<span id="JVM_options"></span>
+For example, here's a subset of JVM options in a sample domain xml:
 <pre>
         <jvm-options>-XX:SurvivorRatio=2</jvm-options>
         <jvm-options>-XX:MaxPermSize=192m</jvm-options>
@@ -115,17 +97,19 @@ Can't stress this enough (and this doesn't necessarily apply just to windows).  
 	<jvm-options>-Djavax.net.ssl.sessionCacheSize=10000</jvm-options>
 </pre>
 
-''' NOTE ''' the -server option makes a big difference.
+'''Note:''' The <tt>-server</tt> option makes a big difference.
 
 === Beware the URLs ===
-This is also not specifically a windows issue, but GF v2 doesn't like colons (:) in URLs.  We have some REST based web services, and we had some resources that had colons in the resource IDs.  We ended up having to code around that.  (FWIW: I believe that V3 and Tomcat don't have this issue).
+'''Note:''' This tip applies to all operating systems, not just Microsoft Windows.  
 
-=== Are you using SSL ? ===
-I would recommend fronting your app server with something like Apache and having it handle the SSL stuff.  We didn't do that and ran into lots of issues. 
+GlassFish v2 doesn't like colons (<tt>:</tt>) in URLs.  For example, if you have some REST based web services with resources that have colons in the resource IDs, you'll have to code around them. (FWIW: I believe that V3 and Tomcat don't have this issue).
 
-Setting up SSL was pretty straightforward.  However we encountered some odd issues.  First off, under load we run out of memory.  That's not good.  Diagnosing the problem with Jconsole heap dumps and a java profiler showed us that we had a Cache for the SslSessionContextImpl softreferences (and the references didn't point to anything) that was growing unbounded.   From looking at the source code of the class, it appears that there is a default timeout to clean up this cache that's 24hours.  I couldn't find a way to change the timeout.  But I did find a way to limit the size of the cache. (see the last JVM-OPTION in the list above, the one that sets the ssl.sessionCacheSize).
+===Using SSL ===
+If you use SSL, front your application server with something like Apache and have it handle the SSL stuff.
 
-After setting this, I thought I was out of the woods.  I was handling 400 simultaneous users under a supremely heavy load, the memory was holding great, I knew that when I upgraded to rails 2.2.2+ I'd be able to handle even more.  I was happy.  Until my app crashed because... windows ran out of nonpaged pool memory.  Why? Why? Why?  Come to find out, this is the problem we were seeing [http://docs.sun.com/app/docs/doc/820-3530/gfqse?l=fr)&a=view Win 2k3 non paged pool].  Well changing the blocking characteristic to true for Grizzly seems to me that we are not going to be able to handle as much load.  But it appears to be stopping the nonpaged pool leak.  I only applied the fix to my SSL listener as we had never seen this problem before switching to SSL.
+Setting up SSL is pretty straightforward.  However, you might encounter some odd issues.  First off, under load you could run out of memory.  When that happened in one installation, diagnosing the problem with Jconsole heap dumps and a Java profiler showed that there was a cache for the SslSessionContextImpl softreferences (which didn't even point to anything), and the cache was growing unbounded. From looking at the source code of the class, it appeared that there was a default timeout of 24 hours to clean up this cache. There didn't seem to be a way to change the timeout, but there was a way to limit the size of the cache. (See the last JVM-OPTION in the [[#JVM_options|list above]], the one that sets the <tt>ssl.sessionCacheSize</tt>).
+
+Setting this option caused another problem to come up for this installation.  It was handling 400 simultaneous users under a supremely heavy load, and the memory was holding great until the application crashed because Microsoft Windows ran out of nonpaged pool memory.  The problem is described at  [http://docs.sun.com/app/docs/doc/820-3530/gfqse?l=fr)&a=view Win 2k3 non paged pool]. Changing the blocking characteristic to <tt>true</tt> for Grizzly stopped the nonpaged pool leak but had the potential to reduce the load the application could handle. The fix was applied only to the SSL listener because the problem didn't occur before switching to SSL.
 
 == GlassFish v3 ==
 GlassFish V3 is the next major release of the GlassFish application server with the focus on modularization, enablement of non Java EE containers, and embedability. As part of GlassFish V3 we have created a gem which would help users to launch their Ruby on Rails (ROR) applications embedded within the JRuby VM space. 
