@@ -15,11 +15,11 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td width="50%">
 '''[http://jruby.org/download JRuby Downloads]'''
-* UNIX variants: Linux, OSX, Solaris, BSD:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.4.0RC1/jruby-bin-1.4.0RC1.tar.gz JRuby 1.4.0RC1 Binary.tar.gz]'''
-* Windows and Vista:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.4.0RC1/jruby-bin-1.4.0RC1.zip JRuby 1.4.0RC1 Binary.zip]'''
-* UNIX variants to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.4.0RC1/jruby-src-1.4.0RC1.tar.gz JRuby 1.4.0RC1 Source.tar.gz]''' 
-* Windows installer:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.4.0RC1/jruby_windows_1_4_0RC1.exe    JRuby 1.4.0RC1 installer]'''
-* Windows and Vista to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://dist.codehaus.org/jruby/1.4.0RC1/jruby-src-1.4.0RC1.zip    JRuby 1.4.0RC1 Source.zip]'''
+* UNIX variants: Linux, OSX, Solaris, BSD:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0RC2/jruby-bin-1.4.0RC2.tar.gz JRuby 1.4.0RC2 Binary.tar.gz]'''
+* Windows and Vista:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0RC2/jruby-bin-1.4.0RC2.zip JRuby 1.4.0RC2 Binary.zip]'''
+* UNIX variants to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0RC2/jruby-src-1.4.0RC2.tar.gz JRuby 1.4.0RC2 Source.tar.gz]''' 
+* Windows installer:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0RC2/jruby_windows_1_4_0RC2.exe    JRuby 1.4.0RC2 installer]'''
+* Windows and Vista to [[DownloadAndBuildJRuby|build yourself]]:<br/> &nbsp; '''[http://jruby.kenai.com/downloads/1.4.0RC2/jruby-src-1.4.0RC2.zip    JRuby 1.4.0RC2 Source.zip]'''
 </td>
 <td>
 '''JRuby Basics'''
