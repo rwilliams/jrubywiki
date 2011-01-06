@@ -1,4 +1,4 @@
-[[Home|&raquo; JRuby Project Home Page]]
+[[Home|&raquo; JRuby Project Wiki Home Page]]
 <h1>Getting Started with JRuby</h1>
 To get JRuby on your system, you can either install a binary file for your system, or you can download and build JRuby yourself.
 __TOC__
