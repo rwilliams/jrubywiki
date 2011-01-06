@@ -117,16 +117,7 @@ The problem stems from an ASM jar conflict. It was found by setting a custom cla
 JRubyClassLoader extends <tt>java.net.URLClassLoader</tt>, which treats any URL that doesn't end with a slash as a jar. See [http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html URLClassLoader].
 
 ====Why don't my special characters (like ção) appear correctly in my Swing app ?====
-The file encoding for the <tt>.rb</tt> file containing the special characters must be set to UTF-8. There were also issues in versions of JRuby before 1.2 where unicode characters were not properly pulled out via the <tt>toString</tt> method on Ruby objects. Try upgrading to 1.2 or higher.
-
-====Under OSX I get this error when trying to execute jruby:  "Exception in thread 'main' java.lang.NoClassDefFoundError: org/jruby/Main" ====
-The source of this problem is the inclusion of <tt>'.'</tt> (current directory) in your $PATH. You're also trying to execute JRuby from <tt>$JRUBY_HOME/bin</tt>. There's a bug in the JRuby bash script that prevents this from working.
-
-To correct the issue, remove <tt>'.'</tt> from your $PATH and relaunch the shell. Alternately, if you really want to keep <tt>'.'</tt> in your $PATH (which you shouldn't, but see google for reasons why), then just change your working directory to something other than <tt>$JRUBY_HOME/bin</tt> and execute the <tt>jruby</tt> command. It should launch just fine.
-  % cd /any/path/other/than/jruby_home
-  % jruby # should work
-
-'''Note:'''' This bug has been fixed in JRuby 1.2.
+The file encoding for the <tt>.rb</tt> file containing the special characters must be set to UTF-8.
 
 ====How do I check which version of the JVM JRuby is running on?====
   % jruby -rjava -e "puts java.lang.System.get_property('java.version')"
@@ -250,18 +241,8 @@ These two scenarios are described below.
 ===== JRuby 1.1.2 + =====
 JRuby 1.1.2 changed how it set up the classpath. Earlier versions merged the CLASSPATH environment variable with all .jar files in <tt>JRUBY_HOME/lib</tt> and passed them to the JVM via the <tt>-classpath</tt> option. JRuby 1.1.2 instead passes all <tt>.jar</tt> files in <tt>lib</tt> to the JVM via the <tt>-Xbootclasspath/a:</tt> option, while CLASSPATH is passed using <tt>-classpath</tt>. Jar files that use JNI (e.g. <tt>sqljdbc.jar</tt>) don't work correctly when they're in the boot classpath, so they should not be placed in JRuby's <tt>lib</tt> directory. Instead, they should be loaded with <tt>require</tt> or by setting the CLASSPATH environment variable.
 
-===== JRuby < 1.1 =====
-In older versions of JRuby (pre 1.1), loading a jar into multiple JRuby runtimes with <tt>require</tt> can cause problems with JNI. For example, when using Microsoft SQL Server and integrated security in a rails application with <tt>sqljdbc</tt> loaded with a <tt>require</tt> statement, running <tt>jruby</tt> <tt>-S</tt> <tt>rake</tt> <tt>test:units</tt> results in the following error:
- com.microsoft.sqlserver.jdbc.AuthenticationJNI
- &lt;clinit&gt;
- WARNING: Failed to load the sqljdbc_auth.dll
-
-The error message is displayed because <tt>sqljdbc.jar</tt> is loaded twice, but the OS and/or JVM and/or native library will only allow the native library to be loaded and initialized once. There are two ways to work around this problem.
-
-* Load the jar on the classpath instead of using <tt>require</tt>. This will cause it to be loaded by a different class loader, so the jar file will only be loaded once per process.
-* Tell JRuby to launch other jrubies out-of-proc with <br/><tt>jruby '''-J-Djruby.launch.inproc=false''' ''rest of command''</tt><br/> This will cause a second JVM to be launched in the <tt>rake</tt> <tt>test:units</tt> example above.
 
 ==== I tried the --server option and received an error====
 You tried the performance tuning option --server but received an error like "Error: no `server' JVM at `c:\Program Files\Java\jre6\bin\server\jvm.dll'."
-On windows the Java Runtime Environment (JRE) does not include the server VM. You should download an install the Java Development Kit (JDK). 
-If you want to use the server with the JRE, you can copy JDK's jre\bin\server folder to a bin\server directory in the Java SE Runtime Environment.
+On windows the Java Runtime Environment (JRE) inclues the client VM by default but does not include the server VM. You should download an install the Java Development Kit (JDK). 
+If you want to use the server VM with the JRE, you can copy JDK's jre\bin\server folder to a bin\server directory in the Java SE Runtime Environment.
