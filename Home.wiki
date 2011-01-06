@@ -1,6 +1,6 @@
 This is a community wiki dedicated to [http://jruby.org JRuby], an 100% pure-Java implementation of the [http://www.ruby-lang.org/en Ruby] programming language..
 
-'''NOTE: This wiki is located at http://kenai.com/projects/jruby/pages/Home; please update your links.'''
+'''NOTE: This wiki is located at [http://kenai.com/projects/jruby/pages/Home];  Please update your links.'''
 
 
 * [[About JRuby]]
@@ -125,6 +125,7 @@ Latest Release is JRuby 1.2.0:
 * [[JRuby Internal Design]]
 * [[JDBC | JRuby and JDBC]] <span style="font-size:90%; font-style:italic">(how to use JDBC directly within JRuby)</span>
 * [http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html JRuby JMS Producer / Consumer Example]
+* [[Accessing JMX]]
 * [[NetSsh Compatability]]
 </td>
 
