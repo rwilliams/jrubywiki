@@ -1,28 +1,26 @@
-You can use JRuby with [http://www.rubyonrails.org/ Ruby on Rails]!
+[[Home|&raquo; JRuby Project Wiki Home Page]]
+<h1>JRuby on Rails</h1>
+You can use JRuby with [http://www.rubyonrails.org/ Ruby on Rails]!<br/><br/>
 
 __TOC__
-==Advantages==
-
-Gives Rails the power and functionality of Java Platform:
-
-* Excellent Garbage collection for endless uptimes
+===Advantages===
+JRuby gives Rails the power and functionality of the Java Platform:
+* Excellent garbage collection for endless uptimes
 * Hotspot profiled dynamic optimizations for great performance
 * Access to Java ecosphere for additional technology options
-* Deploy to Java App Servers for ubiquity
+* Deploy to Java Application Servers for ubiquity
 
-==Getting Started==
+===Getting Started===
+Get started with this blog:
 
-[http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
+[http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120-second guide to JRuby on Rails]
 
-== Deployment ==
+=== Deployment ===
 
-=== War File Deployment ===
-If you do not use a traditional Ruby application server like mongrel, you can use a Java application server (JAS).  To deploy to a JAS you can use the tool [[Warbler]] to bundle up your Rails application in a Java Web Application Archive (e.g. .war file).  Once you have a .war file you can deploy to any JAS using their war deployment mechanism.  More info:
+==== War File Deployment ====
+If you don't use a traditional Ruby application server like [http://mongrel.rubyforge.org/ mongrel], you can use a Java application server.  To deploy to a Java app server, you can use the tool [[Warbler]], a minimal, flexible, Ruby-like way to create a <tt>.war</tt> file,  to bundle your Rails application in a Java Web Application Archive (<tt>.war</tt> file). Once you have a <tt>.war</tt> file, you can deploy to any Java app server using their war deployment mechanism.  
 
-* [[Warbler]] <span style="font-size:90%; font-style:italic">(minimal, flexible, ruby-like way to create .war file)</span>
-
-Here is information of various JAS:
-
+'''Some links to information on various Java App Servers:'''
 * [http://atalks.prokhorenko.us/2009/02/ruby-on-rails-application-migrating.html Tomcat]
 * [[JRuby on Rails on Jetty|Jetty]]
 * [[JRuby on Rails in GlassFish|Glassfish]]
@@ -32,40 +30,35 @@ Here is information of various JAS:
 * [http://oddthesis.org/theses/jboss-rails JBoss]
 * [http://blogs.sun.com/sabada/entry/deploying_jruby_on_rails_war JWS 7]
 
-=== Traditional Rails Deployment ===
+==== Traditional Rails Deployment ====
+''Looking for content and links to pages on GFV3 gem, mongrel, webrick, etc...''
 
-'''Looking for content and pages to GFV3 gem, mongrel, webrick, etc...'''
-
-== Miscellaneous Rails Topics ==
-
-'''Important note about [[Rails_2_3_2|Rails 2.3.2]]'''
-
-* JNDI - Blog entry on setting up JNDI: http://blarg.slackworks.com/posts/jndi-with-rails
-* [[RailsJSR286Portlets]] - Write Portlets using Rails
+=== Miscellaneous Rails Topics ===
+* '''[[Rails_2_3_2|Important note about Rails 2.3.2]]'''
+* [http://blarg.slackworks.com/posts/jndi-with-rails Blog entry on setting up JNDI]
+* [[RailsJSR286Portlets|Write Portlets using Rails]]
 * [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
 * [[Running Rails with Firebird]]
-* [[Rails AOT]] <span style="font-size:90%; font-style:italic">(Compiling Rails' controllers and models AOT)</span>
-* [[Rails Eclipse Jetty Maven]] <span style="font-size:90%; font-style:italic">(Rails on Eclipse + Run Jetty Run + Maven)</span>
+* [[Rails AOT|Compiling Rails' controllers and models AOT]]
+* [[Rails Eclipse Jetty Maven|Rails on Eclipse + Run Jetty Run + Maven]]
 * [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapter]
 * [[Rails Multi-Threading Best Practices]]
 
-== Old Topics ==
-
-* [[Goldspike]] <span style="font-size:90%; font-style:italic">Servlet to Rails bridge (deprecated, see [[Warbler]])</span>
+=== Old Topics ===
+* [[Goldspike|Goldpsike Servlet to Rails bridge]] - Deprecated, see [[Warbler]]
 * [[RailsWithH2InJNDIOnJetty]] - This page is out of date
 
-==See Also==
-
-* JRuby Wiki pages
-** [[Warbler | Warbler (minimal, flexible, ruby-like way to create .war file)]] 
-** [[Goldspike | Goldspike (Servlet to Rails bridge)]] 
-** [[Jruby on Rails on Tomcat]] - Rails 1.1 & 2.0
-** [[JRuby on Rails in GlassFish | GlassFish (Open Source Application Server for Java EE 5)]]
-* External links
-** [http://www.ibm.com/developerworks/websphere/techjournal/0801_shillington/0801_shillington.html JRuby on Rails on WebSphere]
-** [http://headius.blogspot.com/2006/11/advanced-rails-deployment-with-jruby.html Advanced Rails Deployment with JRuby]
-** [http://blogs.sun.com/whacko/entry/deploying_a_ruby_on_rails Deploying JRuby on Rails as a WAR]
-** [http://wiki.sprocket.slackworks.com/instiki/published/Slackocity A Rails plugin that uses Velocity as the templating engine for ActionView]
-** [http://smartic.us/2007/8/11/smarticast-3-jruby-on-rails-on-jboss Screencast which demos deploying JRuby on Rails]
-** [http://recompile.net/2007/09/a_brief_introduction_to_jruby.html A Brief Introduction to JRuby on Rails with Grizzly]
-** [http://bitnami.org/stack/jrubystack All-in-one installer for quickly running a dev environment of Rails on JRuby]. It is open source and supports Windows, Linux and Mac.
+===See Also===
+'''JRuby Wiki pages'''
+* [[Warbler | Warbler (minimal, flexible, ruby-like way to create .war file)]] 
+* [[Goldspike | Goldspike (Servlet to Rails bridge)]] 
+* [[Jruby on Rails on Tomcat]] - Rails 1.1 & 2.0
+* [[JRuby on Rails in GlassFish | GlassFish (Open Source Application Server for Java EE 5)]]
+'''External links'''
+* [http://www.ibm.com/developerworks/websphere/techjournal/0801_shillington/0801_shillington.html JRuby on Rails on WebSphere]
+* [http://headius.blogspot.com/2006/11/advanced-rails-deployment-with-jruby.html Advanced Rails Deployment with JRuby]
+* [http://blogs.sun.com/whacko/entry/deploying_a_ruby_on_rails Deploying JRuby on Rails as a WAR]
+* [http://wiki.sprocket.slackworks.com/instiki/published/Slackocity A Rails plugin that uses Velocity as the templating engine for ActionView]
+* [http://smartic.us/2007/8/11/smarticast-3-jruby-on-rails-on-jboss Screencast that demos deploying JRuby on Rails]
+* [http://recompile.net/2007/09/a_brief_introduction_to_jruby.html A Brief Introduction to JRuby on Rails with Grizzly]
+* [http://bitnami.org/stack/jrubystack All-in-one installer for quickly running a dev environment of Rails on JRuby]. It is open source and supports Windows, Linux and Mac.
