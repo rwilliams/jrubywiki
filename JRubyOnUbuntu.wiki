@@ -13,7 +13,7 @@ You may get errors like:
 
 '''Note:''' This will be fixed with JRuby 1.1 RC3, though it's uncertain whether all issues running under GCJ will be resolved.
 
-The reason for this may be that even though you have an up-to-date JDK installed, Ubuntu is not using it by default.  You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
+The reason for these errors might be that, even though you have an up-to-date JDK installed, Ubuntu is not using it by default. You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
 
 On Ubuntu 7.10, when I ran:
 
