@@ -223,9 +223,23 @@ To create empty arrays:
  Java::byte[12].new => makes a new byte[]
  java.lang.String[12].new => makes a new String[]
 
-==How do I handle Java Lists on JRuby?
+==How can I implement a Java Interface using a Ruby Class?==
 
-Take a look at the [http://kenai.com/projects/jruby/pages/JRubyCookbook JRuby Cookbook], specifically the sections [http://kenai.com/projects/jruby/pages/JRubyCookbook#Java_Arrays_on_jRuby Java Arrays in JRuby] and [http://kenai.com/projects/jruby/pages/JRubyCookbook#Creating_Java_Arrays Creating Java Arrays]
+There are two separate ways:
+
+# include an interface into the class
+
+ class MyListener
+   include java.awt.event.ActionListener
+
+   def actionPerformed(event)
+     button.text = "I have been pressed"
+   end
+ end
+
+# Use implicit closure conversion
+
+ button.add_action_listener { |event|  button.text = "I have been pressed" }
 
 = Compiler-related questions
 
