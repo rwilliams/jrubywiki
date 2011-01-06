@@ -1,3 +1,5 @@
+'''This page is grossly out of date'''
+
 In order to have an H2 database in a file be accessible from a web server it in necessary to configure the webserver for JNDI.  Here we use warbler to create a war from an existing rails app and deploy it on Jetty.
 
 1. Install h2 adapter and warbler
