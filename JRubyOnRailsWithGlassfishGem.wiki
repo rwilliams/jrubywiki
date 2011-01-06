@@ -135,31 +135,32 @@ On OpenSolaris you can install Apache 2.2 with IPS:
 
 On Ubuntu/Debian Linux, you would use apt: (TODO: verify package name on Ubuntu/Debian)
  
-# aptitude install apache2.2
+ # aptitude install apache2.2
 
 This example commands also refer to Solaris. You configure Apache 2.2. the same way in other OSes, but paths to configurations may vary. For instance on Debian/Ubuntu, apache config files are placed in ''/etc/apache2/sites-available/MY-CONFIG-FILE'' and these are enabled by a symlink in ''/etc/apache2/sites-enabled'' to the config file.
 
 File ''/etc/apache2/2.2/sites/myrailsapp.jruby.org''
 
- <VirtualHost *:80>
+<pre name="xml">
+<VirtualHost *:80>
+  ServerName myrailsapp.jruby.org
+  DocumentRoot /var/apps/my-railsapp/production/my-railsapp/public
 
- ServerName myrailsapp.jruby.org
- DocumentRoot /var/apps/my-railsapp/production/my-railsapp/public
- <Directory /var/apps/my-railsapp/production/my-railsapp/public>
-  Options FollowSymLinks
-  AllowOverride All
-  Order allow,deny
-  Allow from all
- </Directory>
- <Proxy balancer://myrailsapp>
-  BalancerMember http://127.0.0.1:3000
- </Proxy>
+  <Directory /var/apps/my-railsapp/production/my-railsapp/public>
+    Options FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
 
- ProxyPass / balancer://myrailsapp/
- CustomLog /var/log/apache2/myrailsapp_production_apache_access_log combined
+  <Proxy balancer://myrailsapp>
+    BalancerMember http://127.0.0.1:3000
+  </Proxy>
 
- </VirtualHost>
-
+  ProxyPass / balancer://myrailsapp/
+  CustomLog /var/log/apache2/myrailsapp_production_apache_access_log combined
+</VirtualHost>
+</pre>
 Since I place my virtual hosts in separate files, I need to add include to these at the bottom of the main configuration file ''/etc/apache2/2.2/httpd.conf''. If you haven't already configured your Apache server to use Virtual Hosts, you may have to add NameVirtualHost to your configuration:
 
  NameVirtualHost *:80
@@ -169,4 +170,5 @@ Now just enable (or restart your apache 2.2 server)
  $ pfexec svcadm enable apache22 
  $ pfexec svcadm restart apache22
 
-TODO: Nginx frontend, Linux init.rd start/stop script. Formatting
+
+'''TODO''': Nginx frontend, Linux init.rd start/stop script. Formatting
