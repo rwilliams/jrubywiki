@@ -34,6 +34,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 seconds guide to JRuby on Rails]
 * [[ActiveRecord-JDBC]]
 * [[JRuby on Rails#Deployment|Deploying Rails Apps]]   <span style="font-size:70%; font-style:italic">([[Warbler]])</span>
+* [[JRuby on Rails|More...]]
 </td>
 
 </tr>
