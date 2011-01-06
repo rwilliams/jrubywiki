@@ -2,6 +2,8 @@ Google Summer of Code 2009 is coming soon! The call for submissions will be open
 
 Question: Which organization is JRuby participating under?
 
+Answer: JRuby will participate under both the "Rails" organizations and the "Codehaus" organization. Feel free to submit to both, and we'll try to get them through whichever makes sense.
+
 Here's some ideas to get you started:
 
 * Nokogiri JRuby support (maybe too short, since it's mostly done)
