@@ -1,4 +1,4 @@
-* THIS IS EXPERIMENTAL AND RESEARCH ONLY *
+'''THIS IS EXPERIMENTAL AND RESEARCH ONLY'''
 
 Charles Oliver Nutter has done a first try at running JRuby on the Java Micro Edition CDC profile.  The code is based on the JRuby 0.9.8 release.  You can find the distribution at
 
@@ -19,4 +19,4 @@ Some articles:
 * http://markmail.org/message/y5z7avenlipqwcti
 
 
-* THIS IS EXPERIMENTAL AND RESEARCH ONLY *
+'''THIS IS EXPERIMENTAL AND RESEARCH ONLY'''
