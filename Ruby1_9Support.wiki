@@ -6,6 +6,36 @@ The new features in Ruby 1.9 are very lightly specified. The RubySpec project ha
 
 If you're interested in contributing RubySpecs, check out http://www.rubyspec.org for information on how to help out.
 
+=Code conventions=
+
+Sometimes we just need to change some code of a method to get it 1.9 compliant. There are a few conventions we have to follow to adapt those methods.
+
+* We should avoid to check runtime mode by wrapping 1.9 methods around 1.8 ones:
+
+  '''bad'''
+  @JRubyMethod
+  public IRubyObject collect(ThreadContext context, Block block) {
+    if (block.isGiven()) {
+      //do some cool
+    }  else if (context.getRuntime().is1_9()) {
+      // return Enumerator
+    } else {
+      // return Array
+    }
+  }
+
+  '''good'''
+  @JRubyMethod(name = "collect", compat = CompatVersion.RUBY1_8)
+  public IRubyObject collect(ThreadContext context, Block block) {
+    return block.isGiven() ? collectCommon(context, block) : newArray();
+  }
+  @JRubyMethod(name = "collect", compat = CompatVersion.RUBY1_9)
+  public IRubyObject collect19(ThreadContext context, Block block) {
+    return block.isGiven() ? collectCommon(context, block) : newEnumerator();
+  }
+
+* When we have two methods for different modes, ie Ruby 1.8 and 1.9, we have to add the version number without punctuations or dashes as the suffix of the method name for 1.9 mode. I.e: '''collect''' and '''collect19'''.
+
 =Implementation=
 
 Here's the status of Ruby 1.9 feature support and work remaining:
