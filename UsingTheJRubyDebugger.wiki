@@ -11,7 +11,7 @@ See: [http://debug-commons.rubyforge.org/#jruby-debug JRuby Fast Debugger]
   jruby -S gem install --ignore-dependencies ruby-debug
   jruby -S gem install --ignore-dependencies ruby-debug-ide # needed only for IDEs
 
-4. If you don't have the columnize gem installed install that also:
+4. Install the columnize gem (unless you already have):
   jruby -S gem install columnize
 
 '''Note''': <tt>--debug</tt> options used below works only with JRuby 1.1.3 and later. For older versions you need to stick with the old option, using <tt>-J-Djruby.reflection=true -J-Djruby.compile.mode=OFF</tt> instead <tt>--debug</tt>.
