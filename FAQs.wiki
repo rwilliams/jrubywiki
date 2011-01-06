@@ -144,6 +144,7 @@ To fix this, just set the production DB settings in <tt>database.yml</tt> proper
 
 ====How can I load a ResourceBundle from the Rails config directory ?====
 You can add the config directory to the JRuby classpath in <tt>config/environment.rb</tt>:
+  require 'java'
   $CLASSPATH << "file:///#{File.expand_path(File.join(RAILS_ROOT, 'config'))}/"
 
 Now, because <tt>ResourceBundle.getBundle</tt> doesn't seem to use the JRuby class loader, we need to pass it explicitly. In the file where you want to use the resource bundle do :
