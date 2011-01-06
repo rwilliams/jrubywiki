@@ -25,6 +25,6 @@ In general the simplest best practice for thread-safety is to never expect unsyn
 
 Libraries often are more difficult to make thread-safe, since they may have more objects shared across threads. As much as possible, mutable state should not be shared across threads. Where such sharing is unavoidable, you should use a Mutex around accesses to ensure that concurrent modifications do not corrupt data or damage a collection.
 
-# Application Server Optimization/Configuration
+==Application Server Optimization/Configuration==
 
-3.  TBD
+TBD
