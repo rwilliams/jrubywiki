@@ -1,0 +1,295 @@
+==Direct Embedding==
+
+JRuby can also be embedded directly using JRuby's own APIs. The interfaces in JavaEmbedUtils are meant to be long-lasting API's for raw embedding. This is generally only recommended for people embedding into other scripting engines and frameworks or for those who need a "bare metal" approach and are willing to keep up with continuing JRuby API changes. It is strongly recommended for most embedders to use BSF or javax.scripting APIs to embed JRuby. See [[Java Integration]].
+
+===Instantiating the JRuby interpreter===
+The most direct method of running JRuby in Java is as follows (works for JRuby 1.0.3+ and JRuby 1.1):
+
+<pre>
+import org.jruby.Ruby;
+import org.jruby.RubyRuntimeAdapter;
+import org.jruby.javasupport.JavaEmbedUtils;  
+{...}
+// Create runtime instance
+Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
+RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
+
+{...}
+evaler.eval(runtime, "puts 1+2");
+{...}
+
+// Shutdown and terminate instance
+JavaEmbedUtils.terminate(runtime);
+</pre>
+
+===Subclassing a Java class===
+<pre>
+/*
+This is run using
+java -cp .:/path/to/jruby.jar  RubyFromJava
+
+*/
+
+import org.jruby.*;
+
+public class RubyFromJava {
+	public String fooString() {
+		return "foo";
+	}
+	
+	public static void main(String[] ARGV) {
+		System.out.println("Started");
+		boring.SuperTest sTest = new boring.SuperTest();
+		
+		System.out.println("boring: " + sTest.fooString() + "\n");
+		
+		Ruby runtime = Ruby.getDefaultInstance();
+
+		/* This script subclasses the Object class.
+		It is then instantiated and the foobarString method is called. */
+		
+		String script = 
+			"require 'java'\n" +
+			"class RSubclass1 < java.lang.Object\n" + // subclassing java.* is magic
+			"	def foobarString\n" +
+			"		return @returnString = toString() + 'BAR'\n" +
+			"	end\n" +
+			"\n" +
+			"rsubclass = RSubclass1.new\n" +
+			"puts(rsubclass.foobarString())\n" +
+			"end";
+		runtime.evalScript(script);
+
+		System.out.println("-----------------\n");
+
+		/* This script subclasses the RubyFromJava class.
+		It is then instantiated and the foobarString method is called. */
+
+		script = 
+			"require 'java'\n" +
+			"class RSubclass2 < Java::RubyFromJava\n" + // subclassing non java.* requires you prefix the class with Java::
+			"	def foobarString\n" +
+			"		return @returnString = fooString() + 'BAR'\n" +
+			"	end\n" +
+			"\n" +
+			"rsubclass = RSubclass2.new\n" +
+			"puts(rsubclass.foobarString())\n" +
+			"end";
+		try {
+			runtime.evalScript(script);
+		} catch (Exception e) {
+			System.err.println(e.toString());
+			e.printStackTrace();
+		}
+	}
+}
+</pre>
+
+
+===Using a Ruby subclass by casting it to its Java superclass -- from Java!===
+<pre>
+/*
+This is run using
+java -cp .:/path/to/jruby.jar  RubyFromJava
+
+*/
+
+import org.jruby.*;
+
+public class RubyFromJava {
+	static RubyFromJava globalRFJ;
+	
+	public String fooString() {
+		return "foo";
+	}
+	
+	public static void main(String[] ARGV) {
+		System.out.println("Started");
+		boring.SuperTest sTest = new boring.SuperTest();
+		
+		System.out.println("boring: " + sTest.fooString() + "\n");
+		
+		Ruby runtime = Ruby.getDefaultInstance();
+
+		String script = 
+			"require 'java'\n" +
+			"class RSubclass < Java::RubyFromJava\n" + // subclassing non java.* requires you prefix the class with Java::
+			"	def fooString\n" +
+			"		return super + 'BAR!'\n" +
+			"	end\n" +
+			"end";
+		try {
+			runtime.evalScript(script);
+		} catch (Exception e) {
+			System.err.println(e.toString());
+			e.printStackTrace();
+		}
+
+		Object rfj = runtime.evalScript("RSubclass.new()");
+		rfj = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, (org.jruby.runtime.builtin.IRubyObject) rfj, RubyFromJava.class);
+		
+		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n");
+	}
+}
+</pre>
+
+----
+
+'''Summary - how to do this''' <br/>
+1. Write a Java class X (here in example RubyFromJava.java) which should be subclassed into a Ruby class Y. Let be fooString() be a method which you would like to overwrite in Ruby. This method will be called directly from Java, yet execute Ruby code.
+
+2. Get Ruby runtime instance via
+<pre>
+   Ruby runtime = Ruby.getDefaultInstance();
+</pre>
+
+3. Parse your script with Ruby class Y which overwrites fooString(). Assuming that the script is contained in the String "script", you do this via
+<pre>
+   try {
+	runtime.evalScript(script);
+   } catch (Exception e) {e.printStackTrace();}
+</pre>
+
+4. Intantiate Ruby class Y and cast (?) it to Java class X via
+<pre>
+   Object y = runtime.evalScript("Y.new()");
+   y = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, 
+      (org.jruby.runtime.builtin.IRubyObject) y, X.class);
+</pre>
+
+5. Now call the method fooString() of the object y - Ruby code is executed!
+<pre>
+   ((X) y).fooString();
+</pre>
+
+'''Remark 1''': 
+
+The overwritten method can also take parameters (at least Java objects, not sure about Ruby objects). So fooString() can be changed into:
+<pre>
+   public String fooString(String myArg) {
+	return "foo " + myArg;
+   }
+</pre>
+and the Ruby overwriting method then might look like this:
+<pre>
+   def fooString (myArg)
+	return 'BAR!' + myArg
+   end
+</pre>
+You call then the method as:
+<pre>
+   ((X) y).fooString("Argument");
+</pre>
+'''Remark 2''': 
+
+Be aware that the Ruby object y has been created from "scratch" and is not initialized. Obviously it is not possible to inherit/copy field values from a Java object x of type X at initialization. You can only access the values of x on Ruby side by passing x to y as a parameter in some call from Java (and then possibly saving as Ruby instance variable etc.) - just like any other Java object. This makes switching between Java and Ruby implementations in a Java framework a bit harder.
+
+===Ruby code in your classpath, Mixed with java===
+For those who don't want BSF, and want to have lots of their application code in ruby files on their classpath, the following very simple utility can be useful (feel free to re-use as is):
+
+<pre>
+package ruby.utils;
+
+import java.util.ArrayList;
+
+import org.jruby.Ruby;
+import org.jruby.RubyRuntimeAdapter;
+import org.jruby.javasupport.JavaEmbedUtils;
+import org.jruby.runtime.builtin.IRubyObject;
+
+/**
+ * This utility is a simple way to keep most of your code in ruby, 
+ * and must pass across a "root" object from java into a "root" object
+ * on the ruby side (calling a single argument method you specify - the root ruby object is created for you).
+ * Ruby code can live on the the classpath, next to your java.
+ * This doesn't require BSF, or any mandatory dependencies other then jruby.jar.
+ * 
+ * @author <a href="mailto:michael.neale@gmail.com">Michael Neale</a> 
+ */
+public class RubyLauncher {
+
+    /** this is the root object - to be used over and over */
+    private IRubyObject rootRubyObject;
+    private Ruby runtime;
+
+    /**
+     * 
+     * @param initialRequire The name of the .rb file that is your starting point (on your claspath).
+     * @param rootRubyClass The name of the ruby class in the above .rb file, must have no-arg constructor (a new instance will be created).
+     * @param rootMethod The name of the method to call in the above class when "call" is called.
+     */
+    public RubyLauncher(String initialRequire, String rootRubyClass, String rootMethod) {
+        
+        String bootstrap = 
+            "require \"" + initialRequire +  "\"\n"+
+            "class Bootstrap \n" +
+            "   def execute root_object  \n" +          
+            "       " + rootRubyClass + ".new." + rootMethod + "(root_object) \n" +
+            "   end    \n" +      
+            "end \n" +
+            "Bootstrap.new";
+
+        // This list holds the directories where the Ruby scripts can be found; unless you have complete 
+        // control how jruby is launched, use absolute paths
+        List<String> loadPaths = new ArrayList<String>();
+	loadPaths.add(".");
+        
+        runtime = JavaEmbedUtils.initialize( loadPaths );
+        rootRubyObject = JavaEmbedUtils.newRuntimeAdapter().eval( runtime, bootstrap );
+    }
+    
+    /**
+     * This can be called over and over on the one instance.
+     * 
+     * Pass your root java object to the root ruby object (which was created in the constructor, with the specified method). 
+     * If you want to get data out, best bet is to make the root object(s) wrappers for in/out objects.
+     */
+    public void call(Object obj) {
+        JavaEmbedUtils.invokeMethod( runtime, rootRubyObject, "execute", new Object[] {obj}, null );
+    }
+    
+    /**
+      * Use this method when embedding ruby files within a jar. They won't be found on the classpath or LOAD_PATH
+      * unless added relative to the location of the jar.
+      *
+      * e.g. jar structure:  /com/example/rubyfiles/my_class.rb
+      * loadPaths.add(getPathToJar("/com/example/rubyfiles/");
+      *
+      * @param jar_internal_path Absolute path to your ruby files inside the jar file
+      * @return String Path URL added to JRuby's LOAD_PATH
+      */
+    private String getPathToJar(String jar_internal_path)
+    {
+        java.net.URL url =  RubyLauncher.class.getResource(jar_internal_path);
+        return url.getPath();
+    }
+}
+</pre>
+
+To use this is simple, you create a "root" ruby object in a .rb file on your classpath, and pass the name/path of that file into the constructor (as well as the initial method to pass the root java object into).
+Note that you can require code that lives elsewhere on your classpath, just as if it is on the filesystem.
+
+For example:
+<pre>
+  Map<String, Object> root = new HashMap<String, Object>();
+  root.put("name", "david");
+
+  RubyLauncher launcher = new RubyLauncher("c:/ruby/myscripts/ruby_root.rb", "RubyRoot", "start");
+  launcher.call(root);
+</pre>
+
+NOTE: I was unable to get the RubyLauncher to find the Ruby script on my classpath. So I hardcoded the path.
+
+"RubyRoot" is the name of a ruby class in ruby_root.rb, and "start" is the name of a method that will take the "nae" object when "call" is invoked. Note that the initial Ruby script can <i>require</i> other .rb files from the classpath (just use the path, like you would on the filesystem) relative to where the "ruby_root.rb" file is.
+
+<pre>
+class RubyRoot
+  
+  def start( root )
+    puts root.toString
+  end
+  
+end
+</pre>
+
+Easy ! And no extra dependencies. This way you can just have minimal java bootstrap code, fire up the RubyLauncher once, and away you go.
