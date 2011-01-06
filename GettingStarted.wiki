@@ -179,11 +179,11 @@ A sample run from a MacBook Pro under Apple's Java 6 JVM is shown below:
  user    0m51.740s
  sys     0m2.146s
 
-==Example code==
+==Example Code==
 
 Below is some example code of calling ruby from within java and java from ruby
 
-Ruby:  call_java.rb
+===Ruby:  <tt>call_java.rb</tt>===
 
   require "java"
   
@@ -221,7 +221,7 @@ Ruby:  call_java.rb
     end
   end
 
-Java: ISpeaker.java
+===Java: <tt>ISpeaker.java</tt>===
 
     package com.example;
     
@@ -231,7 +231,7 @@ Java: ISpeaker.java
         public void addOne(String from);
     }
 
-Java: CallMe.java
+===Java: <tt>CallMe.java</tt>===
 
     package com.example;
     
@@ -256,7 +256,7 @@ Java: CallMe.java
         }
     }
 
-Java: CallRuby.java
+===Java: <tt>CallRuby.java</tt>===
 
     package com.example;
     
@@ -391,11 +391,11 @@ Java: CallRuby.java
         }
     }
 
-Note that if you only have simple interface requirements then you can use the second method of proxying the ruby object to include method level synchronization.
+'''Note:''' If you have only simple interface requirements, you can use the second method of proxying the ruby object to include method level synchronization.
 
-Note that BSF calling does not preserve ruby stack traces (add an error to a script and run both ways using the code above).
+'''Note:''' BSF calling does not preserve ruby stack traces (add an error to a script and run both ways using the code above).
 
-Also, note that the times you get from running this example are interesting (on my old Windows box using Java5):
+'''Note Also:''' The times you get from running this example are interesting (on my old Windows box using Java5):
 
   Took 5.469 on pass 0  // This is the Standard BSF Wrapping
   Took 1.75 on pass 1   // Using normal Java Proxies
