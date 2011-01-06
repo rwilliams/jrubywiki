@@ -15,7 +15,7 @@ Once you're done, go to [[#Did_it_work|Did it work?]] to continue.
 If you're on Windows, or if your package manager doesn't include JRuby you'll need to extract it yourself.
 
 # [http://dist.codehaus.org/jruby/ Download JRuby]. 
-#* For OSX, LInux, BSD, Solaris, and other UNIX varieties, grab the most recent <tt>jruby-bin-X.Y.Z.tar.gz</tt> file.
+#* For OSX, Linux, BSD, Solaris, and other UNIX varieties, grab the most recent <tt>jruby-bin-X.Y.Z.tar.gz</tt> file.
 #* If you're on Microsoft Windows, grab the most recent <tt>jruby-bin-X.Y.Z.zip</tt> file.
 # Extract JRuby into a directory.
 # Add that directory's bin subdirectory to the ''end'' of your <tt>path</tt> environment variable.
