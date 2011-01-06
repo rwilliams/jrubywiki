@@ -302,16 +302,7 @@ Sometimes you need to call <tt>initialize</tt> AFTER the <tt>.new()</tt> call, f
   localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
   @mgr.java_send :initialize, [javax.media.rtp.SessionAddress], localaddr
 
-In previous versions of JRuby, the same thing can be accomplised with reflection:
-
-  @mgr = javax.media.rtp.RTPManager.newInstance
-  localhost = java.net.InetAddress.getByName("127.0.0.1")
-  localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
-  method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
-  method.invoke @mgr.java_object, localaddr.java_object
-
 Here is another example of calling the <tt>ArrayList.add</tt> method with <tt>java_send</tt>:
-
  
  import java.util.ArrayList
  list = ArrayList.new
@@ -319,6 +310,16 @@ Here is another example of calling the <tt>ArrayList.add</tt> method with <tt>ja
  puts list.java_send :toString # => "[foo]"
 
 Note the second argument, which is an array of types indicating the exact method signature desired. This is useful for disambiguating methods that are overloaded on similar types such as <tt>int</tt> and <tt>long</tt>.
+
+=== Reflection ===
+
+Here is an example that shows using java's reflection within jruby
+
+  @mgr = javax.media.rtp.RTPManager.newInstance
+  localhost = java.net.InetAddress.getByName("127.0.0.1")
+  localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
+  method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
+  method.invoke @mgr.java_object, localaddr.java_object
 
 === Bound and Unbound Java methods with <tt>java_method</tt> ===
 <tt>java_send</tt> relies on reflection and may lead to poor performance in some cases. Each time it is called, the desired method must be relocated. With the <tt>java_method</tt> method you can get a reference to any overloaded Java method as a Ruby Method object:
