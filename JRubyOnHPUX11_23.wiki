@@ -1,6 +1,6 @@
-[[Home|&raquo; JRuby Project Home Page]] &nbsp;&nbsp; [[Getting Started|&raquo; Getting Started with JRuby]]
 ==Using JRuby on HPUX==
-This document describes a workaround to get JRUBY working on HPUX, since untarring <tt>jruby-bin-1.0.tar</tt> causes the following error, in addition to missing jar files in <tt>$JRUBY_HOME/lib</tt>.
+
+This document describes a workaround to get JRUBY working on HPUX, since untarring <code>jruby-bin-1.0.tar</code> causes the following error, in addition to missing jar files in <code>$JRUBY_HOME/lib</code>.
 
   x jruby-1.0/lib/ruby/gems/1.8/doc/rspec-1.0.5/ri/Spec/Runner/Formatter/RdocFormatter/
   example_passed-i., 216 bytes, 1 tape blocks
@@ -9,12 +9,13 @@ This document describes a workaround to get JRUBY working on HPUX, since untarri
   directory checksum error 
 
 === Workaround ===
+
 This document was authored by a newbie. There might be better ways to make JRuby work on HPUX. (Don't know how to test or check if all JRuby functions and features are working with this workaround. At least my scripts seem to work.)
 
 '''Note:''' Before going through all the work below, you might want to try downloading and building GNU tar. I used GNU tar to unpack the JRuby tar and everything worked great. No errors. If you don't want to go through building GNU tar, then here's the workaround:
 
-# <tt>tar xvf jruby-bin-1.0.tar</tt> (ignore the @LongLink errors)
-# Copy the following jars to <tt>JRUBY_HOME/lib</tt> directory. (I had a copy of these jar files on a Linux box, where the untar worked successfully.)
+# <code>tar xvf jruby-bin-1.0.tar</code> (ignore the @LongLink errors)
+# Copy the following jars to <code>JRUBY_HOME/lib</code> directory. (I had a copy of these jar files on a Linux box, where the untar worked successfully.)
 
   asm-2.2.3.jar
   asm-commons-2.2.3.jar
@@ -27,7 +28,7 @@ This document was authored by a newbie. There might be better ways to make JRuby
   jruby.jar
   junit.jar
 
-3. Modify <tt>$JRUBY_HOME/bin/jruby</tt> bash file as follows. (I had to do this as I don't have bash on my HP box and don't know how to convert a bash script into ksh or some other shell script.)
+3. Modify <code>$JRUBY_HOME/bin/jruby</code> bash file as follows. (I had to do this as I don't have bash on my HP box and don't know how to convert a bash script into ksh or some other shell script.)
 
   JRUBY_HOME="<nowiki><<jruby_home>></nowiki>" #Substitute your jruby_home
   JRUBY_OPTS=""
