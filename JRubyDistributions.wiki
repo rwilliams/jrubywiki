@@ -1,0 +1,65 @@
+JRuby is available at our [http://www.jruby.org/download website], but it is also available in many distributions.  This page documents all the brave souls who help package up JRuby and distribute it via various packaging technologies.
+
+{|- border="2"
+!OS
+!Package
+!Maintainer
+!Current version (1.5.6)
+!Notes
+|-
+|Ruby
+|RVM
+| 
+| 1.5.6
+|
+|-
+|MacOS
+|Macports
+| ameingast?
+| 1.5.2 [1.5.5 request]
+| [http://trac.macports.org/browser/trunk/dports/lang/jruby/Portfile portfile]
+|-
+|MacOS
+|Homebrew
+| Aku Kotkavuo
+| 1.5.6
+| [https://github.com/mxcl/homebrew/blob/master/Library/Formula/jruby.rb formula]
+|-
+|MacOS
+|Fink
+| None
+|
+|
+|-
+|Redhat/Fedora
+|RPM
+| Mohammed Morsi
+| 1.5.3 [1.5.6 requested]
+|[https://bugzilla.redhat.com/show_bug.cgi?id=561484 issue]
+|-
+|Debian
+|APT
+| Sebastien Delafond, Torsten Werner ???
+|
+|
+|-
+|Ubuntu
+|APT
+| ubuntu-motu : lists.ubuntu.com
+| 1.5.1
+| on Natty
+|
+|-
+|Gentoo
+|???
+| 
+| 
+|
+|-
+|Windows
+|install4j
+| jruby-core
+| 1.5.6
+|
+|}
+
