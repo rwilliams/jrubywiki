@@ -1,14 +1,14 @@
-[[Home|&raquo; JRuby Project Home Page]] &nbsp;&nbsp; [[Getting Started|&raquo; Getting Started with JRuby]]
 ==JRuby With Wrong Java==
+
 [''ed: This page needs revision because some other Linux distros have the same problem as Ubuntu. What we might want to add is proper instructions for getting a hotspot-based JVM on those Linux versions, either as OpenJDK (like RedHat's "icedtea" builds) or a Sun build.'']
 
-You may find that even though you have an up-to-date JDK installed, JRuby does not work on Ubuntu.  When running <tt>jruby -v</tt>,  you might get exceptions from Java. The reason for these errors might be that, even though you have an up-to-date JDK installed, Ubuntu is not using it by default. You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
+You may find that even though you have an up-to-date JDK installed, JRuby does not work on Ubuntu.  When running <code>jruby -v</code>,  you might get exceptions from Java. The reason for these errors might be that, even though you have an up-to-date JDK installed, Ubuntu is not using it by default. You need to update your configuration to use the proper JDK.  See [https://help.ubuntu.com/community/Java] for more information on this issue.
 
 On Ubuntu 7.10, I ran
  java -version
 which said that I was running  Java version 1.5.0 when I knew I had Java version 1.6 installed. I then ran:
  sudo update-alternatives --config java
-I picked the option <tt>/usr/lib/jvm/java-6-sun/jre/bin/java</tt>.  Following that, running <tt>java -version</tt> 
+I picked the option <code>/usr/lib/jvm/java-6-sun/jre/bin/java</code>.  Following that, running <code>java -version</code> 
 gave me
  java version "1.6.0_03"
  Java(TM) SE Runtime Environment (build 1.6.0_03-b05)
