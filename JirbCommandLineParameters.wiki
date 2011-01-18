@@ -1,7 +1,8 @@
-[[Home|&raquo; JRuby Project Home Page]] &nbsp;&nbsp; [[Getting Started|&raquo; Getting Started with JRuby]]
 ==Jirb Command Line Parameters==
+
 These jirb commands are entered in a terminal window or command window, depending on your operating system.
 
+<pre>
  $ jirb --help
  Usage:  irb.rb [options] [programfile] [arguments]
    -f                Suppress read of ~/.irbrc
@@ -27,3 +28,4 @@ These jirb commands are entered in a terminal window or command window, dependin
                      value is 16.
    --irb_debug n     Set internal debug level to n (not for popular use)
    -v, --version     Print the version of irb
+</pre>
