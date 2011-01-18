@@ -17,8 +17,8 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td>
 '''JRuby Basics'''
-* [[About JRuby]]
-* [[Getting Started]]
+* [[AboutJRuby|About JRuby]]
+* [[GettingStarted|Getting Started]]
 * [[Walkthroughs and Tutorials]]
 * [[ApplicationsAndLibraries|Help With Libraries and Applications]]
 * [[RedBridge | Embedding JRuby]]
@@ -39,7 +39,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JRuby Style Guide]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
 * [[JRuby and RubySpecs]]
-* [[Ruby 1_9 Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
+* [[Ruby1_9Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
 * [[Release Documentation|ReleaseDocumentation]]
 * [[RoadMap]]
 </td>
