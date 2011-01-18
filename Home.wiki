@@ -38,9 +38,9 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[JRubyBugReportingStyleGuide|JRuby Bug Reporting Style Guide]]
 * [[JRubyStyleGuide|JRuby Style Guide]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
-* [[JRuby and RubySpecs]]
+* [[JRubyAndRubySpecs|JRuby and RubySpecs]]
 * [[Ruby1_9Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
-* [[Release Documentation|ReleaseDocumentation]]
+* [[ReleaseDocumentation|Release Documentation]]
 * [[RoadMap]]
 </td>
 </tr>
@@ -51,7 +51,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
 *[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a Deploying a Rails App in Tomcat with JRuby]
 * [[ActiveRecord-JDBC]]
-* [[JRuby on Rails#Deployment|Deploying Rails Apps]]   
+* [[JRubyOnRails|Deploying Rails Apps]]   
 * <a href="{{project warbler page Home}}">Warbler</a> (bundling JRuby on Rails apps into a WAR)
 
 ''' Evangelism'''
