@@ -23,7 +23,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * [[ApplicationsAndLibraries|Help With Libraries and Applications]]
 * [[RedBridge | Embedding JRuby]]
 * [[CallingJavaFromJRuby|Scripting Java from JRuby]]
-* [[StandaloneJarsandClasses|Standalone Jars and Classes]]
+* [[StandaloneJarsAndClasses|Standalone Jars and Classes]]
 * [[PerformanceTuning|Performance Tuning]]
 * [[FAQs]]
 </td>
