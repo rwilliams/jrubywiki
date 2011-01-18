@@ -1,7 +1,8 @@
-[[Home|&raquo; JRuby Project Home Page]] &nbsp;&nbsp; [[Getting Started|&raquo; Getting Started with JRuby]]
 ==JRuby Command Line Parameters==
+
 These JRuby commands are entered in a terminal window or command window, depending on your operating system.
 
+<pre>
   $ jruby --help
   Usage: jruby [switches] [--] [programfile] [arguments]
     -0[octal]       specify record separator ( , if no argument)
@@ -43,3 +44,4 @@ These JRuby commands are entered in a terminal window or command window, dependi
     --1.9           specify Ruby 1.9.x compatibility
     --bytecode      show the JVM bytecode produced by compiling specified code
     --version       print the version
+</pre>
