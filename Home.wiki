@@ -47,7 +47,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <tr valign="top">
 <td>
 '''JRuby on Rails'''
-* [[JRuby on Rails]]
+* [[JRubyonRails|JRuby on Rails]]
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
 *[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a Deploying a Rails App in Tomcat with JRuby]
 * [[ActiveRecord-JDBC]]
@@ -57,10 +57,10 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 ''' Evangelism'''
 * [[Benchmarks | Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations
-* [[Success Stories]]
-* [[Case Studies]]
+* [[SuccessStories|Success Stories]]
+* [[CaseStudies|Case Studies]]
 * [[Articles]]
-* [[In Your Region]]
+* [[InYourRegion|In Your Region]]
 </td>
 <td>
 '''Related Websites'''
