@@ -19,12 +19,12 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 '''JRuby Basics'''
 * [[AboutJRuby|About JRuby]]
 * [[GettingStarted|Getting Started]]
-* [[Walkthroughs and Tutorials]]
+* [[WalkthroughsandTutorials|Walkthroughs and Tutorials]]
 * [[ApplicationsAndLibraries|Help With Libraries and Applications]]
 * [[RedBridge | Embedding JRuby]]
 * [[CallingJavaFromJRuby|Scripting Java from JRuby]]
-* [[Standalone Jars and Classes]]
-* [[Performance Tuning]]
+* [[StandaloneJarsandClasses|Standalone Jars and Classes]]
+* [[PerformanceTuning|Performance Tuning]]
 * [[FAQs]]
 </td>
 <td width="50%">
