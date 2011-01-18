@@ -56,7 +56,7 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 
 ''' Evangelism'''
 * [[Benchmarks | Benchmarking Tips and Tricks]]
-* [[JRubyPresentations | JRuby Talks and Presentations
+* [[JRubyPresentations | JRuby Talks and Presentations]]
 * [[SuccessStories|Success Stories]]
 * [[CaseStudies|Case Studies]]
 * [[Articles]]
