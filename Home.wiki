@@ -35,8 +35,8 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 * Status: [http://ci.jruby.org Build Server]
 * Design/Internals: [[Internals]]
 * Distributions: [[JRubyDistributions]]
-* [[JRuby Bug Reporting Style Guide]]
-* [[JRuby Style Guide]]
+* [[JRubyBugReportingStyleGuide|JRuby Bug Reporting Style Guide]]
+* [[JRubyStyleGuide|JRuby Style Guide]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
 * [[JRuby and RubySpecs]]
 * [[Ruby1_9Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
