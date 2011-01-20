@@ -1,11 +1,13 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]]
-<h1>Getting Started with JRuby</h1>
-To get JRuby on your system, install the most recent JRuby binary file for your system, extract it, and then work with it from the command line in a terminal window or command window.<br/><br/>
-__TOC__
-==Installing JRuby==
-The easiest way to get up and running with JRuby is to download the latest binary, extract it, and add the directory to your PATH environment variable. 
+Getting Started with JRuby
+==========================
 
-'''Note:''' It's best to avoid using a package manager because of issues with keeping the downloaded versions current.
+To get JRuby on your system, install the most recent JRuby binary file for your system, extract it, and then work with it from the command line in a terminal window or command window
+
+Installing JRuby
+----------------
+The easiest way to get up and running with JRuby is to download the latest binary, extract it, and add the directory to your PATH environment variable.
+
+**Note:** It's best to avoid using a package manager because of issues with keeping the downloaded versions current.
 
 If you prefer to build your own JRuby, see [[DownloadAndBuildJRuby|Downloading JRuby Source and Building It Yourself]].
 
