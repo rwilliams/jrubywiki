@@ -14,9 +14,8 @@ See [[GUIFrameworks]]
 
 All Applications
 ----------------
-* [JRubyAndContinuousIntegration|ci_reporter] - Run test/unit and spec runs via Continuous Integration
+* [[ci_reporter|JRubyAndContinuousIntegration]] - Run test/unit and spec runs via Continuous Integration
 * [[DataMapper]]
-* [http://kenai.com/projects/ruby-ffi/pages/Home FFI] - Use FFI to bind to dynamic load libraries
 * Google AppEngine
   * [Using JRuby on Rails](http://olabini.com/blog/2009/04/jruby-on-rails-on-google-app-engine)
   * [API Wrappers for JRuby (appengine-jruby)](http://code.google.com/p/appengine-jruby)
