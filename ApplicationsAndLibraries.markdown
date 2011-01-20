@@ -33,11 +33,12 @@ All Applications
 * [[Nailgun|JRubyWithNailgun]] - Single background JRuby JVM process for fast execution
 * [[NetSsh|NetSshCompatability]] - How to use net/ssh using JRuby
 * [[Radiant CMS|Radiant_CMS]]
-* [[RCov | RCov coverage tool]]
-* [[Using the JRuby Debugger|rdebug]] - instructions on getting JRuby's fast debugger support
-* [[Sparrow]] <span style="font-size:90%; font-style:italic">A JMS client for messaging based on JRuby</span>
+* [[RCov coverage tool|RCov]]
+* [[rdebug|Using the JRuby Debugger]] - instructions on getting JRuby's fast debugger support
+* [[Sparrow]] - A JMS client for messaging based on JRuby
 * [[Spring]] - Using Spring framework to use JRuby
 
-== Other links ==
+Other links
+-----------
 * [[JRubyProjects]] - Projects that JRuby project maintains
-* [http://rubyforge.org/projects/jruby-extras jruby-extras] <span style="font-size:90%; font-style:italic">(Support for Libraries and Applications not included in standard JRuby)</span>
+* [jruby-extras](http://rubyforge.org/projects/jruby-extras) - Support for Libraries and Applications not included in standard JRuby
