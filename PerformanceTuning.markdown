@@ -1,17 +1,16 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]]
-<h1>Performance Tuning</h1>
+Performance Tuning
+==================
 JRuby supports a number of options to help you tune performance. They range from turning on experimental features to turning off inefficient emulations of Ruby features.This document describes these options and their effects.<br/><br/>
 
-__TOC__
-
-
-===Tuning the compiler===
+Tuning the compiler
+-------------------
 JRuby's compiler can be enabled in JIT mode or specified to run before execution. 
 * See [[JRuby Compiler]] for more details.
 * See below for [[#Compiler_Runtime_Properties|Compiler Runtime Properties]].
 * See below for [[#JIT_Runtime_Properties|JIT Runtime Properties]].
 
-===Disabling ObjectSpace===
+Disabling ObjectSpace
+---------------------
 ObjectSpace has been disabled by default since version 1.1b1.  To reenable ObjectSpace, use the <tt>+O</tt> flag. The following description applies tor previous versions of JRuby.
 
 ObjectSpace is a feature in Ruby that allows you to enumerate all objects of a given type in the current runtime. In the C implementation, this is easy to provide, since ObjectSpace is basically a thin wrapper around the memory manager. Under JRuby, however, where we can't enumerate objects managed by Java's memory model, we have to provide a separate structure that governs a collection of references to such objects. This results in substantial overhead per object when run under JRuby, since we have to create two or three times as many objects as are needed to run, just to implement ObjectSpace.
@@ -26,13 +25,15 @@ There is also a property you can use to disable ObjectSpace:
 
  jruby -J-Djruby.objectspace.enabled=false
 
-===Enabling ObjectSpace Dynamically===
+Enabling ObjectSpace Dynamically
+--------------------------------
 A program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example,  jirb uses this feature to turn on ObjectSpace so it can have fully functional code completion. To enable ObjectSpace support in a ruby program, add the following code:
 
   require 'jruby'
   JRuby.objectspace=true
 
-===Enabling Thread Pooling===
+Enabling Thread Pooling
+-----------------------
 Ruby scripts frequently take advantage of the C implementation's lightweight (green) threading by spinning up hundreds or thousands of threads during a run. Under JRuby, this can often mean that hundreds or thousands of native threads are spun up and thrown away, which is inefficient in many cases and on many platforms. 
 
 As an alternative to straight-up 1:1 threading in JRuby, you can enable ''thread pooling''. When pooling is enabled, JRuby starts only as many threads as needed for concurrent tasks. Repeatedly launching short-lived Ruby threads then reuses native threads. This can improve performance in many cases, especially when libraries like <tt>timeout</tt> are employed that spin up a thread per call.
@@ -43,7 +44,8 @@ To enable thread pooling, set the Java system property <tt>jruby.thread.pooling<
 
 For a list of all the thread pooling parameters, see [[#Thread_Pooling_Runtime_Properties|Thread Pooling Runtime Properties]].
 
-===Using JRuby's Fast Mode===
+Using JRuby's Fast Mode
+-----------------------
 JRuby 1.2 and later ships with a <tt>--fast</tt> flag that turns on a number of runtime features to provide optimal performance without breaking Ruby features needed by common applications. It enables the following modes:
 
 * '''Frameless compilation:''' Avoids using heap-based frames to track cross-call data like <tt>backref</tt>, <tt>lastline</tt>, and <tt>visibility</tt> when it's not needed.
@@ -58,14 +60,16 @@ To make these settings ''safe'', a few assumptions are made:
 * Rigid adherence to Ruby's backtrace format and content must not be a requirement. Backtraces will generally include both Ruby and Java calls, and are formatted somewhat differently. The information is still there, but it can be a bit trickier to interpret. This will be cleaned up in future revisions.
 * Because all code is compiled before execution, it should be expected that startup performance degrades when using <tt>--fast</tt>. 
 
-===Java Virtual Machine (JVM) Settings===
+Java Virtual Machine (JVM) Settings
+-----------------------------------
 Except for the JRuby convenience parameter <tt>--server</tt>, all JVM runtime parameters use the <tt>-J</tt> option, followed by the specific JVM setting. For example:
+
 * Heap space settings: <tt>jruby -J-X&lt;heap-space-setting&gt;</tt>
 * JRuby runtime settings: <tt>jruby -J-D&lt;runtime-setting&gt;</tt>
 
 All the settings described in the following sections are JVM settings.
 
-====Using the Java Server Virtual Machine====
+### Using the Java Server Virtual Machine
 JRuby benefits greatly from running under the Java '''Server''' VM, which trades startup and early run performance for a much higher level of long term optimization. JRuby will use the server VM of whatever Java version you're running if you use the <tt>--server</tt> parameter, which passes the <tt>-server</tt> flag to the underlying JVM. For example:
 
  jruby --server myscript.rb
@@ -74,7 +78,7 @@ Combining use of the server VM with using the compiler and disabling ObjectSpace
 
 '''Note:''' The <tt>--server</tt> parameter is a convenient shorthand for the JVM parameter  <tt>-J-server</tt>.
 
-====Setting Heap Space Parameters for JRuby====
+### Setting Heap Space Parameters for JRuby
 '''Maximum heap space'''
   jruby -J-Xmx512m
 
@@ -91,14 +95,14 @@ First some suggestions:
 * Set the <tt>-Xmn</tt> value lower than the <tt>-Xmx</tt> value. 
   jruby -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server
 
-====Setting JRuby Runtime Properties====
+### Setting JRuby Runtime Properties
 To see all the Java system runtime properties for JRuby, enter the following command in the Command window or Terminal window:
  jruby --properties
 
 All these properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line. For example:
   jruby -J-Djruby.thread.pooling=true myscript.rb
 
-=====Compiler Runtime Properties=====
+### Compiler Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
     jruby.compile.mode=JIT|FORCE|OFF
@@ -124,7 +128,7 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
     jruby.compile.peephole=true|false
        Enable or disable peephole optimizations. Default is true (on).
 
-=====JIT Runtime Properties=====
+### JIT Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
     jruby.jit.threshold=<invocation count>
@@ -145,7 +149,7 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
        Exclude methods from JIT by class/module short name, c/m::method_name,
        or -::method_name for anon/singleton classes/modules. Comma-delimited.
 
-=====Native Support Runtime Properties=====
+### Native Support Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
     jruby.native.enabled=true|false
