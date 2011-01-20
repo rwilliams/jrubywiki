@@ -20,9 +20,9 @@ To download and install JRuby: [Download a JRuby binary file](http://jruby.org/d
 * On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is `$PATH`, and a sample JRuby path is `/opt/jruby/bin`.
 * On Microsoft Windows, the variable is `%PATH%`, and a sample JRuby path is `C:\JRuby\jruby-1.5.0\bin`. Also, make sure your `JAVA_HOME` environment variable points to your Java installation. For example, `C:\Program Files\Java\jdk1.6.0_14\`.
 
-**Note:** On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby With Wrong Java]].
+**Note:** On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRuby With Wrong Java|JRubyOnUbuntu]].
 
-**Note:** If you're on HP-UX, see [[JRubyOnHPUX11_23|Using JRuby on HPUX]].
+**Note:** If you're on HP-UX, see [[Using JRuby on HPUX|JRubyOnHPUX11_23]].
 
 ### Linux and OSX Installation Example
 Once you've downloaded or built a JRuby installation and it is located in the directory `/opt/jruby`, you'll need to add `/opt/jruby/bin` to the end of your `$PATH` environment variable.
