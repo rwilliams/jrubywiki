@@ -103,6 +103,7 @@ To see all the Java system runtime properties for JRuby, enter the following com
 All these properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line. For example:
   jruby -J-Djruby.thread.pooling=true myscript.rb
 
+<a name="compiler_rt_props"/>
 ### Compiler Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
