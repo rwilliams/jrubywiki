@@ -33,6 +33,7 @@ On Mac OS X and Linux, you can add to the `PATH` variable with the export comman
 
 ### Microsoft Windows XP Installation Example
 Once you've downloaded or built a JRuby installation and it is located in the directory `C:\JRuby\jruby1.5.0\`, you'll need to add `C:\JRuby\jruby1.5.0\bin` to the end of your `%PATH%` environment variable. You'll also need to ensure that your `JAVA_HOME` variable is set to the location of your current Java installation, for example, `C:\Program Files\Java\jdk1.6.0_14\`.
+
 * In Windows XP, choose Start > Control Panel > System to open the System Properties window.
 * Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
 * In the System Variables section, scroll down to `Path`, select it, and click Edit.
