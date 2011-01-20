@@ -11,14 +11,13 @@ The easiest way to get up and running with JRuby is to download the latest binar
 
 If you prefer to build your own JRuby, see [[Downloading JRuby Source and Building It Yourself|DownloadAndBuildJRuby]].
 
-'''To download and install JRuby:'''
-# [http://jruby.org/download Download a JRuby binary file]. 
-#* For OSX, Linux, BSD, Solaris, and other UNIX varieties, get the most recent <code>jruby-bin-X.Y.Z.tar.gz</code> file.
-#* If you're on Microsoft Windows, get the most recent <code>jruby-bin-X.Y.Z.zip</code> file.
-# Extract JRuby into a directory.
-# Add that directory's bin subdirectory to the ''end'' of your <code>PATH</code> environment variable.
-#* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and a sample JRuby path is <code>/opt/jruby/bin</code>.
-#* On Microsoft Windows, the variable is '''%PATH%''', and a sample JRuby path is <code>C:\JRuby\jruby-1.5.0\bin</code>.<br/> Also, make sure your <code>JAVA_HOME</code> environment variable points to your Java installation. For example, <code>C:\Program Files\Java\jdk1.6.0_14\</code>.
+To download and install JRuby: [Download a JRuby binary file](http://jruby.org/download) 
+* For OSX, Linux, BSD, Solaris, and other UNIX varieties, get the most recent <code>jruby-bin-X.Y.Z.tar.gz</code> file.
+* If you're on Microsoft Windows, get the most recent <code>jruby-bin-X.Y.Z.zip</code> file.
+* Extract JRuby into a directory.
+* Add that directory's bin subdirectory to the ''end'' of your <code>PATH</code> environment variable.
+* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is '''$PATH''', and a sample JRuby path is <code>/opt/jruby/bin</code>.
+* On Microsoft Windows, the variable is '''%PATH%''', and a sample JRuby path is <code>C:\JRuby\jruby-1.5.0\bin</code>.<br/> Also, make sure your <code>JAVA_HOME</code> environment variable points to your Java installation. For example, <code>C:\Program Files\Java\jdk1.6.0_14\</code>.
 
 '''Note:''' On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby With Wrong Java]].
 
