@@ -92,19 +92,21 @@ Combining use of the server VM with using the compiler and disabling ObjectSpace
 
     jruby -J-Xmn128m
 
-'''All together now'''
+**All together now**
 
-First some suggestions: 
-*Set the minimum <tt>-Xms</tt> and maximum <tt>-Xmx</tt> heap sizes to the same value. 
-* Set the <tt>-Xmn</tt> value lower than the <tt>-Xmx</tt> value. 
-  jruby -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server
+First some suggestions:
+* Set the minimum `-Xms` and maximum `-Xmx` heap sizes to the same value.
+* Set the `-Xmn` value lower than the `-Xmx` value.
+
+    jruby -J-Xmn512m -J-Xms2048m -J-Xmx2048m -J-server
 
 ### Setting JRuby Runtime Properties
 To see all the Java system runtime properties for JRuby, enter the following command in the Command window or Terminal window:
  jruby --properties
 
 All these properties can be used to alter runtime behavior for performance or compatibility. Specify them by passing <tt>-J-Dproperty=value</tt> on the command line. For example:
-  jruby -J-Djruby.thread.pooling=true myscript.rb
+
+    jruby -J-Djruby.thread.pooling=true myscript.rb
 
 <a name="compiler_rt_props"/>
 ### Compiler Runtime Properties
