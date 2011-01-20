@@ -9,7 +9,7 @@ The easiest way to get up and running with JRuby is to download the latest binar
 
 **Note:** It's best to avoid using a package manager because of issues with keeping the downloaded versions current.
 
-If you prefer to build your own JRuby, see [[DownloadAndBuildJRuby|Downloading JRuby Source and Building It Yourself]].
+If you prefer to build your own JRuby, see [[Downloading JRuby Source and Building It Yourself|DownloadAndBuildJRuby]].
 
 '''To download and install JRuby:'''
 # [http://jruby.org/download Download a JRuby binary file]. 
