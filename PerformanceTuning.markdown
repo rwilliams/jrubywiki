@@ -191,4 +191,4 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
     jruby.debug.fullTrace=true|false
        Set whether full traces are enabled (c-call/c-return). Default is false.
 
-You can see some GC tunable parameters [http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/27550 here]
+You can see some GC tunable parameters [here](http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/27550).
