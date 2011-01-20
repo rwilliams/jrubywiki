@@ -4,10 +4,11 @@ JRuby supports a number of options to help you tune performance. They range from
 
 Tuning the compiler
 -------------------
-JRuby's compiler can be enabled in JIT mode or specified to run before execution. 
+JRuby's compiler can be enabled in JIT mode or specified to run before execution.
+
 * See [[JRuby Compiler]] for more details.
-* See below for [[#Compiler_Runtime_Properties|Compiler Runtime Properties]].
-* See below for [[#JIT_Runtime_Properties|JIT Runtime Properties]].
+* See below for [Compiler Runtime Properties](#compiler_rt_props).
+* See below for [JIT Runtime Properties](#jit_rt_props).
 
 Disabling ObjectSpace
 ---------------------
@@ -127,7 +128,7 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
        Generate method bindings (handles) for compiled methods lazily. Default is false.
     jruby.compile.peephole=true|false
        Enable or disable peephole optimizations. Default is true (on).
-
+<a name="jit_rt_props"/>
 ### JIT Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
