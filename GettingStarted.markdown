@@ -20,9 +20,9 @@ To download and install JRuby: [Download a JRuby binary file](http://jruby.org/d
 * On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is `$PATH`, and a sample JRuby path is `/opt/jruby/bin`.
 * On Microsoft Windows, the variable is `%PATH%`, and a sample JRuby path is `C:\JRuby\jruby-1.5.0\bin`. Also, make sure your `JAVA_HOME` environment variable points to your Java installation. For example, `C:\Program Files\Java\jdk1.6.0_14\`.
 
-'''Note:''' On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby With Wrong Java]].
+**Note:** On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRubyOnUbuntu|JRuby With Wrong Java]].
 
-'''Note:''' If you're on HP-UX, see [[JRubyOnHPUX11_23|Using JRuby on HPUX]].
+**Note:** If you're on HP-UX, see [[JRubyOnHPUX11_23|Using JRuby on HPUX]].
 
 ### Linux and OSX Installation Example
 Once you've downloaded or built a JRuby installation and it is located in the directory `/opt/jruby`, you'll need to add `/opt/jruby/bin` to the end of your `$PATH` environment variable.
@@ -40,8 +40,8 @@ you'll need to add `C:\JRuby\jruby1.5.0\bin` to the end of your `%PATH%` environ
 # Add the path to the JRuby bin directory to the end of the Path. For example, add:<br/>;`C:\JRuby\jruby1.5.0\bin`
 # Look for `JAVA_HOME` in both the User Variables section and the System Variables section and make sure it points to your current Java installation. If necessary, create a new JAVA_HOME variable as follows:
 ## Under the User Variables section, click New.
-##* '''Variable name:''' enter `JAVA_HOME`
-##* '''Variable value:''' enter the actual path. For example, <br/> `C:\Program Files\Java\jdk1.6.0_14\`.
+##* **Variable name:** enter `JAVA_HOME`
+##* **Variable value:** enter the actual path. For example, <br/> `C:\Program Files\Java\jdk1.6.0_14\`.
 ## Click OK to add the variable.
 # Click OK at the bottom of the Environment Variables window.
 # Click OK to close the System Properties window.
@@ -54,7 +54,7 @@ To test whether JRuby installed correctly, open a command window or terminal win
 If it installed correctly, JRuby will return the current version.
 
 ==How Do I Run rake, gem, etc?==
-The recommended way to run these commands (known as ''system-level executable commands'') in JRuby is to '''always''' use `jruby -S`.
+The recommended way to run these commands (known as ''system-level executable commands'') in JRuby is to **always** use `jruby -S`.
 
   jruby -S gem list --local
   jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
@@ -63,7 +63,7 @@ The recommended way to run these commands (known as ''system-level executable co
   jruby -S rake -T
   jruby -S rake db:migrate
 
-The `-S` parameter tells JRuby to use '''its''' version of the installed binary.
+The `-S` parameter tells JRuby to use **its** version of the installed binary.
 
 ==How Do I Run a Ruby Program?==
 To run any other ruby program by using JRuby, run it using the `jruby` command in a command window. For example,
@@ -71,17 +71,17 @@ To run any other ruby program by using JRuby, run it using the `jruby` command i
   jruby script/server
   jruby my_ruby_script.rb
 
-'''See Also:''' [[JRubyCommandLineParameters|JRuby Command Line Parameters]]
+**See Also:** [[JRubyCommandLineParameters|JRuby Command Line Parameters]]
 
 == jirb: Ruby Interactive Console ==
-One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: `'''jirb'''`. In C Ruby this utility is simply called `irb`.
+One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: `**jirb**`. In C Ruby this utility is simply called `irb`.
 
 To enable tab completion within jirb, add the following line to the configuration file .irbrc:
   require 'irb/completion'
 
-'''Note:''' If you're on Linux, BSD, OSX, Solaris, and other UNIXes, the .irbrc file must be in your home directory. If you're on Windows, it goes in your My Documents folder or the folder specified in the HOME environment variable.
+**Note:** If you're on Linux, BSD, OSX, Solaris, and other UNIXes, the .irbrc file must be in your home directory. If you're on Windows, it goes in your My Documents folder or the folder specified in the HOME environment variable.
 
-'''See Also:''' [[JirbCommandLineParameters|Jirb Command Line Parameters]]
+**See Also:** [[JirbCommandLineParameters|Jirb Command Line Parameters]]
 
 ==Installing and Using Ruby Gems==
 The RubyGems can be easily installed with JRuby with the following command:
