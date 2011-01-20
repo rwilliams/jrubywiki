@@ -24,7 +24,7 @@ All Applications
 * [[Hpricot]] - Installing a version of Hpricot which works on JRuby
 * [Iyyov](http://github.com/dekellum/iyyov#readme) - Down-to-earth job control and monitoring. 
 * [[JDBC]] - Accessing JDBC directly from JRuby
-* [[JRuby-Rack|JRuby Rack]] - Servlet to Rails bridge, plus other Ruby web frameworks
+* [[JRuby Rack|JRubyRack]] - Servlet to Rails bridge, plus other Ruby web frameworks
 * [JMS](http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html) - JMS Producer / Consumer Example
 * [[JMX|AccessingJMX]] - Code snippet and mention of some external gems which can interact with JMX
 * [[Mentawai]] - A Java web framework fully supporting Ruby through JRuby
