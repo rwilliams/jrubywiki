@@ -12,6 +12,7 @@ The easiest way to get up and running with JRuby is to download the latest binar
 If you prefer to build your own JRuby, see [[Downloading JRuby Source and Building It Yourself|DownloadAndBuildJRuby]].
 
 To download and install JRuby: [Download a JRuby binary file](http://jruby.org/download) 
+
 * For OSX, Linux, BSD, Solaris, and other UNIX varieties, get the most recent <code>jruby-bin-X.Y.Z.tar.gz</code> file.
 * If you're on Microsoft Windows, get the most recent <code>jruby-bin-X.Y.Z.zip</code> file.
 * Extract JRuby into a directory.
