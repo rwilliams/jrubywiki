@@ -32,44 +32,46 @@ On Mac OS X and Linux, you can add to the `PATH` variable with the export comman
     export PATH=$PATH:/opt/jruby/bin
 
 ### Microsoft Windows XP Installation Example
-Once you've downloaded or built a JRuby installation and it is located in the directory `C:\JRuby\jruby1.5.0\`,
-you'll need to add `C:\JRuby\jruby1.5.0\bin` to the end of your `%PATH%` environment variable. You'll also need to ensure that your `JAVA_HOME` variable is set to the location of your current Java installation, for example, `C:\Program Files\Java\jdk1.6.0_14\`.
-# In Windows XP, choose Start > Control Panel > System to open the System Properties window.
-# Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
-# In the System Variables section, scroll down to `Path`, select it, and click Edit.
-# Add the path to the JRuby bin directory to the end of the Path. For example, add:<br/>;`C:\JRuby\jruby1.5.0\bin`
-# Look for `JAVA_HOME` in both the User Variables section and the System Variables section and make sure it points to your current Java installation. If necessary, create a new JAVA_HOME variable as follows:
-## Under the User Variables section, click New.
-##* **Variable name:** enter `JAVA_HOME`
-##* **Variable value:** enter the actual path. For example, <br/> `C:\Program Files\Java\jdk1.6.0_14\`.
-## Click OK to add the variable.
-# Click OK at the bottom of the Environment Variables window.
-# Click OK to close the System Properties window.
+Once you've downloaded or built a JRuby installation and it is located in the directory `C:\JRuby\jruby1.5.0\`, you'll need to add `C:\JRuby\jruby1.5.0\bin` to the end of your `%PATH%` environment variable. You'll also need to ensure that your `JAVA_HOME` variable is set to the location of your current Java installation, for example, `C:\Program Files\Java\jdk1.6.0_14\`.
+* In Windows XP, choose Start > Control Panel > System to open the System Properties window.
+* Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
+* In the System Variables section, scroll down to `Path`, select it, and click Edit.
+* Add the path to the JRuby bin directory to the end of the Path. For example, add:<br/>;`C:\JRuby\jruby1.5.0\bin`
+* Look for `JAVA_HOME` in both the User Variables section and the System Variables section and make sure it points to your current Java installation. If necessary, create a new JAVA_HOME variable as follows:
+* Under the User Variables section, click New.
+* **Variable name:** enter `JAVA_HOME`
+* **Variable value:** enter the actual path. For example, <br/> `C:\Program Files\Java\jdk1.6.0_14\`.
+* Click OK to add the variable.
+* Click OK at the bottom of the Environment Variables window.
+* Click OK to close the System Properties window.
 
-<span id="Did_It_Work"></span>
-==Did It Work?==
+Did It Work?
+-----------
 To test whether JRuby installed correctly, open a command window or terminal window and run:
-  jruby -v
+
+    jruby -v
 
 If it installed correctly, JRuby will return the current version.
 
-==How Do I Run rake, gem, etc?==
-The recommended way to run these commands (known as ''system-level executable commands'') in JRuby is to **always** use `jruby -S`.
+How Do I Run rake, gem, etc?
+----------------------------
+The recommended way to run these commands (known as _system-level executable commands_) in JRuby is to **always** use `jruby -S`.
 
-  jruby -S gem list --local
-  jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
-  jruby -S rails blog
-  cd blog
-  jruby -S rake -T
-  jruby -S rake db:migrate
+    jruby -S gem list --local
+    jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
+    jruby -S rails blog
+    cd blog
+    jruby -S rake -T
+    jruby -S rake db:migrate
 
 The `-S` parameter tells JRuby to use **its** version of the installed binary.
 
-==How Do I Run a Ruby Program?==
+How Do I Run a Ruby Program?
+----------------------------
 To run any other ruby program by using JRuby, run it using the `jruby` command in a command window. For example,
 
-  jruby script/server
-  jruby my_ruby_script.rb
+    jruby script/server
+    jruby my_ruby_script.rb
 
 **See Also:** [[JRubyCommandLineParameters|JRuby Command Line Parameters]]
 
