@@ -6,7 +6,7 @@ Tuning the compiler
 -------------------
 JRuby's compiler can be enabled in JIT mode or specified to run before execution.
 
-* See [[JRuby Compiler]] for more details.
+* See [[JRuby Compiler|JRubyCompiler]] for more details.
 * See below for [Compiler Runtime Properties](#compiler_rt_props).
 * See below for [JIT Runtime Properties](#jit_rt_props).
 
