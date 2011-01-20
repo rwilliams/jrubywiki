@@ -43,7 +43,7 @@ To enable thread pooling, set the Java system property <tt>jruby.thread.pooling<
 
  jruby -J-Djruby.thread.pooling=true myscript.rb
 
-For a list of all the thread pooling parameters, see [[#Thread_Pooling_Runtime_Properties|Thread Pooling Runtime Properties]].
+For a list of all the thread pooling parameters, see [Thread Pooling Runtime Properties](#thread_pool_rt_props).
 
 Using JRuby's Fast Mode
 -----------------------
@@ -162,6 +162,7 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
     jruby.fork.enabled=true|false
        (EXPERIMENTAL, maybe dangerous) Enable fork(2) on platforms that support it.
 
+<a name="thread_pool_rt_props"/>
 ### Thread Pooling Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
