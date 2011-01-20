@@ -20,7 +20,7 @@ All Applications
 * Google AppEngine
   * [http://olabini.com/blog/2009/04/jruby-on-rails-on-google-app-engine/ Using JRuby on Rails]
   * [API Wrappers for JRuby (appengine-jruby)](http://code.google.com/p/appengine-jruby)
-  * Using Sinatra [part 1](http://blog.bigcurl.de/2009/04/running-sinatra-apps-on-google.html) [part 2](http://dev.massivebraingames.com/past/2009/4/15/writing_sinatra_apps_for_google/ part 2)
+  * Using Sinatra [part 1](http://blog.bigcurl.de/2009/04/running-sinatra-apps-on-google.html) | [part 2](http://dev.massivebraingames.com/past/2009/4/15/writing_sinatra_apps_for_google/ part 2)
 * [[Hpricot]] - Installing a version of Hpricot which works on JRuby
 * [http://github.com/dekellum/iyyov#readme Iyyov] - Down-to-earth job control and monitoring. 
 * [[JDBC]] - Accessing JDBC directly from JRuby
