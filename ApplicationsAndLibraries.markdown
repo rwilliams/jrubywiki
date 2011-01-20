@@ -34,7 +34,7 @@ All Applications
 * [[NetSsh|NetSshCompatability]] - How to use net/ssh using JRuby
 * [[Radiant CMS|Radiant_CMS]]
 * [[RCov coverage tool|RCov]]
-* [[Using the JRuby Debugger|rdebug]] - instructions on getting JRuby's fast debugger support
+* [[rdebug|UsingTheJRubyDebugger]] - instructions on getting JRuby's fast debugger support
 * [[Sparrow]] - A JMS client for messaging based on JRuby
 * [[Spring]] - Using Spring framework to use JRuby
 
