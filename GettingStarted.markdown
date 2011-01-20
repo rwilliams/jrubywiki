@@ -94,7 +94,7 @@ The RubyGems can be easily installed with JRuby with the following command:
 
     jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
 
-Many Gems will work fine in JRuby; however, some Gems build native C libraries as part of their install process. These Gems will not work in JRuby unless the Gem has also provided a Java equivalent to the native library. 
+Many Gems will work fine in JRuby; however, some Gems build native C libraries as part of their install process. These Gems will not work in JRuby unless the Gem has also provided a Java equivalent to the native library.
 
 Mongrel and Hpricot are two examples of Gems that build their native library in a platform independent manner. Each of them specify a parsing library using the Ragel language and a Ragel program can be automatically converted into either C or Java as part of the compile process.
 
