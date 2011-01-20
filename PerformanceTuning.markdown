@@ -80,13 +80,12 @@ Combining use of the server VM with using the compiler and disabling ObjectSpace
 '''Note:''' The <tt>--server</tt> parameter is a convenient shorthand for the JVM parameter  <tt>-J-server</tt>.
 
 ### Setting Heap Space Parameters for JRuby
-'''Maximum heap space'''
-  jruby -J-Xmx512m
+* Maximum heap space:
+    jruby -J-Xmx512m
+* Initial heap space
+    jruby -J-Xms512m
 
-'''Initial heap space'''
-  jruby -J-Xms512m
-
-'''Heap space for Young/Eden Garbage Collection'''
+Heap space for Young/Eden Garbage Collection'''
   jruby -J-Xmn128m
 
 '''All together now'''
@@ -129,6 +128,7 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
        Generate method bindings (handles) for compiled methods lazily. Default is false.
     jruby.compile.peephole=true|false
        Enable or disable peephole optimizations. Default is true (on).
+
 <a name="jit_rt_props"/>
 ### JIT Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
