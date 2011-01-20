@@ -20,17 +20,17 @@ All Applications
 * Google AppEngine
   * [http://olabini.com/blog/2009/04/jruby-on-rails-on-google-app-engine/ Using JRuby on Rails]
   * [API Wrappers for JRuby (appengine-jruby)](http://code.google.com/p/appengine-jruby)
-  * Using Sinatra [part 1](http://blog.bigcurl.de/2009/04/running-sinatra-apps-on-google.html) | [part 2](http://dev.massivebraingames.com/past/2009/4/15/writing_sinatra_apps_for_google)
+  * Using Sinatra - [part 1](http://blog.bigcurl.de/2009/04/running-sinatra-apps-on-google.html) | [part 2](http://dev.massivebraingames.com/past/2009/4/15/writing_sinatra_apps_for_google)
 * [[Hpricot]] - Installing a version of Hpricot which works on JRuby
-* [http://github.com/dekellum/iyyov#readme Iyyov] - Down-to-earth job control and monitoring. 
+* [Iyyov](http://github.com/dekellum/iyyov#readme) - Down-to-earth job control and monitoring. 
 * [[JDBC]] - Accessing JDBC directly from JRuby
-* [[JRuby Rack|JRuby-Rack]] <span style="font-size:90%; font-style:italic">(Servlet to Rails bridge, plus other Ruby web frameworks)</span>
-* [http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html JMS] - JMS Producer / Consumer Example
+* [[JRuby-Rack|JRuby Rack]] - Servlet to Rails bridge, plus other Ruby web frameworks
+* [JMS](http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html) - JMS Producer / Consumer Example
 * [[JMX]] - Code snippet and mention of some external gems which can interact with JMX
-* [[Mentawai]] <span style="font-size:90%; font-style:italic">A Java web framework fully supporting Ruby through JRuby</span>
-* [[Merb|Merb]]
-* [http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html Mr Bones] - work around some RUBY_PLATFORM errors in Mr Bones using JRuby
-* [[JRubyWithNailgun|Nailgun]] - Single background JRuby JVM process for fast execution
+* [[Mentawai]] - A Java web framework fully supporting Ruby through JRuby
+* [[Merb]]
+* [Mr Bones](http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html) - work around some RUBY_PLATFORM errors in Mr Bones using JRuby
+* [[Nailgun|JRubyWithNailgun]] - Single background JRuby JVM process for fast execution
 * [[NetSshCompatability|NetSsh]] - How to use net/ssh using JRuby
 * [[Radiant_CMS|Radiant CMS]]
 * [[RCov | RCov coverage tool]]
