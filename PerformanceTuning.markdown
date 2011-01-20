@@ -160,7 +160,7 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
     jruby.fork.enabled=true|false
        (EXPERIMENTAL, maybe dangerous) Enable fork(2) on platforms that support it.
 
-=====Thread Pooling Runtime Properties=====
+### Thread Pooling Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
     jruby.thread.pool.enabled=true|false
@@ -172,7 +172,7 @@ JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=val
     jruby.thread.pool.ttl=<time to live, in seconds>
        The maximum number of seconds to keep alive an idle thread. Default is 60.
 
-=====Miscellaneous Runtime Properties=====
+### Miscellaneous Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing <tt>-J-Dproperty=value</tt> on the command line.
 
     jruby.compat.version=RUBY1_8|RUBY1_9
