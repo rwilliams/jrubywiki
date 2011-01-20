@@ -108,8 +108,9 @@ Authenticated:
 
     export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/
 
-See also [[FAQs|JRuby Frequently Asked Questions (FAQs)]].
+See also [[JRuby Frequently Asked Questions (FAQs)|FAQs]].
 
 Code Examples
 -------------
-For some examples of calling JRuby from Java and calling Java from JRuby, see [[JRubyAndJavaCodeExamples|JRuby and Java Code Examples]].
+For some examples of calling JRuby from Java and calling Java from JRuby, see [[JRuby and Java Code Examples|JRubyAndJavaCodeExamples]].
+
