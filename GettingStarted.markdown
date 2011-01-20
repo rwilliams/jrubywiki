@@ -74,14 +74,15 @@ To run any other ruby program by using JRuby, run it using the `jruby` command i
     jruby script/server
     jruby my_ruby_script.rb
 
-**See Also:** [[JRubyCommandLineParameters|JRuby Command Line Parameters]]
+**See Also:** [[JRuby Command Line Parameters|JRubyCommandLineParameters]]
 
 jirb: Ruby Interactive Console
 -----------------------------
 One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: `**jirb**`. In C Ruby this utility is simply called `irb`.
 
-To enable tab completion within jirb, add the following line to the configuration file .irbrc:
-  require 'irb/completion'
+To enable tab completion within jirb, add the following line to the configuration file `.irbrc`
+
+    require 'irb/completion'
 
 **Note:** If you're on Linux, BSD, OSX, Solaris, and other UNIXes, the .irbrc file must be in your home directory. If you're on Windows, it goes in your My Documents folder or the folder specified in the HOME environment variable.
 
