@@ -26,7 +26,7 @@ All Applications
 * [[JDBC]] - Accessing JDBC directly from JRuby
 * [[JRuby-Rack|JRuby Rack]] - Servlet to Rails bridge, plus other Ruby web frameworks
 * [JMS](http://blog.dberg.org/2008/07/jms-jruby-producer-and-consumer.html) - JMS Producer / Consumer Example
-* [[AccessingJMX|JMX]] - Code snippet and mention of some external gems which can interact with JMX
+* [[JMX|AccessingJMX]] - Code snippet and mention of some external gems which can interact with JMX
 * [[Mentawai]] - A Java web framework fully supporting Ruby through JRuby
 * [[Merb]]
 * [Mr Bones](http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html) - work around some RUBY_PLATFORM errors in Mr Bones using JRuby
