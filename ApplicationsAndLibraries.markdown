@@ -31,8 +31,8 @@ All Applications
 * [[Merb]]
 * [Mr Bones](http://epirsch.blogspot.com/2008/10/making-mr-bones-work-with-jruby.html) - work around some RUBY_PLATFORM errors in Mr Bones using JRuby
 * [[Nailgun|JRubyWithNailgun]] - Single background JRuby JVM process for fast execution
-* [[NetSshCompatability|NetSsh]] - How to use net/ssh using JRuby
-* [[Radiant_CMS|Radiant CMS]]
+* [[NetSsh|NetSshCompatability]] - How to use net/ssh using JRuby
+* [[Radiant CMS|Radiant_CMS]]
 * [[RCov | RCov coverage tool]]
 * [[Using the JRuby Debugger|rdebug]] - instructions on getting JRuby's fast debugger support
 * [[Sparrow]] <span style="font-size:90%; font-style:italic">A JMS client for messaging based on JRuby</span>
