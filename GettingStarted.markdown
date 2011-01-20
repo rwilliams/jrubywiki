@@ -76,7 +76,8 @@ To run any other ruby program by using JRuby, run it using the `jruby` command i
 
 **See Also:** [[JRubyCommandLineParameters|JRuby Command Line Parameters]]
 
-== jirb: Ruby Interactive Console ==
+jirb: Ruby Interactive Console
+-----------------------------
 One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: `**jirb**`. In C Ruby this utility is simply called `irb`.
 
 To enable tab completion within jirb, add the following line to the configuration file .irbrc:
@@ -86,22 +87,28 @@ To enable tab completion within jirb, add the following line to the configuratio
 
 **See Also:** [[JirbCommandLineParameters|Jirb Command Line Parameters]]
 
-==Installing and Using Ruby Gems==
+Installing and Using Ruby Gems
+------------------------------
 The RubyGems can be easily installed with JRuby with the following command:
- jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
+
+    jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
 
 Many Gems will work fine in JRuby; however, some Gems build native C libraries as part of their install process. These Gems will not work in JRuby unless the Gem has also provided a Java equivalent to the native library. 
 
 Mongrel and Hpricot are two examples of Gems that build their native library in a platform independent manner. Each of them specify a parsing library using the Ragel language and a Ragel program can be automatically converted into either C or Java as part of the compile process.
 
-Also, keep in mind that installing gems from behind a firewall will require setting the HTTP_PROXY. For example:
+Also, keep in mind that installing gems from behind a firewall will require setting the `HTTP_PROXY`. For example:
 
-Not authenticated:<br/>
-` &nbsp;<nowiki>export http_proxy=http://${http-proxy-host}:${http-proxy-port}/</nowiki>` <br/>
-Authenticated:<br/>
-` &nbsp;<nowiki>export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/</nowiki>`
+Not authenticated:
+
+    export http_proxy=http://${http-proxy-host}:${http-proxy-port}/
+
+Authenticated:
+
+    export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/
 
 See also [[FAQs|JRuby Frequently Asked Questions (FAQs)]].
 
-==Code Examples==
+Code Examples
+-------------
 For some examples of calling JRuby from Java and calling Java from JRuby, see [[JRubyAndJavaCodeExamples|JRuby and Java Code Examples]].
