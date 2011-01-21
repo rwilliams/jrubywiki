@@ -18,7 +18,7 @@ JRuby cannot run native C extensions.  Popular libraries have all generally been
 <h2 id="continuations">Continuations</h2>
 JRuby does not support [continuations](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_c_continuation.html) ([Kernel.callcc](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_m_kernel.html#Kernel.callcc)).
 
-<h2 id="invoking-external-processes>Invoking external processes</h2>
+<h2 id="invoking-external-processes">Invoking external processes</h2>
 On Microsoft Windows, JRuby is a little smarter when launching external processes. If the executable file is not a binary executable (`.exe`), MRI requires you give the file suffix as well, but JRuby manages without it.
 
 For example, say you have file `foo.bat` on your PATH and want to run it. 
