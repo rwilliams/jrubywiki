@@ -1,19 +1,12 @@
 JRuby - Java powered Ruby implementation
 ========================================
 ## This is a community wiki dedicated to [JRuby], an implementation of the [http://www.ruby-lang.org/en Ruby] programming language atop the Java Virtual Machine (JVM).
-</td>
-<td align="center">
-[[image: jrubylogo-medium.png]]
-</td>
-</tr>
-</table>
-
 <span style="font-size:x-large">[http://jruby.org/download JRuby Downloads]</span>
 
 <table width="100%" cellpadding="10">
 <tr valign="top">
 <td>
-'''JRuby Basics'''
+**JRuby Basics**
 * [[AboutJRuby|About JRuby]]
 * [[GettingStarted|Getting Started]]
 * [[WalkthroughsandTutorials|Walkthroughs and Tutorials]]
@@ -25,7 +18,7 @@ JRuby - Java powered Ruby implementation
 * [[FAQs]]
 </td>
 <td width="50%">
-'''Getting Involved'''
+**Getting Involved**
 * [[RubySummerOfCode2010|Ruby Summer of Code 2010!]]
 * Communicate: [[MailingLists|Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
 * Code: [http://jruby.org/git Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
@@ -43,7 +36,7 @@ JRuby - Java powered Ruby implementation
 </tr>
 <tr valign="top">
 <td>
-'''JRuby on Rails'''
+**JRuby on Rails**
 * [[JRubyonRails|JRuby on Rails]]
 * [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
 *[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a Deploying a Rails App in Tomcat with JRuby]
@@ -51,7 +44,7 @@ JRuby - Java powered Ruby implementation
 * [[JRubyOnRails|Deploying Rails Apps]]   
 * <a href="{{project warbler page Home}}">Warbler</a> (bundling JRuby on Rails apps into a WAR)
 
-''' Evangelism'''
+** Evangelism**
 * [[Benchmarks | Benchmarking Tips and Tricks]]
 * [[JRubyPresentations | JRuby Talks and Presentations]]
 * [[SuccessStories|Success Stories]]
@@ -60,7 +53,7 @@ JRuby - Java powered Ruby implementation
 * [[InYourRegion|In Your Region]]
 </td>
 <td>
-'''Related Websites'''
+**Related Websites**
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
 * [http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw Fresh JRuby news Yahoo Pipes aggregator]
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
