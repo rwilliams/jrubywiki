@@ -20,13 +20,13 @@ This is a community wiki dedicated to [JRuby], an implementation of the [http://
 
 * [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
 * Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
-* Code: [http://jruby.org/git Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
-* Status: [http://ci.jruby.org Build Server]
+* Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
+* Status: [Build Server](http://ci.jruby.org)
 * Design/Internals: [[Internals]]
 * Distributions: [[JRubyDistributions]]
 * [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
 * [[JRuby Style Guide|JRubyStyleGuide]]
-* [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
+* [How to Contribute to JRuby Effectively](http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively)
 * [[JRuby and RubySpecs|JRubyAndRubySpecs]]
 * [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
 * [[Release Documentation|ReleaseDocumentation]]
