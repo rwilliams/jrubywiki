@@ -34,23 +34,23 @@ This is a community wiki dedicated to [JRuby], an implementation of the [http://
 
 **JRuby on Rails**
 
-* [[JRubyonRails|JRuby on Rails]]
-* [http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails| 120 second guide to JRuby on Rails]
+* [[JRuby on Rails|JRubyonRails]]
+* [ 120 second guide to JRuby on Rails|http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails]
 *[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a Deploying a Rails App in Tomcat with JRuby]
 * [[ActiveRecord-JDBC]]
-* [[JRubyOnRails|Deploying Rails Apps]]   
+* [[Deploying Rails Apps|JRubyOnRails]]   
 * <a href="{{project warbler page Home}}">Warbler</a> (bundling JRuby on Rails apps into a WAR)
 
 ** Evangelism**
-* [[Benchmarks | Benchmarking Tips and Tricks]]
-* [[JRubyPresentations | JRuby Talks and Presentations]]
-* [[SuccessStories|Success Stories]]
-* [[CaseStudies|Case Studies]]
+* [[ Benchmarking Tips and Tricks|Benchmarks ]]
+* [[ JRuby Talks and Presentations|JRubyPresentations ]]
+* [[Success Stories|SuccessStories]]
+* [[Case Studies|CaseStudies]]
 * [[Articles]]
-* [[InYourRegion|In Your Region]]
-</td>
-<td>
+* [[In Your Region|InYourRegion]]
+
 **Related Websites**
+
 * [http://en.wikipedia.org/wiki/JRuby JRuby's article on Wikipedia]
 * [http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw Fresh JRuby news Yahoo Pipes aggregator]
 * [http://www.jrubyhub.com JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources]
