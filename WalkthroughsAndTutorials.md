@@ -1,3 +1,6 @@
+Walkthroughs And Tutorials
+==========================
+
 This page shows a list of Walkthroughs and Tutorials for JRuby. Feel free to add links to your favorites!
 
 JRuby (General)
