@@ -2,13 +2,13 @@
 =Design: Internals=
 This page is dedicated to the Internals of JRuby and specifications for how we behave:
 
-* [[Compiler Packaging and Pathing]]
-* [[Compiler Name Mangling]]
-* [[JIT Compiler]]
-* [[Static Compiler]]
-* [[Classpath and Load Path]]
-* [[Require and Load behavior]]
-* [[Ruby_JRuby Security|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
+* [[CompilerPackagingAndPathing|Compiler Packaging and Pathing]]
+* [[CompilerNameMangling|Compiler Name Mangling]]
+* [[JITCompiler|JIT Compiler]]
+* [[StaticCompiler|Static Compiler]]
+* [[ClasspathAndLoadPath|Classpath and Load Path]]
+* [[RequireAndLoadBehavior|Require and Load behavior]]
+* [[Ruby_JRubySecurity|Ruby/JRuby Security]] <span style="font-size:90%; font-style:italic">A New Security Implementation to Replace SAFE/TAINT)</span>
 * [[JRubyMethod_Signatures|JRuby Method Binding]] - How to wire up Java methods in a JRuby extension
-* [[JRuby Internal Design]]
-* [[Ruby Calling Java]]
+* [[JRubyInternalDesign|JRuby Internal Design]]
+* [[RubyCallingJava|Ruby Calling Java]]
