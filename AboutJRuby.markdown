@@ -15,11 +15,19 @@ JRuby's current core development team consists of six developers:
 * Charles Oliver Nutter (Engine Yard) aka headius
 * Thomas Enebo (Engine Yard) aka enebo
 * Nick Sieger (Engine Yard)
+* Hiro Asari (Engine Yard)
+* David Calavera
+* Yoko Harada
+* Hiroshi Nakamura
+* Wayne Meissner
+* MenTaLguY
+
+There are also many past contributors who still help out from time to time:
+
 * Ola Bini (Thoughtworks)
 * Marcin Mielzynski aka lopex
 * Bill Dortch
-* Wayne Meissner
-* MenTaLguY
+* Many more...check out the JRuby commit logs!
 
 Links
 -----
