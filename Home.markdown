@@ -5,8 +5,9 @@ This is a community wiki dedicated to [JRuby], an implementation of the [http://
 [JRuby Downloads]
 
 **JRuby Basics**
-* [[AboutJRuby|About JRuby]]
-* [[GettingStarted|Getting Started]]
+
+* [[About JRuby|AboutJRuby]]
+* [[Getting Started|GettingStarted]]
 * [[WalkthroughsandTutorials|Walkthroughs and Tutorials]]
 * [[ApplicationsAndLibraries|Help With Libraries and Applications]]
 * [[RedBridge | Embedding JRuby]]
