@@ -95,6 +95,7 @@ Combining use of the server VM with using the compiler and disabling ObjectSpace
 **All together now**
 
 First some suggestions:
+
 * Set the minimum `-Xms` and maximum `-Xmx` heap sizes to the same value.
 * Set the `-Xmn` value lower than the `-Xmx` value.
 
