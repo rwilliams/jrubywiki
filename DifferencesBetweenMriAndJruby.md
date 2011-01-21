@@ -2,15 +2,7 @@ Differences Between MRI And JRuby
 =================================
 Although ideally [MRI](http://en.wikipedia.org/wiki/Ruby_MRI) and JRuby would behave 100% the same in all situations, there are some minor differences. Some differences are due to bugs, and those are not reported here. This page is for differences that are not bugs.
 
-### Table of Contents
-1. [Native C extensions](#native-c-extensions)
-2. [Continuations](#continuations)
-3. [Invoking external processes](#invoking-external-processes)
-4. [Fork is not implemented](#fork-is-not-implemented)
-5. [Native Endian is Big Endian](#native-endian-is-big-endian)
-6. [Time precision](#time-precision)
-7. [Regular expressions](#regular-expressions)
-8. [Thread priority](#thread-priority)
+****
 
 <h2 id="native-c-extensions">Native C Extensions</h2>
 JRuby cannot run native C extensions.  Popular libraries have all generally been ported to Java Native Extensions.  Also, now that [FFI](http://kenai.com/projects/ruby-ffi/pages/Home) has become a popular alternative to binding to C libraries, using it obviates the need to write a large chunk of native extensions.
