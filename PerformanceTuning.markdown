@@ -65,8 +65,8 @@ Java Virtual Machine (JVM) Settings
 -----------------------------------
 Except for the JRuby convenience parameter `--server`, all JVM runtime parameters use the `-J` option, followed by the specific JVM setting. For example:
 
-* Heap space settings: `jruby -J-X&lt;heap-space-setting&gt;`
-* JRuby runtime settings: `jruby -J-D&lt;runtime-setting&gt;`
+* Heap space settings: `jruby -J-X<heap-space-setting>`
+* JRuby runtime settings: `jruby -J-D<runtime-setting>`
 
 All the settings described in the following sections are JVM settings.
 
