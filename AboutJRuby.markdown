@@ -32,7 +32,6 @@ There are also many past contributors who still help out from time to time:
 Links
 -----
 
-* [JRuby's project page at Codehaus](http://jruby.codehaus.org)
 * [Charles Oliver Nutter's blog](http://headius.blogspot.com)
 * [Thomas Enebo's blog](http://www.bloglines.com/blog/ThomasEEnebo)
 * [Ola Bini's blog](http://olabini.com/blog)
