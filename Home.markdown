@@ -19,7 +19,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [http://
 **Getting Involved**
 
 * [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
-* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
+* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/)
 * Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
 * Status: [Build Server](http://ci.jruby.org)
 * Design/Internals: [[Internals]]
