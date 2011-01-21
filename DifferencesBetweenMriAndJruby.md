@@ -52,6 +52,6 @@ Thread priority
 ---------------
 In MRI, the Thread priority can be set to any value in Fixnum (if native threads are enabled) or -3..3 (if not). The default value is 0.
 
-In JRuby, Threads are backed by Java threads, and the priority ranges from 1 to 10, with a default of 5. If you pass a value outside of this range to Thread#priority\=, the priority will be set to 1 or 10.
+In JRuby, Threads are backed by Java threads, and the priority ranges from 1 to 10, with a default of 5. If you pass a value outside of this range to `Thread#priority=`, the priority will be set to 1 or 10.
 
 (See http://bugs.jruby.org/5289 and http://bugs.jruby.org/5290.)
