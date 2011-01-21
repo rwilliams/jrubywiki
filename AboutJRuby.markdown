@@ -10,7 +10,7 @@ See [[Differences Between MRI And JRuby|DifferencesBetweenMriAndJruby]] for more
 Development Team
 ----------------
 
-JRuby's current core development team consists of six developers:
+JRuby's current core development team consists of nine developers:
 
 * Charles Oliver Nutter (Engine Yard) aka headius
 * Thomas Enebo (Engine Yard) aka enebo
@@ -18,7 +18,7 @@ JRuby's current core development team consists of six developers:
 * Hiro Asari (Engine Yard)
 * David Calavera
 * Yoko Harada
-* Hiroshi Nakamura
+* Hiroshi Nakamura aka NaHi
 * Wayne Meissner
 * MenTaLguY
 
