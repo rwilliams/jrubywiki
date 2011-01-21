@@ -54,6 +54,5 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 * [JRuby's article on Wikipedia](http://en.wikipedia.org/wiki/JRuby)
 * [Fresh JRuby news Yahoo Pipes aggregator](http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw)
-* [JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources](http://www.jrubyhub.com)
 [JRuby]: http://jruby.org
 [JRuby Downloads]: http://jruby.org/download
