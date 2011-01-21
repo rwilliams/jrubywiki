@@ -1,7 +1,8 @@
 JRuby - Java powered Ruby implementation
 ========================================
-## This is a community wiki dedicated to [JRuby], an implementation of the [http://www.ruby-lang.org/en Ruby] programming language atop the Java Virtual Machine (JVM).
-<span style="font-size:x-large">[http://jruby.org/download JRuby Downloads]</span>
+This is a community wiki dedicated to [JRuby], an implementation of the [http://www.ruby-lang.org/en Ruby] programming language atop the Java Virtual Machine (JVM).
+
+[JRuby Downloads]
 
 <table width="100%" cellpadding="10">
 <tr valign="top">
@@ -62,3 +63,4 @@ JRuby - Java powered Ruby implementation
 </tr>
 </table>
 [JRuby]: http://jruby.org
+[JRuby Downloads]: http://jruby.org/downloads
