@@ -30,8 +30,8 @@ Enabling ObjectSpace Dynamically
 --------------------------------
 A program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example,  jirb uses this feature to turn on ObjectSpace so it can have fully functional code completion. To enable ObjectSpace support in a ruby program, add the following code:
 
-  require 'jruby'
-  JRuby.objectspace=true
+    require 'jruby'
+    JRuby.objectspace=true
 
 Enabling Thread Pooling
 -----------------------
@@ -41,7 +41,7 @@ As an alternative to straight-up 1:1 threading in JRuby, you can enable ''thread
 
 To enable thread pooling, set the Java system property `jruby.thread.pooling` to `true`:
 
- jruby -J-Djruby.thread.pooling=true myscript.rb
+    jruby -J-Djruby.thread.pooling=true myscript.rb
 
 For a list of all the thread pooling parameters, see [Thread Pooling Runtime Properties](#thread_pool_rt_props).
 
@@ -49,11 +49,11 @@ Using JRuby's Fast Mode
 -----------------------
 JRuby 1.2 and later ships with a `--fast` flag that turns on a number of runtime features to provide optimal performance without breaking Ruby features needed by common applications. It enables the following modes:
 
-* '''Frameless compilation:''' Avoids using heap-based frames to track cross-call data like `backref`, `lastline`, and `visibility` when it's not needed.
-* '''Fast math operations on Fixnum:''' When the target of a binary operator (`+`, `-`, and so on) is `Fixnum`, dispatches directly rather than through JRuby's dynamic call logic.
-* '''Positionless compilation:'''  To avoid introducing overhead, uses Java's stack tracing mechanisms rather than JRuby's artificial mechanisms.
-* '''Precompile all code''' Because we no longer maintain artificial heap frames and artificial traces, code must be compiled before execution to use Java's backtrace logic. This can impact startup time.
-* '''Fast `__send__`:'''  When calling `__send__` with a literal symbol, compiles it as a call to the method named by the symbol instead. Useful for meta-programmed logic looking to do a visibility-ignoring call but trying to avoid the `__send__` overhead.
+* **Frameless compilation:** Avoids using heap-based frames to track cross-call data like `backref`, `lastline`, and `visibility` when it's not needed.
+* **Fast math operations on Fixnum:** When the target of a binary operator (`+`, `-`, and so on) is `Fixnum`, dispatches directly rather than through JRuby's dynamic call logic.
+* **Positionless compilation:**  To avoid introducing overhead, uses Java's stack tracing mechanisms rather than JRuby's artificial mechanisms.
+* **Precompile all code** Because we no longer maintain artificial heap frames and artificial traces, code must be compiled before execution to use Java's backtrace logic. This can impact startup time.
+* **Fast `__send__`:**  When calling `__send__` with a literal symbol, compiles it as a call to the method named by the symbol instead. Useful for meta-programmed logic looking to do a visibility-ignoring call but trying to avoid the `__send__` overhead.
 
 To make these settings ''safe'', a few assumptions are made:
 
@@ -71,13 +71,13 @@ Except for the JRuby convenience parameter `--server`, all JVM runtime parameter
 All the settings described in the following sections are JVM settings.
 
 ### Using the Java Server Virtual Machine
-JRuby benefits greatly from running under the Java '''Server''' VM, which trades startup and early run performance for a much higher level of long term optimization. JRuby will use the server VM of whatever Java version you're running if you use the `--server` parameter, which passes the `-server` flag to the underlying JVM. For example:
+JRuby benefits greatly from running under the Java **Server** VM, which trades startup and early run performance for a much higher level of long term optimization. JRuby will use the server VM of whatever Java version you're running if you use the `--server` parameter, which passes the `-server` flag to the underlying JVM. For example:
 
  jruby --server myscript.rb
 
 Combining use of the server VM with using the compiler and disabling ObjectSpace generally results in the fastest performance.
 
-'''Note:''' The `--server` parameter is a convenient shorthand for the JVM parameter  `-J-server`.
+**Note:** The `--server` parameter is a convenient shorthand for the JVM parameter  `-J-server`.
 
 ### Setting Heap Space Parameters for JRuby
 * Maximum heap space:
