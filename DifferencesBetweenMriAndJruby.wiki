@@ -8,7 +8,7 @@ __TOC__
 JRuby cannot run native C extensions.  Popular libraries have all generally been ported to Java Native Extensions.  Also, now that [http://kenai.com/projects/ruby-ffi/pages/Home FFI] has become a popular alternative to binding to C libraries, using it obviates the need to write a large chunk of native extensions.
 
 == Continuations ==
-JRuby does not support [http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_c_continuation.html continuations] (<code>[http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_m_kernel.html#Kernel.callcc Kernel.callcc]</code>).
+JRuby does not support [http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_c_continuation.html continuations] ([http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_m_kernel.html#Kernel.callcc Kernel.callcc]).
 
 == Invoking external processes ==
 On Microsoft Windows, JRuby is a little smarter when launching external processes. If the executable file is not a binary executable (<code>.exe</code>), MRI requires you give the file suffix as well, but JRuby manages without it.
