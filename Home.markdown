@@ -7,13 +7,13 @@ This is a community wiki dedicated to [JRuby], an implementation of the [http://
 **JRuby Basics**
 
 * [[About JRuby|AboutJRuby]]
-* [[Getting Started|GettingStarted]]
-* [[WalkthroughsandTutorials|Walkthroughs and Tutorials]]
-* [[ApplicationsAndLibraries|Help With Libraries and Applications]]
-* [[RedBridge | Embedding JRuby]]
-* [[CallingJavaFromJRuby|Scripting Java from JRuby]]
-* [[StandaloneJarsAndClasses|Standalone Jars and Classes]]
-* [[PerformanceTuning|Performance Tuning]]
+* [[GettingStarted|Getting Started]]
+* [[Walkthroughs and Tutorials|WalkthroughsandTutorials]]
+* [[Help With Libraries and Applications|ApplicationsAndLibraries]]
+* [[ Embedding JRuby|RedBridge ]]
+* [[Scripting Java from JRuby|CallingJavaFromJRuby]]
+* [[Standalone Jars and Classes|StandaloneJarsAndClasses]]
+* [[Performance Tuning|PerformanceTuning]]
 * [[FAQs]]
 
 **Getting Involved**
