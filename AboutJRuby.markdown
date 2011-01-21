@@ -38,4 +38,3 @@ Links
 * [Ola Bini's blog](http://olabini.com/blog)
 * [Nick Sieger's blog](http://blog.nicksieger.com)
 * [JRuby related articles](http://www.java201.com/resources/browse/jruby.html)
-* [JRubyHub.com: The hub for all resources related to JRuby and JRuby on Rails resources](http://www.jrubyhub.com)
