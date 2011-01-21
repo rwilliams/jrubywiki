@@ -18,18 +18,18 @@ This is a community wiki dedicated to [JRuby], an implementation of the [http://
 
 **Getting Involved**
 
-* [[RubySummerOfCode2010|Ruby Summer of Code 2010!]]
-* Communicate: [[MailingLists|Mailing Lists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
+* [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
+* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [http://jira.codehaus.org/browse/JRUBY JIRA (bugs)]
 * Code: [http://jruby.org/git Main Repository], [http://github.com/jruby/jruby/tree/master GitHub mirror]
 * Status: [http://ci.jruby.org Build Server]
 * Design/Internals: [[Internals]]
 * Distributions: [[JRubyDistributions]]
-* [[JRubyBugReportingStyleGuide|JRuby Bug Reporting Style Guide]]
-* [[JRubyStyleGuide|JRuby Style Guide]]
+* [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
+* [[JRuby Style Guide|JRubyStyleGuide]]
 * [http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively How to Contribute to JRuby Effectively]
-* [[JRubyAndRubySpecs|JRuby and RubySpecs]]
-* [[Ruby1_9Support|Ruby 1.9 Support]] - Remaining work to be done and how to contribute
-* [[ReleaseDocumentation|Release Documentation]]
+* [[JRuby and RubySpecs|JRubyAndRubySpecs]]
+* [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
+* [[Release Documentation|ReleaseDocumentation]]
 * [[RoadMap]]
 
 **JRuby on Rails**
