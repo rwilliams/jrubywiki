@@ -1,9 +1,6 @@
-<table width="100%" cellpadding="10">
-<tr valign="top">
-<td width="60%"><br/>
-<span style="font-family:Georgia, Thorndale, Times, serif;font-size:xx-large">JRuby</span><br/><br/>
-<span style="font-family:Georgia, Thorndale, Times, serif;font-size:large">Java powered Ruby implementation</span><br/><br/>
-This is a community wiki dedicated to [http://jruby.org JRuby], an implementation of the [http://www.ruby-lang.org/en Ruby] programming language atop the Java Virtual Machine (JVM).
+JRuby - Java powered Ruby implementation
+========================================
+## This is a community wiki dedicated to [JRuby], an implementation of the [http://www.ruby-lang.org/en Ruby] programming language atop the Java Virtual Machine (JVM).
 </td>
 <td align="center">
 [[image: jrubylogo-medium.png]]
@@ -71,3 +68,4 @@ This is a community wiki dedicated to [http://jruby.org JRuby], an implementatio
 <td> &nbsp; </td>
 </tr>
 </table>
+[JRuby]: http://jruby.org
