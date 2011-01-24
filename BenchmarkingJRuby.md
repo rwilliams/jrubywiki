@@ -4,7 +4,7 @@ The current popular way to benchmark JRuby performance is to perform a gem insta
 
 After getting a build of JRuby, as above, the following steps can be used to benchmark JRuby using Gem and Rake:
 
-* Fetch the current Rake gem from [http://rubyforge.org/frs/?group_id=50 RubyForge]
+* Fetch the current Rake gem from [RubyForge](http://rubyforge.org/frs/?group_id=50)
 * Execute the following command (putting JRUBY_HOME/bin in your path or referencing it directly):
 
     JRUBY_HOME/bin/gem install <rake gem file>
