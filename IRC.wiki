@@ -1,3 +1,0 @@
-The JRuby community is regularly found on the #jruby IRC channel on [http://freenode.net/ FreeNode IRC]. The logs are provided by the [http://codingbitch.com/irc/channel?channel=%23jruby community] bot.
-
-The [http://pastie.caboo.se/help/ Pastie Bot] is also usually available in the #jruby IRC channel.
