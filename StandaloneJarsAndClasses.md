@@ -3,12 +3,12 @@ Often you may want to generate a "standalone" artifact using JRuby plus your own
 Standalone Class Files
 ----------------------
 
-Many Java applications need to have real .class files on disk. Normally, JRuby's compiler does not produce .class files that look like typical Java classes. It is possible, however, to use the --java or --javac flags to JRuby's compiler to generate normal .class files from simple Ruby class structures, allowing them to be used from Java as though they were normal Java classes. See [[GeneratingJavaClasses|Generating Java Classes]].
+Many Java applications need to have real .class files on disk. Normally, JRuby's compiler does not produce .class files that look like typical Java classes. It is possible, however, to use the `--java` or `--javac` flags to JRuby's compiler to generate normal .class files from simple Ruby class structures, allowing them to be used from Java as though they were normal Java classes. See [[Generating Java Classes|GeneratingJavaClasses]].
 
 Standalone Executable Jar Files
 -------------------------------
 
-You may also want to bundle JRuby plus your own Ruby code  into a single .jar file that when run launches your application. Starting with JRuby 1.6, you can do this by changing the "Main-Class" for the jar file to point at <code>org.jruby.JarBootstrapMain</code> and adding your own jar-bootstrap.rb to the root of the jar file. This file will be loaded and launched as though it were specified on the command line.
+You may also want to bundle JRuby plus your own Ruby code  into a single .jar file that when run launches your application. Starting with JRuby 1.6, you can do this by changing the `Main-Class` for the jar file to point at `org.jruby.JarBootstrapMain` and adding your own jar-bootstrap.rb to the root of the jar file. This file will be loaded and launched as though it were specified on the command line.
 
 Example:
 
