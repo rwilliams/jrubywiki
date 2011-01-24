@@ -32,4 +32,4 @@ Run the JRuby tests:
 
     ant test
 
-See [[GettingStarted#Did_It_Work|Did It Work?]] for information on using JRuby.
+See [[Getting Started|GettingStarted]] for information on using JRuby.
