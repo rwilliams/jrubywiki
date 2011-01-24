@@ -19,10 +19,10 @@ It is possible to use JDBC directly from within JRuby. A simple function using t
       stmtSelect = connSelect.create_statement
 
       # Define the query
-      selectquery = "SELECT name, type, size, price
+      selectquery = %q{SELECT name, type, size, price
             FROM vegetables
-            WHERE type = \"#{vegetable["type"]}\" 
-            AND size = \"#{vegetable["size"]}\";"
+            WHERE type = "#{vegetable["type"]}"
+            AND size = "#{vegetable["size"]}}
 
       # Execute the query
       rsS = stmtSelect.execute_query(selectquery)
