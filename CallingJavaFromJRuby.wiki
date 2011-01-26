@@ -582,8 +582,3 @@ The expression evaluates to the result of the block, e.g.,
 * [http://jruby.codehaus.org/Java+Integration Java Integration] From the JRuby main page.
 * [http://jtestr.codehaus.org/ JtestR] A testing framework for Java based on JRuby.
 * [http://github.com/leandrosilva/sparrow Sparrow] A JMS client for messaging based on JRuby.
-* [http://www.flashpapers.com/ Term Papers]
-* [http://www.startpottytraining.com Potty Training] 
-* [http://www.plussizetrendyclothing.net/c-42-plus-size-jeans-for-women.aspx plus size jeans] 
-* [http://www.theclothing.net/c-59-designer-jeans.aspx designer jeans]
-
