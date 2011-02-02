@@ -1,7 +1,7 @@
 Articles
 ========
 
-* [http://www.tbray.org/ongoing/When/200x/2006/08/17/JRuby Why JRuby?][http://www.usome.com] <span style="font-size:90%; font-style:italic">(Tim Bray)</span>
+* [Why JRuby?](http://www.tbray.org/ongoing/When/200x/2006/08/17/JRuby)
 * [GlassFish Aquarium JRuby posts](http://blogs.sun.com/theaquarium/tags/jruby)
 * [Introduction to JRuby](http://www.ociweb.com/jnb/jnbApr2007.html)
 * [My JRuby-Rails app on JBoss and Mobicents can make Phone calls !](http://jeanderuelle.blogspot.com/2009/03/my-jruby-rails-app-on-jboss-can-make.html)
