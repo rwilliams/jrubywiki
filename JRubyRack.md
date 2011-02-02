@@ -51,26 +51,9 @@ For simplicity, I haven't set up any separate mailing lists or bug trackers for 
 Source
 ------
 
-The source is currently available from the jruby-contrib subversion repository on codehaus:
-
-http://svn.codehaus.org/jruby-contrib/trunk/rack
+The source is currently available from [[https://github.com/nicksieger/jruby-rack]] on github:
 
 Building
 --------
 
-Ensure you have JRuby with the buildr and rack gems installed.
-
-  jruby -S gem install buildr rack
-
-Checkout the JRuby Rack code and cd to that directory
-
-  svn co http://svn.codehaus.org/jruby-contrib/trunk/rack
-  cd rack
-
-Resolve dependencies, compile the code, and build the jar file.
-
-  jruby -S buildr package
-
-The generated jar should be found in target/jruby-rack-*.jar.
-
-**NOTE**: The JRuby 1.1.3 release, which bundles Rubygems 1.2, [http://rubyforge.org/tracker/index.php?func=detail&aid=21056&group_id=126&atid=575 has some problems with installing Buildr]. To that end I've prepared a standalone buildr package with JRuby 1.1.2. [http://caldersphere.net/jruby-rack/jruby-buildr.tar.gz Download it], add the jruby-buildr directory to your path, and use the jruby-buildr/buildr script instead of "jruby -S buildr" above.
+check instructions on [README](https://github.com/nicksieger/jruby-rack/blob/master/README.md) file
