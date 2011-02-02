@@ -16,7 +16,7 @@ In your projects directory issue an application generator command. In this examp
 
     jruby -S radiant --database=mysql radiantblog
 
-To set up the database connections edit radiantblog/config/database.yml and create the database as well.
+To set up the database connections edit `radiantblog/config/database.yml` and create the database as well.
 
 ```yaml
   production:
@@ -35,7 +35,7 @@ The bootstrap task will populate your database and set up a basic administration
 
     jruby script/server -e production
 
-Fire up your browser and play around a little with your new CMS - [http://localhost:3000]
+Fire up your browser and play around a little with your new CMS - [[http://localhost:3000]]
 
 Deployment
 ----------
@@ -59,4 +59,4 @@ I set the war name to ROOT to avoid the problems with the default Radiant routin
 
     jruby -S warble:war
 
-Deploy your generated war file under Tomcat's webapps folder, start the server and check http://localhost:8080 for your CMS.
+Deploy your generated war file under Tomcat's webapps folder, start the server and check [[http://localhost:8080]] for your CMS.
