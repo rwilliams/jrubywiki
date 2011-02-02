@@ -46,7 +46,7 @@ applications, a single runtime is created and shared for every request.
 Feedback
 --------
 
-For simplicity, I haven't set up any separate mailing lists or bug trackers for jruby-rack at this time. Please use the [http://xircles.codehaus.org/lists/user@jruby.codehaus.org jruby-user mailing list] and the [http://jira.codehaus.org/browse/JRUBY JRuby JIRA issue tracker] for feedback.
+For simplicity, I haven't set up any separate mailing lists or bug trackers for jruby-rack at this time. Please use the [jruby-user mailing list](http://xircles.codehaus.org/lists/user@jruby.codehaus.org)  and the [JRuby JIRA issue tracker](http://jira.codehaus.org/browse/JRUBY) for feedback.
 
 Source
 ------
