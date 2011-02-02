@@ -38,6 +38,7 @@ Examples
 
 * One required argument, no `ThreadContext`, no `Block`, with rest arg
 
+```java
     // this is called if only no args are passed
     @JRubyMethod
     public static IRubyObject method() { ... // you should raise error here
@@ -49,9 +50,11 @@ Examples
     // this is called if two or more args are passed
     @JRubyMethod
     public static IRubyObject method(IRubyObject[] args) { ...
+```
 
 * One required argument, one optional argument, no `ThreadContext`, no `Block`
 
+```java
     // this is called if one argument is passed
     @JRubyMethod
     public static IRubyObject method(IRubyObject arg0) { ...
@@ -59,3 +62,4 @@ Examples
     // this is called if two arguments are passed
     @JRubyMethod
     public static IRubyObject method(IRubyObject arg0, IRubyObject arg1) { ...
+```
