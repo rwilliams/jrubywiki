@@ -15,13 +15,16 @@ Rules
 
 So a rough specification for the signature would be as follows:
 
-  public [static] IRubyObject methodname(
-      [ThreadContext context, ]
-      [IRubyObject self, ]
-      <nowiki>[[IRubyObject arg0 [, ... IRubyObject arg2]] | IRubyObject[] args]
-      [, Block block]) { ...</nowiki>
+```java
+    public [static] IRubyObject methodname(
+        [ThreadContext context, ]
+        [IRubyObject self, ]
+        [[IRubyObject arg0 [, ... IRubyObject arg2]] | IRubyObject[] args]
+      [, Block block]) {
+```
 
-==Examples==
+Examples
+--------
 
 * One required argument, no `ThreadContext`, no `Block`
 
