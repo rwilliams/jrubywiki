@@ -28,13 +28,17 @@ Examples
 
 * One required argument, no `ThreadContext`, no `Block`
 
+```java
     @JRubyMethod
     public IRubyObject method(IRubyObject arg0) {
+```
 
 * Two required arguments, static, `ThreadContext`, no `Block`
 
+```java
     @JRubyMethod
     public static IRubyObject method(ThreadContext context, IRubyObject self, IRubyObject arg0) {
+```
 
 * One required argument, no `ThreadContext`, no `Block`, with rest arg
 
