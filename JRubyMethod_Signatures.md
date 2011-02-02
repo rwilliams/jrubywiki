@@ -1,6 +1,7 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [[Internals|&raquo; Design: Internals]] 
-<h1>JRuby Method Binding</h1>
-<tt>JRubyMethod</tt> allows specifying method signatures, like required, optional, and rest arguments, using normal Java signatures. In most cases, the method binding logic in JRuby will handle all argument counts, arity checking, and argument passing for you. This document describes the allowed combination of signatures.
+JRuby Method Binding
+====================
+
+`@JRubyMethod` allows specifying method signatures, like required, optional, and rest arguments, using normal Java signatures. In most cases, the method binding logic in JRuby will handle all argument counts, arity checking, and argument passing for you. This document describes the allowed combination of signatures.
 
 ==Rules==
 * <tt>ThreadContext</tt> is optional and must always come as the first argument.
