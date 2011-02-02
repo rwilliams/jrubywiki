@@ -1,4 +1,4 @@
-Radiant CMS is an elegant, lightweight content management system built upon the popular Ruby on Rails framework and serves eg. the [http://www.ruby-lang.org Ruby Programming Language website] itself. 
+Radiant CMS is an elegant, lightweight content management system built upon the popular Ruby on Rails framework and serves eg. the [Ruby Programming Language website](http://www.ruby-lang.org) itself.
 
 For more information on Radiant, please visit the [http://radiantcms.org Radiant website].
 
