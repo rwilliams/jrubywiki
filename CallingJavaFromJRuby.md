@@ -321,75 +321,96 @@ JRuby also translates methods following the 'beans-convention':
 
 You don't have to use these alternatives, but they can make the interaction with Java code feel more Ruby-like.
 
-=== Constructors ===
+Constructors
+------------
 
 `JavaClass.new` or `JavaClass.new(x,y,z)` generally works as expected. If you wish to select a particular constructor by signature use reflection:
 
+```ruby
  # Get the the three-integer constructor for this class
  construct = JavaClass.java_class.constructor(Java::int, Java::int, Java::int)
  # Use the constructor
  object = cons.new_instance(0xa4, 0x00, 0x00)
+```
 
-=== Beware of Java generics ===
+Beware of Java generics
+-----------------------
 
 If a Java class is defined with Java generics, the types are erased during compilation for backwards compatibility. As a result. JRuby will have problems with automatic type conversion. For example, if you have a `Map<String,String>`, it will be seen as a simple `Map`, and JRuby will not be able to determine the correct types using reflection.
 
-=== Additional Java Method Access ===
+Additional Java Method Access
+-----------------------------
 
 JRuby defines a number of additional methods for Java objects.
 
 * `java_class` returns the Java class of an object.
 * `java_kind_of?` works like the `instanceof` operator.
 * `java_object` returns the underlying Java object. This is useful for reflection.
-* `java_send` overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as `initialize`, with names that conflict with built-in Ruby methods. More below. ''Added in JRuby 1.4''
-* `java_method` retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`. More below. ''Added in JRuby 1.4''
+* `java_send` overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as `initialize`, with names that conflict with built-in Ruby methods. More below. _Added in JRuby 1.4_
+* `java_method` retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`. More below. _Added in JRuby 1.4_
 
-=== Calling masked or unreachable Java methods with `java_send` ===
+Calling masked or unreachable Java methods with `java_send`
+-----------------------------------------------------------
+
 Sometimes you need to call `initialize` AFTER the `.new()` call, for example the `RTPManager` class in JMF. Unfortunately, this method is masked by Ruby's `initialize` constructor method.  As of JRuby 1.4, the `java_send` method can be used to call this, and any other, masked method:
 
+```ruby
   @mgr = javax.media.rtp.RTPManager.newInstance
   localhost = java.net.InetAddress.getByName("127.0.0.1")
   localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
   @mgr.java_send :initialize, [javax.media.rtp.SessionAddress], localaddr
+```
 
 Here is another example of calling the `ArrayList.add` method with `java_send`:
- 
+
+```ruby
  import java.util.ArrayList
  list = ArrayList.new
  list.java_send :add, [Java::int, java.lang.Object], 0, 'foo'
  puts list.java_send :toString # => "[foo]"
+```
 
 Note the second argument, which is an array of types indicating the exact method signature desired. This is useful for disambiguating methods that are overloaded on similar types such as `int` and `long`.
 
-=== Reflection ===
+Reflection
+----------
 
 Here is an example that shows using java's reflection within jruby
 
+```ruby
   @mgr = javax.media.rtp.RTPManager.newInstance
   localhost = java.net.InetAddress.getByName("127.0.0.1")
   localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
   method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
   method.invoke @mgr.java_object, localaddr.java_object
+```
 
-=== Bound and Unbound Java methods with `java_method` ===
+Bound and Unbound Java methods with `java_method`
+-------------------------------------------------
+
 `java_send` relies on reflection and may lead to poor performance in some cases. Each time it is called, the desired method must be relocated. With the `java_method` method you can get a reference to any overloaded Java method as a Ruby Method object:
- 
+
+```ruby
  # get a bound Method based on the add(int, Object) method from ArrayList
  add = list.java_method :add, [Java::int, java.lang.Object]
  add.call(0, 'foo')
- 
+```
 
 Similarly, an Unbound method object can be retrieved:
 
+```ruby
  # get an UnboundMethod from the ArrayList class:
  toString = ArrayList.java_method :toString
  toString.bind(list).call # => [foo, foo]
+```
 
-=== Conversion of Types ===
+Conversion of Types
+-------------------
 
-==== Ruby to Java ====
+Ruby to Java
+------------
 
-''See the JRuby rspec source code dir'' `spec/java_integration` ''for many more examples.''
+_See the JRuby rspec source code dir_ `spec/java_integration` _for many more examples._
 
 When calling Java from JRuby, primitive Ruby types are converted to default boxed Java types:
 
@@ -552,7 +573,7 @@ JRuby classes can now implement more than one Java interface. Since Java interfa
   end
 
 ==== Closure conversion ====
-JRuby sports a feature called ''closure conversion'', where a Ruby block or closure is converted to an appropriate Java interface. For example:
+JRuby sports a feature called _closure conversion_, where a Ruby block or closure is converted to an appropriate Java interface. For example:
 
   button = javax.swing.JButton.new "Press me!"
   button.add_action_listener {|event| event.source.text = "You did it!"}
