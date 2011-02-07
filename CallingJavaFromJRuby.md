@@ -146,31 +146,35 @@ You could also do it with just straight import, as well.
   import java.lang.System
   version = System.getProperties["java.runtime.version"]
 ```
-**Note:** As noted in [this bug report](http://jira.codehaus.org/browse/JRUBY-3171), `java_import` is the newer and safer, way to import Java classes.  
+**Note:** As noted in [this bug report](http://jira.codehaus.org/browse/JRUBY-3171), `java_import` is the newer and safer, way to import Java classes.
 
 After this point, the "System" constant will be available in the global name space (i.e. available to any script).
 The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
 
 You can also get the same effect by reassigning a Java class to a new constant, like
 
+```ruby
   require 'java'
   Sys = java.lang.System
   version = Sys.getProperties["java.runtime.version"]
+```
 
-=== Use include_package within a Ruby Module to import a Java Package's classes on const_missing ===
+Use include_package within a Ruby Module to import a Java Package's classes on const_missing
+-----------------------------------------
 
-Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's "package xxx.yyy.zzz;" format.  It is also legal to use `import "package_name"`.
+Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's `package xxx.yyy.zzz;` format.  It is also legal to use `import "package_name"`.
 
 
 "Example 1": 
 
- module M
-   include_package "org.xxx.yyy"
-   # now any class within "org.xxx.yyy" will be available within
-   # this module, ex if "org.xxx.yyy.MyClass" exists
-   # a = MyClass.new
- end
-
+```ruby
+module M
+ include_package "org.xxx.yyy"
+ # now any class within "org.xxx.yyy" will be available within
+ # this module, ex if "org.xxx.yyy.MyClass" exists
+ # a = MyClass.new
+end
+```
 
 **Example**: create a Ruby Module called `JavaLang` that includes the classes in the Java package `java.lang`.
 
