@@ -245,7 +245,7 @@ And the Ruby File class is still accessible:
 Making them accessible in the main name space
 ---------------------------------------------
 
-You can set const_missing to make them accessible in more than just a module. See http://www.ruby-forum.com/topic/216629 though there might be a better way.
+You can set const_missing to make them accessible in more than just a module. See [[http://www.ruby-forum.com/topic/216629]] though there might be a better way.
 
 Using within classes within module
 ----------------------------------
