@@ -37,8 +37,7 @@ Here's how to access the methods from this Java Class from from JRuby:
 
 ```ruby
   irb(main):029:0> ni.class.ancestors
-  => [#<Class:01x7e666f>, Java::JavaUtil::Enumeration, Enumerable, Java::JavaLang::Object, 
-  ConcreteJavaProxy, JavaProxy, JavaProxyMethods, Object, Java, Kernel]
+  => [#<Class:01x7e666f>, Java::JavaUtil::Enumeration, Enumerable, Java::JavaLang::Object, ConcreteJavaProxy, JavaProxy, JavaProxyMethods, Object, Java, Kernel]
 ```
 
 Enumeration elements can't be accessed using Array#[] syntax but they do appear as Arrays for many other purposes. You can find out both the Java and Ruby methods for an Enumeration of NetworkInterfaces like this:
