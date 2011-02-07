@@ -1,11 +1,6 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]]
-<h1>Scripting Java from JRuby (jruby 1.0+)</h1>
-__TOC__
-== An example ==
+All the following examples can be "run" either from the command line, or by using **jirb_swing**, the Swing-based IRB console that comes with JRuby.  You can start jirb_swing like `$ jruby -S jirb_swing`.
 
-All the following examples can be "run" either from the command line, or by using '''jirb_swing''', the Swing-based IRB console that comes with JRuby.  You can start jirb_swing like <tt>$ jruby -S jirb_swing</tt>.
-
-A special <tt>require</tt> <tt>'java'</tt> directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will ''not'' give you access to any non-bundled libraries. A bit more is needed for that, which will be discussed later.
+A special `require` `'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will ''not'' give you access to any non-bundled libraries. A bit more is needed for that, which will be discussed later.
 
 The following code shows typical use. It should pop up a small window showing "Hello" on your screen.
 
@@ -25,18 +20,18 @@ The following code shows typical use. It should pop up a small window showing "H
     frame.setVisible(true)
 </pre>
 
-'''Note:''' If you are testing the example above in the Swing IRB console '''jirb_swing''', change the default close operation to DISPOSE_ON_CLOSE, or HIDE_ON_CLOSE unless you want '''jirb_swing''' to also close when you close the second window.
+**Note:** If you are testing the example above in the Swing IRB console **jirb_swing**, change the default close operation to DISPOSE_ON_CLOSE, or HIDE_ON_CLOSE unless you want **jirb_swing** to also close when you close the second window.
 
-Here's another example (showing results from testing these statements in the '''jirb''' console). 
+Here's another example (showing results from testing these statements in the **jirb** console). 
 
-Let's say you wanted to get a list of network interfaces. You can get Java API docs at <tt>[http://java.sun.com/j2se/1.5.0/docs/api/index.html/ java.net.NetworkInterface]</tt>. 
+Let's say you wanted to get a list of network interfaces. You can get Java API docs at `[http://java.sun.com/j2se/1.5.0/docs/api/index.html/ java.net.NetworkInterface]`. 
 
 Here's how to access the methods from this Java Class from from JRuby:
 
   irb(main):013:0> ni = java.net.NetworkInterface.networkInterfaces
   => #<#<Class:01x7e666f>:0x855a27 @java_object=java.net.NetworkInterface$1@821453>
 
-'''<tt>ni</tt>''' is a Ruby variable holding a Java Enumeration of NetworkInterfaces. You can see the Class ancestry for <tt>ni</tt> like this:
+**`ni`** is a Ruby variable holding a Java Enumeration of NetworkInterfaces. You can see the Class ancestry for `ni` like this:
 
   irb(main):029:0> ni.class.ancestors
   => [#<Class:01x7e666f>, Java::JavaUtil::Enumeration, Enumerable, Java::JavaLang::Object, 
@@ -62,7 +57,7 @@ Enumeration elements can't be accessed using Array#[] syntax but they do appear 
   "instance_exec", "taint", "dup", "public_methods", "instance_variable_defined?", 
    "respond_to?", "method", "instance_variables"]
 
-Because JRuby supports the <tt>#each</tt> method on Java Enumerations you can do this:
+Because JRuby supports the `#each` method on Java Enumerations you can do this:
 
   irb(main):011:0> java.net.NetworkInterface.networkInterfaces.each {|i| puts i; puts }
   name:en1 (en1) index: 5 addresses:
@@ -81,19 +76,19 @@ Because JRuby supports the <tt>#each</tt> method on Java Enumerations you can do
 == Accessing and Importing Java Classes ==
 
 === Require a jar file to make resources in the jar discoverable within JRuby ===
-To use resources within a jar file from JRuby, the jar file must either be on the classpath *or* be made available with the <tt>require</tt> method:
+To use resources within a jar file from JRuby, the jar file must either be on the classpath *or* be made available with the `require` method:
 
   require 'path/to/mycode.jar'
 
-This <tt>require</tt> makes the resources in <tt>mycode.jar</tt> discoverable by later commands like <tt>import</tt> and <tt>include_package</tt>.
+This `require` makes the resources in `mycode.jar` discoverable by later commands like `import` and `include_package`.
 
-Note that loading jar-files via <tt>require</tt> searches along the $LOAD_PATH for them, like it would for normal ruby files.
+Note that loading jar-files via `require` searches along the $LOAD_PATH for them, like it would for normal ruby files.
 
 ===Load a .class File===
 
 If you need to load from an existing .class file(or one that's not camelcase), the following has examples: http://www.ruby-forum.com/topic/216572#939791
 
-Basically it's <tt>$CLASSPATH << "target/classes"; import org.asdf.ClassName</tt> where "target/classes/org/asdf/ClassName.class" exists.
+Basically it's `$CLASSPATH << "target/classes"; import org.asdf.ClassName` where "target/classes/org/asdf/ClassName.class" exists.
 
 Note also that this will need to be a full path name or relative to the directory the script starts in, as the JVM doesn't seem to respond to Dir.chdir very well.
 
@@ -101,33 +96,33 @@ Note also that this will need to be a full path name or relative to the director
 
 You can reference a Java class in JRuby in at least two different ways. 
 
-* The first is to map Java names like <tt>org.foo.department.Widget</tt> to Ruby nested modules format. This works as follows:
+* The first is to map Java names like `org.foo.department.Widget` to Ruby nested modules format. This works as follows:
 
    Java: org.foo.department.Widget
    Ruby: Java::OrgFooDepartment::Widget
 
 That is:
 
-** Java packages all reside within the <tt>Java</tt> module.
+** Java packages all reside within the `Java` module.
 ** The package path is then transformed by removing the dots and converting to ''CamelCase''
 
 This also means that, just as in Java, packages are not nested, but are each associated with their own unique module name.
 
-* Second way: for the top-level Java packages <tt>java</tt>, <tt>javax</tt>, <tt>org</tt>, and <tt>com</tt> you can type in a fully qualified class name basically as in Java, for example, <tt>java.lang.System</tt> or <tt>org.abc.def.className</tt>
-You can get the same effect for your own (custom) top-level packages, as follows. Let's assume that your packages are called <tt>edu.school.department.Class</tt>. Then, you define
+* Second way: for the top-level Java packages `java`, `javax`, `org`, and `com` you can type in a fully qualified class name basically as in Java, for example, `java.lang.System` or `org.abc.def.className`
+You can get the same effect for your own (custom) top-level packages, as follows. Let's assume that your packages are called `edu.school.department.Class`. Then, you define
 
    def edu
       Java::Edu
    end
 
-And then you can use use usual Java package names like <tt>edu.abc.def.ClassName</tt>
+And then you can use use usual Java package names like `edu.abc.def.ClassName`
 Note also that you must use the right capitalization, though see below for how you can change and assign it to your own liking.
 
 === Using a Java Class Without The Full Path Name ===
 
-You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the <tt>java_import</tt> statement or <tt>import</tt> statement, you can make the Java class available only by its class name, just as in Java.
+You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the `java_import` statement or `import` statement, you can make the Java class available only by its class name, just as in Java.
 
-'''Example''': java_import and use the <tt>java.lang.System</tt> class.
+**Example**: java_import and use the `java.lang.System` class.
 
   require 'java'
   java_import java.lang.System
@@ -139,7 +134,7 @@ You could also do it with just straight import, as well.
   import java.lang.System
   version = System.getProperties["java.runtime.version"]
 
-'''Note:''' As noted in [http://jira.codehaus.org/browse/JRUBY-3171 this bug report], <tt>java_import</tt> is the newer and safer, way to import Java classes.  
+**Note:** As noted in [http://jira.codehaus.org/browse/JRUBY-3171 this bug report], `java_import` is the newer and safer, way to import Java classes.  
 
 After this point, the "System" constant will be available in the global name space (i.e. available to any script).
 The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
@@ -152,7 +147,7 @@ You can also get the same effect by reassigning a Java class to a new constant, 
 
 === Use include_package within a Ruby Module to import a Java Package's classes on const_missing ===
 
-Use <tt>include_package "package_name"</tt> in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's "package xxx.yyy.zzz;" format.  It is also legal to use <tt>import "package_name"</tt>.
+Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's "package xxx.yyy.zzz;" format.  It is also legal to use `import "package_name"`.
 
 
 "Example 1": 
@@ -165,7 +160,7 @@ Use <tt>include_package "package_name"</tt> in a Ruby Module to support namespac
  end
 
 
-'''Example''': create a Ruby Module called <tt>JavaLang</tt> that includes the classes in the Java package <tt>java.lang</tt>.
+**Example**: create a Ruby Module called `JavaLang` that includes the classes in the Java package `java.lang`.
 
   module JavaLangDemo
     include_package "java.lang"
@@ -173,7 +168,7 @@ Use <tt>include_package "package_name"</tt> in a Ruby Module to support namespac
     import "java.lang"
   end
 
-Now you can prefix the desired Java Class name with <tt>JavaLangDemo::</tt> to access the included Classes:
+Now you can prefix the desired Java Class name with `JavaLangDemo::` to access the included Classes:
 
   version = JavaLangDemo::System.getProperties["java.runtime.version"]
   => "1.5.0_13-b05-237"
@@ -185,7 +180,7 @@ All Java classes in the package will become be available in this class/module, u
 
 The use of the Module name to scope access to the imported Java class is also helpful in cases where the Java class has the same name as an existing Ruby class. 
 
-For example if you need to create an instance of a <tt>java.io.File</tt> object, this code will work:
+For example if you need to create an instance of a `java.io.File` object, this code will work:
 
   import java.io.File
   newfile = File.new("file.txt")
@@ -199,7 +194,7 @@ Will produce this error:
 
   NoMethodError: private method `open' called for Java::JavaIo::File:Class
 
-If instead you create a module called <tt>JavaIO</tt> and include the package in the module definition:
+If instead you create a module called `JavaIO` and include the package in the module definition:
 
   module JavaIO     
     include_package "java.io"
@@ -228,7 +223,7 @@ You could override const_missing, though (see above), if you wanted that behavio
 
 === Using Static Java Enumerations ===
 
-Java <tt>enum</tt>s are accessible from Ruby code as constants:
+Java `enum`s are accessible from Ruby code as constants:
 
   lock.try_lock(5000, java.util.concurrent.TimeUnit::MILLISECONDS)
 
@@ -266,7 +261,7 @@ puts "Result: #{result} Type: #{result.class.name}"
 
 === Alternative Names and Beans Convention ===
 
-In Ruby, one usually prefers <tt>method_names_like_this</tt>, while Java traditionally uses <tt>methodNamesLikeThis</tt>. If you want, you can use Ruby-style method names instead of the Java ones.
+In Ruby, one usually prefers `method_names_like_this`, while Java traditionally uses `methodNamesLikeThis`. If you want, you can use Ruby-style method names instead of the Java ones.
 
 For example, these two calls are equivalent
 
@@ -283,7 +278,7 @@ You don't have to use these alternatives, but they can make the interaction with
 
 === Constructors ===
 
-<tt>JavaClass.new</tt> or <tt>JavaClass.new(x,y,z)</tt> generally works as expected. If you wish to select a particular constructor by signature use reflection:
+`JavaClass.new` or `JavaClass.new(x,y,z)` generally works as expected. If you wish to select a particular constructor by signature use reflection:
 
  # Get the the three-integer constructor for this class
  construct = JavaClass.java_class.constructor(Java::int, Java::int, Java::int)
@@ -292,34 +287,34 @@ You don't have to use these alternatives, but they can make the interaction with
 
 === Beware of Java generics ===
 
-If a Java class is defined with Java generics, the types are erased during compilation for backwards compatibility. As a result. JRuby will have problems with automatic type conversion. For example, if you have a <tt>Map<String,String></tt>, it will be seen as a simple <tt>Map</tt>, and JRuby will not be able to determine the correct types using reflection.
+If a Java class is defined with Java generics, the types are erased during compilation for backwards compatibility. As a result. JRuby will have problems with automatic type conversion. For example, if you have a `Map<String,String>`, it will be seen as a simple `Map`, and JRuby will not be able to determine the correct types using reflection.
 
 === Additional Java Method Access ===
 
 JRuby defines a number of additional methods for Java objects.
 
-* <tt>java_class</tt> returns the Java class of an object.
-* <tt>java_kind_of?</tt> works like the <tt>instanceof</tt> operator.
-* <tt>java_object</tt> returns the underlying Java object. This is useful for reflection.
-* <tt>java_send</tt> overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as <tt>initialize</tt>, with names that conflict with built-in Ruby methods. More below. ''Added in JRuby 1.4''
-* <tt>java_method</tt> retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in <tt>java_send</tt>. More below. ''Added in JRuby 1.4''
+* `java_class` returns the Java class of an object.
+* `java_kind_of?` works like the `instanceof` operator.
+* `java_object` returns the underlying Java object. This is useful for reflection.
+* `java_send` overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as `initialize`, with names that conflict with built-in Ruby methods. More below. ''Added in JRuby 1.4''
+* `java_method` retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`. More below. ''Added in JRuby 1.4''
 
-=== Calling masked or unreachable Java methods with <tt>java_send</tt> ===
-Sometimes you need to call <tt>initialize</tt> AFTER the <tt>.new()</tt> call, for example the <tt>RTPManager</tt> class in JMF. Unfortunately, this method is masked by Ruby's <tt>initialize</tt> constructor method.  As of JRuby 1.4, the <tt>java_send</tt> method can be used to call this, and any other, masked method:
+=== Calling masked or unreachable Java methods with `java_send` ===
+Sometimes you need to call `initialize` AFTER the `.new()` call, for example the `RTPManager` class in JMF. Unfortunately, this method is masked by Ruby's `initialize` constructor method.  As of JRuby 1.4, the `java_send` method can be used to call this, and any other, masked method:
 
   @mgr = javax.media.rtp.RTPManager.newInstance
   localhost = java.net.InetAddress.getByName("127.0.0.1")
   localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
   @mgr.java_send :initialize, [javax.media.rtp.SessionAddress], localaddr
 
-Here is another example of calling the <tt>ArrayList.add</tt> method with <tt>java_send</tt>:
+Here is another example of calling the `ArrayList.add` method with `java_send`:
  
  import java.util.ArrayList
  list = ArrayList.new
  list.java_send :add, [Java::int, java.lang.Object], 0, 'foo'
  puts list.java_send :toString # => "[foo]"
 
-Note the second argument, which is an array of types indicating the exact method signature desired. This is useful for disambiguating methods that are overloaded on similar types such as <tt>int</tt> and <tt>long</tt>.
+Note the second argument, which is an array of types indicating the exact method signature desired. This is useful for disambiguating methods that are overloaded on similar types such as `int` and `long`.
 
 === Reflection ===
 
@@ -331,8 +326,8 @@ Here is an example that shows using java's reflection within jruby
   method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
   method.invoke @mgr.java_object, localaddr.java_object
 
-=== Bound and Unbound Java methods with <tt>java_method</tt> ===
-<tt>java_send</tt> relies on reflection and may lead to poor performance in some cases. Each time it is called, the desired method must be relocated. With the <tt>java_method</tt> method you can get a reference to any overloaded Java method as a Ruby Method object:
+=== Bound and Unbound Java methods with `java_method` ===
+`java_send` relies on reflection and may lead to poor performance in some cases. Each time it is called, the desired method must be relocated. With the `java_method` method you can get a reference to any overloaded Java method as a Ruby Method object:
  
  # get a bound Method based on the add(int, Object) method from ArrayList
  add = list.java_method :add, [Java::int, java.lang.Object]
@@ -349,54 +344,54 @@ Similarly, an Unbound method object can be retrieved:
 
 ==== Ruby to Java ====
 
-''See the JRuby rspec source code dir'' <tt>spec/java_integration</tt> ''for many more examples.''
+''See the JRuby rspec source code dir'' `spec/java_integration` ''for many more examples.''
 
 When calling Java from JRuby, primitive Ruby types are converted to default boxed Java types:
 
 {| border="1" style="text-align:left;" cellspacing="2" cellpadding="5" 
 |- style="background:silver"
-|'''Ruby Type'''
-|'''Java Type'''
+|**Ruby Type**
+|**Java Type**
 |- 
-|  "foo" || <tt>java.lang.String</tt>
+|  "foo" || `java.lang.String`
 |-
-| 1 || <tt>java.lang.Long</tt>
+| 1 || `java.lang.Long`
 |-
-| 1.0 || <tt>java.lang.Double</tt>
+| 1.0 || `java.lang.Double`
 |-
-| true, false || <tt>java.lang.Boolean</tt>
+| true, false || `java.lang.Boolean`
 |-
-| 1 << 128 || <tt>java.math.BigInteger</tt> 
+| 1 << 128 || `java.math.BigInteger` 
 |}
 
 However, this does not mean that you cannot call methods expecting a primitive type. You can also pass an integer to a method expecting a double value. JRuby usually tries quite hard to find a method that can understand your parameters.
 
-If JRuby cannot find a matching method, it tries to pass the actual JRuby objects instead (that is, the Java objects from the JRuby implementation). A consequence of this is that if this fails you will see an error message stating that JRuby hasn't found a method taking an object of class <tt>org.jruby.RubyObject</tt> instead of the actual type.
+If JRuby cannot find a matching method, it tries to pass the actual JRuby objects instead (that is, the Java objects from the JRuby implementation). A consequence of this is that if this fails you will see an error message stating that JRuby hasn't found a method taking an object of class `org.jruby.RubyObject` instead of the actual type.
 
-If JRuby is not finding the exact method you want to call, perhaps because of extreme ambiguity like <tt>foo(int)</tt> vs. <tt>foo(long)</tt>, the <tt>java_send</tt> method can be used to disambiguate. See below.
+If JRuby is not finding the exact method you want to call, perhaps because of extreme ambiguity like `foo(int)` vs. `foo(long)`, the `java_send` method can be used to disambiguate. See below.
 
 ==== Java to Ruby ====
 When primitive Java types are passed to JRuby they are converted to the following Ruby types:
 
 {| border="1" style="text-align:left;" cellspacing="2" cellpadding="5" 
 |- style="background:silver"
-|'''Java Type'''||'''Ruby Type'''
+|**Java Type**||**Ruby Type**
 |- 
-| <tt>public String</tt> || <tt>String</tt>
+| `public String` || `String`
 |-
-| <tt>public byte</tt> || <tt>Fixnum</tt>
+| `public byte` || `Fixnum`
 |-
-| <tt>public short</tt> || <tt>Fixnum</tt>
+| `public short` || `Fixnum`
 |-
-| <tt>public char</tt> || <tt>Fixnum</tt>
+| `public char` || `Fixnum`
 |-
-| <tt>public int</tt> || <tt>Fixnum</tt>
+| `public int` || `Fixnum`
 |-
-| <tt>public long</tt> || <tt>Fixnum</tt>
+| `public long` || `Fixnum`
 |-
-| <tt>public float</tt> || <tt>Float</tt>
+| `public float` || `Float`
 |-
-| <tt>public double</tt> || <tt>Float</tt>
+| `public double` || `Float`
 |}
 
 The Java Booleans true and false are coerced to the Ruby singleton classes TrueClass and FalseClass which are represented in Ruby with the instances true and false.
@@ -409,37 +404,37 @@ Java primitive classes can be found in the Java module. For example, <code>Java:
 
 {| border="1" 
 |- style="background:silver"
-|'''Ruby Code''' ||'''Java Class''' 
+|**Ruby Code** ||**Java Class** 
 |- 
-| <tt>Java::JavaClass.for_name("byte") </tt> || <tt>Java::byte.java_class</tt>
+| `Java::JavaClass.for_name("byte") ` || `Java::byte.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("boolean") </tt> || <tt> Java::boolean.java_class</tt>
+| `Java::JavaClass.for_name("boolean") ` || ` Java::boolean.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("byte") </tt> || <tt> Java::byte.java_class</tt>
+| `Java::JavaClass.for_name("byte") ` || ` Java::byte.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("short") </tt> || <tt> Java::short.java_class</tt>
+| `Java::JavaClass.for_name("short") ` || ` Java::short.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("char") </tt> || <tt> Java::char.java_class</tt>
+| `Java::JavaClass.for_name("char") ` || ` Java::char.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("int") </tt> || <tt> Java::int.java_class</tt>
+| `Java::JavaClass.for_name("int") ` || ` Java::int.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("long") </tt> || <tt> Java::long.java_class</tt>
+| `Java::JavaClass.for_name("long") ` || ` Java::long.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("float") </tt> || <tt> Java::float.java_class</tt>
+| `Java::JavaClass.for_name("float") ` || ` Java::float.java_class`
 |- 
-| <tt>Java::JavaClass.for_name("double") </tt> || <tt> Java::double.java_class</tt>
+| `Java::JavaClass.for_name("double") ` || ` Java::double.java_class`
 |}
 
 == Arrays ==
-There are two ways of constructing Java arrays. One is to use the <code>to_java</code> method of the class Array. The other is to use the <tt>[]</tt> method for the primitive Java types.
+There are two ways of constructing Java arrays. One is to use the <code>to_java</code> method of the class Array. The other is to use the `[]` method for the primitive Java types.
 
 ==== Converting a Ruby Array to a Java Array ====
-The <tt>to_java</tt> method constructs a Java array from a Ruby array:
+The `to_java` method constructs a Java array from a Ruby array:
 
   [1,2,3].to_java
   => [Ljava.lang.Object;@1a32ea4
 
-By default, <tt>to_java</tt> constructs <tt>Object</tt> arrays. You can specify the parameter with an additional argument which can either be a symbol or a primitive class like <tt>Java::double</tt>
+By default, `to_java` constructs `Object` arrays. You can specify the parameter with an additional argument which can either be a symbol or a primitive class like `Java::double`
 
   ["a","b","c"].to_java(:string)
   => [Ljava.lang.String;@170984c
@@ -448,7 +443,7 @@ By default, <tt>to_java</tt> constructs <tt>Object</tt> arrays. You can specify 
   => [D@9bc984
 
 ==== Constructing Empty Java Arrays ====
-Sometimes a Java library will need a fixed-length array, say for example a byte buffer for a stream to read into. For this, you can use the <tt>[]</tt> method of the primitive types in the Java module:
+Sometimes a Java library will need a fixed-length array, say for example a byte buffer for a stream to read into. For this, you can use the `[]` method of the primitive types in the Java module:
 
   bytes = Java::byte[1024].new # Equivalent to Java's bytes = new byte[1024];
 
@@ -470,7 +465,7 @@ Note that currently you cannot call java methods from within a ruby class' const
 or it results in a stack overflow http://www.ruby-forum.com/topic/217475
 
 
-== Referencing a <tt>java.lang.Class</tt> object ==
+== Referencing a `java.lang.Class` object ==
 If you call a Java class from JRuby and need to pass a Java class as an argument, if you use this form:
 
   DoSomethingWithJavaClass(MyJavaClass.class)
@@ -480,7 +475,7 @@ you'll get this error:
   TypeError: expected [java.lang.Class]; 
   got: [org.jruby.RubyClass]; error: argument type mismatch
 
-Instead use the method <tt>java_class</tt>.
+Instead use the method `java_class`.
 
   DoSomethingWithJavaClass(MyJavaClass.java_class)
 
@@ -497,7 +492,7 @@ Note that these additions will only be visible on the JRuby side.
 You can subclass (i.e. extend) a Java class and then use the JRuby class whenever Java expects the superclass.
 
 ==== Gotchas ====
-If you have a class name ambiguity between Java and Ruby, the class name will reference the Ruby construct within the Ruby code. For instance, if you import <tt>java.lang.Thread</tt> and then write <tt>JThread < Thread</tt>, <tt>JThread</tt> will in fact inherit the Ruby <tt>Thread</tt> object, not the Java <tt>Thread</tt>. The solution is to use the full Java Class name, such as:
+If you have a class name ambiguity between Java and Ruby, the class name will reference the Ruby construct within the Ruby code. For instance, if you import `java.lang.Thread` and then write `JThread < Thread`, `JThread` will in fact inherit the Ruby `Thread` object, not the Java `Thread`. The solution is to use the full Java Class name, such as:
  JThread < java.lang.Thread
 
 === Interfaces ===
@@ -517,9 +512,9 @@ JRuby sports a feature called ''closure conversion'', where a Ruby block or clos
   button = javax.swing.JButton.new "Press me!"
   button.add_action_listener {|event| event.source.text = "You did it!"}
 
-In this example, the <tt>JButton</tt>'s <tt>addActionListener</tt> method takes one parameter, a <tt>java.awt.event.ActionListener</tt>. The block is converted to a <tt>Proc</tt> object, which is then decorated with a java interface proxy that invokes the block for any method called on the interface.
+In this example, the `JButton`'s `addActionListener` method takes one parameter, a `java.awt.event.ActionListener`. The block is converted to a `Proc` object, which is then decorated with a java interface proxy that invokes the block for any method called on the interface.
 
-This not only works for event listeners or <tt>Runnable</tt>, but basically for any interface. When calling a method that expects an interface, JRuby checks if a block is passed and automatically converts the block to an object implementing the interface.
+This not only works for event listeners or `Runnable`, but basically for any interface. When calling a method that expects an interface, JRuby checks if a block is passed and automatically converts the block to an object implementing the interface.
 
  
 
@@ -554,7 +549,7 @@ Note that this can also be written:
  end
 
 == Synchronization in JRuby ==
-When interacting with Java APIs from JRuby, it is occasionally necessary to synchronize on an object for thread safety. In JRuby, a <tt>synchronize</tt> method is provided on every wrapped Java object to support this functionality. For example, the following Java code:
+When interacting with Java APIs from JRuby, it is occasionally necessary to synchronize on an object for thread safety. In JRuby, a `synchronize` method is provided on every wrapped Java object to support this functionality. For example, the following Java code:
 
  
  synchronized(obj) {
