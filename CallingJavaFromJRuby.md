@@ -296,22 +296,28 @@ result = mm.org
 puts "Result: #{result} Type: #{result.class.name}"
 ```
 
-== Calling a Java Method ==
+Calling a Java Method
+---------------------
 
-=== Alternative Names and Beans Convention ===
+Alternative Names and Beans Convention
+--------------------------------------
 
 In Ruby, one usually prefers `method_names_like_this`, while Java traditionally uses `methodNamesLikeThis`. If you want, you can use Ruby-style method names instead of the Java ones.
 
 For example, these two calls are equivalent
 
+```ruby
   java.lang.System.currentTimeMillis
   java.lang.System.current_time_millis
+```
 
 JRuby also translates methods following the 'beans-convention':
 
+```ruby
   x.getSomething            becomes   x.something
   x.setSomething(newValue)  becomes   x.something = new_value
   x.isSomething             becomes   x.something?
+```
 
 You don't have to use these alternatives, but they can make the interaction with Java code feel more Ruby-like.
 
