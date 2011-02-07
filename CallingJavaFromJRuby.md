@@ -20,22 +20,26 @@ frame.pack
 frame.setVisible(true)
 ```
 
-**Note:** If you are testing the example above in the Swing IRB console **jirb_swing**, change the default close operation to DISPOSE_ON_CLOSE, or HIDE_ON_CLOSE unless you want **jirb_swing** to also close when you close the second window.
+**Note:** If you are testing the example above in the Swing IRB console `jirb_swing`, change the default close operation to `DISPOSE_ON_CLOSE`, or `HIDE_ON_CLOSE` unless you want `jirb_swing` to also close when you close the second window.
 
-Here's another example (showing results from testing these statements in the **jirb** console). 
+Here's another example (showing results from testing these statements in the `jirb` console). 
 
-Let's say you wanted to get a list of network interfaces. You can get Java API docs at `[http://java.sun.com/j2se/1.5.0/docs/api/index.html/ java.net.NetworkInterface]`. 
+Let's say you wanted to get a list of network interfaces. You can get Java API docs at [java.net.NetworkInterface](http://java.sun.com/j2se/1.5.0/docs/api/index.html).
 
 Here's how to access the methods from this Java Class from from JRuby:
 
+```ruby
   irb(main):013:0> ni = java.net.NetworkInterface.networkInterfaces
   => #<#<Class:01x7e666f>:0x855a27 @java_object=java.net.NetworkInterface$1@821453>
+```
 
 **`ni`** is a Ruby variable holding a Java Enumeration of NetworkInterfaces. You can see the Class ancestry for `ni` like this:
 
+```ruby
   irb(main):029:0> ni.class.ancestors
   => [#<Class:01x7e666f>, Java::JavaUtil::Enumeration, Enumerable, Java::JavaLang::Object, 
   ConcreteJavaProxy, JavaProxy, JavaProxyMethods, Object, Java, Kernel]
+```
 
 Enumeration elements can't be accessed using Array#[] syntax but they do appear as Arrays for many other purposes. You can find out both the Java and Ruby methods for an Enumeration of NetworkInterfaces like this:
 
