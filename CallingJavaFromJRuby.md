@@ -80,26 +80,30 @@ Because JRuby supports the `#each` method on Java Enumerations you can do this:
   /0:0:0:0:0:0:0:1%0;
 ```
 
-== Accessing and Importing Java Classes ==
+Accessing and Importing Java Classes
+------------------------------------
 
-=== Require a jar file to make resources in the jar discoverable within JRuby ===
+* From jar files
+
 To use resources within a jar file from JRuby, the jar file must either be on the classpath *or* be made available with the `require` method:
 
-  require 'path/to/mycode.jar'
-
+```ruby
+require 'path/to/mycode.jar'
+```
 This `require` makes the resources in `mycode.jar` discoverable by later commands like `import` and `include_package`.
 
-Note that loading jar-files via `require` searches along the $LOAD_PATH for them, like it would for normal ruby files.
+Note that loading jar-files via `require` searches along the `$LOAD_PATH` for them, like it would for normal ruby files.
 
-===Load a .class File===
+* From a .class File
 
-If you need to load from an existing .class file(or one that's not camelcase), the following has examples: http://www.ruby-forum.com/topic/216572#939791
+If you need to load from an existing .class file (or one that's not camelcase), the following has examples: [[http://www.ruby-forum.com/topic/216572#939791]]
 
 Basically it's `$CLASSPATH << "target/classes"; import org.asdf.ClassName` where "target/classes/org/asdf/ClassName.class" exists.
 
 Note also that this will need to be a full path name or relative to the directory the script starts in, as the JVM doesn't seem to respond to Dir.chdir very well.
 
-=== Referencing a Java Class by Full Class Name ===
+Referencing Java Classes (using full-qualified class name)
+------------------------
 
 You can reference a Java class in JRuby in at least two different ways. 
 
@@ -110,8 +114,8 @@ You can reference a Java class in JRuby in at least two different ways.
 
 That is:
 
-** Java packages all reside within the `Java` module.
-** The package path is then transformed by removing the dots and converting to ''CamelCase''
+* Java packages all reside within the `Java` module.
+* The package path is then transformed by removing the dots and converting to _CamelCase_
 
 This also means that, just as in Java, packages are not nested, but are each associated with their own unique module name.
 
@@ -125,23 +129,24 @@ You can get the same effect for your own (custom) top-level packages, as follows
 And then you can use use usual Java package names like `edu.abc.def.ClassName`
 Note also that you must use the right capitalization, though see below for how you can change and assign it to your own liking.
 
-=== Using a Java Class Without The Full Path Name ===
+Using a Java Class Without The Full Path Name
+---------------------------------------------
 
 You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the `java_import` statement or `import` statement, you can make the Java class available only by its class name, just as in Java.
 
 **Example**: java_import and use the `java.lang.System` class.
-
+```ruby
   require 'java'
   java_import java.lang.System
   version = System.getProperties["java.runtime.version"]
-
+```
 You could also do it with just straight import, as well.
-
+```ruby
   require 'java'
   import java.lang.System
   version = System.getProperties["java.runtime.version"]
-
-**Note:** As noted in [http://jira.codehaus.org/browse/JRUBY-3171 this bug report], `java_import` is the newer and safer, way to import Java classes.  
+```
+**Note:** As noted in [this bug report](http://jira.codehaus.org/browse/JRUBY-3171), `java_import` is the newer and safer, way to import Java classes.  
 
 After this point, the "System" constant will be available in the global name space (i.e. available to any script).
 The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
