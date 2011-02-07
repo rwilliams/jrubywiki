@@ -1,13 +1,13 @@
 All the following examples can be "run" either from the command line, or by using **jirb_swing**, the Swing-based IRB console that comes with JRuby.  You can start jirb_swing like `$ jruby -S jirb_swing`.
 
-A special `require` `'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will ''not'' give you access to any non-bundled libraries. A bit more is needed for that, which will be discussed later.
+A special `require 'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will _not_ give you access to any non-bundled libraries. A bit more is needed for that, which will be discussed later.
 
 The following code shows typical use. It should pop up a small window showing "Hello" on your screen.
 
-<pre name="ruby">
+```ruby
     # This is the 'magical Java require line'.
     require 'java'
-    
+
     # With the 'require' above, we can now refer to things that are part of the
     # standard Java platform via their full paths.
     frame = javax.swing.JFrame.new("Window") # Creating a Java JFrame
@@ -18,7 +18,7 @@ The following code shows typical use. It should pop up a small window showing "H
     frame.setDefaultCloseOperation(javax.swing.JFrame::EXIT_ON_CLOSE)
     frame.pack
     frame.setVisible(true)
-</pre>
+```
 
 **Note:** If you are testing the example above in the Swing IRB console **jirb_swing**, change the default close operation to DISPOSE_ON_CLOSE, or HIDE_ON_CLOSE unless you want **jirb_swing** to also close when you close the second window.
 
