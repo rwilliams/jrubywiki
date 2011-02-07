@@ -40,8 +40,9 @@ Here's how to access the methods from this Java Class from from JRuby:
   => [#<Class:01x7e666f>, Java::JavaUtil::Enumeration, Enumerable, Java::JavaLang::Object, ConcreteJavaProxy, JavaProxy, JavaProxyMethods, Object, Java, Kernel]
 ```
 
-Enumeration elements can't be accessed using Array#[] syntax but they do appear as Arrays for many other purposes. You can find out both the Java and Ruby methods for an Enumeration of NetworkInterfaces like this:
+Enumeration elements can't be accessed using `Array#[]` syntax but they do appear as Arrays for many other purposes. You can find out both the Java and Ruby methods for an Enumeration of NetworkInterfaces like this:
 
+```ruby
   irb(main):032:0> java.net.NetworkInterface.networkInterfaces.methods
   => ["__jsend!", "has_more_elements", "hasMoreElements", "next_element", "nextElement",
   "each", "reject", "member?", "grep", "include?", "min", "sort", "any?", "partition", 
@@ -59,6 +60,7 @@ Enumeration elements can't be accessed using Array#[] syntax but they do appear 
   "protected_methods", "tainted?", "kind_of?", "javax", "inspect", "java", 
   "instance_exec", "taint", "dup", "public_methods", "instance_variable_defined?", 
    "respond_to?", "method", "instance_variables"]
+```
 
 Because JRuby supports the `#each` method on Java Enumerations you can do this:
 
