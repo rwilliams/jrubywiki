@@ -64,6 +64,7 @@ Enumeration elements can't be accessed using `Array#[]` syntax but they do appea
 
 Because JRuby supports the `#each` method on Java Enumerations you can do this:
 
+```ruby
   irb(main):011:0> java.net.NetworkInterface.networkInterfaces.each {|i| puts i; puts }
   name:en1 (en1) index: 5 addresses:
   /63.138.152.170;
@@ -77,6 +78,7 @@ Because JRuby supports the `#each` method on Java Enumerations you can do this:
   /127.0.0.1;
   /fe80:0:0:0:0:0:0:1%1;
   /0:0:0:0:0:0:0:1%0;
+```
 
 == Accessing and Importing Java Classes ==
 
