@@ -5,19 +5,19 @@ A special `require 'java'` directive in your file will give you access to any bu
 The following code shows typical use. It should pop up a small window showing "Hello" on your screen.
 
 ```ruby
-    # This is the 'magical Java require line'.
-    require 'java'
+# This is the 'magical Java require line'.
+require 'java'
 
-    # With the 'require' above, we can now refer to things that are part of the
-    # standard Java platform via their full paths.
-    frame = javax.swing.JFrame.new("Window") # Creating a Java JFrame
-    label = javax.swing.JLabel.new("Hello")
-    
-    # We can transparently call Java methods on Java objects, just as if they were defined in Ruby.
-    frame.getContentPane.add(label)  # Invoking the Java method 'getContentPane'.
-    frame.setDefaultCloseOperation(javax.swing.JFrame::EXIT_ON_CLOSE)
-    frame.pack
-    frame.setVisible(true)
+# With the 'require' above, we can now refer to things that are part of the
+# standard Java platform via their full paths.
+frame = javax.swing.JFrame.new("Window") # Creating a Java JFrame
+label = javax.swing.JLabel.new("Hello")
+
+# We can transparently call Java methods on Java objects, just as if they were defined in Ruby.
+frame.getContentPane.add(label)  # Invoking the Java method 'getContentPane'.
+frame.setDefaultCloseOperation(javax.swing.JFrame::EXIT_ON_CLOSE)
+frame.pack
+frame.setVisible(true)
 ```
 
 **Note:** If you are testing the example above in the Swing IRB console **jirb_swing**, change the default close operation to DISPOSE_ON_CLOSE, or HIDE_ON_CLOSE unless you want **jirb_swing** to also close when you close the second window.
