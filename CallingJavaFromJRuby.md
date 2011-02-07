@@ -177,20 +177,23 @@ end
 ```
 
 **Example**: create a Ruby Module called `JavaLang` that includes the classes in the Java package `java.lang`.
-
+```ruby
   module JavaLangDemo
     include_package "java.lang"
     # alternately, use the #import method
     import "java.lang"
   end
+```
 
 Now you can prefix the desired Java Class name with `JavaLangDemo::` to access the included Classes:
 
+```ruby
   version = JavaLangDemo::System.getProperties["java.runtime.version"]
   => "1.5.0_13-b05-237"
 
   processors = JavaLangDemo::Runtime.getRuntime.availableProcessors
   => 2
+```
 
 All Java classes in the package will become be available in this class/module, unless a constant with the same name as a Java class is already defined.
 
@@ -198,63 +201,83 @@ The use of the Module name to scope access to the imported Java class is also he
 
 For example if you need to create an instance of a `java.io.File` object, this code will work:
 
+```ruby
   import java.io.File
   newfile = File.new("file.txt")
   => #<Java::JavaIo::File:0xdc6f00 @java_object=file.txt>
+```
 
 However you've now redefined the Ruby constant File and can no longer access the Ruby File class. Executing this:
 
+```ruby
   File.open('README', 'r') {|f| puts f.readline }
+```
 
 Will produce this error:
 
+```ruby
   NoMethodError: private method `open' called for Java::JavaIo::File:Class
+```
 
 If instead you create a module called `JavaIO` and include the package in the module definition:
 
-  module JavaIO     
+```ruby
+  module JavaIO
     include_package "java.io"
   end
+```
 
 You can now create a new instance of the Java class File without shadowing the Ruby version of the File class:
 
+```ruby
   newfile = JavaIO::File.new("file.txt")
   => #<Java::JavaIo::File:0x15619c @java_object=file.txt>
+```
 
 And the Ruby File class is still accessible:
 
+```ruby
   File.open('README', 'r') {|f| puts f.readline }
   JRuby -  A Java implementation of the Ruby language
   => nil
+```
 
-==== Making them accessible in the main name space ====
+Making them accessible in the main name space
+---------------------------------------------
 
 You can set const_missing to make them accessible in more than just a module. See http://www.ruby-forum.com/topic/216629 though there might be a better way.
 
-==== Using within classes within module ====
+Using within classes within module
+----------------------------------
 
-NB that currently this "include_package" lookup doesn't work within any sub-modules or sub-classes.  See  http://jira.codehaus.org/browse/JRUBY-5107
+NB that currently this `include_package` lookup doesn't work within any sub-modules or sub-classes.  See [[http://jira.codehaus.org/browse/JRUBY-5107]]
 
 You could override const_missing, though (see above), if you wanted that behavior.
 
-=== Using Static Java Enumerations ===
+Using Static Java Enumerations
+------------------------------
 
 Java `enum`s are accessible from Ruby code as constants:
 
+```ruby
   lock.try_lock(5000, java.util.concurrent.TimeUnit::MILLISECONDS)
+```
 
-or 
+or
 
+```ruby
   java_import java.util.concurrent.TimeUnit
   lock.try_lock(5000, TimeUnit::MILLISECONDS)
+```
 
-=== Gotchas ===
+Gotchas
+-------
 
-JRuby automatically binds the following names in the context of a class to the top-level Java packages: com, org, java, javax. This means that you can reference these packages without having to explicitly require or import them. This takes effect for all Ruby classes in an application where a require 'java' appears. This binding takes place in precedence to the classes "method_missing" handling.
+JRuby automatically binds the following names in the context of a class to the top-level Java packages: com, org, java, javax. This means that you can reference these packages without having to explicitly require or import them. This takes effect for all Ruby classes in an application where a `require 'java'` appears. This binding takes place in precedence to the classes *method_missing* handling.
 
 If you do not want this behaviour for a specific class, you can undefine it for that class. Here's an example that will execute identically under Ruby and JRuby:
 
-<pre>
+```ruby
 # Note: Comment out for Ruby test. Uncomment for JRuby test.
 require 'java'
 
@@ -271,7 +294,7 @@ end
 mm = MethodMissing.new
 result = mm.org
 puts "Result: #{result} Type: #{result.class.name}"
-</pre>
+```
 
 == Calling a Java Method ==
 
