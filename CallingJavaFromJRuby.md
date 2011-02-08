@@ -548,40 +548,50 @@ Arrays
 
 There are two ways of constructing Java arrays. One is to use the `to_java` method of the class Array. The other is to use the `[]` method for the primitive Java types.
 
-Converting a Ruby Array to a Java Array 
+Converting a Ruby Array to a Java Array
 The `to_java` method constructs a Java array from a Ruby array:
 
+```ruby
   [1,2,3].to_java
   => [Ljava.lang.Object;@1a32ea4
+```
 
 By default, `to_java` constructs `Object` arrays. You can specify the parameter with an additional argument which can either be a symbol or a primitive class like `Java::double`
 
+```ruby
   ["a","b","c"].to_java(:string)
   => [Ljava.lang.String;@170984c
 
   [1, 2, 3.5].to_java Java::double
   => [D@9bc984
+```
 
 Constructing Empty Java Arrays
 ------------------------------
 
 Sometimes a Java library will need a fixed-length array, say for example a byte buffer for a stream to read into. For this, you can use the `[]` method of the primitive types in the Java module:
 
+```ruby
   bytes = Java::byte[1024].new # Equivalent to Java's bytes = new byte[1024];
+```
 
 Ruby String to Java Bytes and back again
 ----------------------------------------
 
+```ruby
   bytes = 'a string'.to_java_bytes
   => #<#<Class:01x9fcffd>:0x40e825 @java_object=[B@3d476c>
 
   string = String.from_java_bytes bytes
   => "a string"
+```
 
 Convert a Java InputStream to a ruby IO object
 ----------------------------------------------
 
+```ruby
   io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
+```
 
 Gotchas
 -------
@@ -596,16 +606,22 @@ Referencing a `java.lang.Class` object
 
 If you call a Java class from JRuby and need to pass a Java class as an argument, if you use this form:
 
+```ruby
   DoSomethingWithJavaClass(MyJavaClass.class)
+```
 
 you'll get this error:
 
+```ruby
   TypeError: expected [java.lang.Class]; 
   got: [org.jruby.RubyClass]; error: argument type mismatch
+```
 
 Instead use the method `java_class`.
 
+```ruby
   DoSomethingWithJavaClass(MyJavaClass.java_class)
+```
 
 Integrating JRuby and Java Classes and Interfaces
 -------------------------------------------------
@@ -631,7 +647,7 @@ Gotchas
 -------
 
 If you have a class name ambiguity between Java and Ruby, the class name will reference the Ruby construct within the Ruby code. For instance, if you import `java.lang.Thread` and then write `JThread < Thread`, `JThread` will in fact inherit the Ruby `Thread` object, not the Java `Thread`. The solution is to use the full Java Class name, such as:
- JThread < java.lang.Thread
+ `JThread < java.lang.Thread`
 
 Interfaces
 ----------
@@ -642,18 +658,22 @@ Implementing Java Interfaces in JRuby
 -------------------------------------
 JRuby classes can now implement more than one Java interface. Since Java interfaces are mapped to modules in JRuby, you implement them not by subclassing, but by mixing them in.
 
+```ruby
   class SomeJRubyObject
     include java.lang.Runnable
     include java.lang.Comparable
   end
+```
 
 Closure conversion
 ------------------
 
 JRuby sports a feature called _closure conversion_, where a Ruby block or closure is converted to an appropriate Java interface. For example:
 
+```ruby
   button = javax.swing.JButton.new "Press me!"
   button.add_action_listener {|event| event.source.text = "You did it!"}
+```
 
 In this example, the `JButton`'s `addActionListener` method takes one parameter, a `java.awt.event.ActionListener`. The block is converted to a `Proc` object, which is then decorated with a java interface proxy that invokes the block for any method called on the interface.
 
@@ -671,19 +691,23 @@ Exception Handling
 
 Native Java exceptions can be caught in Ruby code as expected:
 
+```ruby
  begin
    java.lang.Integer.parse_int("asdf")
  rescue java.lang.NumberFormatException => e
    puts "Failed to parse integer: #{e.message}"
  end
+```
 
 Furthermore, Ruby code can throw Java exceptions:
 
+```ruby
  begin
    raise java.lang.IllegalArgumentException.new("Bad param")
  rescue java.lang.IllegalArgumentException => e
    puts "Illegal argument: #{e}"
  end
+```
 
 This is useful if you happen to be implementing a Java interface in Ruby that requires a particular exception to be thrown on error.
 
