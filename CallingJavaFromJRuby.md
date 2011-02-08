@@ -447,29 +447,49 @@ If JRuby cannot find a matching method, it tries to pass the actual JRuby object
 
 If JRuby is not finding the exact method you want to call, perhaps because of extreme ambiguity like `foo(int)` vs. `foo(long)`, the `java_send` method can be used to disambiguate. See below.
 
-==== Java to Ruby ====
+Java to Ruby
+------------
+
 When primitive Java types are passed to JRuby they are converted to the following Ruby types:
 
-{| border="1" style="text-align:left;" cellspacing="2" cellpadding="5" 
-|- style="background:silver"
-|**Java Type**||**Ruby Type**
-|- 
-| `public String` || `String`
-|-
-| `public byte` || `Fixnum`
-|-
-| `public short` || `Fixnum`
-|-
-| `public char` || `Fixnum`
-|-
-| `public int` || `Fixnum`
-|-
-| `public long` || `Fixnum`
-|-
-| `public float` || `Float`
-|-
-| `public double` || `Float`
-|}
+<table>
+	<tr>
+		<th>Java Type</th>
+		<th>Ruby Type</th>
+	</tr>
+	<tr>
+		<td>public String</td>
+		<td>String</td>
+	</tr>
+	<tr>
+		<td>public byte</td>
+		<td>Fixnum</td>
+	</tr>
+	<tr>
+		<td>public short</td>
+		<td>Fixnum</td>
+	</tr>
+	<tr>
+		<td>public char</td>
+		<td>Fixnum</td>
+	</tr>
+	<tr>
+		<td>public int</td>
+		<td>Fixnum</td>
+	</tr>
+	<tr>
+		<td>public long</td>
+		<td>Fixnum</td>
+	</tr>
+	<tr>
+		<td>public float</td>
+		<td>Float</td>
+	</tr>
+	<tr>
+		<td>public double</td>
+		<td>Float</td>
+	</tr>
+</table>
 
 The Java Booleans true and false are coerced to the Ruby singleton classes TrueClass and FalseClass which are represented in Ruby with the instances true and false.
 
