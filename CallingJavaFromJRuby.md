@@ -420,25 +420,26 @@ When calling Java from JRuby, primitive Ruby types are converted to default boxe
 		<th>Java Type</th>
 	</tr>
 	<tr>
-		<td>`"foo"`</td>
-		<td>`java.lang.String`</td>
+		<td>"foo"</td>
+		<td>java.lang.String</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>java.lang.Long</td>
+	</tr>
+	<tr>
+		<td>1.0</td>
+		<td>java.lang.Double</td>
+	</tr>
+	<tr>
+		<td>true, false</td>
+		<td>java.lang.Boolean</td>
+	</tr>
+	<tr>
+		<td>1 << 128</td>
+		<td>java.math.BigInteger</td>
 	</tr>
 </table>
-{| border="1" style="text-align:left;" cellspacing="2" cellpadding="5" 
-|- style="background:silver"
-|**Ruby Type**
-|**Java Type**
-|- 
-|  "foo" || `java.lang.String`
-|-
-| 1 || `java.lang.Long`
-|-
-| 1.0 || `java.lang.Double`
-|-
-| true, false || `java.lang.Boolean`
-|-
-| 1 << 128 || `java.math.BigInteger` 
-|}
 
 However, this does not mean that you cannot call methods expecting a primitive type. You can also pass an integer to a method expecting a double value. JRuby usually tries quite hard to find a method that can understand your parameters.
 
