@@ -495,33 +495,70 @@ The Java Booleans true and false are coerced to the Ruby singleton classes TrueC
 
 The null Java object is coerced to the Ruby class NilClass which is represented in Ruby as the instance nil.
 
-==== Java Primitive Classes ====
+Java Primitive Classes
+----------------------
 
-Java primitive classes can be found in the Java module. For example, <code>Java::byte</code> represents the primitive type byte in java. You can get its class as follows:
+Java primitive classes can be found in the Java module. For example, `Java::byte` represents the primitive type byte in java. You can get its class as follows:
 
-{| border="1" 
-|- style="background:silver"
-|**Ruby Code** ||**Java Class** 
-|- 
-| `Java::JavaClass.for_name("byte") ` || `Java::byte.java_class`
-|- 
-| `Java::JavaClass.for_name("boolean") ` || ` Java::boolean.java_class`
-|- 
-| `Java::JavaClass.for_name("byte") ` || ` Java::byte.java_class`
-|- 
-| `Java::JavaClass.for_name("short") ` || ` Java::short.java_class`
-|- 
-| `Java::JavaClass.for_name("char") ` || ` Java::char.java_class`
-|- 
-| `Java::JavaClass.for_name("int") ` || ` Java::int.java_class`
-|- 
-| `Java::JavaClass.for_name("long") ` || ` Java::long.java_class`
-|- 
-| `Java::JavaClass.for_name("float") ` || ` Java::float.java_class`
-|- 
-| `Java::JavaClass.for_name("double") ` || ` Java::double.java_class`
-|}
+<table>
+	<tr>
+		<th>Ruby Code</th>
+		<th>Java Class</th>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("byte")</td>
+		<td>Java::byte.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("boolean")</td>
+		<td>Java::boolean.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("byte")</td>
+		<td>Java::byte.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("short")</td>
+		<td>Java::short.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("char")</td>
+		<td>Java::char.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("int")</td>
+		<td>Java::int.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("long")</td>
+		<td>Java::long.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("float")</td>
+		<td>Java::float.java_class</td>
+	</tr>
+	<tr>
+		<td>Java::JavaClass.for_name("double")</td>
+		<td>Java::double.java_class</td>
+	</tr>
+</table>
 
+The table summary attribute should be used to describe
+the table structure. It is very helpful for people using
+non-visual browsers. The scope and headers attributes for
+table cells are useful for specifying which headers apply
+to each table cell, enabling non-visual browsers to provide
+a meaningful context for each cell.
+
+For further advice on how to make your pages accessible
+see http://www.w3.org/WAI/GL. You may also want to try
+"http://www.cast.org/bobby/" which is a free Web-based
+service for checking URLs for accessibility.
+
+To learn more about HTML Tidy see http://tidy.sourceforge.net
+Please send bug reports to html-tidy@w3.org
+HTML and CSS specifications are available from http://www.w3.org/
+Lobby your company to join W3C, see http://www.w3.org/Consortium
 == Arrays ==
 There are two ways of constructing Java arrays. One is to use the <code>to_java</code> method of the class Array. The other is to use the `[]` method for the primitive Java types.
 
