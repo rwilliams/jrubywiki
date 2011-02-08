@@ -562,30 +562,38 @@ By default, `to_java` constructs `Object` arrays. You can specify the parameter 
   [1, 2, 3.5].to_java Java::double
   => [D@9bc984
 
-==== Constructing Empty Java Arrays ====
+Constructing Empty Java Arrays
+------------------------------
+
 Sometimes a Java library will need a fixed-length array, say for example a byte buffer for a stream to read into. For this, you can use the `[]` method of the primitive types in the Java module:
 
   bytes = Java::byte[1024].new # Equivalent to Java's bytes = new byte[1024];
 
-=== Ruby String to Java Bytes and back again ===
+Ruby String to Java Bytes and back again
+----------------------------------------
+
   bytes = 'a string'.to_java_bytes
   => #<#<Class:01x9fcffd>:0x40e825 @java_object=[B@3d476c>
 
   string = String.from_java_bytes bytes
   => "a string"
 
-=== Convert a Java InputStream to a ruby IO object ===
+Convert a Java InputStream to a ruby IO object
+----------------------------------------------
 
   io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
 
-=== Gotchas ===
+Gotchas
+-------
 
 Note that currently you cannot call java methods from within a ruby class' constructor that inherits from a java class, without first calling
   super
 or it results in a stack overflow http://www.ruby-forum.com/topic/217475
 
 
-== Referencing a `java.lang.Class` object ==
+Referencing a `java.lang.Class` object
+--------------------------------------
+
 If you call a Java class from JRuby and need to pass a Java class as an argument, if you use this form:
 
   DoSomethingWithJavaClass(MyJavaClass.class)
@@ -599,26 +607,39 @@ Instead use the method `java_class`.
 
   DoSomethingWithJavaClass(MyJavaClass.java_class)
 
-== Integrating JRuby and Java Classes and Interfaces ==
-=== Classes ===
-==== Reopening Java Classes ====
+Integrating JRuby and Java Classes and Interfaces
+-------------------------------------------------
+
+Classes
+-------
+
+Reopening Java Classes
+----------------------
+
 In Ruby, classes are always open, which means that you can later add methods to existing classes. This also works with Java classes.
 
 This comes in handy when adding syntactic sugar like overloaded operators to Java classes, or other methods to make them behave more Ruby-like.
 
 Note that these additions will only be visible on the JRuby side. 
 
-==== Subclassing a Java class ====
+Subclassing a Java class
+------------------------
+
 You can subclass (i.e. extend) a Java class and then use the JRuby class whenever Java expects the superclass.
 
-==== Gotchas ====
+Gotchas
+-------
+
 If you have a class name ambiguity between Java and Ruby, the class name will reference the Ruby construct within the Ruby code. For instance, if you import `java.lang.Thread` and then write `JThread < Thread`, `JThread` will in fact inherit the Ruby `Thread` object, not the Java `Thread`. The solution is to use the full Java Class name, such as:
  JThread < java.lang.Thread
 
-=== Interfaces ===
+Interfaces
+----------
+
 Java interfaces are mapped to modules in JRuby. This means that you can also reopen the corresponding module and add further methods on the JRuby side.
 
-==== Implementing Java Interfaces in JRuby ====
+Implementing Java Interfaces in JRuby
+-------------------------------------
 JRuby classes can now implement more than one Java interface. Since Java interfaces are mapped to modules in JRuby, you implement them not by subclassing, but by mixing them in.
 
   class SomeJRubyObject
@@ -626,7 +647,9 @@ JRuby classes can now implement more than one Java interface. Since Java interfa
     include java.lang.Comparable
   end
 
-==== Closure conversion ====
+Closure conversion
+------------------
+
 JRuby sports a feature called _closure conversion_, where a Ruby block or closure is converted to an appropriate Java interface. For example:
 
   button = javax.swing.JButton.new "Press me!"
@@ -638,10 +661,14 @@ This not only works for event listeners or `Runnable`, but basically for any int
 
  
 
-=== Java classes can't inherit from a JRuby class ===
+Java classes can't inherit from a JRuby class
+---------------------------------------------
+
 Hopefully this feature will be added in the planned re-write of the Java integration layer in a future release of JRuby.
 
-== Exception Handling ==
+Exception Handling
+------------------
+
 Native Java exceptions can be caught in Ruby code as expected:
 
  begin
