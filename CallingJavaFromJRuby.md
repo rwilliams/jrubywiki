@@ -750,8 +750,8 @@ Related Articles
 ----------------
 
 * [[FAQs#Calling_Into_Java]] Useful other examples
-* [http://mikiobraun.blogspot.com/2008/11/java-integration-in-jruby.html Java Integration in JRuby] Short overview article on JRuby and Java integration.
-* [http://blogs.sun.com/sundararajan/entry/java_integration_javascript_groovy_and Java Integration: JavaScript, Groovy and JRuby] Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
-* [http://jruby.codehaus.org/Java+Integration Java Integration] From the JRuby main page.
-* [http://jtestr.codehaus.org/ JtestR] A testing framework for Java based on JRuby.
-* [http://github.com/leandrosilva/sparrow Sparrow] A JMS client for messaging based on JRuby.
+* [Java Integration in JRuby](http://mikiobraun.blogspot.com/2008/11/java-integration-in-jruby.html) Short overview article on JRuby and Java integration
+* [Java Integration: JavaScript, Groovy and JRuby] (http://blogs.sun.com/sundararajan/entry/java_integration_javascript_groovy_and) Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
+* [Java Integration] (http://jruby.codehaus.org/Java+Integration) From the JRuby main page.
+* [JtestR](http://jtestr.codehaus.org/) A testing framework for Java based on JRuby.
+* [Sparrow](http://github.com/leandrosilva/sparrow) A JMS client for messaging based on JRuby.
