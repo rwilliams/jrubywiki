@@ -414,6 +414,16 @@ _See the JRuby rspec source code dir_ `spec/java_integration` _for many more exa
 
 When calling Java from JRuby, primitive Ruby types are converted to default boxed Java types:
 
+<table>
+	<tr>
+		<th>Ruby Type</th>
+		<th>Java Type</th>
+	</tr>
+	<tr>
+		<td>`"foo"`</td>
+		<td>`java.lang.String`</td>
+	</tr>
+</table>
 {| border="1" style="text-align:left;" cellspacing="2" cellpadding="5" 
 |- style="background:silver"
 |**Ruby Type**
@@ -608,35 +618,42 @@ This is useful if you happen to be implementing a Java interface in Ruby that re
 
 Note that this can also be written:
 
+```ruby
  begin
    raise Java::JavaLang::IllegalArgumentException.new("Bad param")
  rescue Java::JavaLang::IllegalArgumentException => e
    puts "Illegal argument: #{e}"
  end
+```
 
-== Synchronization in JRuby ==
+Synchronization in JRuby
+------------------------
+
 When interacting with Java APIs from JRuby, it is occasionally necessary to synchronize on an object for thread safety. In JRuby, a `synchronize` method is provided on every wrapped Java object to support this functionality. For example, the following Java code:
 
- 
+```java
  synchronized(obj) {
      obj.wait(1000); 
  }
- 
+```
 
 is implement like this in Ruby:
 
- 
+```ruby
  obj.synchronized do
    obj.wait 1000
  end
- 
+```
+
 The expression evaluates to the result of the block, e.g.,
 
- 
+```ruby
  obj.synchronized { 99 }  # => 99
- 
+```
 
-== Related Articles ==
+Related Articles
+----------------
+
 * [[FAQs#Calling_Into_Java]] Useful other examples
 * [http://mikiobraun.blogspot.com/2008/11/java-integration-in-jruby.html Java Integration in JRuby] Short overview article on JRuby and Java integration.
 * [http://blogs.sun.com/sundararajan/entry/java_integration_javascript_groovy_and Java Integration: JavaScript, Groovy and JRuby] Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
