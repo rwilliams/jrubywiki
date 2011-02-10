@@ -24,7 +24,7 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 * [[Mizuno|https://github.com/matadon/mizuno]] - A wrapper around [[Jetty|http://jetty.codehaus.org/jetty/]].
 * [[Kirk|https://github.com/strobecorp/kirk]] - Another Jetty wrapper, but less "micro" with redeploy and multiple appsupport.
 * [[Aspen|https://github.com/kevwil/aspen]] - A server based on [[Netty|http://www.jboss.org/netty]], a Java NIO framework.
-* [[Torquebox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
+* [[TorqueBox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
 
 ### Deprecated Servers
 
