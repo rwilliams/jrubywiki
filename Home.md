@@ -33,14 +33,15 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Release Documentation|ReleaseDocumentation]]
 * [[RoadMap]]
 
-**JRuby on Rails**
+**Web Applications (Rails, servers, others)**
 
 * [[JRuby on Rails|JRubyonRails]]
 * [120 second guide to JRuby on Rails](http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails)
 * [Deploying a Rails App in Tomcat with JRuby](http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a)
 * [[ActiveRecord-JDBC]]
 * [[Deploying Rails Apps|JRubyOnRails]]   
-* <a href="{{project warbler page Home}}">Warbler</a> (bundling JRuby on Rails apps into a WAR)
+* <a href="http://kenai.com/projects/warbler/pages/Home">Warbler</a> (bundling JRuby on Rails apps into a WAR)
+* [[Servers]]
 
 ** Evangelism**
 
