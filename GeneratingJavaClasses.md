@@ -14,19 +14,25 @@ Let's take a simple example class:
 
 If you wanted to expose this as a Java class, you can just run jrubyc --java(c) to produce a class
 
+```bash
     ~/jrubyc_demo ➔ jrubyc --javac my_foo.rb 
     Generating Java class Foo to Foo.java
     javac -d /Users/headius/jrubyc_demo -cp /Users/headius/projects/jruby/lib/jruby.jar:. Foo.java
+```
 
 You see here that jrubyc generates a .java file and then compiles it with the 'javac' command. Here's what the resulting class looks like, using javap:
 
+```bash
     ~/jrubyc_demo ➔ javap Foo
     Compiled from "Foo.java"
+```
+```java
     public class Foo extends org.jruby.RubyObject{
         public Foo();
         public java.lang.Object bar(java.lang.Object, java.lang.Object);
         static {};
     }
+```
 
 Normally, jrubyc --java(c) will include the complete source of your script in the compiled class, but often you may want to keep the source on disk or generate multiple classes that all come from the same file. To do this, add a java_require line (plus a require 'java' line to enable Java support in the Ruby code) that specifies what filename to load. The filename specified is loaded using normal Ruby 'require' semantics.
 
@@ -88,8 +94,10 @@ And now add a "main" method:
 
 And now it's time to try running our little Java-class-written-in-Ruby:
 
+```bash
  ~/jrubyc_demo ➔ java Foo 15 75
  1575
+```
 
 Woah, wait a minute. What happened here?
 
