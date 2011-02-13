@@ -22,4 +22,4 @@ Qt JRuby
 
 Use Qt Jambi with JRuby.
 
-* Website : [[http://qtjruby.org]]
+* Website : [[https://github.com/nmerouze/qtjruby-core]]
