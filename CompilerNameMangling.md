@@ -1,8 +1,6 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [[Internals|&raquo; Design: Internals]]
-=Compiler Name Managing=
 This page provides the name mangling specification for the JRuby compiler.
 
-'''Given the following packaging specification:'''
+**Given the following packaging specification:**
 
 * Each element of the package must be cleansed to contain only valid Java package characters.
 * Each element of the resulting class name must be cleansed to contain only valid Java classname characters.
