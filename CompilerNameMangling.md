@@ -12,20 +12,20 @@ This page provides the name mangling specification for the JRuby compiler.
 
 Method names must conform to Java method naming. This primarily impacts method names containing characters that Java does not support, such as arithmetic operators, question marks, bangs, and equality/comparison symbols. Below is a complete list of such names and what they should translate to:
 
-* `+ ` will be ` "op_plus"`
-* `- ` will be ` "op_minus"`
-* `* ` will be ` "op_times"`
-* `/ ` will be ` "op_divide"`
-* `** ` will be ` "op_pow"`
-* `== ` will be ` "op_equal"`
-* `=== ` will be ` "op_eqq"`
-* `eq? ` will be ` "eq_p"`
-* `< ` will be ` "op_lt"`
-* `<= ` will be ` "op_le"`
-* `> ` will be ` "op_gt"`
-* `>= ` will be ` "op_ge"`
-* `<=> ` will be ` "op_cmp"`
-* `something! ` will be ` "something_bang"`
-* `[] ` will be ` "op_aref"`
-* `something= ` will be ` "something_set"`
-* `[]= ` will be ` "op_aset"`
+* `+` will be `"op_plus"`
+* `-` will be `"op_minus"`
+* `*` will be `"op_times"`
+* `/` will be `"op_divide"`
+* `**` will be `"op_pow"`
+* `==` will be `"op_equal"`
+* `===` will be `"op_eqq"`
+* `eq?` will be `"eq_p"`
+* `<` will be `"op_lt"`
+* `<=` will be `"op_le"`
+* `>` will be `"op_gt"`
+* `>=` will be `"op_ge"`
+* `<=>` will be `"op_cmp"`
+* `something!` will be `"something_bang"`
+* `[]` will be `"op_aref"`
+* `something=` will be `"something_set"`
+* `[]=` will be `"op_aset"`
