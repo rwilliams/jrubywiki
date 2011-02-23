@@ -43,6 +43,10 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * <a href="http://kenai.com/projects/warbler/pages/Home">Warbler</a> (bundling JRuby on Rails apps into a WAR)
 * [[Servers]]
 
+** Desktop Applications **
+
+* [[GUI Toolkits]]
+
 ** Evangelism**
 
 * [[ Benchmarking Tips and Tricks|Benchmarks ]]
