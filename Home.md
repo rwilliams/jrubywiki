@@ -45,7 +45,8 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 ** Desktop Applications **
 
-* [[GUI Toolkits]]
+* [[GUI Frameworks|GUIFrameworks]]
+* [The Redcar Editor](http://redcareditor.com/) (built with SWT)
 
 ** Evangelism**
 
