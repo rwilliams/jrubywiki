@@ -18,13 +18,13 @@ Which API should you use? For projects where Ruby is the only scripting language
 
 For projects requiring multiple scripting languages, JSR223 is a good fit. Though the API is language-independent, JRuby's implementation of it allows you to set some Ruby-specific options. In particular, you can control the threading model of the scripting engine, the lifetime of local variables, compilation mode, and how line numbers are displayed.
 
-The full [http://jruby-embed.kenai.com/docs/ API documentation] has all the gory details. It's worth talking about a couple of the finer points here.
+The full [http://jruby.org/apidocs/ API documentation] has all the gory details. It's worth talking about a couple of the finer points here.
 
 === Context Type ===
 
-The context type (singleton, thread-safe, or single-threaded) determines how JRuby maintains its internal Ruby state. Choosing the wrong type can lead to surprising results, so it's worth talking about how to choose the right one.
+The context type (singleton, thread-safe, single-threaded, or concurrent) determines how JRuby maintains its internal Ruby state. Choosing the wrong type can lead to surprising results, so it's worth talking about how to choose the right one.
 
-For simple cases where you're only using one Ruby runtime across your Java program, and you don't need to access it from multiple threads, choose the singleton type. If you want to run Ruby scripts in a multi-threaded environment, you should use the thread-safe type instead.
+For simple cases where you're only using one Ruby runtime across your Java program, and you don't need to access it from multiple threads, choose the singleton type. If you want to run Ruby scripts in a multi-threaded environment, you should use the thread-safe type instead. A newly added type, concurrent, is a mixture of singleton and thread-safe. The concurrent type has a singleton Ruby runtime and thread local variable map.
 
 === Variables ===
 
