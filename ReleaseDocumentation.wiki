@@ -28,6 +28,8 @@
 * Upload dist files, jruby-complete.jar, jruby-jars gem and MD5 files to S3: https://jruby.org.s3.amazonaws.com/downloads/{version}
 * Release jruby-jars gem: gem push dist/jruby-jars-{VERSION}.gem
 * mvn deploy -DupdateReleaseInfo=true at the root of the project to build and deploy all maven artifacts
+* jruby -S applet:dist
+** upload resulting jruby-complete-signedjar to http://jruby.org.s3.amazonaws.com/tryjruby/jruby-complete-signed.jar
 * Add news item to www.jruby.org page 
 * Update MainPage on JRuby wiki pointing to new binary
 * Update Ruby Application Archive
