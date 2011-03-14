@@ -102,7 +102,10 @@ How do I run JRuby without the command-line scripts?
 ----------------------------------------------------
 
 Frequently users want to run JRuby from NetBeans, from Eclipse, launched from an existing Java application, or in other ways that don't use the command-line scripts. In addition to having `jruby.jar` and its dependency jars available in CLASSPATH, you must also have the following system property set:
- jruby.home=''path-to-root-of-JRuby-installation''
+
+```bash
+    -Djruby.home=<path-to-root-of-JRuby-installation>
+```
 
 You might also want to ensure the maximum memory is set higher than the JVM default. JRuby's own command-line scripts use a maximum of 256MB.
 
@@ -110,6 +113,7 @@ What if I want to use JRuby alongside C Ruby?  How do I keep from getting confus
 -----------------------------------------------------------------------------------
 
 You have two options:
+
 * Always invoke JRuby with e.g., `jruby -S gem`.
 * Put a handy bash snippet like this in your .bashrc to create `j` aliases to all the available commands (`rails` becomes `jrails`, `rake` becomes `jrake`, etc.)
     for f in $JRUBY_HOME/bin/*; do
@@ -142,11 +146,13 @@ How do I get a Ruby backtrace when calling JRuby code from Java?
 
 You need to do something along the lines of:
 
-   try {
-     rubyCode.doSomething();
-   } catch (RaiseException e) {
-     e.getException().printBacktrace(System.err);
-   }
+```java
+    try {
+      rubyCode.doSomething();
+    } catch (RaiseException e) {
+      e.getException().printBacktrace(System.err);
+    }
+```
 
 Note that Java 6's scripting via the BSF libraries might not preserve stack traces, and also launches more slowly.  It's often preferable (as of February 2007) to use JRuby's own integration.
 
@@ -155,15 +161,19 @@ Why do I get a `java.lang.NoSuchMethodError: org.objectweb.asm.ClassWriter.visit
 
 The problem stems from an ASM jar conflict. It was found by setting a custom classpath, which includes a version of Spring that has a conflicting ASM jar, and then invoking JRuby. The easiest workaround is to build `jruby-complete` as a single jar and edit the JRuby config file (not sure about Windows, but it should be similar) to source only the `jruby-complete` jar. You will need to add ALL other jars, which I  believe includes your jdbc driver as well.
 
-  svn co <nowiki>http://svn.codehaus.org/jruby/tags/jruby-1_0/</nowiki>
-  cd jruby-1_0
-  ant jar-complete
-  vi bin/jruby (see diff for edit)
+```bash
+    svn co http://svn.codehaus.org/jruby/tags/jruby-1_0/
+    cd jruby-1_0
+    ant jar-complete
+    vi bin/jruby (see diff for edit)
+```
+```diff
     #diff bin/jruby bin/jruby.orig 
     #89c89
     #<     for j in "$JRUBY_HOME"/lib/jruby-complete.jar; do
     #---
     #>     for j in "$JRUBY_HOME"/lib/*.jar; do
+```
 
 How come Java can't find resources in class folders that I've appended to the $CLASSPATH global variable at runtime? 
 ---------------------------------------------------------------------------------------------------------------------
