@@ -56,8 +56,10 @@ How can I increase the heap/memory size when launching a sub-JRuby?
 
 You can try passing the usual `-J-Xmx<size>` to the sub-JRuby. But beware:
 
-  $ jruby -e '%x{jruby -J-Xmx256m -e true}'
-  warning: -J-Xmx256m argument ignored (launched in same VM?)
+```bash
+    $ jruby -e '%x{jruby -J-Xmx256m -e true}'
+    warning: -J-Xmx256m argument ignored (launched in same VM?)
+```
 
 Historically, JRuby has been very slow to start up, so we have tried to recognize some commands that look like they may be launching more Ruby programs and we start those in the same JVM. In that case, you actually can't adjust the heap.
 
@@ -71,7 +73,7 @@ And you can also control this from Ruby code for the current JRuby runtime:
 
 With the `inproc` setting disabled, you can now pass `-J` arguments to the sub-JRuby as it will be launching a new JVM.
 
-In the future, as JRuby and JVM startup performance increases, we may flip the default in-process launching behavior to `false` to match most peoples' expectations. See also [http://www.mail-archive.com/dev@jruby.codehaus.org/msg02861.html this thread on the JRuby mailing list] for a discussion of `jruby.launch.inproc`.
+In the future, as JRuby and JVM startup performance increases, we may flip the default in-process launching behavior to `false` to match most peoples' expectations. See also [this thread on the JRuby mailing list](http://www.mail-archive.com/dev@jruby.codehaus.org/msg02861.html) for a discussion of `jruby.launch.inproc`.
 
 General
 =======
