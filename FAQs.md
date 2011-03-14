@@ -4,12 +4,12 @@ Execution Environments
 Can I run JRuby on Java Micro Edition?
 --------------------------------------
 
-Somewhat.  See [[JRubyOnJavaMicroEdition|JRuby on JME]].
+Somewhat.  See [[JRuby on JME|JRubyOnJavaMicroEdition]].
 
 How can I run JRuby using Java Web Start?
 -----------------------------------------
 
-Here is a page dedicated to answering this question: [[JRubyOnWebStart|JRuby on Web Start]]
+Here is a page dedicated to answering this question: [[JRuby on Web Start|JRubyOnWebStart]]
 
 How can I make my Ruby scripts execute with JRuby on unix systems like other scripts?
 -------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ Almost everything you learn about the Ruby language is directly applicable to wo
 What incompatibilities does JRuby have with the C implementation of Ruby? 
 --------------------------------------------------------------------------
 
-See [[DifferencesBetweenMriAndJruby|Differences Between MRI and JRuby]].
+See [[Differences Between MRI and JRuby|DifferencesBetweenMriAndJruby]].
 
 How do I run JRuby without the command-line scripts?
 ----------------------------------------------------
@@ -269,7 +269,7 @@ There are two separate ways:
 How can I compile my Ruby into Java?
 ------------------------------------
 
-You can do an Ahead-Of-Time (AOT) compile by using these [[JRubyCompiler|instructions]].
+You can do an Ahead-Of-Time (AOT) compile by using these [[instructions|JRubyCompiler]].
 
 Troubleshooting
 ===============
