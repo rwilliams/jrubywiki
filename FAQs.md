@@ -347,14 +347,20 @@ Add `.bat` extension to JRuby scripts.
 
 If you try to run JRuby on cygwin for Windows and use the commands without the `.bat` extension, it will default to the bourne shell versions, which might not work properly.
 
-'''Example using gems:'''
- $JRUBY_HOME/bin/gem.bat install rails -y --no-ri --no-rdoc
+**Example using gems:***
+
+```bash
+    $JRUBY_HOME/bin/gem.bat install rails -y --no-ri --no-rdoc
+```
 
  Why does my db:migrate fail with "undefined method 'create_database' for class '#<Class:01x1e30857>'"?
 -------------------------------------------------------------------------------------------------------
 
 In this case, try to run the migrations with:
- jruby -S rake db:migrate SKIP_AR_JDBC_RAKE_REDEFINES=1
+
+```bash
+    jruby -S rake db:migrate SKIP_AR_JDBC_RAKE_REDEFINES=1
+```
 
 You can also just put the following line somewhere in your Rakefile, or in a custom Rakefile in `lib/tasks/*.rake`:
  ENV['SKIP_AR_JDBC_RAKE_REDEFINES'] = '1'
