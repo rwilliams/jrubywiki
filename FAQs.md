@@ -363,7 +363,10 @@ In this case, try to run the migrations with:
 ```
 
 You can also just put the following line somewhere in your Rakefile, or in a custom Rakefile in `lib/tasks/*.rake`:
- ENV['SKIP_AR_JDBC_RAKE_REDEFINES'] = '1'
+
+```ruby
+    ENV['SKIP_AR_JDBC_RAKE_REDEFINES'] = '1'
+```
 
 <span id="troubleshooting_JNI"></span>
 
