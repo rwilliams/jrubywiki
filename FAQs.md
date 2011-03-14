@@ -371,11 +371,13 @@ You can also just put the following line somewhere in your Rakefile, or in a cus
 ------------------------------------------
 
 There are two scenarios in which JNI problems occur: 
+
 * When the jar is in JRuby 1.1.2's lib.
 * When the jar is loaded using ruby's "require" statement in JRuby < 1.1.
+
 These two scenarios are described below.
 
-===== JRuby 1.1.2 + =====
+**JRuby 1.1.2 +**
 
 JRuby 1.1.2 changed how it set up the classpath. Earlier versions merged the CLASSPATH environment variable with all .jar files in `JRUBY_HOME/lib` and passed them to the JVM via the `-classpath` option. JRuby 1.1.2 instead passes all `.jar` files in `lib` to the JVM via the `-Xbootclasspath/a:` option, while CLASSPATH is passed using `-classpath`. Jar files that use JNI (e.g. `sqljdbc.jar`) don't work correctly when they're in the boot classpath, so they should not be placed in JRuby's `lib` directory. Instead, they should be loaded with `require` or by setting the CLASSPATH environment variable.
 
