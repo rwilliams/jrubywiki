@@ -297,14 +297,18 @@ Java and JRuby Interoperation
 
 You can convert existing ruby arrays to primitive Java arrays very simply:
 
- [1,2,3].to_java => makes an object array
- [1,2,3].to_java :byte => makes a byte array
- [1,2,3].to_java :String => makes a String array
+```ruby
+    [1,2,3].to_java # makes an object array
+    [1,2,3].to_java :byte # makes a byte array
+    [1,2,3].to_java :String # makes a String array
+```
 
 To create empty arrays:
 
- Java::byte[12].new => makes a new byte[]
- java.lang.String[12].new => makes a new String[]
+```ruby
+    Java::byte[12].new # makes a new byte[]
+    java.lang.String[12].new # makes a new String[]
+```
 
 How can I implement a Java Interface using a Ruby Class?
 --------------------------------------------------------
