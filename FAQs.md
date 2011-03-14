@@ -178,7 +178,7 @@ The problem stems from an ASM jar conflict. It was found by setting a custom cla
 How come Java can't find resources in class folders that I've appended to the $CLASSPATH global variable at runtime? 
 ---------------------------------------------------------------------------------------------------------------------
 
-JRubyClassLoader extends `java.net.URLClassLoader`, which treats any URL that doesn't end with a slash as a jar. See [URLClassLoader].(http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html)
+JRubyClassLoader extends `java.net.URLClassLoader`, which treats any URL that doesn't end with a slash as a jar. See [URLClassLoader](http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html).
 
 Why don't my special characters (like ção) appear correctly in my Swing app ?
 -----------------------------------------------------------------------------
