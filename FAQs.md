@@ -1,6 +1,5 @@
-<h1>JRuby Frequently Asked Questions (FAQs)</h1>
-
-==Execution Environments==
+Execution Environments
+======================
 
 Can I run JRuby on Java Micro Edition?
 --------------------------------------
@@ -56,7 +55,8 @@ With the <code>inproc</code> setting disabled, you can now pass <code>-J</code> 
 
 In the future, as JRuby and JVM startup performance increases, we may flip the default in-process launching behavior to <code>false</code> to match most peoples' expectations. See also [http://www.mail-archive.com/dev@jruby.codehaus.org/msg02861.html this thread on the JRuby mailing list] for a discussion of <code>jruby.launch.inproc</code>.
 
-==General==
+General
+=======
 
 Where can I find more information about the Ruby language?
 ----------------------------------------------------------
@@ -154,7 +154,8 @@ How do I check which version of the JVM JRuby is running on?
 
   % jruby -rjava -e "puts java.lang.System.get_property('java.version')"
 
-==Running Rails==
+Running Rails
+=============
 
 Why does script/server (WEBrick) terminate right after saying "Booting WEBrick..."?
 -----------------------------------------------------------------------------------
@@ -204,7 +205,8 @@ Now, because <code>ResourceBundle.getBundle</code> doesn't seem to use the JRuby
 
 Now you just need to put your <code>i18n[_*].properties</code> files in <code>config/</code>, et voilà!
 
-==Calling Into Java==
+Calling Into Java
+=================
 
 Why do I get <code>ClassNotFoundException</code> when I call <code>java.lang.Class.forName</code> from Ruby?
 ------------------------------------------------------------------------------------------------------------
@@ -227,7 +229,8 @@ Whereas in JRuby, you can get at that using the following:
  >> ShutdownType = JavaUtilities.get_proxy_class(
           'com.sun.enterprise.ee.cms.core.GMSConstants$shutdownType')
 
-==Java and JRuby Interoperation==
+Java and JRuby Interoperation
+=============================
 
  How do I create a primitive Java array in JRuby?
 -------------------------------------------------
@@ -260,14 +263,16 @@ There are two separate ways:
 * Use implicit closure conversion.
    button.add_action_listener { |event|  button.text = "I have been pressed" }
 
-== Compiler-related questions==
+ Compiler-related questions
+===========================
 
 How can I compile my Ruby into Java?
 ------------------------------------
 
 You can do an Ahead-Of-Time (AOT) compile by using these [[JRubyCompiler|instructions]].
 
-== Troubleshooting==
+Troubleshooting
+===============
 
  Why do my ruby scripts under cygwin get executed as if they are bourne shell scripts?
 --------------------------------------------------------------------------------------
