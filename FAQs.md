@@ -1,6 +1,5 @@
 <h1>JRuby Frequently Asked Questions (FAQs)</h1>
 
-__TOC__
 ==Execution Environments==
 
 Can I run JRuby on Java Micro Edition?
