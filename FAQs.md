@@ -15,28 +15,46 @@ How can I make my Ruby scripts execute with JRuby on unix systems like other scr
 -------------------------------------------------------------------------------------
 
 Include a "hash bang" line on the top of your jruby script like this:
- #!/usr/bin/env jruby
+```bash
+    #!/usr/bin/env jruby
+```
+
 That will use the system wide installed jruby interpreter to run your script.
 
 If you would like to use a local copy of JRuby to run your script, give the relative or absolute path to the jruby program:
- #!/usr/bin/env jruby-1.1RC2/bin/jruby
+
+```bash
+    #!/usr/bin/env jruby-1.1RC2/bin/jruby
+```
 
 To run the script directly, you need to set the "x" flag on it:
- chmod +x your_script.rb
+
+```bash
+    chmod +x your_script.rb
+```
 
 You can now start your script with 
- ./your_script.rb
+
+```bash
+    ./your_script.rb
+```
 
 You can also try the `jruby-launcher gem`, which installs a native `jruby` program.
-  jruby -S gem install jruby-launcher
+
+```bash
+    jruby -S gem install jruby-launcher
+```
 
 Now you can place the full path to JRuby in the shebang line, along with parameters if you wish:
-  #!/usr/local/jruby/bin/jruby -w
+
+```bash
+    #!/usr/local/jruby/bin/jruby -w
+```
 
 How can I increase the heap/memory size when launching a sub-JRuby?
 -------------------------------------------------------------------
 
-You can try passing the usual `-J-Xmx&lt;size&gt;` to the sub-JRuby. But beware:
+You can try passing the usual `-J-Xmx<size>` to the sub-JRuby. But beware:
 
   $ jruby -e '%x{jruby -J-Xmx256m -e true}'
   warning: -J-Xmx256m argument ignored (launched in same VM?)
