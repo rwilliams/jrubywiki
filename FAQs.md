@@ -87,9 +87,9 @@ General
 Where can I find more information about the Ruby language?
 ----------------------------------------------------------
 
-[http://www.ruby-lang.org The Ruby Language Home Page] has links to a wide range of resources for learning about Ruby, downloading releases of the C implementation of Ruby, documentation on Ruby, and community outlets for talking about Ruby.
+[The Ruby Language Home Page](http://www.ruby-lang.org) has links to a wide range of resources for learning about Ruby, downloading releases of the C implementation of Ruby, documentation on Ruby, and community outlets for talking about Ruby.
 
-[http://www.pragmaticprogrammer.com/ The Pragmatic Programmers] are the publishers of the de facto standard Ruby text, "Programming Ruby". It is considered a must-have manual to the Ruby language and libraries.
+[The Pragmatic Programmers](http://www.pragmaticprogrammer.com/) are the publishers of the de facto standard Ruby text, "Programming Ruby". It is considered a must-have manual to the Ruby language and libraries.
 
 Almost everything you learn about the Ruby language is directly applicable to working with JRuby. JRuby aims to be a drop-in replacement for the C implementation of Ruby.
 
@@ -131,7 +131,7 @@ In JRuby 0.9.0, any class implementing a Java interface must explicitly call `su
 How do I call JRuby from my existing Java program?
 --------------------------------------------------
 
-If you don't want to launch JRuby as a separate process, we recommend you use the [http://jakarta.apache.org/bsf/ Bean Scripting Framework] (BSF) or [https://scripting.dev.java.net/ Java 6's Scripting Support] (JSR223). We do not recommend calling directly into the JRuby runtime, since that code is subject to change.
+If you don't want to launch JRuby as a separate process, we recommend you use the [Bean Scripting Framework](http://jakarta.apache.org/bsf/) (BSF) or [Java 6's Scripting Support](https://scripting.dev.java.net/) (JSR223). We do not recommend calling directly into the JRuby runtime, since that code is subject to change.
 
  Where can I find the javadoc? 
 -------------------------------
@@ -168,7 +168,7 @@ The problem stems from an ASM jar conflict. It was found by setting a custom cla
 How come Java can't find resources in class folders that I've appended to the $CLASSPATH global variable at runtime? 
 ---------------------------------------------------------------------------------------------------------------------
 
-JRubyClassLoader extends `java.net.URLClassLoader`, which treats any URL that doesn't end with a slash as a jar. See [http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html URLClassLoader].
+JRubyClassLoader extends `java.net.URLClassLoader`, which treats any URL that doesn't end with a slash as a jar. See [URLClassLoader].(http://java.sun.com/j2se/1.5.0/docs/api/java/net/URLClassLoader.html)
 
 Why don't my special characters (like ção) appear correctly in my Swing app ?
 -----------------------------------------------------------------------------
