@@ -4,13 +4,13 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 !OS
 !Package
 !Maintainer
-!Current version (1.5.6)
+!Current version (1.6.0)
 !Notes
 |-
 |Ruby
 |RVM
 | 
-| 1.5.6
+| 1.6.0
 |
 |-
 |MacOS
