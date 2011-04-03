@@ -95,7 +95,7 @@ And now add a "main" method:
 And now it's time to try running our little Java-class-written-in-Ruby:
 
 ```bash
- ~/jrubyc_demo ➔ java Foo 15 75
+ ~/jrubyc_demo ➔ java -cp YOURJRUBYLIBPATH/jruby.jar:. Foo 15 75
  1575
 ```
 
@@ -124,7 +124,7 @@ This example illustrates that while you can generate Java classes with all the u
 And now the result is as expected:
 
 ```bash
- ~/jrubyc_demo ➔ java Foo 15 75
+ ~/jrubyc_demo ➔ java -cp YOURJRUBYLIBPATH/jruby.jar:. Foo 15 75
  90
 ```
 
