@@ -24,7 +24,6 @@ Welcome to the JRuby Community!
 ####Twin Cities (Minneapolis, St Paul)####
 
 The three primary members of the JRuby core team are based in this area and attend the local Ruby user group.
-
 * Charles Nutter <headius@headius.com>
 * Thomas Enebo <thomas.enebo@gmail.com>
 * Nick Sieger <nicksieger@gmail.com>
