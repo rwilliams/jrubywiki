@@ -17,8 +17,7 @@ Welcome to the JRuby Community!
 
 ###Arizona###
 ####Phoenix####
-* Logan Barnett <logustus@gmail.com>
-[Monkeybars](http://monkeybars.org/) GUI framework, packaging via [Rawr](http://kenai.com/projects/rawr), game development with [Jemini](http://jemini.org).
+* Logan Barnett <logustus@gmail.com> - [Monkeybars](http://monkeybars.org/) GUI framework, packaging via [Rawr](http://kenai.com/projects/rawr), game development with [Jemini](http://jemini.org).
 
 
 ###Minnesota###
@@ -32,47 +31,38 @@ The three primary members of the JRuby core team are based in this area and atte
 
 ###Massachusetts###
 #### Boston Area and Southern NH####
-* Jay McGaffigan <hooligan495 at gmail dot com>
-Actively using JRuby and JRuby on Rails at work, specifically spent time deploying apps to Glassfish and tomcat, performance testing, creating windows services with JRuby.
+* Jay McGaffigan <hooligan495 at gmail dot com> - Actively using JRuby and JRuby on Rails at work, specifically spent time deploying apps to Glassfish and tomcat, performance testing, creating windows services with JRuby.
 Spend time working on RCov and getting it to work with Jruby
 
 ###Illinois###
 ####Chicago####
 * Micah Martin <micah@8thlight.com> - 8th Light, Inc. - Deployed JRuby in a variety of systems.
-* Josh Graham (joshua.graham@grahamis.com)
-Using JRuby since 2007 in enterprise projects, "wrote the paper" on introducing JRuby into the enterprise for ThoughtWorks.
+* Josh Graham <joshua.graham@grahamis.com> - Using JRuby since 2007 in enterprise projects, "wrote the paper" on introducing JRuby into the enterprise for ThoughtWorks.
 
 ###Colorado###
 ####Boulder/Denver Area####
-* Frederic Jean <frederic.jean@sun.com>, <fred@fredjean.net>
-Staff Engineer at Sun Microsystems currently working on http://kenai.com . Speaker coordinator for the [Boulder JUG](http://boulderjug.org) and attends Derailed and Boulder Ruby. Works on [JRuby MemCache Client](http://github.com/ikai/jruby-memcache-client).
+* Frederic Jean <frederic.jean@sun.com>, <fred@fredjean.net> - Staff Engineer at Sun Microsystems currently working on http://kenai.com . Speaker coordinator for the [Boulder JUG](http://boulderjug.org) and attends Derailed and Boulder Ruby. Works on [JRuby MemCache Client](http://github.com/ikai/jruby-memcache-client).
 
 ###Virginia###
 ####Tidewater Area####
-* Rob Heittman <heittman.rob@gmail.com>
-Java heretic and RESTafarian who believes JRuby is the best Ruby.  Using JRuby on large projects, especially biodiversity and conservation.  (Oct 09) adapting JRuby-Rack to the Restlet framework and writing plugins for JRuby support in various OSGi environments.  Interests: leveraging Java concurrency, crusading to replace C-based gems, and someday, achieving refactoring tool parity with Java.
+* Rob Heittman <heittman.rob@gmail.com> - Java heretic and RESTafarian who believes JRuby is the best Ruby.  Using JRuby on large projects, especially biodiversity and conservation.  (Oct 09) adapting JRuby-Rack to the Restlet framework and writing plugins for JRuby support in various OSGi environments.  Interests: leveraging Java concurrency, crusading to replace C-based gems, and someday, achieving refactoring tool parity with Java.
 
 ###Ohio###
 ####Cincinnati####
-* Chris Nelson, Gaslight Software <chris@gaslightsoftware.com>
-I've used JRuby on a number of projects, and have contributed code to the JRuby project.  I've presented on JRuby at java user's groups and several conferences.  I'm very interested in getting the word out about JRuby being awesome and ready to use now.  I'd be more that happy to speak with anyone considering JRuby and help get them going in the right direction
+* Chris Nelson, Gaslight Software <chris@gaslightsoftware.com> - I've used JRuby on a number of projects, and have contributed code to the JRuby project.  I've presented on JRuby at java user's groups and several conferences.  I'm very interested in getting the word out about JRuby being awesome and ready to use now.  I'd be more that happy to speak with anyone considering JRuby and help get them going in the right direction
 
 ###Kentucky###
 ####Lexington####
-* Todd Willey <todd@rubidine.com>
-Rails deployments on Glassfish, integration with java libraries, active in [KYRUG](http://kyrug.org/).
+* Todd Willey <todd@rubidine.com> - Rails deployments on Glassfish, integration with java libraries, active in [KYRUG](http://kyrug.org/).
 
 ###California###
 ####San Francisco Bay Area####
-* Arun Gupta <arun.gupta@sun.com>
-GlassFish Evangelist and can talk about JRuby, Rails, GlassFish, NetBeans [blog](http://blogs.sun.com/arungupta).
+* Arun Gupta <arun.gupta@sun.com> - GlassFish Evangelist and can talk about JRuby, Rails, GlassFish, NetBeans [blog](http://blogs.sun.com/arungupta).
 
-* L. David Varvel <dave@madwombat.com>
-JRuby on Rails, Java library integration, practiced public speaker.  Interested in bridging the gap between the Java and JRuby communities. 
+* L. David Varvel <dave@madwombat.com> - JRuby on Rails, Java library integration, practiced public speaker.  Interested in bridging the gap between the Java and JRuby communities. 
 
 ##Spain##
-* David Calavera <calavera@apache.org>
-JRuby contributor, Hudson commiter and JRuby on Rails user. Works on [Trinidad](http://calavera.github.com/trinidad), [Rake plugin for hudson](http://wiki.hudson-ci.org/display/HUDSON/Rake+plugin) or [Ruby metrics for Hudson](http://wiki.hudson-ci.org/display/HUDSON/Ruby+Metrics+plugin) among others.
+* David Calavera <calavera@apache.org> - JRuby contributor, Hudson commiter and JRuby on Rails user. Works on [Trinidad](http://calavera.github.com/trinidad), [Rake plugin for hudson](http://wiki.hudson-ci.org/display/HUDSON/Rake+plugin) or [Ruby metrics for Hudson](http://wiki.hudson-ci.org/display/HUDSON/Ruby+Metrics+plugin) among others.
 
 ##Sweden##
 ####Helsingborg, Skåne####
