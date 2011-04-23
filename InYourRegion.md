@@ -82,3 +82,8 @@ JRuby contributor, Hudson commiter and JRuby on Rails user. Works on [Trinidad](
 ##Poland##
 ####Wrocław, dolnośląskie####
 * Paweł Wielgus <poulwiel at gmail.com> - i'm using JRuby as a dynamic part of all my java apps, that includes dynamic access console, dynamic configurations and all kinds of on-demand reports. Also JRuby is my runtime for Rails app.
+
+##Brazil##
+####São Paulo, SP####
+* Douglas Campos <qmx@qmx.me> - JRuby contributor, using JRuby on several projects.
+
