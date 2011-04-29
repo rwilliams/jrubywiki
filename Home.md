@@ -15,23 +15,8 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Scripting Java from JRuby|CallingJavaFromJRuby]]
 * [[Standalone Jars and Classes|StandaloneJarsAndClasses]]
 * [[Performance Tuning|PerformanceTuning]]
+* [[C extension alternatives]]
 * [[FAQs]]
-
-**Getting Involved**
-
-* [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
-* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
-* Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
-* Status: [Build Server](http://ci.jruby.org)
-* Design/Internals: [[Internals]]
-* Distributions: [[JRubyDistributions]]
-* [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
-* [[JRuby Style Guide|JRubyStyleGuide]]
-* [How to Contribute to JRuby Effectively](http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively)
-* [[JRuby and RubySpecs|JRubyAndRubySpecs]]
-* [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
-* [[Release Documentation|ReleaseDocumentation]]
-* [[RoadMap]]
 
 **Web Applications (Rails, servers, others)**
 
@@ -56,6 +41,22 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Case Studies|CaseStudies]]
 * [[Articles]]
 * [[In Your Region|InYourRegion]]
+
+**Getting Involved**
+
+* [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
+* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
+* Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
+* Status: [Build Server](http://ci.jruby.org)
+* Design/Internals: [[Internals]]
+* Distributions: [[JRubyDistributions]]
+* [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
+* [[JRuby Style Guide|JRubyStyleGuide]]
+* [How to Contribute to JRuby Effectively](http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively)
+* [[JRuby and RubySpecs|JRubyAndRubySpecs]]
+* [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
+* [[Release Documentation|ReleaseDocumentation]]
+* [[RoadMap]]
 
 **Related Websites**
 
