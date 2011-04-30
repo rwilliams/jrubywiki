@@ -39,6 +39,10 @@ Here's a walkthrough for MySQL in ultra-condensed form:
 
       rails ~/testapp --database mysql
 
+(In rails v3 this is now)
+      
+      rails new ~/testapp --database mysql
+
 '''6.''' Go to the app
 
       cd ~/testapp
