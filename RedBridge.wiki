@@ -602,7 +602,7 @@ See the [[RedBridgeWay]] page.
 
 = See Also =
 * [[JRubyOptions]]
-* [[Calling Java from JRuby]]
+* [[CallingJavafromJRuby|Calling Java from JRuby]]
 * [[Accessing JRuby Object in Java]]
 * [http://www.blogger.com/posts.g?blogID=22066395&searchType=ALL&txtKeywords=&label=RedBridge JRuby Embed (Red Bridge) info]
 * [http://jruby-embed.kenai.com/docs/ JRuby Embed API document]
