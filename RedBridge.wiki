@@ -159,7 +159,8 @@ RedBridge supports both per-container ("per-engine," in JSR223 parlance) and per
 **Ruby Version
 
 *Per-evaluation configurations:
-** Line Number
+**Disabling Sharing Variables
+**Line Number
 
 As of JRuby 1.5.0, Red Bridge offers several configuration methods. This helps separate the internal API from the publicly used one. Please see [[JRubyOptions]] for a list of JRuby options supported by Red Bridge.
 
@@ -531,6 +532,24 @@ BSFManager.registerScriptingEngine("jruby", "org.jruby.embed.bsf.JRubyEngine", n
 BSFManager manager = new BSFManager();
 </pre>
 
+=== Disabling Sharing Variables ===
+
+Scope: Per Evaluation<br/>
+Property Name: org.jruby.embed.sharing.variables<br/>
+Value: true (default), or false
+
+This option turns on/off a sharing variable feature. Default is on (true). When the feature is off, slight performance improvement will be expected.
+
+* Core
+<pre name="java">
+container.setAttribute(AttributeName.SHARING_VARIABLES, false);
+</pre>
+
+*JSR223
+<pre name="java">
+System.setProperty("org.jruby.embed.sharing.variables", "false");
+</pre>
+
 
 === CompileMode ===
 
@@ -545,7 +564,7 @@ This option is not for pre-compiled Ruby scripts. Ruby2java [http://kenai.com/pr
 * Core
 <pre name="java">
 ScriptingContainer container = new ScriptingContainer();
-container.getProvider().getRubyInstanceConfig().setCompileMode(CompileMode.JIT);
+container.setCompileMode(CompileMode.JIT);
 </pre>
 
 
