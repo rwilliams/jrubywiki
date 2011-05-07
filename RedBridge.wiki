@@ -293,16 +293,34 @@ public class BsfLoadPathSample {
 
 Scope: Per Container<br/>
 Property Name: org.jruby.embed.localcontext.scope<br/>
-Value: '''singleton'''(default in JRuby 1.5.x/1.4.0 and JRuby trunk; rev. 9e557a2 and later, JRuby Embed 0.1.3),<br/>
-'''theadsafe''' (default in JRuby 1.4.0RC1, RC2, RC3, and JRuby Embed 0.1.2),<br/>
-or '''singlethread'''
+Value: '''singleton'''(default in JRuby 1.6.x/1.5.x/1.4.0 and JRuby trunk; rev. 9e557a2 and later),<br/>
+'''theadsafe''' (default in JRuby 1.4.0RC1, RC2, RC3),<br/>
+'''singlethread''', <br/>
+or '''concurrent''' (since JRuby 1.6.0)
 
-The context instance type is a type of a local context. The local context holds Ruby runtime, name-value pairs for sharing variables between Java and Ruby, default I/O streams (reader/writer/error writer), and attributes. The context is saved in one of three types, threadsafe, singlethread, or singleton. Three types are defined in org.jruby.embed.LocalContextScope and also can be set by a system property. 
+The context instance type is a type of a local context. The local context holds Ruby runtime, name-value pairs for sharing variables between Java and Ruby, default I/O streams (reader/writer/error writer), and attributes. The context is saved in one of four types, threadsafe, singlethread, singleton, or concurrent. Three types are defined in org.jruby.embed.LocalContextScope and also can be set by a system property. 
 
 Make sure to set the context type before you instantiate javax.script.ScriptEngineManager or register engine to org.apache.bsf.BSFManager.
 
 ==== Singleton ====
-This model uses a well known Singleton pattern, and the only one instance of a local context will exist on JVM.<br/>
+This model uses a well known Singleton pattern, and the only one instance of a local context will exist on JVM. No matter how many ScriptingConatiners (or ScriptEngines (JSR223)) are instantiated, a single Ruby runtime and variable map are there. Please be aware, thread safety is users' responsibility.<br/>
+<pre>
++------------------------------------------------------------+
+|                       Variable Map                         |
++------------------------------------------------------------+
++------------------------------------------------------------+
+|                       Ruby runtime                         |
++------------------------------------------------------------+
++------------------+ +------------------+ +------------------+
+|ScriptingContainer| |ScriptingContainer| |ScriptingContainer|
++------------------+ +------------------+ +------------------+
++------------------------------------------------------------+
+|                         JVM                                |
++------------------------------------------------------------+
+
+                Singleton Local Context Type
+          (Thread safety is users' responsibility)
+</pre>
 
 * Core
 <pre name="java">
@@ -317,7 +335,27 @@ System.setProperty("org.jruby.embed.localcontext.scope", "singleton");
 
 
 ==== ThreadSafe ====
-Script's parsings and evaluations should be safely performed on a multi-threaded environment such as servlet container. A supposed usage is that ScriptEngine is instantiateted in servlet's init() method and evaluates scripts in servlet's service() method.<br/>
+Script's parsings and evaluations should be safely performed on a multi-threaded environment such as servlet container. A single ScriptingContainer creates thread local Ruby runtimes and variable maps.<br/>
+<pre>
++------------------+ +------------------+ +------------------+
+|   Variable Map   | |   Variable Map   | |   Variable Map   |
++------------------+ +------------------+ +------------------+
++------------------+ +------------------+ +------------------+
+|   Ruby runtime   | |   Ruby runtime   | |   Ruby runtime   |
++------------------+ +------------------+ +------------------+
++------------------------------------------------------------+
+|                     ScriptingContainer                     |
++------------------------------------------------------------+
++------------------+ +------------------+ +------------------+
+|   Java Thread    | |   Java Thread    | |   Java Thread    |
++------------------+ +------------------+ +------------------+
++------------------------------------------------------------+
+|                         JVM                                |
++------------------------------------------------------------+
+
+                Threadsafe Local Context Type
+       (Per Thread Isolated Variable Map and Runtime)
+</pre>
 
 * Core
 <pre name="java">
@@ -330,7 +368,24 @@ System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
 </pre>
 
 ==== SingleThread ====
-This model pretends as if there is only one thread in the world, and does not mind race condition at all. Users are resposnsible to thread safety. If you want to instantiate ScriptEngine in servlet's service() method, this model would be the best suited one.
+This model pretends as if there is only one thread in the world, and does not mind race condition at all. This naive model is used in many other JSR223 ScriptEngines. Users are responsible to thread safety.<br/>
+<pre>
++------------------+ +------------------+ +------------------+
+|   Variable Map   | |   Variable Map   | |   Variable Map   |
++------------------+ +------------------+ +------------------+
++------------------+ +------------------+ +------------------+
+|   Ruby runtime   | |   Ruby runtime   | |   Ruby runtime   |
++------------------+ +------------------+ +------------------+
++------------------+ +------------------+ +------------------+
+|ScriptingContainer| |ScriptingContainer| |ScriptingContainer|
++------------------+ +------------------+ +------------------+
++------------------------------------------------------------+
+|                         JVM                                |
++------------------------------------------------------------+
+
+                Singlethread Local Context Type
+          (Thread safety is users' responsibility)
+</pre>
 
 * Core
 <pre name="java">
@@ -342,6 +397,39 @@ ScriptingContainer instance = new ScriptingContainer(LocalContextScope.SINGLETHR
 System.setProperty("org.jruby.embed.localcontext.scope", "singlethread");
 </pre>
 
+
+==== Concurrent ====
+This model isolates variable maps but shares Ruby runtime. A single ScriptingContainer created only one runtime and thread local variable maps. Global variables and top level variables/constants are not thread safe, but variables/constants tied to receiver objects are thread local.<br/>
+<pre>
++------------------+ +------------------+ +------------------+
+|   Variable Map   | |   Variable Map   | |   Variable Map   |
++------------------+ +------------------+ +------------------+
++------------------------------------------------------------+
+|                        Ruby runtime                        |
++------------------------------------------------------------+
++------------------------------------------------------------+
+|                     ScriptingContainer                     |
++------------------------------------------------------------+
++------------------+ +------------------+ +------------------+
+|   Java Thread    | |   Java Thread    | |   Java Thread    |
++------------------+ +------------------+ +------------------+
++------------------------------------------------------------+
+|                         JVM                                |
++------------------------------------------------------------+
+
+                Concurrent Local Context Type
+    (Per Thread Isolated Variable Map and Singleton Runtime)
+</pre>
+
+* Core
+<pre name="java">
+ScriptingContainer instance = new ScriptingContainer(LocalContextScope.CONCURRENT);
+</pre>
+
+* JSR223/BSF
+<pre name="java">
+System.setProperty("org.jruby.embed.localcontext.scope", "concurent");
+</pre>
 
 
 === Local Variable Behavior Options ===
