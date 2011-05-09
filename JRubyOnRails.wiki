@@ -10,8 +10,8 @@ __TOC__
 ===Getting Started===
 Get started with these tutorials:
 
-*[http://blog.rubyrockers.com/2011/03/rails3-application-jruby/| Rails3 application with Jruby]
-*[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a| Deploying a Rails application in Tomcat with JRuby: A concise tutorial]
+*[http://blog.rubyrockers.com/2011/03/rails3-application-jruby Rails3 application with Jruby]
+*[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a Deploying a Rails application in Tomcat with JRuby: A concise tutorial]
 * [[JRuby on Rails with Spring|JRuby on Rails with Spring]] - zero to <code>.war</code> file with Spring and Maven.
 * "Porting" the Depot Application To Jruby, [http://tompurl.com/2010/03/02/running-the-depot-application-with-jruby/ Parts 1] and [http://tompurl.com/2010/03/25/running-depot-on-tomcat/ 2]: These tutorials show you how to make the Depot application from "[http://www.pragprog.com/titles/rails3/agile-web-development-with-rails-third-edition Agile Web Development with Rails, Third Edition]" work with Jruby.
 
