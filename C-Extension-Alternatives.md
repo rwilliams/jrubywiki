@@ -34,6 +34,7 @@ Please add to this list with your findings.
 [Kirk]: https://github.com/strobecorp/kirk
 [TorqueBox]: http://torquebox.org/
 [Thin]: http://code.macournoyer.com/thin/
+[Typhoeus]: https://github.com/dbalatero/typhoeus
 [activerecord-jdbc-adapter]: https://github.com/nicksieger/activerecord-jdbc-adapter
 [JRuby-Lint]: https://github.com/jruby/jruby-lint
 [Nokogiri]: http://nokogiri.org/
