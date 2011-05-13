@@ -20,6 +20,8 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[yajl-ruby][]** - Try `json` or `json_pure` instead. Unfortunately there is no known equivalent JSON stream parser.
 
+* **[bson_ext][]** - `bson_ext` isn't used with JRuby. Instead, some native Java extensions are bundled with the `bson` gem.
+
 Please add to this list with your findings.
 
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
@@ -43,3 +45,5 @@ Please add to this list with your findings.
 [JRuby-Lint]: https://github.com/jruby/jruby-lint
 [Nokogiri]: http://nokogiri.org/
 [yajl-ruby]: https://github.com/brianmario/yajl-ruby
+[bson_ext]: https://github.com/mongodb/mongo-ruby-driver
+
