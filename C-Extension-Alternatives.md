@@ -1,10 +1,10 @@
 JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 the support is still "in development" and considered experimental. This page lists common C extensions and non-C alternatives you can use to replace them.
 
-* **[RDiscount][]** - use [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)
+* **[RDiscount][]** - Use [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)
 
-* **[RMagick][]** - try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][].
+* **[RMagick][]** - Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][].
 
-* **[Unicorn][]** - try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [TorqueBox][].
+* **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [TorqueBox][].
 
 
 [RDiscount]: https://github.com/rtomayko/rdiscount
