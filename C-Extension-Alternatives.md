@@ -18,7 +18,7 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 Please add to this list with your findings.
 
-*Note that the [JRuby-Lint][] gem parses the contents of this page to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `* gem_name - instructions` format.*
+*Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
 
 [RDiscount]: https://github.com/rtomayko/rdiscount
 [Maruku]:https://github.com/nex3/maruku
