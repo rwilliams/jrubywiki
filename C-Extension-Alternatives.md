@@ -10,11 +10,15 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[Typhoeus][]** - The C extension [doesn't currently compile](https://github.com/dbalatero/typhoeus/issues/65). There's no equivalent library for JRuby, but you might try any of the pure-Ruby HTTP clients (`net/http`, httpclient, etc.)
 
-* **mysql** - Use [activerecord-jdbc-adapter][] instead.
+* **mysql** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-mysql`.
 
-* **mysql2** - Use [activerecord-jdbc-adapter][] instead.
+* **mysql2** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-mysql`.
+
+* **sqlite3** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-sqlite3`.
 
 * **[Nokogiri][]** - For best results, use the pure-Java version of Nokogiri (1.5 or greater).
+
+* **[yajl-ruby][]** - Try `json` or `json_pure` instead. Unfortunately there is no known equivalent JSON stream parser.
 
 Please add to this list with your findings.
 
@@ -38,3 +42,4 @@ Please add to this list with your findings.
 [activerecord-jdbc-adapter]: https://github.com/nicksieger/activerecord-jdbc-adapter
 [JRuby-Lint]: https://github.com/jruby/jruby-lint
 [Nokogiri]: http://nokogiri.org/
+[yajl-ruby]: https://github.com/brianmario/yajl-ruby
