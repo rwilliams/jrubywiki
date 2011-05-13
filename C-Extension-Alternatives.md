@@ -6,6 +6,19 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [TorqueBox][].
 
+* **[Thin][]** - Thin might compile and run but is not recommended. Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [TorqueBox][].
+
+* **[Typhoeus][]** - The C extension [doesn't currently compile](https://github.com/dbalatero/typhoeus/issues/65). There's no equivalent library for JRuby, but you might try any of the pure-Ruby HTTP clients (`net/http`, httpclient, etc.)
+
+* **mysql** - Use [activerecord-jdbc-adapter][] instead.
+
+* **mysql2** - Use [activerecord-jdbc-adapter][] instead.
+
+* **[Nokogiri][]** - For best results, use the pure-Java version of Nokogiri (1.5 or greater).
+
+Please add to this list with your findings.
+
+*Note that the [JRuby-Lint][] gem parses the contents of this page to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `* gem_name - instructions` format.*
 
 [RDiscount]: https://github.com/rtomayko/rdiscount
 [Maruku]:https://github.com/nex3/maruku
@@ -20,3 +33,7 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 [Mizuno]: https://github.com/matadon/mizuno
 [Kirk]: https://github.com/strobecorp/kirk
 [TorqueBox]: http://torquebox.org/
+[Thin]: http://code.macournoyer.com/thin/
+[activerecord-jdbc-adapter]: https://github.com/nicksieger/activerecord-jdbc-adapter
+[JRuby-Lint]: https://github.com/jruby/jruby-lint
+[Nokogiri]: http://nokogiri.org/
