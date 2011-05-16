@@ -22,6 +22,8 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[bson_ext][]** - `bson_ext` isn't used with JRuby. Instead, some native Java extensions are bundled with the `bson` gem.
 
+* **[win32ole][]** - Use the `jruby-win32ole` gem (preinstalled in JRuby's Windows installer).
+
 Please add to this list with your findings.
 
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
@@ -48,3 +50,4 @@ Please add to this list with your findings.
 [bson_ext]: https://github.com/mongodb/mongo-ruby-driver
 [Apache HttpClient]: http://hc.apache.org/httpcomponents-client-ga/
 [HttpURLConnection]: http://download.oracle.com/javase/1,5.0/docs/api/java/net/HttpURLConnection.html
+[win32ole]: http://www.ruby-doc.org/stdlib/libdoc/win32ole/rdoc/index.html
