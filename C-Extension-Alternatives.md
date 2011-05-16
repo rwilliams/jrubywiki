@@ -8,7 +8,7 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[Thin][]** - Thin might compile and run but is not recommended. Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [TorqueBox][].
 
-* **[Typhoeus][]** - The C extension [doesn't currently compile](https://github.com/dbalatero/typhoeus/issues/65). There's no equivalent library for JRuby, but you might try any of the pure-Ruby HTTP clients (`net/http`, httpclient, etc.)
+* **[Typhoeus][]** - The C extension [doesn't currently compile](https://github.com/dbalatero/typhoeus/issues/65). There's no equivalent library for JRuby, but you might try any of the pure-Ruby HTTP clients (`net/http`, httpclient, etc.). There are also several Java HTTP client libraries that will work ([Apache HttpClient][], [HttpURLConnection][], etc).
 
 * **mysql** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-mysql`.
 
@@ -46,4 +46,5 @@ Please add to this list with your findings.
 [Nokogiri]: http://nokogiri.org/
 [yajl-ruby]: https://github.com/brianmario/yajl-ruby
 [bson_ext]: https://github.com/mongodb/mongo-ruby-driver
-
+[Apache HttpClient]: http://hc.apache.org/httpcomponents-client-ga/
+[HttpURLConnection]: http://download.oracle.com/javase/1,5.0/docs/api/java/net/HttpURLConnection.html
