@@ -28,12 +28,17 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * <a href="http://kenai.com/projects/warbler/pages/Home">Warbler</a> (bundling JRuby on Rails apps into a WAR)
 * [[Servers]]
 
-** Desktop Applications **
+**Builds/tooling**
+
+* [Rake and Ant Together: A Pick It n’ Stick It Approach](http://www.engineyard.com/blog/2010/rake-and-ant-together-a-pick-it-n-stick-it-approach/)
+* [JRuby Rake vs. Ant](http://watchitlater.com/blog/2011/03/jruby-rake-vs-ant/)
+
+**Desktop Applications **
 
 * [[GUI Frameworks|GUIFrameworks]]
 * [The Redcar Editor](http://redcareditor.com/) (built with SWT)
 
-** Evangelism**
+**Evangelism**
 
 * [[ Benchmarking Tips and Tricks|Benchmarks ]]
 * [[ JRuby Talks and Presentations|JRubyPresentations ]]
