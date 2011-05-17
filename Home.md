@@ -33,7 +33,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [Rake and Ant Together: A Pick It n’ Stick It Approach](http://www.engineyard.com/blog/2010/rake-and-ant-together-a-pick-it-n-stick-it-approach/)
 * [JRuby Rake vs. Ant](http://watchitlater.com/blog/2011/03/jruby-rake-vs-ant/)
 
-**Desktop Applications **
+**Desktop Applications**
 
 * [[GUI Frameworks|GUIFrameworks]]
 * [The Redcar Editor](http://redcareditor.com/) (built with SWT)
