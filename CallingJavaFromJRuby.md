@@ -109,8 +109,10 @@ You can reference a Java class in JRuby in at least two different ways.
 
 * The first is to map Java names like `org.foo.department.Widget` to Ruby nested modules format. This works as follows:
 
-   Java: org.foo.department.Widget
-   Ruby: Java::OrgFooDepartment::Widget
+```
+Java: org.foo.department.Widget
+Ruby: Java::OrgFooDepartment::Widget
+```
 
 That is:
 
@@ -122,9 +124,11 @@ This also means that, just as in Java, packages are not nested, but are each ass
 * Second way: for the top-level Java packages `java`, `javax`, `org`, and `com` you can type in a fully qualified class name basically as in Java, for example, `java.lang.System` or `org.abc.def.className`
 You can get the same effect for your own (custom) top-level packages, as follows. Let's assume that your packages are called `edu.school.department.Class`. Then, you define
 
-   def edu
-      Java::Edu
-   end
+```ruby
+def edu
+  Java::Edu
+end
+```
 
 And then you can use use usual Java package names like `edu.abc.def.ClassName`
 Note also that you must use the right capitalization, though see below for how you can change and assign it to your own liking.
