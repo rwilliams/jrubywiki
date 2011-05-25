@@ -82,3 +82,8 @@ Spend time working on RCov and getting it to work with Jruby
 ##United Kingdom##
 ####London####
 * [Tom Morris](http://tommorris.org/) - use JRuby for hacking, glue scripts and other instances of making cool things.
+
+
+## Sénégal ##
+#### Dakar ####
+* Hassane Moustapha <hassanemoustapha@gmail.com> - Using Jruby on several projects and giving some talks to some Java programers who want to migrate to Ruby.
