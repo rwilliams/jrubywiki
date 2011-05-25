@@ -70,6 +70,9 @@ Spend time working on RCov and getting it to work with Jruby
 ####Helsingborg, Skåne####
 * Craig Taverner <craig at amanzi dot com> - working with JRuby in Eclipse RCP, for DSL's, GIS scripting, Neo4j and spreadsheet formula parsing
 
+##Portugal##
+####Lisbon####
+* António Alegria <antonio.mc.alegria at gmail dot com> - have used JRuby extensively for some time now to build distributed monitoring systems integrating ActiveMQ and Esper. More recently will be using it to manipulate Excel spreadsheets with Apache POI in a new Rails project I'm working on.
 
 ##Poland##
 ####Wrocław, dolnośląskie####
