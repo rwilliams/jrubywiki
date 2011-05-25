@@ -83,7 +83,7 @@ Spend time working on RCov and getting it to work with Jruby
 * Douglas Campos <qmx@qmx.me> - JRuby contributor, using JRuby on several projects.
 
 ####Fortaleza, CE####
-* Marcelo Gonçalves <@marcelocg> <marcelogoncalves.com.br> - using JRuby for cloud performance tests as part of my master's degree dissertation.
+* [Marcelo Gonçalves](http://marcelogoncalves.com.br/) <@marcelocg> - using JRuby for cloud performance tests as part of my master's degree dissertation.
 
 ##The Czech republic##
 * [Marek Jelen](http://www.marekjelen.cz) - uses JRuby for private and commercial projects, has some JRuby related gems, provides JRuby training and consultancy, leads [Brno Ruby Users Group](http://www.brug.cz).
