@@ -75,6 +75,8 @@ Spend time working on RCov and getting it to work with Jruby
 
 * Jason Goecke <jason@goecke.net> [@jsgoecke](http://twitter.com/jsgoecke) - Uses embedded JRuby at Tropo for real-time cloud communications and telephony applications. Regular speaker on the Ruby and the open-source telephony scenes. 
 
+* [Erik Michaels-Ober](https://github.com/sferik/) <sferik@gmail.com> [@sferik](https://twitter.com/sferik) - Author of a number of gems that support JRuby. I also help maintain support for [Travis CI](http://travis-ci.org/), which involves debugging JRuby issues for a wide variety of libraries and applications. Occasional speaker on Ruby and open-source software at conferences and meetups.
+
 ###Washington###
 ####Seattle####
 * Matt Kirk <matt@matthewkirk.com> - Using JRuby with statistics and natural language processing. [github] (http://www.github.com/hexgnu).
