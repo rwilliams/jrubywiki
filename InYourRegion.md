@@ -73,7 +73,7 @@ Spend time working on RCov and getting it to work with Jruby
 
 * Nick Zalabak - Uses JRuby day to day and has been using JRuby to simplify existing Java applications for many years, very familiar with the Java interop features, as well as performance tuning JRuby/Java applications. I'm always willing to lend a helping hand or lead a discussion. Check my [blog] (http://techwhizbang.com) or hit me up on [Twitter] (http://twitter.com/techwhizbang).
 
-* Jason Goecke <jason@goecke.net> - Uses embedded JRuby at Tropo for real-time cloud communications and telephony applications. Regular speaker on the Ruby and the open-source telephony scenes.
+* Jason Goecke <jason@goecke.net> [@jsgoecke](http://twitter.com/jsgoecke) - Uses embedded JRuby at Tropo for real-time cloud communications and telephony applications. Regular speaker on the Ruby and the open-source telephony scenes. 
 
 ###Washington###
 ####Seattle####
