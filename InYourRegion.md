@@ -86,4 +86,4 @@ Spend time working on RCov and getting it to work with Jruby
 
 ## Sénégal ##
 #### Dakar ####
-* Hassane Moustapha <hassanemoustapha@gmail.com> - Using Jruby on several projects and giving some talks to some Java programers who want to migrate to Ruby.
+* **Hassane Moustapha**- Using Jruby on several projects and giving some talks to some Java programers who want to migrate to Ruby.
