@@ -79,3 +79,6 @@ Spend time working on RCov and getting it to work with Jruby
 ####São Paulo, SP####
 * Douglas Campos <qmx@qmx.me> - JRuby contributor, using JRuby on several projects.
 
+##United Kingdom##
+####London####
+* [Tom Morris](http://tommorris.org/) - use JRuby for hacking, glue scripts and other instances of making cool things.
