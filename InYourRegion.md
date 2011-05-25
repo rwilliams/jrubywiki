@@ -133,7 +133,7 @@ Spend time working on RCov and getting it to work with Jruby
 ##Germany##
 ####Karlsruhe####
 * [Heiko Seebach](http://lesscode.de/)
-I use JRuby with Rails and warbler since mid-2009 in an enterprise application that runs standalone in the data centers of several hospitals (to achieve acceptance of the system at the IT departement), I'm one of several coaches in a development team that uses JRuby to build an ERP in a big enterprise (for productivty reasons and Java library integration) and I use it for my new startup (for Java library integration).
+I use JRuby with Rails and warbler since mid-2009 in an enterprise application that runs standalone in the data centers of several hospitals (to achieve acceptance of the system at the IT departement), I'm one of several coaches in a development team that uses JRuby to build an ERP in a big enterprise that will replace old COBOL stuff (for seamless Java integration) and I use it for my new startup (also for seamless Java integration).
 
 ##India##
 ####Pune####
