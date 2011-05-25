@@ -53,6 +53,9 @@ Spend time working on RCov and getting it to work with Jruby
 ####Cincinnati####
 * Chris Nelson, Gaslight Software <chris@gaslightsoftware.com> - I've used JRuby on a number of projects, and have contributed code to the JRuby project.  I've presented on JRuby at java user's groups and several conferences.  I'm very interested in getting the word out about JRuby being awesome and ready to use now.  I'd be more that happy to speak with anyone considering JRuby and help get them going in the right direction
 
+####Columbus####
+* Joe O'Brien, CEO of EdgeCase <joe@edgecase.com>. We have used JRuby for several successful projects. Whether it's in order to take advantage of a Java library, harness JRuby deployment capabilities, or allow an organization to move forward in productivity while tying it into existing systems.  I've spoken on many JRuby and Ruby topics. We help organize the national [JRubyConf] (http://jrubyconf.com) and offer training nationally. 
+
 ###Kentucky###
 ####Lexington####
 * Todd Willey <todd@rubidine.com> - Rails deployments on Glassfish, integration with java libraries, active in [KYRUG](http://kyrug.org/).
