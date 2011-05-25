@@ -4,12 +4,12 @@ The users listed on this wiki page have volunteered to act as local "JRuby Deleg
 
 If you are interested in joining this list, we would recommend you meet the following criteria:
 
-* Day to day JRuby user
-* Have implemented something nontrivial using JRuby or contributed nontrivial patches
+* Day to day JRuby user, JRuby committer, or JRuby enthusiast
+* Have implemented something interesting or nontrivial using JRuby or contributed nontrivial patches
 * Comfortable with open-source ethos
 * Comfortable speaking to people, either one on one or as a group (presentation)
 
-In return, the JRuby community will help you fulfill the role of JRuby Delegate, providing speaking tips, presentation material, demos, and more. And of course the community and the core team are always standing by to assist you.
+In return, the JRuby community will help you fulfill the role of JRuby Delegate, providing speaking tips, presentation material, demos, and more. There's no requirement to start doing conferences, of course; we really just want folks that can help new JRubyists feel comfortable. And of course the JRuby community and the core team are always standing by to assist you.
 
 Welcome to the JRuby Community!
 
@@ -23,7 +23,7 @@ Welcome to the JRuby Community!
 ###Minnesota###
 ####Twin Cities (Minneapolis, St Paul)####
 
-The three primary members of the JRuby core team are based in this area and attend the local Ruby user group.
+Three members of the JRuby core team are based in this area and attend the local Ruby user group.
 
 * Charles Nutter <headius@headius.com>
 * Thomas Enebo <thomas.enebo@gmail.com>
