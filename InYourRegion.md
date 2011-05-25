@@ -22,6 +22,11 @@ Welcome to the JRuby Community!
 * Logan Barnett <logustus@gmail.com> - [Monkeybars](http://monkeybars.org/) GUI framework, packaging via [Rawr](http://kenai.com/projects/rawr), game development with [Jemini](http://jemini.org).
 
 
+###Florida###
+####Jacksonville, Sarasota, Naples####
+* Eric Fleming <efleming@gmail.com> - Actively using JRuby on Rails at work.  Worked on hybrid Java/JRuby on Rails sites.  Deploying JRuby packaged as war files to Amazon EC2 and Elastic Beanstalk.  Used JRuby to extend core Java classes in order to make them more Ruby friendly when used in Rails apps.
+
+
 ###Minnesota###
 ####Twin Cities (Minneapolis, St Paul)####
 
