@@ -56,7 +56,7 @@ Spend time working on RCov and getting it to work with Jruby
 
 ###New York###
 ####Queens, NYC####
-* [Andrew Ali](http://switch.tk) <verxtheawesome@aol.com> - A mix of Java and Ruby gives me all I need to work fast, elegantly, and fluently. Currently working on [Web::](http://github.com/imnotanerd/Web--). 
+* [Andrew Ali](http://switch.tk) - <verxtheawesome@aol.com> - A mix of Java and Ruby gives me all I need to work fast, elegantly, and fluently. Currently working on [Web::](http://github.com/imnotanerd/Web--). 
 
 ###Ohio###
 ####Cincinnati####
