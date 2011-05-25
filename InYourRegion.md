@@ -70,10 +70,6 @@ Spend time working on RCov and getting it to work with Jruby
 ##The Czech republic##
 * [Marek Jelen](http://www.marekjelen.cz) - uses JRuby for private and commercial projects, has some JRuby related gems, provides JRuby training and consultancy, leads [Brno Ruby Users Group](http://www.brug.cz).
 
-##Portugal##
-####Lisbon####
-* [António Alegria](http://twitter.com/antonioalegria) <antonio.mc.alegria at gmail dot com> - have used JRuby extensively for some time now to build distributed monitoring systems integrating ActiveMQ and Esper. More recently will be using it to manipulate Excel spreadsheets with Apache POI in a new Rails project I'm working on.
-
 ##Poland##
 ####Wrocław, dolnośląskie####
 * Paweł Wielgus <poulwiel at gmail.com> - i'm using JRuby as a dynamic part of all my java apps, that includes dynamic access console, dynamic configurations and all kinds of on-demand reports. Also JRuby is my runtime for Rails app.
