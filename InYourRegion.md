@@ -122,4 +122,4 @@ Spend time working on RCov and getting it to work with Jruby
 
 ##India##
 ####Pune####
-* [Anil Wadghule](http://anilwadghule.com/) - use JRuby at work for several projects for more than an year. Have contributed to JRuby by couple of trivial patches. Recommends using JRuby for production deployments. [Twitter](http://twitter.com/anildigital) [GitHub](http://github.com/anildigital)
+* [Anil Wadghule](http://anilwadghule.com/) - use JRuby at work for several projects for more than an year. Have contributed to JRuby by couple of trivial patches. Recommends using JRuby for production deployments. Fine me on [Twitter](http://twitter.com/anildigital), and [GitHub](http://github.com/anildigital)
