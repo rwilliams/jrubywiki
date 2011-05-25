@@ -63,31 +63,30 @@ Spend time working on RCov and getting it to work with Jruby
 
 * L. David Varvel <dave@madwombat.com> - JRuby on Rails, Java library integration, practiced public speaker.  Interested in bridging the gap between the Java and JRuby communities. 
 
-##Spain##
-* David Calavera <calavera@apache.org> - JRuby contributor, Hudson commiter and JRuby on Rails user. Works on [Trinidad](http://calavera.github.com/trinidad), [Rake plugin for hudson](http://wiki.hudson-ci.org/display/HUDSON/Rake+plugin) or [Ruby metrics for Hudson](http://wiki.hudson-ci.org/display/HUDSON/Ruby+Metrics+plugin) among others.
-
-##Sweden##
-####Helsingborg, Skåne####
-* Craig Taverner <craig at amanzi dot com> - working with JRuby in Eclipse RCP, for DSL's, GIS scripting, Neo4j and spreadsheet formula parsing
+##Brazil##
+####São Paulo, SP####
+* Douglas Campos <qmx@qmx.me> - JRuby contributor, using JRuby on several projects.
 
 ##Portugal##
 ####Lisbon####
-* António Alegria <antonio.mc.alegria at gmail dot com> - have used JRuby extensively for some time now to build distributed monitoring systems integrating ActiveMQ and Esper. More recently will be using it to manipulate Excel spreadsheets with Apache POI in a new Rails project I'm working on.
+* [António Alegria](http://twitter.com/antonioalegria) <antonio.mc.alegria at gmail dot com> - have used JRuby extensively for some time now to build distributed monitoring systems integrating ActiveMQ and Esper. More recently will be using it to manipulate Excel spreadsheets with Apache POI in a new Rails project I'm working on.
 
 ##Poland##
 ####Wrocław, dolnośląskie####
 * Paweł Wielgus <poulwiel at gmail.com> - i'm using JRuby as a dynamic part of all my java apps, that includes dynamic access console, dynamic configurations and all kinds of on-demand reports. Also JRuby is my runtime for Rails app.
-
-##Brazil##
-####São Paulo, SP####
-* Douglas Campos <qmx@qmx.me> - JRuby contributor, using JRuby on several projects.
 
 ##United Kingdom##
 ####London####
 * [Tom Morris](http://tommorris.org/) - use JRuby for hacking, glue scripts and other instances of making cool things.
 * [Dan Lucraft](http://danlucraft.com/) - contributed the built-in JRuby graph profiler, wrote a JRuby IDE (Redcar). Have given talks on JRuby to the London Ruby User Group and to BBC developers.
 
-
 ## Sénégal ##
 #### Dakar ####
 * **Hassane Moustapha**- Using Jruby on several projects and giving some talks to some Java programers who want to migrate to Ruby.
+
+##Spain##
+* David Calavera <calavera@apache.org> - JRuby contributor, Hudson commiter and JRuby on Rails user. Works on [Trinidad](http://calavera.github.com/trinidad), [Rake plugin for hudson](http://wiki.hudson-ci.org/display/HUDSON/Rake+plugin) or [Ruby metrics for Hudson](http://wiki.hudson-ci.org/display/HUDSON/Ruby+Metrics+plugin) among others.
+
+##Sweden##
+####Helsingborg, Skåne####
+* Craig Taverner <craig at amanzi dot com> - working with JRuby in Eclipse RCP, for DSL's, GIS scripting, Neo4j and spreadsheet formula parsing
