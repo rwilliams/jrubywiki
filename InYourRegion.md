@@ -92,7 +92,7 @@ Spend time working on RCov and getting it to work with Jruby
 
 ##Switzerland##
 ####Lugano####
-* [Luca Simone](http://www.lucasimone.info) - JRuby contributors, Several Rails projects with JRuby and JBoss or TorqueBox.
+* [Luca Simone](http://www.lucasimone.info) aka Lukefx - JRuby contributors, Several Rails projects with JRuby and JBoss or TorqueBox.
 
 ##France##
 ####Paris####
