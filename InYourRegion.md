@@ -118,3 +118,8 @@ Spend time working on RCov and getting it to work with Jruby
 ##France##
 ####Paris####
 * [Julien Kirch](http://archiloque.org/) - use JRuby at work for log processing and at home for data mining
+
+
+##India##
+####Pune####
+* [Anil Wadghule](http://anilwadghule.com/) - use JRuby at work for several projects more than an year. Have contributed to JRuby by couple trivial patches. ecommend using JRuby for production deployments. [Twitter](http://twitter.com/anildigital) [GitHub](http://github.com/anildigital)
