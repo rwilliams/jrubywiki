@@ -66,6 +66,10 @@ Spend time working on RCov and getting it to work with Jruby
 
 * L. David Varvel <dave@madwombat.com> - JRuby on Rails, Java library integration, practiced public speaker.  Interested in bridging the gap between the Java and JRuby communities. 
 
+###Washington###
+####Seattle####
+* Matt Kirk <matt@matthewkirk.com> - Using JRuby with statistics and natural language processing. [github] (http://www.github.com/hexgnu).
+
 ##Brazil##
 ####São Paulo, SP####
 * Bruno Oliveira <bruno@abstractj.com> - using JRuby integrated with JBoss projects.
