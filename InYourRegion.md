@@ -130,6 +130,11 @@ Spend time working on RCov and getting it to work with Jruby
 * [Julien Kirch](http://archiloque.org/) - use JRuby at work for log processing and at home for data mining
 
 
+##Germany##
+####Karlsruhe####
+* [Heiko Seebach](http://lesscode.de/)
+I use JRuby with Rails and warbler since mid-2009 in an enterprise application that runs standalone in the data centers of several hospitals (to achieve acceptance of the system at the IT departement), I'm one of several coaches in a development team that uses JRuby to build an ERP in a big enterprise (for productivty reasons and Java library integration) and I use it for my new startup (for Java library integration).
+
 ##India##
 ####Pune####
 * [Anil Wadghule](http://anilwadghule.com/) - use JRuby at work for several projects for more than an year. Have contributed to JRuby by couple of trivial patches. Recommends using JRuby for production deployments. Fine me on [Twitter](http://twitter.com/anildigital), and [GitHub](http://github.com/anildigital)
