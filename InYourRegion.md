@@ -79,6 +79,8 @@ Spend time working on RCov and getting it to work with Jruby
 ####Seattle####
 * Matt Kirk <matt@matthewkirk.com> - Using JRuby with statistics and natural language processing. [github] (http://www.github.com/hexgnu).
 
+* Jeff Lembeck <jlembeck@gmail.com> - using JRuby daily with Sinatra to leverage legacy Java services while making mobile web apps.
+
 ##Brazil##
 ####São Paulo, SP####
 * Bruno Oliveira <bruno@abstractj.com> - using JRuby integrated with JBoss projects.
