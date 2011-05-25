@@ -90,6 +90,10 @@ Spend time working on RCov and getting it to work with Jruby
 ####Helsingborg, Skåne####
 * Craig Taverner <craig at amanzi dot com> - working with JRuby in Eclipse RCP, for DSL's, GIS scripting, Neo4j and spreadsheet formula parsing
 
+##Switzerland##
+####Lugano####
+* Luca Simone <info at lucasimone dot info> JRuby contributors, Several Rails projects with JRuby and JBoss or TorqueBox.
+
 ##France##
 ####Paris####
 * [Julien Kirch](http://archiloque.org/) - use JRuby at work for log processing and at home for data mining
