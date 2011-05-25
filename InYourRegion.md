@@ -82,7 +82,7 @@ Spend time working on RCov and getting it to work with Jruby
 ##United Kingdom##
 ####London####
 * [Tom Morris](http://tommorris.org/) - use JRuby for hacking, glue scripts and other instances of making cool things.
-* [Dan Lucraft](http://danlucraft.com/) - contributed the built-in JRuby graph profiler, wrote a JRuby IDE (Redcar).
+* [Dan Lucraft](http://danlucraft.com/) - contributed the built-in JRuby graph profiler, wrote a JRuby IDE (Redcar). Have given talks on JRuby to the London Ruby User Group and to BBC developers.
 
 
 ## Sénégal ##
