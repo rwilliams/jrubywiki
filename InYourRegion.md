@@ -68,6 +68,7 @@ Spend time working on RCov and getting it to work with Jruby
 
 ##Brazil##
 ####São Paulo, SP####
+* Bruno Oliveira <bruno@abstractj.com> - using JRuby integrated with JBoss projects.
 * Douglas Campos <qmx@qmx.me> - JRuby contributor, using JRuby on several projects.
 
 ##The Czech republic##
