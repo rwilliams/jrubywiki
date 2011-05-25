@@ -11,7 +11,7 @@ If you are interested in joining this list, we would recommend you meet the foll
 
 In return, the JRuby community will help you fulfill the role of JRuby Delegate, providing speaking tips, presentation material, demos, and more. There's no requirement to start doing conferences, of course; we really just want folks that can help new JRubyists feel comfortable. And of course the JRuby community and the core team are always standing by to assist you.
 
-Note that you can also include your Github information (using @ as in @headius) if you'd prefer not to publicize your email here. Just make sure there's a way for folks to contact you, and we're all good!
+Note that you can also include your Github or Twitter (or other) information if you'd prefer not to publicize your email here. Just make sure there's a way for folks to contact you, and we're all good!
 
 Welcome to the JRuby Community!
 
