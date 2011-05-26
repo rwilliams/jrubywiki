@@ -137,7 +137,9 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 
 ##India##
 ####Pune####
-* [Anil Wadghule](http://anilwadghule.com/) - use JRuby at work for several projects for more than an year. Have contributed to JRuby by couple of trivial patches. Recommends using JRuby for production deployments. Fine me on [Twitter](http://twitter.com/anildigital), and [GitHub](http://github.com/anildigital)
+* [Anil Wadghule](http://anilwadghule.com/) - use JRuby at work for several projects for more than an year. Have contributed to JRuby by couple of trivial patches. Recommends using JRuby for production deployments. Find me on [Twitter](http://twitter.com/anildigital), and [GitHub](http://github.com/anildigital)
+
+* [Rocky Jaiswal](http://rockyj.in) - used JRuby in enterprise projects. Big fan of JRuby! [Twitter](http://twitter.com/whatsuprocky)
 
 ##Mexico##
 * Ricardo Echavarria [@r_icarus](http://twitter.com/r_icarus) - uses JRuby at work in the University of Chihuahua [UACH](http://uach.mx) and Fan of the project.
