@@ -108,7 +108,7 @@ Spend time working on RCov and getting it to work with Jruby
 * Douglas Campos <qmx@qmx.me> - JRuby contributor, using JRuby on several projects.
 
 ####Rio de Janeiro, RJ####
-* Raphaël Valyi <raphael.valyi@akretion.com> / [Akretion](http://www.akretion.com) early adopted JRuby since 2006 and always defended it as one of the greatest open source project. Using it for Rails websites embedding Java-fast algorithms and also for connecting OpenERP to Java, for instance the Kettle Pentaho ETL, using OOOR, an Rails-like WE-based ActiveResource wrapper over OpenERP.
+* Raphaël Valyi <raphael.valyi@akretion.com> / [Akretion](http://www.akretion.com) early adopted JRuby since 2006 and always defended it as one of the greatest open source project. Using it for Rails websites embedding Java-fast algorithms and also for connecting OpenERP to Java, for instance the Kettle Pentaho ETL, using OOOR, a Rails-like WS-based ActiveResource wrapper over OpenERP.
 
 ####Fortaleza, CE####
 * [Marcelo Gonçalves](http://marcelogoncalves.com.br/) <@marcelocg> - using JRuby for cloud performance tests as part of my master's degree dissertation.
