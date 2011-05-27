@@ -40,6 +40,10 @@ Three members of the JRuby core team are based in this area and attend the local
 * Thomas Enebo <thomas.enebo@gmail.com>
 * Nick Sieger <nicksieger@gmail.com>
 
+###Missouri###
+#### St. Louis ####
+* Jeff Barczewski <jbarczewski@rgare.com> - Actively using JRuby at work. Discusses JRuby at the monthly [STLRuby user group](http://stlruby.org).
+
 ###Massachusetts###
 #### Boston Area and Southern NH####
 * Jay McGaffigan <hooligan495 at gmail dot com> - Actively using JRuby and JRuby on Rails at work, specifically spent time deploying apps to Glassfish and tomcat, performance testing, creating windows services with JRuby.
