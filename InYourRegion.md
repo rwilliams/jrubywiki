@@ -42,7 +42,7 @@ Three members of the JRuby core team are based in this area and attend the local
 
 ###Missouri###
 #### St. Louis ####
-* Jeff Barczewski <jbarczewski@rgare.com> - Actively using JRuby at work. Discusses JRuby at the monthly [STLRuby user group](http://stlruby.org).
+* Jeff Barczewski <jbarczewski@rgare.com> [@jeffbski](http://twitter.com/jeffbski) - Actively using JRuby at work. Discusses JRuby at the monthly [STLRuby user group](http://stlruby.org).
 
 ###Massachusetts###
 #### Boston Area and Southern NH####
