@@ -47,7 +47,7 @@ Spend time working on RCov and getting it to work with Jruby
 
 ###Michigan###
 ####Ann Arbor and Detroit Area####
-* Amitava Shee <amitava dot shee at gmail dot com> - Information Architect at Office of Enabling Technology, Medical School, University of Michigan. Actively using rails and plan to build more applications. Traditionally a J2EE shop, JRuby gives us the perfect tool to deliver agility without retooling our operational platform.
+* Amitava Shee <amitava.shee@gmail.com> - Information Architect at Office of Enabling Technology, Medical School, University of Michigan. Actively using rails and plan to build more applications. Traditionally a J2EE shop, JRuby gives us the perfect tool to deliver agility without retooling our operational platform.
 
 ###Illinois###
 ####Chicago####
