@@ -77,6 +77,10 @@ Spend time working on RCov and getting it to work with Jruby
 ####Lexington####
 * Todd Willey <todd@rubidine.com> - Rails deployments on Glassfish, integration with java libraries, active in [KYRUG](http://kyrug.org/).
 
+###Kansas###
+####Kansas City####
+* R.J. Lorimer <rjlorimer@realjenius.com> - Wrote a series of articles on the JRuby internals called [Distilling JRuby](http://www.realjenius.com/category/article/distilling-jruby/). Some bug and performance fixes committed to JRuby, and occasionally evangelize at various midwest conferences. [Blog](http://www.realjenius.com)
+
 ###California###
 ####San Francisco Bay Area####
 * Arun Gupta <arun.gupta@sun.com> - GlassFish Evangelist and can talk about JRuby, Rails, GlassFish, NetBeans [blog](http://blogs.sun.com/arungupta).
