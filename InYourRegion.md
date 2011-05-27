@@ -45,6 +45,10 @@ Three members of the JRuby core team are based in this area and attend the local
 * Jay McGaffigan <hooligan495 at gmail dot com> - Actively using JRuby and JRuby on Rails at work, specifically spent time deploying apps to Glassfish and tomcat, performance testing, creating windows services with JRuby.
 Spend time working on RCov and getting it to work with Jruby
 
+###Michigan###
+####Ann Arbor and Detroit Area####
+* Amitava Shee <amitava dot shee at gmail dot com> - Information Architect at Office of Enabling Technology, Medical School, University of Michigan. Actively using rails and plan to build more applications. Traditionally a J2EE shop, JRuby gives us the perfect tool to deliver agility without retooling our operational platform.
+
 ###Illinois###
 ####Chicago####
 * Micah Martin <micah@8thlight.com> - 8th Light, Inc. - Deployed JRuby in a variety of systems.
