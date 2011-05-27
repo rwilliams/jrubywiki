@@ -29,6 +29,10 @@ Welcome to the JRuby Community!
 
 ###Minnesota###
 ####Twin Cities (Minneapolis, St Paul)####
+Kinetic Data developed [Kinetic Task](http://www.kineticdata.com/Products/KineticTask), a workflow engine leveraging the JRuby platform, and is continuing to expand usage of JRuby in other areas and products.
+
+* Jack Boespflug <jack.boespflug@kineticdata.com>
+* Ben Christenson <ben.christenson@kineticdata.com>
 
 Three members of the JRuby core team are based in this area and attend the local Ruby user group.
 
