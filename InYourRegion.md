@@ -49,6 +49,9 @@ Spend time working on RCov and getting it to work with Jruby
 ####Ann Arbor and Detroit Area####
 * Amitava Shee <amitava.shee@gmail.com> twtr: @AmitavaShee - Information Architect at Office of Enabling Technology, Medical School, University of Michigan. Actively using rails and plan to build more applications. Traditionally a J2EE shop, JRuby gives us the perfect tool to deliver agility without retooling our operational platform.
 
+####Saginaw, Mid-Michigan Area####
+* Shane Emmons <semmons99+jruby@gmail.com> - Using JRuby for a multitude of Production apps at Frankenmuth Insurance. Used for almost everything. Webapps, warehouse ETL processing, massive financial calculations, interop with SAP Business Objects, the list goes on.
+
 ###Illinois###
 ####Chicago####
 * Micah Martin <micah@8thlight.com> - 8th Light, Inc. - Deployed JRuby in a variety of systems.
