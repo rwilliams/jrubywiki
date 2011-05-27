@@ -160,4 +160,4 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 * Ricardo Echavarria [@r_icarus](http://twitter.com/r_icarus) - uses JRuby at work in the University of Chihuahua [UACH](http://uach.mx) and Fan of the project.
 
 ##Chile##
-* Jano González <info@janogonzalez.com> - Using JRuby at work for a couple of projects in [Continuum](http://www.continuum.cl/), member of the [Chilean Dynamic Languages Meetup](http://www.meetup.com/dynlangchile/). Check my [Twitter](http://twitter.com/janogonzalez) and [GitHub](http://github.com/janogonzalez) accounts, and my [blog](http://gemaroja.com).
+* Jano González <info@janogonzalez.com> - Using JRuby at work for a couple of projects in [Continuum](http://www.continuum.cl/), member of the [Chilean Dynamic Languages Meetup](http://www.meetup.com/dynlangchile/). Check my [Twitter](http://twitter.com/janogonzalez) and [GitHub](http://github.com/janogonzalez) accounts, also my [blog](http://gemaroja.com).
