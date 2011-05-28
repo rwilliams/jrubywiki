@@ -174,4 +174,5 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 * Jano González <info@janogonzalez.com> - Using JRuby at work for a couple of projects in [Continuum](http://www.continuum.cl/), member of the [Chilean Dynamic Languages Meetup](http://www.meetup.com/dynlangchile/). Check my [Twitter](http://twitter.com/janogonzalez) and [GitHub](http://github.com/janogonzalez) accounts, also my [blog](http://gemaroja.com).
 
 ##Portugal##
-* Luis Landeiro Ribeiro [@rienko](http://twitter.com/rienko) <ribeiro.luis@gmail.com> - Uses JRuby for several work projects and in some clients as well. 
+#### Lisbon ####
+* Luis Landeiro Ribeiro [@rienko](http://twitter.com/rienko) <ribeiro.luis@gmail.com> - Uses JRuby for several work projects and in some clients as well, and as a background job processor in my pet game project (http://www.almansur.net). 
