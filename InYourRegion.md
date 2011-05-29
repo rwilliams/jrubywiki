@@ -26,6 +26,9 @@ Welcome to the JRuby Community!
 ####Jacksonville, Sarasota, Naples####
 * Eric Fleming <efleming@gmail.com> - Actively using JRuby on Rails at work.  Worked on hybrid Java/JRuby on Rails sites.  Deploying JRuby packaged as war files to Amazon EC2 and Elastic Beanstalk.  Used JRuby to extend core Java classes in order to make them more Ruby friendly when used in Rails apps.
 
+###Georgia###
+####Atlanta####
+* Jeremy Corbett jeremy.lael at gmail.  Use JRuby at work to use Java libraries at work.  I especially enjoy taking Swing apps and making them much more usable Sinatra apps.
 
 ###Minnesota###
 ####Twin Cities (Minneapolis, St Paul)####
