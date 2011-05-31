@@ -163,9 +163,12 @@ Spend time working on RCov and getting it to work with Jruby
 * [Luca Simone](http://www.lucasimone.info) aka Lukefx - JRuby contributors, Several Rails projects with JRuby and JBoss or TorqueBox.
 
 ##France##
+
 ####Paris####
 * [Julien Kirch](http://archiloque.org/) - use JRuby at work for log processing and at home for data mining
 
+####Saint-Savinien####
+* [Thibaut Barrère](http://blog.logeek.fr) - freelancer using JRuby for Java API CRM integration
 
 ##Germany##
 ####Karlsruhe####
