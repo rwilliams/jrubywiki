@@ -168,7 +168,7 @@ Spend time working on RCov and getting it to work with Jruby
 * [Julien Kirch](http://archiloque.org/) - use JRuby at work for log processing and at home for data mining
 
 ####Saint-Savinien####
-* [Thibaut Barrère](http://blog.logeek.fr) <thibaut.barrere@gmail.com> - freelance using JRuby for Java API CRM integration
+* [Thibaut Barrère](http://blog.logeek.fr) <thibaut.barrere@gmail.com> - freelance using [JRuby for Java API CRM integration](http://blog.logeek.fr/2010/8/2/on-jruby-resque-and-windows) at work, and for [music software](https://github.com/thbar/opaz-plugdk) as a hobby, too.
 
 ##Germany##
 ####Karlsruhe####
