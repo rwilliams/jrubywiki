@@ -179,3 +179,7 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 ##Portugal##
 #### Lisbon ####
 * Luis Landeiro Ribeiro [@rienko](http://twitter.com/rienko) <ribeiro.luis@gmail.com> - Uses JRuby for several work projects and in some clients as well, and as a background job processor in my pet game project (http://www.almansur.net). 
+
+## Japan ##
+#### Tokyo ####
+* Hiroshi Nakamura <nahi@ruby-lang.org> [@nahi](https://twitter.com/nahi) [GitHub](https://github.com/nahi) - JRuby committer. Presentations: [JRuby Hacking Guide @ 2010.08](http://j.mp/JRubyHackingGuide) // [JRuby Update @ 2010.10](http://j.mp/JRubyUpdateRtc2010) // [JRuby 1.6の新機能に見るJVM言語の魅力 @ 2011.02](http://j.mp/JJUGJRuby2011)
