@@ -113,6 +113,10 @@ Spend time working on RCov and getting it to work with Jruby
 ####Portland####
 * Ian Dees <undees@gmail.com> - [@undees](http://twitter.com/undees) - Co-author of [Using JRuby](http://pragprog.com/titles/jruby) (alongside the core team). Use JRuby at work for internal web apps and utility scripts. Have committed minor patches to JRuby. [github](http://github.com/undees).
 
+##Australia##
+####Melbourne####
+* [Tal Rotbart](http://twitter.com/rotbart) - Uses JRuby to build the front-end for SpringSense's meaning recognition engine
+
 ##Brazil##
 ####São Paulo, SP####
 * Bruno Oliveira <bruno@abstractj.com> - using JRuby integrated with JBoss projects.
