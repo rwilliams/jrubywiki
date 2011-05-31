@@ -131,6 +131,10 @@ Spend time working on RCov and getting it to work with Jruby
 ##The Czech republic##
 * [Marek Jelen](http://www.marekjelen.cz) - uses JRuby for private and commercial projects, has some JRuby related gems, provides JRuby training and consultancy, leads [Brno Ruby Users Group](http://www.brug.cz).
 
+##Norway##
+####Oslo####
+* [Uwe Kubosch](http://kubosch.no/) - has implemented several large projects in JRuby (standlone apps, Rails, Eclipse RCP, Android), contributes some patches to JRuby and ARJDBC, committer in the [Ruboto](http://ruboto.org/) project.
+
 ##Poland##
 ####Wrocław, dolnośląskie####
 * Paweł Wielgus <poulwiel at gmail.com> - i'm using JRuby as a dynamic part of all my java apps, that includes dynamic access console, dynamic configurations and all kinds of on-demand reports. Also JRuby is my runtime for Rails app.
