@@ -83,3 +83,24 @@ INSERTs and UPDATEs are much the same. Again, using the MySQL JDBC driver a simp
 ```
 
 Remember to have the JDBC driver for your database in your CLASSPATH!
+___
+Here's an example of connecting to SQL Server using Microsoft's [JDBC driver](http://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx). The open source [jTDS driver](http://jtds.sourceforge.net/) is another good option.
+```ruby
+require 'rubygems'
+require 'java'
+require 'sqljdbc4.jar'
+
+Java::com.microsoft.sqlserver.jdbc.SQLServerDriver
+url = 'jdbc:sqlserver://host:1433;databaseName=database'
+conn = java.sql.DriverManager.get_connection(url, "user", "password")
+statement = conn.create_statement
+
+q = "SELECT * FROM vegtables"
+rs = statement.execute_query(q)
+
+while (rs.next) do
+  puts rs.getObject('name')
+end
+
+statement.close
+```
