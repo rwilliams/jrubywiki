@@ -6,7 +6,7 @@ __TOC__
 
 = Red Bridge (JRuby Embed) =
 
-JRuby has long had a private embedding API, which was closely tied to the runtime's internals and therefore changed frequently as JRuby evolved. Since version 1.4, however, we have also provided a more stable public API, known as Red Bridge or JRuby Embed. Existing Java programs written to the [[DirectJRubyEmbedding|legacy API]] should still work, but we strongly recommend Red Bridge for all new projects.
+JRuby has long had a private embedding API, which was closely tied to the runtime's internals and therefore changed frequently as JRuby evolved. Since version 1.4, however, we have also provided a more stable public API, known originally as Red Bridge, now known as JRuby Embed. Existing Java programs written to the [[DirectJRubyEmbedding|raw API's]] will probably still continue to work, but we strongly recommend Red Bridge for all new projects.  Note that using Jruby Embed works well for doing eval of ruby code, and/or sharing a few variables back and forth with a ruby script, but if you want anything more (like new'ing up jruby instances within java, etc.) than that you'll need to code to the [[DirectJRubyEmbedding|raw API's]].
 
 == Features of Red Bridge ==
 Red Bridge consists of two layers: Embed Core on the bottom, and implementations of [http://www.jcp.org/en/jsr/detail?id=223 JSR223] and [http://jakarta.apache.org/bsf/ BSF] on top. Embed Core is JRuby-specific, and can take advantage of much of JRuby's power. JSR223 and BSF are more general interfaces that provide a common ground across scripting languages.
