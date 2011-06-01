@@ -122,7 +122,7 @@ All three programs print out "Hello World!" to standard output.
 
 == Configurations ==
 
-JRuby Embed allows you to configure its environment and behavior. In many cases, the default options are all you need. For situations when you want more control, you can use the options described in this section.
+JRuby Embed (RedBridge) allows you to configure its environment and behavior. In many cases, the default options are all you need. For situations when you want more control, you can use the options described in this section.
 
 With Embed Core, you typically set options through constructor or method arguments. With JSR223, you use <code>System</code> properties instead.
 
