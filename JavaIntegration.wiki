@@ -4,7 +4,7 @@ __TOC__
 
 ==Using the JRuby Interpreter from Java==
 
-Most of the information here has been superceded by [[RedBridge this page]].  Left here for historic sake, or in case it has clearer examples :)
+Most of the information here has been superceded by the [[RedBridge]] page.  Left here for historic sake, or in case it has clearer examples :)
 
 ===Java 6 (using JSR 223: Scripting) ===
 
