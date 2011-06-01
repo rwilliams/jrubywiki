@@ -18,7 +18,7 @@ Which API should you use? For projects where Ruby is the only scripting language
 
 For projects requiring multiple scripting languages, JSR223 is a good fit. Though the API is language-independent, JRuby's implementation of it allows you to set some Ruby-specific options. In particular, you can control the threading model of the scripting engine, the lifetime of local variables, compilation mode, and how line numbers are displayed.
 
-The full [http://jruby.org/apidocs/ API documentation] has all the gory details. It's worth talking about a couple of the finer points here.
+The full [http://jruby.org/apidocs/ API documentation] has all the gory details. It's worth talking about a couple of the finer points here.   Here are a list of its advantages:
 
 === Context Type ===
 
@@ -36,31 +36,9 @@ You can also pass data in through method arguments, and work directly with retur
 
 == Download ==
 
-JRuby Embed (Red Bridge) binaries have been included in the official [http://www.jruby.org/download JRuby download] since 1.4.0RC1. Starting with version 1.5, the Red Bridge ''source'' will be included in JRuby source archives as well. Until then, the source will be available separately from the JRuby Embed [http://kenai.com/projects/jruby-embed/sources repository] and [http://kenai.com/projects/jruby-embed/downloads archives].
+JRuby Embed (Red Bridge) binaries have been included in the official [http://www.jruby.org/download JRuby download] since 1.4.0RC1. Starting with version 1.5, the Red Bridge ''source'' is included in the JRuby core as well. 
 
 JSR 223 and BSF are stable APIs. The Embed Core API is somewhat stable, but may change slightly from release to release.
-
-=== Maven ===
-
-The JRuby 1.4.0x archives in maven repo don't include JRuby Embed. The codehaus repo does, though, so please add the following to your <code>pom.xml</code> if you need embedding support:
-<pre name="xml">
-.....
-    <repository>
-      <id>codehaus</id>
-      <name>Maven Codehaus repository</name>
-      <url>http://repository.codehaus.org/</url>
-    </repository>
-....
-....
-   <dependency>
-      <groupId>org.jruby.embed</groupId>
-      <artifactId>jruby-embed</artifactId>
-      <version>0.1.2</version>
-    </dependency>
-....
-</pre>
-
-This extra step will be unnecessary starting with JRuby 1.5.
 
 == Getting Started ==
 
