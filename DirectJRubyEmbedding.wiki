@@ -36,6 +36,8 @@ java -cp .:/path/to/jruby.jar  RubyFromJava
 */
 
 import org.jruby.*;
+import org.jruby.javasupport.JavaEmbedUtils;  
+import java.util.ArrayList;
 
 public class RubyFromJava {
 	public String fooString() {
@@ -44,11 +46,11 @@ public class RubyFromJava {
 	
 	public static void main(String[] ARGV) {
 		System.out.println("Started");
-		boring.SuperTest sTest = new boring.SuperTest();
+		RubyFromJava sTest = new RubyFromJava();
 		
 		System.out.println("boring: " + sTest.fooString() + "\n");
 		
-		Ruby runtime = Ruby.getDefaultInstance();
+//		Ruby runtime = Ruby.getDefaultInstance();
 
 		/* This script subclasses the Object class.
 		It is then instantiated and the foobarString method is called. */
@@ -63,7 +65,12 @@ public class RubyFromJava {
 			"rsubclass = RSubclass1.new\n" +
 			"puts(rsubclass.foobarString())\n" +
 			"end";
-		runtime.evalScript(script);
+    
+    Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
+    RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
+
+    
+		evaler.eval(runtime, script);
 
 		System.out.println("-----------------\n");
 
@@ -72,7 +79,7 @@ public class RubyFromJava {
 
 		script = 
 			"require 'java'\n" +
-			"class RSubclass2 < Java::RubyFromJava\n" + // subclassing non java.* requires you prefix the class with Java::
+      "class RSubclass2 < Java::RubyFromJava\n" + // subclassing non {org,com}.* classpath requires you prefix the class with Java:: or java.
 			"	def foobarString\n" +
 			"		return @returnString = fooString() + 'BAR'\n" +
 			"	end\n" +
@@ -80,12 +87,7 @@ public class RubyFromJava {
 			"rsubclass = RSubclass2.new\n" +
 			"puts(rsubclass.foobarString())\n" +
 			"end";
-		try {
-			runtime.evalScript(script);
-		} catch (Exception e) {
-			System.err.println(e.toString());
-			e.printStackTrace();
-		}
+      evaler.eval(runtime, script);
 	}
 }
 </pre>
