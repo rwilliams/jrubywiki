@@ -46,7 +46,7 @@ A simple 'Hello World' example is a great way to get to know Red Bridge.
 
 Before you start programming, make sure the necessary jar archives are in your classpath:
 
-;- Core
+;- Embed Core
 * <code>jruby-complete.jar</code> or <code>jruby.jar</code>
 
 ;- JSR223
