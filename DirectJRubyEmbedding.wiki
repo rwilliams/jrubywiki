@@ -50,8 +50,6 @@ public class RubyFromJava {
 		
 		System.out.println("boring: " + sTest.fooString() + "\n");
 		
-//		Ruby runtime = Ruby.getDefaultInstance();
-
 		/* This script subclasses the Object class.
 		It is then instantiated and the foobarString method is called. */
 		
@@ -66,8 +64,8 @@ public class RubyFromJava {
 			"puts(rsubclass.foobarString())\n" +
 			"end";
     
-    Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
-    RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
+                Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
+                RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
 
     
 		evaler.eval(runtime, script);
@@ -94,11 +92,13 @@ public class RubyFromJava {
 
 
 ===Using a Ruby subclass by casting it to its Java superclass -- from Java!===
+
 <pre>
 /*
 This is run using
 java -cp .:/path/to/jruby.jar  RubyFromJava
 
+This uses an older method but should work using evaler, above
 */
 
 import org.jruby.*;
@@ -134,6 +134,7 @@ public class RubyFromJava {
 
 		Object rfj = runtime.evalScript("RSubclass.new()");
 		rfj = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, (org.jruby.runtime.builtin.IRubyObject) rfj, RubyFromJava.class);
+                // rubyToJava basically 
 		
 		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n"); // outputs fooBAR!
 	}
