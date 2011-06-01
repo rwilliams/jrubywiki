@@ -77,7 +77,7 @@ public class RubyFromJava {
 
 		script = 
 			"require 'java'\n" +
-      "class RSubclass2 < Java::RubyFromJava\n" + // subclassing non {org,com}.* classpath requires you prefix the class with Java:: or java.
+                        "class RSubclass2 < Java::RubyFromJava\n" + // subclassing non {org,com}.* classpath requires you prefix the class with Java:: or java.
 			"	def foobarString\n" +
 			"		return @returnString = fooString() + 'BAR'\n" +
 			"	end\n" +
@@ -85,7 +85,7 @@ public class RubyFromJava {
 			"rsubclass = RSubclass2.new\n" +
 			"puts(rsubclass.foobarString())\n" +
 			"end";
-      evaler.eval(runtime, script);
+                 evaler.eval(runtime, script);
 	}
 }
 </pre>
@@ -98,10 +98,12 @@ public class RubyFromJava {
 This is run using
 java -cp .:/path/to/jruby.jar  RubyFromJava
 
-This uses an older method but should work using evaler, above
 */
 
+
 import org.jruby.*;
+import org.jruby.javasupport.JavaEmbedUtils;  
+import java.util.ArrayList;
 
 public class RubyFromJava {
 	static RubyFromJava globalRFJ;
@@ -112,12 +114,10 @@ public class RubyFromJava {
 	
 	public static void main(String[] ARGV) {
 		System.out.println("Started");
-		boring.SuperTest sTest = new boring.SuperTest();
+		RubyFromJava sTest = new RubyFromJava();
 		
 		System.out.println("boring: " + sTest.fooString() + "\n");
 		
-		Ruby runtime = Ruby.getDefaultInstance();
-
 		String script = 
 			"require 'java'\n" +
 			"class RSubclass < Java::RubyFromJava\n" + // subclassing non java.* requires you prefix the class with Java::
@@ -125,17 +125,15 @@ public class RubyFromJava {
 			"		return super + 'BAR!'\n" +
 			"	end\n" +
 			"end";
-		try {
-			runtime.evalScript(script);
-		} catch (Exception e) {
-			System.err.println(e.toString());
-			e.printStackTrace();
-		}
+      
+                Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
+                RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
 
-		Object rfj = runtime.evalScript("RSubclass.new()");
+		evaler.eval(runtime, script);
+      
+		Object rfj = evaler.eval(runtime, "RSubclass.new()");
 		rfj = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, (org.jruby.runtime.builtin.IRubyObject) rfj, RubyFromJava.class);
-                // rubyToJava basically 
-		
+                // rubyToJava basically tries to convert a ruby object to its "raw" native java object.		
 		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n"); // outputs fooBAR!
 	}
 }
