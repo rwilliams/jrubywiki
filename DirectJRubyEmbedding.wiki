@@ -24,6 +24,8 @@ evaler.eval(runtime, "puts 1+2");
 JavaEmbedUtils.terminate(runtime);
 </pre>
 
+You can also instantiate it using even more "raw" API's--check the source to Main.java and ScriptingContainer.java to see how they do it, but it's pretty complex, and using "some other way" (embedutils, or ScriptingContainer RedBridge) will get a runtime more easily.
+
 ===Subclassing a Java class===
 
 Here is an even more raw example.
