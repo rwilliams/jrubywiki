@@ -4,9 +4,10 @@ __TOC__
 
 ==Using the JRuby Interpreter from Java==
 
-Main page here [[RedBridge]].
+Most of the information here has been superceded by [[RedBridge this page]].  Left here for historic sake, or in case it has clearer examples :)
 
 ===Java 6 (using JSR 223: Scripting) ===
+
 Java integration with Java 6 will be using the standard scripting API (JSR223).  A JRuby scripting engine already exists and is located at [https://scripting.dev.java.net/]. 
 #Download and unzip the collection of jars from the documents and files section of the site (jsr223-engines.tar.gz or jsr223-engines.zip). 
 # Look in the uncompressed files for the <tt>jruby/build/jruby-engine.jar</tt> file.
@@ -70,7 +71,7 @@ manager.exec("ruby", "(java)", 1, 1, "$label.setText(\"This is a test.\")");
 </pre>
 
 ===Directly calling JRuby APIs===
-See [[Direct JRuby Embedding]]. The BSF and <tt>javax.scripting</tt> APIs are strongly recommended, as they are most likely to always do the "right thing", which can change over time in the direct version.
+See [[DirectJRubyEmbedding]]. The BSF and <tt>javax.scripting</tt> APIs are strongly recommended, as they are most likely to always do the "right thing", which can change over time in the direct version.
 
 ==Gotchas==
 If you plan on calling gems from an embedded script, there are a couple of things you need to be aware of: 
