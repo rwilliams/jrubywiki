@@ -5,7 +5,7 @@ __TOC__
 JRuby can also be embedded directly using JRuby's own APIs. The interfaces in JavaEmbedUtils are meant to be long-lasting API's for raw embedding. This is generally only recommended for people embedding into other scripting engines and frameworks or for those who need a "bare metal" approach and are willing to keep up with continuing JRuby API changes. It is strongly recommended for most embedders to use BSF or javax.scripting APIs to embed JRuby. See [[JavaIntegration]].
 
 ===Instantiating the JRuby interpreter===
-The most direct method of running JRuby in Java is as follows (works for JRuby 1.0.3+ and JRuby 1.1):
+The most direct method of running JRuby in Java is as follows (works for JRuby 1.1+):
 
 <pre>
 import org.jruby.Ruby;
@@ -25,6 +25,9 @@ JavaEmbedUtils.terminate(runtime);
 </pre>
 
 ===Subclassing a Java class===
+
+Here is an even more raw example.
+
 <pre>
 /*
 This is run using
