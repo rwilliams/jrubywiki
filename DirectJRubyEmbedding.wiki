@@ -48,9 +48,9 @@ public class RubyFromJava {
 		System.out.println("Started");
 		RubyFromJava sTest = new RubyFromJava();
 		
-		System.out.println("boring: " + sTest.fooString() + "\n");
+		System.out.println("boring: " + sTest.fooString() + "\n"); // outputs foo
 		
-		/* This script subclasses the Object class.
+		/* This script subclasses the java Object class.
 		It is then instantiated and the foobarString method is called. */
 		
 		String script = 
@@ -59,16 +59,14 @@ public class RubyFromJava {
 			"	def foobarString\n" +
 			"		return @returnString = toString() + 'BAR'\n" +
 			"	end\n" +
-			"\n" +
+			"end\n" +
 			"rsubclass = RSubclass1.new\n" +
-			"puts(rsubclass.foobarString())\n" +
-			"end";
+			"puts rsubclass.foobarString\n";
     
                 Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
                 RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
 
-    
-		evaler.eval(runtime, script);
+    		evaler.eval(runtime, script); // outputs org.jruby.proxy.java.lang.Object$Proxy0@1c7f37dBAR
 
 		System.out.println("-----------------\n");
 
@@ -85,11 +83,10 @@ public class RubyFromJava {
 			"rsubclass = RSubclass2.new\n" +
 			"puts(rsubclass.foobarString())\n" +
 			"end";
-                 evaler.eval(runtime, script);
+                 evaler.eval(runtime, script); // outputs fooBAR
 	}
 }
 </pre>
-
 
 ===Using a Ruby subclass by casting it to its Java superclass -- from Java!===
 
@@ -133,7 +130,7 @@ public class RubyFromJava {
       
 		Object rfj = evaler.eval(runtime, "RSubclass.new()");
 		rfj = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, (org.jruby.runtime.builtin.IRubyObject) rfj, RubyFromJava.class);
-                // rubyToJava basically tries to convert a ruby object to its "raw" native java object.		
+                // rubyToJava basically tries to convert a ruby object to its "raw" native java object.  If it's a class then it will pass out a dynamic proxy handler that intercepts calls and directs them to the ruby class (if implemented) or otherwise to the internal java class which is actually an internal element within the ruby class (like ruby's GetDataStruct).
 		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n"); // outputs fooBAR!
 	}
 }
@@ -147,25 +144,26 @@ public class RubyFromJava {
 2. Get Ruby runtime instance via
 <pre>
    Ruby runtime = Ruby.getDefaultInstance();
+   // 
+   Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
 </pre>
 
 3. Parse your script with Ruby class Y which overwrites fooString(). Assuming that the script is contained in the String "script", you do this via
 <pre>
-   try {
-	runtime.evalScript(script);
-   } catch (Exception e) {e.printStackTrace();}
+    RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
+    evaler.eval(runtime, script);
+    // or IRubyObject rubyObject = evaler.parse(runtime, script_string, filename, line).run());
 </pre>
 
 4. Intantiate Ruby class Y and cast (?) it to Java class X via
 <pre>
-   Object y = runtime.evalScript("Y.new()");
-   y = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, 
-      (org.jruby.runtime.builtin.IRubyObject) y, X.class);
+   IRubyObject y = evaler.eval(runtime, "Y.new()");
+   X y2 = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, y, X.class);
 </pre>
 
 5. Now call the method fooString() of the object y - Ruby code is executed!
 <pre>
-   ((X) y).fooString();
+   y2.fooString();
 </pre>
 
 '''Remark 1''': 
@@ -184,18 +182,19 @@ and the Ruby overwriting method then might look like this:
 </pre>
 You call then the method as:
 <pre>
-   ((X) y).fooString("Argument");
+   y2.fooString("Argument");
 </pre>
+
 '''Remark 2''': 
 
-Be aware that the Ruby object y has been created from "scratch" and is not initialized. Obviously it is not possible to inherit/copy field values from a Java object x of type X at initialization. You can only access the values of x on Ruby side by passing x to y as a parameter in some call from Java (and then possibly saving as Ruby instance variable etc.) - just like any other Java object. This makes switching between Java and Ruby implementations in a Java framework a bit harder.
+Be aware that the Ruby object y has been created from "scratch" (the parent's java initializer method isn't called) and its fields haven't been initialized.  You can define a constructor in ruby-land but it must have the same number of arguments (matching) as its parent.  You can either call super within your constructor (at any time--if you pass any parameters they will be passed on, if you pass no parameters it will pass on the same parameters your initialize method received, if you pass on a different number of parameters then it will call the parent constructor that takes that many parameters), or it will be called implicitly *at the end of* your constructor (initialize method ends).  If your class has no constructor, then the parent class' constructor will never be called (possible bug).
 
 === Passing Java parameters to a Ruby object's new method ===
 
 <pre>
 IRubyObject rubyClass = evaler.eval(runtime, "MyRubyClass");
 Object[] parameters = {javaObject, otherJavaObject};
-JavaEmbedUtils.invokeMethod(runtime, rubyClass "new", parameters, IRubyObject.class);
+JavaEmbedUtils.invokeMethod(runtime, rubyClass, "new", parameters, IRubyObject.class);
 </pre>
 
 If your Ruby subclass is extending or implementing a Java type, you can set the return type parameter and cast the return value of invokeMethod to the appropriate type.
