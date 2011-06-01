@@ -130,8 +130,8 @@ public class RubyFromJava {
       
 		Object rfj = evaler.eval(runtime, "RSubclass.new()");
 		rfj = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, (org.jruby.runtime.builtin.IRubyObject) rfj, RubyFromJava.class);
-                // rubyToJava basically tries to convert a ruby object to its "raw" native java object.  If it's a class then it will pass out a dynamic proxy handler that intercepts calls and directs them to the ruby class (if implemented) or otherwise to the internal java class which is actually an internal element within the ruby class (like ruby's GetDataStruct).
-		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n"); // outputs fooBAR!
+                // rubyToJava basically tries to convert a ruby object to its "raw" native java object.  If it's a class then it will converts its (ruby instance) wrapped in a dynamic proxy handler that intercepts calls and directs them to the ruby class (if implemented) or to the internal java class which is actually stored as an internal element.  But the details don't matter as much.
+		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n"); // outputs Local: fooBAR!
 	}
 }
 </pre>
@@ -187,7 +187,7 @@ You call then the method as:
 
 '''Remark 2''': 
 
-Be aware that the Ruby object y has been created from "scratch" (the parent's java initializer method isn't called) and its fields haven't been initialized.  You can define a constructor in ruby-land but it must have the same number of arguments (matching) as its parent.  You can either call super within your constructor (at any time--if you pass any parameters they will be passed on, if you pass no parameters it will pass on the same parameters your initialize method received, if you pass on a different number of parameters then it will call the parent constructor that takes that many parameters), or it will be called implicitly *at the end of* your constructor (initialize method ends).  If your class has no constructor, then the parent class' constructor will never be called (possible bug).
+Be aware that the Ruby object y (in the code above) has been created from "scratch" (because neither it nor its parent have an initializer) so its fields haven't been initialized.  You can define a constructor in java-land, or ruby-land.  Eventually, a java-land constructor must and will be invoked.  If you define a ruby-land constructor, you can either call super within your constructor (at any time--if you pass any number of parameters they will be passed on to the right constructor, if you pass no parameters it will pass on the same parameters your initialize method received, if you pass on a different number of parameters then it will call the parent constructor that takes that many parameters). If you never call super within your initialize method, or it will be called implicitly *after* your constructor finishes, with the same parameters your constructor received.  
 
 === Passing Java parameters to a Ruby object's new method ===
 
