@@ -133,7 +133,7 @@ public class RubyFromJava {
 		Object rfj = runtime.evalScript("RSubclass.new()");
 		rfj = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, (org.jruby.runtime.builtin.IRubyObject) rfj, RubyFromJava.class);
 		
-		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n");
+		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n"); // outputs fooBAR!
 	}
 }
 </pre>
