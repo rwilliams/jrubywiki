@@ -2,7 +2,7 @@ __TOC__
 
 ==Direct Embedding==
 
-JRuby can also be embedded directly using JRuby's own APIs. The interfaces in JavaEmbedUtils are meant to be long-lasting API's for raw embedding. This is generally only recommended for people embedding into other scripting engines and frameworks or for those who need a "bare metal" approach and are willing to keep up with continuing JRuby API changes. It is strongly recommended for most embedders to use BSF or javax.scripting APIs to embed JRuby. See [[RedBridge]].
+JRuby can also be embedded directly using JRuby's own APIs. The interfaces in JavaEmbedUtils are meant to be long-lasting API's for raw embedding (that slightly preceded the RedBridge embed core ones). This is now generally only recommended for people embedding into other scripting engines and frameworks or for those who need a "bare metal" approach and are willing to keep up with continuing JRuby API changes. It is strongly recommended for most embedders to use BSF or javax.scripting APIs to embed JRuby. See [[RedBridge]].
 
 ===Instantiating the JRuby interpreter===
 The most direct method of running JRuby in Java is as follows (works for JRuby 1.1+):
@@ -24,26 +24,28 @@ evaler.eval(runtime, "puts 1+2");
 JavaEmbedUtils.terminate(runtime);
 </pre>
 
-You can also instantiate it using even more "raw" API's--check the source to Main.java and ScriptingContainer.java to see how they do it, but it's pretty complex, and using "some other way" (embedutils, or ScriptingContainer RedBridge) will get a runtime more easily.
+You could also instantiate it using even deeper "raw" API's--check the source to Main.java and ScriptingContainer.java to see how they do it (RubyConfigAdapter et al), but it's pretty complex, and using "some other way" (embedutils, or ScriptingContainer RedBridge) will get you a runtime running more simply.
 
 ===Raw Example===
 
-In mirah, here's a somewhat raw example. See below for others that use "eval" or the like.
+In mirah, here's a somewhat low-level example. See below for others that use "eval" or the like.
 
 <pre>
 import org.jruby.*
 import org.jruby.javasupport.JavaEmbedUtils
 import java.util.ArrayList
+
 runtime = JavaEmbedUtils.initialize(ArrayList.new)
-longy = RubyFixnum.new(runtime, 35)
+longy = RubyFixnum.new(runtime, 35) # type RubyFixnum
 puts longy # 35
-yo = longy.op_plus(runtime.getCurrentContext, RubyFixnum.new(runtime, 35))
+yo = longy.op_plus(runtime.getCurrentContext, RubyFixnum.new(runtime, 35)) # type RubyIObject since op_plus returns one of those.  The result value happens to be another RubyFixnum, which descends from RubyIObject
 puts yo # 70
+...
 </pre>
 
 ===Subclassing a Java class===
 
-Here is an even more raw example.
+Here is another raw example, using eval et al.
 
 <pre>
 /*
