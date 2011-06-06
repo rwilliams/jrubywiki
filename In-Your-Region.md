@@ -36,18 +36,6 @@ Welcome to the JRuby Community!
 ##The Czech republic##
 * [Marek Jelen](http://www.marekjelen.cz) - uses JRuby for private and commercial projects, has some JRuby related gems, provides JRuby training and consultancy, leads [Brno Ruby Users Group](http://www.brug.cz).
 
-## Japan ##
-#### Tokyo ####
-* Hiroshi Nakamura <nahi@ruby-lang.org> [@nahi](https://twitter.com/nahi) [GitHub](https://github.com/nahi) - JRuby committer. Presentations: [JRuby Hacking Guide @ 2010.08](http://j.mp/JRubyHackingGuide) // [JRuby Update @ 2010.10](http://j.mp/JRubyUpdateRtc2010) // [JRuby 1.6の新機能に見るJVM言語の魅力 @ 2011.02](http://j.mp/JJUGJRuby2011)
-
-##Norway##
-####Oslo####
-* [Uwe Kubosch](http://kubosch.no/) - has implemented several large projects in JRuby (standlone apps, Rails, Eclipse RCP, Android), contributes some patches to JRuby and ARJDBC, committer in the [Ruboto](http://ruboto.org/) project.
-
-##Poland##
-####Wrocław, dolnośląskie####
-* Paweł Wielgus <poulwiel at gmail.com> - i'm using JRuby as a dynamic part of all my java apps, that includes dynamic access console, dynamic configurations and all kinds of on-demand reports. Also JRuby is my runtime for Rails app.
-
 ##France##
 
 ####Paris####
@@ -67,8 +55,20 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 
 * [Rocky Jaiswal](http://rockyj.in) - used JRuby in enterprise projects. Big fan of JRuby! [Twitter](http://twitter.com/whatsuprocky)
 
+## Japan ##
+#### Tokyo ####
+* Hiroshi Nakamura <nahi@ruby-lang.org> [@nahi](https://twitter.com/nahi) [GitHub](https://github.com/nahi) - JRuby committer. Presentations: [JRuby Hacking Guide @ 2010.08](http://j.mp/JRubyHackingGuide) // [JRuby Update @ 2010.10](http://j.mp/JRubyUpdateRtc2010) // [JRuby 1.6の新機能に見るJVM言語の魅力 @ 2011.02](http://j.mp/JJUGJRuby2011)
+
 ##Mexico##
 * Ricardo Echavarria [@r_icarus](http://twitter.com/r_icarus) - uses JRuby at work in the University of Chihuahua [UACH](http://uach.mx) and Fan of the project.
+
+##Norway##
+####Oslo####
+* [Uwe Kubosch](http://kubosch.no/) - has implemented several large projects in JRuby (standlone apps, Rails, Eclipse RCP, Android), contributes some patches to JRuby and ARJDBC, committer in the [Ruboto](http://ruboto.org/) project.
+
+##Poland##
+####Wrocław, dolnośląskie####
+* Paweł Wielgus <poulwiel at gmail.com> - i'm using JRuby as a dynamic part of all my java apps, that includes dynamic access console, dynamic configurations and all kinds of on-demand reports. Also JRuby is my runtime for Rails app.
 
 ##Portugal##
 #### Lisbon ####
