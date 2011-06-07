@@ -14,14 +14,16 @@ If you're running an older version of jruby then you'll need to follow these ins
 
 * Manually download the most recent ruby-debug-base-0.10.3.x-java.gem from [http://rubyforge.org/frs/?group_id=3085 debug-commons].
 * Install the Gem into your JRuby Gem repository:
- jruby -S gem install ruby-debug-base-0.10.3.2-java.gem
-* '''Leave the directory or remove ruby-debug-base-0.10.3.2-java.gem from the directory''' and install ruby-debug with:
+	```bash
+	jruby -S gem install ruby-debug-base-0.10.3.2-java.gem
+	```
+* **Leave the directory or remove ruby-debug-base-0.10.3.2-java.gem from the directory** and install ruby-debug with:
  jruby -S gem install --ignore-dependencies ruby-debug
  jruby -S gem install --ignore-dependencies ruby-debug-ide # needed only for IDEs
 * Install the columnize gem (unless you already have):
  jruby -S gem install columnize
 
-'''Note''': the <tt>--debug</tt> option used below works only with JRuby 1.1.3 and later. For older versions you need to stick with the old option, using <tt>-J-Djruby.reflection=true -J-Djruby.compile.mode=OFF</tt> instead <tt>--debug</tt>.
+**Note**: the <tt>--debug</tt> option used below works only with JRuby 1.1.3 and later. For older versions you need to stick with the old option, using <tt>-J-Djruby.reflection=true -J-Djruby.compile.mode=OFF</tt> instead <tt>--debug</tt>.
 
 Starting the debugger on a Rails application:
 
@@ -40,6 +42,7 @@ or you can call it programmatically within the script
 just make sure to run it under a jruby with the --debug flags passed to it, or "next" will always act as if it were  the "step" command.
 
 External Resources:
+
 * [trunk jruby-debug README](http://debug-commons.rubyforge.org/svn/jruby-debug/trunk/README)
 * [Debugging with ruby-debug](http://bashdb.sourceforge.net/ruby-debug.html)
 * [JRuby Debugger Troubleshooting - Forum Thread](http://www.intellij.net/forums/thread.jspa?messageID=5225735)
