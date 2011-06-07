@@ -1,6 +1,6 @@
 There is a Java-based JRuby implementation of the fast ruby debugger rdebug.
 
-See: [http://debug-commons.rubyforge.org/#jruby-debug JRuby Fast Debugger]
+See: [JRuby Fast Debugger](http://debug-commons.rubyforge.org/#jruby-debug)
 
 Note that more recent versions of jruby (1.5+) already include the gem pre-bundled, so a
 
@@ -40,6 +40,6 @@ or you can call it programmatically within the script
 just make sure to run it under a jruby with the --debug flags passed to it, or "next" will always act as if it were  the "step" command.
 
 External Resources:
-* [http://debug-commons.rubyforge.org/svn/jruby-debug/trunk/README trunk jruby-debug README]
-* [http://bashdb.sourceforge.net/ruby-debug.html Debugging with ruby-debug]
-* [http://www.intellij.net/forums/thread.jspa?messageID=5225735 JRuby Debugger Troubleshooting - Forum Thread]
+* [trunk jruby-debug README](http://debug-commons.rubyforge.org/svn/jruby-debug/trunk/README)
+* [Debugging with ruby-debug](http://bashdb.sourceforge.net/ruby-debug.html)
+* [JRuby Debugger Troubleshooting - Forum Thread](http://www.intellij.net/forums/thread.jspa?messageID=5225735)
