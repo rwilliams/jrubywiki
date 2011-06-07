@@ -7,18 +7,18 @@ First you'll need this in your context xml. Mine is simply applicationContext-ru
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:lang="http://www.springframework.org/schema/lang"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-	http://www.springframework.org/schema/lang
-	http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:lang="http://www.springframework.org/schema/lang"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+  http://www.springframework.org/schema/lang
+  http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
 
-	<lang:jruby id="messageService"
-		script-interfaces="spike.Messenger"
-		script-source="classpath:RubyMessenger.rb">
-		<lang:property name="message" value="Hello World!"/>
-	</lang:jruby>
+  <lang:jruby id="messageService"
+    script-interfaces="spike.Messenger"
+    script-source="classpath:RubyMessenger.rb">
+    <lang:property name="message" value="Hello World!"/>
+  </lang:jruby>
 
 </beans>
 ```
@@ -37,13 +37,13 @@ The main thing to note here is that spring is setting the property in my bean, h
 
 ```ruby
 class RubyMessenger
-	def setMessage(m)
-		@@message = m
-	end
+  def setMessage(m)
+    @@message = m
+  end
 
-	def getMessage
-		@@message
-	end
+  def getMessage
+    @@message
+  end
 end
 
 RubyMessenger.new
@@ -65,14 +65,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class RubyRunner {
-	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-						new String[]{"applicationContext-ruby.xml"});
-		BeanFactory factory = (BeanFactory) context;
+  public static void main(String[] args) {
+    ApplicationContext context = new ClassPathXmlApplicationContext(
+            new String[]{"applicationContext-ruby.xml"});
+    BeanFactory factory = (BeanFactory) context;
 
-		Messenger m = (Messenger) factory.getBean("messageService");
-		System.out.println(m.getMessage());
-	}
+    Messenger m = (Messenger) factory.getBean("messageService");
+    System.out.println(m.getMessage());
+  }
 }
 ```
 
