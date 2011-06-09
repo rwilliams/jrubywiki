@@ -409,7 +409,7 @@ ScriptingContainer instance = new ScriptingContainer(LocalContextScope.CONCURREN
 
 * JSR223/BSF
 <pre name="java">
-System.setProperty("org.jruby.embed.localcontext.scope", "concurent");
+System.setProperty("org.jruby.embed.localcontext.scope", "concurrent");
 </pre>
 
 
