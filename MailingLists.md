@@ -15,7 +15,7 @@ To join one or more of the JRuby mailing lists:
 * Navigate to [[http://xircles.codehaus.org/projects/jruby/lists]].
 * Click the _Subscribe_ link for any of the lists (it doesn't matter which) and provide your email.
 * The Xircles application will send you a confirmation email. Click the link in the email to return to Xircles.
-* At [Xircles](http://xircles.codehaus.org/projects/jruby/lists) chooose the subscribe links for the lists you want to subscribe to.
+* At [Xircles](http://xircles.codehaus.org/projects/jruby/lists) choose the subscribe links for the lists you want to subscribe to.
 
 Nabble also has a web archive of both the [jruby-dev and jruby-user email lists](http://www.nabble.com/JRuby-f14106.html) and has an excellent interface for searching the lists.
 
