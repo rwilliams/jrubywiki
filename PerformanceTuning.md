@@ -2,6 +2,11 @@ Performance Tuning
 ==================
 JRuby supports a number of options to help you tune performance. They range from turning on experimental features to turning off inefficient emulations of Ruby features.This document describes these options and their effects.<br/><br/>
 
+Using the built in profiler
+---------------------------
+
+Some notes on using the built in profiler can be found here: http://danlucraft.com/blog/2011/03/built-in-profiler-in-jruby-1.6/
+
 Tuning the compiler
 -------------------
 JRuby's compiler can be enabled in JIT mode or specified to run before execution.
