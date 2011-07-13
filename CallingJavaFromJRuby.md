@@ -47,22 +47,12 @@ Enumeration elements can't be accessed using `Array#[]` syntax but they do appea
   => ["__jsend!", "has_more_elements", "hasMoreElements", "next_element", "nextElement",
   "each", "reject", "member?", "grep", "include?", "min", "sort", "any?", "partition", 
   "each_with_index", "collect", "find_all", "to_a",  "inject", "detect", "map", "zip", 
-  "sort_by", "max", "entries", "all?", "find", "select", "hashCode", "notifyAll", 
-  "getClass", "to_string", "toString", "get_class", "notify_all", "equals", 
-  "hash_code", "wait", "notify", "__jcreate!", "java_class", "eql?", "synchronized", 
-  "to_java_object", "equal?", "java_object", "java_object=", "to_s", "==", "hash",
-  "java_kind_of?", "handle_different_imports", "include_class", "display", 
-  "object_id", "frozen?", "org", "__id__", "clone", "__send__", "id", "__jtrap", 
-  "instance_eval",  "singleton_methods", "is_a?", "extend", 
-  "instance_variable_set", "freeze", "remove_instance_variable", "=~",
-  "private_methods", "methods", "instance_variable_get", "nil?", "send", 
-  "untaint", "com", "type", "class", "===", "instance_of?", 
-  "protected_methods", "tainted?", "kind_of?", "javax", "inspect", "java", 
-  "instance_exec", "taint", "dup", "public_methods", "instance_variable_defined?", 
-   "respond_to?", "method", "instance_variables"]
+  "sort_by", "max", "entries", "all?", "find", "select", ...]
 ```
 
-Because JRuby supports the `#each` method on Java Enumerations you can do this:
+You could also call #to_a then use Array#[] on them, etc.
+
+Because JRuby supports the `#each` method on Java Enumerations you could also do this:
 
 ```ruby
   irb(main):011:0> java.net.NetworkInterface.networkInterfaces.each {|i| puts i; puts }
