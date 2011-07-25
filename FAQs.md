@@ -81,6 +81,11 @@ With the `inproc` setting disabled, you can now pass `-J` arguments to the sub-J
 
 In the future, as JRuby and JVM startup performance increases, we may flip the default in-process launching behavior to `false` to match most peoples' expectations. See also [this thread on the JRuby mailing list](http://www.mail-archive.com/dev@jruby.codehaus.org/msg02861.html) for a discussion of `jruby.launch.inproc`.
 
+Why does my application use more memory under JRuby than under <your impl of choice here>?
+------------------------------------------------------------------------------------------
+
+See [[Troubleshooting Memory]].
+
 General
 =======
 
