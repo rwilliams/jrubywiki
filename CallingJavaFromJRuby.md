@@ -156,7 +156,7 @@ You can also get the same effect by reassigning a Java class to a new constant, 
 Use include_package within a Ruby Module to import a Java Package's classes on const_missing
 -----------------------------------------
 
-Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's `package xxx.yyy.zzz;` format.  It is also legal to use `import "package_name"`.
+Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's `package xxx.yyy.zzz;` format.  It is also legal to use `import "package_name"`, that is similar to `import package_name.*`.
 
 
 "Example 1": 
