@@ -17,15 +17,15 @@ JRuby's compiler can be enabled in JIT mode or specified to run before execution
 
 Disabling ObjectSpace
 ---------------------
-ObjectSpace has been disabled by default since version 1.1b1. To reenable ObjectSpace, use the `+O` flag. The following description applies tor previous versions of JRuby.
+ObjectSpace has been disabled by default since version 1.1b1. To reenable ObjectSpace, use the `-X+O` flag (previously `+O`). The following description applies to previous versions of JRuby.
 
 ObjectSpace is a feature in Ruby that allows you to enumerate all objects of a given type in the current runtime. In the C implementation, this is easy to provide, since ObjectSpace is basically a thin wrapper around the memory manager. Under JRuby, however, where we can't enumerate objects managed by Java's memory model, we have to provide a separate structure that governs a collection of references to such objects. This results in substantial overhead per object when run under JRuby, since we have to create two or three times as many objects as are needed to run, just to implement ObjectSpace.
 
-JRuby can be told to run without ObjectSpace by specifying the `-O` flag as follows:
+JRuby can be told to run without ObjectSpace by specifying the `-X-O` flag (previously `-O`) as follows:
 
- jruby -O bin/gem install rake
+ jruby -X-O bin/gem install rake
 
-Obviously, any programs that depend on ObjectSpace will not run correctly with the `-O` flag, but this is generally limited to a few of Rails' own development-time scripts and test unit test runners.
+Obviously, any programs that depend on ObjectSpace will not run correctly with the `-X-O` flag, but this is generally limited to a few of Rails' own development-time scripts and test unit test runners.
 
 There is also a property you can use to disable ObjectSpace:
 
