@@ -23,13 +23,13 @@ ObjectSpace is a feature in Ruby that allows you to enumerate all objects of a g
 
 JRuby can be told to run without ObjectSpace by specifying the `-X-O` flag (previously `-O`) as follows:
 
- jruby -X-O bin/gem install rake
+    jruby -X-O bin/gem install rake
 
 Obviously, any programs that depend on ObjectSpace will not run correctly with the `-X-O` flag, but this is generally limited to a few of Rails' own development-time scripts and test unit test runners.
 
 There is also a property you can use to disable ObjectSpace:
 
- jruby -J-Djruby.objectspace.enabled=false
+    jruby -J-Djruby.objectspace.enabled=false
 
 Enabling ObjectSpace Dynamically
 --------------------------------
