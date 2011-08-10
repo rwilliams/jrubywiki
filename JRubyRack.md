@@ -5,11 +5,12 @@ For more information on Rack, visit [[http://rack.rubyforge.org]].
 Download
 --------
 
-JRuby-Rack 0.9 is the first public release. Download it:
 
-[[http://repository.codehaus.org/org/jruby/rack/jruby-rack/0.9/jruby-rack-0.9.jar]]
+JRuby-Rack 1.0.9 is the latest version. Download it:
 
-JRuby-Rack is also bundled with [http://caldersphere.rubyforge.org/warbler Warbler 0.9.9], which is available as a Ruby gem (<tt>jruby -S gem install warbler</tt>).
+[[http://repository.codehaus.org/org/jruby/rack/jruby-rack/1.0.9/jruby-rack-1.0.9.jar]]
+
+JRuby-Rack is also bundled with [http://caldersphere.rubyforge.org/warbler Warbler 0.9.9], which is available as a Ruby gem (`jruby -S gem install warbler`).
 
 Features
 --------
@@ -31,8 +32,8 @@ warned!
 Servlet environment integration
 -------------------------------
 
-* Servlet context is accessible to any application both through the global variable $servlet_context and the Rack environment variable java.servlet_context.
-* Servlet request object is available in the Rack environment via the key java.servlet_request.
+* Servlet context is accessible to any application both through the global variable `$servlet_context` and the Rack environment variable `java.servlet_context`.
+* Servlet request object is available in the Rack environment via the key `java.servlet_request`.
 * Servlet request attributes are passed through to the Rack environment.
 * Rack environment variables and headers can be overridden by servlet request attributes.
 * Java servlet sessions are used as the default session store for both Rails and Merb. Session attributes with String keys and String, numeric, boolean, or java object values are automatically copied to the servlet session for you.
