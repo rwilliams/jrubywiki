@@ -85,6 +85,7 @@ INSERTs and UPDATEs are much the same. Again, using the MySQL JDBC driver a simp
 Remember to have the JDBC driver for your database in your CLASSPATH!
 ___
 Here's an example of connecting to SQL Server using Microsoft's [JDBC driver](http://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx). The open source [jTDS driver](http://jtds.sourceforge.net/) is another good option.
+
 ```ruby
   require 'rubygems'
   require 'java'
