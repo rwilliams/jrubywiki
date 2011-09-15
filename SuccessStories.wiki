@@ -14,7 +14,7 @@ Here is a list of sites and projects using JRuby. Please add descriptions if pos
 
 <th>Any Regrets?</th>
 
-<th>Hits/day</th>
+<th>Hits/day, Tx/s, other metrics</th>
 </tr>
 
 <tr>
