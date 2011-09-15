@@ -324,7 +324,7 @@ in the average consumer price range.</td>
 
 <td>Executable JAR</td>
 
-<td>No</td>
+<td>Yes</td>
 
 <td>No</td>
 
