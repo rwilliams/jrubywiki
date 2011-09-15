@@ -316,6 +316,20 @@ in the average consumer price range.</td>
 </tr>
 
 <tr>
+<td>[http://cmon.lip6.fr/hnp/ HomeNet Profiler]</td>
+
+<td>Measurements in home networks, for research purposes</td>
+
+<td>Portability with a GUI. Java libraries</td>
+
+<td>No</td>
+
+<td>No</td>
+
+<td>Successfuly ran 2500 runs on more than 2100 heterogeneous machines (OSes/countries etc.).</td>
+</tr>
+
+<tr>
 <td></td>
 
 <td></td>
