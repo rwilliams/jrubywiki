@@ -322,6 +322,8 @@ in the average consumer price range.</td>
 
 <td>Portability with a GUI. Java libraries</td>
 
+<td>Executable JAR</td>
+
 <td>No</td>
 
 <td>No</td>
