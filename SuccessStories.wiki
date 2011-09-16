@@ -332,6 +332,20 @@ in the average consumer price range.</td>
 </tr>
 
 <tr>
+<td>[https://eazybi.com/ eazyBI]</td>
+
+<td>eazyBI is easy to use business intelligence web application for analyzing data either from uploaded files or from other source applications.</td>
+
+<td>1) to integrate [http://mondrian.pentaho.com/ Mondrian OLAP] Java library using [https://github.com/rsim/mondrian-olap mondrian-olap] gem, 2) to create compiled standalone war package for on-site application deployment</td>
+
+<td>Primary language to develop Ruby on Rails 3.x application. Production deployment using Kirk or remote deployment using embedded Winstone or using Tomcat or other Java app servers.</td>
+
+<td>OpenJDK 6</td>
+
+<td>Almost none (just slower development and test startup time compared with MRI)</td>
+</tr>
+
+<tr>
 <td></td>
 
 <td></td>
