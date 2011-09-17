@@ -1,3 +1,4 @@
+
 [[Home|&raquo; JRuby Project Wiki Home Page]]<br/>
 [[RedBridge|&raquo; Embedding JRuby Wiki Page]]
 <h1>Embedding JRuby - Code Examples</h1>
@@ -22,7 +23,7 @@ See [[RedBridge#Configurations|Configurations]] section.
 === Simple Evaluation with sharing variables ===
 
 * Core
-<pre name="java">
+```java
 package vanilla;
 
 import org.jruby.embed.ScriptingContainer;
@@ -47,17 +48,19 @@ public class SimpleEvalSample {
     public static void main(String[] args) {
         new SimpleEvalSample();
     }
-}</pre>
+}
+```
 Outputs:
-<pre>
+```
 [vanilla.SimpleEvalSample]
 local variable
 instance variable
 global variable
-constant</pre>
+constant
+```
 
 *JSR223
-<pre name="java">
+```java
 package redbridge;
 
 import javax.script.Bindings;
@@ -104,18 +107,20 @@ public class Jsr223SimpleEvalSample {
     public static void main(String[] args) throws ScriptException {
         new Jsr223SimpleEvalSample();
     }
-}</pre>
+}
+```
 Outputs:
-<pre>
+```
 [redbridge.Jsr223SimpleEvalSample]
 global variable
 local variable
 instance variable
 global variable
-constant</pre>
+constant
+```
 
 *BSF
-<pre name="java">
+```java
 package azuki;
 
 import org.apache.bsf.BSFException;
@@ -135,17 +140,18 @@ public class BsfSimpleEvalSample {
     public static void main(String[] args) throws BSFException {
         new BsfSimpleEvalSample();
     }
-}</pre>
+}
+```
 Outputs:
-<pre>
+```
 [azuki.BsfSimpleEvalSample]
 global variable
-</pre>
+```
 
 === Persistent Local Variables ===
 
 * Core
-<pre name="java">
+```java
 package vanilla;
 
 import java.util.Map;
@@ -182,9 +188,10 @@ public class PersistentLocalVariableSample {
     public static void main(String[] args) {
         new PersistentLocalVariableSample();
     }
-}</pre>
+}
+```
 Outputs:
-<pre>
+```
 [vanilla.PersistentLocalVariableSample]
 Square root of 144 is 12.0
 You can enjoy hot Vanilla Latte at that cafe.
@@ -204,10 +211,10 @@ MIN, 4.9E-324
 MIN_10_EXP, -307
 x, 144
 MAX_EXP, 1024
-</pre>
+```
 
 * JSR223
-<pre name="java">
+```java
 package redbridge;
 
 import java.util.Set;
@@ -249,9 +256,10 @@ public class Jsr223PersistentLocalVariableSample {
     public static void main(String[] args) throws ScriptException {
         new Jsr223PersistentLocalVariableSample();
     }
-}</pre>
+}
+```
 Outputs:
-<pre>
+```
 [redbridge.Jsr223PersistentLocalVariableSample]
 Square root of 144 is 12.0
 You can see a red big bridge in San Francisco.
@@ -270,10 +278,11 @@ EPSILON, 2.220446049250313E-16
 MIN, 4.9E-324
 MIN_10_EXP, -307
 x, 144
-MAX_EXP, 1024</pre>
+MAX_EXP, 1024
+```
 
 * BSF
-<pre name="java">
+```java
 package azuki;
 
 import java.util.Vector;
@@ -308,18 +317,19 @@ public class BsfPersistentLocalVariableSample {
     public static void main(String[] args) throws BSFException {
         new BsfPersistentLocalVariableSample();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [azuki.BsfPersistentLocalVariableSample]
 Square root of 144 is 12.0
 Azuki beans are red small beans and often used in a form of paste.
-Azuki beans are red small beans and usually used in a form of paste.</pre>
+Azuki beans are red small beans and usually used in a form of paste.
+```
 
 === Method Call ===
 
 * Core
-<pre name="java">
+```java
 package vanilla;
 
 import org.jruby.embed.ScriptingContainer;
@@ -357,16 +367,16 @@ public class MethodCallSample {
     public static void main(String[] args) {
         new MethodCallSample();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [vanilla.MethodCallSample]
 10.0g Plutonium to decay to 9.716483752784367g in 1000 years
 10.0g Plutonium to decay to 1.0g in 80058.46708678544 years
-</pre>
+```
 
 * JSR223
-<pre name="java">
+```java
 package redbridge;
 
 import javax.script.Invocable;
@@ -409,16 +419,16 @@ public class Jsr223MethodCallSample {
     public static void main(String[] args) throws ScriptException, NoSuchMethodException {
         new Jsr223MethodCallSample();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [redbridge.Jsr223MethodCallSample]
 10.0g Carbon to decay to 8.857809480593293g in 1000 years
 10.0g Carbon to decay to 1.0g in 18984.81906228128 years
-</pre>
+```
 
 * BSF
-<pre name="java">
+```java
 package azuki;
 
 import org.apache.bsf.BSFException;
@@ -462,13 +472,13 @@ public class BsfMethodCallSample {
         new BsfMethodCallSample();
     }
 
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [azuki.BsfMethodCallSample]
 10.0g Radium to decay to 6.482441247843886g in 1000 years
 10.0g Radium to decay to 1.0g in 5311.763023724893 years
-</pre>
+```
 
 === Class Method Call ===
 * tree_with_ivars.rb
@@ -493,10 +503,10 @@ class Flower
   end
 end
 
-Tree.new(Flower.new)</pre>
+Tree.new(Flower.new)```
 
 * Core
-<pre name="java">
+```java
 package vanilla;
 
 import org.jruby.embed.PathType;
@@ -530,15 +540,16 @@ public class ClassMethodCallSample {
     public static void main(String[] args) {
         new ClassMethodCallSample();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [vanilla.ClassMethodCallSample]
 Cherry blossom is a oval shaped, deciduous tree, and blooms pink flowers in March - April.
-Cedar is a pyramidal shaped, evergreen tree, and blooms nondescript flowers in April - May.</pre>
+Cedar is a pyramidal shaped, evergreen tree, and blooms nondescript flowers in April - May.
+```
 
 * JSR223
-<pre name="java">
+```java
 package redbridge;
 
 import java.io.FileNotFoundException;
@@ -581,18 +592,19 @@ public class Jsr223ClassMethodCallSample {
     public static void main(String[] args) throws ScriptException, NoSuchMethodException, FileNotFoundException {
         new Jsr223ClassMethodCallSample();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [redbridge.Jsr223ClassMethodCallSample]
 Cherry blossom is a oval shaped, deciduous tree, and blooms pink flowers in March - April.
-Cedar is a pyramidal shaped, evergreen tree, and blooms nondescript flowers in April - May.</pre>
+Cedar is a pyramidal shaped, evergreen tree, and blooms nondescript flowers in April - May.
+```
 
 === Interface Implementation ===
 
 * Core
 ** Interface: vanilla.Calulable
-<pre name="java">
+```java
 package vanilla;
 
 import java.util.List;
@@ -601,7 +613,7 @@ public interface Calculable {
     List<Long> dimension(long base);
     Double hypotenuse(double adjacent, double opposite);
 }
-</pre>
+```
 ** Implementation: calculation.rb
 <pre name="ruby">
 class Calculation
@@ -617,24 +629,24 @@ class Calculation
   end
 end
 Calculation.new
-</pre>
+```
 ** Interface: vanilla.FluidForce
-<pre name="java">
+```java
 package vanilla;
 
 public interface FluidForce {
     Double getFluidForce(double a, double b, double depth);
 }
-</pre>
+```
 ** Implementation: fluid_force.rb
 <pre name="ruby">
 def get_fluid_force(x, y, depth)
   area = Math::PI * x * y # ellipse
   return @w * area * depth
 end
-</pre>
+```
 ** Java program
-<pre name="java">
+```java
 package vanilla;
 
 import java.util.List;
@@ -677,18 +689,18 @@ public class InterfaceImplSample {
     public static void main(String[] args) {
         new InterfaceImplSample();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [vanilla.InterfaceImplSample]
 Dimensions are 11 x 12 x 9.
 Adjacent, opposite, and hypotenuse are 3.00, 4.00, 5.00.
 Water force to 2.00 ft x 3.00 ft ellipse in depth of 6.00 ft is 7057.27374 lb.
-</pre>
+```
 
 * JSR223
 ** Java program
-<pre name="java">
+```java
 package redbridge;
 
 import java.io.FileNotFoundException;
@@ -742,20 +754,20 @@ public class Jsr223GetInterfaceSample {
     public static void main(String[] args) throws ScriptException, FileNotFoundException {
         new Jsr223GetInterfaceSample();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [redbridge.Jsr223GetInterfaceSample]
 Dimensions are 21 x 22 x 19.
 Adjacent, opposite, and hypotenuse are 5.00, 12.00, 13.00.
 Ethyl alcohol force to 2.00 ft x 3.00 ft ellipse in depth of 6.00 ft is 5587.00838 lb.
-</pre>
+```
 
 === Interface Implementation with Exception and Sharing Variables ===
 
 * Core
 ** Interface: vanilla.QuadraticFormula
-<pre name="java">
+```java
 package vanilla;
 
 import java.util.List;
@@ -763,7 +775,7 @@ import java.util.List;
 public interface QuadraticFormula {
     List<Double> solve() throws RuntimeException;
 }
-</pre>
+```
 ** Implementation: quadratic_formula.rb
 <pre name="ruby">
 # if ax^2+bx+c=0 and b^2-4ac >=0 then
@@ -781,9 +793,9 @@ class QuadraticFormula
   end
 end
 QuadraticFormula.new
-</pre>
+```
 ** Java program
-<pre name="java">
+```java
 package vanilla;
 
 import java.util.List;
@@ -830,9 +842,9 @@ public class InterfaceImplSample2 {
     public static void main(String[] args) {
         new InterfaceImplSample2();
     }
-}</pre>
+}```
 Outputs:
-<pre>
+```
 [vanilla.InterfaceImplSample2]
 Solutions of x^2 + x - 6 = 0 are -3.0000, and 2.0000.
 Solutions of 3x^2 + 4x - 5 = 0 are -2.1196, and 0.7863.
@@ -843,7 +855,7 @@ ruby/quadratic_formula.rb:11:in `solve':  (RangeError)
         from QuadraticFormula.solve(:1)
         from (unknown).(unknown)(:1)
 Solutions of 2x^2 - 3x + 1 = 0 are 0.5000, and 1.0000.
-</pre>
+```
 
 === Parse Once, Eval Many Times ===
 
@@ -865,10 +877,10 @@ def count_down_birthday
   return "You have #{days} day(s) to your next birthday!"
 end
 count_down_birthday
-</pre>
+```
 
 ** Java program
-<pre name="java">
+```java
 package vanilla;
 
 import org.jruby.embed.EmbedEvalUnit;
@@ -899,20 +911,20 @@ public class ParseOnceEvalManyTimesSample {
     public static void main(String[] args) {
         new ParseOnceEvalManyTimesSample();
     }
-}</pre>
+}```
 
 Outputs:
-<pre>
+```
 [vanilla.ParseOnceEvalManyTimesSample]
 Happy Birthday!
 You have 82 day(s) to your next birthday!
 You have 81 day(s) to your next birthday!
 You have 266 day(s) to your next birthday!
-</pre>
+```
 
 * JSR223
 ** Java program
-<pre name="java">
+```java
 package redbridge;
 
 import java.io.FileNotFoundException;
@@ -954,31 +966,31 @@ public class Jsr223CompiledScriptSample {
         new Jsr223CompiledScriptSample();
     }
 }
-</pre>
+```
 Outputs:
-<pre>
+```
 [redbridge.Jsr223CompiledScriptSample]
 Happy Birthday!
 You have 82 day(s) to your next birthday!
 You have 81 day(s) to your next birthday!
 You have 266 day(s) to your next birthday!
-</pre>
+```
 
 === Unicode Escape Support ===
 
-<pre name="java">
+```java
 ScriptingContainer container = new ScriptingContainer();
 Writer writer = new StringWriter();
 container.setWriter(writer);
 String str = "\u3053\u3093\u306b\u3061\u306f\u4e16\u754c";
 container.runScriptlet("puts \"" + str + "\"");
 System.out.println(writer.toString());
-</pre>
+```
 
 Output
-<pre>
+```
 こんにちは世界
-</pre>
+```
 
 
 == Servlet Examples ==
