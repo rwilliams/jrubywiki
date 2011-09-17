@@ -62,7 +62,8 @@ Before you start programming, make sure the necessary jar archives are in your c
 
 Here's how to execute a simple Ruby script (<code>puts "Hello World!"</code>) using the three JRuby Embed APIs:
 * Core
-<pre name="java">
+
+```java
 package vanilla;
 
 import org.jruby.embed.ScriptingContainer;
@@ -77,10 +78,12 @@ public class HelloWorld {
     public static void main(String[] args) {
         new HelloWorld();
     }
-}</pre>
+}
+```
 
 * JSR223
-<pre name="java">
+
+```java
 package redbridge;
 
 import javax.script.ScriptEngine;
@@ -98,10 +101,12 @@ public class Jsr223HelloWorld {
     public static void main(String[] args) throws ScriptException {
         new Jsr223HelloWorld();
     }
-}</pre>
+}
+```
 
 * BSF
-<pre name="java">
+
+```java
 package azuki;
 
 import org.apache.bsf.BSFException;
@@ -118,7 +123,8 @@ public class BsfHelloWorld {
         new BsfHelloWorld();
     }
 
-}</pre>
+}
+```
 
 All three programs print out "Hello World!" to standard output.
 
