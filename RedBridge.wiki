@@ -4,7 +4,7 @@ Using Java from Ruby is JRuby's best-known feature---but you can also go in the 
 
 __TOC__
 
-= Red Bridge (JRuby Embed) =
+= JRuby Embed (originally known as Red Bridge) =
 
 JRuby has long had a private embedding API, which was closely tied to the runtime's internals and therefore changed frequently as JRuby evolved. Since version 1.4, however, we have also provided a more stable public API, known originally as Red Bridge, now known as JRuby Embed. Existing Java programs written to the [[DirectJRubyEmbedding|raw API's]] will probably still continue to work, but we strongly recommend Red Bridge for all new projects.  Note that using Jruby Embed works well for doing eval of ruby code, and/or sharing a few variables back and forth with a ruby script, but if you want anything more (like new'ing up jruby instances within java, etc.) than that you'll need to code to the [[DirectJRubyEmbedding|raw API's]].
 
