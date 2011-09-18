@@ -13,6 +13,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Help With Libraries and Applications|ApplicationsAndLibraries]]
 * [[ Embedding JRuby|RedBridge ]]
 * [[Scripting Java from JRuby|CallingJavaFromJRuby]]
+* [[Generating Java classes|GeneratingJavaClasses]]
 * [[Standalone Jars and Classes|StandaloneJarsAndClasses]]
 * [[Performance Tuning|PerformanceTuning]]
 * [[C extension alternatives]]
