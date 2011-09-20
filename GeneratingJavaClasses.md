@@ -128,3 +128,12 @@ And now the result is as expected:
  90
 ```
 
+To put the Java class in a package, use java_package:
+
+```ruby
+ require 'java'
+ java_require 'my_foo'
+ java_package 'com.example'
+
+ class Foo; end
+```
