@@ -27,7 +27,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [Deploying a Rails App in Tomcat with JRuby](http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a)
 * [[ActiveRecord-JDBC]]
 * [[Deploying Rails Apps|JRubyOnRails]]   
-* [Warbler](https://github.com/nicksieger/warbler)
+* [Warbler](https://github.com/jruby/warbler)
 * [[Servers]]
 
 **Builds/tooling**
