@@ -1,0 +1,6 @@
+; require 'path/to/file.jar'
+:require can take a path to a jar file
+
+; require 'java'
+: Allows interop with Java.  (More detail needed)
+
