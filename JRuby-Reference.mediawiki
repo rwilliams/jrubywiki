@@ -73,7 +73,12 @@ JRuby also translates methods following the 'beans-convention':
 ```
 
 ; java_class
-: returns the Java class of an object.
+: returns the Java class of an object.  Use this for methods expecting a java Class object:
+
+```ruby
+  DoSomethingWithJavaClass(MyJavaClass.java_class)
+```
+
 
 ;java_kind_of? 
 :works like the `instanceof` operator.
@@ -156,4 +161,62 @@ By default, `to_java` constructs `Object` arrays. You can specify the parameter 
 :
 ```ruby
   io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
+```
+
+; Interfaces
+: 
+JRuby classes can implement more than one Java interface. Use ''include'' to implement an interface:
+
+```ruby
+  class SomeJRubyObject
+    include java.lang.Runnable
+    include java.lang.Comparable
+  end
+```
+
+When calling a method that expects an interface, JRuby checks if a block is passed and automatically converts the block to an object implementing the interface.
+
+; Exceptions
+: 
+```ruby
+ begin
+   java.lang.Integer.parse_int("asdf")
+ rescue java.lang.NumberFormatException => e
+   puts "Failed to parse integer: #{e.message}"
+ end
+```
+
+```ruby
+ begin
+   raise java.lang.IllegalArgumentException.new("Bad param")
+ rescue java.lang.IllegalArgumentException => e
+   puts "Illegal argument: #{e}"
+ end
+```
+
+Or
+
+```ruby
+ begin
+   raise Java::JavaLang::IllegalArgumentException.new("Bad param")
+ rescue Java::JavaLang::IllegalArgumentException => e
+   puts "Illegal argument: #{e}"
+ end
+```
+
+; synchronize
+: a ''synchronize'' method is provided on every wrapped Java object. For example:
+
+```java
+ synchronized(obj) {
+     obj.wait(1000); 
+ }
+```
+
+is implement like this in Ruby:
+
+```ruby
+ obj.synchronized do
+   obj.wait 1000
+ end
 ```
