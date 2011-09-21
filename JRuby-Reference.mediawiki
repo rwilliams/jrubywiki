@@ -220,3 +220,41 @@ is implement like this in Ruby:
    obj.wait 1000
  end
 ```
+
+: java_require
+; Normally, jrubyc --java(c) will include the complete source of your script in the compiled class, but often you may want to keep the source on disk or generate multiple classes that all come from the same file. To do this, add a java_require line (plus a require 'java' line to enable Java support in the Ruby code) that specifies what filename to load. The filename specified is loaded using normal Ruby 'require' semantics.
+
+```ruby
+ require 'java'
+ java_require 'my_foo'
+ class Foo
+   def bar(a,b)
+     puts a + b
+   end
+ end
+```
+
+; java_signature
+: 
+
+```ruby
+ require 'java'
+ java_require 'my_foo'
+ class Foo
+   java_signature 'void bar(int, int)'
+   def bar(a,b)
+     puts a + b
+   end
+ end
+```
+
+; java_package
+:
+
+```ruby
+ require 'java'
+ java_require 'my_foo'
+ java_package 'com.example'
+
+ class Foo; end
+```
