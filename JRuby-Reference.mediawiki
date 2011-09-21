@@ -1,5 +1,7 @@
+`snark`
+
 ; require 'path/to/file.jar'
-:require can take a path to a jar file.  It searches the JRuby $LOAD_PATH for the file.
+:require can take a path to a jar file.  It searches the JRuby ''$LOAD_PATH'' for the file.
 
 ; require 'java'
 : A special `require 'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will not give you access to any non-bundled libraries.
@@ -10,3 +12,36 @@
 ; Name translations
 :Java: org.foo.department.Widget
 Ruby: Java::OrgFooDepartment::Widget
+
+For the top-level Java packages ''java, javax, org, and com'' you can type in a fully qualified class name:
+
+```ruby
+java_import java.lang.System
+```
+
+You can use your own top-level package names by adding a ''def'':
+```ruby
+def edu
+  Java::Edu
+end
+
+java_import edu.example.MyClass
+```
+
+; Importing a package into a class or module
+: 
+```ruby
+module M
+ include_package "org.xxx.yyy"
+ # now any class within "org.xxx.yyy" will be available within
+ # this module, ex if "org.xxx.yyy.MyClass" exists
+ # a = MyClass.new
+end
+```
+Note that there are issues with include_package, discussed at [[http://jira.codehaus.org/browse/JRUBY-5558]].
+
+; enums
+: Available as constants: 
+```ruby
+ms_constant_value = java.util.concurrent.TimeUnit::MILLISECONDS
+```
