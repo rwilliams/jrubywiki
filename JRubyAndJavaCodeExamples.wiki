@@ -4,7 +4,7 @@ Below are some code examples showing how to call JRuby from Java and how to call
 
 __TOC__
 ===Ruby:  <tt>call_java.rb</tt>===
-<pre name="ruby">
+```ruby
   require "java"
   
   include_class "java.util.TreeSet"
@@ -40,7 +40,7 @@ __TOC__
   #    }
     end
   end
-</pre>
+```
 ===Java: <tt>ISpeaker.java</tt>===
 <pre name="java">
     package com.example;
