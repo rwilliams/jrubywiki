@@ -1,6 +1,12 @@
 ; require 'path/to/file.jar'
-:require can take a path to a jar file
+:require can take a path to a jar file.  It searches the JRuby $LOAD_PATH for the file.
 
 ; require 'java'
-: Allows interop with Java.  (More detail needed)
+: A special `require 'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will not give you access to any non-bundled libraries.
 
+; #each
+: JRuby supports calling the `#each` method on Enumerable objects
+
+; Name translations
+:Java: org.foo.department.Widget
+Ruby: Java::OrgFooDepartment::Widget
