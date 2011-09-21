@@ -71,3 +71,89 @@ JRuby also translates methods following the 'beans-convention':
  # Use the constructor
  object = cons.new_instance(0xa4, 0x00, 0x00)
 ```
+
+; java_class
+: returns the Java class of an object.
+
+;java_kind_of? 
+:works like the `instanceof` operator.
+
+;java_object
+: returns the underlying Java object. This is useful for reflection.
+
+;java_send
+: overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as `initialize`, with names that conflict with built-in Ruby methods.
+
+With the `java_method` method you can get a reference to any overloaded Java method as a Ruby Method object:
+
+```ruby
+ # get a bound Method based on the add(int, Object) method from ArrayList
+ add = list.java_method :add, [Java::int, java.lang.Object]
+ add.call(0, 'foo')
+```
+
+Similarly, an Unbound method object can be retrieved:
+
+```ruby
+ # get an UnboundMethod from the ArrayList class:
+ toString = ArrayList.java_method :toString
+ toString.bind(list).call # => [foo, foo]
+```
+
+; java_method
+: retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`.
+
+; declared_method
+: 
+
+```ruby
+  @mgr = javax.media.rtp.RTPManager.newInstance
+  localhost = java.net.InetAddress.getByName("127.0.0.1")
+  localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
+  method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
+  method.invoke @mgr.java_object, localaddr.java_object
+```
+
+; Type conversion
+: See [[CallingJavaFromJRuby]]
+
+; Arrays
+: constructs a Java array from a Ruby array:
+
+```ruby
+  [1,2,3].to_java
+  => [Ljava.lang.Object;@1a32ea4
+```
+
+By default, `to_java` constructs `Object` arrays. You can specify the parameter with an additional argument which can either be a symbol or a primitive class like `Java::double`
+
+```ruby
+  ["a","b","c"].to_java(:string)
+  => [Ljava.lang.String;@170984c
+
+  [1, 2, 3.5].to_java Java::double
+  => [D@9bc984
+```
+
+; Constructing Empty Java Arrays
+: Use the `[]` method of the primitive types in the Java module:
+
+```ruby
+  bytes = Java::byte[1024].new # Equivalent to Java's bytes = new byte[1024];
+```
+
+; Ruby String to Java Bytes and back again
+:
+```ruby
+  bytes = 'a string'.to_java_bytes
+  => #<#<Class:01x9fcffd>:0x40e825 @java_object=[B@3d476c>
+
+  string = String.from_java_bytes bytes
+  => "a string"
+```
+
+; Java InputStream to a ruby IO object
+:
+```ruby
+  io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
+```
