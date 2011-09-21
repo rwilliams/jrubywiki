@@ -1,5 +1,3 @@
-`snark`
-
 ; require 'path/to/file.jar'
 :require can take a path to a jar file.  It searches the JRuby ''$LOAD_PATH'' for the file.
 
@@ -44,4 +42,32 @@ Note that there are issues with include_package, discussed at [[http://jira.code
 : Available as constants: 
 ```ruby
 ms_constant_value = java.util.concurrent.TimeUnit::MILLISECONDS
+```
+
+; Alternative Names and Beans Convention
+
+You can use underscore-separated names in addition to camel-cased names.  These two call the same method:
+
+```ruby
+  java.lang.System.currentTimeMillis
+  java.lang.System.current_time_millis
+```
+
+JRuby also translates methods following the 'beans-convention':
+
+```ruby
+  x.getSomething            becomes   x.something
+  x.setSomething(newValue)  becomes   x.something = new_value
+  x.isSomething             becomes   x.something?
+```
+
+; Constructors
+
+''JavaClass.new'' or ''JavaClass.new(x,y,z)'' generally work as expected. If you wish to select a particular constructor by signature use reflection:
+
+```ruby
+ # Get the the three-integer constructor for this class
+ construct = JavaClass.java_class.constructor(Java::int, Java::int, Java::int)
+ # Use the constructor
+ object = cons.new_instance(0xa4, 0x00, 0x00)
 ```
