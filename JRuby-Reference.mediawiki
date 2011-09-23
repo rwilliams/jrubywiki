@@ -1,13 +1,13 @@
-; require 'path/to/file.jar'
+== require 'path/to/file.jar' ==
 :require can take a path to a jar file.  It searches the JRuby ''$LOAD_PATH'' for the file.
 
-; require 'java'
+== require 'java' ==
 : A special `require 'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will not give you access to any non-bundled libraries.
 
-; #each
+== #each ==
 : JRuby supports calling the `#each` method on Enumerable objects
 
-; Name translations
+== Name translations ==
 :Java: org.foo.department.Widget
 Ruby: Java::OrgFooDepartment::Widget
 
@@ -26,7 +26,7 @@ end
 java_import edu.example.MyClass
 ```
 
-; Importing a package into a class or module
+== Importing a package into a class or module ==
 : 
 ```ruby
 module M
@@ -38,13 +38,13 @@ end
 ```
 Note that there are issues with include_package, discussed at [[http://jira.codehaus.org/browse/JRUBY-5558]].
 
-; enums
+== enums ==
 : Available as constants: 
 ```ruby
 ms_constant_value = java.util.concurrent.TimeUnit::MILLISECONDS
 ```
 
-; Alternative Names and Beans Convention
+== Alternative Names and Beans Convention ==
 
 You can use underscore-separated names in addition to camel-cased names.  These two call the same method:
 
@@ -61,7 +61,7 @@ JRuby also translates methods following the 'beans-convention':
   x.isSomething             becomes   x.something?
 ```
 
-; Constructors
+== Constructors ==
 
 ''JavaClass.new'' or ''JavaClass.new(x,y,z)'' generally work as expected. If you wish to select a particular constructor by signature use reflection:
 
@@ -72,7 +72,7 @@ JRuby also translates methods following the 'beans-convention':
  object = cons.new_instance(0xa4, 0x00, 0x00)
 ```
 
-; java_class
+== java_class ==
 : returns the Java class of an object.  Use this for methods expecting a java Class object:
 
 ```ruby
@@ -105,10 +105,10 @@ Similarly, an Unbound method object can be retrieved:
  toString.bind(list).call # => [foo, foo]
 ```
 
-; java_method
+== java_method ==
 : retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`.
 
-; declared_method
+== declared_method ==
 : 
 
 ```ruby
@@ -119,10 +119,10 @@ Similarly, an Unbound method object can be retrieved:
   method.invoke @mgr.java_object, localaddr.java_object
 ```
 
-; Type conversion
+== Type conversion ==
 : See [[CallingJavaFromJRuby]]
 
-; Arrays
+== Arrays ==
 : constructs a Java array from a Ruby array:
 
 ```ruby
@@ -140,14 +140,14 @@ By default, `to_java` constructs `Object` arrays. You can specify the parameter 
   => [D@9bc984
 ```
 
-; Constructing Empty Java Arrays
+== Constructing Empty Java Arrays ==
 : Use the `[]` method of the primitive types in the Java module:
 
 ```ruby
   bytes = Java::byte[1024].new # Equivalent to Java's bytes = new byte[1024];
 ```
 
-; Ruby String to Java Bytes and back again
+== Ruby String to Java Bytes and back again ==
 :
 ```ruby
   bytes = 'a string'.to_java_bytes
@@ -157,13 +157,13 @@ By default, `to_java` constructs `Object` arrays. You can specify the parameter 
   => "a string"
 ```
 
-; Java InputStream to a ruby IO object
+== Java InputStream to a ruby IO object ==
 :
 ```ruby
   io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
 ```
 
-; Interfaces
+== Interfaces ==
 : 
 JRuby classes can implement more than one Java interface. Use ''include'' to implement an interface:
 
@@ -176,7 +176,7 @@ JRuby classes can implement more than one Java interface. Use ''include'' to imp
 
 When calling a method that expects an interface, JRuby checks if a block is passed and automatically converts the block to an object implementing the interface.
 
-; Exceptions
+== Exceptions ==
 : 
 ```ruby
  begin
@@ -204,7 +204,7 @@ Or
  end
 ```
 
-; synchronize
+== synchronize ==
 : a ''synchronize'' method is provided on every wrapped Java object. For example:
 
 ```java
@@ -235,7 +235,7 @@ Normally, jrubyc --java(c) will include the complete source of your script in th
  end
 ```
 
-; java_signature
+== java_signature ==
 : 
 
 ```ruby
@@ -249,7 +249,7 @@ Normally, jrubyc --java(c) will include the complete source of your script in th
  end
 ```
 
-; java_package
+== java_package ==
 :
 
 ```ruby
