@@ -719,7 +719,6 @@ See the [[RedBridgeServletExamples]] page.
 See the [[RedBridgeWay]] page.
 
 = See Also =
-* [[JRubyOptions]]
 * [[CallingJavafromJRuby|Calling Java from JRuby]]
 * [[AccessingJRubyObjectinJava|Accessing JRuby Object in Java]]
 * [http://www.blogger.com/posts.g?blogID=22066395&searchType=ALL&txtKeywords=&label=RedBridge JRuby Embed (Red Bridge) info]
