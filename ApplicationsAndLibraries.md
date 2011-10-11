@@ -6,7 +6,7 @@ This page provides links to help pages for commonly used libraries and applicati
 Common Applications
 -------------------
 * [[Hpricot]] - Installing a version of Hpricot which works on JRuby
-* [FFI](http://kenai.com/projects/ruby-ffi/pages/Home) - Use FFI to bind to dynamic load libraries
+* [FFI](https://github.com/ffi/ffi) - Use FFI to bind to dynamic load libraries
 
 GUI Frameworks
 --------------
