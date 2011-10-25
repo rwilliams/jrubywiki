@@ -342,6 +342,7 @@ JRuby defines a number of additional methods for Java objects.
 * `java_object` returns the underlying Java object. This is useful for reflection.
 * `java_send` overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as `initialize`, with names that conflict with built-in Ruby methods. More below. _Added in JRuby 1.4_
 * `java_method` retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`. More below. _Added in JRuby 1.4_
+* `java_alias` aliases a specific method name and signature to a new Ruby method name
 
 Calling masked or unreachable Java methods with `java_send`
 -----------------------------------------------------------
@@ -366,19 +367,6 @@ Here is another example of calling the `ArrayList.add` method with `java_send`:
 
 Note the second argument, which is an array of types indicating the exact method signature desired. This is useful for disambiguating methods that are overloaded on similar types such as `int` and `long`.
 
-Reflection
-----------
-
-Here is an example that shows using java's reflection within jruby
-
-```ruby
-  @mgr = javax.media.rtp.RTPManager.newInstance
-  localhost = java.net.InetAddress.getByName("127.0.0.1")
-  localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
-  method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
-  method.invoke @mgr.java_object, localaddr.java_object
-```
-
 Bound and Unbound Java methods with `java_method`
 -------------------------------------------------
 
@@ -396,6 +384,33 @@ Similarly, an Unbound method object can be retrieved:
  # get an UnboundMethod from the ArrayList class:
  toString = ArrayList.java_method :toString
  toString.bind(list).call # => [foo, foo]
+```
+
+Aliasing a specific method with `java_alias`
+--------------------------------------------
+
+If you'll be calling a specific unreachable Java method a lot, or if a Java method has many overloads and you want to avoid the overhead of selecting the right one every time, you can use `java_alias` to alias a specific Java method name + signature to a Ruby name.
+
+```ruby
+ import java.util.ArrayList
+ class ArrayList
+   java_alias :simple_add, :add, [Java::int, java.lang.Object]
+ end
+ list = ArrayList.new
+ list.simple_add 0, 'foo'
+```
+
+Reflection
+----------
+
+Here is an example that shows using java's reflection within jruby
+
+```ruby
+  @mgr = javax.media.rtp.RTPManager.newInstance
+  localhost = java.net.InetAddress.getByName("127.0.0.1")
+  localaddr = javax.media.rtp.SessionAddress.new(localhost, 21000, localhost, 21001)
+  method = @mgr.java_class.declared_method(:initialize, javax.media.rtp.SessionAddress )
+  method.invoke @mgr.java_object, localaddr.java_object
 ```
 
 Conversion of Types
