@@ -79,107 +79,102 @@ We don't need Maven a whole lot, if at all, for Rails development, however it is
 
 Courtesy of [http://www.leonardoborges.com/writings/2009/07/01/jruby-on-rails-and-legacy-java-apps-managing-dependencies/ this awesome blog post], we have a pom that will copy all of our needed jar files into the rails app's <code>lib/</code> directory.  Note that you have to run this manually whenever you change your dependencies.  Your <code>pom.xml</code> will look something like:
 
-  &lt;project 
-   xmlns="http://maven.apache.org/POM/4.0.0" 
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
- &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
- 
- &lt;groupId&gt;com.company&lt;/groupId&gt;
- &lt;!-- notice how we specify the packaging to be a war,
-       that way, maven knows where to copy the jar files --&gt;
- &lt;packaging&gt;war&lt;/packaging&gt;
- &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
- &lt;artifactId&gt;railsApp&lt;/artifactId&gt;
- &lt;name&gt;railsApp&lt;/name&gt;
- &lt;dependencies&gt;
-   &lt;dependency&gt;
-     &lt;groupId&gt;com.company&lt;/groupId&gt;
-     &lt;artifactId&gt;java-legacy-app&lt;/artifactId&gt;
-     &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-     &lt;scope&gt;compile&lt;/scope&gt;
-   &lt;/dependency&gt;
- &lt;/dependencies&gt;
- &lt;build&gt;
-   &lt;finalName&gt;railsApp&lt;/finalName&gt;
-   &lt;plugins&gt;
-   &lt;plugin&gt;
-     &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-     &lt;artifactId&gt;exec-maven-plugin&lt;/artifactId&gt;
-     &lt;executions&gt;
-       &lt;execution&gt;
-       &lt;!-- This tasks only creates a basic structure 
-       expected by maven,
-       so it can do its work --&gt;
-         &lt;id&gt;create-mock-web-descriptor&lt;/id&gt;
-         &lt;phase&gt;compile&lt;/phase&gt;
-         &lt;configuration&gt;
-           &lt;executable&gt;/bin/sh&lt;/executable&gt;
-           &lt;workingDirectory&gt;.&lt;/workingDirectory&gt;
-           &lt;arguments&gt;
-             &lt;argument&gt;-c&lt;/argument&gt;
-             &lt;argument&gt;
-               mkdir -p src/main/webapp/WEB-INF
-               touch    src/main/webapp/WEB-INF/web.xml
-             &lt;/argument&gt;
-           &lt;/arguments&gt;
-         &lt;/configuration&gt;
-         &lt;goals&gt;
-           &lt;goal&gt;exec&lt;/goal&gt;
-         &lt;/goals&gt;
-       &lt;/execution&gt;
-       &lt;execution&gt;
-       &lt;!-- Now in the package phase we copy the 
-       jar files that maven put into the fake 
-       web app to our rails' lib folder --&gt;
-         &lt;id&gt;copy-needed-jars-into-lib&lt;/id&gt;
-         &lt;phase&gt;package&lt;/phase&gt;
-         &lt;configuration&gt;
-           &lt;executable&gt;/bin/sh&lt;/executable&gt;
-           &lt;workingDirectory&gt;.&lt;/workingDirectory&gt;
-           &lt;arguments&gt;
-             &lt;argument&gt;-c&lt;/argument&gt;
-             &lt;argument&gt;
-               rm -f lib/*.jar
-               cp target/railsApp/WEB-INF/lib/*.jar lib
-               rm -rf target/railsApp*
-               rm -rf src
-             &lt;/argument&gt;
-           &lt;/arguments&gt;
-         &lt;/configuration&gt;
-         &lt;goals&gt;
-           &lt;goal&gt;exec&lt;/goal&gt;
-         &lt;/goals&gt;
-       &lt;/execution&gt;
-       &lt;execution&gt;
-       &lt;!-- Here we optionally create the final war file 
-       containing our rails app using warbler,
-       doing a small cleanup of the files 
-       and folders maven created  --&gt;
-         &lt;id&gt;create-final-war&lt;/id&gt;
-         &lt;phase&gt;package&lt;/phase&gt;
-         &lt;configuration&gt;
-           &lt;executable&gt;/bin/sh&lt;/executable&gt;
-           &lt;workingDirectory&gt;.&lt;/workingDirectory&gt;
-           &lt;arguments&gt;
-             &lt;argument&gt;-c&lt;/argument&gt;
-             &lt;argument&gt;
-                rm -rf *.war tmp/war
-                jruby -S warble &amp;&amp; \
-                mv *.war target/railsApp.war
-             &lt;/argument&gt;
-           &lt;/arguments&gt;
-         &lt;/configuration&gt;
-         &lt;goals&gt;
-           &lt;goal&gt;exec&lt;/goal&gt;
-         &lt;/goals&gt;
-       &lt;/execution&gt;
-     &lt;/executions&gt;
-   &lt;/plugin&gt;
-  &lt;/plugins&gt;
- &lt;/build&gt;
- &lt;/project&gt;
-
+  <project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.company</groupId>
+  <!-- notice how we specify the packaging to be a war, that way, maven knows 
+    where to copy the jar files -->
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <artifactId>railsApp</artifactId>
+  <name>railsApp</name>
+  <dependencies>
+    <dependency>
+      <groupId>com.company</groupId>
+      <artifactId>java-legacy-app</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>railsApp</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <!-- This tasks only creates a basic structure expected by maven, 
+              so it can do its work -->
+            <id>create-mock-web-descriptor</id>
+            <phase>compile</phase>
+            <configuration>
+              <executable>/bin/sh</executable>
+              <workingDirectory>.</workingDirectory>
+              <arguments>
+                <argument>-c</argument>
+                <argument>
+                  mkdir -p src/main/webapp/WEB-INF
+                  touch src/main/webapp/WEB-INF/web.xml
+             </argument>
+              </arguments>
+            </configuration>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+          <execution>
+            <!-- Now in the package phase we copy the jar files that maven 
+              put into the fake web app to our rails' lib folder -->
+            <id>copy-needed-jars-into-lib</id>
+            <phase>package</phase>
+            <configuration>
+              <executable>/bin/sh</executable>
+              <workingDirectory>.</workingDirectory>
+              <arguments>
+                <argument>-c</argument>
+                <argument>
+                  rm -f lib/*.jar
+                  cp target/railsApp/WEB-INF/lib/*.jar lib
+                  rm -rf target/railsApp*
+                  rm -rf src
+             </argument>
+              </arguments>
+            </configuration>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+          <execution>
+            <!-- Here we optionally create the final war file containing 
+              our rails app using warbler, doing a small cleanup of the files and folders 
+              maven created -->
+            <id>create-final-war</id>
+            <phase>package</phase>
+            <configuration>
+              <executable>/bin/sh</executable>
+              <workingDirectory>.</workingDirectory>
+              <arguments>
+                <argument>-c</argument>
+                <argument>
+                  rm -rf *.war tmp/war
+                  jruby -S warble && \
+                  mv *.war target/railsApp.war
+             </argument>
+              </arguments>
+            </configuration>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  </project>
 
 Then, to update dependencies:
 
