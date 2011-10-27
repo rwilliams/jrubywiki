@@ -1,4 +1,46 @@
-Sometimes it's not enough to be able to call Java classes from Ruby, embed Ruby via a scripting API, or implement Java interfaces or extend Java classes at runtime. There are many APIs and services that require you to have a real Java .class file on disk, callable from Java code, visible to Java compilers, and configurable in various types of configuration files. To participate in these services, you need a "real" Java class.
+Generating Java Classes
+=======================
+
+Sometimes it's not enough to be able to call Java classes from Ruby, embed Ruby via a scripting API, or implement Java interfaces or extend Java classes at runtime. There are many APIs and services that require you to have a real Java .class file on disk, callable from Java code, visible to Java compilers, and/or configurable in various types of configuration files. To participate in these services, you need a "real" Java class.
+
+There are two mechanisms for accomplishing this.
+
+Generating Java Classes at Runtime using become_java!
+-----------------------------------------------------
+
+If you ```require 'jruby/core_ext'```, All Ruby classes gain a new method: become_java!. become_java! examines the class's methods and generates a real Java class for it. Subsequent instantiations of the Ruby class will actually be instances of that generated Java class, allowing it to show up to Java tools and be reflectively accessible by Java APIs.
+
+Here's a simple example:
+
+```
+class Foo
+  def some_method(arg)
+    puts arg
+  end
+
+  def self.class_method
+    puts 'in class method'
+  end
+end
+```
+
+If we call become_java! on this class, we get a ```java.lang.Class``` object representing the newly created class that will be used to create instances.
+
+```
+cls = Foo.become_java!
+cls.declared_methods.each do |method|
+  puts method.simple_name
+end
+# =>
+# public static void rubyobj.Foo.clinit(org.jruby.Ruby,org.jruby.RubyClass)
+# public org.jruby.runtime.builtin.IRubyObject rubyobj.Foo.some_method(org.jruby.runtime.builtin.IRubyObject[])
+# public static org.jruby.runtime.builtin.IRubyObject rubyobj.Foo.class_method()
+```
+
+The resulting Java class has an instance method named ```some_method``` and a static method named ```class_method```.
+
+Generating Java Classes Ahead-of-time
+-------------------------------------
 
 Starting with JRuby 1.5, the jrubyc command now has two new flags: --java and --javac. The --java flag generates .java source from Ruby scripts that have classes in them. --javac does that and also compiles the sources for you.
 
