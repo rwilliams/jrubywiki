@@ -42,7 +42,7 @@ __TOC__
   end
 ```
 ===Java: <tt>ISpeaker.java</tt>===
-<pre name="java">
+```java
     package com.example;
     
     public interface ISpeaker {
@@ -50,9 +50,9 @@ __TOC__
         
         public void addOne(String from);
     }
-</pre>
+```
 ===Java: <tt>CallMe.java</tt>===
-<pre name="java">
+```java
     package com.example;
     
     public class CallMe {
@@ -75,9 +75,9 @@ __TOC__
             System.out.println("Called main");
         }
     }
-</pre>
+```
 ===Java: <tt>CallRuby.java</tt>===
-<pre name="java">
+```java
     package com.example;
     
     import org.apache.bsf.BSFManager;
@@ -210,7 +210,7 @@ __TOC__
             ruby.addOne("end");
         }
     }
-</pre>
+```
 '''Note:''' If you have only simple interface requirements, you can use the second method of proxying the ruby object to include method level synchronization.
 
 '''Note:''' BSF calling does not preserve ruby stack traces (add an error to a script and run both ways using the code above).
