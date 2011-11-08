@@ -400,3 +400,24 @@ JRuby 1.1.2 changed how it set up the classpath. Earlier versions merged the CLA
 You tried the performance tuning option --server but received an error like "Error: no `server' JVM at `c:\Program Files\Java\jre6\bin\server\jvm.dll'."
 On windows the Java Runtime Environment (JRE) inclues the client VM by default but does not include the server VM. You should download an install the Java Development Kit (JDK). 
 If you want to use the server VM with the JRE, you can copy JDK's jre\bin\server folder to a bin\server directory in the Java SE Runtime Environment.
+
+How can I make JRuby always use IPv4 addresses, rather than trying to use IPv6
+------------------------------------------------------------------------------
+
+Some JDKs (like OpenJDK/Sun/Oracle/Hotspot) try to use IPv6 addresses for e.g. "localhost" when possible.
+If using only similar JDKs to connect, this isn't a problem. However, other tools usually prefer IPv4 addresses and may have trouble connecting.
+
+You can adjust how the JDK (at least OpenJDK/Sun/Oracle/Hotspot) decides to use IPv6 versus IPv4 addresses
+via these [networking properties](http://download.oracle.com/javase/1.4.2/docs/guide/net/properties.html).
+You can add them to the Java startup options like this:
+
+```
+export JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
+jruby ...
+```
+
+Or pass directly to JRuby using -J-D like this:
+
+```
+jruby -J-Djava.net.preferIPv4Stack=true ...
+```
