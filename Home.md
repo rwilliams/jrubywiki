@@ -48,7 +48,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Success Stories|SuccessStories]]
 * [[Case Studies|CaseStudies]]
 * [[Articles]]
-* [[In Your Region|InYourRegion]]
+* [[In Your Region]]
 
 **Getting Involved**
 
