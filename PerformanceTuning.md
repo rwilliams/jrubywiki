@@ -50,6 +50,12 @@ To enable thread pooling, set the Java system property `jruby.thread.pooling` to
 
 For a list of all the thread pooling parameters, see [Thread Pooling Runtime Properties](#thread_pool_rt_props).
 
+Enable coroutine-based Fibers
+-----------------------------
+Enables coroutine support for Ruby 1.9 [Fibers](http://www.ruby-doc.org/core-1.9/Fiber.html). This requires JRuby 1.6.5 or later and a JVM with the coroutine [MLVM](http://openjdk.java.net/projects/mlvm/) patch applied. Binary builds (for Linux) are [available](http://ssw.jku.at/General/Staff/LS/coro/) from the patch author. 
+
+    jruby -J-Djruby.fiber.coroutines=true myscript.rb
+
 Using JRuby's Fast Mode
 -----------------------
 JRuby 1.2 and later ships with a `--fast` flag that turns on a number of runtime features to provide optimal performance without breaking Ruby features needed by common applications. It enables the following modes:
