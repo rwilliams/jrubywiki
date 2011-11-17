@@ -56,3 +56,30 @@ This entry is meant to list books that are specifically JRuby related. Links are
 * **Publisher's Page**: http://www.apress.com/9781590598818
 * **Amazon Page**: http://www.amazon.com/dp/1590598814/
 * **Format(s)**: Print, EPUB, MOBI, PDF
+
+## [GERMAN] Ruby on Rails für JEE-Experten: Umfassender Einstieg in Rails und JEE-Integration mit JRuby
+
+> LECKERBISSEN FÜR JEE-ENTWICKLER - Topaktuell: Basiert auf Rails 2.1 - Lernen Sie die Vorzüge von Ruby on Rails kennen 
+> und erfahren Sie, wie Sie Ihre JEE-Anwendungen mit JRuby integrieren können. - Verfolgen Sie, wie der Onlineshop 
+> briefcasten.com in 7 Iterationen entsteht, und erfahren Sie live, wie Rails und JRuby funktionieren. -Kostenloser 
+> Download für alle Käufer des Buches: Alle Quellcodes des Buches unter www.pastie.org Screencasts zu den Iterationen 
+> des Onlineshops unter www.briefcasten.com Sie sind JEE-Entwickler und haben schon von dem sagenhaften Webframework 
+> Ruby on Rails und den vielen Web 2.0-Projekten, die damit umgesetzt werden, gehört? Sie wollen wissen, was es damit 
+> wirklich auf sich hat und wie Sie Ihre Java-Enterprise-Anwendungen um Rails-Anwendungen ergänzen können? Oder 
+> vielleicht sogar ganz umsteigen? Dann sind Sie hier genau richtig! Dieses Praxisbuch von Michael Johann ist ein 
+> Standardwerk für die professionelle Anwendungsentwicklung mit Ruby on Rails ab Version 2.1. Es wendet sich gezielt an 
+> JEE-Entwickler und setzt Java-Wissen voraus. Die Konzepte von Rails und die Unterschiede zu Java EE lernen Sie anhand 
+> zahlreicher Beispiele detailliert kennen. Sie erfahren auch, wie sich Rails-Anwendungen dank JRuby in die 
+> Java-Enterprise-Welt integrieren lassen. An einem realistischen Projekt in 7 Iterationen zeigt der Autor, wie ein 
+> komplette Web-Seite mit Shop und Abrechnungsschnittstelle zu Paypal entsteht. Zu jeder Iteration gibt es einen 
+> Screencast, auf den Sie als Besitzer dieses Buches kostenlosen Zugriff haben, um sich das Wissen noch effektiver und 
+> schneller anzueignen. Aus dem Inhalt: Einführung in Ruby on Rails - Einführungs-Tutorial: Newsfeed-Verwaltung - 
+> Testgetriebene Entwicklung - Ruby: Das Wichtigste - Versionskontrolle - JRuby - Projekt: briefcasten.com - 
+> Internationalisierung und Lokalisierung
+ 
+* **Author(s)**: Michael Johann
+* **ISBN**: 978-3446415355
+* **Publisher**: Hanser (1. Oktober, 2008)
+* **Publisher's Page**: http://www.hanser.de
+* **Amazon Page**: http://www.amazon.de/Ruby-Rails-f%C3%BCr-JEE-Experten-JEE-Integration/dp/3446415351/ref=sr_1_1?ie=UTF8&qid=1321560501&sr=8-1
+* **Format(s)**: Print, PDF
