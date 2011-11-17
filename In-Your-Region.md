@@ -97,6 +97,9 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 * [Tom Morris](http://tommorris.org/) - use JRuby for hacking, glue scripts and other instances of making cool things.
 * [Dan Lucraft](http://danlucraft.com/) - contributed the built-in JRuby graph profiler, wrote a JRuby IDE (Redcar). Have given talks on JRuby to the London Ruby User Group and to BBC developers.
 
+#####Exeter####
+* [David Glassborow](http://www.conceptfirst.com/) - Do various internal systems on JRuby, usually hosted in torquebox, looking to do some product development as well.
+
 ##United States##
 
 ###Arizona###
