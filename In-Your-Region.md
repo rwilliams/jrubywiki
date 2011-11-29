@@ -122,6 +122,8 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 ####Boulder/Denver Area####
 * Frederic Jean <frederic.jean@sun.com>, <fred@fredjean.net> - Staff Engineer at Sun Microsystems currently working on http://kenai.com . Speaker coordinator for the [Boulder JUG](http://boulderjug.org) and attends Derailed and Boulder Ruby. Works on [JRuby MemCache Client](http://github.com/ikai/jruby-memcache-client).
 
+* [OpenLogic](http://www.openlogic.com/) - We wrote a tool that discovers open source code on developer machines and servers using JRuby.  It's been used by large enterprises, small shops, and everything in between since 2006.
+
 ###Florida###
 ####Jacksonville, Sarasota, Naples####
 * Eric Fleming <efleming@gmail.com> - Actively using JRuby on Rails at work.  Worked on hybrid Java/JRuby on Rails sites.  Deploying JRuby packaged as war files to Amazon EC2 and Elastic Beanstalk.  Used JRuby to extend core Java classes in order to make them more Ruby friendly when used in Rails apps.
