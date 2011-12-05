@@ -103,6 +103,15 @@ What incompatibilities does JRuby have with the C implementation of Ruby?
 
 See [[Differences Between MRI and JRuby|DifferencesBetweenMriAndJruby]].
 
+Does JRuby support Ruby 1.9.x features?
+---------------------------------------
+
+Yes. JRuby officially started supporting 1.9.2 features as of the 1.6.x line of releases, though it
+is not default in those versions. You must specify the --1.9 flag at the command line or in a JRUBY_OPTS
+environment variable, or add "compat.version=1.9" to .jrubyrc (on 1.6.5 or higher).
+
+JRuby will make 1.9 mode default in some version after the 1.6.x line.
+
 How do I run JRuby without the command-line scripts?
 ----------------------------------------------------
 
