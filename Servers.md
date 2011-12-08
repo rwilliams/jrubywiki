@@ -37,6 +37,6 @@ There are also several cloud and hosting services that either directly support J
 
 The following services are known to work. Other webapp services *should* generally support JRuby applications (via Warbler) as well.
 
-* [[Engine Yard|http://www.engineyard.com/]] - Direct support, in private beta now.
+* [[Engine Yard|http://www.engineyard.com/]] - Direct support, generally available now.
 * [[Google AppEngine|http://code.google.com/p/appengine-jruby/wiki/GettingStarted]] - Indirect support, but a community exists around JRuby deployment
 * [[Amazon Elastic BeanStalk|http://blog.headius.com/2011/01/jruby-on-rails-on-amazon-elastic.html]] - An elastic Java webapp cloud from Amazon based on Tomcat.
