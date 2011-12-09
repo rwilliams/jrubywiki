@@ -18,7 +18,7 @@ Ok hand-waving is over and obviously this is sparse on details.  Here are the ma
 
 1. $SECURITY is multi-dimensional on facilities it can enforce and therefore extensible over time.  :io was given as an example, but any named facility can be provided.  This also is much more intuitive than 1-5.
 1. Policy enforcement is a value.  Builtin values can expand over time like :warn and :error, but a user-defined policy can also exist.
-1. Each facility defined should have a set of conformance specs.  Lack of coverage in reality should lead to a new set of specs to verify conformance.  This develops confidence in the facility.
+1. Each facility defined should have a set of conformance specs.  Lack of coverage in reality should lead to a new set of specs to verify conformance.  This develops confidence in the facility.  Conformance only ensures core conformance.  It does not help for extensions to the implementation.
 
 A few concerns about the proposal:
 
