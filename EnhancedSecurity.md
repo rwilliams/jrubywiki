@@ -20,9 +20,11 @@ Ok hand-waving is over and obviously this is sparse on details.  Here are the ma
 1. Policy enforcement is a value.  Builtin values can expand over time like :warn and :error, but a user-defined policy can also exist.
 
 A few concerns I have about the proposal:
+
 1. This is prone to the same brittleness where a missing a place where a facility is used is akin to busting a hole in your runtime.  Aint security a bitch.
 1. People may not realize that user-defined policy will have some serious consequences on overall performance.
 
 Questions I have:
+
 1. What values should actually be passed into a policy?
 1. Should the interface for policies be uniform or match what the policy represents?
