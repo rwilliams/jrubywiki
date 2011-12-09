@@ -18,7 +18,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Standalone Jars and Classes|StandaloneJarsAndClasses]]
 * [[Performance Tuning|PerformanceTuning]]
 * [[C extension alternatives]]
-* [[Troubleshooting]]
+* [[Troubleshooting]] - Improving Startup Time, Memory Use, etc.
 * [[FAQs]]
 
 **Web Applications (Rails, servers, others)**
