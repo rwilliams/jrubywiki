@@ -22,7 +22,7 @@ Ok hand-waving is over and obviously this is sparse on details.  Here are the ma
 
 A few concerns about the proposal:
 
-1. This is prone to the same brittleness where missing a place where a facility is used is akin to busting a hole in your runtime.  Ain't security a bitch.
+1. This is prone to the same brittleness where missing a place where a facility is used is akin to busting a hole in your runtime.  Ain't security a bitch.  [Note: See above about spec converage for proof of conformance.  Not perfect, but good way of ensuring eventual convergence]
 1. People may not realize that user-defined policy will have some serious consequences on overall performance.
 
 Questions:
