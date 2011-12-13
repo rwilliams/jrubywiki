@@ -1,5 +1,7 @@
 Because JRuby runs on the JVM, the memory profile of a typical Ruby application will differ from what you might normally see under the standard C implementation of Ruby. This page discusses a few reasons for this difference and what you can do about it (when there's something that needs to be done, at least).
 
+Some tips have been collected on [[Improving Memory Consumption|Improving-Memory-Consumption]].
+
 Generational GC likes memory
 ============================
 
