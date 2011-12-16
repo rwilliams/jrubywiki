@@ -32,4 +32,8 @@ Run the JRuby tests:
 
     ant test
 
+Build the tarballs, zip files and dmg for every platform:
+
+    ant dist
+
 See [[Getting Started|GettingStarted]] for information on using JRuby.
