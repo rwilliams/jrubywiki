@@ -12,7 +12,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Configuring JRuby|ConfiguringJRuby]]
 * [[Walkthroughs and Tutorials|WalkthroughsandTutorials]]
 * [[Help With Libraries and Applications|ApplicationsAndLibraries]]
-* [[ Embedding JRuby|RedBridge ]]
+* [[Embedding JRuby|RedBridge]]
 * [[Scripting Java from JRuby|CallingJavaFromJRuby]]
 * [[Generating Java classes|GeneratingJavaClasses]]
 * [[Standalone Jars and Classes|StandaloneJarsAndClasses]]
@@ -20,6 +20,10 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[C extension alternatives]]
 * [[Troubleshooting]] - Improving Startup Time, Memory Use, etc.
 * [[FAQs]]
+
+**JRuby Specifics**
+
+* [[Concurrency in JRuby]]
 
 **Web Applications (Rails, servers, others)**
 
