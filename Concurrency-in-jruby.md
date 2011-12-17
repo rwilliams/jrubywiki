@@ -28,7 +28,7 @@ Thread Safety
 Thread Safety refers to the ability to perform operations against a shared structure across multiple threads
 and know there will be no resulting errors or data integrity issues.
 
-The JRuby runtime itself is considered to be threadsafe. From Java, you can use a single runtime safely across threads, provided the code in those thread does not do thread-unsafe Ruby operations listed below. From Ruby, this means that the JRuby runtime itself will never be corrupted by concurrent operations.
+The JRuby runtime itself is considered to be threadsafe. From Java, you can use a single runtime safely across threads, provided the code in those threads does not do thread-unsafe Ruby operations listed below. From Ruby, this means that the JRuby runtime itself will never be corrupted by concurrent operations.
 
 More specifically, the following operations are thread-safe in JRuby:
 
