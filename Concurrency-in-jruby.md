@@ -83,8 +83,8 @@ Very few operations in JRuby have any guaranteed atomicity. Usually, this is exp
 
 A number of common Ruby features, however, are *not* guaranteed atomic, even though they may imply such.
 
-* Conditional updates of the form ```||=``` or ```&&=```. These are not actually atomic in any version of Ruby, and expand logically to a read followed by a write. Additionally, there's no guarantee the right-hand side (the value expression) will only execute once.
-* Updates with modification, as in ```+=```, ```-=``` and friends. These expand to a read, method call, and write.
+* Conditional updates of the form ```||=``` or ```&&=```. These are not actually atomic in any version of Ruby, and expand logically to a read followed by a test and potentially a write. Additionally, there's no guarantee the right-hand side (the value expression) will only execute once.
+* Updates with modification, as in ```+=```, ```-=``` and friends. These expand to a read, method call, and write. Under concurrency, the write may wipe out another thread's update.
 
 If you need atomic operations, we recommend using the ```atomic``` gem. The ```atomic``` gem provides a number of operations for doing atomic updates:
 
