@@ -73,7 +73,7 @@ If you wish to ensure you are making volatile updates to a reference, we recomme
 Atomicity
 ---------
 
-Atomicity refers to the ability to perform a write to memory based on some view of that memory and to know the write happens before the view is invalid. There is a strong parallel here with volatility. An example would be updating a value if and only if it is still null. See the important not about the *lack* of atomicity in Ruby's ||= operation below.
+Atomicity refers to the ability to perform a write to memory based on some view of that memory and to know the write happens before the view is invalid. There is a strong parallel here with volatility. An example would be updating a value if and only if it is still null. See the important note about the *lack* of atomicity in Ruby's ||= operation below.
 
 Very few operations in JRuby have any guaranteed atomicity. Usually, this is expected; most operations are done as simple reads or unconditional writes, like constant initialization, method definition, and so on. A few operations, however, are done atomically:
 
