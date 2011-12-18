@@ -22,11 +22,13 @@ In general, the safest path to concurrency in JRuby is the same as on any other 
 Outside the Ruby specifics described below, JRuby operates within the confines of the
 [Java Memory Model](http://www.cs.umd.edu/users/pugh/java/memoryModel/jsr-133-faq.html).
 
-Thread Safety of Language Features
-----------------------------------
+Thread Safety
+-------------
 
 Thread Safety refers to the ability to perform operations against a shared structure across multiple threads
 and know there will be no resulting errors or data integrity issues.
+
+### Language Features and the JRuby Runtime
 
 The JRuby runtime itself is considered to be threadsafe. From Java, you can use a single runtime safely across threads, provided the code in those threads does not do thread-unsafe Ruby operations listed below. From Ruby, this means that the JRuby runtime itself will never be corrupted by concurrent operations.
 
@@ -40,8 +42,7 @@ More specifically, the following operations are thread-safe in JRuby:
 * Autoloading libraries. A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
 * Updating instance variables. The race in this case is more subtle; if new instance variables are being defined for the first time in multiple threads, it's possible for one thread to throw away the results of another. If an object is going to be used across multiple threads, we recommend you initialize its instance variables in the #initialize method.
 
-Thread Safety of Standard Library
----------------------------------
+### Core Classes and Standard Library
 
 JRuby does not, however, make thread-safety guarantees about several core classes, primarily because introducing thread-safety (through locking) would negatively impact all non-threaded use of these structures.
 
