@@ -8,7 +8,7 @@ This page will contain information on JRuby's memory model, strategies for helpi
 Concurrency Basics
 ------------------
 
-JRuby maps Ruby threads to Java threads, which are usually mapped directly to native threads. This means a simple Ruby ```Thread.new { }``` produces a real OS thread that runs in parallel with the parent thread.
+JRuby maps Ruby threads to Java threads, which are usually mapped directly to native threads. This means a simple Ruby `Thread.new { }` produces a real OS thread that runs in parallel with the parent thread.
 
 JRuby provides the same concurrency primitives as standard Ruby in the 'thread' library (loaded by default in 1.9 mode). Mutex, ConditionVariable, Queue, and friends all work as they do in MRI, but they are often crucial to writing threadsafe code in JRuby.
 
@@ -73,20 +73,20 @@ If you wish to ensure you are making volatile updates to a reference, we recomme
 Atomicity
 ---------
 
-Atomicity refers to the ability to perform a write to memory based on some view of that memory and to know the write happens before the view is invalid. There is a strong parallel here with volatility. An example would be updating a value if and only if it is still null. See the important note about the *lack* of atomicity in Ruby's ||= operation below.
+Atomicity refers to the ability to perform a write to memory based on some view of that memory and to know the write happens before the view is invalid. There is a strong parallel here with volatility. An example would be updating a value if and only if it is still null. See the important note about the *lack* of atomicity in Ruby's `||=` operation below.
 
 Very few operations in JRuby have any guaranteed atomicity. Usually, this is expected; most operations are done as simple reads or unconditional writes, like constant initialization, method definition, and so on. A few operations, however, are done atomically:
 
 * Growing an instance variable table. This generally only comes into play early in execution, or if new instance variables are defined for the first time under concurrent execution.
-* Updates of LOADED_FEATURES ($") in response to concurrent requires. If a feature appears in LOADED_FEATURES, you know it has successfully completed loading in exactly one thread.
+* Updates of `LOADED_FEATURES` ($") in response to concurrent requires. If a feature appears in `LOADED_FEATURES`, you know it has successfully completed loading in exactly one thread.
 * The state of an autoloaded constant (1.9 mode only). Autoloads will only run and complete in exactly one thread.
 
 A number of common Ruby features, however, are *not* guaranteed atomic, even though they may imply such.
 
-* Conditional updates of the form ```||=``` or ```&&=```. These are not actually atomic in any version of Ruby, and expand logically to a read followed by a test and potentially a write. Additionally, there's no guarantee the right-hand side (the value expression) will only execute once.
-* Updates with modification, as in ```+=```, ```-=``` and friends. These expand to a read, method call, and write. Under concurrency, the write may wipe out another thread's update.
+* Conditional updates of the form `||=` or `&&=`. These are not actually atomic in any version of Ruby, and expand logically to a read followed by a test and potentially a write. Additionally, there's no guarantee the right-hand side (the value expression) will only execute once.
+* Updates with modification, as in `+=`, `-=` and friends. These expand to a read, method call, and write. Under concurrency, the write may wipe out another thread's update.
 
-If you need atomic operations, we recommend using the ```atomic``` gem. The ```atomic``` gem provides a number of operations for doing atomic updates:
+If you need atomic operations, we recommend using the `atomic` gem. The `atomic` gem provides a number of operations for doing atomic updates:
 
 * compare_and_set - only set the value if it is currently set to some and expected value.
 * get_and_set - get the current value and set a new one in a single operation.
@@ -96,6 +96,6 @@ In addition, there are simple get and set operations for achieving simple volati
 Additional Support
 ------------------
 
-Because JRuby is on the JVM, you also have access to all that the JVM offers in terms of concurrency. The ```java.util.concurrent``` package contains a number of threadsafe collections, queues, sets, and other data structures. The ```java.util.concurrent.atomic``` package provides atomic containers for reference and primitive types. And there are many actor libraries, transactional memory libraries, and other concurrency utilities available to you.
+Because JRuby is on the JVM, you also have access to all that the JVM offers in terms of concurrency. The `java.util.concurrent` package contains a number of threadsafe collections, queues, sets, and other data structures. The `java.util.concurrent.atomic` package provides atomic containers for reference and primitive types. And there are many actor libraries, transactional memory libraries, and other concurrency utilities available to you.
 
-JRuby also provides a non-standard way to convert any object or class into a fully-synchronized data structure: the ```JRuby::Synchronized``` module. You can simply require ```require 'jruby/synchronized'``` and then ```include JRuby::Synchronized``` into any class or ```obj.extend(JRuby::Synchronized)``` any object. The result is that all methods on that class or object will be wrapped in simple synchronization; that is, a reentrant lock against the object itself.
+JRuby also provides a non-standard way to convert any object or class into a fully-synchronized data structure: the `JRuby::Synchronized` module. You can simply require `require 'jruby/synchronized'` and then `include JRuby::Synchronized` into any class or `obj.extend(JRuby::Synchronized)` any object. The result is that all methods on that class or object will be wrapped in simple synchronization; that is, a reentrant lock against the object itself.
