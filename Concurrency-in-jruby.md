@@ -58,6 +58,10 @@ For all these cases, if an object ends up in an inconsistent state, either JRuby
 
 At least these classes are not considered thread-safe, and if you intend to mutate them concurrently with other operations you will want to introduce locking (e.g. with Mutex): String, Array, Hash, and any data structures derived from them.
 
+JRuby reuses the same standard library (the .rb files we ship but which you must require, like ```date``` or ```net/http```), and does not generally alter those libraries' thread-safety guarantees. Unfortunately, the thread-safety of many of these libraries is unknown at this time, though we do not have any outstanding bug reports of thread-unsafe standard libraries at this time.
+
+Notable exceptions are libraries which we have rewritten or replaced with pure-Java versions: ```thread```, ```weakref```, ```generator```, ```timeout```, and ```fcntl``` have been partially or completely rewritten, and are expected to be thread-safe.
+
 Volatility
 ----------
 
