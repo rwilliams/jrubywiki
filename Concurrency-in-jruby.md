@@ -83,7 +83,7 @@ Very few operations in JRuby have any guaranteed atomicity. Usually, this is exp
 
 * Growing an instance variable table. This generally only comes into play early in execution, or if new instance variables are defined for the first time under concurrent execution.
 * Updates of `LOADED_FEATURES` ($") in response to concurrent requires. If a feature appears in `LOADED_FEATURES`, you know it has successfully completed loading in exactly one thread.
-* The state of an autoloaded constant (1.9 mode only). Autoloads will only run and complete in exactly one thread.
+* The state of an autoloaded constant (from JRuby 1.7.x which is not out yet). Autoloads will only run and complete in exactly one thread.
 
 A number of common Ruby features, however, are *not* guaranteed atomic, even though they may imply such.
 
