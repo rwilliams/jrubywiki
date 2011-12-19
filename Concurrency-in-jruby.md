@@ -39,7 +39,7 @@ More specifically, the following operations are thread-safe in JRuby:
 * Defining or modifying constants and class variables.
 * Defining or modifying global variables.
 * Requiring libraries. Note that the code in those libraries may race, if for example multiple files try to modify the same classes. But concurrent requires will never leave the JRuby runtime in an inconsistent state.
-* Autoloading libraries. A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
+* (from JRuby 1.7.x which is not out yet) Autoloading libraries. A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
 * Updating instance variables. The race in this case is more subtle; if new instance variables are being defined for the first time in multiple threads, it's possible for one thread to throw away the results of another. If an object is going to be used across multiple threads, we recommend you initialize its instance variables in the #initialize method.
 
 ### Core Classes and Standard Library
@@ -83,7 +83,7 @@ Very few operations in JRuby have any guaranteed atomicity. Usually, this is exp
 
 * Growing an instance variable table. This generally only comes into play early in execution, or if new instance variables are defined for the first time under concurrent execution.
 * Updates of `LOADED_FEATURES` ($") in response to concurrent requires. If a feature appears in `LOADED_FEATURES`, you know it has successfully completed loading in exactly one thread.
-* The state of an autoloaded constant (from JRuby 1.7.x which is not out yet). Autoloads will only run and complete in exactly one thread.
+* (from JRuby 1.7.x which is not out yet) The state of an autoloaded constant. Autoloads will only run and complete in exactly one thread.
 
 A number of common Ruby features, however, are *not* guaranteed atomic, even though they may imply such.
 
