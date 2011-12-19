@@ -43,7 +43,9 @@ More specifically, the following operations are thread-safe in JRuby:
 * Updating instance variables.
 
 Note that thread safety does not mean threads will automatically agree on the results of concurrent
-modifications. Two threads that update the same data structure in the same way -- for example, two libraries required at the same time that try to define the same methods or constants -- will still race. You should take care in the following situations:
+modifications. Two threads that update the same data structure in the same way -- for example, two libraries required at the same time that try to define the same methods or constants -- will still race, and JRuby does not (nor should it) make ordering guarantees for such concurrent modifications (or for any non-atomic concurrent modifications throughout your code).
+
+You should take care in the following situations:
 
 * Concurrent requires, or lazy requires that may happen at runtime in a parallel thread. If objects are in flight while classes are being modified, or constants/globals/class variables are set before their referrents are completely initialized, other threads could have problems.
 * Instance variable updates for the first time for a given class/name pair. Because of the way JRuby lazily allocates space for instance variables, early in execution the instance variable table may be replaced when grown. If this happens under concurrent load, one thread's updates might disappear. This should only happen when a *new* class/name pair is being set, which should be rare after the application has booted. You can avoid this situation completely by initializing all variables you will use in the ```initialize``` method, though this adds a bit of additional overhead to object initialization.
