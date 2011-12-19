@@ -30,17 +30,23 @@ and know there will be no resulting errors or data integrity issues.
 
 ### Language Features and the JRuby Runtime
 
-The JRuby runtime itself is considered to be threadsafe. From Java, you can use a single runtime safely across threads, provided the code in those threads does not do thread-unsafe Ruby operations listed below. From Ruby, this means that the JRuby runtime itself will never be corrupted by concurrent operations.
+The JRuby runtime itself is considered to be threadsafe. From Java, you can use a single runtime safely across threads, provided the code in those threads does not do thread-unsafe Ruby operations listed below. From Ruby, this means that the JRuby runtime itself will never be corrupted by concurrent operations. Thread-safety does *not* mean your code will always run correctly; you will still often need to ensure threads don't step on each others' modifications.
 
 More specifically, the following operations are thread-safe in JRuby:
 
-* Opening or reopening a class. Note that there still may be races if two threads attempt to edit the same class in the same way at the same time.
-* Defining or modifying methods. The same race conditions apply, but a given class's method table will never be corrupted by concurrent modifications.
+* Opening or reopening a class.
+* Defining or modifying methods.
 * Defining or modifying constants and class variables.
 * Defining or modifying global variables.
-* Requiring libraries. Note that the code in those libraries may race, if for example multiple files try to modify the same classes. But concurrent requires will never leave the JRuby runtime in an inconsistent state.
-* (from JRuby 1.7.x which is not out yet) Autoloading libraries. A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
-* Updating instance variables. The race in this case is more subtle; if new instance variables are being defined for the first time in multiple threads, it's possible for one thread to throw away the results of another. If an object is going to be used across multiple threads, we recommend you initialize its instance variables in the #initialize method.
+* Requiring libraries.
+* Autoloading libraries (JRuby 1.7+, unreleased). A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
+* Updating instance variables.
+
+Note that thread safety does not mean threads will automatically agree on the results of concurrent
+modifications. Two threads that update the same data structure in the same way -- for example, two libraries required at the same time that try to define the same methods or constants -- will still race. You should take care in the following situations:
+
+* Concurrent requires, or lazy requires that may happen at runtime in a parallel thread. If objects are in flight while classes are being modified, or constants/globals/class variables are set before their referrents are completely initialized, other threads could have problems.
+* Instance variable updates for the first time for a given class/name pair. Because of the way JRuby lazily allocates space for instance variables, early in execution the instance variable table may be replaced when grown. If this happens under concurrent load, one thread's updates might disappear. This should only happen when *new* class/name pair is being set, which should be rare. You can avoid it completely by initializing all variables you will use in the ```initialize``` method, though this adds a bit of additional overhead to object initialization.
 
 ### Core Classes and Standard Library
 
