@@ -38,7 +38,7 @@ More specifically, the following operations are thread-safe in JRuby:
 * Defining or modifying methods. The same race conditions apply, but a given class's method table will never be corrupted by concurrent modifications.
 * Defining or modifying constants and class variables.
 * Defining or modifying global variables.
-* Requiring libraries. Note that the code in those libraries may race, if for example they try to modify the same classes. But concurrent requires will never leave the JRuby runtime in an inconsistent state. Additionally, in 1.9 mode only one thread can be in the process of loading a given file.
+* Requiring libraries. Note that the code in those libraries may race, if for example multiple files try to modify the same classes. But concurrent requires will never leave the JRuby runtime in an inconsistent state.
 * Autoloading libraries. A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
 * Updating instance variables. The race in this case is more subtle; if new instance variables are being defined for the first time in multiple threads, it's possible for one thread to throw away the results of another. If an object is going to be used across multiple threads, we recommend you initialize its instance variables in the #initialize method.
 
