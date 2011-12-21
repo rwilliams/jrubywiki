@@ -1,12 +1,12 @@
+Using the built-in profiler
+===========================
+
 Turning on the built in profiler
-================================
+--------------------------------
 
 JRuby has a built-in profiler that you can use in several ways.  The simplest way is to just add the --profile flag on the commandline, or in JRUBY_OPTS.  This outputs a flat profiler and is available as of JRuby 1.5.
 
 In JRuby 1.6, you can expand the above to --profile.flat for the (default) flat profile, --profile.graph for a graph profile, or --profile.api to turn on the profiling API, which allows you to selectively turn the profiler on and off directly from your Ruby code.
-
-Using the built-in profiler
-===========================
 
 Profiling an entire application
 -------------------------------
