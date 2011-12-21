@@ -24,6 +24,14 @@ To download and install JRuby: [Download a JRuby binary file](http://jruby.org/d
 
 **Note:** If you're on HP-UX, see [[Using JRuby on HPUX|JRubyOnHPUX11_23]].
 
+**Note:** If you're using RVM to install JRuby, remove these options from (your optional rubygems configuration file) ~/.gemrc: --conservative --local.
+
+With `--local', (at this writing) RVM fails to obtain the jruby-launcher gem required by jruby.
+
+With `--conservative', the older rubygems (at this writing, 1.8.9) currently used by JRuby fails to begin gem executables with #!/usr/bin/env, and that doesn't work on most systems (e.g. Linux earlier than 2.6.27.9, per http://www.in-ulm.de/~mascheck/various/shebang/#interpreter-script).
+
+Then: rvm install jruby ; rvm use jruby
+
 ### Linux and OSX Installation Example
 Once you've downloaded or built a JRuby installation and it is located in the directory `/opt/jruby`, you'll need to add `/opt/jruby/bin` to the end of your `$PATH` environment variable.
 
