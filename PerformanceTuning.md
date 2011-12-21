@@ -6,7 +6,7 @@ Profiling an application
 ------------------------
 JRuby has a built-in profiler that can be used to profile the entire stack all the way down to a single line of code.
 
-* See [Profiling JRuby] for more details.
+* See [[Profiling JRuby]] for more details.
 
 Tuning the compiler
 -------------------
