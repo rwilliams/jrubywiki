@@ -56,4 +56,3 @@ See also:
 * [[Rails AOT|Compiling Rails' controllers and models AOT]]
 * [[Rails Eclipse Jetty Maven|Rails on Eclipse + Run Jetty Run + Maven]]
 * [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapter]
-* [http://mathias-biilmann.net/2010/2/jruby-and-rails-3-beta-step-by-step Running Rails 3 pre on JRuby]
