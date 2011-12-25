@@ -26,6 +26,8 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[curb][]** - [Rurl][] is an example how to implement _some_ of curb's functionality using [Apache HttpClient][]
 
+* **[therubyracer][]** - Try using [therubyrhino][] instead.
+
 Please add to this list with your findings.
 
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
@@ -55,3 +57,5 @@ Please add to this list with your findings.
 [win32ole]: http://www.ruby-doc.org/stdlib/libdoc/win32ole/rdoc/index.html
 [Rurl]: https://github.com/rcyrus/Rurl
 [curb]: http://curb.rubyforge.org/
+[therubyracer]: https://github.com/cowboyd/therubyracer
+[therubyrhino]: https://github.com/cowboyd/therubyrhino
