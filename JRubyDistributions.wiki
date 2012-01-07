@@ -7,13 +7,13 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 !Current version (1.6.0)
 !Notes
 |-
-|Ruby
+|POSIX
 |[https://github.com/sstephenson/rbenv rbenv]
 | 
 | 1.6.5.1, 1.7.0-dev
 | see also [https://github.com/sstephenson/ruby-build ruby-build] (available Ruby interpreters: ruby-build --definitions)
 |-
-|Ruby
+|POSIX
 |[https://rvm.beginrescueend.com RVM]
 | 
 | 1.6.5.1, 1.7.0-edge
