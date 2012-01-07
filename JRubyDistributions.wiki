@@ -64,7 +64,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 |Windows
 |install4j
 | jruby-core
-| 1.6.0
-| [http://jruby.org/download/ download installer]
+| 1.6.5.1
+| [http://jruby.org/download download installer]
 |}
 
