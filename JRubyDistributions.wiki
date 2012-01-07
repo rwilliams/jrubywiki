@@ -1,4 +1,4 @@
-JRuby is available at our [http://www.jruby.org/download website], but it is also available in many distributions.  This page documents all the brave souls who help package up JRuby and distribute it via various packaging technologies. Currently, the best way of installing JRuby for POSIX systems is: [https://github.com/sstephenson/rbenv rbevn] or [https://rvm.beginrescueend.com/ RVM]. Using Linux packages is not as flexible and it is depreciated.
+JRuby is available at our [http://www.jruby.org/download website], but it is also available in many distributions.  This page documents all the brave souls who help package up JRuby and distribute it via various packaging technologies. Currently, the best way of installing JRuby for POSIX systems is: [https://github.com/sstephenson/rbenv rbevn] or [https://rvm.beginrescueend.com/ RVM]. Using Linux packages is not so flexible.
 
 {|- border="2"
 !OS
