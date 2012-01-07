@@ -11,7 +11,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 |[https://github.com/sstephenson/rbenv rbenv], available versions: 
 | 
 | 1.6.5.1
-| works better with [https://github.com/sstephenson/ruby-build ruby-build]; available Ruby versions: ruby-build --definitions
+| see also [https://github.com/sstephenson/ruby-build ruby-build] (available Ruby interpreters: ruby-build --definitions)
 |-
 |Ruby
 |[https://rvm.beginrescueend.com RVM]
