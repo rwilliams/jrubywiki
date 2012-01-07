@@ -8,13 +8,19 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 !Notes
 |-
 |Ruby
-|RVM
+|[https://github.com/sstephenson/rbenv rbenv], available versions: 
+| 
+| 1.6.5.1
+| + [ruby-build https://github.com/sstephenson/ruby-build], available Ruby versions: ruby-build --definitions
+|-
+|Ruby
+|[https://rvm.beginrescueend.com RVM]
 | 
 | 1.6.0
 |
 |-
 |MacOS
-|Macports
+|[http://www.macports.org/ MacPorts]
 | ameingast?
 | 1.5.2 [1.5.5 request]
 | [http://trac.macports.org/browser/trunk/dports/lang/jruby/Portfile portfile]
