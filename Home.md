@@ -66,7 +66,6 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * Distributions: [[JRubyDistributions]]
 * [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
 * [[JRuby Style Guide|JRubyStyleGuide]]
-* [How to Contribute to JRuby Effectively](http://blog.emptyway.com/2008/03/27/how-to-contribute-to-jruby-effectively)
 * [[JRuby and RubySpecs|JRubyAndRubySpecs]]
 * [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
 * [[Release Documentation|ReleaseDocumentation]]
