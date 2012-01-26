@@ -5,7 +5,20 @@ JRuby 1.6.0 - 1.6.5: Singleton support
 
 In JRuby 1.6.0 we added logic to JRuby's Java integration layer to know when a given class was a Scala singleton. The result is that when accessing a class that has an attached singleton object, you can simply call the singleton's methods directly.
 
-If you have a nice example of this, please add it here :)
+## Scala code
+
+    package app.helpers
+    
+    object JRuby {
+      def test = "I am static"
+    }
+
+## Ruby code
+
+    require 'java'
+    # => true
+    Java::app.helpers.JRuby.test
+    # => "I am static"
 
 JRuby 1.6.6: Operator aliases
 =============================
