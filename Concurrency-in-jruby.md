@@ -35,6 +35,7 @@ The JRuby runtime itself is considered to be threadsafe. From Java, you can use 
 More specifically, the following operations are thread-safe in JRuby:
 
 * [Opening (or re-opening) a class](https://github.com/jruby/jruby/wiki/Concurrency in JRuby%3A Opening a class)
+* [Call site invalidations](MethodTableConcurrency)
 * Defining or modifying methods.
 * Defining or modifying constants and class variables.
 * Defining or modifying global variables.
