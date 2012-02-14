@@ -38,4 +38,5 @@ JRuby release preparation
 * Release the version in JIRA
 * Send emails to dev@jruby.codehaus.org, user@jruby.codehaus.org, ruby-talk@ruby-lang.org (plus any thing else you may find useful -- internal lists, etc...)
 * Update wikipedia entry
+* Update irc topic on #jruby "Topic changed to "Get 1.6.6! http://jruby.org/ | http://wiki.jruby.org | http://logs.jruby.org/jruby/ | Paste at http://gist.github.com"
 * Send out to all known packagers [[JRubyDistributions]]
