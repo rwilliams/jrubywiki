@@ -11,4 +11,4 @@ Here's some classic ideas to get you started:
 * JRuby for Embedded
 ** There's a few good JVMs that work on embedded devices, which means there's an opportunity for JRuby to expand into embedded applications.
 * Kilim integration
-** Kilim provides a fast coroutine implementation that could be used to provide Fibers or other lightweight tasks inside JRuby. Kilim can now weave bytecode so integration with a language like JRuby might now be practical.
+** Kilim provides a fast coroutine implementation that could be used to provide Fibers or other lightweight tasks inside JRuby. Kilim can now weave bytecode at runtime so integration with a language like JRuby might now be practical.
