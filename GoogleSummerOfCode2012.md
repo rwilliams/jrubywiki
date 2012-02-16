@@ -13,7 +13,7 @@ Here's some classic ideas to get you started:
 
 * The Ragel-generated JSON gem for JRuby is currently slower than C versions because Ragel does not generate gotos (since Java has no gotos). Investigate ways to improve perf, possibly by adding JVM bytecode support (JVM bytecode has goto) to Ragel.
 
-* jruby-openssl needs better compatibility with MRI's implementations
+* [jruby-openssl](https://github.com/jruby/jruby-ossl) needs better compatibility with MRI's implementations
 
 ## JRuby on Android: Ruboto
 
