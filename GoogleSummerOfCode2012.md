@@ -7,7 +7,11 @@ Here's some classic ideas to get you started:
 
 ## Native libraries that need a Java port 
 
-or wrap a Java lib?
+* or wrap a Java lib?
+
+* @headius's [wrapper around spymemcached](https://github.com/headius/jruby-spymemcached) needs a nice compatible Ruby API.
+
+* The Ragel-generated JSON gem for JRuby is currently slower than C versions because Ragel does not generate gotos (since Java has no gotos). Investigate ways to improve perf, possibly by adding JVM bytecode support (JVM bytecode has goto) to Ragel.
 
 ## JRuby on Android: Ruboto
 
