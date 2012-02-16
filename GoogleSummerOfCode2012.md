@@ -10,3 +10,5 @@ Here's some classic ideas to get you started:
 ** Ruboto is working, and has a solid IRB application and tools for generating apps. But there's more we can do, like shrinking the app, improving performance, and building better tooling.
 * JRuby for Embedded
 ** There's a few good JVMs that work on embedded devices, which means there's an opportunity for JRuby to expand into embedded applications.
+* Kilim integration
+** Kilim provides a fast coroutine implementation that could be used to provide Fibers or other lightweight tasks inside JRuby. Kilim can now weave bytecode so integration with a language like JRuby might now be practical.
