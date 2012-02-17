@@ -34,3 +34,7 @@ JRuby can make use of existing Java GUI toolkits like Swing via the existing Jav
 ## Maven support for Rubygems and Bundler
 
 JRuby has great java integration but it's a pain having to manage java dependencies manually. Making Rubygems and Bundler aware of Maven on JRuby would be awesome!
+
+## EventMachine on Netty
+
+Netty is *the* Java NIO library of choice. Eventmachine has a java reactor, but it is out of date, doesn't have feature parity and doesn't have any active maintainers. It would be great to (a) expose a nice Netty + Ruby API, and (b) provide an "EM compatibility layer" to help migrate existing EM projects onto JRuby. 
