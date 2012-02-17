@@ -30,3 +30,7 @@ Kilim provides a fast coroutine implementation that could be used to provide Fib
 ## JRuby GUI library
 
 JRuby can make use of existing Java GUI toolkits like Swing via the existing Java integration. It can be better. Ideas include resurrecting [monkeybars](http://monkeybars.rubyforge.org/) and building a wrapper for [JavaFX](http://javafx.com/).
+
+## Maven support for Rubygems and Bundler
+
+JRuby has great java integration but it's a pain having to manage java dependencies manually. Making Rubygems and Bundler aware of Maven on JRuby would be awesome!
