@@ -20,7 +20,7 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 
 ### Actively-developed Servers
 
-* [[Trinidad|https://github.com/calavera/trinidad]] - A wrapper around [[Tomcat|http://tomcat.apache.org/]].
+* [[Trinidad|https://github.com/trinidad/trinidad]] - A wrapper around [[Tomcat|http://tomcat.apache.org/]].
 * [[Mizuno|https://github.com/matadon/mizuno]] - A wrapper around [[Jetty|http://jetty.codehaus.org/jetty/]].
 * [[Kirk|https://github.com/strobecorp/kirk]] - Another Jetty wrapper, but less "micro" with redeploy and multiple appsupport.
 * [[Aspen|https://github.com/kevwil/aspen]] - A server based on [[Netty|http://www.jboss.org/netty]], a Java NIO framework.
