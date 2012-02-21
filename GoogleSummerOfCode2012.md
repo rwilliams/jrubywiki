@@ -38,3 +38,8 @@ JRuby has great java integration but it's a pain having to manage java dependenc
 ## EventMachine on Netty
 
 Netty is *the* Java NIO library of choice. Eventmachine has a java reactor, but it is out of date, doesn't have feature parity and doesn't have any active maintainers. It would be great to (a) expose a nice Netty + Ruby API, and (b) provide an "EM compatibility layer" to help migrate existing EM projects onto JRuby. 
+
+## Thin on JRuby
+
+If we get better Eventmachine support for JRuby, having a running Thin WebServer based on Eventmachine would be great.
+Then it would be easier to run Eventmachine jobs from within a e.g. Rails application. Everything would run within the reactor and you did not have to run the EM reactor in a new thread.
