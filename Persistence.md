@@ -1,0 +1,9 @@
+In order to pass Java objects through Ruby call paths in JRuby, we wrap them in a thin wrapper called the "proxy" or "Java object proxy". These wrappers hold the original Java object and allow it to behave like a Ruby object throughout the system.
+
+In JRuby versions 1.6.x and lower, we also cached these proxies in an attempt to ensure the same object would get the same proxy every time it entered Ruby. This was primarily done to support user-defined instance variables or singleton objects on arbitrary Java objects, since it is not possible to actually modify the structure of the Java object.
+
+However, this caching incurred a heavy cost. Each Java object entering Ruby caused the creation of a weak reference and structural elements in an internal map called the ObjectProxyCache. This greatly increased the overhead of receiving objects from Java calls, and potentially hindered efficient garbage collection due to all those weakrefs.
+
+As of JRuby 2.0, the proxy cache will become opt-in on a per-class basis. If you intend to set instance variables or create singletons from Java objects, you'll need to call cls.__persistent__ = true on the Java class in Ruby code. This will specify that all that class's objects should have their proxies cached.
+
+We will also attempt to turn on this flag lazily, but with a warning. Because objects may enter Ruby through multiple paths before you set an instance variable or make a singleton, we can't guarantee all existing proxies will reflect those lazily-made changes. We recommend setting __persistent__ = true on classes before receiving or constructing instances of them.
