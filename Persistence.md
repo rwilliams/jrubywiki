@@ -10,7 +10,7 @@ list = ArrayList.new
 
 # These lines will warn if ArrayList is not set persistent yet
 # class << list; ... end
-# list.instance_variable_set(:@foo, 'bar)
+# list.instance_variable_set(:@foo, 'bar')
 
 ArrayList.__persistent__ = true
 
