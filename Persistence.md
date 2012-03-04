@@ -16,7 +16,7 @@ ArrayList.__persistent__ = true
 
 # no warning for these lines, but all ArrayList will now have cached proxies
 class << list; ... end
-list.instance_variable_set(:@foo, 'bar)
+list.instance_variable_set(:@foo, 'bar')
 ```
 
 For more information, read on.
