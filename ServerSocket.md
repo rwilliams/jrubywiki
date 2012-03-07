@@ -1,7 +1,10 @@
 Server Sockets in JRuby
 =======================
 
-If you are here because of an error message in JRuby, here's a short explanation. A longer version comes later on this page.
+JRuby uses classes from the Java platform for sockets, so our API differs slightly when it comes to the lowest-level "Socket" class.
+
+Creating a Server Socket
+------------------------
 
 In JRuby, the Ruby ```Socket``` class can only be used for client-side connections. As a result, only ```connect``` works, not ```accept```. We provide a separate class called ```ServerSocket``` with mostly the same API as ```Socket```, but it handles ```accept``` and not ```connect```.
 
@@ -24,7 +27,38 @@ if RUBY_ENGINE != 'jruby'
 end
 ```
 
-The long description of why JRuby works like this follows below.
+Bind and Listen and Backlogs
+----------------------------
+
+The normal sequence for listening for connections on a Ruby Socket is to call ```new``` for a new Socket, ```bind``` to bind to an address and port, ```listen``` to express intent to listen for connections with the specified connection backlog, and finally ```accept``` to accept incoming connections.
+
+On JRuby's ServerSocket, ```bind``` and ```listen``` are combined into ```bind```, which accepts an optional backlog argument.
+
+Here's an example:
+
+```
+socket = ServerSocket.new(Socket::AF_INET, Socket::SOCK_STREAM, 0)
+sockaddr = ServerSocket.pack_sockaddr_in(12345, "127.0.0.1")
+socket.bind(sockaddr, 5)
+# no call to listen...
+# socket.listen(5)
+socket.accept
+```
+
+For non-JRuby impls, the following simple monkey-patch makes their ```bind``` work like ours, for API-compatibility:
+
+```
+if RUBY_ENGINE != 'jruby'
+  ServerSocket = Socket # as shown above
+  class Socket
+    alias :_old_bind, :bind
+    def bind(addr, backlog)
+      _old_bind(addr)
+      listen(backlog)
+    end
+  end
+end
+```
 
 Details of Sockets and ServerSockets
 ------------------------------------
@@ -36,3 +70,12 @@ This means that it's impossible for us to construct a Ruby ```Socket``` object a
 Because connecting to remote servers is more common, ```Socket``` in JRuby is client-only, and therefore will only support the ```connect``` operation (not ```accept```). We define an additional class, ```ServerSocket``` that has the same basic operations as ```Socket``` but supports ```accept``` instead of ```connect```.
 
 A simple example is at the top of this page, along with code you can include to make it work on non-JRuby versions of Ruby.
+
+Details of Bind and Listen
+--------------------------
+
+The JDK ServerSocket class provides no ```listen``` method, instead allowing users to specify backlog at construction time (while simultaneously binding a port) or at bind time (combining the POSIX ```bind``` and ```listen``` operations). Because of this, we have no way to separate the two phases of "binding" and "listening" in the API we expose to Ruby.
+
+For this reason, ```ServerSocket#bind``` in JRuby does both ```bind``` and ```listen``` at the same time, and accepts an optional backlog argument.
+
+See above for an example, along with code you can use to make the API work in non-JRuby versions of Ruby.
