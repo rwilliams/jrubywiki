@@ -31,9 +31,8 @@ Details of Sockets and ServerSockets
 
 Because JRuby is built atop the Java Development Kit and uses its classes to implement the Ruby IO subsystem, we must choose at construction time whether a socket will be used for client or server operations. Specifically, we must construct a [```Socket```](http://docs.oracle.com/javase/6/docs/api/java/net/Socket.html) or a [```ServerSocket```](http://docs.oracle.com/javase/6/docs/api/java/net/ServerSocket.html) to back up the Ruby object.
 
-This means that it's impossible for us to construct a Ruby ```Socket``` object and later either #connect or #accept on that object; we have to choose which of those operations will work right away.
+This means that it's impossible for us to construct a Ruby ```Socket``` object and support both ```connect``` and ```accept``` on that same object; we have to choose which of those operations will work right away.
 
-Because connecting to remote servers is more common, Ruby ```Socket``` in JRuby is client-only, and therefore will only support the ```connect``` operation (not ```accept```). We define an additional class, ```ServerSocket``` that has the same basic operations as ```Socket``` but supports ```accept``` instead of ```connect```. By using ```ServerSocket``` when you want a server ```Socket```.
+Because connecting to remote servers is more common, ```Socket``` in JRuby is client-only, and therefore will only support the ```connect``` operation (not ```accept```). We define an additional class, ```ServerSocket``` that has the same basic operations as ```Socket``` but supports ```accept``` instead of ```connect```.
 
 A simple example is at the top of this page, along with code you can include to make it work on non-JRuby versions of Ruby.
-
