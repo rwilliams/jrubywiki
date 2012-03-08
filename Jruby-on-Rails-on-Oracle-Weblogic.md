@@ -6,3 +6,7 @@ There is a version conflict because both Weblogic and JRuby (1.6.0+) include the
         <prefer-web-inf-classes>true</prefer-web-inf-classes>
       </container-descriptor>
     </weblogic-web-app>
+
+To include the file in the war include the following line in the [custom configuration](https://github.com/jruby/warbler) file `config/warble.rb`
+
+    config.webinf_files += FileList["config/weblogic.xml"]
