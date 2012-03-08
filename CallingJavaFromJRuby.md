@@ -333,7 +333,7 @@ Constructors
 Beware of Java generics
 -----------------------
 
-If a Java class is defined with Java generics, the types are erased during compilation for backwards compatibility. As a result. JRuby will have problems with automatic type conversion. For example, if you have a `Map<String,String>`, it will be seen as a simple `Map`, and JRuby will not be able to determine the correct types using reflection.
+If a Java class is defined with Java generics, the types are erased during compilation for backwards compatibility. As a result, JRuby will have problems with automatic type conversion. For example, if you have a `Map<String,String>`, it will be seen as a simple `Map`, and JRuby will not be able to determine the correct types using reflection.
 
 Additional Java Method Access
 -----------------------------
