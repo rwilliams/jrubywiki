@@ -2,8 +2,8 @@
 
 To enable thread-safe (multi-threaded) mode in Rails when running with a warbler-generated WAR file:
 
-# set min/max runtimes in warble.rb to 1/1 respectively
 # in config/environment.rb put the line ''config.threadsafe!''
+# set min/max runtimes in warble.rb to 1/1 respectively (or just remove those lines, the default is already 1)
 
 When running with the GlassFish gem, threadsafe mode will be detected automatically and GlassFish will use only a single JRuby instance. As a result only step 2 above is necessary.
 
