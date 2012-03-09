@@ -11,7 +11,7 @@ This entry is meant to list books that are specifically JRuby related. Links are
 
 * **Author(s)**: Joe Kutner
 * **ISBN**: 978-1-93435-697-5
-* **Publisher**: Pragmatic Bookshelf (beta 2011-03-07)
+* **Publisher**: Pragmatic Bookshelf (beta 2012-03-07)
 * **Publisher's Page**: http://pragprog.com/book/jkdepj/deploying-with-jruby
 * **Amazon Page**: TBA
 * **Format(s)**: Print, epub, mobi, PDF
