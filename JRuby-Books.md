@@ -2,6 +2,20 @@
 
 This entry is meant to list books that are specifically JRuby related. Links are shown for the original publisher's page, as well as the listing on Amazon.com. For Ruby related books in general, you can check the [Amazon Ruby Listings](http://www.amazon.com/mn/search/?ref%5F=sr%5Fnr%5Fn%5F5&rs=1000&keywords=Ruby&rh=i%3Aaps%2Ck%3ARuby%2Ci%3Astripbooks%2Cn%3A1000%2Cn%3A5&rd=1). Entries are sorted by date, with the most recent first. 
 
+## Deploying with JRuby: Deliver Scalable Web Apps using the JVM 
+
+> Deploy using the JVM’s high performance while building your apps in the language you love. 
+> JRuby is a fast, scalable, and powerful JVM language with all the benefits of a traditional Ruby environment. 
+> See how to consolidate the many moving parts of an MRI-based Ruby deployment onto a single JVM process. 
+> You’ll learn how to port a Rails application to JRuby, get it into production, and keep it running.
+
+* **Author(s)**: Joe Kutner
+* **ISBN**: 978-1-93435-697-5
+* **Publisher**: Pragmatic Bookshelf (beta 2011-03-07)
+* **Publisher's Page**: http://pragprog.com/book/jkdepj/deploying-with-jruby
+* **Amazon Page**: TBA
+* **Format(s)**: Print, epub, mobi, PDF
+
 ## Using JRuby: Bringing Ruby to Java (Facets of Ruby)
 
 > Now you can bring the best of Ruby into the world of Java, with Using JRuby. Come to the source 
