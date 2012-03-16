@@ -48,17 +48,18 @@ A simple 'Hello World' example is a great way to get to know Red Bridge.
 
 Before you start programming, make sure the necessary jar archives are in your classpath:
 
-;- Embed Core
-* <code>jruby-complete.jar</code> or <code>jruby.jar</code>
+* Embed Core
+** <code>jruby-complete.jar</code> or <code>jruby.jar</code>
 
-;- JSR223
-* <code>jruby-complete.jar</code> or <code>jruby.jar</code>
-* <code>script-api.jar</code> (if you are using JDK1.5)
+* JSR223
+** <code>jruby-complete.jar</code> or <code>jruby.jar</code>
+** <code>script-api.jar</code> (if you are using JDK1.5)
 
-;- BSF
-* <code>jruby-complete.jar</code> or <code>jruby.jar</code>
-* <code>bsf.jar</code>
-* <code>commons-logging-[version].jar</code>
+* BSF
+** <code>jruby-complete.jar</code> or <code>jruby.jar</code>
+** <code>bsf.jar</code>
+** <code>commons-logging-[version].jar</code>
+
 
 Here's how to execute a simple Ruby script (<code>puts "Hello World!"</code>) using the three JRuby Embed APIs:
 * Core
