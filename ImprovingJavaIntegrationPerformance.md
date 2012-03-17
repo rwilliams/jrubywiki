@@ -3,7 +3,7 @@ Improving Java Integration Performance
 
 Calling Ruby from Java involves a few challenges for JRuby:
 
-* Objects may need to be coerced to their Java equivalents, like Ruby String to Java String
+* Objects may need to be coerced to or from their Java equivalents, like Ruby String to Java String
 * The target method may have multiple overloads from which to pick
 * Java's reflection subsystem may introduce overhead into the calls
 * JRuby 1.7 and below will attempt to cache object wrappers, and this caching introduces overhead
