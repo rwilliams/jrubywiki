@@ -48,6 +48,6 @@ Netty is *the* Java NIO library of choice. Eventmachine has a java reactor, but 
 If we get better Eventmachine support for JRuby, having a running Thin WebServer based on Eventmachine would be great.
 Then it would be easier to run Eventmachine jobs from within a e.g. Rails application. Everything would run within the reactor and you did not have to run the EM reactor in a new thread.
 
-## Static Optimization
+## Runtime code optimization
 
-JRuby currently has an in-progress compiler to our own intermediate representation (IR). This IR provides a control-flow graph through code, inlining of methods, and many opportunities for optimization. A student interested in compilers would work with the JRuby team to explore the possibility of a full-system static optimizer using this IR.
+JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands.  This IR will be the basis of an updated JRuby VM.  While some optimizations are already in place including dead code elimination, method and block inlining (incomplete), there are lots of opportunities for improving on these and implementing additional optimizations.  A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include work on the interpreter, new performance optimizations, implementing new backends (ex: Dalvik).
