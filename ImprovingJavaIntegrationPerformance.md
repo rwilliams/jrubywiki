@@ -10,6 +10,13 @@ Calling Ruby from Java involves a few challenges for JRuby:
 
 This page provides some tips on how to improve the performance of calling Java methods from Ruby.
 
+Avoiding Java Integration altogether
+------------------------------------
+
+The "nuclear option" to improve Java Integration performance is to not use it. Calls from Ruby to Ruby have less overhead than calls from Ruby to Java, and if you wrap a Java library in a purpose-built JRuby extension (itself probably written in Java to JRuby's extension API), that will also avoid Java Integration overhead. However you can, by using the tips below, achieve the same level of performance with Java Integration in JRuby 1.7 and higher on Java 7 (where invokedynamic helps a lot).
+
+The rest of this article will focus on improving Java Integration perf, rather than avoiding it.
+
 Pre-coerce values used repeatedly
 ---------------------------------
 
