@@ -106,7 +106,7 @@ Measure string appends (via normal Ruby)
 
 As you can see, the Java call has significantly more overhead, even though the resulting work done is nearly identical in both cases.
 
-Now, we modify the benchmark according to the tips above:
+Now, we modify the benchmark according to the tips above and run with -Xji.objectProxyCache=false:
 
 ```
 class ByteList
