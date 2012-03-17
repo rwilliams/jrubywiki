@@ -22,12 +22,12 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 
 * [[Trinidad|https://github.com/trinidad/trinidad]] - A wrapper around [[Tomcat|http://tomcat.apache.org/]].
 * [[Mizuno|https://github.com/matadon/mizuno]] - A wrapper around [[Jetty|http://jetty.codehaus.org/jetty/]].
-* [[Kirk|https://github.com/strobecorp/kirk]] - Another Jetty wrapper, but less "micro" with redeploy and multiple appsupport.
-* [[Aspen|https://github.com/kevwil/aspen]] - A server based on [[Netty|http://www.jboss.org/netty]], a Java NIO framework.
 * [[TorqueBox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
 
 ### Deprecated Servers
 
+* [[Kirk|https://github.com/strobecorp/kirk]] - Another Jetty wrapper, but less "micro" with redeploy and multiple appsupport.
+* [[Aspen|https://github.com/kevwil/aspen]] - A server based on [[Netty|http://www.jboss.org/netty]], a Java NIO framework.
 * Mongrel - The classic Ruby server, no longer maintained.
 * GlassFish gem - A gem-borne embedded version of GlassFish, now no longer maintained by Oracle.
 
