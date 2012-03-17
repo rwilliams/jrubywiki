@@ -10,6 +10,7 @@ Java (general-purpose integration)
 * [[Scripting Java from JRuby|CallingJavaFromJRuby]]
 * [[Generating Java classes|GeneratingJavaClasses]]
 * [[Standalone Jars and Classes|StandaloneJarsAndClasses]]
+* [[Improving Java Integration Performance|ImprovingJavaIntegrationPerformance]]
 
 Scala
 =====
