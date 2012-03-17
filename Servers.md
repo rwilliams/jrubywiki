@@ -40,3 +40,7 @@ The following services are known to work. Other webapp services *should* general
 * [[Engine Yard|http://www.engineyard.com/]] - Direct support, generally available now.
 * [[Google AppEngine|http://code.google.com/p/appengine-jruby/wiki/GettingStarted]] - Indirect support, but a community exists around JRuby deployment
 * [[Amazon Elastic BeanStalk|http://blog.headius.com/2011/01/jruby-on-rails-on-amazon-elastic.html]] - An elastic Java webapp cloud from Amazon based on Tomcat.
+* [[OpenShift by Red Hat|http://www.openshift.com]] - Several possibilities
+    * [[OpenShifter|http://blog.marekjelen.cz/article/openshifter-jruby-for-openshift]] - CLI tool to simplify the deployment of JRuby applications to OpenShift using JBoss application server
+    * [[OpenShift-JRuby|https://github.com/marekjelen/openshift-jruby]] - Template for running JRuby application on OpenShift without an application server.
+    * Deploying pre-build .war file to JBoss
