@@ -1,7 +1,7 @@
 Concurrency in JRuby
 ====================
 
-JRuby was the first Ruby implementation to offer true concurrency, due to the fact that in JRuby a Ruby thread is just a Java thread, and most JVMs map Java threads directly to native threads. As a result, JRuby has set the standard for what it means to do concurrent programming in Ruby.
+JRuby was the first Ruby implementation to offer thread-level parallelism, due to the fact that in JRuby a Ruby thread is just a Java thread, and most JVMs map Java threads directly to native threads. As a result, JRuby has set the standard for what it means to do concurrent programming in Ruby.
 
 This page will contain information on JRuby's memory model, strategies for helping you write safe concurrent code in JRuby, and patterns to watch out for.
 
