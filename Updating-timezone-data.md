@@ -1,5 +1,7 @@
 If you find that a JRuby release does not have the latest time zone data, and if you think this is important, you can build JRuby from source with the most up-to-date [Olson database](http://www.iana.org/time-zones).
 
+Note that MRI relies on the underlying OS to provide date and time information.
+
 ## Prerequisites
 Environment in which [`ftp` Ant task](http://ant.apache.org/manual/Tasks/ftp.html) can run. This means that you have [Apache Commons Net](http://commons.apache.org/net/index.html) installed and available for your JVM (and `ant`).
 
