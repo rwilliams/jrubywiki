@@ -39,6 +39,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [JRuby Rake vs. Ant](http://watchitlater.com/blog/2011/03/jruby-rake-vs-ant/)
 * [[Getting Ruby Backtraces on a Running Program|JMXBeans]]
 * [[Profiling Object Allocations]]
+* [[Updating Timezone data]]
 
 **Desktop Applications**
 
