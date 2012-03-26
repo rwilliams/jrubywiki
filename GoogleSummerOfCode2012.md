@@ -21,6 +21,10 @@ Here's some classic ideas to get you started:
 
 Ruboto is working, and has a solid IRB application and tools for generating apps. But there's more we can do, like shrinking the app, improving performance, and building better tooling.
 
+* *Improve startup time*.  Anything done here will make Ruboto more usable.
+* *Use the new byte code generation libraries* to allow JRuby JIT compilation and subclassing Java classes.
+* *Add tooling for AOT compilation*
+
 ## JRuby for Embedded
 
 There's a few good JVMs that work on embedded devices, which means there's an opportunity for JRuby to expand into embedded applications.
