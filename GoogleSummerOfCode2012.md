@@ -55,3 +55,8 @@ Then it would be easier to run Eventmachine jobs from within a e.g. Rails applic
 ## Runtime code optimization
 
 JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands.  This IR will be the basis of an updated JRuby VM.  While some optimizations are already in place including dead code elimination, method and block inlining (incomplete), there are lots of opportunities for improving on these and implementing additional optimizations.  A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include work on the interpreter, new performance optimizations, implementing new backends (ex: Dalvik).
+
+## Shoes on JRuby
+Shoes is a cross-platform toolkit for writing graphical apps easily and artfully using Ruby.
+Unlike most other GUI toolkits, Shoes is designed to be easy and straightforward without losing power. Really, it’s easy!
+Shoes needs you!  There are three research implementations of Shoes on JRuby.  Your work will go toward merging the libraries, choosing the best GUI lib for Shoes (SWT, Swing, Gtk?), and implementing a startup framework that makes Shoes on JRuby truly cross-platform.
