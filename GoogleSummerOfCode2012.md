@@ -52,9 +52,15 @@ Netty is *the* Java NIO library of choice. Eventmachine has a java reactor, but 
 If we get better Eventmachine support for JRuby, having a running Thin WebServer based on Eventmachine would be great.
 Then it would be easier to run Eventmachine jobs from within a e.g. Rails application. Everything would run within the reactor and you did not have to run the EM reactor in a new thread.
 
-## Runtime code optimization
+## JRuby IR-based projects
 
 JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands.  This IR will be the basis of an updated JRuby VM.  While some optimizations are already in place including dead code elimination, method and block inlining (incomplete), there are lots of opportunities for improving on these and implementing additional optimizations.  A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include work on the interpreter, new performance optimizations, implementing new backends (ex: Dalvik).
+
+A couple sample projects:
+
+* Read/write IR to disk: This feature will enable JRuby to avoid parsing Ruby source, build AST, and generate IR across runs.  This feature might be especially useful for faster bootup of short-running programs (ex: tests).  This project would have to ensure that the (human-readable) textual output captures all necessary information from IR so that when it is read back in, the IR can be reconstructed without loss of information.  Additionally, this should happen transparently without programmer intervention, i.e. it may have to implement some form of timestamping to ensure that the IR output is not out-of-date w.r.t the source code.  It should be robust -- that is, failure to write/read IR output should not crash the runtime.
+
+* Optimize IR for interpretation: The IR is optimized for performance optimizations and for the JIT which want explicit state in IR, complex instructions broken down into simpler primitive instructions.  But, interpreter wants fewer instructions since each extra instruction adds to interpretation overhead. Implement IR transformations that optimize IR right before interpretation (ex: collapse instruction chains within a basic block into expression trees, collapse multiple simple instructions into single complex instructions, etc.).  Some of this functionality is in place in bits and pieces in very preliminary form, but it has not been integrated, tested, thought through.
 
 ## Shoes on JRuby
 Shoes is a cross-platform toolkit for writing graphical apps easily and artfully using Ruby.
