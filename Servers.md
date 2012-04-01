@@ -23,6 +23,7 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 * [[Trinidad|https://github.com/trinidad/trinidad]] - A wrapper around [[Tomcat|http://tomcat.apache.org/]].
 * [[Mizuno|https://github.com/matadon/mizuno]] - A wrapper around [[Jetty|http://jetty.codehaus.org/jetty/]].
 * [[TorqueBox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
+* [[Puma|http://puma.io]] - A server written in Ruby, wraps the Ragel parser (from Mongrel). 
 
 ### Deprecated Servers
 
