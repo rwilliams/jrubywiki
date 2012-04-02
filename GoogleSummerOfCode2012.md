@@ -73,6 +73,6 @@ Shoes needs you!  There are three research implementations of Shoes on JRuby.  Y
 
 JRuby currently uses Java's standard NIO and ProcessBuilder APIs for doing all IO and process management. We've managed to hack this well enough over the years, but there are many features we can't easily support using only Java's APIs.
 
-The Java Native Runtime provides an FFI layer to Java that JRuby uses for many basic POSIX functions. One of its subprojects, jnr-enxio, provides NIO-compatible wrappers around standard native IO operations, allowing things like selectable stdio (Java's stdio is not selectable), UNIX sockets (jnr-unixsocket), and the potential for us to spawn subprocesses using functions like posix_spawn (which can carry parent descriptors through to children).
+The [Java Native Runtime](https://github.com/jnr) provides an [FFI layer](https://github.com/jnr/jnr-ffi) to Java that JRuby uses for [many basic POSIX functions](https://github.com/jnr/jnr-posix). One of its subprojects, [jnr-enxio](https://github.com/jnr/jnr-enxio), provides NIO-compatible wrappers around standard native IO operations, allowing things like selectable stdio (Java's stdio is not selectable), UNIX sockets ([jnr-unixsocket](https://github.com/jnr/jnr-posix)), and the potential for us to spawn subprocesses using functions like posix_spawn (which can carry parent descriptors through to children).
 
 JRuby would benefit from work on a process-management and IO subsystem based on JNR, for cases where the Java APIs simply are not suitable.
