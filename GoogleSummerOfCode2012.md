@@ -68,3 +68,11 @@ A couple sample projects:
 Shoes is a cross-platform toolkit for writing graphical apps easily and artfully using Ruby.
 Unlike most other GUI toolkits, Shoes is designed to be easy and straightforward without losing power. Really, it’s easy!
 Shoes needs you!  There are three research implementations of Shoes on JRuby.  Your work will go toward merging the libraries, choosing the best GUI lib for Shoes (SWT, Swing, Gtk?), and implementing a startup framework that makes Shoes on JRuby truly cross-platform.
+
+## Java Native Runtime-based IO and process-mgmt subsystem
+
+JRuby currently uses Java's standard NIO and ProcessBuilder APIs for doing all IO and process management. We've managed to hack this well enough over the years, but there are many features we can't easily support using only Java's APIs.
+
+The Java Native Runtime provides an FFI layer to Java that JRuby uses for many basic POSIX functions. One of its subprojects, jnr-enxio, provides NIO-compatible wrappers around standard native IO operations, allowing things like selectable stdio (Java's stdio is not selectable), UNIX sockets (jnr-unixsocket), and the potential for us to spawn subprocesses using functions like posix_spawn (which can carry parent descriptors through to children).
+
+JRuby would benefit from work on a process-management and IO subsystem based on JNR, for cases where the Java APIs simply are not suitable.
