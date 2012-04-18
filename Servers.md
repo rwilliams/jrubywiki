@@ -12,6 +12,10 @@ The following is a list of servers known to work with JRuby. It is not meant to 
 * WebLogic
 * WebSphere
 
+## Other Servers
+
+* [[Vert.x|https://github.com/purplefox/vert.x]] - An asynchronous application platform on the JVM for writing high performance web enabled applications. Vert.x is a polyglot platform and lets you write your applications in multiple JVM languages including Ruby (JRuby). 
+
 ## Embedded/Micro Servers
 
 The usual Ruby way to run a server is to launch a small command-line server pointing at the application directory. Some of the standard Ruby servers work with JRuby, and an additional set of servers have been built specifically for JRuby by either wrapping an existing server or by simply wrapping Java libraries.
