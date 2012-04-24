@@ -7,7 +7,7 @@ JRuby (General)
 ---------------
 
 * [JRuby and the Java Platform](http://java.sun.com/developer/technicalArticles/scripting/jruby/) (Sun Microsystems)
-* [Using Java Classes in JRuby](http://blogs.sun.com/coolstuff/entry/using_java_classes_in_jruby) [note: this is down as of 3/22/2012]
+* <del>[Using Java Classes in JRuby](http://blogs.sun.com/coolstuff/entry/using_java_classes_in_jruby) [note: this is down as of 3/22/2012]</del>
 * [JRuby - An Introduction (Builder AU)](http://www.builderau.com.au/program/java/soa/JRuby-An-Introduction/0,339024620,339283504,00.htm)
 * [Ruby for the Java world](http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html) (JavaWorld)
 * [Scripting on the Java platform](http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html) (JavaWorld)
