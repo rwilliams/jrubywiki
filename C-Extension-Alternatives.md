@@ -16,7 +16,7 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **sqlite3** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-sqlite3`.
 
-* **[Nokogiri][]** - For best results, use the pure-Java version of Nokogiri (1.5 or greater).
+* **[Nokogiri][]** - For best results, use the pure-Java version of Nokogiri (default after v1.5).
 
 * **[yajl-ruby][]** - Try `json` or `json_pure` instead. Unfortunately there is no known equivalent JSON stream parser.
 
