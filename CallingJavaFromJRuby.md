@@ -327,7 +327,7 @@ Constructors
  # Get the the three-integer constructor for this class
  construct = JavaClass.java_class.constructor(Java::int, Java::int, Java::int)
  # Use the constructor
- object = cons.new_instance(0xa4, 0x00, 0x00)
+ object = construct.new_instance(0xa4, 0x00, 0x00)
 ```
 
 Beware of Java generics
