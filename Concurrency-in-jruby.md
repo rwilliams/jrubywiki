@@ -5,8 +5,8 @@ JRuby was the first Ruby implementation to offer thread-level parallelism, due t
 
 This page will contain information on JRuby's memory model, strategies for helping you write safe concurrent code in JRuby, and patterns to watch out for.
 
-Index
------
+Table of Contents
+-----------------
 
 * [Concurrency Basics](#concurrency_basics)
 * [Thread Safety](#thread_safety)
