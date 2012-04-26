@@ -5,6 +5,17 @@ JRuby was the first Ruby implementation to offer thread-level parallelism, due t
 
 This page will contain information on JRuby's memory model, strategies for helping you write safe concurrent code in JRuby, and patterns to watch out for.
 
+Index
+-----
+
+* [Concurrency Basics](#concurrency_basics)
+* [Thread Safety](#thread_safety)
+* [Core Classes and the Standard Library](#core_classes_standard_library)
+* [Volatility](#volatility)
+* [Atomicity](#atomicity)
+* [Additional Support](#additional_support)
+
+<a name="concurrency_basics">
 Concurrency Basics
 ------------------
 
@@ -22,6 +33,7 @@ In general, the safest path to concurrency in JRuby is the same as on any other 
 Outside the Ruby specifics described below, JRuby operates within the confines of the
 [Java Memory Model](http://www.cs.umd.edu/users/pugh/java/memoryModel/jsr-133-faq.html).
 
+<a name="thread_safety">
 Thread Safety
 -------------
 
@@ -50,6 +62,7 @@ You should take care in the following situations:
 * Concurrent requires, or lazy requires that may happen at runtime in a parallel thread. If objects are in flight while classes are being modified, or constants/globals/class variables are set before their referrents are completely initialized, other threads could have problems.
 * Instance variable updates for the first time for a given class/name pair. Because of the way JRuby lazily allocates space for instance variables, early in execution the instance variable table may be replaced when grown. If this happens under concurrent load, one thread's updates might disappear. This should only happen when a *new* class/name pair is being set, which should be rare after the application has booted. You can avoid this situation completely by initializing all variables you will use in the ```initialize``` method, though this adds a bit of additional overhead to object initialization.
 
+<a name="core_classes_standard_library">
 ### Core Classes and Standard Library
 
 JRuby does not, however, make thread-safety guarantees about several core classes, primarily because introducing thread-safety (through locking) would negatively impact all non-threaded use of these structures.
@@ -62,6 +75,7 @@ JRuby reuses the same standard library (the .rb files we ship but which you must
 
 Notable exceptions are libraries which we have rewritten or replaced with pure-Java versions: ```thread```, ```weakref```, ```generator```, ```timeout```, and ```fcntl``` have been partially or completely rewritten, and are expected to be thread-safe.
 
+<a name="volatility">
 Volatility
 ----------
 
@@ -86,6 +100,7 @@ The following operations are not volatile, and there is potential for threads to
 
 If you wish to ensure you are making volatile updates to a reference, we recommend using the ```atomic``` gem to hold that reference. It is described in more detail below.
 
+<a name="atomicity">
 Atomicity
 ---------
 
@@ -109,6 +124,7 @@ If you need atomic operations, we recommend using the `atomic` gem. The `atomic`
 
 In addition, there are simple get and set operations for achieving simple volatility, as well as block-receiving forms of compare_and_set that will use the block's value -- retrying it as necessary -- until the update is successful.
 
+<a name="additional_support">
 Additional Support
 ------------------
 
