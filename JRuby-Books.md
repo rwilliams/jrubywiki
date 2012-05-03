@@ -13,7 +13,7 @@ This entry is meant to list books that are specifically JRuby related. Links are
 * **ISBN**: 978-1-93435-697-5
 * **Publisher**: Pragmatic Bookshelf (beta 2012-03-07)
 * **Publisher's Page**: http://pragprog.com/book/jkdepj/deploying-with-jruby
-* **Amazon Page**: TBA
+* **Amazon Page**: http://amzn.com/1934356972
 * **Format(s)**: Print, epub, mobi, PDF
 
 ## Using JRuby: Bringing Ruby to Java (Facets of Ruby)
