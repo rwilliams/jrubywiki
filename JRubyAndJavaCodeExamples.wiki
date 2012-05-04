@@ -214,3 +214,5 @@ __TOC__
 '''Note:''' If you have only simple interface requirements, you can use the second method of proxying the ruby object to include method level synchronization.
 
 '''Note:''' BSF calling does not preserve ruby stack traces (add an error to a script and run both ways using the code above).
+
+See also: "Calling Java from JRuby": https://github.com/jruby/jruby/wiki/CallingJavaFromJRuby
