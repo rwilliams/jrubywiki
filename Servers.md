@@ -29,6 +29,9 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 * [[TorqueBox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
 * [[Puma|http://puma.io]] - A server written in Ruby, wraps the Ragel parser (from Mongrel). 
 
+### Other Servers. Young Projects
+* [[Thick|https://github.com/marekjelen/thick]] - A server based on [[Netty|http://www.jboss.org/netty]]
+
 ### Deprecated Servers
 
 * [[Kirk|https://github.com/strobecorp/kirk]] - Another Jetty wrapper, but less "micro" with redeploy and multiple appsupport.
