@@ -11,6 +11,7 @@ Java (general-purpose integration)
 * [[Generating Java classes|GeneratingJavaClasses]]
 * [[Standalone Jars and Classes|StandaloneJarsAndClasses]]
 * [[Improving Java Integration Performance|ImprovingJavaIntegrationPerformance]]
+* [[Using Maven libraries from JRuby|Using Maven libraries from JRuby]]
 
 Scala
 =====
