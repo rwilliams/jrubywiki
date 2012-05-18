@@ -33,7 +33,7 @@ However, this caching incurred a heavy cost. Each Java object entering Ruby caus
 Deprecating Proxy Caching
 -------------------------
 
-As of JRuby 2.0, the proxy cache will become opt-in on a per-class basis. If you intend to set instance variables or create singletons from Java objects, you'll need to call cls.```__persistent__ = true``` = true on the Java class in Ruby code. This will specify that all that class's objects should have their proxies cached.
+As of JRuby 2.0, the proxy cache will become opt-in on a per-class basis. If you intend to set instance variables or create singletons from Java objects, you'll need to call cls.```__persistent__ = true``` on the Java class in Ruby code. This will specify that all that class's objects should have their proxies cached.
 
 We will also attempt to turn on this flag lazily, but with a warning. Because objects may enter Ruby through multiple paths before you set an instance variable or make a singleton, we can't guarantee all existing proxies will reflect those lazily-made changes. We recommend setting ```__persistent__ = true``` on classes before receiving or constructing instances of them.
 
