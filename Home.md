@@ -59,7 +59,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 **Getting Involved**
 
 * Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
-* [[Quickstart: Building JRuby|BuildingJRuby]]
+* [[Building JRuby|DownloadAndBuildJRuby]]
 * Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
 * [Build Server](http://ci.jruby.org)
 * [[Design/Internals|Internals]]
