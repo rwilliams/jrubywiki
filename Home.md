@@ -58,7 +58,6 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **Getting Involved**
 
-* [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
 * Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
 * Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
 * Status: [Build Server](http://ci.jruby.org)
@@ -77,3 +76,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [Fresh JRuby news Yahoo Pipes aggregator](http://pipes.yahoo.com/pipes/pipe.info?_id=oCCxOv9w3BGq_aM_1vC6Jw)
 [JRuby]: http://jruby.org
 [JRuby Downloads]: http://jruby.org/download
+
+**Archive**
+
+* [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
