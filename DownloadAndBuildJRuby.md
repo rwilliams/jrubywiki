@@ -8,7 +8,9 @@ If you prefer to download JRuby source and build it yourself, rather than instal
   * If you're on Microsoft Windows, get the most recent `jruby-src-X.Y.Z.zip` file.
 * To get JRuby source from our git repository, retrieve the trunk version of the JRuby source. For example, you can use the following terminal window or command window command to save the files to the `jruby` directory:
 
-    git clone git://jruby.org/jruby.git
+```
+git clone git://jruby.org/jruby.git
+```
 
 Build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):
 
@@ -21,8 +23,7 @@ Create an up-to-date version of `jruby-complete.jar` with this ant task:
 
 Generate an up-to-date set of the JavaDoc for JRuby located at `docs/api/index.html`:
 
-    ant create-apidocs # (< Jruby 1.3.*)
-    ant apidocs #(>= Jruby 1.4.*)
+    ant apidocs
 
 Delete any build and compile artifacts:
 
