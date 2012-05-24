@@ -1,1 +1,0 @@
-All talks done by the JRuby team and some done by the community are hosted in the [http://dist.codehaus.org/jruby/talks/ "talks" dir on the JRuby download site.] If you have a presentation you'd like to host there, hop on IRC or the mailing lists and let us know about it!
