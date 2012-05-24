@@ -1,6 +1,3 @@
-JRuby Presentations and Videos
-==============================
-
 There are JRuby presentations at almost every Ruby event and many of the major Java events.
 
 Recent Videos
