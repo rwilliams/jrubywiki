@@ -108,4 +108,19 @@ Here's an example of connecting to SQL Server using Microsoft's [JDBC driver](ht
 
 Note: sqljdbc4.jar does NOT work on Java 5.  Use Microsoft's sqljdbc.jar (available in the same download mentioned above) on Java 5, if you get this error:
 
-```The driver encountered an unknown error: java.lang.NoClassDefFoundError: java/sql/SQLClientInfoException```
+```
+The driver encountered an unknown error: java.lang.NoClassDefFoundError: java/sql/SQLClientInfoException
+```
+
+## Using non-activerecord JDBC from JRuby on TorqueBox
+
+For whatever reason TorqueBox has some issues with dynamically loaded drivers and therefore won't function correctly without being explicit. ActiveRecord abstracts this away for you but if you are not using ActiveRecord and just using the plain JDBC driver you'll need to be explicit in using the driver:
+
+```ruby
+driver = Java::com.microsoft.sqlserver.jdbc.SQLServerDriver.new
+props = java.util.Properties.new
+props.setProperty("user", "username")
+props.setProperty("password", "password")
+url = 'jdbc:sqlserver://servername;instanceName=instance;databaseName=DbName;'
+conn = driver.connect(url, props)
+```
