@@ -36,4 +36,3 @@ Links
 * [Thomas Enebo's blog](http://www.bloglines.com/blog/ThomasEEnebo)
 * [Ola Bini's blog](http://olabini.com/blog)
 * [Nick Sieger's blog](http://blog.nicksieger.com)
-* [JRuby related articles](http://www.java201.com/resources/browse/jruby.html)
