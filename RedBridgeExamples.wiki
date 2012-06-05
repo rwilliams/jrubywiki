@@ -485,7 +485,7 @@ Outputs:
 
 === Class Method Call ===
 * tree_with_ivars.rb
-<pre name="ruby">
+```rb
 class Tree
   attr_reader :name, :shape, :foliage, :flower
   def initialize(flower)
@@ -620,8 +620,9 @@ public interface Calculable {
     Double hypotenuse(double adjacent, double opposite);
 }
 ```
+
 ** Implementation: calculation.rb
-<pre name="ruby">
+```rb
 class Calculation
   include Java::vanilla.Calculable
   def dimension(base)
@@ -645,7 +646,7 @@ public interface FluidForce {
 }
 ```
 ** Implementation: fluid_force.rb
-<pre name="ruby">
+```rb
 def get_fluid_force(x, y, depth)
   area = Math::PI * x * y # ellipse
   return @w * area * depth
@@ -785,7 +786,7 @@ public interface QuadraticFormula {
 }
 ```
 ** Implementation: quadratic_formula.rb
-<pre name="ruby">
+```rb
 # if ax^2+bx+c=0 and b^2-4ac >=0 then
 # x = (-b +/- sqrt(b^2-4ac))/2a
 
@@ -870,7 +871,7 @@ Solutions of 2x^2 - 3x + 1 = 0 are 0.5000, and 1.0000.
 
 * Core
 ** count_down.rb
-<pre name="ruby">
+```rb
 require 'date'
 
 def count_down_birthday
