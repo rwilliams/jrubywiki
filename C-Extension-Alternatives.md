@@ -4,9 +4,9 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[RMagick][]** - Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][].
 
-* **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [TorqueBox][].
+* **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [TorqueBox][] or [Puma][].
 
-* **[Thin][]** - Thin might compile and run but is not recommended. Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [TorqueBox][].
+* **[Thin][]** - Thin might compile and run but is not recommended. Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [TorqueBox][] or [Puma][].
 
 * **[Typhoeus][]** - The C extension [doesn't currently compile](https://github.com/dbalatero/typhoeus/issues/65). There's no equivalent library for JRuby, but you might try any of the pure-Ruby HTTP clients (`net/http`, httpclient, etc.). There are also several Java HTTP client libraries that will work ([Apache HttpClient][], [HttpURLConnection][], etc).
 
@@ -46,6 +46,7 @@ Please add to this list with your findings.
 [Mizuno]: https://github.com/matadon/mizuno
 [Kirk]: https://github.com/strobecorp/kirk
 [TorqueBox]: http://torquebox.org/
+[Puma]: http://puma.io/
 [Thin]: http://code.macournoyer.com/thin/
 [Typhoeus]: https://github.com/dbalatero/typhoeus
 [activerecord-jdbc-adapter]: https://github.com/nicksieger/activerecord-jdbc-adapter
