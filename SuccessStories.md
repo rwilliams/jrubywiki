@@ -83,7 +83,7 @@ collaboration with ThoughtWorks.
 Yes
 
 
-## [Ruby-Processing](http://the-shoebox.org/apps/44)
+## [Ruby-Processing](https://github.com/jashkenas/ruby-processing/wiki)
 A Wrapper for Processing, a visual coding sketchbook.
 
 ### How is JRuby being used?
