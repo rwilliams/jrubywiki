@@ -712,6 +712,7 @@ Native Java exceptions can be caught in Ruby code as expected:
    puts "Failed to parse integer: #{e.message}"
  end
 ```
+_Note: Java exceptions do not inherit from ruby Exception, and therefore will not be caught by a standard Ruby global rescue._
 
 Furthermore, Ruby code can throw Java exceptions:
 
