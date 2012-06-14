@@ -38,3 +38,5 @@ Build the tarballs, zip files and dmg for every platform:
     ant dist
 
 See [[Getting Started|GettingStarted]] for information on using JRuby.
+
+If you want to attach a debugger to the jruby internal java codes, to aid in developing see [here](http://betterlogic.com/roger/2010/08/how-to-debug-jruby-core-in-netbeans/)
