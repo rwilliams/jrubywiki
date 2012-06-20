@@ -5,7 +5,7 @@ Although ideally [MRI](http://en.wikipedia.org/wiki/Ruby_MRI) and JRuby would be
 ****
 
 <h2 id="native-c-extensions">Native C Extensions</h2>
-JRuby cannot run native C extensions.  Popular libraries have all generally been ported to Java Native Extensions.  Also, now that [FFI](http://kenai.com/projects/ruby-ffi/pages/Home) has become a popular alternative to binding to C libraries, using it obviates the need to write a large chunk of native extensions.
+JRuby cannot run native C extensions.  Popular libraries have all generally been ported to Java Native Extensions.  Also, now that [FFI](https://github.com/ffi/ffi) has become a popular alternative to binding to C libraries, using it obviates the need to write a large chunk of native extensions.
 
 <h2 id="continuations">Continuations</h2>
 JRuby does not support [continuations](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_c_continuation.html) ([Kernel.callcc](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_m_kernel.html#Kernel.callcc)).
