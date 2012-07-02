@@ -19,7 +19,7 @@ Table of Contents
 Concurrency Basics
 ------------------
 
-JRuby maps Ruby threads to Java threads, which are usually mapped directly to native threads. This means a simple Ruby `Thread.new { }` produces a real OS thread that runs in parallel with the parent thread.
+JRuby maps Ruby threads to Java threads, which are usually mapped directly to native threads. This means a simple Ruby `Thread.new { }` produces a real OS thread that runs concurrently with the parent thread.
 
 JRuby provides the same concurrency primitives as standard Ruby in the 'thread' library (loaded by default in 1.9 mode). Mutex, ConditionVariable, Queue, and friends all work as they do in MRI, but they are often crucial to writing threadsafe code in JRuby.
 
