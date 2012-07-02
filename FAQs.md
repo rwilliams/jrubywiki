@@ -86,6 +86,15 @@ Why does my application use more memory under JRuby than under <your impl of cho
 
 See [[Troubleshooting Memory]].
 
+Why do I get "Unrecognized option...JVM creation failed" when passing -J flags like -splash?
+--------------------------------------------------------------------------------------------
+
+On Windows, the native `jruby.exe` launcher usually loads the JVM's DLL directly and spins up the JVM in
+the same process, rather than launching an external process using the `java.exe` command. However, `-splash` and a few other options are only supported by the `java.exe` command and are unrecognized by the DLL.
+
+Because we have no way of knowing what options are or are not supported by the DLL, we provide a flag for the
+`jruby.exe` command to force using `java.exe` and spinning an external process: `-Xfork-java`. Passing this flag to the `jruby` command line will allow those other `java.exe`-only flags to work correctly.
+
 General
 =======
 
