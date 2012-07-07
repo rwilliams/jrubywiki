@@ -199,3 +199,5 @@ Three members of the JRuby core team are based in this area and attend the local
 * Matt Kirk <matt@matthewkirk.com> - Using JRuby with statistics and natural language processing. [github] (http://www.github.com/hexgnu).
 
 * Jeff Lembeck <jlembeck@gmail.com> - using JRuby daily with Sinatra to leverage legacy Java services while making mobile web apps.
+
+* Chris Ochs <chris@ochsnet.com> - Using jruby with rails/sinatra to run large scale social games.
