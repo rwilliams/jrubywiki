@@ -68,9 +68,10 @@ The recommended way to run these commands (known as _system-level executable com
 
     jruby -S gem list --local
     jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
-    jruby -S rails blog
+    jruby -S rails blog ##(for rails3 we should use: jruby -S rails new blog)
     cd blog
     jruby -S rake -T
+    jruby -S rake db:create
     jruby -S rake db:migrate
 
 The `-S` parameter tells JRuby to use **its** version of the installed binary.
@@ -121,4 +122,3 @@ See also [[JRuby Frequently Asked Questions (FAQs)|FAQs]].
 Code Examples
 -------------
 For some examples of calling JRuby from Java and calling Java from JRuby, see [[JRuby and Java Code Examples|JRubyAndJavaCodeExamples]].
-
