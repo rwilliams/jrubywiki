@@ -38,8 +38,8 @@ NetBeans Ruby Support
 * [NetBeans Ruby and Rails IDE with JRuby](http://www.apress.com/book/view/1430216360)
 * [Getting Your Feet Wet With JRuby](http://blogs.oracle.com/divas/entry/getting_your_feet_wet_with)
 * [Switching between JRuby and CRuby in NetBeans Ruby Support](http://blogs.oracle.com/arungupta/entry/totd_7_switch_between_jruby) (Arun Gupta)
-* [NetBeans Code Completion Demo Screencast](http://netbeans.tv/technologies/Tor-Norbye-uses-NetBeans-Ruby-Editor-Code-Completion-169/) (Tor Norbye)
-* [NetBeans Hints and Quick Fixes Screencast](http://netbeans.tv/technologies/Tor-Norbye-uses-hints-and-quick-fixes-in-NetBeans-Ruby-Editor-170/) (Tor Norbye)
+* <del>[NetBeans Code Completion Demo Screencast](http://netbeans.tv/technologies/Tor-Norbye-uses-NetBeans-Ruby-Editor-Code-Completion-169/) (Tor Norbye)</del>
+* <del>[NetBeans Hints and Quick Fixes Screencast](http://netbeans.tv/technologies/Tor-Norbye-uses-hints-and-quick-fixes-in-NetBeans-Ruby-Editor-170/) (Tor Norbye)</del>
 * [Part 2 - Going Camping](http://jruby.codehaus.org/The+JRuby+Tutorial+Part+2+-+Going+Camping)
 
 JSR 223 scripting
