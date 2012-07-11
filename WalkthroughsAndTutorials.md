@@ -7,7 +7,7 @@ JRuby (General)
 ---------------
 
 * [JRuby and the Java Platform](http://java.sun.com/developer/technicalArticles/scripting/jruby/) (Sun Microsystems)
-* <del>[Using Java Classes in JRuby](http://blogs.sun.com/coolstuff/entry/using_java_classes_in_jruby) [note: this is down as of 3/22/2012]</del>
+* [Using Java Classes in JRuby](http://blogs.oracle.com/coolstuff/entry/using_java_classes_in_jruby)
 * [JRuby - An Introduction (Builder AU)](http://www.builderau.com.au/program/java/soa/JRuby-An-Introduction/0,339024620,339283504,00.htm)
 * [Ruby for the Java world](http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html) (JavaWorld)
 * [Scripting on the Java platform](http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html) (JavaWorld)
@@ -16,10 +16,10 @@ JRuby (General)
 JRuby on Rails
 --------------
 
-* [JRuby on Rails, NetBeans 6, and GlassFish V2 Simplified Steps](http://blogs.sun.com/arungupta/entry/jruby_on_rails_netbeans_and) (Arun Gupta)
+* [JRuby on Rails, NetBeans 6, and GlassFish V2 Simplified Steps](http://blogs.oracle.com/arungupta/entry/jruby_on_rails_netbeans_and) (Arun Gupta)
 * <del>[First JRuby app in GlassFish Screencast](http://netbeans.tv/technologies/First-JRuby-app-in-GlassFish-86/) (Arun Gupta)</del>
 * [Setting up JRuby on Rails in NetBeans 6 with MySQL, GlassFish V2, and JNDI Connection Pooling](http://blog.louspringer.com/2007/09/11/using-jdbc-connection-pools-with-netbeans-6-jruby-ror-mysql-and-glassfish/) (Lou Springer)
-* [Using JNDI Connection Pool from GlassFish in Rails Apps](http://blogs.sun.com/arungupta/entry/totd_9_using_jdbc_connection) (Arun Gupta)
+* [Using JNDI Connection Pool from GlassFish in Rails Apps](http://blogs.oracle.com/arungupta/entry/totd_9_using_jdbc_connection) (Arun Gupta)
 * [JRuby in Action (Korean)](http://ias.springbook.playmaru.net/pages/336101) (Changshin Lee)
 * [Connecting to Oracle from Rails](http://www.digitalsanctum.com/2007/08/01/connecting-to-oracle-from-rails/) (Shane Witbeck)
 * [Calling Ruby’s ActiveRecord from Java Using the Bean Scripting Framework](http://www.digitalsanctum.com/2007/07/25/calling-rubys-activerecord-from-java-using-the-bean-scripting-framework/) (Shane Witbeck)
@@ -36,8 +36,8 @@ NetBeans Ruby Support
 
 * [Using Java Libraries in Rails Applications](http://www.netbeans.org/kb/61/ruby/java-ruby.html)
 * [NetBeans Ruby and Rails IDE with JRuby](http://www.apress.com/book/view/1430216360)
-* [Getting Your Feet Wet With JRuby](http://blogs.sun.com/divas/entry/getting_your_feet_wet_with)
-* [Switching between JRuby and CRuby in NetBeans Ruby Support](http://blogs.sun.com/arungupta/entry/totd_7_switch_between_jruby) (Arun Gupta)
+* [Getting Your Feet Wet With JRuby](http://blogs.oracle.com/divas/entry/getting_your_feet_wet_with)
+* [Switching between JRuby and CRuby in NetBeans Ruby Support](http://blogs.oracle.com/arungupta/entry/totd_7_switch_between_jruby) (Arun Gupta)
 * [NetBeans Code Completion Demo Screencast](http://netbeans.tv/technologies/Tor-Norbye-uses-NetBeans-Ruby-Editor-Code-Completion-169/) (Tor Norbye)
 * [NetBeans Hints and Quick Fixes Screencast](http://netbeans.tv/technologies/Tor-Norbye-uses-hints-and-quick-fixes-in-NetBeans-Ruby-Editor-170/) (Tor Norbye)
 * [Part 2 - Going Camping](http://jruby.codehaus.org/The+JRuby+Tutorial+Part+2+-+Going+Camping)
