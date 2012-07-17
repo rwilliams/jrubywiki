@@ -143,7 +143,7 @@ You could also do it with just straight import, as well.
   import java.lang.System
   version = System.getProperties["java.runtime.version"]
 ```
-**Note:** As noted in [this bug report](http://jira.codehaus.org/browse/JRUBY-3171), `java_import` is the newer and safer, way to import Java classes.
+**Note:** As noted in [this bug report](http://jira.codehaus.org/browse/JRUBY-3171), `java_import` is the newer and safer, way to import Java classes. If you are getting `uninitialized constant exception` errors, you need to change `import` to `java_import`.
 
 After this point, the "System" constant will be available in the global name space (i.e. available to any script).
 The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
