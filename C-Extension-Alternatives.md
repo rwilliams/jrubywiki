@@ -28,6 +28,8 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[therubyracer][]** - Try using [therubyrhino][] instead.
 
+* **[kyotocabinet][]** - Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.
+
 Please add to this list with your findings.
 
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
@@ -61,3 +63,5 @@ Please add to this list with your findings.
 [curb]: http://curb.rubyforge.org/
 [therubyracer]: https://github.com/cowboyd/therubyracer
 [therubyrhino]: https://github.com/cowboyd/therubyrhino
+[kyotocabinet]: http://fallabs.com/kyotocabinet/
+[kyotocabinet-java]: https://github.com/csw/kyotocabinet-java
