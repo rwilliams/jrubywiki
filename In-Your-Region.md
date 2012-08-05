@@ -33,8 +33,9 @@ Welcome to the JRuby Community!
 ##Chile##
 * Jano González <info@janogonzalez.com> - Using JRuby at work for a couple of projects in [Continuum](http://www.continuum.cl/), member of the [Chilean Dynamic Languages Meetup](http://www.meetup.com/dynlangchile/). Check my [Twitter](http://twitter.com/janogonzalez) and [GitHub](http://github.com/janogonzalez) accounts, also my [blog](http://gemaroja.com).
 
-##The Czech republic##
+##Czech Republic##
 * [Marek Jelen](http://www.marekjelen.cz) - uses JRuby for private and commercial projects, has some JRuby related gems, provides JRuby training and consultancy, leads [Brno Ruby Users Group](http://www.brug.cz).
+* [Karol Bucek](http://kares.org) - yet another "Java 2 Ruby" migrant that naturally ended up with JRuby, maintains some JRuby gems e.g. [Trinidad](https://github.com/trinidad/trinidad/), [JRuby-Rack](https://github.com/jruby/jruby-rack) and [therubyrhino](https://github.com/cowboyd/therubyrhino) gem. Currently located in Prague.
 
 ##France##
 
