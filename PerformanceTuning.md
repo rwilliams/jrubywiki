@@ -66,22 +66,6 @@ Enables coroutine support for Ruby 1.9 [Fibers](http://www.ruby-doc.org/core-1.9
 
     jruby -J-Djruby.fiber.coroutines=true myscript.rb
 
-Using JRuby's Fast Mode
------------------------
-JRuby 1.2 and later ships with a `--fast` flag that turns on a number of runtime features to provide optimal performance without breaking Ruby features needed by common applications. It enables the following modes:
-
-* **Frameless compilation:** Avoids using heap-based frames to track cross-call data like `backref`, `lastline`, and `visibility` when it's not needed.
-* **Fast math operations on Fixnum:** When the target of a binary operator (`+`, `-`, and so on) is `Fixnum`, dispatches directly rather than through JRuby's dynamic call logic.
-* **Positionless compilation:**  To avoid introducing overhead, uses Java's stack tracing mechanisms rather than JRuby's artificial mechanisms.
-* **Precompile all code** Because we no longer maintain artificial heap frames and artificial traces, code must be compiled before execution to use Java's backtrace logic. This can impact startup time.
-* **Fast `__send__`:**  When calling `__send__` with a literal symbol, compiles it as a call to the method named by the symbol instead. Useful for meta-programmed logic looking to do a visibility-ignoring call but trying to avoid the `__send__` overhead.
-
-To make these settings ''safe'', a few assumptions are made:
-
-* Core methods that require access to the caller's frame must not be aliased to other names. This includes methods like `eval` and `binding`, several `String`, `Regexp`, and IO methods that access `$~` and `$_`, any methods that mutate visibility, and so on. In general, aliasing these methods is only useful if you intend to wrap them with a new piece of code, which breaks the frame-based logic for callers anyway.
-* Rigid adherence to Ruby's backtrace format and content must not be a requirement. Backtraces will generally include both Ruby and Java calls, and are formatted somewhat differently. The information is still there, but it can be a bit trickier to interpret. This will be cleaned up in future revisions.
-* Because all code is compiled before execution, it should be expected that startup performance degrades when using `--fast`. 
-
 Java Virtual Machine (JVM) Settings
 -----------------------------------
 Except for the JRuby convenience parameter `--server`, all JVM runtime parameters use the `-J` option, followed by the specific JVM setting. For example:
