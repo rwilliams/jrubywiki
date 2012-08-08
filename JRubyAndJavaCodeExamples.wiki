@@ -3,7 +3,11 @@
 Below are some code examples showing how to call JRuby from Java and how to call Java from JRuby.<br/><br/>
 
 __TOC__
-===Ruby:  <tt>call_java.rb</tt>===
+==JRuby calling Java==
+
+See also: [[CallingJavaFromJruby|Calling Java from JRuby]]
+
+===JRuby: <tt>call_java.rb</tt>===
 ```ruby
   require "java"
   
@@ -76,6 +80,8 @@ __TOC__
         }
     }
 ```
+
+==Java calling JRuby==
 ===Java: <tt>CallRuby.java</tt>===
 ```java
     package com.example;
@@ -214,5 +220,3 @@ __TOC__
 '''Note:''' If you have only simple interface requirements, you can use the second method of proxying the ruby object to include method level synchronization.
 
 '''Note:''' BSF calling does not preserve ruby stack traces (add an error to a script and run both ways using the code above).
-
-See also: "Calling Java from JRuby": https://github.com/jruby/jruby/wiki/CallingJavaFromJRuby
