@@ -25,40 +25,19 @@ JRuby's compiler can be enabled in JIT mode or specified to run before execution
 * See below for [Compiler Runtime Properties](#compiler_rt_props).
 * See below for [JIT Runtime Properties](#jit_rt_props).
 
-Disabling ObjectSpace
----------------------
-ObjectSpace has been disabled by default since version 1.1b1. To reenable ObjectSpace, use the `-X+O` flag (previously `+O`). The following description applies to previous versions of JRuby.
+Don't enable ObjectSpace
+------------------------
+ObjectSpace has been disabled by default since version 1.1b1. Some users reenable ObjectSpace, using the `-X+O` flag (previously `+O`), without realizing what a massive performance hit this is. If you are running with ObjectSpace enabled, do not expect any sort of performance.
 
-ObjectSpace is a feature in Ruby that allows you to enumerate all objects of a given type in the current runtime. In the C implementation, this is easy to provide, since ObjectSpace is basically a thin wrapper around the memory manager. Under JRuby, however, where we can't enumerate objects managed by Java's memory model, we have to provide a separate structure that governs a collection of references to such objects. This results in substantial overhead per object when run under JRuby, since we have to create two or three times as many objects as are needed to run, just to implement ObjectSpace.
+Check the OpenJDK/SunJDK/OracleJDK Code Cache Size
+--------------------------------------------------
+The "Hotspot" VM that runs all the above-mentioned JVMs has a hard upper limit on how much native (i.e. JIT-compiled) code it will load before disabling JIT completely. If this disabling happens before the meat of your application has been compiled, it will never compile and your performance will suffer.
 
-JRuby can be told to run without ObjectSpace by specifying the `-X-O` flag (previously `-O`) as follows:
+There are two options to fix this situation: bump up the code cache size; or enable code cache flushing.
 
-    jruby -X-O bin/gem install rake
+The JVM flags of interest are -XX:ReservedCodeCacheSize=### where the default is 48M, and -XX:+ UseCodeCacheFlushing.
 
-Obviously, any programs that depend on ObjectSpace will not run correctly with the `-X-O` flag, but this is generally limited to a few of Rails' own development-time scripts and test unit test runners.
-
-There is also a property you can use to disable ObjectSpace:
-
-    jruby -J-Djruby.objectspace.enabled=false
-
-Enabling ObjectSpace Dynamically
---------------------------------
-A program that knows it needs full ObjectSpace support can dynamically turn ObjectSpace on and off itself. For example,  jirb uses this feature to turn on ObjectSpace so it can have fully functional code completion. To enable ObjectSpace support in a ruby program, add the following code:
-
-    require 'jruby'
-    JRuby.objectspace=true
-
-Enabling Thread Pooling
------------------------
-Ruby scripts frequently take advantage of the C implementation's lightweight (green) threading by spinning up hundreds or thousands of threads during a run. Under JRuby, this can often mean that hundreds or thousands of native threads are spun up and thrown away, which is inefficient in many cases and on many platforms. 
-
-As an alternative to straight-up 1:1 threading in JRuby, you can enable ''thread pooling''. When pooling is enabled, JRuby starts only as many threads as needed for concurrent tasks. Repeatedly launching short-lived Ruby threads then reuses native threads. This can improve performance in many cases, especially when libraries like `timeout` are employed that spin up a thread per call.
-
-To enable thread pooling, set the Java system property `jruby.thread.pooling` to `true`:
-
-    jruby -J-Djruby.thread.pooling=true myscript.rb
-
-For a list of all the thread pooling parameters, see [Thread Pooling Runtime Properties](#thread_pool_rt_props).
+The folks at Atlassian have published a good article on [code cache effects and flushing](http://blogs.atlassian.com/2012/05/codecache-is-full-compiler-has-been-disabled/).
 
 Enable coroutine-based Fibers
 -----------------------------
