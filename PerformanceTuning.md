@@ -17,6 +17,26 @@ JRuby has a built-in profiler that can be used to profile the entire stack all t
 
 * See [[Profiling JRuby]] for more details.
 
+The JVM also has a few profilers built in:
+
+* --sample passed to JRuby or -Xprof passed to the JVM enables the JVM's sampling profiler. This is a very low-cost (and low accuracy) way to fine especially egregious hotspots, like stack trace generation mentioned below.
+
+* -Xrunhprof:cpu-times passed to the JVM enables the JVM's global instrumented profiler. This will slow application tremendously, but profiles actual timing of all methods running on the JVM. We generally recommend JRuby's profiler (--profile) before using runhprof:cpu=times. Results are dumped to java.hprof.txt on exit.
+
+* -Xrunhprof passed to the JVM will profile all object allocations and record backtraces for those allocations, so you can see if you're creating too many objects. Results are dumped to java.hprof.txt on exit.
+
+In addition to the built-in profilers, there are many third-party tools (some free, some not) that do excellent jobs of profiling. Some also have specialized support for JRuby applications.
+
+### Common profiling hotspots
+
+* Stack trace/backtrace generation: Generating backtraces for exceptions, Kernel#caller, etc are more expensive on JRuby due to the way the JVM optimizes.
+
+* Slow or unoptimized methods in JRuby itself: JRuby's not perfect, and once in a while you'll find an especially slow method. Report it to the JRuby team and we'll try to improve it. Remember: JRuby being slower than other implementations is usually a bug.
+
+* Excessive object churn: Ruby is a very GC-intensive language, but with a little care you can reduce object allocation rates substantially. Look at object/allocation profiles to see if you're creating too much junk.
+
+* Systems that don't stabilize: If you're continuing to define constants and methods during the normal runtime of your application, you are likely invalidating the caches that JRuby (and the JVM) uses to optimize code. An ideal system will stop defining new methods and constants at some point and allow the system to stabilize, also known as reaching *steady state*.
+
 Tuning the compiler
 -------------------
 JRuby's compiler can be enabled in JIT mode or specified to run before execution.
