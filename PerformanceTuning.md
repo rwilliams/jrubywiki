@@ -19,9 +19,9 @@ JRuby has a built-in profiler that can be used to profile the entire stack all t
 
 The JVM also has a few profilers built in:
 
-* --sample passed to JRuby or -Xprof passed to the JVM enables the JVM's sampling profiler. This is a very low-cost (and low accuracy) way to fine especially egregious hotspots, like stack trace generation mentioned below.
+* --sample passed to JRuby or -Xprof passed to the JVM enables the JVM's sampling profiler. This is a very low-cost (and low accuracy) way to find especially egregious hotspots, like stack trace generation mentioned below.
 
-* -Xrunhprof:cpu-times passed to the JVM enables the JVM's global instrumented profiler. This will slow application tremendously, but profiles actual timing of all methods running on the JVM. We generally recommend JRuby's profiler (--profile) before using runhprof:cpu=times. Results are dumped to java.hprof.txt on exit.
+* -Xrunhprof:cpu-times passed to the JVM enables the JVM's global instrumented profiler. This will slow the application tremendously, but measures actual times of all methods running on the JVM. We generally recommend JRuby's profiler (--profile) before using runhprof:cpu=times, or use of the latter only for small, self-contained tests. Results are dumped to java.hprof.txt on exit. Use -Xrunhprof:help for a full set of options.
 
 * -Xrunhprof passed to the JVM will profile all object allocations and record backtraces for those allocations, so you can see if you're creating too many objects. Results are dumped to java.hprof.txt on exit.
 
