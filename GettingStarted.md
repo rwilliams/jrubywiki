@@ -58,7 +58,7 @@ Did It Work?
 -----------
 To test whether JRuby installed correctly, open a command window or terminal window and run:
 
-    jruby -version
+    jruby --version
 
 If it installed correctly, JRuby will return the current version.
 
