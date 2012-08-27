@@ -41,7 +41,7 @@ We will also attempt to turn on this flag lazily, but with a warning. Because ob
 
 See the example above for usage of ```__persistent__ = true```.
 
-JRuby 1.7 will still cache all proxies by default, but will issue a one-time warning if you're using instance variables or singletons on Java objects. We recommend passing ```-Xji.objectProxyCache=true``` to JRuby (or ```-Djruby.ji.objectProxyCache=true``` to Java) to find and fix all uses of instance vars or singletons on Java objects in your code.
+JRuby 1.7 will still cache all proxies by default, but will issue a one-time warning if you're using instance variables or singletons on Java objects. We recommend passing ```-Xji.objectProxyCache=false``` to JRuby (or ```-Djruby.ji.objectProxyCache=false``` to Java) to find and fix all uses of instance vars or singletons on Java objects in your code.
 
 Alternatives
 ------------
