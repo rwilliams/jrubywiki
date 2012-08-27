@@ -1,6 +1,6 @@
 If you were directed to this page by a JRuby warning, it's probably because you're using JRuby 1.7 in combination with Java objects you've turned into singletons or to which you've added instance variables.
 
-JRuby 1.7 deprecates using instance variables or singletons on Java objects without first calling ```__persistent__ = true``` on the object's Java class. JRuby 1.7 and JRuby 2.0 will both attempt to make Java objects persistent after the first use of instance vars or singletons, but in 2.0 we will warn for each case. We recommend using other mechanisms to store per-Java-object data, and you may want to pass ```-Xji.objectProxyCache=true``` to JRuby (or ```-Djruby.ji.objectProxyCache=true``` to Java) to find and fix all such patterns in your code before JRuby 2.0.
+JRuby 1.7 deprecates using instance variables or singletons on Java objects without first calling ```__persistent__ = true``` on the object's Java class. JRuby 1.7 and JRuby 2.0 will both attempt to make Java objects persistent after the first use of instance vars or singletons, but in 2.0 we will warn for each case. We recommend using other mechanisms to store per-Java-object data, and you may want to pass ```-Xji.objectProxyCache=false``` to JRuby (or ```-Djruby.ji.objectProxyCache=false``` to Java) to find and fix all such patterns in your code before JRuby 2.0.
 
 To set a Java class to be persistent, use code similar to the following:
 
@@ -18,6 +18,8 @@ ArrayList.__persistent__ = true
 class << list; ... end
 list.instance_variable_set(:@foo, 'bar')
 ```
+
+This does not cascade down-hierarchy; it must be done for each individual Java class whose instances you expect to use instance vars or singletons with.
 
 For more information, read on.
 
