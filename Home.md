@@ -22,6 +22,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 **JRuby Specifics**
 
 * [[Concurrency in JRuby]]
+* [[Gems known not to be threadsafe]]
 
 **Web Applications (Rails, servers, others)**
 
