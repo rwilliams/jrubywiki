@@ -14,6 +14,7 @@ JRuby release preparation
 * [branch] Update maven poms: `jruby -S rake maven:updatepoms VERSION={newversion}`
 * [master] Update default.build.properties to reflect next version [ -> 1.6.0.dev]
 * [master] Update maven poms: `jruby -S rake maven:updatepoms VERSION={newversion}`
+* [master,branch] update maven/jruby-rake-plugin/pom.xml version for jruby-complete to be correct.
 * Make tag using git tag: `git tag X.Y; git push --tags`
 * Check out clean clone of release branch: `cd .. && rm -rf release && git clone jruby release && cd release` (for example)
 * Set your java version to Java 5 for building the release.
