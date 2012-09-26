@@ -4,18 +4,18 @@ JRuby 1.7 deprecates using instance variables or singletons on Java objects with
 
 To set a Java class to be persistent, use code similar to the following:
 
-```
+```ruby
 java_import java.util.ArrayList
 list = ArrayList.new
 
 # These lines will warn if ArrayList is not set persistent yet
-# class << list; ... end
-# list.instance_variable_set(:@foo, 'bar')
+class << list; end
+list.instance_variable_set(:@foo, 'bar')
 
 ArrayList.__persistent__ = true
 
 # no warning for these lines, but all ArrayList will now have cached proxies
-class << list; ... end
+class << list; end
 list.instance_variable_set(:@foo, 'bar')
 ```
 
