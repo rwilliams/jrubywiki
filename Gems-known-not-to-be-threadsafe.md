@@ -1,1 +1,2 @@
-* [Dragonfly](https://github.com/markevans/dragonfly). [Issue](https://github.com/markevans/dragonfly/issues/221)
+* [dragonfly](https://github.com/markevans/dragonfly): [221](https://github.com/markevans/dragonfly/issues/221)
+* [json-schema](https://github.com/hoxworth/json-schema): [24](https://github.com/hoxworth/json-schema/issues/24)
