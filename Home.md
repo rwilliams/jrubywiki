@@ -28,7 +28,6 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 **Web Applications (Rails, servers, others)**
 
 * [[JRuby on Rails|JRubyonRails]]
-* [120 second guide to JRuby on Rails](http://blog.emptyway.com/2008/04/08/120-seconds-guide-to-jruby-on-rails) **Broken Link**
 * [Deploying a Rails App in Tomcat with JRuby](http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a)
 * [[ActiveRecord-JDBC]]
 * [[Deploying Rails Apps|JRubyOnRails]]   
