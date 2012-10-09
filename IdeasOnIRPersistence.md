@@ -51,6 +51,8 @@ Because we can anchor productions off of the encoded instruction token we can kn
 
 Another thing you will notice is that [] is not in those examples.  Since we know the arity we no longer need grammar to delineate a list anymore.
 
+Ah there is one caveat above I should have mentioned.  We cannot encode all arities possible in the language this way so we still need an 'n' version.  This version needs to dynamically create a list like shown above.  This will be a rarity though and should impact performance except extreme cases.
+
 ## What is whitespace after all
 
 I argue that most of this extra syntax is unneeded sugar and is not needed by the grammar to parse this output.  I am correct :)  The obvious defect of not having extra syntax is not having nice visual cues.  There is a simple way to avoid the cost of having this extra syntax...Designate it as whitespace.  So:
