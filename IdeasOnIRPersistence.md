@@ -11,7 +11,7 @@ We basically have two choices for encoding instructions.  Parameterizing all sta
 ```text Parameterizing
 %v_1 = Call(self, functional, "require", [%v_2], %cl_1)
 1    2 3   45   6 7         8 9        0 12   34 5    6   Tokens
-1                             1           2              Allocs
+1                             1           2      3        Allocs
 ```
 
 And instruction encoding:
