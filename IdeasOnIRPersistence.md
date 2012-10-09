@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Our GSoc project on IR Persistence lead to several interesting discoveries.  The overhead of parsing generic grammars can be quite a bit more expensive than we thought.  This document is talking about a new proposed grammar along with some hand-waving arguments why I think they will be quicker.
+Our GSoc project on IR Persistence lead to several interesting discoveries.  One discovery was that the overhead of parsing generic grammars can be quite a bit more expensive than we thought.  This document is talking about a new proposed grammar along with some hand-waving arguments why I think they will be quicker.
 
 Another quick statement about one our goals.  We really want this format to be readable so we can
 - Read it (duh)
