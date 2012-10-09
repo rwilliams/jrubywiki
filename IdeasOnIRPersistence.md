@@ -7,6 +7,7 @@ Our GSoc project on IR Persistence lead to several interesting discoveries.  One
 Another quick statement about one our goals.  We really want this format to be readable so we can
 - Read it (duh)
 - Make test cases by hand (like writing assembly)
+- Easier to debug
 
 ## An instruction by any other name
 
