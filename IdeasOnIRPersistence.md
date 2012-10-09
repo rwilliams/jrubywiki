@@ -70,6 +70,8 @@ is exactly the same as:
 
 So our persister can just dump the extra syntax to make it more readable but the lexer will strip it out as part of whitespace detection and never pass it to the parser as tokens.
 
+There is one big design issue with this idea.  You need to make absolutely sure those characters can be treated as whitespace.  If anything else in the language needs them then you need to start using contexts in the lexer to be able to provide those.  I don't consider this a big issue for our project.
+
 ## Removing interning and knowing more about variability
 
 When we persist a scope in IR we actually know how many string literals exist and what they are.  We could dump those out as a prologue to the actual instructions.  When loading that prologue we will only intern() those values and never bother to intern after that point.  In our Ruby parser we are stuck calling intern over and over because we cannot know whether the string has already been interned (in a way which would not defeat the performance penalty of intern'ing the world).
