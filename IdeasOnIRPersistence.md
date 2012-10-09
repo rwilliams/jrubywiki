@@ -4,6 +4,10 @@
 
 Our GSoc project on IR Persistence lead to several interesting discoveries.  The overhead of parsing generic grammars can be quite a bit more expensive than we thought.  This document is talking about a new proposed grammar along with some hand-waving arguments why I think they will be quicker.
 
+Another quick statement about one our goals.  We really want this format to be readable so we can
+- Read it (duh)
+- Make test cases by hand (like writing assembly)
+
 ## An instruction by any other name
 
 We basically have two choices for encoding instructions.  Parameterizing all state of an instruction, but leaving the instruction name as part of the serialization format. We can also take those parameters and encode them into 'special' names for that particular type of instruction.  Let's consider these two trivially:
