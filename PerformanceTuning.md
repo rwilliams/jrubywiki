@@ -29,6 +29,9 @@ The JVM also has a few profilers built in:
 
 In addition to the built-in profilers, there are many third-party tools (some free, some not) that do excellent jobs of profiling. Some also have specialized support for JRuby applications.
 
+For example, [NetBeans IDE](http://netbeans.org) includes a Java profiler (without any specific JRuby support).  See the tutorial [Profiling JRuby with NetBeans
+](http://polycrystal.org/2012/10/26/profiling_jruby_with_netbeans.html) for a walk-through on setting up and using the NetBeans profiler.
+
 ### Common profiling hotspots
 
 * Stack trace/backtrace generation: Generating backtraces for exceptions, Kernel#caller, etc are more expensive on JRuby due to the way the JVM optimizes.
