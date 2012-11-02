@@ -66,5 +66,11 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 | jruby-core
 | 1.6.5.1
 | [http://jruby.org/download download installer]
+|-
+| Windows, Linux, Mac OS X, Virtual Appliance and Amazon Cloud Images
+| BitNami
+| BitNami
+| 1.7.0 (frequently updated)
+| [http://bitnami.org/stack/jrubystack download]
 |}
 
