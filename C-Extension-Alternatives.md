@@ -18,7 +18,7 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 * **[Nokogiri][]** - For best results, use the pure-Java version of Nokogiri (default after v1.5).
 
-* **[yajl-ruby][]** - Try `json` or `json_pure` instead. Unfortunately there is no known equivalent JSON stream parser.
+* **[yajl-ruby][]** - Try `json`, `json_pure`, or `oj` instead. Unfortunately there is no known equivalent JSON stream parser.
 
 * **[bson_ext][]** - `bson_ext` isn't used with JRuby. Instead, some native Java extensions are bundled with the `bson` gem.
 
