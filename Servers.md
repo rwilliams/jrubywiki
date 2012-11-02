@@ -53,3 +53,4 @@ The following services are known to work. Other webapp services *should* general
     * [[OpenShifter|http://blog.marekjelen.cz/article/openshifter-jruby-for-openshift]] - CLI tool to simplify the deployment of JRuby applications to OpenShift using JBoss application server
     * [[OpenShift-JRuby|https://github.com/marekjelen/openshift-jruby]] - Template for running JRuby application on OpenShift without an application server.
     * Deploying pre-build .war file to JBoss
+* [[BitNami|http://bitnami.org/stack/jrubystack]] - Provides free Amazon Cloud Images for JRuby Stack which include MySQL, Tomcat, Java, JRuby and the commonly used gems (including warbler). BitNami Cloud Hosting is an optional commercial service with a free developer plan that provides scheduled backups, monitoring and customization for JRuby projects and dozens of other open source app and frameworks.
