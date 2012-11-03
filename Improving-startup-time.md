@@ -54,16 +54,16 @@ Avoid spawning "sub-rubies"
 
 It's a fairly common idiom for Rubyists to spawn a Ruby subprocess using `Kernel#system`, `Kernel#exec`, or backquotes. For example, you may want to prepare a clean environment for a test run. That sort of scenario is perfectly understandable, but spawning many sub-rubies can take a tremendous toll on overall runtime.
 
-When JRuby sees a `#system`, `#exec`, or backquote starting with `ruby`, we will attempt to run it in the same JVM using a new JRuby instance. Because we have always supported "multi-VM" execution (where multiple isolated Ruby environments share a single process), this can make spawning sub-Rubies considerably faster. This is, in fact, how JRuby's Nailgun support (more on that later) keeps a single JVM "clean" for multiple JRuby command executions. But even though this can improve performance, there's still a cost for starting up those JRuby instances, since they need to have fresh, clean core classes and a clean runtime.
+When JRuby sees a `#system`, `#exec`, or backquote starting with `ruby`, we will attempt to run it in the same JVM using a new JRuby instance *if* you pass the flag -J-Djruby.launch.inproc=true.  Because we have always supported "multi-VM" execution (where multiple isolated Ruby environments share a single process), this can make spawning sub-Rubies considerably faster. This is, in fact, how JRuby's Nailgun support (more on that later) keeps each Jruby JVM "clean" with multiple JRuby command executions. But even though this can improve performance, there's still a cost for starting up those JRuby instances, since they need to have fresh, clean core classes and a clean runtime.
 
-The worst-case scenario is when we detect that we can't spin up a JRuby instance in the same process, such as if you have shell redirection characters in the command line (e.g. `system 'ruby -e blah > /dev/null'`). In those cases, we have no choice but to launch an entirely new JRuby process, complete with a new JVM, and you'll be paying the full zero-to-running cost.
+The worst-case scenario is when we detect that we can't spin up a JRuby instance in the same process, such as if you have shell redirection characters in the command line (e.g. `system 'ruby -e blah > /dev/null'`). In those cases, we have no choice but to launch an entirely new JRuby process, complete with a new JVM, and you'll be paying the full zero-to-running cost.  This is also default behavior.
 
 If you're able, try to limit how often you spawn "sub-rubies" or use tools like Nailgun or spec-server to reuse a given process for multiple hits.
 
 Do less at startup
 ==================
 
-This is a difficult tip to follow, since often it's not your code doing so much at startup (and usually it's RubyGems itself). One of the sad truths of JRuby is that because we're based on the JVM, and the JVM takes a while to warm up, code executed early in a process runs a lot slower than code executed later. Add to this the fact that JRuby doesn't JIT Ruby code into JVM bytecode until it's been executed a few times, and you can see why cold performance is not one of JRuby's strong areas.
+This is a difficult tip to follow, since often it's not your code doing so much at startup (and usually it's RubyGems itself--avoid if possible). One of the sad truths of JRuby is that because we're based on the JVM, and the JVM takes a while to warm up, code executed early in a process runs a lot slower than code executed later. Add to this the fact that JRuby doesn't JIT Ruby code into JVM bytecode until it's been executed a few times, and you can see why cold performance is not one of JRuby's strong areas.
 
 It may seem like delaying the inevitable, but doing less at startup can have surprisingly good results for your application. If you are able to eliminate most of the heavy processing until an application window starts up or a server starts listening, you may avoid (or spread out) the cold performance hit. Smart use of on-disk caches and better boot-time algorithms can help a lot, like saving a cache of mostly-read-only data rather than reloading and reprocessing it on every boot.
 
@@ -88,6 +88,11 @@ Here's a few JRuby flags that might help you investigate:
 * `-J-Xrunhprof:cpu=times` turns on the JVM's instrumented profiler, saving profile results to java.hprof.txt. This slows down execution tremendously, but can give you more accurate low-level timings for JRuby and JDK code.
 * `-J-Djruby.debug.loadService.timing=true` turns on timing of all requires, showing fairly accurately where boot-time load costs are heaviest. If there are files that take especially long, there may be a good reason for it.
 * On Windows, where you may not have a "time" command, pass `-b` to JRuby (as in `jruby -b ...`) to print out a timing of your command's runtime execution (excluding JVM boot time).
+
+Use a splashscreen
+===================
+
+If yours is an end user app with a GUI, you can instruct java to display a splash screen while it loads the JVM.  This can help alleviate the pain (to end users) of the startup time.  The jruby parameter is something like  -J-splash=XXX
 
 When all else fails
 ===================
