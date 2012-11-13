@@ -38,7 +38,7 @@ Please add to this list with your findings.
 
 [RDiscount]: https://github.com/rtomayko/rdiscount
 [kramdown]: http://kramdown.rubyforge.org
-[Maruku]:https://github.com/nex3/maruku
+[Maruku]:https://github.com/bhollis/maruku
 [markdown_j]: https://github.com/nate/markdown_j
 [RMagick]: https://github.com/rmagick/rmagick
 [RMagick4J]: https://github.com/Serabe/RMagick4J
@@ -53,7 +53,7 @@ Please add to this list with your findings.
 [Puma]: http://puma.io/
 [Thin]: http://code.macournoyer.com/thin/
 [Typhoeus]: https://github.com/dbalatero/typhoeus
-[activerecord-jdbc-adapter]: https://github.com/nicksieger/activerecord-jdbc-adapter
+[activerecord-jdbc-adapter]: https://github.com/jruby/activerecord-jdbc-adapter
 [JRuby-Lint]: https://github.com/jruby/jruby-lint
 [Nokogiri]: http://nokogiri.org/
 [yajl-ruby]: https://github.com/brianmario/yajl-ruby
