@@ -20,6 +20,30 @@ List any regrets choosing JRuby or recommendations for others (and accentuate th
 ### Project Metrics
 Information on hits/day, transactions/s, and other metrics that would help others evaluate JRuby for their projects.
 
+
+
+## Fleet control at Oslo Airport Gardermoen
+The project monitors and controls the passenger busses and fuel trucks at Oslo Airport Gardermoen.  Each vehicle contains an embedded device with GPS and WIFI that reports the activities of the vehicle to a central server.  Flight list and orders are received by integrating the server to the airport flight database and a central office dispatch unit sends assignments to the vehicles.  All assignments are stored on the server and are reported to the airport authorities through the office backend system.  A web application for analysis and reporting offers detailed drill down and charts.
+
+### Why JRuby?
+We had an extremely tight schedule and needed a language that let us write the features quickly.  Ruby fit that need.  At the same time we absolutely needed a tried production platform that would scale well.  Java fit that need.  JRuby seemed a tempting alternative, and all experiments, proof of concept, pre-project and initial iterations of the project proved JRuby to be a really great platform for developing complex and critical applications.
+
+A REALLY important factor that was tested early in the project was the responsiveness of the JRuby team.  The support from the JRuby team has been absolutely fantastic.  Since project start in 2009 and deployment to production in 2012, there have been bugs of differing severities, and each time the JRuby team has responded quickly and reliably.  Over time we have become involved in the JRuby project and we are confident that any problems that occur will be solved.
+
+### How is JRuby Used?
+JRuby is used in every tier of the system and large parts of the code is shared across the embedded systems (Android and Linux), thick client office systems (Eclipse RCP), the web apps (Rails), and the communication server (headless JRuby process).
+
+### Java Integration
+In the fuel trucks, we use JNI for reading GPIO.  All tiers use ActiveRecord JDBC Adapter for access databases, DerbyDB in the client systems, and PostgreSQL on the server.  ActiveMQ is used for integrating to an automated airline ticket reporting system.  The client systems use Eclipse SWT, JFace, and RCP.  Apache POI is used to import Office documents.  Lots more Java libraries are used and work well.  Being able to select from the Java ecosystem in addition to the Ruby gems has proven very valuable.
+
+### Regrets and Recommendations
+We have no regrets in choosing JRuby.  It is and has been a very pleasant and production platform to work on.  As with all projects, be sure to attack your integration points and high-risk parts of your system first.  test performance.
+
+### Project Metrics
+We have around 200 users, 600 assignments per day, 50 vehicles.  The web apps seldom have more that 10 hits/s.
+
+
+
 ## [OpenTelegard/2](http://telegard.org)
 OpenSource implementation of the Telegard BBS.
 
