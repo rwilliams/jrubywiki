@@ -37,7 +37,7 @@ JRuby is used in every tier of the system and large parts of the code is shared 
 In the fuel trucks, we use JNI for reading GPIO.  All tiers use ActiveRecord JDBC Adapter for access databases, DerbyDB in the client systems, and PostgreSQL on the server.  ActiveMQ is used for integrating to an automated airline ticket reporting system.  The client systems use Eclipse SWT, JFace, and RCP.  Apache POI is used to import Office documents.  Lots more Java libraries are used and work well.  Being able to select from the Java ecosystem in addition to the Ruby gems has proven very valuable.
 
 ### Regrets and Recommendations
-We have no regrets in choosing JRuby.  It is and has been a very pleasant and production platform to work on.  As with all projects, be sure to attack your integration points and high-risk parts of your system first.  Test performance.
+We have no regrets in choosing JRuby.  It is and has been a very pleasant and productive platform to work on.  As with all projects, be sure to attack your integration points and high-risk parts of your system first.  Test performance.
 
 ### Project Metrics
 We have around 200 users, 600 assignments per day, 50 vehicles.  The web apps seldom have more that 10 hits/s.
