@@ -28,7 +28,7 @@ The project monitors and controls the passenger busses and fuel trucks at Oslo A
 ### Why JRuby?
 We had an extremely tight schedule and needed a language that let us write the features quickly.  Ruby fit that need.  At the same time we absolutely needed a tried production platform that would scale well.  Java fit that need.  JRuby seemed a tempting alternative, and all experiments, proof of concept, pre-project and initial iterations of the project proved JRuby to be a really great platform for developing complex and critical applications.
 
-A REALLY important factor that was tested early in the project was the responsiveness of the JRuby team.  The support from the JRuby team has been absolutely fantastic.  Since project start in 2009 and deployment to production in 2012, there have been bugs of differing severities, and each time the JRuby team has responded quickly and reliably.  Over time we have become involved in the JRuby project and we are confident that any problems that occur will be solved.
+A REALLY important factor that was tested early in the project was the responsiveness of the JRuby team.  The support from the JRuby team has been absolutely fantastic.  Since project start in 2009 and deployment to production in 2010, there have been bugs of differing severities, and each time the JRuby team has responded quickly and reliably.  Over time we have become involved in the JRuby project and we are confident that any problems that occur will be solved.
 
 ### How is JRuby Used?
 JRuby is used in every tier of the system and large parts of the code is shared across the embedded systems (Android and Linux), thick client office systems (Eclipse RCP), the web apps (Rails), and the communication server (headless JRuby process).
