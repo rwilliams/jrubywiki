@@ -84,3 +84,7 @@ When we persist a scope in IR we actually know how many string literals exist an
 Also if we know we have n local variables we can record that and then pre-allocate a single array for it.  This means no growing.  It means no bounds checking at the cost of reading a numeric value in the prologue.
 
 The main detriment to this is the cost of parsing this prologue info.  This cure could be worse than the disease, but I think this can be added after our first swipe as a potential set of optimizations.
+
+## Use it when you need it
+
+There is some amount of parsing which always needs to be done when loading a .rb file.  However, if you consider most loaded methods in a class are never used then we should consider ways of being lazier and delay the amount of parsing we do.  A hard scope boundary like a IRMethod can just save an offset to the section of a persisted file and load it on-demand when that method is first referenced.  The details of this will highly change the actual format used for IR persistence.  We can do a simple parse to find end boundary and not actually process anything or we can have pre-calculated offsets in an index and design the format around being able to seek around in the file.
