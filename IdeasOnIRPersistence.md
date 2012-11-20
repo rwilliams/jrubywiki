@@ -88,3 +88,16 @@ The main detriment to this is the cost of parsing this prologue info.  This cure
 ## Use it when you need it
 
 There is some amount of parsing which always needs to be done when loading a .rb file.  However, if you consider most loaded methods in a class are never used then we should consider ways of being lazier and delay the amount of parsing we do.  A hard scope boundary like a IRMethod can just save an offset to the section of a persisted file and load it on-demand when that method is first referenced.  The details of this will highly change the actual format used for IR persistence.  We can do a simple parse to find end boundary and not actually process anything or we can have pre-calculated offsets in an index and design the format around being able to seek around in the file.
+
+Pre-calculated offsets really pushes this towards a binary format.  A human-readable format is nice for debugging purposes and for generating unit tests, but any character additions/subtractions will mess up all offsets.  If we have a binary format, then it makes sense to have an assembler and disassembler.
+
+## Binary Format/Deferred Notes
+### constant pool(s)
+
+Extra notes on intern'ing.  If we defer execution of methods we may need to have n segmented constant pools.  One for mandatory section and m additional pools for each method?  This will potentially mean extra interning since each method might use the same variable names, but that will be much less than what happens in current AST parser.
+
+### Tagged bits for constant pool
+
+instr arg_count arg1 ... argn
+
+Tagged arg values will know to draw actual values from constant pool.  If an arg does not fit into word size it should be stored in constant pool with a tagged index.  The other decision to make is word-size.
