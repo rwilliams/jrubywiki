@@ -235,3 +235,38 @@ Almost none (just slower development and test startup time compared with MRI)
 
 ## [The Currency Cloud](http://www.thecurrencycloud.com/)
 The Currency Cloud delivers Cross Border Payments as a Service.
+
+## [Jux](https://jux.com)
+Jux aims to be the best showcase for your content.  You can post photos, videos, articles, slideshows, etc.
+
+### Why JRuby?
+We wanted to move to JRuby from MRI Ruby so we could rewrite our performance-sensitive parts in Clojure.
+
+### How is JRuby Used?
+We run Rails on JRuby.
+
+### Java Integration
+Although not Java, we are using JRuby's Java integration to call from JRuby into Clojure.
+
+### Regrets and Recommendations
+
+Downsides:
+
+Rails asset recompilation during development is slower.
+
+Cannot use newrelic_rpm gem as it does not clean up thread locals which causes excessive memory usage with tomcat.
+
+Single sign-on with desk.com has stopped working. We have traced this down to what we believe to be an SSL bug in jruby.  See http://jira.codehaus.org/browse/JRUBY-6951
+
+Recommendations:
+
+Do simulate load on a test setup before deploying to production.  We didn't do so at first and we suffered severe performance degradation due to file descriptor and memory leaks.
+
+We recommend Eclipse Memory Analyzer tool for debugging memory leaks.  Gems not cleaning up thread locals has been the biggest source of memory leaks for us.
+
+Avoid haml.  Besides being slower than erb and slim and not supporting streaming, haml uses exceptions for control flow (fixed in upcoming 3.2.0) and changes the values of constants, both of which cause performance issues in jruby.
+
+Be careful with threadsafe mode, especially if you are using a large number of third-party gems.  Many gem authors do not code their gems with thread safety in mind.  JRuby is raising awareness, however.
+
+### Project Metrics
+1.4M hits / day.  105K users.
