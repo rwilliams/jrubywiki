@@ -233,5 +233,5 @@ OpenJDK 6
 ### Regrets and recommendations
 Almost none (just slower development and test startup time compared with MRI)
 
-## [The Currency Cloud](https://www.thecurrencycloud.com/)
+## [The Currency Cloud](http://www.thecurrencycloud.com/)
 The Currency Cloud delivers Cross Border Payments as a Service.
