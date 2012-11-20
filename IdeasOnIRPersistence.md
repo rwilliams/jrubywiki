@@ -96,6 +96,21 @@ Pre-calculated offsets really pushes this towards a binary format.  A human-read
 
 Extra notes on intern'ing.  If we defer execution of methods we may need to have n segmented constant pools.  One for mandatory section and m additional pools for each method?  This will potentially mean extra interning since each method might use the same variable names, but that will be much less than what happens in current AST parser.
 
+If all entries in constant pool are fixed width (with data pool for variable length values) then we can have something like
+
+```text
+   offset 0
+   data pool
+   offset n
+   constant pool (all fixed width for all things)
+   offset m
+   mandatory instrs
+   offset p
+   optional method1
+...
+
+A single constant pool for all literals since we need type + data.  A backing table on load will know if a constant has been loaded or not based on offset index.  If not then it needs to reify the constant and store it (all Operand types).  This means only the actual constants referred to will get stood up only interning exactly what is used.
+
 ### Tagged bits for constant pool
 
 instr arg_count arg1 ... argn
