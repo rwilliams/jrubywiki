@@ -240,7 +240,7 @@ The Currency Cloud delivers Cross Border Payments as a Service.
 Jux aims to be the best showcase for your content.  You can post photos, videos, articles, slideshows, etc.
 
 ### Why JRuby?
-We wanted to move to JRuby from MRI Ruby so we could rewrite our performance-sensitive parts in Clojure.
+We wanted to move to JRuby from MRI Ruby so we could rewrite some of our slow, CPU-bound code in Clojure.
 
 ### How is JRuby Used?
 We run Rails on JRuby.
