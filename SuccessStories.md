@@ -268,5 +268,7 @@ Avoid haml.  Besides being slower than erb and slim and not supporting streaming
 
 Be careful with threadsafe mode, especially if you are using a large number of third-party gems.  Many gem authors do not code their gems with thread safety in mind.  JRuby is raising awareness, however.
 
+Mongoid 3 will leak file descriptors on tomcat-based deployments.  This is because [Mongoid 3 stores sessions as a thread local](https://github.com/mongoid/mongoid/issues/2369).  You can work around this by running in non-threadsafe mode and patching Mongoid to [store sessions as a global variable](https://github.com/tolsen/mongoid/commit/cec363b2bd74c1b6fed0ce4419a3cecc50e9ac94). 
+
 ### Project Metrics
 1.4M hits / day.  105K users.
