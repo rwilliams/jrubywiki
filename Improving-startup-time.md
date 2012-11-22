@@ -20,7 +20,7 @@ On OS X, where the Hotspot JVM is shipped in a "universal" 32/64-bit binary, you
 64-bit non-OS X systems
 -----------------------
 
-On non-OS X 64-bit systems, you will not have a universal binary to switch from 64 to 32 bit. If your system is configured to allow 32-bit binaries, a simple way to get access to "client" mode is to install a 32-bit JVM.
+On non-OS X 64-bit systems, you will not have a universal binary to switch from 64 to 32 bit. [client mode](http://www.oracle.com/technetwork/java/hotspotfaq-138619.html#64bit_compilers) is not available on 64 bit systems. If your system is configured to allow 32-bit binaries, a simple way to get access to "client" mode is to install a 32-bit JVM.
 
 Tiered compilation mode
 -----------------------
