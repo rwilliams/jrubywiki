@@ -107,7 +107,7 @@ If all entries in constant pool are fixed width (with data pool for variable len
    mandatory instrs
    offset p
    optional method1
-...
+```
 
 A single constant pool for all literals since we need type + data.  A backing table on load will know if a constant has been loaded or not based on offset index.  If not then it needs to reify the constant and store it (all Operand types).  This means only the actual constants referred to will get stood up only interning exactly what is used.
 
