@@ -30,7 +30,7 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 * [[Puma|http://puma.io]] - A server written in Ruby, wraps the Ragel parser (from Mongrel). 
 
 ### Other Servers. Young Projects
-* [[Thick|https://github.com/marekjelen/thick]] - A server based on [[Netty|http://www.jboss.org/netty]]
+* [[Thick|https://github.com/marekjelen/thick]] - A server based on [[Netty|http://www.netty.io]]
 
 ### Deprecated Servers
 
