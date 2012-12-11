@@ -256,7 +256,7 @@ Rails asset recompilation during development is slower.
 
 Cannot use newrelic_rpm gem as it does not clean up thread locals which causes excessive memory usage with tomcat.
 
-Single sign-on with desk.com has stopped working. We have traced this down to what we believe to be an SSL bug in jruby.  See http://jira.codehaus.org/browse/JRUBY-6951
+~~Single sign-on with desk.com has stopped working. We have traced this down to what we believe to be an SSL bug in jruby.  See http://jira.codehaus.org/browse/JRUBY-6951~~  Fixed in 80ba2ff470d4748a1836d40afac0b879b9a0d943 !
 
 Recommendations:
 
