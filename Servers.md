@@ -28,10 +28,9 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 * [[Mizuno|https://github.com/matadon/mizuno]] - A wrapper around [[Jetty|http://jetty.codehaus.org/jetty/]].
 * [[TorqueBox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
 * [[Puma|http://puma.io]] - A server written in Ruby, wraps the Ragel parser (from Mongrel). 
-
+* [[Jubilee|https://github.com/isaiah/jubilee]] - A server based on [[Vertx|http://www.vertx.io]]
 ### Other Servers. Young Projects
 * [[Thick|https://github.com/marekjelen/thick]] - A server based on [[Netty|http://www.netty.io]]
-* [[Jubilee|https://github.com/isaiah/jubilee]] - A server based on [[Vertx|http://www.vertx.io]]
 
 ### Deprecated Servers
 
