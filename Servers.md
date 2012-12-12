@@ -31,6 +31,7 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 
 ### Other Servers. Young Projects
 * [[Thick|https://github.com/marekjelen/thick]] - A server based on [[Netty|http://www.netty.io]]
+* [[Jubilee|https://github.com/isaiah/jubilee]] - A server based on [[Vertx|http://www.vertx.io]]
 
 ### Deprecated Servers
 
