@@ -19,218 +19,446 @@ errno.backtrace=true
 
 Most properties should be documented in the ```jruby --properties``` output, but for a complete listing look at src/org/jruby/RubyInstanceConfig.java.
 
-A listing from JRuby 1.7 (in dev at time of writing) follows. Some of these are not available on JRuby 1.6.x.
+A listing from JRuby 1.7.1 follows. Some of these are not available on JRuby 1.6.x.
 
 ```
-These properties can be used to alter runtime behavior for perf or compatibility.
-Specify them by passing -X<property>=<value>
-  or if passing directly to Java, -Djruby.<property>=<value>
-  or put <property>=<value> in .jrubyrc
+ These properties can be used to alter runtime behavior for perf or compatibility.
+# Specify them by passing -X<property>=<value>
+#   or if passing directly to Java, -Djruby.<property>=<value>
+#   or put <property>=<value> in .jrubyrc
+#
+# This dump is a valid .jrubyrc file of current settings.
 
-compiler settings:
+################################################################################
+# compiler settings
+################################################################################
 
-   compile.mode=[JIT, FORCE, OFF, OFFIR]
-      Set compilation mode. JIT = at runtime; FORCE = before execution. Default is JIT.
-   compile.dump=[true, false]
-      Dump to console all bytecode generated at runtime. Default is false.
-   compile.threadless=[true, false]
-      (EXPERIMENTAL) Turn on compilation without polling for "unsafe" thread events. Default is false.
-   compile.dynopt=[true, false]
-      (EXPERIMENTAL) Use interpreter to help compiler make direct calls. Default is false.
-   compile.fastops=[true, false]
-      Turn on fast operators for Fixnum and Float. Default is false.
-   compile.chainsize=[Integer]
-      Set the number of lines at which compiled bodies are "chained". Default is 500.
-   compile.lazyHandles=[true, false]
-      Generate method bindings (handles) for compiled methods lazily. Default is false.
-   compile.peephole=[true, false]
-      Enable or disable peephole optimizations. Default is true.
-   compile.noguards=[true, false]
-      Compile calls without guards, for experimentation. Default is false.
-   compile.fastest=[true, false]
-      Compile with all "mostly harmless" compiler optimizations. Default is false.
-   compile.fastsend=[true, false]
-      Compile obj.send(:sym, ...) as obj.sym(...). Default is false.
-   compile.inlineDyncalls=[true, false]
-      Emit method lookup + invoke inline in bytecode. Default is false.
-   compile.fastMasgn=[true, false]
-      Return true from multiple assignment instead of a new array. Default is false.
-   compile.invokedynamic=[true, false]
-      Use invokedynamic on Java 7+. Default is true.
+# Set compilation mode. JIT = at runtime; FORCE = before execution.
+# Options: [JIT, FORCE, OFF, OFFIR], Default: JIT.
+compile.mode=JIT
 
-invokedynamic settings:
+# Dump to console all bytecode generated at runtime.
+# Options: [true, false], Default: false.
+compile.dump=false
 
-   invokedynamic.maxfail=[Integer]
-      Maximum call site failures after which to inline cache. Default is 1000.
-   invokedynamic.maxpoly=[Integer]
-      Maximum polymorphism of PIC binding. Default is 2.
-   invokedynamic.log.binding=[true, false]
-      Log binding of invokedynamic call sites. Default is false.
-   invokedynamic.log.constants=[true, false]
-      Log invokedynamic-based constant lookups. Default is false.
-   invokedynamic.all=[true, false]
-      Enable all possible uses of invokedynamic. Default is false.
-   invokedynamic.safe=[true, false]
-      Enable all safe (but maybe not fast) uses of invokedynamic. Default is false.
-   invokedynamic.invocation=[true, false]
-      Enable invokedynamic for method invocations. Default is true.
-   invokedynamic.invocation.switchpoint=[true, false]
-      Use SwitchPoint for class modification guards on invocations. Default is true.
-   invokedynamic.invocation.indirect=[true, false]
-      Also bind indirect method invokers to invokedynamic. Default is true.
-   invokedynamic.invocation.java=[true, false]
-      Bind Ruby to Java invocations with invokedynamic. Default is true.
-   invokedynamic.invocation.attr=[true, false]
-      Bind Ruby attribue invocations directly to invokedynamic. Default is true.
-   invokedynamic.invocation.fastops=[true, false]
-      Bind Fixnum and Float math using optimized logic. Default is true.
-   invokedynamic.cache=[true, false]
-      Use invokedynamic to load cached values like literals and constants. Default is true.
-   invokedynamic.cache.constants=[true, false]
-      Use invokedynamic to load constants. Default is true.
-   invokedynamic.cache.literals=[true, false]
-      Use invokedynamic to load literals. Default is true.
-   invokedynamic.cache.ivars=[true, false]
-      Use invokedynamic to get/set instance variables. Default is false.
+# (EXPERIMENTAL) Turn on compilation without polling for "unsafe" thread events.
+# Options: [true, false], Default: false.
+compile.threadless=false
 
-jit settings:
+# Turn on fast operators for Fixnum and Float.
+# Options: [true, false], Default: true.
+compile.fastops=true
 
-   jit.threshold=[Integer]
-      Set the JIT threshold to the specified method invocation count. Default is 50.
-   jit.max=[Integer]
-      Set the max count of active methods eligible for JIT-compilation. Default is 4096.
-   jit.maxsize=[Integer]
-      Set the maximum full-class byte size allowed for jitted methods. Default is 30000.
-   jit.logging=[true, false]
-      Enable JIT logging (reports successful compilation). Default is false.
-   jit.logging.verbose=[true, false]
-      Enable verbose JIT logging (reports failed compilation). Default is false.
-   jit.dumping=[true, false]
-      Enable stdout dumping of JITed bytecode. Default is false.
-   jit.logEvery=[Integer]
-      Log a message every n methods JIT compiled. Default is 0.
-   jit.exclude=[ClsOrMod, ClsOrMod::method_name, -::method_name]
-      Exclude methods from JIT. Comma delimited. Default is none.
-   jit.cache=[true, false]
-      Cache jitted method in-memory bodies across runtimes and loads. Default is true.
-   jit.codeCache=[dir]
-      Save jitted methods to <dir> as they're compiled, for future runs. Default is null.
-   jit.debug=[true, false]
-      Log loading of JITed bytecode. Default is false.
-   jit.background=[true, false]
-      Run the JIT compiler in a background thread. Default is true.
+# Set the number of lines at which compiled bodies are "chained".
+# Options: [Integer], Default: 500.
+compile.chainsize=500
 
-intermediate representation settings:
+# Generate method bindings (handles) for compiled methods lazily.
+# Options: [true, false], Default: false.
+compile.lazyHandles=false
 
-   ir.debug=[true, false]
-      Debug generation of JRuby IR. Default is false.
-   ir.compiler.debug=[true, false]
-      Debug compilation of JRuby IR. Default is false.
-   ir.pass.live_variable=[true, false]
-      Enable live variable analysis of IR. Default is false.
-   ir.pass.dead_code=[true, false]
-      Enable dead code elimination in IR. Default is false.
-   ir.pass.test_inliner=[String]
-      Use specified class for inlining pass in IR. Default is none.
+# Enable or disable peephole optimizations.
+# Options: [true, false], Default: true.
+compile.peephole=true
 
-native settings:
+# Compile calls without guards, for experimentation.
+# Options: [true, false], Default: false.
+compile.noguards=false
 
-   native.enabled=[true, false]
-      Enable/disable native code, including POSIX features and C exts. Default is true.
-   native.verbose=[true, false]
-      Enable verbose logging of native extension loading. Default is false.
-   cext.enabled=[true, false]
-      Enable or disable C extension support. Default is true.
-   ffi.compile.dump=[true, false]
-      Dump bytecode-generated FFI stubs to console. Default is false.
-   ffi.compile.threshold=[Integer]
-      Number of FFI invocations before generating a bytecode stub. Default is 100.
-   ffi.compile.invokedynamic=[true, false]
-      Use invokedynamic to bind FFI invocations. Default is false.
+# Compile with all "mostly harmless" compiler optimizations.
+# Options: [true, false], Default: false.
+compile.fastest=false
 
-thread pooling settings:
+# Compile obj.__send__(<literal>, ...) as obj.<literal>(...).
+# Options: [true, false], Default: false.
+compile.fastsend=false
 
-   thread.pool.enabled=[true, false]
-      Enable reuse of native threads via a thread pool. Default is false.
-   thread.pool.min=[Integer]
-      The minimum number of threads to keep alive in the pool. Default is 0.
-   thread.pool.max=[Integer]
-      The maximum number of threads to allow in the pool. Default is 2147483647.
-   thread.pool.ttl=[Integer]
-      The maximum number of seconds to keep alive an idle thread. Default is 60.
+# Return true from multiple assignment instead of a new array.
+# Options: [true, false], Default: false.
+compile.fastMasgn=false
 
-miscellaneous settings:
+# Use invokedynamic for optimizing Ruby code
+# Options: [true, false], Default: false.
+compile.invokedynamic=false
 
-   compat.version=[1.8, 1.9]
-      Specify the major Ruby version to be compatible with. Default is 1.8.
-   objectspace.enabled=[true, false]
-      Enable or disable ObjectSpace.each_object. Default is false.
-   launch.inproc=[true, false]
-      Set in-process launching of e.g. system('ruby ...'). Default is false.
-   bytecode.version=[1.5, 1.6, 1.7]
-      Specify the major Ruby version to be compatible with. Default is 1.7.
-   management.enabled=[true, false]
-      Set whether JMX management is enabled. Default is false.
-   jump.backtrace=[true, false]
-      Make non-local flow jumps generate backtraces. Default is false.
-   process.noUnwrap=[true, false]
-      Do not unwrap process streams (issue on some recent JVMs). Default is false.
-   reify.classes=[true, false]
-      Before instantiation, stand up a real Java class for ever Ruby class. Default is false.
-   reify.logErrors=[true, false]
-      Log errors during reification (reify.classes=true). Default is false.
-   reflected.handles=[true, false]
-      Use reflection for binding methods, not generated bytecode. Default is false.
-   backtrace.color=[true, false]
-      Enable colorized backtraces. Default is false.
-   backtrace.style=[normal, raw, full, mri]
-      Set the style of exception backtraces. Default is normal.
-   thread.dump.signal=[USR1, USR2, etc]
-      Set the signal used for dumping thread stacks. Default is USR2.
-   native.net.protocol=[true, false]
-      Use native impls for parts of net/protocol. Default is false.
-   fiber.coroutines=[true, false]
-      Use JVM coroutines for Fiber. Default is false.
-   global.require.lock=[true, false]
-      Use a single global lock for requires. Default is false.
 
-debugging and logging settings:
+################################################################################
+# invokedynamic settings
+################################################################################
 
-   debug.loadService=[true, false]
-      Log require/load file searches. Default is false.
-   debug.loadService.timing=[true, false]
-      Log require/load parse+evaluate times. Default is false.
-   debug.launch=[true, false]
-      Log externally-launched processes. Default is false.
-   debug.fullTrace=[true, false]
-      Set whether full traces are enabled (c-call/c-return). Default is false.
-   debug.scriptResolution=[true, false]
-      Print which script is executed by '-S' flag. Default is false.
-   errno.backtrace=[true, false]
-      Generate backtraces for heavily-used Errno exceptions (EAGAIN). Default is false.
-   log.exceptions=[true, false]
-      Log every time an exception is constructed. Default is false.
-   log.backtraces=[true, false]
-      Log every time an exception backtrace is generated. Default is false.
-   log.callers=[true, false]
-      Log every time a Kernel#caller backtrace is generated. Default is false.
-   logger.class=[class name]
-      Use specified class for logging. Default is org.jruby.util.log.JavaUtilLoggingLogger.
+# Maximum call site failures after which to inline cache.
+# Options: [Integer], Default: 1000.
+invokedynamic.maxfail=1000
 
-java integration settings:
+# Maximum polymorphism of PIC binding.
+# Options: [Integer], Default: 2.
+invokedynamic.maxpoly=2
 
-   ji.setAccessible=[true, false]
-      Try to set inaccessible Java methods to be accessible. Default is true.
-   ji.logCanSetAccessible=[true, false]
-      Log whether setAccessible is working. Default is false.
-   ji.upper.case.package.name.allowed=[true, false]
-      Allow Capitalized Java pacakge names. Default is false.
-   interfaces.useProxy=[true, false]
-      Use java.lang.reflect.Proxy for interface impl. Default is false.
-   java.handles=[true, false]
-      Use generated handles instead of reflection for calling Java. Default is false.
-   ji.newStyleExtension=[true, false]
-      Extend Java classes without using a proxy object. Default is false.
-   ji.objectProxyCache=[true, false]
-      Cache Java object wrappers between calls. Default is true.
+# Log binding of invokedynamic call sites.
+# Options: [true, false], Default: false.
+invokedynamic.log.binding=false
+
+# Log invokedynamic-based constant lookups.
+# Options: [true, false], Default: false.
+invokedynamic.log.constants=false
+
+# Enable all possible uses of invokedynamic.
+# Options: [true, false], Default: false.
+invokedynamic.all=false
+
+# Enable all safe (but maybe not fast) uses of invokedynamic.
+# Options: [true, false], Default: false.
+invokedynamic.safe=false
+
+# Enable invokedynamic for method invocations.
+# Options: [true, false], Default: true.
+invokedynamic.invocation=true
+
+# Use SwitchPoint for class modification guards on invocations.
+# Options: [true, false], Default: true.
+invokedynamic.invocation.switchpoint=true
+
+# Also bind indirect method invokers to invokedynamic.
+# Options: [true, false], Default: true.
+invokedynamic.invocation.indirect=true
+
+# Bind Ruby to Java invocations with invokedynamic.
+# Options: [true, false], Default: true.
+invokedynamic.invocation.java=true
+
+# Bind Ruby attribue invocations directly to invokedynamic.
+# Options: [true, false], Default: true.
+invokedynamic.invocation.attr=true
+
+# Bind Fixnum and Float math using optimized logic.
+# Options: [true, false], Default: true.
+invokedynamic.invocation.fastops=true
+
+# Use invokedynamic to load cached values like literals and constants.
+# Options: [true, false], Default: true.
+invokedynamic.cache=true
+
+# Use invokedynamic to load constants.
+# Options: [true, false], Default: true.
+invokedynamic.cache.constants=true
+
+# Use invokedynamic to load literals.
+# Options: [true, false], Default: true.
+invokedynamic.cache.literals=true
+
+# Use invokedynamic to get/set instance variables.
+# Options: [true, false], Default: true.
+invokedynamic.cache.ivars=true
+
+# Use ClassValue to store class-specific data.
+# Options: [true, false], Default: false.
+invokedynamic.class.values=false
+
+
+################################################################################
+# jit settings
+################################################################################
+
+# Set the JIT threshold to the specified method invocation count.
+# Options: [Integer], Default: 50.
+jit.threshold=50
+
+# Set the max count of active methods eligible for JIT-compilation.
+# Options: [Integer], Default: 4096.
+jit.max=4096
+
+# Set the maximum full-class byte size allowed for jitted methods.
+# Options: [Integer], Default: 30000.
+jit.maxsize=30000
+
+# Enable JIT logging (reports successful compilation).
+# Options: [true, false], Default: false.
+jit.logging=false
+
+# Enable verbose JIT logging (reports failed compilation).
+# Options: [true, false], Default: false.
+jit.logging.verbose=false
+
+# Enable stdout dumping of JITed bytecode.
+# Options: [true, false], Default: false.
+jit.dumping=false
+
+# Log a message every n methods JIT compiled.
+# Options: [Integer], Default: 0.
+jit.logEvery=0
+
+# Exclude methods from JIT. Comma delimited.
+# Options: [ClsOrMod, ClsOrMod::method_name, -::method_name], Default: none.
+jit.exclude=none
+
+# Cache jitted method in-memory bodies across runtimes and loads.
+# Options: [true, false], Default: true.
+jit.cache=true
+
+# Save jitted methods to <dir> as they're compiled, for future runs.
+# Options: [dir], Default: null.
+jit.codeCache=null
+
+# Log loading of JITed bytecode.
+# Options: [true, false], Default: false.
+jit.debug=false
+
+# Run the JIT compiler in a background thread.
+# Options: [true, false], Default: true.
+jit.background=true
+
+
+################################################################################
+# intermediate representation settings
+################################################################################
+
+# Debug generation of JRuby IR.
+# Options: [true, false], Default: false.
+ir.debug=false
+
+# [EXPT]: Profile IR code during interpretation.
+# Options: [true, false], Default: false.
+ir.profile=false
+
+# Debug compilation of JRuby IR.
+# Options: [true, false], Default: false.
+ir.compiler.debug=false
+
+# Specify comma delimeted list of passes to run.
+# Options: [String], Default: null.
+ir.passes=null
+
+# Specify comma delimeted list of passes to run after inlining a method.
+# Options: [String], Default: null.
+ir.inline_passes=null
+
+
+################################################################################
+# native settings
+################################################################################
+
+# Enable/disable native code, including POSIX features and C exts.
+# Options: [true, false], Default: true.
+native.enabled=true
+
+# Enable verbose logging of native extension loading.
+# Options: [true, false], Default: false.
+native.verbose=false
+
+# Enable or disable C extension support.
+# Options: [true, false], Default: false.
+cext.enabled=false
+
+# Dump bytecode-generated FFI stubs to console.
+# Options: [true, false], Default: false.
+ffi.compile.dump=false
+
+# Number of FFI invocations before generating a bytecode stub.
+# Options: [Integer], Default: 100.
+ffi.compile.threshold=100
+
+# Use invokedynamic to bind FFI invocations.
+# Options: [true, false], Default: false.
+ffi.compile.invokedynamic=false
+
+
+################################################################################
+# thread pooling settings
+################################################################################
+
+# Enable reuse of native threads via a thread pool.
+# Options: [true, false], Default: false.
+thread.pool.enabled=false
+
+# The minimum number of threads to keep alive in the pool.
+# Options: [Integer], Default: 0.
+thread.pool.min=0
+
+# The maximum number of threads to allow in the pool.
+# Options: [Integer], Default: 2147483647.
+thread.pool.max=2147483647
+
+# The maximum number of seconds to keep alive an idle thread.
+# Options: [Integer], Default: 60.
+thread.pool.ttl=60
+
+
+################################################################################
+# miscellaneous settings
+################################################################################
+
+# Specify the major Ruby version to be compatible with.
+# Options: [1.8, 1.9, 2.0], Default: 1.9.
+compat.version=1.9
+
+# Enable or disable ObjectSpace.each_object.
+# Options: [true, false], Default: false.
+objectspace.enabled=false
+
+# Enable or disable SipHash for String hash function.
+# Options: [true, false], Default: false.
+siphash.enabled=false
+
+# Set in-process launching of e.g. system('ruby ...').
+# Options: [true, false], Default: false.
+launch.inproc=false
+
+# Specify the major Java bytecode version.
+# Options: [1.5, 1.6, 1.7], Default: 1.7.
+bytecode.version=1.7
+
+# Set whether JMX management is enabled.
+# Options: [true, false], Default: false.
+management.enabled=false
+
+# Make non-local flow jumps generate backtraces.
+# Options: [true, false], Default: false.
+jump.backtrace=false
+
+# Do not unwrap process streams (issue on some recent JVMs).
+# Options: [true, false], Default: false.
+process.noUnwrap=false
+
+# Before instantiation, stand up a real Java class for ever Ruby class.
+# Options: [true, false], Default: false.
+reify.classes=false
+
+# Log errors during reification (reify.classes=true).
+# Options: [true, false], Default: false.
+reify.logErrors=false
+
+# Use reflection for binding methods, not generated bytecode.
+# Options: [true, false], Default: false.
+reflected.handles=false
+
+# Enable colorized backtraces.
+# Options: [true, false], Default: false.
+backtrace.color=false
+
+# Set the style of exception backtraces.
+# Options: [normal, raw, full, mri], Default: normal.
+backtrace.style=normal
+
+# Mask .java lines in Ruby backtraces.
+# Options: [true, false], Default: false.
+backtrace.mask=false
+
+# Set the signal used for dumping thread stacks.
+# Options: [USR1, USR2, etc], Default: USR2.
+thread.dump.signal=USR2
+
+# Use native impls for parts of net/protocol.
+# Options: [true, false], Default: false.
+native.net.protocol=false
+
+# Use JVM coroutines for Fiber.
+# Options: [true, false], Default: false.
+fiber.coroutines=false
+
+# Use a single global lock for requires.
+# Options: [true, false], Default: false.
+global.require.lock=false
+
+# Do a true process-obliterating native exec for Kernel#exec.
+# Options: [true, false], Default: true.
+native.exec=true
+
+
+################################################################################
+# debugging and logging settings
+################################################################################
+
+# Log require/load file searches.
+# Options: [true, false], Default: false.
+debug.loadService=false
+
+# Log require/load parse+evaluate times.
+# Options: [true, false], Default: false.
+debug.loadService.timing=false
+
+# Log externally-launched processes.
+# Options: [true, false], Default: false.
+debug.launch=false
+
+# Set whether full traces are enabled (c-call/c-return).
+# Options: [true, false], Default: false.
+debug.fullTrace=false
+
+# Print which script is executed by '-S' flag.
+# Options: [true, false], Default: false.
+debug.scriptResolution=false
+
+# disables JRuby impl script loads and prints parse exceptions
+# Options: [true, false], Default: false.
+debug.parser=false
+
+# Generate backtraces for heavily-used Errno exceptions (EAGAIN).
+# Options: [true, false], Default: false.
+errno.backtrace=false
+
+# Log every time an exception is constructed.
+# Options: [true, false], Default: false.
+log.exceptions=false
+
+# Log every time an exception backtrace is generated.
+# Options: [true, false], Default: false.
+log.backtraces=false
+
+# Log every time a Kernel#caller backtrace is generated.
+# Options: [true, false], Default: false.
+log.callers=false
+
+# Log every time a built-in warning backtrace is generated.
+# Options: [true, false], Default: false.
+log.warnings=false
+
+# Use specified class for logging.
+# Options: [class name], Default: org.jruby.util.log.JavaUtilLoggingLogger.
+logger.class=org.jruby.util.log.JavaUtilLoggingLogger
+
+
+################################################################################
+# java integration settings
+################################################################################
+
+# Try to set inaccessible Java methods to be accessible.
+# Options: [true, false], Default: true.
+ji.setAccessible=true
+
+# Log whether setAccessible is working.
+# Options: [true, false], Default: false.
+ji.logCanSetAccessible=false
+
+# Allow Capitalized Java pacakge names.
+# Options: [true, false], Default: false.
+ji.upper.case.package.name.allowed=false
+
+# Use java.lang.reflect.Proxy for interface impl.
+# Options: [true, false], Default: false.
+interfaces.useProxy=false
+
+# Use generated handles instead of reflection for calling Java.
+# Options: [true, false], Default: false.
+java.handles=false
+
+# Extend Java classes without using a proxy object.
+# Options: [true, false], Default: false.
+ji.newStyleExtension=false
+
+# Cache Java object wrappers between calls.
+# Options: [true, false], Default: true.
+ji.objectProxyCache=true
+
+# Allow external envs to replace JI proxy class factory
+# Options: [String], Default: null.
+ji.proxyClassFactory=null
+
+
+################################################################################
+# profiling settings
+################################################################################
+
+# Maximum number of methods to consider for profiling.
+# Options: [Integer], Default: 100000.
+profile.max.methods=100000
 ```
