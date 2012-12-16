@@ -267,36 +267,6 @@ or
   lock.try_lock(5000, TimeUnit::MILLISECONDS)
 ```
 
-Accessing package, protected and private fields
-----------------------------------------------------------------------
-
-If you need to access package, protected and private fields on a Java class, you are able to do so with field_reader, field_writer and field_accessor attributes.
-
-The methods field_reader, field_writer, field_accessor are analogues to attr_reader, attr_writer, and attr_accessor and take a symbol name of the field you want to access as a an argument. 
-
-For example, if you have a java class of:
-
-```java
-public class Something {
-
- protected float somevalue = 1.0f;
-
-}
-```
-
-And you want to access the protected field `somevalue` from a subclass that is defined in JRuby, you can do the following:
-
-```ruby
-class SomethingElse < Something
-  field_accessor :somevalue
-
-  def initialise
-    self.somevale(2.0)
-  end
-
-end
-```
-
 Gotchas
 -------
 
@@ -687,6 +657,36 @@ Subclassing a Java class
 
 You can subclass (i.e. extend) a Java class and then use the JRuby class whenever Java expects the superclass.
 
+Accessing package, protected and private fields
+----------------------------------------------------------------------
+
+If you need to access package, protected and private fields on a Java class, you are able to do so with field_reader, field_writer and field_accessor attributes.
+
+The methods field_reader, field_writer, field_accessor are analogues to attr_reader, attr_writer, and attr_accessor and take a symbol name of the field you want to access as a an argument. 
+
+For example, if you have a java class of:
+
+```java
+public class Something {
+
+ protected float somevalue = 1.0f;
+
+}
+```
+
+And you want to access the protected field `somevalue` from a subclass that is defined in JRuby, you can do the following:
+
+```ruby
+class SomethingElse < Something
+  field_accessor :somevalue
+
+  def initialise
+    self.somevale(2.0)
+  end
+
+end
+```
+
 Gotchas
 -------
 
@@ -790,6 +790,8 @@ The expression evaluates to the result of the block, e.g.,
 ```ruby
  obj.synchronized { 99 }  # => 99
 ```
+
+
 
 Related Articles
 ----------------
