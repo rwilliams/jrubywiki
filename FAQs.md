@@ -24,7 +24,7 @@ That will use the system wide installed jruby interpreter to run your script.
 If you would like to use a local copy of JRuby to run your script, give the relative or absolute path to the jruby program:
 
 ```bash
-    #!/usr/bin/env jruby-1.1RC2/bin/jruby
+    #!/usr/bin/env jruby-1.6.8/bin/jruby
 ```
 
 To run the script directly, you need to set the "x" flag on it:
@@ -116,10 +116,10 @@ Does JRuby support Ruby 1.9.x features?
 ---------------------------------------
 
 Yes. JRuby officially started supporting 1.9.2 features as of the 1.6.x line of releases, though it
-is not default in those versions. You must specify the --1.9 flag at the command line or in a JRUBY_OPTS
-environment variable, or add "compat.version=1.9" to .jrubyrc (on 1.6.5 or higher).
+is not default in those versions. You must specify the `--1.9` flag at the command line or in a *JRUBY_OPTS*
+environment variable, or add "compat.version=1.9" to *.jrubyrc* (on 1.6.5 or higher).
 
-JRuby will make 1.9 mode default in some version after the 1.6.x line.
+Ruby 1.9 mode is default in JRuby 1.7.0 and later, 1.8.7 compatibility can still be used with the `--1.8` flag.
 
 How do I run JRuby without the command-line scripts?
 ----------------------------------------------------
