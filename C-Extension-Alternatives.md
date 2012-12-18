@@ -1,4 +1,6 @@
-JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 the support is still "in development" and considered experimental. This page lists common C extensions and non-C alternatives you can use to replace them.
+JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 the support is still "in development" and considered experimental. As of 1.7, it has been disabled and will likely [be removed](https://twitter.com/headius/statuses/281091403919003649).
+
+This page lists common C extensions and non-C alternatives you can use to replace them.
 
 * **[RDiscount][]** - Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)
 
