@@ -4,20 +4,20 @@ Using the built-in profiler
 Turning on the built in profiler
 --------------------------------
 
-JRuby has a built-in profiler that you can use in several ways.  The simplest way is to just add the --profile flag on the commandline, or in JRUBY_OPTS.  This outputs a flat profiler and is available as of JRuby 1.5.
+JRuby has a built-in profiler that you can use in several ways.  The simplest way is to just add the `--profile` flag on the commandline, or in `JRUBY_OPTS`.  This outputs a flat profiler and is available as of JRuby 1.5.
 
-In JRuby 1.6, you can expand the above to --profile.flat for the (default) flat profile, --profile.graph for a graph profile, or --profile.api to turn on the profiling API, which allows you to selectively turn the profiler on and off directly from your Ruby code.
+In JRuby 1.6, you can expand the above to --profile.flat for the (default) flat profile, `--profile.graph` for a graph profile, or `--profile.api` to turn on the profiling API, which allows you to selectively turn the profiler on and off directly from your Ruby code.
 
 Profiling an entire application
 -------------------------------
 
-If you want to profile all of your application's code, simply using --profile, --profile.flat, or --profile.graph will do a great job for you.  This is generally best if most of the code that executes in your application is yours, or if you want to take a look at what is consuming most of the time in your application.  Once you have isolated an area that you think could use improvement, either through results in load or performance tests, or through broad profiling as above, you'll likely want to get more specific.
+If you want to profile all of your application's code, simply using `--profile`, `--profile.flat`, or `--profile.graph` will do a great job for you.  This is generally best if most of the code that executes in your application is yours, or if you want to take a look at what is consuming most of the time in your application.  Once you have isolated an area that you think could use improvement, either through results in load or performance tests, or through broad profiling as above, you'll likely want to get more specific.
 
 
 Profiling specific code in an application
 -----------------------------------------
 
-To get more specific, you're going to want to wrap the specific section of code you'd like to profile in a block that you pass to JRuby::Profiler.profile.  Here's an example, taken from Daniel Lucraft's blog: http://danlucraft.com/blog/2011/03/built-in-profiler-in-jruby-1.6/
+To get more specific, you're going to want to wrap the specific section of code you'd like to profile in a block that you pass to `JRuby::Profiler.profile`.  Here's an example, taken from Daniel Lucraft's blog: http://danlucraft.com/blog/2011/03/built-in-profiler-in-jruby-1.6/
 
     require 'jruby/profiler'
     
@@ -31,7 +31,7 @@ Next, you'll want to use one of the profile printers to format the data in a way
 * GraphProfilePrinter
 * FlatProfilePrinter
 
-If you wanted to replicate the behavior of the --profile.graph, but focused only on the block you wrapped above, you could output it in this manner, printing to STDOUT:
+If you wanted to replicate the behavior of the `--profile.graph`, but focused only on the block you wrapped above, you could output it in this manner, printing to STDOUT:
 
     profile_printer = JRuby::Profiler::GraphProfilePrinter.new(profile_data)
     profile_printer.printProfile(STDOUT)
