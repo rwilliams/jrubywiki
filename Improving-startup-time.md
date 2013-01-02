@@ -5,33 +5,26 @@ Note that some of these tips are not recommended for general execution; for exam
 Use the "client" mode of the JVM
 ================================
 
-The most commonly-used JVM, Hotspot (aka Sun/Oracle's VM, OpenJDK), ships with two major execution modes: "client" and "server". The client mode is designed to start up quickly and not optimize as much. Server mode takes longer to start and warm up code, but eventually optimizes code much more than client mode.
+The most commonly-used JVM, Hotspot (aka Sun/Oracle's VM, OpenJDK), ships its 32-bit version with two execution modes: "client" and "server". The client mode is designed to start up quickly and not optimize as much. Server mode takes longer to start and warm up code, but eventually optimizes code much more than client mode.
 
-Enabling client mode
---------------------
+On 64-bit Hotspot, client mode is not available, but you can configure the "tiered" compiler mode to behave similarly.
+
+Enabling client mode (32-bit)
+-----------------------------
 
 All 32-bit versions of Hotspot ship with client mode. You can turn it on by passing `-client` to the `java` command, or through JRuby you can pass `--client` or `-J-client`. This is the most effective way to improve startup time.
 
 Client mode on OS X
 -------------------
 
-On OS X, where the Hotspot JVM is shipped in a "universal" 32/64-bit binary, you may also have to pass `-d32` to the `java` command, or `-J-d32` to JRuby, to force the JVM to start up in 32-bit mode. Without this flag, the JVM may start in 64-bit mode, which does not have a "client" mode.
+On OS X, where the Hotspot JVM is sometimes (Java 1.6 and lower) shipped in a "universal" 32/64-bit binary, you may also have to pass `-d32` to the `java` command, or `-J-d32` to JRuby, to force the JVM to start up in 32-bit mode. Without this flag, the JVM may start in 64-bit mode, which does not have a "client" mode.
 
-64-bit non-OS X systems
------------------------
+Tiered compilation (64-bit)
+---------------------------
 
-On non-OS X 64-bit systems, you will not have a universal binary to switch from 64 to 32 bit. [client mode](http://www.oracle.com/technetwork/java/hotspotfaq-138619.html#64bit_compilers) is not available on 64 bit systems. If your system is configured to allow 32-bit binaries, a simple way to get access to "client" mode is to install a 32-bit JVM.
+When running a 64-bit-only Hotspot JVM, there is no client mode, and the -client flag will not change execution in any way. In these environments, you can get the same effect as client mode by passing two flags: `-XX:+TieredCompilation -XX:TieredStopAtLevel=1` (prefixed with -J if using the `jruby` command, as usual). This forces the "tiered" compiler into a mode that starts up fast and does not optimize beyond what "client" would. These flags have been tested on Java 6 (OpenJDK 1.6) through Java 8 (OpenJDK 1.8) and like "client" mode they appear to provide the best startup times.
 
-Tiered compilation mode
------------------------
-
-If installing a 32-bit JVM is not an option, there is no way to enable client mode. However, there's another option: "tiered" compilation. Late in the OpenJDK 6 release cycle, a new mode called "tiered compilation" was introduced. Tiered compilation works similar to "client" mode, by starting up quickly and doing earlier, less-optimized compilation of JVM bytecode. Unlike "client", it continues to reoptimize that code, eventually (ideally) reaching "server" mode performance.
-
-Tiered compilation is more effective in the OpenJDK 7 releases, which have now stabilized and have been tested to work well with JRuby. If updating to OpenJDK 7 is an option for you, its tiered compilation mode may help startup considerably.
-
-To enable tiered compilation, you'll want to run in "server" mode, by passing `-server` to the `java` command or passing `--server` or `-J-server` to JRuby, and additionally pass the flag `-XX:+TieredCompilation` to `java` or `-J-XX:+TieredCompilation` to JRuby.
-
-We are interested in user stories about running in tiered compilation mode, so please let us know how well it works for you.
+If you are unable to use a 32-bit JVM, we recommend enabling the tiered compiler and limiting it to level 1 for best startup.
 
 Regenerate the shared archive
 =============================
