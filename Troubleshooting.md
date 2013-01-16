@@ -16,4 +16,4 @@ To work around that fact, you'll need to do the following:
 1. Locate `libjruby-cext.so` and `libjffi-1.0.so` out of the [JRuby binary distribution's][dist] `lib/native/[platform]` directory. Be sure to choose the right directory for your platform.
 2. Copy them somewhere on the system (e.g., `/opt/jruby/lib`), and either modify the places where `ld.so` looks for libraries to add that path or set LD_LIBRARY_PATH (or equivalent) to use that path before launching the JVM process that uses JRuby (Tomcat/application server etc.).
 
-[dist]: http://ci.jruby.org/job/jruby-dist-release/ws/lib/native/
+[dist]: http://ci.jruby.org/job/jruby-dist-master/ws/lib/native/
