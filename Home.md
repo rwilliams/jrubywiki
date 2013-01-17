@@ -71,6 +71,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
 * [[Release Documentation|ReleaseDocumentation]]
 * [[RoadMap]]
+* [[Testing JRuby and InvokeDynamic|TestingJRubyInvokeDynamic]]
 
 **Related Websites**
 
