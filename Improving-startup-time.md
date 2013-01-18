@@ -42,6 +42,11 @@ An interesting side effect of JRuby's JIT is that it sometimes actually slows ex
 
 Disabling is easy: pass the `-X-C` flag to JRuby or set the jruby.compile.mode property to "OFF" by passing `-Djruby.compile.mode=OFF` to the `java` command.
 
+Disable invokedynamic
+---------------------
+
+Similar to the JIT invokedynamic is an optimization that can speed up steady state operation but slows down startup, especially on some early JVM implementations of that feature. Disable with `-Xcompile.invokedynamic=false` as cli argument/in `JRUBY_OPTS`.
+
 Avoid spawning "sub-rubies"
 ===========================
 
