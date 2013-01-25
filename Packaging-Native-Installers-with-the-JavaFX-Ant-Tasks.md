@@ -105,6 +105,21 @@ and we can use `__send__` to pass a block to the namespace as an object. One thi
 ```
 This should all be pretty self explanatory. Info is basic info about your app. mainClass will always be `org.jruby.JarBootstrapMain` for us, unless something in JRuby changes. The resources block is where you list everything that goes into the package and would include additional files like extra jars or other stuff you might need bundled into the installer, although you may already have this all bundled up into your standalone executable jar. Here we just have the one jar, "HelloWorldApp.jar", which is in a directory, `dist`.  There are tons of options you can pass to these tasks, and more tasks you can include. Visit the official [Oracle Ant Tasks Reference](http://docs.oracle.com/javafx/2/deployment/javafx_ant_task_reference.htm) for details.
 
+# Webstart Files
+
+The JavaFX packaging tool automatically produces Webstart files (a barebones html file to launch it and a jnlp file), used for loading the application from the browser. These are completely broken and unusable with JRuby, as far as I can tell, so be sure to have your rake task remove them, so as not to confuse users.
+
+For JRubyFX, we used something like this:
+
+```ruby
+
+def cleanup_webstart(full_build_dir)
+  files_to_rm = FileList["#{full_build_dir}*.html","#{full_build_dir}*.jnlp"]
+  rm files_to_rm
+end
+```
+You could also use rake's CLEAN task.
+
 # Customization
 
 To customize the package, for example to change the icons or license, add `verbose: true` to the `deploy` task.
