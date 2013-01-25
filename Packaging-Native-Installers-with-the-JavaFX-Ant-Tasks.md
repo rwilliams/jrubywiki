@@ -10,11 +10,11 @@ JavaFX brings an awesome packaging tool and terrific set of packaging Ant Tasks 
 
 The packaging toolkit can only create packages for the OS it is being used on, so for Windows installers you will need to run it on a Windows machine, for OSX installers you will need to run it on a Mac, etc.
 
-In order for the installer to be created, you will need some additional tools installed on your system. For Windows you need either Inno Setup 5 or later for an EXE or [Windows Installer XML (WiX) toolset](http://wix.sourceforge.net/) to generate an MSI. Make sure the WiX toolset's `bin` folder is on the `PATH`.  No special tools are need to generate a DMG, just a recent version of OSX. For linux, the packager uses dpkg-deb to create DEB installers and rpmbuild for RPM.
+In order for the installer to be created, you will need some additional tools installed on your system. For Windows you need either Inno Setup 5 or later for an EXE or [Windows Installer XML (WiX) toolset](http://wix.sourceforge.net/) to generate an MSI. Make sure the WiX toolset's `bin` folder is on the `PATH`.  No special tools are needed to generate a DMG, just a recent version of OSX. For Linux, the packager uses dpkg-deb to create DEB installers and rpmbuild for RPM.
 
 # A Simple Example
 
-There are literally hundreds, perhaps thousands, of tasks and customization options you can choose from, so it would be impossible for me to catalog those all here. Instead, we'll cover a simple example that should explain the basic principles involved, and you can examine the oracle documentation for more advanced customization.
+There are literally hundreds, perhaps thousands, of tasks and customization options you can choose from, so it would be impossible for me to catalog those all here. Instead, we'll cover a simple example that should explain the basic principles involved, and you can examine the Oracle documentation for more advanced customization.
 
 If you aren't familiar with JRuby's Ant library, [this article](http://blog.engineyard.com/2010/rake-and-ant-together-a-pick-it-n-stick-it-approach) is a good primer, and there is an excellent sub-chapter in the [Using Jruby](http://pragprog.com/book/jruby/using-jruby) book.
 
@@ -120,3 +120,5 @@ This will cause the JavaFX packaging tools to enter verbose mode, and provide mo
 # For Addition Resources See:
 
 [Oracle JavaFX Docs: Self-Contained Application Packaging](http://docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm)
+
+For an example of using these tasks programatically, check out the [JRubyFX](https://github.com/nahi/jrubyfx) project's jrubyfx-jarify tool, which takes a few command-line options and spits out an executable jar and a native package.
