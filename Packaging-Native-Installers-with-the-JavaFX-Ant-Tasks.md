@@ -93,7 +93,7 @@ But, ruby is awesome
              outfile: "HelloWorldApp") do
 ```
 
-and we can use __send__ to pass a block to the namespace as an object. One thing I'll mention, if you want to do any customization to your bundle, such as icon, license, etc (and we'll talk a bit about this later), that set of parenthesis after the __send__ is where you want to put your `verbose: true` .
+and we can use `__send__` to pass a block to the namespace as an object. One thing I'll mention, if you want to do any customization to your bundle, such as icon, license, etc (and we'll talk a bit about this later), that set of parenthesis after the `__send__` is where you want to put your `verbose: true` .
 
 ```ruby
       info(title: "Hello World App", vendor: "Me",
