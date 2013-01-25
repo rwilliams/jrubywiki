@@ -103,7 +103,7 @@ and we can use `__send__` to pass a block to the namespace as an object. One thi
         fileset(dir: "dist") do
           include name: "HelloWorldApp.jar"
 ```
-This should all be pretty self explanatory. Info is basic info about your app. mainClass will always be `org.jruby.JarBootstrapMain` for us, unless something in JRuby changes. The resources block is where you list everything that goes into the package and would include additional files like extra jars or other stuff you might need bundled into the installer, although you may already have this all bundled up into your standalone executable jar. Here we just have the one jar, "HelloWorldApp.jar", which is in a directory, `dir`.  There are tons of options you can pass to these tasks, and more tasks you can include. Visit the official [Oracle Ant Tasks Reference](http://docs.oracle.com/javafx/2/deployment/javafx_ant_task_reference.htm) for details.
+This should all be pretty self explanatory. Info is basic info about your app. mainClass will always be `org.jruby.JarBootstrapMain` for us, unless something in JRuby changes. The resources block is where you list everything that goes into the package and would include additional files like extra jars or other stuff you might need bundled into the installer, although you may already have this all bundled up into your standalone executable jar. Here we just have the one jar, "HelloWorldApp.jar", which is in a directory, `dist`.  There are tons of options you can pass to these tasks, and more tasks you can include. Visit the official [Oracle Ant Tasks Reference](http://docs.oracle.com/javafx/2/deployment/javafx_ant_task_reference.htm) for details.
 
 # Customization
 
