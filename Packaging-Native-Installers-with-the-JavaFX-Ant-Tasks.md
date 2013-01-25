@@ -16,7 +16,7 @@ In order for the installer to be created, you will need some additional tools in
 
 There are literally hundreds, perhaps thousands, of tasks and customization options you can choose from, so it would be impossible for me to catalog those all here. Instead, we'll cover a simple example that should explain the basic principles involved, and you can examine the Oracle documentation for more advanced customization.
 
-If you aren't familiar with JRuby's Ant library, [this article](http://blog.engineyard.com/2010/rake-and-ant-together-a-pick-it-n-stick-it-approach) is a good primer, and there is an excellent sub-chapter in the [Using Jruby](http://pragprog.com/book/jruby/using-jruby) book.
+If you aren't familiar with JRuby's Ant library, [this article](http://blog.engineyard.com/2010/rake-and-ant-together-a-pick-it-n-stick-it-approach) is a good primer, and there is an excellent sub-chapter in the [Using JRuby](http://pragprog.com/book/jruby/using-jruby) book.
 
 ```ruby
 require 'ant'
