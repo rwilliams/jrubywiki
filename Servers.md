@@ -29,7 +29,7 @@ The following is a list of embedded/micro/commandline servers for JRuby. If you 
 * [[TorqueBox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
 * [[TorqueBox Lite|https://github.com/torquebox/torquebox-lite]] - A smaller, web-only version of TorqueBox.
 * [[Puma|http://puma.io]] - A server written in Ruby, wraps the Ragel parser (from Mongrel). 
-* [[Jubilee|https://github.com/isaiah/jubilee]] - A server based on [[Vertx|http://www.vertx.io]]
+* [[Jubilee|https://github.com/isaiah/jubilee]] - A server based on [[Vertx|http://vertx.io]]
 
 ### Other Servers. Young Projects
 
