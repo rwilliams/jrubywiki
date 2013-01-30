@@ -41,6 +41,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Getting Ruby Backtraces on a Running Program|JMXBeans]]
 * [[Profiling Object Allocations]]
 * [[Updating Timezone data]]
+* [[Packaging Native Installers with the JavaFX Ant Tasks]]
 
 **Desktop Applications**
 
