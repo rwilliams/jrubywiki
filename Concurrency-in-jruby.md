@@ -52,7 +52,7 @@ More specifically, the following operations are thread-safe in JRuby:
 * Defining or modifying constants and class variables.
 * Defining or modifying global variables.
 * Requiring libraries.
-* Autoloading libraries (JRuby 1.7+, unreleased). A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
+* Autoloading libraries (JRuby 1.7+). A given autoload is only allowed to run in a single thread, and others that encounter the autoload before completion will block.
 * Updating instance variables.
 
 Note that thread safety in this context only means that concurrent updates to the same runtime data structure managed by the JRuby runtime are serialized in some order -- JRuby cannot guarantee a specific order in which those updates will be performed across threads (Ex: [Opening a class](https://github.com/jruby/jruby/wiki/Concurrency in JRuby%3A Opening a class)).  User code is responsible for enforcing specific ordering requirements where such ordering is important for the program's correct execution.  For example, two libraries required at the same time that try to define the same methods or constants -- will still update the relevant class, but the specific order in which those updates are performed will determine the final state of that class.  JRuby does not (and cannot) make any specific ordering guarantees for such concurrent modifications (or for any non-atomic concurrent modifications throughout your code).
