@@ -84,7 +84,7 @@ In the future, as JRuby and JVM startup performance increases, we may flip the d
 Why does my application use more memory under JRuby than under <your impl of choice here>?
 ------------------------------------------------------------------------------------------
 
-See [[Troubleshooting Memory]].
+See [[Troubleshooting Memory Use]].
 
 Why do I get "Unrecognized option...JVM creation failed" when passing -J flags like -splash?
 --------------------------------------------------------------------------------------------
