@@ -280,7 +280,7 @@ Now, because `ResourceBundle.getBundle` doesn't seem to use the JRuby class load
   require 'jruby'
   ...
   bundle = java.util.ResourceBundle::getBundle
-     ("i18n", java.util.Locale::FRENCH, JRuby.runtime.j_ruby_class_loader)
+     ("i18n", java.util.Locale::FRENCH, JRuby.runtime.jruby_class_loader)
 ```
 
 Now you just need to put your `i18n[_*].properties` files in `config/`, et voilà!
