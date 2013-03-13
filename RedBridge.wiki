@@ -18,7 +18,9 @@ Which API should you use? For projects where Ruby is the only scripting language
 # With Embed Core, you can create several Ruby environments in one JVM, and configure them individually (via <code>org.jruby.RubyInstanceConfig</code>. With the other APIs, configuration options can only be set globally, via the <code>System</code> properties.
 # Embed Core offers several shortcuts, such as loading scripts from a <code>java.io.InputStream</code>, or returning Java-friendly objects from Ruby code. These allow you to skip a lot of boilerplate.
 
-For projects requiring multiple scripting languages, JSR223 is a good fit. Though the API is language-independent, JRuby's implementation of it allows you to set some Ruby-specific options. In particular, you can control the threading model of the scripting engine, the lifetime of local variables, compilation mode, and how line numbers are displayed.
+For projects requiring multiple scripting languages, JSR223 is a good fit. 
+
+Though the API is language-independent, JRuby's implementation of it allows you to set some Ruby-specific options. In particular, you can control the threading model of the scripting engine, the lifetime of local variables, compilation mode, and how line numbers are displayed.
 
 The full [http://jruby.org/apidocs/ API documentation] has all the gory details. It's worth talking about a couple of the finer points here.  Also the old [http://kenai.com/projects/redbridge/pages/Home wiki] has some example code that apparently didn't make it to the migration here.  Here are a list of its advantages:
 
