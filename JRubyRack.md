@@ -6,9 +6,9 @@ Download
 --------
 
 
-JRuby-Rack 1.0.9 is the latest version. Download it:
+JRuby-Rack 1.1.13.1 is the latest version. Download it:
 
-[[http://repository.codehaus.org/org/jruby/rack/jruby-rack/1.0.9/jruby-rack-1.0.9.jar]]
+[[http://repository.codehaus.org/org/jruby/rack/jruby-rack/1.1.13.1/jruby-rack-1.1.13.1.jar]]
 
 JRuby-Rack is also bundled with [http://caldersphere.rubyforge.org/warbler Warbler 0.9.9], which is available as a Ruby gem (`jruby -S gem install warbler`).
 
