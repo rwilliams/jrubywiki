@@ -63,7 +63,8 @@ A couple sample projects:
 
 Shoes is a cross-platform toolkit for writing graphical apps easily and artfully using Ruby.
 Unlike most other GUI toolkits, Shoes is designed to be easy and straightforward without losing power. Really, it’s easy!
-Shoes needs you!  There are three research implementations of Shoes on JRuby.  Your work will go toward merging the libraries, choosing the best GUI lib for Shoes (SWT, Swing, Gtk?), and implementing a startup framework that makes Shoes on JRuby truly cross-platform.
+Shoes needs you! The shoes community gathered to write [shoes4](https://github.com/shoes/shoes4) together. Shoes4 is a complete rewrite of the Shoes DSL allowing exchangeable GUI-backends. The first and default backend is using JRuby and SWT.
+There are many interesting projects to tackle within the area of shoes4. You could work on video support, general support for more Shoes constructs or packaging stand alone applications.
 
 ## Java + Native subsystems
 
