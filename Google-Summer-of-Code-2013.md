@@ -72,3 +72,9 @@ JRuby supports calling native libraries across many platforms, but there are pla
 ## krypt
 
 The Java parts of [krypt](https://github.com/emboss/krypt) ensure that JRuby no longer has to emulate the OpenSSL library. It uses Java's own JCE instead to implement a library-agnostic interface that provides full access to Ruby cryptography. If you are interested in cryptography in general, there is a wide variety of topics for you to work on - ranging from Authenticated Encryption modes, providing alternative implementations to [the JCE provider](https://github.com/emboss/krypt-provider-jce) on to XML or PDF signatures using Nokogiri for the former and Java open-source PDF libraries for the latter. If you are specializing in a particular topic and would like to apply it in reality, we'd enjoy to give you a playground to work on.
+
+## Ruby 2.0 compatibility
+
+[Ruby 2.0](http://www.ruby-lang.org/en/news/2013/02/24/ruby-2-0-0-p0-is-released/) is here.
+That means JRuby needs to ensure that our libraries (both core and standard) are as compatible to it as possible.
+The work will involve surveying MRI's libraries, writing missing [RubySpec](http://rubyspec.org/) specs, and implementing them.
