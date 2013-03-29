@@ -5,7 +5,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **[JRuby Downloads]**
 
-**[[Google Summer of Code 2012|GoogleSummerOfCode2012]]**
+**[[Google Summer of Code 2013|Google-Summer-of-Code-2013]]**
 
 **JRuby Basics**
 
@@ -84,4 +84,5 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **Archive**
 
-* [[Ruby Summer of Code 2010!|RubySummerOfCode2010]]
+* [[Ruby Summer of Code 2010|RubySummerOfCode2010]]
+* [[Google Summer of Code 2012|GoogleSummerOfCode2012]]
