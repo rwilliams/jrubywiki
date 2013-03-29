@@ -87,7 +87,7 @@ This `require` makes the resources in `mycode.jar` discoverable by later command
 
 Note that loading jar-files via `require` searches along the `$LOAD_PATH` for them, like it would for normal ruby files.
 
-### From a .class File
+### From .class files
 
 If you need to load from an existing .class file (or one that's not camelcase), the following has examples: [[http://www.ruby-forum.com/topic/216572#939791]]
 
