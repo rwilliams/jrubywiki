@@ -34,6 +34,8 @@ Ruboto is working, and has a solid IRB application and tools for generating apps
 * *Improve startup time*.  Anything done here will make Ruboto more usable.
 * *Reduce runtime size*. Find ways to reduce the amount of .class data we ship to devices.
 * *Straight-line performance*. Android devices are very resource-limited, and we would like to improve the performance of JRuby on Android to address this fact.
+* *JIT compilation*.  Increase execution speed and reduce stack usage.
+* *AOT compilation*.  Faster startup and increased execution speed.
 
 ## JRuby for Embedded
 
