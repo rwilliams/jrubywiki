@@ -27,7 +27,7 @@ Here's some classic ideas to get you started:
 
 * [eventmachine's](https://github.com/eventmachine/eventmachine) TLS/SSL support is missing, currently just stubbed out
 
-## JRuby on Android: Ruboto
+## Ruboto: JRuby on Android
 
 Ruboto is working, and has a solid IRB application and tools for generating apps. But there's more we can do, like shrinking the app, improving performance, and building better tooling.
 
