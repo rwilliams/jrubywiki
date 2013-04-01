@@ -524,19 +524,19 @@ public class ClassMethodCallSample {
         ScriptingContainer container = new ScriptingContainer();
         
         Object receiver = container.runScriptlet(PathType.CLASSPATH, filename);
-        container.put("@name", "cherry blossom");
-        container.put("@shape", "oval");
-        container.put("@foliage", "deciduous");
-        container.put("@color", "pink");
-        container.put("@bloomtime", "March - April");
+        container.put(receiver, "@name", "cherry blossom");
+        container.put(receiver, "@shape", "oval");
+        container.put(receiver, "@foliage", "deciduous");
+        container.put(receiver, "@color", "pink");
+        container.put(receiver, "@bloomtime", "March - April");
         container.callMethod(receiver, "update", Object.class);
         System.out.println(container.callMethod(receiver, "to_s", String.class));
 
-        container.put("@name", "cedar");
-        container.put("@shape", "pyramidal");
-        container.put("@foliage", "evergreen");
-        container.put("@color", "nondescript");
-        container.put("@bloomtime", "April - May");
+        container.put(receiver, "@name", "cedar");
+        container.put(receiver, "@shape", "pyramidal");
+        container.put(receiver, "@foliage", "evergreen");
+        container.put(receiver, "@color", "nondescript");
+        container.put(receiver, "@bloomtime", "April - May");
         container.callMethod(receiver, "update", Object.class);
         System.out.println(container.callMethod(receiver, "to_s", String.class));
     }
