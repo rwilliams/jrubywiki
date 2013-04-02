@@ -15,6 +15,20 @@ Ideas
 
 Here's some classic ideas to get you started:
 
+## Rails Performance
+
+Over the years, JRuby has gotten better and better at running Rails, but there remains work to do. This project would involve gathering existing benchmarks and "standard" applications (Redmine, etc) and using them to find remaining perf issues in JRuby. Some possible areas that could use improvement:
+
+* ActiveRecord-JDBC, the library that JRuby uses to wrap JDBC with ActiveRecord's ORM API. We have done various performance investigations over the years, but a concentrated effort to make it consistently faster across databases has never really been attempted.
+
+* jruby-rack and other servers. A JRuby on Rails app can only serve requests quickly if the server frontend is fast. There's always more that we can do to improve the speed of these requests, in jruby-rack (used for serving JRuby in existing app servers like Tomcat) or in purpose-built servers like Torquebox (JRuby for JBoss), Puma, Passenger, and others.
+
+* Data format libraries like json and yaml. More and more users of Rails are building JSON-based RESTful APIs atop it, and again the performance of one library (json) can be the limiting factor.
+
+* Templating libraries like Haml. In order to render results quickly to the browser, these libraries need to be fast. Haml in particular employs a number of Ruby code patterns that can severely impact performance. We need to investigate the performance of all these libraries and ensure that we run them as fast as possible.
+
+* Other libraries commonly used in Rails apps, such as for accessing caching servers like memcached, nosql databases like mongo, and queues like zeromq.
+
 ## Native libraries that need a Java port 
 
 * or wrap a Java lib?
