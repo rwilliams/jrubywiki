@@ -681,7 +681,7 @@ class SomethingElse < Something
   field_accessor :somevalue
 
   def initialise
-    self.somevale(2.0)
+    self.somevalue(2.0)
   end
 
 end
