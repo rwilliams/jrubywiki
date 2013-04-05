@@ -12,10 +12,10 @@ Development Team
 
 JRuby's current core development team consists of nine developers:
 
-* Charles Oliver Nutter (Engine Yard) aka headius
-* Thomas Enebo (Engine Yard) aka enebo
-* Nick Sieger (Engine Yard)
-* Hiro Asari (Engine Yard)
+* Charles Oliver Nutter (Red Hat) aka headius
+* Thomas Enebo (Red Hat) aka enebo
+* Nick Sieger (LivingSocial)
+* Hiro Asari (Red Hat)
 * David Calavera
 * Yoko Harada
 * Hiroshi Nakamura aka NaHi
