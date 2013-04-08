@@ -105,3 +105,14 @@ The Java parts of [krypt](https://github.com/emboss/krypt) ensure that JRuby no 
 [Ruby 2.0](http://www.ruby-lang.org/en/news/2013/02/24/ruby-2-0-0-p0-is-released/) is here.
 That means JRuby needs to ensure that our libraries (both core and standard) are as compatible to it as possible.
 The work will involve surveying MRI's libraries, writing missing [RubySpec](http://rubyspec.org/) specs, and implementing them.
+
+## JRuby build cleanups / Mavenization
+
+Improving the build/dist process overall.
+
+Even if we already have maven support for the build, we still store some binaries and host a parallel ant build.
+
+The idea is to continue improving that process, by moving the dependencies to maven central and in the ant build case, making it download the deps on the first run.
+
+
+
