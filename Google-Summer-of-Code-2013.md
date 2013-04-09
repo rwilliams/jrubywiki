@@ -49,7 +49,7 @@ Communication
 
 JRuby's GSoC communications take place (at least initially) on the [jruby-gsoc](https://groups.google.com/forum/#!forum/jruby-gsoc) Google Group. Once projects get going, most mentors and students will take their discussions offline, but while we're preparing for the summer most conversations happen on that list.
 
-We also strongly encourage interested students and mentors to start communicating with the JRuby team as early as possible, either on the JRuby dev mailing list or in our Freenode #jruby IRC channel.
+We also strongly encourage interested students and mentors to start communicating with the JRuby team as early as possible, either on the [JRuby mailing lists](http://xircles.codehaus.org/projects/jruby/lists) or in our Freenode #jruby IRC channel.
 
 Ideas
 =====
