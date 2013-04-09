@@ -123,6 +123,16 @@ Unlike most other GUI toolkits, Shoes is designed to be easy and straightforward
 Shoes needs you! The shoes community gathered to write [shoes4](https://github.com/shoes/shoes4) together. Shoes4 is a complete rewrite of the Shoes DSL allowing exchangeable GUI-backends. The first and default backend is using JRuby and SWT.
 There are many interesting projects to tackle within the area of shoes4. You could work on video support, general support for more Shoes constructs or packaging stand alone applications.
 
+## Celluloid "Turbo Mode" for JRuby
+
+Celluloid is an actor-based concurrent object framework (somewhat similar to Akka) written in pure Ruby. This means it presently uses Ruby Mutexes and ConditionVariables for synchronization. However, the JVM has many, many other options which could provide better performance.
+
+The goal of this project would be to implement a duck type of the `Celluloid::Mailbox` class that leverages native JVM facilities to improve performance. Some examples to consider might be:
+
+* ***[ArrayBlockingQueue](http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ArrayBlockingQueue.html)***: These are fast, fixed-sized data structures built atop arrays. Their bounded size might require some semantic changes to Celluloid (see [this ticket for discussion on bounded mailboxes](https://github.com/celluloid/celluloid/pull/153)) but are probably the simplest way to improve performance on Celluloid.
+* ***[LinkedTransferQueue](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedTransferQueue.html)***: Introduced in Java 7, LinkedTransferQueue could provide Celluloid's existing unbounded semantics with better performance than Java's previous linked queues. LinkedTransferQueues are a bit complicated and support lots of different modes of operation, so mapping them specifically to Celluloid's semantics might be a bit difficult.
+* ***[LMAX Disruptor](http://lmax-exchange.github.io/disruptor/)***: Disruptor is a library which supports a number of different patterns for multithreaded execution. The main way LMAX could benefit Celluloid would be providing a way to preallocate and recycle inter-actor messages, storing them in a RingBuffer and providing cache-friendly operation while reducing the allocation rate and thus the demands on the GC. It's unclear if Disruptor's concurrency model could map to Celluloid's well, but it could be used in conjunction with the above data structures specifically for the purposes of leveraging preallocation.
+
 ## Java + Native subsystems
 
 * JRuby native IO and Process APIs
