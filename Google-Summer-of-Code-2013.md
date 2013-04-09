@@ -3,6 +3,47 @@ Google Summer of Code 2013
 
 This page hosts the ideas for Google Summer of Code 2013! Add your ideas here, improve others, and if you're a student, perhaps something on this list will interest you!
 
+Practical Details
+=================
+
+The [JRuby organization's page](https://google-melange.appspot.com/gsoc/org/google/gsoc2013/jruby) in the Google Summer of Code app will let you apply as a mentor or student. If you can't be a mentor or student, we hope you will pass this information on to others.
+
+### Goals
+
+Of course we'd love to have a ton of great JRuby work come out of GSoC, but we'd also like that work to benefit the larger Ruby community where possible. Many of the ideas listed below apply equally to JRuby and other implementations.
+
+We also hope that students will continue to be JRuby contributors long after GSoC 2013 is complete. We're looking to help students grow their resumes and help the JRuby project grow its community.
+
+Our primary focus is on making sure students get a good summer's work and education out of the project.
+
+### Dates
+
+The full, official calendar is here: https://google-melange.appspot.com/gsoc/events/google/gsoc2013
+
+* April 9 - 21: Mentors can apply and students should start talking with mentors and JRuby team members about ideas.
+
+* April 22 - May 3: Students can apply to work on a JRuby GSoC project.
+
+* May 4 - 6: Mentors review and accept student proposals.
+
+* May 8: GSoC provides JRuby with a count of slots for student projects.
+
+* May 9-22: Slot juggling; available slots are assigned to student projects.
+
+* May 24: Final decisions on slots and students.
+
+* May 28 - June 16: Students get familiar with their mentors and start planning out the summer. *NOTE:* We expect students to start talking with mentors and JRuby team members *long* before this time.
+
+* June 17: Students begin work on their projects. Starting before this date is encouraged :-)
+
+* July 29 - August 2: Midterm reviews; mentors grade students on progress thus far.
+
+* September 16: Soft "pencils down" date. Students should be finished or nearly-finished with their projects.
+
+* September 23: Hard "pencils down" date. Students must be done with the official GSoC portion of their project. We *strongly* encourage students to continue working with the JRuby community after GSoC, but this ends the graded portion of the project.
+
+* Sepember 23 - 27: Mentors submit final reviews of student projects.
+
 Communication
 =============
 
@@ -113,6 +154,5 @@ Improving the build/dist process overall.
 Even if we already have maven support for the build, we still store some binaries and host a parallel ant build.
 
 The idea is to continue improving that process, by moving the dependencies to maven central and in the ant build case, making it download the deps on the first run.
-
 
 
