@@ -125,7 +125,7 @@ There are many interesting projects to tackle within the area of shoes4. You cou
 
 ## Celluloid "Turbo Mode" for JRuby
 
-Celluloid is an actor-based concurrent object framework (somewhat similar to Akka) written in pure Ruby. This means it presently uses Ruby Mutexes and ConditionVariables for synchronization. However, the JVM has many, many other options which could provide better performance.
+[Celluloid](http://celluloid.io) is an actor-based concurrent object framework (somewhat similar to Akka) written in pure Ruby. This means it presently uses Ruby Mutexes and ConditionVariables for synchronization. However, the JVM has many, many other options which could provide better performance.
 
 The goal of this project would be to implement a duck type of the `Celluloid::Mailbox` class that leverages native JVM facilities to improve performance. Some examples to consider might be:
 
