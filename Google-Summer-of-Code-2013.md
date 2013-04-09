@@ -155,4 +155,8 @@ Even if we already have maven support for the build, we still store some binarie
 
 The idea is to continue improving that process, by moving the dependencies to maven central and in the ant build case, making it download the deps on the first run.
 
+## Asciidoctor JRuby and Java integration
 
+Asciidoctor is a Ruby implementation of AsciiDoc. It can be used as a full replacement for the Python implementation and also has support for running on JRuby. You can find the projects on the [Github Asciidoctor Organization](https://github.com/asciidoctor). Specifically we'd be looking at the asciidoctor-java-integration, asciidoctor-maven-plugin and the asciidoctor-gradle-plugin for consideration for GSoC 2013 projects.
+
+Ideas include, improvements, new features, better testing, live preview and any others people can dream up.
