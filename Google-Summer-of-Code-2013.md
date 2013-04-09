@@ -56,7 +56,17 @@ Ideas
 
 Here's some classic ideas to get you started:
 
-## Rails Performance
+### Improve compatibility and feature coverage
+
+JRuby is already a great Ruby implementation, but we mask or exclude many Ruby behavioral tests for features that are incomplete or unimplemented. These missing features can be found in the spec/ruby/tags and test/ruby/externals/**/excludes directories. There are several projects along these lines:
+
+* Help fill out [RubySpec](http://rubyspec.org) with missing features and behaviors from Ruby 1.9 and Ruby 2.0. This benefits all Ruby implementations.
+
+* Help implement missing or incomplete features related to currently-excluded specs and tests. This helps JRuby itself become a better, more compatible implementation.
+
+There's easily enough work to do here for multiple students.
+
+### Rails Performance
 
 Over the years, JRuby has gotten better and better at running Rails, but there remains work to do. This project would involve gathering existing benchmarks and "standard" applications (Redmine, etc) and using them to find remaining perf issues in JRuby. Some possible areas that could use improvement:
 
@@ -70,7 +80,7 @@ Over the years, JRuby has gotten better and better at running Rails, but there r
 
 * Other libraries commonly used in Rails apps, such as for accessing caching servers like memcached, nosql databases like mongo, and queues like zeromq.
 
-## Native libraries that need a Java port 
+### Native libraries that need a Java port 
 
 * or wrap a Java lib?
 
@@ -82,7 +92,7 @@ Over the years, JRuby has gotten better and better at running Rails, but there r
 
 * [eventmachine's](https://github.com/eventmachine/eventmachine) TLS/SSL support is missing, currently just stubbed out
 
-## Ruboto: JRuby on Android
+### Ruboto: JRuby on Android
 
 Ruboto is working, and has a solid IRB application and tools for generating apps. But there's more we can do, like shrinking the app, improving performance, and building better tooling.
 
@@ -92,19 +102,19 @@ Ruboto is working, and has a solid IRB application and tools for generating apps
 * *JIT compilation*.  Increase execution speed and reduce stack usage.
 * *AOT compilation*.  Faster startup and increased execution speed.
 
-## JRuby for Embedded
+### JRuby for Embedded
 
 There's a few good JVMs that work on embedded devices, which means there's an opportunity for JRuby to expand into embedded applications.
 
-## Maven support for Rubygems, Bundler, etc
+### Maven support for Rubygems, Bundler, etc
 
 JRuby has great java integration but it's a pain having to manage java dependencies manually. Making Rubygems and Bundler aware of Maven on JRuby would be awesome!
 
-## JRuby and Vert.x improvements
+### JRuby and Vert.x improvements
 
 Vert.x provides an evented environment very similar to node.js, but without many of its flaws. JRuby is supported, but performance is not where we'd like it. There's a good summer's worth of work on better integrating JRuby and Vert.x so they can act as a high-performance evented Ruby environment.
 
-## JRuby IR-based projects
+### JRuby IR-based projects
 
 JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands.  This IR will be the basis of an updated JRuby VM.  While some optimizations are already in place including dead code elimination, method and block inlining (incomplete), there are lots of opportunities for improving on these and implementing additional optimizations.  A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include work on the interpreter, new performance optimizations, implementing new backends (ex: Dalvik).
 
@@ -116,14 +126,14 @@ A couple sample projects:
 
 * IR compiler optimizations: The JRuby IR provides a great opportunity to optimize the Ruby language, both by statically analyzing code and by gathering runtime profiles. The next major version of JRuby is intended to run entirely atop the IR compiler, and so we are looking for compiler and optimization folks to help us layer incremental improvements on top of the base IR logic we have today.
 
-## Shoes on JRuby
+### Shoes on JRuby
 
 Shoes is a cross-platform toolkit for writing graphical apps easily and artfully using Ruby.
 Unlike most other GUI toolkits, Shoes is designed to be easy and straightforward without losing power. Really, it’s easy!
 Shoes needs you! The shoes community gathered to write [shoes4](https://github.com/shoes/shoes4) together. Shoes4 is a complete rewrite of the Shoes DSL allowing exchangeable GUI-backends. The first and default backend is using JRuby and SWT.
 There are many interesting projects to tackle within the area of shoes4. You could work on video support, general support for more Shoes constructs or packaging stand alone applications.
 
-## Celluloid "Turbo Mode" for JRuby
+### Celluloid "Turbo Mode" for JRuby
 
 [Celluloid](http://celluloid.io) is an actor-based concurrent object framework (somewhat similar to Akka) written in pure Ruby. This means it presently uses Ruby Mutexes and ConditionVariables for synchronization. However, the JVM has many, many other options which could provide better performance.
 
@@ -133,7 +143,7 @@ The goal of this project would be to implement a duck type of the `Celluloid::Ma
 * ***[LinkedTransferQueue](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedTransferQueue.html)***: Introduced in Java 7, LinkedTransferQueue could provide Celluloid's existing unbounded semantics with better performance than Java's previous linked queues. LinkedTransferQueues are a bit complicated and support lots of different modes of operation, so mapping them specifically to Celluloid's semantics might be a bit difficult.
 * ***[LMAX Disruptor](http://lmax-exchange.github.io/disruptor/)***: Disruptor is a library which supports a number of different patterns for multithreaded execution. The main way LMAX could benefit Celluloid would be providing a way to preallocate and recycle inter-actor messages, storing them in a RingBuffer and providing cache-friendly operation while reducing the allocation rate and thus the demands on the GC. It's unclear if Disruptor's concurrency model could map to Celluloid's well, but it could be used in conjunction with the above data structures specifically for the purposes of leveraging preallocation.
 
-## Java + Native subsystems
+### Java + Native subsystems
 
 * JRuby native IO and Process APIs
 
@@ -147,17 +157,17 @@ JRuby would benefit from work on a process-management and IO subsystem based on 
 
 JRuby supports calling native libraries across many platforms, but there are platforms we don't support. For example, we have never worked on or tested JRuby + JNI + FFI on Android, which could make all of the native APIs of Android available to JRuby-on-Android users. We're looking for folks interested in managed/unmanaged integration, dynamic language binding, and late-bound native invocation optimization to help us improve this situation.
 
-## krypt
+### krypt
 
 The Java parts of [krypt](https://github.com/emboss/krypt) ensure that JRuby no longer has to emulate the OpenSSL library. It uses Java's own JCE instead to implement a library-agnostic interface that provides full access to Ruby cryptography. If you are interested in cryptography in general, there is a wide variety of topics for you to work on - ranging from Authenticated Encryption modes, providing alternative implementations to [the JCE provider](https://github.com/emboss/krypt-provider-jce) on to XML or PDF signatures using Nokogiri for the former and Java open-source PDF libraries for the latter. If you are specializing in a particular topic and would like to apply it in reality, we'd enjoy to give you a playground to work on.
 
-## Ruby 2.0 compatibility
+### Ruby 2.0 compatibility
 
 [Ruby 2.0](http://www.ruby-lang.org/en/news/2013/02/24/ruby-2-0-0-p0-is-released/) is here.
 That means JRuby needs to ensure that our libraries (both core and standard) are as compatible to it as possible.
 The work will involve surveying MRI's libraries, writing missing [RubySpec](http://rubyspec.org/) specs, and implementing them.
 
-## JRuby build cleanups / Mavenization
+### JRuby build cleanups / Mavenization
 
 Improving the build/dist process overall.
 
@@ -165,7 +175,7 @@ Even if we already have maven support for the build, we still store some binarie
 
 The idea is to continue improving that process, by moving the dependencies to maven central and in the ant build case, making it download the deps on the first run.
 
-## Asciidoctor JRuby and Java integration
+### Asciidoctor JRuby and Java integration
 
 Asciidoctor is a Ruby implementation of AsciiDoc. It can be used as a full replacement for the Python implementation and also has support for running on JRuby. You can find the projects on the [Github Asciidoctor Organization](https://github.com/asciidoctor). Specifically we'd be looking at the asciidoctor-java-integration, asciidoctor-maven-plugin and the asciidoctor-gradle-plugin for consideration for GSoC 2013 projects.
 
