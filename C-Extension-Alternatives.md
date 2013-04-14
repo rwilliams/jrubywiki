@@ -44,7 +44,7 @@ Please add to this list with your findings.
 [markdown_j]: https://github.com/nate/markdown_j
 [RMagick]: https://github.com/rmagick/rmagick
 [RMagick4J]: https://github.com/Serabe/RMagick4J
-[mini_magick]: https://github.com/probablycorey/mini_magick
+[mini_magick]: https://github.com/minimagick/minimagick
 [quick_magick]: https://github.com/aseldawy/quick_magick
 [image_voodoo]: https://github.com/jruby/image_voodoo
 [Unicorn]: http://unicorn.bogomips.org/
