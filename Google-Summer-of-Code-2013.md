@@ -133,7 +133,9 @@ Unlike most other GUI toolkits, Shoes is designed to be easy and straightforward
 Shoes needs you! The shoes community gathered to write [shoes4](https://github.com/shoes/shoes4) together. Shoes4 is a complete rewrite of the Shoes DSL allowing exchangeable GUI-backends. The first and default backend is using JRuby and SWT.
 There are many interesting projects to tackle within the area of shoes4. You could work on video support, general support for more Shoes constructs or packaging stand alone applications.
 
-You can have a look at the [Shoes4 GSOC Idea List](https://github.com/shoes/shoes4/wiki/GSOC-2013-idea-list)
+You can have a look at the original [Shoes4 Idea List](https://github.com/shoes/shoes4/wiki/GSOC-2013-idea-list) over at the shoes4 list to get a more complete overview of ideas for shoes4 projects.
+
+Moreover have a look at the [shoes4 issues](https://github.com/shoes/shoes4/issue) to see where help might be needed. If you want to get in touch otherwise join #shoes on freenode or send an email to shoes@librelist.com
 
 ### Celluloid "Turbo Mode" for JRuby
 
