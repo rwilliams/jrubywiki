@@ -163,7 +163,23 @@ JRuby supports calling native libraries across many platforms, but there are pla
 
 ### krypt
 
-The Java parts of [krypt](https://github.com/emboss/krypt) ensure that JRuby no longer has to emulate the OpenSSL library. It uses Java's own JCE instead to implement a library-agnostic interface that provides full access to Ruby cryptography. If you are interested in cryptography in general, there is a wide variety of topics for you to work on - ranging from Authenticated Encryption modes, providing alternative implementations to [the JCE provider](https://github.com/emboss/krypt-provider-jce) on to XML or PDF signatures using Nokogiri for the former and Java open-source PDF libraries for the latter. If you are specializing in a particular topic and would like to apply it in reality, we'd enjoy to give you a playground to work on.
+The Java parts of [krypt](https://github.com/emboss/krypt) ensure that JRuby no longer has to emulate the OpenSSL library. It uses Java's own JCE instead to implement a library-agnostic interface that provides full access to Ruby cryptography. If you are interested in cryptography in general, there is a wide variety of topics for you to work on - ranging from Authenticated Encryption modes, providing alternative implementations to [the JCE provider](https://github.com/emboss/krypt-provider-jce) on to XML or PDF signatures using Nokogiri for the former and Java open-source PDF libraries for the latter. If you are specializing in a particular topic and would like to apply it in reality, we'd enjoy to give you a playground to work on. If you are still looking for topics, here are some more ideas to get you started:
+
+* Help finishing the Provider API. This is the heart of krypt, a general-purpose API that integrates all sorts of different cryptography libraries under one common interface.
+
+* Further extend [krypt-ossl](https://github.com/krypt/krypt-ossl) to replace more and more of the OpenSSL extension in JRuby with krypt functionality
+
+* JRuby support for [FuzzBert](https://github.com/krypt/FuzzBert)
+
+* Implement different cipher modes, most notably for Authenticated Encryption
+
+* Implement padding schemes for Digital Signatures and Ciphers
+
+* Refactor the ASN.1 parser/encoder to use more Ruby code. The current version is written entirely in Java (C for the MRI part), but it should be possible to replace much of that code with Ruby code while still keeping comparable performance.
+ 
+* Develop a Java bridge for integrating Providers that are written in C(++) using [Java Native Access (JNA)](https://github.com/twall/jna)
+
+* Design and implement a modern, fully [RFC 5280-compliant](http://www.ietf.org/rfc/rfc5280.txt) PKIX certificate validation mechanism 
 
 ### Ruby 2.0 compatibility
 
