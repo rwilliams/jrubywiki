@@ -50,6 +50,7 @@ The following services are known to work. Other webapp services *should* general
 
 * [[Heroku|http://www.heroku.com]] - Direct support.
 * [[Engine Yard|http://www.engineyard.com/]] - Direct support, generally available now.
+* [[Shelly Cloud|https://shellycloud.com]] - Direct support.
 * [[Google AppEngine|http://code.google.com/p/appengine-jruby/wiki/GettingStarted]] - Indirect support, but a community exists around JRuby deployment
 * [[Amazon Elastic BeanStalk|http://blog.headius.com/2011/01/jruby-on-rails-on-amazon-elastic.html]] - An elastic Java webapp cloud from Amazon based on Tomcat.
 * [[OpenShift by Red Hat|http://www.openshift.com]] - Several possibilities
