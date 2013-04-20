@@ -221,9 +221,10 @@ is implement like this in Ruby:
  end
 ```
 
-: java_require
-;
-Normally, jrubyc --java(c) will include the complete source of your script in the compiled class, but often you may want to keep the source on disk or generate multiple classes that all come from the same file. To do this, add a java_require line (plus a require 'java' line to enable Java support in the Ruby code) that specifies what filename to load. The filename specified is loaded using normal Ruby 'require' semantics.
+== java_require ==
+:
+
+Normally, `jrubyc --java(c)` will include the complete source of your script in the compiled class, but often you may want to keep the source on disk or generate multiple classes that all come from the same file. To do this, add a java_require line (plus a require 'java' line to enable Java support in the Ruby code) that specifies what filename to load. The filename specified is loaded using normal Ruby 'require' semantics.
 
 ```ruby
  require 'java'
@@ -258,4 +259,24 @@ Normally, jrubyc --java(c) will include the complete source of your script in th
  java_package 'com.example'
 
  class Foo; end
+```
+
+== java_annotation ==
+: adds Java annotations to a JRuby class or method.
+
+```ruby
+ require 'java'
+java_import 'javax.ws.rs.Path'
+java_import 'javax.ws.rs.GET'
+java_import 'javax.ws.rs.Produces'
+
+java_package 'com.headius.demo.jersey'
+java_annotation 'Path("/helloworld")'
+class HelloWorld
+  java_annotation 'GET'
+  java_annotation 'Produces("text/plain")'
+  def cliched_message
+    "Hello World"
+  end
+end
 ```
