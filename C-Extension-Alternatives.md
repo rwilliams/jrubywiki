@@ -6,7 +6,7 @@ This page lists common C extensions and non-C alternatives you can use to replac
 
 * **[RMagick][]** - Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][].
 
-* **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [mobile][] or [Puma][].
+* **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [mobile][] or [Puma][] (though make sure to use the JRuby-native version of the [gem](http://rubygems.org/gems/puma/versions/2.0.0.b7-java).
 
 * **[Thin][]** - Thin might compile and run but is not recommended. Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [TorqueBox][] or [Puma][].
 
