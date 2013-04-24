@@ -80,7 +80,7 @@ How Do I Run a Ruby Program?
 ----------------------------
 To run any other ruby program by using JRuby, run it using the `jruby` command in a command window. For example,
 
-    jruby script/server ##(for rails3 you should use: ruby script/rails server)
+    jruby script/server ##(for rails3 you should use: jruby script/rails server)
     jruby my_ruby_script.rb
 
 **See Also:** [[JRuby Command Line Parameters|JRubyCommandLineParameters]]
