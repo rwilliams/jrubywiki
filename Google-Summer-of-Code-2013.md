@@ -135,7 +135,7 @@ There are many interesting projects to tackle within the area of shoes4. You cou
 
 You can have a look at the original [Shoes4 Idea List](https://github.com/shoes/shoes4/wiki/GSOC-2013-idea-list) over at the shoes4 list to get a more complete overview of ideas for shoes4 projects.
 
-Moreover have a look at the [shoes4 issues](https://github.com/shoes/shoes4/issue) to see where help might be needed. If you want to get in touch otherwise join #shoes on freenode or send an email to shoes@librelist.com
+Moreover have a look at the [shoes4 issues](https://github.com/shoes/shoes4/issues) to see where help might be needed. If you want to get in touch otherwise join #shoes on freenode or send an email to shoes@librelist.com
 
 ### Celluloid "Turbo Mode" for JRuby
 
