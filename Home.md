@@ -48,6 +48,9 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[GUI Frameworks|GUIFrameworks]]
 * [The Redcar Editor](http://redcareditor.com/) (built with SWT)
 
+**Get Creative**
+* [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (create processing sketches with ruby)
+
 **Evangelism**
 
 * [[ Benchmarking Tips and Tricks|Benchmarks ]]
