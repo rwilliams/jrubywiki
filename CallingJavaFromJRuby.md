@@ -600,11 +600,13 @@ Ruby String to Java Bytes and back again
   => "a string"
 ```
 
-Convert a Java InputStream to a ruby IO object
-----------------------------------------------
+Convert a Java InputStream to a ruby IO object and back again
+-------------------------------------------------------------
 
 ```ruby
   io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
+
+  stream = io.to_inputstream # also to_outputstream and to_channel
 ```
 
 Gotchas
