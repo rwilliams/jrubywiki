@@ -17,7 +17,7 @@ frame = javax.swing.JFrame.new("Window") # Creating a Java JFrame
 label = javax.swing.JLabel.new("Hello")
 
 # We can transparently call Java methods on Java objects, just as if they were defined in Ruby.
-frame.getContentPane.add(label)  # Invoking the Java method 'getContentPane'.
+frame.add(label)  # Invoking the Java method 'add'.
 frame.setDefaultCloseOperation(javax.swing.JFrame::EXIT_ON_CLOSE)
 frame.pack
 frame.setVisible(true)
