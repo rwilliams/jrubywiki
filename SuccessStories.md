@@ -272,3 +272,25 @@ Mongoid 3 will leak file descriptors on tomcat-based deployments.  This is becau
 
 ### Project Metrics
 1.4M hits / day.  105K users.
+
+## Nottingham Infomation Prescriptions
+
+An Information Prescription is a special kind of prescription which provides information, rather than tablets or medicines. The website is a service run by the National Health Service, UK.
+
+### Why JRuby?
+
+Ability to use Java libraries such as flying Saucer/iText and easily integrate with JBOSS via the Torquebox project. So we can turn threading on in Rails.
+
+### How is JRuby Used?
+
+To run a RubyOnRails 3.0 app inside JBoss.
+PDF generation, XML cleaning
+
+### Regrets and Recommendations
+
+Starting up the JVM each time for running test can be slow, especially when its sub-second on MRI, but there is shotgun which may solve this problem.
+
+I'd recommend not starting with Torquebox from day 1 and only adding it when needed. There is a Torquebox Lite (which is web only) or just run with Puma (we do this for some secondary-websites). Once you need JBoss specific features add Torquebox.
+
+### Project Metrics
+~150,000 visitors per month / 140 users (admins, healthcare professionals, editors)
