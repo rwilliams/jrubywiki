@@ -389,7 +389,7 @@ Similarly, an Unbound method object can be retrieved:
  toString.bind(list).call # => [foo, foo]
 ```
 
-_Note:_ When specifying parameters to java_method, you access primitive data types via `Java::`, i.e. `Java::char`, `Java::int`.   On the other hand, Classes must be specified directly. `java.util.String`, `java.io.InputStream`, etc.
+_Note:_ When specifying parameters to java_method, you access primitive data types via `Java::`, i.e. `Java::char`, `Java::int`.   On the other hand, Classes must be specified directly. `java.lang.String`, `java.io.InputStream`, etc.
 
 Aliasing a specific method with `java_alias`
 --------------------------------------------
