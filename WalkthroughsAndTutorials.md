@@ -28,7 +28,7 @@ JRuby on Rails
 * [JRuby and Spring Resources](http://www.digitalsanctum.com/jruby) (Shane Witbeck)
 * [JRuby 1.0.1 on Edge Rails 1.2.3.7605](http://localbiz404.blogspot.com/2007/09/jruby-101-on-edge-rails-1237605.html) (Adam Payne)
 * [JRuby .war packaging (Warbler) for Rails 2.0](http://fuzzypanic.blogspot.com/2008/01/jruby-war-packaging.html) (Mike Herrick)
-* [Neat JRuby SOAP calls using Mule](http://devmull.blogspot.com/2008/02/neat-jruby-soap-calls.html)  (Steven Shingler)
+* [Neat JRuby SOAP calls using Mule](http://devmull.net/articles/using-jruby-for-soap)  (Steven Shingler)
 * [Integrating Scala with JRuby on Rails](http://www.blog.project13.pl/index.php/fun/1497/teaching-jruby-talk-with-scala-on-rails/) (Konrad Malawski) 
 
 NetBeans Ruby Support
