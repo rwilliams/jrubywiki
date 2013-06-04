@@ -8,6 +8,11 @@ JRuby has a built-in profiler that you can use in several ways.  The simplest wa
 
 In JRuby 1.6, you can expand the above to --profile.flat for the (default) flat profile, `--profile.graph` for a graph profile, or `--profile.api` to turn on the profiling API, which allows you to selectively turn the profiler on and off directly from your Ruby code.
 
+Outputting to a file (JRuby 1.7.4+)
+-----------------------------------
+
+You can output the results of profiling to a file by specifying ```--profile.out <file>``` as a flag to JRuby. Normally, profiling output is sent to stderr, which can cause it to be intermingled with program output.
+
 Profiling an entire application
 -------------------------------
 
