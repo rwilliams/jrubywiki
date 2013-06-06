@@ -32,7 +32,7 @@ This page lists common C extensions and non-C alternatives you can use to replac
 
 * **[kyotocabinet][]** - Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.
 
-* **[memcached][]** - Try using [jruby-memcached][] instead.
+* **[memcached][]** - Try using [jruby-memcached][] instead. Alternatively you can use [jruby-ehcache][], a JRuby interface to Java's (JSR-107 compliant) Ehcache.
 
 Please add to this list with your findings.
 
@@ -72,3 +72,4 @@ Please add to this list with your findings.
 [memcached]: https://github.com/evan/memcached
 [jruby-memcached]: https://github.com/aurorafeint/jruby-memcached
 [TorqueBox]: http://torquebox.org/
+[jruby-ehcache]: https://github.com/dylanz/ehcache
