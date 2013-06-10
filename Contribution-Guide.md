@@ -1,3 +1,4 @@
+Here is a draft of the contribution guide to JRuby.
 
 # Testing
 
