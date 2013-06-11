@@ -1,5 +1,10 @@
 Here is a draft of the contribution guide to JRuby.
 
+# Getting and Building JRuby
+
+See [Download and Build JRuby](https://github.com/jruby/jruby/wiki/DownloadAndBuildJRuby).
+
+
 # Testing
 
 Here are the different test commands:
@@ -18,6 +23,7 @@ Here are the different test commands:
 
 # Pull Requests
 
+* Make sure commit comments contain as much information as possible on the intent of the fix, so that PRs can be reviewed more easily.
 * Use feature branch if possible (?)
 * Keep big formatting changes in separate commits or PR to make review easier.
 * See the [GitHub Guide](https://help.github.com/articles/using-pull-requests) for more details.
