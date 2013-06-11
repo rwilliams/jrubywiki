@@ -1,15 +1,5 @@
-Notice: This does not currently work with jgems and the feature itself may have been removed.
+Using jruby-1.7.4 and jbundler-0.4.3 (https://github.com/mkristian/jbundler)
 
-JRuby's version of rubygems has support for treating Maven dependencies as if they are gems. Just `gem install mvn:[groupId]:[artifactId]` and then `require 'mvn:[groupId]:[artifactId]'` in your ruby code.
+Follow instructions for jbundler from the Readme.md 
 
-An example:
-
-gem install mvn:com.yammer.metrics:metrics-core
-
-```ruby
-require 'java'
-require 'rubygems'
-require 'mvn:com.yammer.metrics:metrics-core'
-
-counter = com.yammer.metrics.Metrics.new_counter(...)
-```
+After running `jbundle install`, `require '.jbundler/classpath.rb'` before including any classes that require the Maven dependencies.
