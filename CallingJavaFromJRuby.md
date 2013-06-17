@@ -771,7 +771,7 @@ Note that this can also be written:
 Synchronization in JRuby
 ------------------------
 
-When interacting with Java APIs from JRuby, it is occasionally necessary to synchronize on an object for thread safety. In JRuby, a `synchronize` method is provided on every wrapped Java object to support this functionality. For example, the following Java code:
+When interacting with Java APIs from JRuby, it is occasionally necessary to synchronize on an object for thread safety. In JRuby, a `synchronized` method is provided on every wrapped Java object to support this functionality. For example, the following Java code:
 
 ```java
  synchronized(obj) {
