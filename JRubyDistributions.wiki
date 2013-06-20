@@ -61,6 +61,12 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 | 1.6.5.1 (1.6.7.2 is masked yet)
 | [http://gentoo-portage.com/dev-java/jruby gentoo portage]
 |-
+|Archlinux
+|pacman (community/jruby)
+| 
+| 1.7.4-2
+| [https://www.archlinux.org/packages/community/any/jruby/ package]
+|-
 |Windows
 |install4j
 | jruby-core
@@ -73,4 +79,3 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 | 1.7.0 (frequently updated)
 | [http://bitnami.org/stack/jrubystack download]
 |}
-
