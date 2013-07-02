@@ -111,7 +111,7 @@ Yes
 A Wrapper for Processing, a visual coding sketchbook.
 
 ### How is JRuby being used?
-To access the Processing library.
+To access the Processing core and other java libraries, and to integrate ruby gems into processing applications.
 
 ## [Desktop Application Development in JRuby](http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby)
 
