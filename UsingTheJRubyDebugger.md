@@ -14,7 +14,7 @@ is probably all you'll need.  If that does not work, run `jruby -S gem install r
 
 If you're running an older version of jruby then you'll need to follow these instructions:
 
-* Manually download the most recent ruby-debug-base-0.10.3.x-java.gem from [http://rubyforge.org/frs/?group_id=3085 debug-commons].
+* Manually download the most recent ruby-debug-base-0.10.3.x-java.gem from [debug-commons](http://rubyforge.org/frs/?group_id=3085 debug-commons).
 * Install the Gem into your JRuby Gem repository:
 ```bash
 jruby -S gem install ruby-debug-base-0.10.3.2-java.gem
