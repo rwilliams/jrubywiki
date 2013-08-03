@@ -10,7 +10,7 @@ require 'ruby-debug'
 debugger
 ```
 
-is probably all you'll need.
+is probably all you'll need.  If that does not work, run `jruby -S gem install ruby-debug` and then try again.
 
 If you're running an older version of jruby then you'll need to follow these instructions:
 
