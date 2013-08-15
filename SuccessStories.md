@@ -108,7 +108,7 @@ Yes
 
 
 ## [Ruby-Processing](https://github.com/jashkenas/ruby-processing/wiki)
-A Wrapper for Processing, a visual coding sketchbook.
+[Ruby-Processing](https://github.com/jashkenas/ruby-processing) is a wrapper for Processing, a visual coding sketchbook (includes audio, 3D graphics, export to 3D printers etc...).
 
 ### Why jruby
 It just works, and the performance hit (vs vanilla processing) isn't too bad!
