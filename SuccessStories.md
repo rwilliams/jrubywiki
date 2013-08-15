@@ -114,7 +114,7 @@ Yes
 It just works, and the performance hit (vs vanilla processing) isn't too bad!
 
 ### How is JRuby being used?
-To access the Processing core and other java libraries, and to integrate ruby gems into processing applications.
+To access the Processing core and other java libraries, and to integrate ruby gems into processing sketches.
 
 ### Java integration?
 Yes, there is very little of the processing environment that can't be accessed in ruby, including all the java libraries. This includes JOGL/OPENGL access to GLSL shaders (which interestingly will only run with jruby-complete).
