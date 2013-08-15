@@ -110,8 +110,14 @@ Yes
 ## [Ruby-Processing](https://github.com/jashkenas/ruby-processing/wiki)
 A Wrapper for Processing, a visual coding sketchbook.
 
+### Why jruby
+It just works, and the performance hit (vs vanilla processing) isn't too bad!
+
 ### How is JRuby being used?
 To access the Processing core and other java libraries, and to integrate ruby gems into processing applications.
+
+### Java integration?
+Yes, there is very little of the processing environment that can't be accessed in ruby, including all the java libraries. This includes JOGL/OPENGL access to GLSL shaders (which interestingly will only run with jruby-complete).
 
 ## [Desktop Application Development in JRuby](http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby)
 
