@@ -20,7 +20,7 @@ JRuby on Rails
 * <del>[First JRuby app in GlassFish Screencast](http://netbeans.tv/technologies/First-JRuby-app-in-GlassFish-86/) (Arun Gupta)</del>
 * [Setting up JRuby on Rails in NetBeans 6 with MySQL, GlassFish V2, and JNDI Connection Pooling](http://blog.louspringer.com/2007/09/11/using-jdbc-connection-pools-with-netbeans-6-jruby-ror-mysql-and-glassfish/) (Lou Springer)
 * [Using JNDI Connection Pool from GlassFish in Rails Apps](http://blogs.oracle.com/arungupta/entry/totd_9_using_jdbc_connection) (Arun Gupta)
-* [JRuby in Action (Korean)](http://ias.springbook.playmaru.net/pages/336101) (Changshin Lee)
+* [JRuby in Action (Korean)](https://docs.google.com/document/d/1pnPajSKh57CxmeYSBKZqt2x5gsFQPTHgFdwffUxKLBc) (Changshin Lee)
 * [Connecting to Oracle from Rails](http://www.digitalsanctum.com/2007/08/01/connecting-to-oracle-from-rails/) (Shane Witbeck)
 * [Calling Ruby’s ActiveRecord from Java Using the Bean Scripting Framework](http://www.digitalsanctum.com/2007/07/25/calling-rubys-activerecord-from-java-using-the-bean-scripting-framework/) (Shane Witbeck)
 * [Deploying a Rails Application on Tomcat](http://www.digitalsanctum.com/2007/07/24/jruby-deploying-a-rails-application-on-tomcat/) (Shane Witbeck)
