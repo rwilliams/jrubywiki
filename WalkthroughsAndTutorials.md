@@ -6,11 +6,11 @@ This page shows a list of Walkthroughs and Tutorials for JRuby. Feel free to add
 JRuby (General)
 ---------------
 
-* [JRuby and the Java Platform](http://java.sun.com/developer/technicalArticles/scripting/jruby/) (Sun Microsystems)
+* [JRuby and the Java Platform (Oracle)](http://www.oracle.com/technetwork/articles/dsl/jruby-141877.html)
 * [Using Java Classes in JRuby](http://blogs.oracle.com/coolstuff/entry/using_java_classes_in_jruby)
-* [JRuby - An Introduction (Builder AU)](http://www.builderau.com.au/program/java/soa/JRuby-An-Introduction/0,339024620,339283504,00.htm)
-* [Ruby for the Java world](http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html) (JavaWorld)
-* [Scripting on the Java platform](http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html) (JavaWorld)
+* [JRuby - An Introduction (TechRepublic)](http://www.techrepublic.com/article/jruby-an-introduction/)
+* [Ruby for the Java world (JavaWorld)](http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html)
+* [Scripting on the Java platform (JavaWorld)](http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html) (JavaWorld)
 * [Nailgun Basics - How to install, run and execute with nailgun](NailGunBasics)
 
 JRuby on Rails
