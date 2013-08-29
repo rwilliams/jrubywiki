@@ -10,7 +10,7 @@ JRuby (General)
 * [Using Java Classes in JRuby](http://blogs.oracle.com/coolstuff/entry/using_java_classes_in_jruby)
 * [JRuby - An Introduction (TechRepublic)](http://www.techrepublic.com/article/jruby-an-introduction/)
 * [Ruby for the Java world (JavaWorld)](http://www.javaworld.com/javaworld/jw-07-2006/jw-0717-ruby.html)
-* [Scripting on the Java platform (JavaWorld)](http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html) (JavaWorld)
+* [Scripting on the Java platform (JavaWorld)](http://www.javaworld.com/javaworld/jw-11-2007/jw-11-jsr223.html)
 * [Nailgun Basics - How to install, run and execute with nailgun](NailGunBasics)
 
 JRuby on Rails
