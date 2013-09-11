@@ -104,6 +104,7 @@ Here's an example of connecting to SQL Server using Microsoft's [JDBC driver](ht
   end
 
   statement.close
+  conn.close
 ```
 
 Note: sqljdbc4.jar does NOT work on Java 5.  Use Microsoft's sqljdbc.jar (available in the same download mentioned above) on Java 5, if you get this error:
