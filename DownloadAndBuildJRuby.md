@@ -1,7 +1,6 @@
-Downloading JRuby Source and Building It Yourself
-=================================================
+# Downloading JRuby Source and Building It Yourself
 ## Version 1.7.5 and later
-See https://github.com/jruby/jruby/blob/master/BUILDING.md
+You may grab a [nightly build](http://ci.jruby.org/snapshots/master/) (`jruby-dist-*-src.tar.gz` for Linux, OS X, Solaris, etc., and `jruby-dist-*-src.zip` for Windows) from our [CI server](http://ci.jruby.org), expand it, and then follow the [build instructions](https://github.com/jruby/jruby/blob/master/BUILDING.md).
 
 ## Versions up to 1.7.4
 If you prefer to download JRuby source and build it yourself, rather than installing a binary as described in [[Getting Started with JRuby|GettingStarted]], you can either download the source files from our web site or get JRuby source code directly from our git repository. 
@@ -11,9 +10,7 @@ If you prefer to download JRuby source and build it yourself, rather than instal
   * If you're on Microsoft Windows, get the most recent `jruby-src-X.Y.Z.zip` file.
 * To get JRuby source from our git repository, retrieve the trunk version of the JRuby source. For example, you can use the following terminal window or command window command to save the files to the `jruby` directory:
 
-```
-git clone git://jruby.org/jruby.git
-```
+        git clone git://jruby.org/jruby.git
 
 Build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1, up to version 1.7.4):
 
