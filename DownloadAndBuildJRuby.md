@@ -1,6 +1,9 @@
 Downloading JRuby Source and Building It Yourself
 =================================================
+## Version 1.7.5 and later
+See https://github.com/jruby/jruby/blob/master/BUILDING.md
 
+## Versions up to 1.7.4
 If you prefer to download JRuby source and build it yourself, rather than installing a binary as described in [[Getting Started with JRuby|GettingStarted]], you can either download the source files from our web site or get JRuby source code directly from our git repository. 
 
 * To get JRuby source from the web in a tar or zip file, [Download the latest JRuby Source .tar or .zip file](http://jruby.org/download) and extract it to a directory.  The instructions below assume you've extracted the file to the `jruby` directory. 
@@ -12,7 +15,7 @@ If you prefer to download JRuby source and build it yourself, rather than instal
 git clone git://jruby.org/jruby.git
 ```
 
-Build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1):
+Build JRuby using the following shell commands ('''Note:''' Ant 1.7 is required to build JRuby version greater than 1.1, up to version 1.7.4):
 
     cd jruby
     ant
@@ -43,4 +46,4 @@ If any of the commands above fails, try to clean before running it again:
 
 See [[Getting Started|GettingStarted]] for information on using JRuby.
 
-If you want to attach a debugger to the jruby internal java codes, to aid in developing see [here](http://betterlogic.com/roger/2010/08/how-to-debug-jruby-core-in-netbeans/)
+If you want to attach a debugger to the jruby internal java codes, to aid in developing see [here](http://betterlogic.com/roger/2010/08/how-to-debug-jruby-core-in-netbeans/).
