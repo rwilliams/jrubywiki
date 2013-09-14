@@ -24,7 +24,7 @@ Tiered compilation (64-bit)
 
 When running a 64-bit-only Hotspot JVM, there is no client mode, and the -client flag will not change execution in any way. In these environments, you can get the same effect as client mode by passing two flags: `-XX:+TieredCompilation -XX:TieredStopAtLevel=1` (prefixed with -J if using the `jruby` command, as usual). This forces the "tiered" compiler into a mode that starts up fast and does not optimize beyond what "client" would. These flags have been tested on Java 6 (OpenJDK 1.6) through Java 8 (OpenJDK 1.8) and like "client" mode they appear to provide the best startup times.
 
-*Note* that limiting the compiler to tier one has the same effect on straight-line execution performans as seting -client mode...i.e. it's worse, where worse can mean a few times slower to an order of magnitude slower. If you need to run code as fast as possible, you don't want this option. If you don't need code to be fast but you want the application to start up quickly, this option may be good for you.
+*Note* that limiting the compiler to tier one has the same effect on straight-line execution performance as setting -client mode...i.e. it's worse, where worse can mean a few times slower to an order of magnitude slower. If you need to run code as fast as possible, you don't want this option. If you don't need code to be fast but you want the application to start up quickly, this option may be good for you.
 
 Regenerate the shared archive
 =============================
