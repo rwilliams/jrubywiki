@@ -1,7 +1,7 @@
 Unlimited Strength Crypto
 =========================
 
-In order to comply with US cryptography export laws, JDKs and JREs based on OpenJDK will ship -- but not enable -- unlimited-strength cryptography. In order to enable unlimited-strength crypto, you have a few options:
+In order to comply with US cryptography export laws, JDKs and JREs based on OpenJDK will ship -- but not enable -- unlimited-strength cryptography. In order to enable unlimited-strength crypto, you have two options:
 
 Install the "Unlimited Strength" policy files from Oracle
 ---------------------------------------------------------
