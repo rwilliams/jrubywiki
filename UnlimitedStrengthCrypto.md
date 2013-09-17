@@ -6,7 +6,7 @@ In order to comply with US cryptography export laws, JDKs and JREs based on Open
 Install the "Unlimited Strength" policy files from Oracle
 ---------------------------------------------------------
 
-These files enable unlimited strength crypto. Download the "Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files" from [Oracle's JavaSE Downloads](|http://www.oracle.com/technetwork/java/javase/downloads/index.html) page and follow the README.txt instructions contained therein.
+These files enable unlimited strength crypto. Download the "Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files" from [Oracle's JavaSE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html) page and follow the README.txt instructions contained therein.
 
 Disable the crypto restriction programmatically
 -----------------------------------------------
