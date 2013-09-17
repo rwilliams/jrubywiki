@@ -439,3 +439,11 @@ Or pass directly to JRuby using -J-D like this:
 ```
 jruby -J-Djava.net.preferIPv4Stack=true ...
 ```
+
+I am seeing an error like "InvalidKeyException" or "Invalid key length". How can I fix it?
+------------------------------------------------------------------------------------------
+
+This error is reported when the JDK or JRE you're running on does not allow stronger encryption. There are
+a few different ways to work around it.
+
+See [[Unlimited Strength Crypto|UnlimitedStrengthCrypto]]
