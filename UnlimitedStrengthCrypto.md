@@ -1,6 +1,10 @@
+OpenSSL::Cipher::CipherError
+============================
+When you try to encrypt data using `OpenSSL`, you may encounter the error message `OpenSSL::Cipher::CipherError: key length too short`.
+This is known to happen when you run certain versions of Rails (4.0 and others) and use `ActiveSupport::MessageEncryptor`. (See https://github.com/jruby/jruby/issues/919, https://github.com/rails/rails/pull/12256)
+
 Unlimited Strength Crypto
 =========================
-
 In order to comply with US cryptography export laws, JDKs and JREs based on OpenJDK will ship -- but not enable -- unlimited-strength cryptography. In order to enable unlimited-strength crypto, you have two options:
 
 Install the "Unlimited Strength" policy files from Oracle
