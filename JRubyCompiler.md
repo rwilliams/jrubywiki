@@ -46,7 +46,7 @@ In addition to AOT compiling described above, JRuby supports using the compiler 
 The JIT is enabled by default with a threshold of 50. You can turn it off by using the `-J-Djruby.jit.enabled=false` flag. For example:
  jruby -J-Djruby.jit.enabled=false myscript.rb
 
-For more information on JIT flags, see [[PerformanceTuning#JIT_Runtime_Properties|JIT Runtime Properties]].
+For more information on JIT flags, see [[PerformanceTuning|PerformanceTuning#jit-runtime-properties]].
 
 Performance
 -----------
