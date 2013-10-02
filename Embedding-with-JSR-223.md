@@ -1,6 +1,3 @@
-[[Home|&raquo; JRuby Project Wiki Home Page]]<br/>
-[[EmbeddingWithJSR223|&raquo; Embedding JRuby with JSR223]]
-
 Embedding JRuby with JSR223 - Code Examples
 ===========================================
 
