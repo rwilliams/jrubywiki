@@ -4,9 +4,9 @@
 
 If you are looking for JSR223 (javax.scripting) or BSF examples, visit the following pages:
 
-[[EmbeddingWithJSR223]]
+[[Embedding-with-JSR-223]]
 
-[[EmbeddingWithBSF]]
+[[Embedding-with-BSF]]
 
 __TOC__
 = Red Bridge =
