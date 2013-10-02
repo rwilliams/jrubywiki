@@ -65,6 +65,10 @@ This is a difficult tip to follow, since often it's not your code doing so much 
 
 It may seem like delaying the inevitable, but doing less at startup can have surprisingly good results for your application. If you are able to eliminate most of the heavy processing until an application window starts up or a server starts listening, you may avoid (or spread out) the cold performance hit. Smart use of on-disk caches and better boot-time algorithms can help a lot, like saving a cache of mostly-read-only data rather than reloading and reprocessing it on every boot.
 
+Try using Theine for Rails apps
+==================================================
+[theine](https://github.com/mrbrdo/theine) is a Rails application pre-loader designed for JRuby. It spawns processes in the background that load your Rails application, and when you need to run a supported command (rails console, server, rspec, rake), you can run it in one of these background process. In combination with allowing you to use a different Ruby for the Theine client (such as Ruby 2.0), this can decrease the startup time to around half a second. Theine will automatically manage a pool of these processes, and there are configuration settings for the pool size. Generally, it works similarly to pry-remote and Spork.
+
 Try using Drip
 ==================================================
 [drip](https://github.com/flatland/drip) is a command line tool that can be used to lower perceived JVM startup time. It does this by preloading an entirely new JVM process\instance and allowing you to simply use the preloaded environment.  A few resources to get you started using drip with JRuby:
