@@ -5,6 +5,12 @@
 __TOC__
 = Red Bridge =
 
+If you are looking for JSR223 (javax.scripting) or BSF examples, visit the following pages:
+
+[[EmbeddingWithJSR223]]
+
+[[EmbeddingWithBSF]]
+
 == Features of Red Bridge ==
 See [[RedBridge#Features_of_Red_Bridge|Features of Red Bridge]] section.
 
