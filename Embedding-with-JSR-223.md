@@ -1,9 +1,8 @@
 [[Home|&raquo; JRuby Project Wiki Home Page]]<br/>
 [[EmbeddingWithJSR223|&raquo; Embedding JRuby with JSR223]]
-<h1>Embedding JRuby with JSR223 - Code Examples</h1>
 
-Code Examples
-=============
+Embedding JRuby with JSR223 - Code Examples
+===========================================
 
 Simple Evaluation with sharing variables
 ----------------------------------------
