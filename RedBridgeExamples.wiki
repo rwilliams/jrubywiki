@@ -2,14 +2,14 @@
 [[RedBridge|&raquo; Embedding JRuby Wiki Page]]
 <h1>Embedding JRuby - Code Examples</h1>
 
-__TOC__
-= Red Bridge =
-
 If you are looking for JSR223 (javax.scripting) or BSF examples, visit the following pages:
 
 [[EmbeddingWithJSR223]]
 
 [[EmbeddingWithBSF]]
+
+__TOC__
+= Red Bridge =
 
 == Features of Red Bridge ==
 See [[RedBridge#Features_of_Red_Bridge|Features of Red Bridge]] section.
