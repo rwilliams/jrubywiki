@@ -4,7 +4,7 @@ This page lists common C extensions and non-C alternatives you can use to replac
 
 * **[RDiscount][]** - Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)
 
-* **[RMagick][]** - Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][].
+* **[RMagick][]** - Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][]. You can also use Java's Graphics2D.
 
 * **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [mobile][] or [Puma][] (though make sure to use the JRuby-native version of the [gem](http://rubygems.org/gems/puma/versions/2.0.0.b7-java)).
 
