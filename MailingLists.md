@@ -1,4 +1,4 @@
-Communicate: Mailing Lists, IRC, JIRA (bugs)
+Communicate: Mailing Lists, IRC
 ============================================
 
  _Note: JRuby's mailing lists will soon move to our Kenai.com project. For now, follow the instructions below. We will announce and auto-migrate everyone to the new lists when the time comes._
@@ -7,7 +7,7 @@ The JRuby community uses several mailing lists to discuss issues, ask for help, 
 
 * **The Users List** hosts general usage discussions, howtos, and help are discussed here.
 * **The Developers List** is where folks hacking JRuby and working on deeper integration with other systems can communicate.
-* **The SCM List** allows anyone to track JRuby commits and JIRA bug tracker updates.
+* **The SCM List** allows anyone to track JRuby commits and JIRA bug tracker updates. (JIRA is not used any longer.)
 * **The Issues List** receives all the new issues created, for lower-traffic tracking of the bug tracker.
 
 To join one or more of the JRuby mailing lists:
