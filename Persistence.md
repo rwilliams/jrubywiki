@@ -2,6 +2,8 @@ If you were directed to this page by a JRuby warning, it's probably because you'
 
 JRuby 1.7 deprecates using instance variables or singletons on Java objects without first calling ```__persistent__ = true``` on the object's Java class. JRuby 1.7 and JRuby 2.0 will both attempt to make Java objects persistent after the first use of instance vars or singletons, but in 2.0 we will warn for each case. We recommend using other mechanisms to store per-Java-object data, and you may want to pass ```-Xji.objectProxyCache=false``` to JRuby (or ```-Djruby.ji.objectProxyCache=false``` to Java) to find and fix all such patterns in your code before JRuby 2.0.
 
+See the warning at the bottom of this page for known issues with singletons and instance variables on Java objects.
+
 To set a Java class to be persistent, use code similar to the following:
 
 ```ruby
@@ -49,3 +51,10 @@ Alternatives
 The simplest alternative would be to store this attached state in a separate structure, like a Hash (properly mutexed) somewhere in the current JRuby environment. This will allow you to localize the caching perf hit to just those objects where you need it.
 
 You may also wish to reference objects weakly, as we did in ObjectProxyCache. The [weakling](https://rubygems.org/gems/weakling) gem provides a solid, consistent weak-reference implementation as well as a WeakHash implementation.
+
+Warning
+-------
+
+Whether you set __persistent__ or not, you *must* keep a reference to the Ruby wrapper object alive in order for it to stay in memory. The caching mechanism JRuby uses allows for either the original Java object or the proxy to be garbage collected if they are no longer referenced, so that the proxy caching does not cause objects to stay alive past their normal lifespan.
+
+Put another way: If you are adding instance variables to or making a singleton object of a Java object, the Ruby object wrapper must stay alive to persist your modifications.
