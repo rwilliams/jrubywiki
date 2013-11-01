@@ -16,7 +16,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 |POSIX
 |[https://rvm.beginrescueend.com RVM]
 | Wayne E. Seguin
-| 1.6.7, jruby-head
+| 1.6.8, 1.7.6, jruby-head
 | (available Ruby interpreters: rvm list known)
 |-
 |Mac OS-X
