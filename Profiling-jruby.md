@@ -6,7 +6,7 @@ Turning on the built in profiler
 
 JRuby has a built-in profiler that you can use in several ways.  The simplest way is to just add the `--profile` flag on the commandline, or in `JRUBY_OPTS`.  This outputs a flat profiler and is available as of JRuby 1.5.
 
-In JRuby 1.6, you can expand the above to --profile.flat for the (default) flat profile, `--profile.graph` for a graph profile, or `--profile.api` to turn on the profiling API, which allows you to selectively turn the profiler on and off directly from your Ruby code.
+In JRuby 1.6+, you can expand the above to --profile.flat for the (default) flat profile, `--profile.graph` for a graph profile, or `--profile.api` to turn on the profiling API, which allows you to selectively turn the profiler on and off directly from your Ruby code.
 
 Outputting to a file (JRuby 1.7.4+)
 -----------------------------------
@@ -42,3 +42,5 @@ If you wanted to replicate the behavior of the `--profile.graph`, but focused on
     profile_printer.printProfile(STDOUT)
 
 You could also write it to a file, or any IO stream.  One example of this can be found at: https://gist.github.com/872355
+
+**Don't forget** to run JRuby with `--profile.api` to turn on the profiling API, otherwise no profiling data is recorded.
