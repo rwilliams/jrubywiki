@@ -1,3 +1,12 @@
+This page will be used to discuss a new security model for JRuby, which we can also start extending to Ruby in general with the collaboration of other implementers.
+
+There's another older page discussing security a bit here: [[Ruby_JRubySecurity]]
+
+The remainder of this page is a proposal/discussion from @enebo musing on what a Ruby-land security system to replace $SAFE might look like.
+
+Enhanced Security (proposal/discussion by @enebo)
+-------------------------------------------------
+
 $SAFE shows it's age.  It is an acknowledged stolen feature from Perl and what does '$SAFE = 3' mean anyways?
 
 Let's give security a facelift.  Let's make a new variable with some builtin feature and extensibility as we realize new aspects of security we want to monitor.
