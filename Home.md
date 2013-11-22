@@ -26,6 +26,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Concurrency in JRuby]]
 * [[Gems known to be threadsafe]]
 * [[Gems known not to be threadsafe]]
+* [[EnhancedSecurity]]
 
 **Web Applications (Rails, servers, others)**
 
