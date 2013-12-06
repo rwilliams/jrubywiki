@@ -2,43 +2,36 @@ JRuby release preparation
 =========================
 
 * Make sure a release has no blockers (tests in later steps are good at shagging issues out)
-* Preliminary testing
-    * Try and determine if we break any common extensions (jruby-rack, ar-jdbc, joni, jsr233 impl, ...)
-    * Create a test dist file
-        * Verify bin works
-        * Verify src with 'ant test' and 'ant spec'
-        * Install a gem or two
-* Create new branch [Only for RC1]
-    * grb create jruby-1_5
-* [branch] Update default.build.properties to reflect new version [1.5.0.RC1]
-* [branch] Update maven poms: `jruby -S rake maven:updatepoms VERSION={newversion}`
-* [master] Update default.build.properties to reflect next version [ -> 1.6.0.dev]
-* [master] Update maven poms: `jruby -S rake maven:updatepoms VERSION={newversion}`
-* [master,branch] update maven/jruby-rake-plugin/pom.xml version for jruby-complete to be correct.
-* Make tag using git tag: `git tag X.Y; git push --tags`
-* Check out clean clone of release branch: `cd .. && rm -rf release && git clone jruby release && cd release` (for example)
-* Set your java version to Java 5 for building the release.
-* If you use rvm then `rvm use system` to prevent [gem accident](http://jira.codehaus.org/browse/JRUBY-5231 JRUBY-5231)
-* Run **ant dist** to generate source and binary distribution files, jruby-complete jar, installers, jruby-jars gem, and MD5/SHA checksum files.
-* Make `ant test` runs on Linux, MacOS, and Windows with produced source distribution
-* Verify common tasks as extra sanity check (Windows + one other system) [with binary distro -- try some with .zip dist and some with .tar.gz dist]:
-    * `jruby samples/swing2.rb`
-    * `jruby -S jirb`
-    * install rails + ar-jdbc
-        * setup simple web app and exercise it
-        * install and run goldberg (actually any more sophisticated app you know works)
-* Upload dist files, jruby-complete.jar, jruby-jars gem and MD5 files to S3: https://jruby.org.s3.amazonaws.com/downloads/{version}
-* Release jruby-jars gem: `gem push dist/jruby-jars-{VERSION}.gem`
-* `mvn deploy -DupdateReleaseInfo=true` at the root of the project to build and deploy all maven artifacts
+* Sanity tests (can be done after mvn deploy step but you might be forcing some tags if not ready)
+    * Simple rails app with migration(s)
+    * unpack bin dist and make sure it works
+       * look for unwanted files
+       * look for it being too big
+    * unpack src dist and compile it
+    * Verify windows installers
+* mvn versions:set -DnewVersion=1.7.9 -Pall
+* commit and tag
+* cd .. && rm -rf release && git clone jruby release && cd release
+* mvn clean deploy -Psonatype-oss-release -Prelease
+* jrake post_process_artifacts (puts s3 stuff in release subdir)
+* push to s3
+* gem push jruby-jar-1.7.9.gem
+* close and release snapshot repo on sonatype (https://oss.sonatype.org - snapshot repos)
 * `jruby -S applet:dist`
     * upload resulting jruby-complete-signedjar to http://jruby.org.s3.amazonaws.com/tryjruby/jruby-complete-signed.jar
 * Add news item to www.jruby.org page 
-* Update MainPage on JRuby wiki pointing to new binary
-* Update Ruby Application Archive
-* Close all resolved bugs associated with the release in JIRA
-* Release the version in JIRA
-* Send emails to dev@jruby.codehaus.org, user@jruby.codehaus.org, ruby-talk@ruby-lang.org (plus any thing else you may find useful -- internal lists, etc...)
+    * edit config.yml
+    * edit www/downloads.html
+    * add www/_posts/2013-12-06-jruby-1-7-9.markdown
+        * JRUBY_VERSION=1.7.9 rake issues to get issues list
+        * rake index to update our download index files
+    * LANG="en_US.UTF-8" LC_ALL="en_US.UTF-8" mri19 -S rake deploy
+    * LANG="en_US.UTF-8" LC_ALL="en_US.UTF-8" mri19 -S rake deploy
+
+* Send emails to dev@jruby.codehaus.org, user@jruby.codehaus.org, ruby-talk@ruby-lang.org
+* tweet
+* close milestone on GH and open new milestone for next release
 * Update wikipedia entry
-* /msg chanserv op #jruby <nick>
-* Update irc topic on #jruby "/topic Get 1.6.6! http://jruby.org/ | http://wiki.jruby.org | http://logs.jruby.org/jruby/ | Paste at http://gist.github.com"
+* /msg chanserv OP #jruby <nick>
+* /msg chanserv TOPIC #jruby Get 1.7.9! http://jruby.org/ | http://wiki.jruby.org | http://logs.jruby.org/jruby/ | http://bugs.jruby.org | Paste at http://gist.github.com
 * Send out to all known packagers [[JRubyDistributions]]
