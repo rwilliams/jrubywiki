@@ -55,6 +55,6 @@ You may also wish to reference objects weakly, as we did in ObjectProxyCache. Th
 Warning
 -------
 
-Whether you set __persistent__ or not, you *must* keep a reference to the Ruby wrapper object alive in order for it to stay in memory. The caching mechanism JRuby uses allows for either the original Java object or the proxy to be garbage collected if they are no longer referenced, so that the proxy caching does not cause objects to stay alive past their normal lifespan.
+Whether you set ```__persistent__``` or not, you *must* keep a reference to the Ruby wrapper object alive in order for it to stay in memory. The caching mechanism JRuby uses allows for either the original Java object or the proxy to be garbage collected if they are no longer referenced, so that the proxy caching does not cause objects to stay alive past their normal lifespan.
 
 Put another way: If you are adding instance variables to or making a singleton object of a Java object, the Ruby object wrapper must stay alive to persist your modifications.
