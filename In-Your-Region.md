@@ -105,6 +105,9 @@ I use JRuby with Rails and warbler since mid-2009 in an enterprise application t
 #####Exeter####
 * [David Glassborow](http://www.conceptfirst.com/) - Do various internal systems on JRuby, usually hosted in torquebox, looking to do some product development as well.
 
+#####Manchester####
+* [Chris Seaton](http://chrisseaton.com/) - contributed the Truffle backend.
+
 ##United States##
 
 ###Arizona###
