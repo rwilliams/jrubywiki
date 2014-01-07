@@ -33,6 +33,13 @@ We generally recommend getting your application "threadsafe", since in a much sm
 
 The long term way to reduce memory here is to make your application threadsafe and run it in that mode. Barring that, you can usually (using server-specific flags) specify how many JRuby instances (min and max) should be launched. For example, if you never need to handle more than one concurrent request, you may only ever need to launch one JRuby instance.
 
+The JVM does not GC anonymous classes by default
+================================================
+
+The JVM, being primarily designed for a non-dynamic language, does not attempt to garbage-collect anonymous classes created at runtime, unless you change from the default GC algorithm to the CMS GC.  Adding the following options to the `JRUBY_OPTS` environment variable will greatly improve garbage collection of anonymous classes: `-XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC`
+
+If `CMSClassLoadingEnabled` and `UseConcMarkSweepGC` do not eliminate the leak, it may be advantageous to refactor your code in order to produce few or no anonymous classes at runtime.
+
 JRuby's more OO
 ===============
 
