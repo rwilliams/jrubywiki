@@ -21,16 +21,16 @@ The Truffle backend is integrated into the normal JRuby build system.
 Running Truffle
 ============
 
-To enable the Truffle backend use the `-X-T` option. `-X-T` also turns off loading the Ruby kernel and implies `--disable-gems`.
+To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loading the Ruby kernel and implies `--disable-gems`.
 
-     bin/jruby -X-T
+     bin/jruby -X+T
 
 Running With Graal
 ===============
 
 To run Truffle on top of the Graal compiler, you need an installation of the Graal VM. See below for how to get this. To tell JRuby to use a non-standard JVM, set the `JAVACMD` environment variable. You should also explicitly set `-server` and `-d64`, and to check that you really are using Graal, we set `-Xtruffle.printRuntime=true` so that it prints the name of the Truffle runtime as it starts. You should see ‘Graal’.
 
-     JAVACMD=path/to/graal/jdk1.7.0_45/product/bin/java bin/jruby -J-server -J-d64 -X-T -Xtruffle.printRuntime=true
+     JAVACMD=path/to/graal/jdk1.7.0_45/product/bin/java bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true
 
 Building Graal
 ===========
@@ -66,7 +66,7 @@ Running Benchmarks
 We have a couple of micro-benchmarks that we know work in bench/truffle. They are very limited, are focused on peak performance, don’t include time for warmup and don’t have any rigorous statistical methodology behind them, so don’t expect to draw too many conclusions. For example, to run Mandelbrot:
 
      cd bench/truffle
-     ../../bin/jruby -J-server -J-d64 -X-T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
+     ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
      JAVACMD=path/to/graal/jdk1.7.0_45/product/bin/java ../../bin/jruby -J-server -J-d64 -Xtruffle -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
 
 You should see something very roughly like an 10-15x increase in the score compared to `invokedynamic` - a 10-15x speedup, and more if you compare against JRuby without `invokedynamic`.
@@ -74,7 +74,7 @@ You should see something very roughly like an 10-15x increase in the score compa
 Truffle Options
 ===========
 
-     -X-T
+     -X+T
 
 Use Truffle as the ‘compile mode’. Turns off loading the Ruby kernel and implies `--disable-gems`.
 
