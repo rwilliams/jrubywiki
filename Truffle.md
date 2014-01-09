@@ -29,15 +29,9 @@ Running With Graal
 ===============
 
 
-The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK.
+The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can download [Graal builds for 64-bit Linux and Mac](http://lafo.ssw.uni-linz.ac.at/graalvm/), or see below for how to build your own.
 
-To run Truffle on top of the Graal compiler, you need an installation of the Graal VM. You can download [Graal builds for 64-bit Linux and Mac](http://lafo.ssw.uni-linz.ac.at/graalvm/), or see below for how to build your own.
-
-The binary releases of Graal look like a normal JVM install. Put bin/ in PATH and set JAVA_HOME and JRuby will pick up that VM build.
-
-To tell JRuby to use the non-standard `mx.sh` command in local Graal builds, set the `JAVACMD` environment variable. You should also explicitly set `-server` and `-d64`, and to check that you really are using Graal, we set `-Xtruffle.printRuntime=true` so that it prints the name of the Truffle runtime as it starts. You should see ‘Graal’.
-
-     JAVACMD=path/to/graal/jdk1.7.0_45/product/bin/java bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true
+The binary releases of Graal look like a normal JVM install. Put `bin/` in `PATH` and set `JAVA_HOME` and JRuby will pick up that VM build.
 
 Building Graal
 ===========
@@ -51,14 +45,14 @@ You will need a system and C/C++ compiler toolchain supported by OpenJDK, as wel
      ./mx.sh --vm server-nograal --vmbuild product build
      ./mx.sh --vm server --vmbuild product build
 
-This will give you a Java VM executable with Graal in `graal/jdk1.7.0_45/product/bin/java`. 
-
 If you are on OS X Mavericks you will need to set these variables:
 
     export COMPILER_WARNINGS_FATAL=false
     export USE_PRECOMPILED_HEADER=0
     export USE_CLANG=true
     export LFLAGS="-Xlinker -lstdc++"
+
+This will give you a Java VM executable with Graal in `graal/<jvm version>/product/bin/java`. You can use `graal/<jvm version>` as JAVA_HOME
 
 Running RubySpec
 ===============
