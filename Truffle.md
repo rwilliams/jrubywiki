@@ -21,6 +21,8 @@ The Truffle backend is integrated into the normal JRuby build system.
 Running Truffle
 ============
 
+The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. The Graal team provides [binary builds of Graal](http://lafo.ssw.uni-linz.ac.at/graalvm/) for 64-bit Linux and Mac.
+
 To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loading the Ruby kernel and implies `--disable-gems`.
 
      bin/jruby -X+T
