@@ -21,8 +21,6 @@ The Truffle backend is integrated into the normal JRuby build system.
 Running Truffle
 ============
 
-The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. The Graal team provides [binary builds of Graal](http://lafo.ssw.uni-linz.ac.at/graalvm/) for 64-bit Linux and Mac.
-
 To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loading the Ruby kernel and implies `--disable-gems`.
 
      bin/jruby -X+T
@@ -30,7 +28,14 @@ To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loadi
 Running With Graal
 ===============
 
-To run Truffle on top of the Graal compiler, you need an installation of the Graal VM. See below for how to get this. To tell JRuby to use a non-standard JVM, set the `JAVACMD` environment variable. You should also explicitly set `-server` and `-d64`, and to check that you really are using Graal, we set `-Xtruffle.printRuntime=true` so that it prints the name of the Truffle runtime as it starts. You should see ‘Graal’.
+
+The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK.
+
+To run Truffle on top of the Graal compiler, you need an installation of the Graal VM. You can download [Graal builds for 64-bit Linux and Mac](http://lafo.ssw.uni-linz.ac.at/graalvm/), or see below for how to build your own.
+
+The binary releases of Graal look like a normal JVM install. Put bin/ in PATH and set JAVA_HOME and JRuby will pick up that VM build.
+
+To tell JRuby to use the non-standard `mx.sh` command in local Graal builds, set the `JAVACMD` environment variable. You should also explicitly set `-server` and `-d64`, and to check that you really are using Graal, we set `-Xtruffle.printRuntime=true` so that it prints the name of the Truffle runtime as it starts. You should see ‘Graal’.
 
      JAVACMD=path/to/graal/jdk1.7.0_45/product/bin/java bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true
 
