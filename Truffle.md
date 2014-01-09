@@ -21,7 +21,7 @@ The Truffle backend is integrated into the normal JRuby build system.
 Running Truffle
 ============
 
-To enable the Truffle backend use the `-Xtruffle` option. `-Xtruffle` also turns off loading the Ruby kernel and implies `--disable-gems`.
+To enable the Truffle backend use the `-X-T` option. `-X-T` also turns off loading the Ruby kernel and implies `--disable-gems`.
 
      bin/jruby -X-T
 
