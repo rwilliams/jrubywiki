@@ -1,8 +1,8 @@
-The [`truffle`](https://github.com/jruby/jruby/tree/truffle) branch of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the current AST interpreter, the bytecode backend, and the new IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
+The Truffle runtime of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the current AST interpreter, the bytecode backend, and the new IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
 
-This wiki page is a collection of notes about the branch. For more general background information see the [announcement blog post](http://blog.jruby.org/2014/01/truffle_graal_high_performance_backend/), and the FAQ below.
+This wiki page is a collection of notes about the runtime. For more general background information see the [announcement blog post](http://blog.jruby.org/2014/01/truffle_graal_high_performance_backend/), and the FAQ below.
 
-Most of the work for the truffle branch is in [core/src/main/java/org/jruby/truffle](https://github.com/jruby/jruby/tree/truffle/core/src/main/java/org/jruby/truffle).
+Most of the work for the truffle runtime is in [core/src/main/java/org/jruby/truffle](https://github.com/jruby/jruby/tree/master/core/src/main/java/org/jruby/truffle).
 
 Current Status
 ===========
@@ -111,7 +111,7 @@ When running on a VM with the Graal compiler, Truffle can use the API exposed by
 
 **Where did this code come from?**
 
-[Chris Seaton](https://github.com/chrisseaton) wrote an implementation of Ruby on Truffle and Graal as part of an internship at Oracle Labs in the first half of 2013. The code in the `truffle` branch is that open source code merged into JRuby.
+[Chris Seaton](https://github.com/chrisseaton) wrote an implementation of Ruby on Truffle and Graal as part of an internship at Oracle Labs in the first half of 2013. The code in the `org.jruby.truffle` package is that open source code merged into JRuby.
 
 **Who do I ask about the Truffle backend?**
 
