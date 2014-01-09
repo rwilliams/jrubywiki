@@ -1,4 +1,4 @@
-The `truffle` branch of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the current AST interpreter, the bytecode backend, and the new IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
+The [`truffle`](https://github.com/jruby/jruby/tree/truffle) branch of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the current AST interpreter, the bytecode backend, and the new IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
 
 This wiki page is a collection of notes about the branch. For more general background information see the [announcement blog post](http://blog.jruby.org/2014/01/truffle_graal_high_performance_backend/), and the FAQ below.
 
