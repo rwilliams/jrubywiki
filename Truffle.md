@@ -52,7 +52,7 @@ If you are on OS X Mavericks you will need to set these variables:
     export USE_CLANG=true
     export LFLAGS="-Xlinker -lstdc++"
 
-This will give you a Java VM executable with Graal in `graal/<jvm version>/product/bin/java`. You can use `graal/<jvm version>` as JAVA_HOME
+This will give you a Java VM executable with Graal in `graal/<jvm version>/product/bin/java`. You can use `graal/<jvm version>` as `JAVA_HOME`.
 
 Running RubySpec
 ===============
