@@ -13,7 +13,7 @@ It would be great if this library could be leveraged from JRuby, either with a p
 
 ### Celluloid "Turbo Mode" for JRuby
 
-[Celluloid](http://celluloid.io) is an actor-based concurrent object framework (somewhat similar to Akka) written in pure Ruby. This means it presently uses Ruby Mutexes and ConditionVariables for synchronization. However, the JVM has many, many other options which could provide better performance.
+[Celluloid](http://celluloid.io) is an actor-based concurrent object framework (somewhat similar to Akka) written in pure Ruby. This means it presently uses Ruby Mutexes and ConditionVariables for synchronization. However, the JVM has many, many other options which could provide better performance. Celluloid provides an [ActorSystem](https://github.com/celluloid/celluloid/blob/master/lib/celluloid/actor_system.rb) abstraction for supporting multiple different platform-specific backends, and we'd love to have one specific to JRuby.
 
 The goal of this project would be to implement a duck type of the `Celluloid::Mailbox` class that leverages native JVM facilities to improve performance. Some examples to consider might be:
 
