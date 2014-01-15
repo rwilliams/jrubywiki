@@ -4,7 +4,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 !OS
 !Package
 !Maintainer
-!Current version (1.7.9)
+!Current version (1.7.10)
 !Notes
 |-
 |POSIX
@@ -64,7 +64,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 |Archlinux
 |pacman (community/jruby)
 | [https://www.archlinux.org/packages/?maintainer=heftig Jan Steffens]
-| 1.7.9
+| 1.7.10
 | [https://www.archlinux.org/packages/community/any/jruby/ package]
 |-
 |Windows
