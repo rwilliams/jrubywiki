@@ -1,6 +1,4 @@
-This page hosts the ideas for Google Summer of Code 2013! Add your ideas here, improve others, and if you're a student, perhaps something on this list will interest you!
-
-At this point we are a long ways from GSoC 2014, but it is never too early to plan ahead.  Suggest your ideas here and we will update this page as GSoC 2014 approaches.
+This page hosts the ideas for Google Summer of Code 2014! Add your ideas here, improve others, and if you're a student, perhaps something on this list will interest you!
 
 Ideas
 =====
