@@ -77,9 +77,9 @@ We have a couple of micro-benchmarks that we know work in bench/truffle. They ar
 
      cd bench/truffle
      ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
-     JAVACMD=path/to/graal/jdk1.7.0_45/product/bin/java ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
+     JAVACMD=path/to/graal/<jvm version>/product/bin/java ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
 
-Note, that this command line uses `-server` explicitly in order to select the Graal enabled Server VM.
+Note that this command line uses `-server` explicitly in order to select the Graal enabled Server VM.
 
 You should see something very roughly like an 10-15x increase in the score compared to `invokedynamic` - a 10-15x speedup, and more if you compare against JRuby without `invokedynamic`.
 
