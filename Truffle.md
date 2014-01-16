@@ -31,19 +31,16 @@ Running With Graal
 
 The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can download [Graal builds for 64-bit Linux and Mac](http://lafo.ssw.uni-linz.ac.at/graalvm/), or see below for how to build your own.
 
-The binary releases of Graal look like a normal JVM install. Put `bin/` in `PATH` and set `JAVA_HOME` and JRuby will pick up that VM build.
+The binary releases of Graal looks like a normal JVM install. Put `bin/` in `PATH` and set `JAVA_HOME` and JRuby will pick up that VM build.
 
-Building Graal
+Building Graal (Optional)
 ===========
+
+If you don't want to use a [pre-built Graal binary](http://lafo.ssw.uni-linz.ac.at/graalvm/) follow these instructions:
 
 Graal is a fork of OpenJDK. Compiling it isn’t too complicated, but it isn’t part of the JRuby build system so you’ll have to do it separately.
 
-You will need a system and C/C++ compiler toolchain supported by OpenJDK, as well as Mercurial, Ant and Python 2.7.
-
-     hg clone http://hg.openjdk.java.net/graal/graal
-     cd graal
-     ./mx.sh --vm server-nograal --vmbuild product build
-     ./mx.sh --vm server --vmbuild product build
+If you are on Windows, follow the instructions [on the Graal Wiki](https://wiki.openjdk.java.net/display/Graal/Windows) first.
 
 If you are on OS X Mavericks you will need to set these variables:
 
@@ -52,7 +49,19 @@ If you are on OS X Mavericks you will need to set these variables:
     export USE_CLANG=true
     export LFLAGS="-Xlinker -lstdc++"
 
-This will give you a Java VM executable with Graal in `graal/<jvm version>/product/bin/java`. You can use `graal/<jvm version>` as `JAVA_HOME`.
+You will need a system and C/C++ compiler toolchain supported by OpenJDK, as well as Mercurial, Ant and Python 2.7.
+
+     hg clone http://hg.openjdk.java.net/graal/graal
+     cd graal
+     ./mx.sh --vm server --vmbuild product build
+
+This gives you a copy of the JDK in `graal/<jvm version>/product` containing:
+* the default VM of the bootstrap JDK (launched with `java` or `java -original`). **Does not contain Graal**.
+* a Server VM which is Graal enabled (launched with `java -server`).
+
+To make `-server` the default VM, you can edit `graal/<jvm version>/product/jre/lib/jvm.cfg` (MacOSX) / `graal/<jvm version>/product/jre/lib/amd64/jvm.cfg` (Other), such that the line with `-server` is the first uncommented line.
+
+You can use `graal/<jvm version>/product` as `JAVA_HOME`.
 
 Running RubySpec
 ===============
@@ -69,6 +78,8 @@ We have a couple of micro-benchmarks that we know work in bench/truffle. They ar
      cd bench/truffle
      ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
      JAVACMD=path/to/graal/jdk1.7.0_45/product/bin/java ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
+
+Note, that this command line uses `-server` explicitly in order to select the Graal enabled Server VM.
 
 You should see something very roughly like an 10-15x increase in the score compared to `invokedynamic` - a 10-15x speedup, and more if you compare against JRuby without `invokedynamic`.
 
