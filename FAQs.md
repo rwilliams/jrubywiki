@@ -239,13 +239,18 @@ Note that on Windows, you should specify the path using unix-style directory sep
 ```
 
 
-I get the error "undefined method 'cattr_accessor' for ActiveRecord::Base:Class (NoMethodError)" after configuring activerecord-jdbc.  What is wrong?
+I get the error "undefined method 'cattr_accessor' for ActiveRecord::Base:Class (NoMethodError)" after configuring activerecord-jdbc-adapter.  What is wrong?
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-You're not requiring activerecord-jdbc properly. Try requiring activerecord-jdbc in `config/environment.rb` this way:
+You're not loading AR-JDBC properly. Try requiring activerecord-jdbc-adapter in `config/environment.rb` :
 
 ```ruby
-    require 'jdbc_adapter'
+require 'activerecord-jdbc-adapter' # or require 'arjdbc'
+```
+If you're using Bundler this is not needed just make sure there's no `:require => nil/false` with the gem declaration :
+
+```ruby
+gem 'activerecord-jdbc-adapter' # will auto require 'activerecord-jdbc-adapter'
 ```
 
 I keep getting "500.html running rails app built by goldspike in a JEE Container". What is wrong?
