@@ -3,8 +3,9 @@ Two Examples of accessing Ruby classes in Java use a script Engine.  The first e
 Java 5 Example
 ==============
 
-This example shows your can access the JRuby Object in Java 5 , it is not as elegant as the solution in Java 6 but that discussion will follow later.  Specifically this example uses getDefualtInstance to instantiate a Ruby environment.
-We then added java variables tot he script String and evaled that string.  The java variables were Yamled to  the specific file.  To do this correctly there are certain dependencies that must added to the build path.  the Jruby complete jar for Ruby stdlib.
+This example shows your can access the JRuby Object in Java 5 , it is not as elegant as the solution in Java 6 but that discussion will follow later.  Specifically this example uses `getDefaultInstance' to instantiate a Ruby environment.
+
+We then added Java variables to the script String and evaled that string.  The Java variables were "yamled" to  the specific file.  To do this correctly, there are certain dependencies that must added to the build path.  The Jruby complete jar for Ruby stdlib.
 
     package jrubyfromJava;
 
