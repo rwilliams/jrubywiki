@@ -29,7 +29,7 @@ The goal of this project would be to implement a duck type of the `Celluloid::Ma
 
 ### Truffle
 
-JRuby now has a work-in-progress [Truffle] backend, to use two powerful new JVM technologies - the Truffle AST interpreter framework, and the new Graal JIT compiler. Together these are achieving peak performance well beyond anything currently possible with the JVM.
+JRuby now has a work-in-progress [Truffle](Truffle) backend, to use two powerful new JVM technologies - the Truffle AST interpreter framework, and the new Graal JIT compiler. Together these are achieving peak performance well beyond anything currently possible with the JVM.
 
 There is plenty of low hanging fruit in the Truffle backend to make good GSoC projects, and you will be working on genuinely research-level technology that may be the future of all JVM languages. The team working on Truffle are enthusiastic about mentoring and we can help an enthusiastic person get going right now if they want, so they have their own ideas and a track record when it comes to GSoC.
 
