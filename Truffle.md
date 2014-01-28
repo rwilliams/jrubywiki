@@ -66,9 +66,9 @@ You can use `graal/<jvm version>/product` as `JAVA_HOME`.
 Running RubySpec
 ===============
 
-The Truffle backend currently uses a separate copy of RubySpec and tags. It passes about half the language specs. Instructions for running RubySpec are in [spec/truffle/README](https://github.com/jruby/jruby/blob/master/spec/truffle/README).
+The Truffle backend currently uses a separate set of passing tags. It passes about half the language specs.
 
-As with the rest of implementation, this should be merged with the normal set of RubySpecs over time.
+    ant spec:truffle
 
 Running Benchmarks
 ================
@@ -77,7 +77,7 @@ We have a couple of micro-benchmarks that we know work in bench/truffle. They ar
 
      cd bench/truffle
      ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
-     JAVACMD=path/to/graal/<jvm version>/product/bin/java ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
+     JAVACMD=path/to/graal/bin/java ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
 
 Note that this command line uses `-server` explicitly in order to select the Graal enabled Server VM.
 
