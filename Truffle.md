@@ -29,14 +29,14 @@ Running With Graal
 ===============
 
 
-The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can download [Graal builds for 64-bit Linux and Mac](http://lafo.ssw.uni-linz.ac.at/graalvm/), or see below for how to build your own.
+The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can download [Graal builds for 64-bit Linux, Mac and Windows](http://lafo.ssw.uni-linz.ac.at/builds/), or see below for how to build your own.
 
 The binary releases of Graal looks like a normal JVM install. Put `bin/` in `PATH` and set `JAVA_HOME` and JRuby will pick up that VM build.
 
 Building Graal (Optional)
 ===========
 
-If you don't want to use a [pre-built Graal binary](http://lafo.ssw.uni-linz.ac.at/graalvm/) follow these instructions:
+If you don't want to use a [pre-built Graal binary](http://lafo.ssw.uni-linz.ac.at/builds/) follow these instructions:
 
 Graal is a fork of OpenJDK. Compiling it isn’t too complicated, but it isn’t part of the JRuby build system so you’ll have to do it separately.
 
