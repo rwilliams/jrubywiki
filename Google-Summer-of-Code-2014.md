@@ -37,3 +37,13 @@ JRuby now has a work-in-progress [Truffle](Truffle) backend, to use two powerful
 There is plenty of low hanging fruit in the Truffle backend to make good GSoC projects, and you will be working on genuinely research-level technology that may be the future of all JVM languages. The team working on Truffle are enthusiastic about mentoring and we can help an enthusiastic person get going right now if they want, so they have their own ideas and a track record when it comes to GSoC.
 
 Talk to chrisseaton.
+
+### JRuby IR-based projects
+
+JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands. This IR will be the basis of an updated JRuby VM. There are lots of opportunities for improving on these and implementing additional optimizations. A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include new performance optimizations (offline or profile-guided runtime), implementing new backends (ex: Dalvik).
+
+Some directions:
+
+* Target a different backend (ex: Dalvik): Investigate what it would take to compile IR to the Dalvik platform, and implement it within the constraints of a 3-month project.
+
+* Performance optimizations: The JRuby IR provides a great opportunity to optimize the Ruby language. The next major version of JRuby is intended to run entirely atop the IR compiler, and so we are looking for compiler and optimization folks to help us layer incremental improvements on top of the base IR logic we have today. Some of these could be static analyses, but a lot of these would be profile-based runtime optimizations and there is lot of interesting territory to explore for interested students. For example, JRuby currently has simple and crude approaches for moving from interpreted to JIT code. It would be interesting to monitor code changes in the runtime and detect when changes settle down and use that to guide more aggressive optimizations.
