@@ -5,9 +5,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **[JRuby Downloads]** ([Nightly Builds] (http://ci.jruby.org/snapshots/master))
 
-**[[Google Summer of Code 2013|Google-Summer-of-Code-2013]]**
-
-**[[Google Summer of Code 2014|Google-Summer-of-Code-2014]]** (Ideas for next year)
+**[[Google Summer of Code 2014|Google-Summer-of-Code-2014]]**
 
 **JRuby Basics**
 
@@ -91,3 +89,4 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 * [[Ruby Summer of Code 2010|RubySummerOfCode2010]]
 * [[Google Summer of Code 2012|GoogleSummerOfCode2012]]
+* [[Google Summer of Code 2013|Google-Summer-of-Code-2013]]
