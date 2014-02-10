@@ -452,3 +452,36 @@ This error is reported when the JDK or JRE you're running on does not allow stro
 a few different ways to work around it.
 
 See [[Unlimited Strength Crypto|UnlimitedStrengthCrypto]]
+
+My server seems to have many threads stuck waiting on a Mutex, and I'm not getting good concurrency and request throughput. Why?
+--------------------------------------------------------------------------------------------------------------------------------------
+
+If you force a dump of threads on the server JVM, you may see a stack trace like this:
+
+```
+"qtp368471295-36" prio=10 tid=0x00007fbf987c6800 nid=0xa277 waiting on condition [0x00007fbf2c99c000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000070a1e7968> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:158)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:811)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireInterruptibly(AbstractQueuedSynchronizer.java:867)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(AbstractQueuedSynchronizer.java:1201)
+	at java.util.concurrent.locks.ReentrantLock.lockInterruptibly(ReentrantLock.java:312)
+	at org.jruby.RubyThread.lockInterruptibly(RubyThread.java:1468)
+	at org.jruby.ext.thread.Mutex.lock(Mutex.java:91)
+	at org.jruby.ext.thread.Mutex$INVOKER$i$0$0$lock.call(Mutex$INVOKER$i$0$0$lock.gen)
+	at org.jruby.runtime.callsite.CachingCallSite.call(CachingCallSite.java:134)
+	at rubyjit.Rack::Lock$$call_9D2E3A2DC6D4739AEFA0FEFD72B6C9712EF582B8.chained_0_ensure_1$RUBY$__ensure__(/data/app/taxman/installs/taxman_110bbe712d8bf6ee3955b8e87573c2cc278fe20a/vendor/bundle/jruby/1.9/gems/rack-1.4.5/lib/rack/lock.rb:14)
+	at rubyjit.Rack::Lock$$call_9D2E3A2DC6D4739AEFA0FEFD72B6C9712EF582B8.__file__(/data/app/taxman/installs/taxman_110bbe712d8bf6ee3955b8e87573c2cc278fe20a/vendor/bundle/jruby/1.9/gems/rack-1.4.5/lib/rack/lock.rb)
+	at rubyjit.Rack::Lock$$call_9D2E3A2DC6D4739AEFA0FEFD72B6C9712EF582B8.__file__(/data/app/taxman/installs/taxman_110bbe712d8bf6ee3955b8e87573c2cc278fe20a/vendor/bundle/jruby/1.9/gems/rack-1.4.5/lib/rack/lock.rb)
+	at org.jruby.internal.runtime.methods.JittedMethod.call(JittedMethod.java:181)
+	at org.jruby.runtime.callsite.CachingCallSite.call(CachingCallSite.java:168)
+	at rubyjit.ActionDispatch::Static$$call_98B9D217DEE0C8798054918A3A9A20D7242072EA.__file__(/data/app/taxman/installs/taxman_110bbe712d8bf6ee3955b8e87573c2cc278fe20a/vendor/bundle/jruby/1.9/gems/actionpack-3.2.16/lib/action_dispatch/middleware/static.rb:63)
+	at rubyjit.ActionDispatch::Static$$call_98B9D217DEE0C8798054918A3A9A20D7242072EA.__file__(/data/app/taxman/installs/taxman_110bbe712d8bf6ee3955b8e87573c2cc278fe20a/vendor/bundle/jruby/1.9/gems/actionpack-3.2.16/lib/action_dispatch/middleware/static.rb)
+...
+```
+
+The trace above indicates there's a single JRuby runtime handling many concurrent requests, but Rails's "threadsafe" mode is not enabled. As a result, Rails inserts a lock acquisition into the request pipeline, and requests execute in serial. Generally, when deploying on JRuby, you will want to either be running threadsafe mode (single JRuby runtime, many concurrent requests) or non-threadsafe mode but with many JRuby instances.
+
+You should modify the Rails config for your application to enable threadsafe mode: http://apidock.com/rails/Rails/Configuration/threadsafe!
