@@ -86,7 +86,7 @@ Note that this command line uses `-server` explicitly in order to select the Gra
 
 You should see something very roughly like an 10-15x increase in the score compared to `invokedynamic` - a 10-15x speedup, and more if you compare against JRuby without `invokedynamic`.
 
-To run a set of benchmarks and compare performance as you makes changes to Truffle, you can use the `compare.rb` script:
+To run a set of benchmarks and compare performance as you makes changes to Truffle, you can use the `compare.rb` script in `bench/truffle`:
 
     export GRAAL_DIR=path/to/graal
     ruby compare.rb --reference -m 3
