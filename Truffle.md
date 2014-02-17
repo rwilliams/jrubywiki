@@ -28,10 +28,13 @@ To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loadi
 Running With Graal
 ===============
 
-
 The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can download [Graal builds for 64-bit Linux, Mac and Windows](http://lafo.ssw.uni-linz.ac.at/builds/), or see below for how to build your own.
 
-The binary releases of Graal looks like a normal JVM install. Put `bin/` in `PATH` and set `JAVA_HOME` and JRuby will pick up that VM build.
+The binary releases of Graal looks like a normal JVM install. To ask JRuby to use it instead of your system JVM, set JAVACMD to the path of `java` in your `graalvm-jdk1.8.0` directory.
+
+For example
+
+    JAVACMD=../graalvm-jdk1.8.0/bin/java bin/jruby -X+T -Xtruffle.printRuntime=true
 
 Building Graal (Optional)
 ===========
@@ -61,7 +64,7 @@ This gives you a copy of the JDK in `graal/<jvm version>/product` containing:
 
 To make `-server` the default VM, you can edit `graal/<jvm version>/product/jre/lib/jvm.cfg` (MacOSX) / `graal/<jvm version>/product/jre/lib/amd64/jvm.cfg` (Other), such that the line with `-server` is the first uncommented line.
 
-You can use `graal/<jvm version>/product` as `JAVA_HOME`.
+You can use `graal/<jvm version>/product` as `JAVA_HOME`, or set `JAVACMD`, as above.
 
 Running RubySpec
 ===============
@@ -82,6 +85,15 @@ We have a couple of micro-benchmarks that we know work in bench/truffle. They ar
 Note that this command line uses `-server` explicitly in order to select the Graal enabled Server VM.
 
 You should see something very roughly like an 10-15x increase in the score compared to `invokedynamic` - a 10-15x speedup, and more if you compare against JRuby without `invokedynamic`.
+
+To run a set of benchmarks and compare performance as you makes changes to Truffle, you can use the `compare.rb` script:
+
+    export GRAAL_DIR=path/to/graal
+    ruby compare.rb --reference -m 3
+
+This will get the script to set a reference point for performance, giving it a time budget of 3 minutes. You can then make changes to Truffle and see how the performance has changed
+
+    ruby compare.rb
 
 Truffle Options
 ===========
