@@ -3,6 +3,15 @@ This page hosts the ideas for Google Summer of Code 2014! Add your ideas here, i
 Ideas
 =====
 
+### Ports of popular C extensions ###
+
+Many Ruby libraries are only available as C extensions, and as a result they're not usable on JRuby. The more of these libraries we have ports for, the less pain JRuby users suffer during migration.
+
+This list is not all-inclusive, but these are some C extension-only gems that are in common use and which represent frequent migration stumbling blocks:
+
+* https://github.com/brianmario/mysql2 - MySQL bindings.
+* https://github.com/taf2/curb - A libcurl wrapper. Could be redone in FFI or as an API-compatible wrapper around a Java HTTP client.
+
 ### Native coroutine support
 
 Implement some kind of native coroutine support for JRuby. Bonus points for an implementation which is compatible with the Fiber API. One potential approach:
