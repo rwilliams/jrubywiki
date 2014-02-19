@@ -12,6 +12,7 @@ This list is not all-inclusive, but these are some C extension-only gems that ar
 * https://github.com/brianmario/mysql2 - MySQL bindings.
 * https://github.com/taf2/curb - A libcurl wrapper. Could be redone in FFI or as an API-compatible wrapper around a Java HTTP client.
 * https://github.com/ohler55/oj - A very fast JSON parser. The standard 'json' library uses a Ragel-generated parser that's not as fast as it could be.
+* https://github.com/nixme/pry-debugger/issues/26 - pry-debugger. Step in/over debugging with Pry.
 
 ### Native coroutine support
 
