@@ -95,6 +95,17 @@ This will get the script to set a reference point for performance, giving it a t
 
     ruby compare.rb
 
+Truffelize
+===========
+
+An alternative to running your entire program using Truffle is to use Truffle for individual methods. This is done using the `truffelize` library and method. When using `truffelize` you don't need the `-X+T` option, as you're running the rest of the program in normal JRuby.
+
+    import 'truffelize'
+    
+    truffelize :my_method
+
+At the moment we only support passing scalar objects between a truffelized method and normal JRuby execution.
+
 Truffle Options
 ===========
 
