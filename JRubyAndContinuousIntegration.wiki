@@ -38,7 +38,9 @@ http://cruisecontrolrb.thoughtworks.com/
 FOSS
 
 === Hudson ===
-https://hudson.dev.java.net/
+
+http://hudson-ci.org/
+
 FOSS
 
 Confirmed to work with JRuby
