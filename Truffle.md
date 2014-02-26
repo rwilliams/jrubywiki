@@ -11,30 +11,34 @@ At the moment the Truffle backend is not much more than the Oracle Labs implemen
 
 The Truffle backed is unlikely to work for arbitrary code without having to implement a few features here and there. Even if it does work, performance is unlikely to be good for arbitrary code without having to implement additional specialisations. However we can run several micro-benchmarks and RubySpec, where we pass about half the language specs.
 
-Compiling
-========
-
-The Truffle backend is integrated into the normal JRuby build system.
-
-    mvn package
-
 Running Truffle
 ============
 
-To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loading the Ruby kernel and implies `--disable-gems`.
+Truffle is only available in the JRuby 9000 development builds, or from source control. To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loading the Ruby kernel and implies `--disable-gems`.
 
      bin/jruby -X+T
 
 Running With Graal
 ===============
 
-The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can download [Graal builds for 64-bit Linux, Mac and Windows](http://lafo.ssw.uni-linz.ac.at/builds/), or see below for how to build your own.
+The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can get both a JRuby 9000 development build and Graal via ruby-build.
+
+    rbenv install jruby-9000+graal-dev
+
+You can also download [Graal builds for 64-bit Linux, Mac and Windows](http://lafo.ssw.uni-linz.ac.at/builds/), or see below for how to build your own.
 
 The binary releases of Graal looks like a normal JVM install. To ask JRuby to use it instead of your system JVM, set JAVACMD to the path of `java` in your `graalvm-jdk1.8.0` directory.
 
 For example
 
     JAVACMD=../graalvm-jdk1.8.0/bin/java bin/jruby -X+T -Xtruffle.printRuntime=true
+
+Compiling
+========
+
+The Truffle backend is integrated into the normal JRuby build system.
+
+    mvn package
 
 Building Graal (Optional)
 ===========
