@@ -4,13 +4,14 @@
 
 Most people deploy JRuby applications using typical Java application servers like Tomcat or JBoss. When using these servers, the usual solution is [[Warbler|http://kenai.com/projects/warbler/pages/Home]]. Warbler bundles up any [[Rack|http://rack.rubyforge.org/doc/]]-based application into a Java "Web Application aRchive" (WAR) file, which can then be deployed on any web application server.
 
-The following is a list of servers known to work with JRuby. It is not meant to be exhaustive.
+The following is a list of servers known to work with JRuby. It is not meant to be exhaustive (any Java Servlet API >= 2.5 compliant server should work).
 
-* Tomcat
-* JBoss
-* GlassFish
-* WebLogic
-* WebSphere
+* [Tomcat](http://tomcat.apache.org/)
+* [JBoss/WildFly](http://www.wildfly.org/)
+* [Jetty](http://www.eclipse.org/jetty/)
+* [GlassFish](https://glassfish.java.net/)
+* [WebLogic](http://www.oracle.com/technetwork/middleware/weblogic/overview/index.html)
+* [WebSphere](http://en.wikipedia.org/wiki/IBM_WebSphere_Application_Server)
 
 ## Other Servers
 
@@ -22,23 +23,23 @@ The usual Ruby way to run a server is to launch a small command-line server poin
 
 The following is a list of embedded/micro/commandline servers for JRuby. If you don't see your favorite here, add it!
 
-### Actively-developed Servers
+## JRuby Servers
 
-* [[Trinidad|https://github.com/trinidad/trinidad]] - A wrapper around [[Tomcat|http://tomcat.apache.org/]].
-* [[Mizuno|https://github.com/matadon/mizuno]] - A wrapper around [[Jetty|http://jetty.codehaus.org/jetty/]].
+* [[Trinidad|https://github.com/trinidad/trinidad]] - Web server for Rails/Rack built upon JRuby::Rack and Tomcat.
+* [[Mizuno|https://github.com/matadon/mizuno]] - Jetty-powered running shoes for JRuby/Rack.
 * [[Fishwife|https://github.com/dekellum/fishwife#readme]] - Server based on Jetty 7.x or 9.x
-* [[TorqueBox|http://torquebox.org]] - A server based on [[JBoss AS|http://www.jboss.org/jbossas]].
-* [[TorqueBox Lite|https://github.com/torquebox/torquebox-lite]] - A smaller, web-only version of TorqueBox.
+* [[TorqueBox|http://torquebox.org]] - An all-in-one environment based on JBoss AS.
+  - [[TorqueBox Lite|https://github.com/torquebox/torquebox-lite]] - A smaller, web-only version of TorqueBox.
 * [[Puma|http://puma.io]] - A server written in Ruby, wraps the Ragel parser (from Mongrel). 
 * [[Jubilee|https://github.com/isaiah/jubilee]] - A server based on [[Vertx|http://vertx.io]]
 
-### Other Servers. Young Projects
+### Other Servers (Young Projects)
 
 * [[Thick|https://github.com/marekjelen/thick]] - A server based on [[Netty|http://www.netty.io]]
 
 ### Deprecated Servers
 
-* [[Kirk|https://github.com/strobecorp/kirk]] - Another Jetty wrapper, but less "micro" with redeploy and multiple appsupport.
+* [[Kirk|https://github.com/strobecorp/kirk]] - Another Jetty wrapper, but less "micro" with redeploy and multiple app support.
 * [[Aspen|https://github.com/kevwil/aspen]] - A server based on [[Netty|http://www.jboss.org/netty]], a Java NIO framework.
 * Mongrel - The classic Ruby server, no longer maintained.
 * GlassFish gem - A gem-borne embedded version of GlassFish, now no longer maintained by Oracle.
