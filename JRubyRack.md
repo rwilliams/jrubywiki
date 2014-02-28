@@ -1,19 +1,6 @@
-JRuby-Rack is a lightweight adapter for the Java servlet environment that allows any Rack-based application to run unmodified in a Java servlet container. JRuby-Rack supports Rails, Merb, as well as any Rack-compatible Ruby web framework.
 
-For more information on Rack, visit [[http://rack.rubyforge.org]].
+**NOTE:** contents of this page are being moved to **[[https://github.com/jruby/jruby-rack/wiki]]**.
 
-Download
---------
-
-
-JRuby-Rack 1.1.13.1 is the latest version. Download it:
-
-[[http://repository.codehaus.org/org/jruby/rack/jruby-rack/1.1.13.1/jruby-rack-1.1.13.1.jar]]
-
-JRuby-Rack is also bundled with [http://caldersphere.rubyforge.org/warbler Warbler 0.9.9], which is available as a Ruby gem (`jruby -S gem install warbler`).
-
-Features
---------
 
 Servlet Filter
 --------------
@@ -43,18 +30,3 @@ JRuby Runtime Management
 
 JRuby runtime management and pooling is done automatically by the framework. In the case of Rails, runtimes are pooled. For Merb and other Rack
 applications, a single runtime is created and shared for every request.
-
-Feedback
---------
-
-For simplicity, I haven't set up any separate mailing lists or bug trackers for jruby-rack at this time. Please use the [jruby-user mailing list](http://xircles.codehaus.org/lists/user@jruby.codehaus.org)  and the [JRuby JIRA issue tracker](http://jira.codehaus.org/browse/JRUBY) for feedback.
-
-Source
-------
-
-The source is currently available from [[https://github.com/nicksieger/jruby-rack]] on github:
-
-Building
---------
-
-check instructions on [README](https://github.com/nicksieger/jruby-rack/blob/master/README.md) file
