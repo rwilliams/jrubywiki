@@ -1,6 +1,6 @@
 If you were directed to this page by a JRuby warning, it's probably because you're using JRuby 1.7 in combination with Java objects you've turned into singletons or to which you've added instance variables.
 
-JRuby 1.7 deprecates using instance variables or singletons on Java objects without first calling ```__persistent__ = true``` on the object's Java class. JRuby 1.7 and JRuby 2.0 will both attempt to make Java objects persistent after the first use of instance vars or singletons, but in 2.0 we will warn for each case. We recommend using other mechanisms to store per-Java-object data, and you may want to pass ```-Xji.objectProxyCache=false``` to JRuby (or ```-Djruby.ji.objectProxyCache=false``` to Java) to find and fix all such patterns in your code before JRuby 2.0.
+JRuby 1.7 deprecates using instance variables or singletons on Java objects without first calling ```__persistent__ = true``` on the object's Java class. JRuby 1.7 and JRuby 9k will both attempt to make Java objects persistent after the first use of instance vars or singletons, but in 9k we will warn for each case. We recommend using other mechanisms to store per-Java-object data, and you may want to pass ```-Xji.objectProxyCache=false``` to JRuby (or ```-Djruby.ji.objectProxyCache=false``` to Java) to find and fix all such patterns in your code before JRuby 9k.
 
 See the warning at the bottom of this page for known issues with singletons and instance variables on Java objects.
 
@@ -37,7 +37,7 @@ However, this caching incurred a heavy cost. Each Java object entering Ruby caus
 Deprecating Proxy Caching
 -------------------------
 
-As of JRuby 2.0, the proxy cache will become opt-in on a per-class basis. If you intend to set instance variables or create singletons from Java objects, you'll need to call JavaClassNameHere.```__persistent__ = true``` on the Java class in Ruby code. This will specify that all that class's objects should have their proxies cached.
+As of JRuby 9k, the proxy cache will become opt-in on a per-class basis. If you intend to set instance variables or create singletons from Java objects, you'll need to call JavaClassNameHere.```__persistent__ = true``` on the Java class in Ruby code. This will specify that all that class's objects should have their proxies cached.
 
 We will also attempt to turn on this flag lazily, but with a warning. Because objects may enter Ruby through multiple paths before you set an instance variable or make a singleton, we can't guarantee all existing proxies will reflect those lazily-made changes. We recommend setting ```__persistent__ = true``` on classes before receiving or constructing instances of them.
 
