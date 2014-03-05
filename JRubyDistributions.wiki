@@ -4,19 +4,19 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 !OS
 !Package
 !Maintainer
-!Current version (1.7.10)
+!Current version (1.7.11)
 !Notes
 |-
 |POSIX
 |[https://github.com/sstephenson/rbenv rbenv]
 | Sam Stephenson
-| 1.6.7, 1.7.0-dev
+| 1.6.7, 1.7.11
 | see also [https://github.com/sstephenson/ruby-build ruby-build] (available Ruby interpreters: ruby-build --definitions)
 |-
 |POSIX
 |[http://rvm.io/ RVM]
 | Wayne E. Seguin & Michal Papis
-| 1.7.9
+| 1.7.11
 | (available Ruby interpreters: rvm list known)
 |-
 |Mac OS-X
