@@ -2,7 +2,7 @@ The Truffle runtime of JRuby is an experimental implementation of an interpreter
 
 This wiki page is a collection of notes about the runtime. For more general background information see the [announcement blog post](http://blog.jruby.org/2014/01/truffle_graal_high_performance_backend/), and the FAQ below.
 
-Most of the work for the truffle runtime is in [core/src/main/java/org/jruby/truffle](https://github.com/jruby/jruby/tree/master/core/src/main/java/org/jruby/truffle).
+Most of the work for the truffle runtime is in [core/src/main/java/org/jruby/truffle](https://github.com/jruby/jruby/tree/master/core/src/main/java/org/jruby/truffle). There is some more technical discussion in [Chris Seaton's blog posts](http://www.chrisseaton.com/rubytruffle/).
 
 Current Status
 ===========
