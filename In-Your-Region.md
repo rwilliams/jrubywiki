@@ -30,6 +30,10 @@ Welcome to the JRuby Community!
 ####Fortaleza, CE####
 * [Marcelo Gonçalves](http://marcelogoncalves.com.br/) <@marcelocg> - using JRuby for cloud performance tests as part of my master's degree dissertation.
 
+##Canada##
+####Vancouver, BC####
+* Lucas Amorim <lucas.allan@gmail.com> - JRuby contributor and using JRuby on several projects.
+
 ##Chile##
 * Jano González <info@janogonzalez.com> - Using JRuby at work for a couple of projects in [Continuum](http://www.continuum.cl/), member of the [Chilean Dynamic Languages Meetup](http://www.meetup.com/dynlangchile/). Check my [Twitter](http://twitter.com/janogonzalez) and [GitHub](http://github.com/janogonzalez) accounts, also my [blog](http://gemaroja.com).
 
