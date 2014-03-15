@@ -1,3 +1,10 @@
+# Status
+Our application was unfortunately denied this year.
+We are looking to fund some projects through other means.
+Stay tuned.
+
+
+# Synopsis
 This page hosts the ideas for Google Summer of Code 2014! Add your ideas here, improve others, and if you're a student, perhaps something on this list will interest you!
 
 Ideas
