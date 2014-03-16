@@ -61,6 +61,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Articles]]
 * [[JRuby Books|JRuby-Books]]
 * [[In Your Region]]
+* [[Ruby in Research]]
 
 **Getting Involved**
 
