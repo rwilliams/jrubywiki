@@ -25,3 +25,9 @@ Very recently I've noticed some papers starting to use Ruby. If you find any oth
 ## Bioinformatics
 
 *   N. Goto, P. Prins, M. Nakao, R. Bonnal, J. Aerts, and T. Katayama. [Bioruby: bioinformatics software for the ruby programming language](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2951089/pdf/btq475.pdf). Bioinformatics, 26(20):2617–9, Oct 2010.
+
+# Papers Not About Ruby, But Relevant to JRuby
+
+## JVM
+
+*   J. R. Rose. [Bytecodes meet combinators: invokedynamic on the JVM](http://cr.openjdk.java.net/~jrose/pres/200910-VMIL.pdf). In Proceedings of the The 3rd workshop on Virtual Machines and Intermediate Languages, 2009.
