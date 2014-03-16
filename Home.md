@@ -25,6 +25,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Gems known to be threadsafe]]
 * [[Gems known not to be threadsafe]]
 * [[EnhancedSecurity]]
+* [[Truffle]]
 
 **Web Applications (Rails, servers, others)**
 
