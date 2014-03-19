@@ -25,9 +25,9 @@ The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimi
 
     rbenv install jruby-9000+graal-dev
 
-You can also download [Graal builds for 64-bit Linux, Mac and Windows](http://lafo.ssw.uni-linz.ac.at/builds/), or see below for how to build your own.
+This will run using Graal instead of your system JVM.
 
-The binary releases of Graal looks like a normal JVM install. To ask JRuby to use it instead of your system JVM, set JAVACMD to the path of `java` in your `graalvm-jdk1.8.0` directory.
+You can also download [Graal builds for 64-bit Linux, Mac and Windows](http://lafo.ssw.uni-linz.ac.at/builds/). The binary releases of Graal looks like a normal JVM install. To ask JRuby to use it instead of your system JVM, set JAVACMD to the path of `java` in your `graalvm-jdk1.8.0` directory.
 
 For example
 
