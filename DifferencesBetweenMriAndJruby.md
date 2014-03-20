@@ -62,6 +62,8 @@ JRuby only has one regular expression engine, which matches Onigurama's behavior
 Thread priority
 ---------------
 
+NOTE: from at least as early as JRuby 1.7.6, Ruby thread priorities are mapped to Java thread priorities, so this section isn't accurate -- you can use the same priority for MRI and JRuby.
+
 In MRI, the Thread priority can be set to any value in Fixnum (if native threads are enabled) or -3..3 (if not). The default value is 0.
 
 In JRuby, Threads are backed by Java threads, and the priority ranges from 1 to 10, with a default of 5. If you pass a value outside of this range to `Thread#priority=`, the priority will be set to 1 or 10.
