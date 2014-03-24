@@ -7,7 +7,7 @@ The remainder of this page is a proposal/discussion from @enebo musing on what a
 Enhanced Security (proposal/discussion by @enebo)
 -------------------------------------------------
 
-$SAFE shows it's age.  It is an acknowledged stolen feature from Perl and what does '$SAFE = 3' mean anyways?
+$SAFE shows its age.  It is an acknowledged stolen feature from Perl and what does '$SAFE = 3' mean anyways?
 
 Let's give security a facelift.  Let's make a new variable with some builtin feature and extensibility as we realize new aspects of security we want to monitor.
 
