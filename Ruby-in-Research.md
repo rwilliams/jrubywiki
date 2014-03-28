@@ -6,6 +6,8 @@ Very recently I've noticed some papers starting to use Ruby. If you find any oth
 
 ## Parallelism
 
+*   L. Lu, W. Ji, and M. L. Scott. Dynamic enforcement of determinism in a parallel scripting language. In Proceedings of the 35th Conference on Programming Language Design and Implementation (PLDI), 2014. (to appear)
+
 *   W. Ji, L. Lu, and M. L. Scott. [TARDIS: Task-level access race detection by intersecting sets](http://wodet.cs.washington.edu/wp-content/uploads/2013/03/wodet2013-final9.pdf). In Proceedings of the 4th Workshop on Determinism and Correctness in Parallel Programming (WoDet), 2013.
 
 # Papers More Generally About Ruby
