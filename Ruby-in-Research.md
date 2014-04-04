@@ -30,6 +30,10 @@ Very recently I've noticed some papers starting to use Ruby. If you find any oth
 
 * Smith, R., Williamson, R., Ventura, D., & Prince, J. T. (2013). [Rubabel: wrapping open Babel with Ruby](http://www.biomedcentral.com/content/pdf/1758-2946-5-35.pdf). Journal of cheminformatics, 5(1), 35.
 
+## Modelling
+
+* J. S. Cuadrado, J. G. Molina, and M. M. Tortosa. [RubyTL: A practical, extensible transformation language](http://link.springer.com/chapter/10.1007/11787044_13). Model Driven Architecture - Foundations and Applications, 4066, 2006.
+
 # Papers Not About Ruby, But Relevant to JRuby
 
 ## JVM
