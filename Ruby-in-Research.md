@@ -4,6 +4,10 @@ Very recently I've noticed some papers starting to use Ruby. If you find any oth
 
 # Papers Specifically Using JRuby
 
+## Debugging
+
+*  C. Seaton, M. L. Van De Vanter, and M. Haupt. Debugging at full speed. In Proceedings of the 8th Workshop on Dynamic Languages and Applications (DYLA), 2014. (to appear)
+
 ## Parallelism
 
 *   L. Lu, W. Ji, and M. L. Scott. Dynamic enforcement of determinism in a parallel scripting language. In Proceedings of the 35th Conference on Programming Language Design and Implementation (PLDI), 2014. (to appear)
