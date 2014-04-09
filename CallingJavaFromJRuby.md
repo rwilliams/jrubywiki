@@ -659,6 +659,20 @@ Subclassing a Java class
 
 You can subclass (i.e. extend) a Java class and then use the JRuby class whenever Java expects the superclass.
 
+Creating anonymous classes
+--------------------------
+```ruby
+foo = Class.new(Java::my.package.MyClass) {
+  def method1(x)
+    # override method1
+  end
+  def method2(y, z)
+    # override method2
+  end
+  # etc...
+}.new(my_args)
+```
+
 Accessing package, protected and private fields
 ----------------------------------------------------------------------
 
