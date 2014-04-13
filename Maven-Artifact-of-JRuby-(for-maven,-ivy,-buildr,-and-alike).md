@@ -45,7 +45,9 @@ this one has a few artifacts embedded and relocated the package of org.ow2.asm t
 
 ## using snapshot version of jruby ##
 
-there is maven repository [ci.jruby.org/snapshots/maven](http://ci.jruby.org/snapshots/maven/) which offers the latest snapshots of jruby-1.7.x and jruby-9000.dev. for this you need to add the snapshot repo to your pom.xml (or settings.xml):
+there is maven repository [ci.jruby.org/snapshots/maven](http://ci.jruby.org/snapshots/maven/) which offers the latest snapshots of jruby-1.7.x and jruby-9000.dev. for this you need to add the snapshot repo to your pom.xml (or settings.xml).
+
+TODO ivy and friends
 
      <repositories>
        <repository>
