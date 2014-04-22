@@ -9,6 +9,7 @@ JRuby release preparation
        * look for it being too big
     * unpack src dist and compile it
     * Verify windows installers
+    * email good env testers (Ben, Terrence)
 * mvn versions:set -DnewVersion=1.7.9 -Pall
 * commit and tag
 * cd .. && rm -rf release && git clone jruby release && cd release
