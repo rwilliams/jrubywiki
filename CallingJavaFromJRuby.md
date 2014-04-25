@@ -587,6 +587,7 @@ Sometimes a Java library will need a fixed-length array, say for example a byte 
 
 ```ruby
   bytes = Java::byte[1024].new # Equivalent to Java's bytes = new byte[1024];
+  strings = java.lang.String[1024].new
 ```
 
 Ruby String to Java Bytes and back again
@@ -599,7 +600,6 @@ Ruby String to Java Bytes and back again
   string = String.from_java_bytes bytes
   => "a string"
 ```
-
 
 More Conversions
 -------------------------------------------------------------
