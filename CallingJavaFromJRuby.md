@@ -507,7 +507,7 @@ When primitive Java types are passed to JRuby they are converted to the followin
 
 The Java Booleans true and false are coerced to the Ruby singleton classes TrueClass and FalseClass which are represented in Ruby with the instances true and false.
 
-The null Java object is coerced to the Ruby class NilClass which is represented in Ruby as the instance nil.
+The `null` Java object is coerced to the Ruby class `NilClass` which is represented in Ruby as the instance `nil`.
 
 Java Primitive Classes
 ----------------------
@@ -600,13 +600,45 @@ Ruby String to Java Bytes and back again
   => "a string"
 ```
 
-Convert a Java InputStream to a ruby IO object and back again
+
+More Conversions
 -------------------------------------------------------------
 
-```ruby
-  io = input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
+### `java.io.InputStream` to/from `IO`
 
+```ruby
+  io = java_input_stream.to_io # works for InputStreams, OutputStreams, and NIO Channels
   stream = io.to_inputstream # also to_outputstream and to_channel
+```
+
+### `java.util.Set` to `Set`
+```ruby
+set = java.util.HashSet.new([1,2,3])
+set.to_set
+=> #<Set: {1, 2, 3}>
+```
+
+### `java.util.Map` to `Hash`
+```ruby
+hash = java.util.HashMap.new(:a => 123) # or Hashtable
+hash.to_hash.class
+=> Hash
+```
+
+### `java.util.List` to `Array`
+```ruby
+list = java.util.ArrayList.new([1,2,3])  # or Vector, LinkedList, ...
+list.to_a
+=> [1, 2, 3]
+```
+
+Note that `list.to_array` will return a *primitive java array*.
+
+### `Time` to `java.util.Date`
+```ruby
+t = Time.now
+t.to_java
+=> #<Java::JavaUtil::Date:0x747541f8>
 ```
 
 Gotchas
