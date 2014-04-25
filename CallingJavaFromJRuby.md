@@ -91,7 +91,7 @@ Note that loading jar-files via `require` searches along the `$LOAD_PATH` for th
 
 If you need to load from an existing .class file (or one that's not camelcase), the following has examples: [[http://www.ruby-forum.com/topic/216572#939791]]
 
-Basically it's `$CLASSPATH << "target/classes"; import org.asdf.ClassName` where "target/classes/org/asdf/ClassName.class" exists.
+Basically it's `$CLASSPATH << "target/classes"; java_import org.asdf.ClassName` where "target/classes/org/asdf/ClassName.class" exists.
 
 Note also that this will need to be a full path name or relative to the directory the script starts in, as the JVM doesn't seem to respond to Dir.chdir very well.
 
@@ -145,7 +145,7 @@ You could also do it with just straight import, as well.
 ```
 **Note:** As noted in [this bug report](http://jira.codehaus.org/browse/JRUBY-3171), `java_import` is the newer and safer, way to import Java classes. If you are getting `uninitialized constant exception` errors, you need to change `import` to `java_import`.
 
-After this point, the "System" constant will be available in the global name space (i.e. available to any script).
+After this point, the `System` constant will be available in the global name space (i.e. available to any script).
 The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
 
 You can also get the same effect by reassigning a Java class to a new constant, like
@@ -199,7 +199,7 @@ The use of the Module name to scope access to the imported Java class is also he
 For example if you need to create an instance of a `java.io.File` object, this code will work:
 
 ```ruby
-  import java.io.File
+  java_import java.io.File
   newfile = File.new("file.txt")
   => #<Java::JavaIo::File:0xdc6f00 @java_object=file.txt>
 ```
@@ -242,14 +242,14 @@ And the Ruby File class is still accessible:
 Making them accessible in the main name space
 ---------------------------------------------
 
-You can set const_missing to make them accessible in more than just a module. See [[http://www.ruby-forum.com/topic/216629]] though there might be a better way.
+You can set `const_missing` to make them accessible in more than just a module. See [[http://www.ruby-forum.com/topic/216629]] though there might be a better way.
 
 Using within classes within module
 ----------------------------------
 
 NB that currently this `include_package` lookup doesn't work within any sub-modules or sub-classes.  See [[http://jira.codehaus.org/browse/JRUBY-5107]]
 
-You could override const_missing, though (see above), if you wanted that behavior.
+You could override `const_missing`, though (see above), if you wanted that behavior.
 
 Using Static Java Enumerations
 ------------------------------
@@ -362,7 +362,7 @@ Sometimes you need to call `initialize` AFTER the `.new()` call, for example the
 Here is another example of calling the `ArrayList.add` method with `java_send`:
 
 ```ruby
- import java.util.ArrayList
+ java_import java.util.ArrayList
  list = ArrayList.new
  list.java_send :add, [Java::int, java.lang.Object], 0, 'foo'
  puts list.java_send :toString # => "[foo]"
@@ -397,7 +397,7 @@ Aliasing a specific method with `java_alias`
 If you'll be calling a specific unreachable Java method a lot, or if a Java method has many overloads and you want to avoid the overhead of selecting the right one every time, you can use `java_alias` to alias a specific Java method name + signature to a Ruby name.
 
 ```ruby
- import java.util.ArrayList
+ java_import java.util.ArrayList
  class ArrayList
    java_alias :simple_add, :add, [Java::int, java.lang.Object]
  end
