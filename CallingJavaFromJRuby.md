@@ -611,6 +611,8 @@ More Conversions
   stream = io.to_inputstream # also to_outputstream and to_channel
 ```
 
+Note that closing a stream will close its conversions.
+
 ### `java.util.Set` to `Set`
 ```ruby
 set = java.util.HashSet.new([1,2,3])
