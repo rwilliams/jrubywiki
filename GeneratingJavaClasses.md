@@ -179,3 +179,22 @@ To put the Java class in a package, use java_package:
 
  class Foo; end
 ```
+
+Java fields
+-----------
+
+If you want Java code to be able to access fields using reflection, you can declare them with `java_field`. For example:
+
+```ruby
+require 'jruby/core_ext'
+
+class Report
+  java_field "java.util.ArrayList dataRecords"
+  become_java!
+end
+
+report = Report.new
+report.dataRecords = java.util.ArrayList.new
+report.dataRecords.add(5)
+puts report.dataRecords.size
+```
