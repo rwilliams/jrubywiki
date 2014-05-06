@@ -1,6 +1,15 @@
 JRuby usually runs in a mixed mode where some code is being interpreted and some code is converted into JVM bytecode for the JVM to optimize. In order to produce a Ruby trace that only contains lines interesting to a Ruby user, we reconstruct that trace using a combination of JVM stack trace frames and our per-thread, artificially-maintained interpreter frames.
 
-Within the JVM trace, method calls `INTERPRET_ROOT`, `INTERPRET_METHOD`, `INTERPRET_BLOCK`, `INTERPRET_EVAL` and a few others say to the backtrace-builder "pop and use an interpreter frame here" which we maintain on a thread-local object. Certain core methods are mapped internally to Ruby names, like each19 or op_aref. Backtrace-building walks JVM trace backward, including only non-JRuby code, JRuby methods known to map to Ruby core methods, and already-jitted Ruby frames.
+Backtrace-building walks the JVM trace backward, including only:
+
+* Non-JRuby Java frames, such as from calling a Java library from Ruby
+* JRuby methods known to map to Ruby core methods (Kernel#eval, String#split, and so on)
+* Already-jitted Ruby frames, which just appear as .rb-sourced frames in the JVM trace
+* Specially-named interpreter frames, replaced by the appropriate interpreter frame
+
+Within the JVM trace, method calls `INTERPRET_ROOT`, `INTERPRET_METHOD`, `INTERPRET_BLOCK`, `INTERPRET_EVAL` and a few others say to the backtrace-builder "pop and use an interpreter frame here" which we maintain on a thread-local object. Certain core methods are mapped internally to Ruby names, like each19 or op_aref.
+
+By combining our internal interpreter frame stack and the JVM's stack, we can produce nice-looking Ruby backtraces regardless of whether we eventually to JVM bytecode.
 
 Ruby code:
 
