@@ -13,3 +13,4 @@ This page is dedicated to the Internals of JRuby and specifications for how we b
 * [[JRuby Method Binding|JRubyMethod_Signatures]] - How to wire up Java methods in a JRuby extension
 * [[JRuby Internal Design|JRubyInternalDesign]]
 * [[Ruby Calling Java|RubyCallingJava]]
+* [[Backtrace Generation|BacktraceGeneration]]
