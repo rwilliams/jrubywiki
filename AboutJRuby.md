@@ -32,6 +32,7 @@ There are also many past contributors who still help out from time to time:
 Links
 -----
 
+* [[Articles on JRuby internals|Internals]]
 * [Charles Oliver Nutter's blog](http://headius.blogspot.com)
 * [Thomas Enebo's blog](http://www.bloglines.com/blog/ThomasEEnebo)
 * [Ola Bini's blog](http://olabini.com/blog)
