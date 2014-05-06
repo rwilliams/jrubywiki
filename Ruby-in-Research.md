@@ -20,11 +20,13 @@ Very recently I've noticed some papers starting to use Ruby. If you find any oth
 
 *   R. Odaira, J. G. Castanos, and H. Tomari. [Eliminating global interpreter locks in Ruby through hardware transactional memory](http://researcher.watson.ibm.com/researcher/files/jp-ODAIRA/PPoPP2014_RubyGILHTM.pdf). In Proceedings of the 19th Symposium on Principles and Practice of Parallel Programming (PPoPP), 2014.
 
-## Static Analysis
+## Types
 
 *   J. An, A. Chaudhuri, J. S. Foster, and M. Hicks. [Dynamic inference of static types for Ruby](http://www.cs.umd.edu/~jfoster/papers/popl11.pdf). In Proceedings of the 38th ACM Symposium on Principles of Programming Languages (POPL), 2011.
 
 *   M. Madsen, P. Sørensen, and K. Kristensen. [Ecstatic – type inference for Ruby using the cartesian product algorithm](http://projekter.aau.dk/projekter/files/61071016/1181807983.pdf). Master’s thesis, Aalborg University, 2007.
+
+*  B. M. Ren, J. Toman, T. S. Strickland, and J. S. Foster. [The Ruby type checker](http://www.cs.umd.edu/~jfoster/papers/oops13.pdf). In Proceedings of the 28th Symposium on Applied Computing (SAC), 2013.
 
 # Papers Using Ruby
 
