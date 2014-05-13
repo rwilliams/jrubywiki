@@ -27,6 +27,12 @@ To run the file produced by the compiler, use the `-cp` (class searchpath) param
 java -cp .:/path/to/jruby.jar foo.bar.test
 ```
 
+**Note**
+
+When running on MS Windows, `:` will have to be replaced with `;`, as such:
+
+    C:\Users\JohnDoe>java -cp .;C:\Users\JohnDoe\Downloads\jruby.jar foo.bar.test
+
 **Note from Dhjdhj 08:17, 6 November 2008 (PST)**
 
 If you're getting errors about missing requires, then you need to use the [jruby-complete jar](http://repository.codehaus.org/org/jruby/jruby-complete) for running. I do not know why this jar file is not included with the standard distribution.
