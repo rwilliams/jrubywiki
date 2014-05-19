@@ -1,1 +1,0 @@
-See the [http://www.headius.com/rubyspec/index.php/Openssl OpenSSL Ruby Spec] for an edge case with truncation of OpenSSL Cipher initialization vector, which jopenssl's dependency on bouncycastle doesnt mimic.
