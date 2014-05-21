@@ -185,7 +185,7 @@ The assertion failures are a bug in Truffle - sorry about them. You should be ab
 Benchmarks
 ==========
 
-These benchmarks don't yet have error bars or confidence intervals. They're just informal runs from nightly builds, they aren't always stable, they aren't all fully optimised yet, they aren't always indicative of your workload, but you can run them yourself if you want to https://github.com/jruby/jruby/tree/master/bench (@chrisseaton will be happy to explain how).
+These benchmarks don't yet have error bars or confidence intervals. This isn't a published paper and we're not making any claims using these graphs. They're just informal runs from nightly builds, they aren't always stable, they aren't all fully optimised yet, they aren't always indicative of your workload, but you can run them yourself if you want to https://github.com/jruby/jruby/tree/master/bench (@chrisseaton will be happy to explain how).
 
 ![](http://i.imgur.com/9oKglpN.png)
 ![](http://i.imgur.com/5zGPdG4.png)
