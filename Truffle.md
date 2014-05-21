@@ -181,3 +181,13 @@ The Truffle backend and the new IR are not related and take very different appro
 **Why are there are assertion failures while processing annotations during compilation under IntelliJ IDEA?**
 
 The assertion failures are a bug in Truffle - sorry about them. You should be able to pass `-J-da` to `javac` in preferences, but that doesn’t seem to fix the problem. Compiling in Maven works fine.
+
+Benchmarks
+==========
+
+These benchmarks don't yet have error bars or confidence intervals. They're just informal runs from nightly builds, they aren't always stable, they aren't all fully optimised yet, they aren't always indicative of your workload, but you can run them yourself if you want to https://github.com/jruby/jruby/tree/master/bench (@chrisseaton will be happy to explain how).
+
+![](http://i.imgur.com/9oKglpN.png)
+![](http://i.imgur.com/5zGPdG4.png)
+![](http://i.imgur.com/RwuzZI4.png)
+![](http://i.imgur.com/PJH0XEY.png)
