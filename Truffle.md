@@ -190,4 +190,5 @@ These benchmarks don't yet have error bars or confidence intervals. This isn't a
 ![](http://i.imgur.com/9oKglpN.png)
 ![](http://i.imgur.com/5zGPdG4.png)
 ![](http://i.imgur.com/RwuzZI4.png)
+![](http://i.imgur.com/un0LQNF.png)
 ![](http://i.imgur.com/PJH0XEY.png)
