@@ -150,6 +150,51 @@ example of how to unpack JRuby-Stdlib:
 
 that is much **more** then the initial setup.
 
-## last . . .
+# heroku
 
-work on a more reliable solution is in progress.
+with heroku you install java applications. one advantage of this approach is that you can also take advantage of the jar dependencies from your Jarfile and add two more declarations for heroku. to use the Jarfile add
+
+     jarfile :classpath => :java
+
+which tells Ruby-Maven to add to the java-classpath and not to the jruby-classloader. to setup heroku add
+     
+     properties 'tesla.dump.pom' => 'pom.xml', 'tesla.dump.readOnly' => true
+   
+     plugin( :dependency, '2.3',
+             :phase => :package ) do
+       execute_goal( :copy,
+                     :artifactItems => [ { :groupId => 'com.github.jsimone',
+                                           :artifactId => 'webapp-runner',
+                                           :version => '7.0.22',
+                                           :destFileName => 'webapp-runner.jar' } ] )
+     end
+
+the properties just tells Ruby-Maven to dump a **pom.xml**. the second statement is the webrunner for heroku. with this you also can start your application locally with
+
+     $ rmvn package
+     $ java -jar target/dependency/webapp-runner.jar target/*.war
+
+note the **rmvn** which will generate the pom.xml needed for heroku !
+now you need a **Procfile** for heroku:
+
+     web:    java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
+
+IMPORTANT is to create the heroku application with picked buildpack
+     
+     heroku create --buildpack https://github.com/heroku/heroku-buildpack-java
+     
+now you can install you application on heroku the usual way. for more info see also <https://github.com/heroku/java-sample#configure-maven-to-download-webapp-runner>.
+
+when you deploy to heroku maven will download the gems and the jars declared in **Gemfile** and **Jarfile**.
+
+# customize when you have a different application layout
+
+use **app** instead of a **lib** directory add
+
+     resource :directory => '.', :includes => [ 'app/**' ]
+
+and the ```:includeLibDirectoryInResources => true``` is not needed anymore.
+
+for rails you need to add further directories (untested from my side and might need some more attention)
+
+     resource :directory => '.', :includes => [ 'app/**', 'config/**', 'lib/**' ]
