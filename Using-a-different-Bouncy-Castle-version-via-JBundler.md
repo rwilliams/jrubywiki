@@ -16,4 +16,4 @@ and now you can verify that you are using
 
     $ bundle exec ruby -rjbundler -e "p Java::OrgBouncycastleJceProvider::BouncyCastleProvider.new.info"
 
-or with your application. just make sure you ```require 'jbundler'``` as early as possible (bundler's auto require feature should(?) take care of this)
+or with your application. just make sure you use ```require 'jbundler'``` as early as possible (bundler's auto require feature should(?) take care of this)
