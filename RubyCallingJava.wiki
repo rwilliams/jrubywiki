@@ -1,4 +1,4 @@
-This page describes the logic used for dispatchign from Ruby to Java, including how methods are selected and how users can modify the process from Ruby.
+This page describes the logic used for dispatching from Ruby to Java, including how methods are selected and how users can modify the process from Ruby.
 
 ==Background==
 
