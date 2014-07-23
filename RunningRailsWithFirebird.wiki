@@ -1,4 +1,4 @@
-It has been tested with Jruby 1.1RC2, rails 2.0.2 and activerecord-jdbc-adapter.
+It has been tested with Jruby 1.1, rails 2.0.2 and activerecord-jdbc-adapter.
 
 I supose you have jruby installed, then install rails and activerecord-jdbc-adapter
 
