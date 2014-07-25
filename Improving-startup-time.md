@@ -2,6 +2,12 @@ JRuby, being built atop an optimizing VM (the JVM), sometimes tends to start up 
 
 Note that some of these tips are not recommended for general execution; for example, disabling JRuby's JIT will obviously reduce runtime performance. Mix and match to suit your needs.
 
+As of 1.7.12, you can provide the ```--dev``` option to provide the fastest startup time at the expense of overall code speed. Currently (1.7.13,) this enables the following settings:
+- client mode where applicable
+- TieredCompilation and TieredStopAtLevel=1
+- compile.mode=OFF
+- jruby.compile.invokedynamic=false
+
 Use the "client" mode of the JVM
 ================================
 
