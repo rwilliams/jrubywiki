@@ -11,6 +11,8 @@ As of JRuby 1.7.12 and [jruby-launcher](https://rubygems.org/gems/jruby-launcher
 - `compile.mode=OFF` to disable JRuby's JVM bytecode compiler
 - `jruby.compile.invokedynamic=false` to disable the slow-to-warmup invokedynamic features of JRuby
 
+The `--dev` flag combines several tips from below, as noted.
+
 Use the "client" mode of the JVM
 ================================
 
@@ -23,10 +25,14 @@ Enabling client mode (32-bit)
 
 All 32-bit versions of Hotspot ship with client mode. You can turn it on by passing `-client` to the `java` command, or through JRuby you can pass `--client` or `-J-client`. This is the most effective way to improve startup time.
 
+Provided by the `--dev` flag.
+
 Client mode on OS X
 -------------------
 
 On OS X, where the Hotspot JVM is sometimes (Java 1.6 and lower) shipped in a "universal" 32/64-bit binary, you may also have to pass `-d32` to the `java` command, or `-J-d32` to JRuby, to force the JVM to start up in 32-bit mode. Without this flag, the JVM may start in 64-bit mode, which does not have a "client" mode.
+
+Provided by the `--dev` flag.
 
 Tiered compilation (64-bit)
 ---------------------------
@@ -35,14 +41,7 @@ When running a 64-bit-only Hotspot JVM, there is no client mode, and the -client
 
 *Note* that limiting the compiler to tier one has the same effect on straight-line execution performance as setting -client mode...i.e. it's worse, where worse can mean a few times slower to an order of magnitude slower. If you need to run code as fast as possible, you don't want this option. If you don't need code to be fast but you want the application to start up quickly, this option may be good for you.
 
-Regenerate the shared archive
-=============================
-
-Starting with Java 5, the HotSpot JVM has included a feature known as Class Data Sharing (CDS). Originally created by Apple for their OS X version of HotSpot, this feature loads all the common JDK classes as a single archive into a shared memory location. Subsequent JVM startups then simply reuse this read-only shared memory rather than reloading the same data again. It's a large reason why startup times on Windows and OS X have been so much better in recent years, and users of those systems may be able to ignore this tip.
-
-On Linux, however, the shared archive is often *never* generated, since installers mostly just unpack the JVM into its final location and never run it. In order to force your system to generate the shared archive, run the following command (as a user with write permissions to Java's install directory): `java -Xshare:dump`
-
-Many Linux systems will install Java but not generate or include the CDS archive. Forcing it to regenerate can improve startup quite a bit.
+Provided by the `--dev` flag.
 
 Disable JRuby's JIT
 ===================
@@ -51,21 +50,48 @@ An interesting side effect of JRuby's JIT is that it sometimes actually slows ex
 
 Disabling is easy: pass the `-X-C` flag to JRuby or set the jruby.compile.mode property to "OFF" by passing `-Djruby.compile.mode=OFF` to the `java` command.
 
+Provided by the `--dev` flag.
+
 Disable invokedynamic
----------------------
+=====================
 
 Similar to the JIT invokedynamic is an optimization that can speed up steady state operation but slows down startup, especially on some early JVM implementations of that feature. Disable with `-Xcompile.invokedynamic=false` as cli argument/in `JRUBY_OPTS`.
+
+Provided by the `--dev` flag.
+
+Regenerate the JVM's shared class-data archive
+==============================================
+
+Starting with Java 5, the HotSpot JVM has included a feature known as Class Data Sharing (CDS). Originally created by Apple for their OS X version of HotSpot, this feature loads all the common JDK classes as a single archive into a shared memory location. Subsequent JVM startups then simply reuse this read-only shared memory rather than reloading the same data again. It's a large reason why startup times on Windows and OS X have been so much better in recent years, and users of those systems may be able to ignore this tip.
+
+On Linux, however, the shared archive is often *never* generated, since installers mostly just unpack the JVM into its final location and never run it. In order to force your system to generate the shared archive, run the following command (as a user with write permissions to Java's install directory): `java -Xshare:dump`
+
+Many Linux systems will install Java but not generate or include the CDS archive. Forcing it to regenerate can improve startup quite a bit.
 
 Avoid spawning "sub-rubies"
 ===========================
 
 It's a fairly common idiom for Rubyists to spawn a Ruby subprocess using `Kernel#system`, `Kernel#exec`, or backquotes. For example, you may want to prepare a clean environment for a test run. That sort of scenario is perfectly understandable, but spawning many sub-rubies can take a tremendous toll on overall runtime.
 
+Running sub-rubies in the same JVM
+----------------------------------
+
 When JRuby sees a `#system`, `#exec`, or backquote starting with `ruby`, we will attempt to run it in the same JVM using a new JRuby instance *if* you pass the flag -J-Djruby.launch.inproc=true.  Because we have always supported "multi-VM" execution (where multiple isolated Ruby environments share a single process), this can make spawning sub-Rubies considerably faster. This is, in fact, how JRuby's Nailgun support (more on that later) keeps each Jruby JVM "clean" with multiple JRuby command executions. But even though this can improve performance, there's still a cost for starting up those JRuby instances, since they need to have fresh, clean core classes and a clean runtime.
 
 The worst-case scenario is when we detect that we can't spin up a JRuby instance in the same process, such as if you have shell redirection characters in the command line (e.g. `system 'ruby -e blah > /dev/null'`). In those cases, we have no choice but to launch an entirely new JRuby process, complete with a new JVM, and you'll be paying the full zero-to-running cost.  This is also default behavior.
 
 If you're able, try to limit how often you spawn "sub-rubies" or use tools like Nailgun or spec-server to reuse a given process for multiple hits.
+
+bundle exec
+-----------
+
+Bundler's "exec" command causes a second JRuby instance to be launched for the sole purpose of booting only your Gemfile gems. You can avoid the second process by passing `-G` to JRuby, which will do the Bundler pre-booting before starting JRuby and loading RubyGems.
+
+```
+bundle exec foo.rb
+# is equivalent to
+jruby -S foo.rb
+```
 
 Do less at startup
 ==================
