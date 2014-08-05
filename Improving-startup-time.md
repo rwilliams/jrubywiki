@@ -90,7 +90,7 @@ Bundler's "exec" command causes a second JRuby instance to be launched for the s
 ```
 bundle exec foo.rb
 # is equivalent to
-jruby -S foo.rb
+jruby -G foo.rb
 ```
 
 Do less at startup
