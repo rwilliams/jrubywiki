@@ -69,3 +69,8 @@ In MRI, the Thread priority can be set to any value in Fixnum (if native threads
 In JRuby, Threads are backed by Java threads, and the priority ranges from 1 to 10, with a default of 5. If you pass a value outside of this range to `Thread#priority=`, the priority will be set to 1 or 10.
 
 (See http://bugs.jruby.org/5289 and http://bugs.jruby.org/5290.)
+
+SystemStackError
+----------------
+
+JRuby is not able to rescue from `SystemStackError`. If your code rely on this, you should rather try to catch a `Java::JavaLang::StackOverflowError`. See [this ticket](https://github.com/jruby/jruby/issues/1099) for further information.
