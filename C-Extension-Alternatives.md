@@ -41,7 +41,7 @@ Please add to this list with your findings.
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
 
 [RDiscount]: https://github.com/rtomayko/rdiscount
-[kramdown]: http://kramdown.rubyforge.org
+[kramdown]: https://github.com/gettalong/kramdown
 [Maruku]:https://github.com/bhollis/maruku
 [markdown_j]: https://github.com/nate/markdown_j
 [RMagick]: https://github.com/rmagick/rmagick
@@ -66,7 +66,7 @@ Please add to this list with your findings.
 [HttpURLConnection]: http://download.oracle.com/javase/1,5.0/docs/api/java/net/HttpURLConnection.html
 [win32ole]: http://www.ruby-doc.org/stdlib/libdoc/win32ole/rdoc/index.html
 [Rurl]: https://github.com/rcyrus/Rurl
-[curb]: http://curb.rubyforge.org/
+[curb]: https://github.com/taf2/curb
 [therubyracer]: https://github.com/cowboyd/therubyracer
 [therubyrhino]: https://github.com/cowboyd/therubyrhino
 [kyotocabinet]: http://fallabs.com/kyotocabinet/
