@@ -111,8 +111,8 @@ Try using Drip
 * [One result using drip](http://crashruby.com/2013/01/21/drip-with-jruby)
 * [Guide to using drip with JRuby](https://gist.github.com/4582914)
 * [Drip Experiments (testing by Charles Nutter)](https://gist.github.com/4156388)
-* [JRuby Drip Initial Class](https://github.com/jruby/jruby/blob/master/src/org/jruby/main/DripMain.java)
-* [flatland's drip wiki](https://github.com/flatland/drip/wiki/JRuby)
+* [JRuby Drip Initial Class](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/main/DripMain.java)
+* [flatland's drip README](https://github.com/flatland/drip)
 
 Try using Nailgun
 =================
