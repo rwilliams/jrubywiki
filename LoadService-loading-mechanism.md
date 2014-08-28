@@ -2,9 +2,9 @@ JRuby uses [LoadService](https://github.com/jruby/jruby/blob/master/core/src/mai
 
 1) Kernel.require is handled by [LoadService.require](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/runtime/load/LoadService.java#L391) method and Kernel.load is handled by [LoadService.load](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/runtime/load/LoadService.java#L319) method.
 
-2) Both methods create a [SearchState](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/runtime/load/LoadService.java#L812) object to reflect the search strategy (which boils down to which suffixes ought to be used for the search) and try to find a matching Library with [findLibraryBySearchState](https://b2.corp.google.com/issues/17023210).
+2) Both methods create a [SearchState](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/runtime/load/LoadService.java#L812) object to reflect the search strategy (which boils down to which suffixes ought to be used for the search) and try to find a matching Library with [findLibraryBySearchState](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/runtime/load/LoadService.java#L971).
 
-3) findLibraryBySearchState primarily relies on LibrarySearcher.findBySearchState to resolve paths, but we also use findLibraryWithClassloaders](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/runtime/load/LoadService.java#L978) until file resources fully support classpath:/ based paths.
+3) findLibraryBySearchState primarily relies on LibrarySearcher.findBySearchState to resolve paths, but we also use [findLibraryWithClassloaders](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/runtime/load/LoadService.java#L978) until file resources fully support `classpath:/` based paths.
 
 4) findBySearchState attempts to locate a library by iterating over suffixes from the searchState and attempting to load one of three following libraries:
 
