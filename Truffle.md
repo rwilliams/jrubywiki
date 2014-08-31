@@ -1,4 +1,4 @@
-The Truffle runtime of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the current AST interpreter, the bytecode backend, and the new IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
+The Truffle runtime of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the 1.7 AST interpreter, the bytecode backend, and the new 9000 IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
 
 This wiki page is a collection of notes about the runtime. For more general background information see the [announcement blog post](http://blog.jruby.org/2014/01/truffle_graal_high_performance_backend/), and the FAQ below.
 
@@ -21,7 +21,7 @@ Truffle is only available in the JRuby 9000 development builds, or from source c
 Running With Graal
 ===============
 
-The Truffle backend will run on any Java 7+ JVM, but it will only JIT and optimize when running on top of a Graal-enabled build of OpenJDK. You can get both a JRuby 9000 development build and Graal via ruby-build.
+The Truffle backend will run on any Java 7+ JVM, but it will only compile and optimise Ruby code when running on top of a Graal-enabled build of OpenJDK. You can get both a JRuby 9000 development build and Graal via ruby-build:
 
     rbenv install jruby-9000+graal-dev
 
@@ -75,6 +75,15 @@ To make `-server` the default VM, you can edit `graal/<jvm version>/product/jre/
 
 You can use `graal/<jvm version>/product` as `JAVA_HOME`, or set `JAVACMD`, as above.
 
+Compiling Against Latest Graal
+================
+
+To compile against the latest version of Graal, build it as above and then install Truffle jars in your local Maven repository:
+
+    ./mx.sh maven-install-truffle
+
+You then want JRuby from the `truffle-head` branch, and build as normal.
+
 Running Benchmarks
 ================
 
@@ -118,6 +127,8 @@ Use Truffle as the ‘compile mode’. Turns off loading the Ruby kernel and imp
      -Xtruffle.printRuntime=true
 
 Print the name of the Truffle runtime that you are using. ‘Default’ means Truffle running as a normal Java library - which will be about as slow as the normal JRuby AST interpreter. ‘Graal’ means that you are using Graal VM to compile the Truffle interpreter to native code, and should be significantly faster.
+
+There are more Truffle options - find them listed by running `-X`.
 
 FAQ
 ===
