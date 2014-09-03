@@ -20,7 +20,7 @@ export JAVACMD=`which drip`
 export DRIP_INIT_CLASS=org.jruby.main.DripMain
 ```
 
-On Drip versions earlier than ninjudd/drip@820f8696187c4ac998e54b1ee4d8a2fdc281d1ed DRIP_INIT must be set.
+On Drip versions earlier than [820f869](https://github.com/ninjudd/drip/commit/820f8696187c4ac998e54b1ee4d8a2fdc281d1ed) DRIP_INIT must be set.
 ```bash
 export DRIP_INIT=""
 ```
