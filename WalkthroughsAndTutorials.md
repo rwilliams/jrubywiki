@@ -34,7 +34,7 @@ JRuby on Rails
 NetBeans Ruby Support
 ---------------------
 
-* [Using Java Libraries in Rails Applications](http://www.netbeans.org/kb/61/ruby/java-ruby.html)
+* <del>[Using Java Libraries in Rails Applications](http://www.netbeans.org/kb/61/ruby/java-ruby.html)</del>
 * [NetBeans Ruby and Rails IDE with JRuby](http://www.apress.com/book/view/1430216360)
 * [Getting Your Feet Wet With JRuby](http://blogs.oracle.com/divas/entry/getting_your_feet_wet_with)
 * [Switching between JRuby and CRuby in NetBeans Ruby Support](http://blogs.oracle.com/arungupta/entry/totd_7_switch_between_jruby) (Arun Gupta)
