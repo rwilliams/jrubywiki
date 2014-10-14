@@ -35,5 +35,5 @@ JRuby release preparation
 * close milestone on GH and open new milestone for next release
 * Update wikipedia entry
 * /msg chanserv OP #jruby <nick>
-* /msg chanserv TOPIC #jruby Get 1.7.16! http://jruby.org/ | http://wiki.jruby.org | http://irclog.whitequark.org/jruby/ | http://bugs.jruby.org | Paste at http://gist.github.com
+* /msg chanserv TOPIC #jruby Get 1.7.16! http://jruby.org/ | http://wiki.jruby.org | http://logs.jruby.org/jruby/ | http://bugs.jruby.org | Paste at http://gist.github.com
 * Send out to all known packagers [[JRubyDistributions]]
