@@ -11,7 +11,7 @@ However, current released versions of OpenJDK 7 sometimes error out or fail to o
 
 The use of invokedynamic is enabled by default when running on OpenJDK 8 builds, since the issues from OpenJDK 7 have been resolved. However, current builds (b55) have not yet had optimization work, putting their performance usually ahead of non-invokedynamic but behind OpenJDK 7 invokedynamic. This will improve over time.
 
-For applications that do not run into the errors or degraded performance, invokedynamic is recommended for maximum performance. It can be forcibly enabled by passing -Xcompile.invokedynamic=true to JRuby (or in JRUBY_OPTS) or by setting the jruby.compile.invokedynamic=true property at the JVM level. We recommend testing your application thoroughly with invokedynamic enabled before enabling it in production settings.
+For applications that do not run into the errors or degraded performance, invokedynamic is recommended for maximum performance. It can be forcibly enabled by passing `-Xcompile.invokedynamic=true` to JRuby (or in JRUBY_OPTS) or by setting the jruby.compile.invokedynamic=true property at the JVM level. We recommend testing your application thoroughly with invokedynamic enabled before enabling it in production settings.
 
 Profiling an application
 ------------------------
