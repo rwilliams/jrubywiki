@@ -128,7 +128,7 @@ Use Truffle as the ‘compile mode’. Turns off loading the Ruby kernel and imp
 
 Print the name of the Truffle runtime that you are using. ‘Default’ means Truffle running as a normal Java library - which will be about as slow as the normal JRuby AST interpreter. ‘Graal’ means that you are using Graal VM to compile the Truffle interpreter to native code, and should be significantly faster.
 
-There are more Truffle options - find them listed by running `-Xproperties`.
+There are more Truffle options - find them listed by running `--properties`.
 
 FAQ
 ===
