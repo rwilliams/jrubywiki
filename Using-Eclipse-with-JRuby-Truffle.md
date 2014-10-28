@@ -13,3 +13,4 @@ Create a new workspace in Eclipse, outside the jruby directory (otherwise Eclips
 * Enter the jruby directory in root directory
 * Click Finish
 
+Then you need to give the path to your Maven repository (usually ~/.m2/repository).
