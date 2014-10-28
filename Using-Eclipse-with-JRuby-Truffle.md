@@ -8,8 +8,8 @@ mvn eclipse:eclipse
 
 Create a new workspace in Eclipse, outside the jruby directory (otherwise Eclipse complains about overlapping dirs).
 
-* From the main menu bar, select File > Import....
-* Select General > Existing Projects into Workspace.
-* Enter the jruby directory in root directory.
-* Click Finish.
+* From the main menu bar, select File > Import...
+* Select General > Existing Projects into Workspace
+* Enter the jruby directory in root directory
+* Click Finish
 
