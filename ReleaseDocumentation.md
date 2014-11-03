@@ -37,3 +37,5 @@ JRuby release preparation
 * /msg chanserv OP #jruby <nick>
 * /msg chanserv TOPIC #jruby Get 1.7.16! http://jruby.org/ | http://wiki.jruby.org | http://logs.jruby.org/jruby/ | http://bugs.jruby.org | Paste at http://gist.github.com
 * Send out to all known packagers [[JRubyDistributions]]
+   * Change URLs to have SHA256 after file url#SHA256
+   * Send PR to https://github.com/sstephenson/ruby-build with PR like: https://github.com/olleolleolle/ruby-build/commit/3b14690ddec4f90cbc264c54af16d617f845c94a
