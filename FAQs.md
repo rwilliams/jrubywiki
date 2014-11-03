@@ -485,3 +485,14 @@ If you force a dump of threads on the server JVM, you may see a stack trace like
 The trace above indicates there's a single JRuby runtime handling many concurrent requests, but Rails's "threadsafe" mode is not enabled. As a result, Rails inserts a lock acquisition into the request pipeline, and requests execute in serial. Generally, when deploying on JRuby, you will want to either be running threadsafe mode (single JRuby runtime, many concurrent requests) or non-threadsafe mode but with many JRuby instances.
 
 You should modify the Rails config for your application to enable threadsafe mode: http://apidock.com/rails/Rails/Configuration/threadsafe!
+
+Classpath errors on Mac OS X
+-----------------------------
+
+Java on OS X adds additional folders (nonstandard) to the classpath. `/Library/Java/Extensions` and `~/Library/Java/Extensions` can contain additional .jar files, which are automatically made available to Java. However, if you have a .jar in `Extensions` that also happens to be used by JRuby (but are different versions, or were compiled for an older version of Java) having both in the classpath can cause conflicts. You can examine the classpath from irb, by checking the `$CLASSPATH` global variable, which will list all .jar files used by JRuby which are in the classpath.
+
+One common error caused by having two conflicting versions of the same class on the classpath include:
+
+* `java.lang.VerifyError: class org.bouncycastle.asn1.ASN1Primitive overrides final method equals`
+
+To resolve the issue, either remove the conflicting .jar from the `Extensions` directory, or swap it for a version that is compatible with the version used by JRuby.
