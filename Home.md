@@ -28,6 +28,24 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[EnhancedSecurity]]
 * [[Truffle]]
 
+**Getting Involved**
+
+* Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
+* Setting up an IDE: [[IntelliJ|DevelopingWithIntelliJ]]
+* [[Building JRuby|DownloadAndBuildJRuby]]
+* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
+* [Build Server](http://ci.jruby.org) - Not updated frequently. Refer Travis instead for now
+* [JRuby on Travis CI](https://travis-ci.org/jruby/jruby)
+* [[Design/Internals|Internals]]
+* [[Distributions|JRubyDistributions]]
+* [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
+* [[JRuby Style Guide|JRubyStyleGuide]]
+* [[JRuby and RubySpecs|JRubyAndRubySpecs]]
+* [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
+* [[Release Documentation|ReleaseDocumentation]]
+* [[RoadMap]]
+* [[Testing JRuby and InvokeDynamic|TestingJRubyInvokeDynamic]]
+
 **Web Applications (Rails, servers, others)**
 
 * [[JRuby on Rails|JRubyonRails]]
@@ -63,23 +81,6 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[JRuby Books|JRuby-Books]]
 * [[In Your Region]]
 * [[Ruby in Research]]
-
-**Getting Involved**
-
-* Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
-* [[Building JRuby|DownloadAndBuildJRuby]]
-* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
-* [Build Server](http://ci.jruby.org) - Not updated frequently. Refer Travis instead for now
-* [JRuby on Travis CI](https://travis-ci.org/jruby/jruby)
-* [[Design/Internals|Internals]]
-* [[Distributions|JRubyDistributions]]
-* [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
-* [[JRuby Style Guide|JRubyStyleGuide]]
-* [[JRuby and RubySpecs|JRubyAndRubySpecs]]
-* [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
-* [[Release Documentation|ReleaseDocumentation]]
-* [[RoadMap]]
-* [[Testing JRuby and InvokeDynamic|TestingJRubyInvokeDynamic]]
 
 **Related Websites**
 
