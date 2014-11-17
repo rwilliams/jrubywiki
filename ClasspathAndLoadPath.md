@@ -8,7 +8,7 @@ Load Path
 
 JRuby supports the concept of a "load path" as per Ruby 1.8. The load path contains filesystem directories to be used as the "root" when searching for scripts to load or execute.
 
-Script files contained within the load path can be loaded using the `require` or `load` kernel methods. The differences between these two mechanisms are discussed in more depth on the [RubySpec Wiki](http://www.headius.com/rubyspec).
+Script files contained within the load path can be loaded using the `require` or `load` kernel methods. The differences between these two mechanisms are discussed in more depth in [RubySpec](http://rubyspec.org/).
 
 Load path is a lazier, more implicit form of pathing than Java's classpath, since libraries on the load path must still be explicitly loaded to become available.
 
