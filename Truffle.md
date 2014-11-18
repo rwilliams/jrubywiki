@@ -87,35 +87,7 @@ You then want JRuby from the `truffle-head` branch, and build as normal.
 Running Benchmarks
 ================
 
-We have a couple of micro-benchmarks that we know work in bench/truffle. They are very limited, are focused on peak performance, don’t include time for warmup and don’t have any rigorous statistical methodology behind them, so don’t expect to draw too many conclusions. For example, to run Mandelbrot:
-
-     cd bench/truffle
-     ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
-     JAVACMD=path/to/graal/bin/java ../../bin/jruby -J-server -J-d64 -X+T -Xtruffle.printRuntime=true harness.rb -s 120 mandelbrot.rb
-
-Note that this command line uses `-server` explicitly in order to select the Graal enabled Server VM.
-
-You should see something very roughly like an 10-15x increase in the score compared to `invokedynamic` - a 10-15x speedup, and more if you compare against JRuby without `invokedynamic`.
-
-To run a set of benchmarks and compare performance as you makes changes to Truffle, you can use the `compare.rb` script in `bench/truffle`:
-
-    export GRAAL_DIR=path/to/graal
-    ruby compare.rb --reference -m 3
-
-This will get the script to set a reference point for performance, giving it a time budget of 3 minutes. You can then make changes to Truffle and see how the performance has changed
-
-    ruby compare.rb
-
-Truffelize
-===========
-
-An alternative to running your entire program using Truffle is to use Truffle for individual methods. This is done using the `truffelize` library and method. When using `truffelize` you don't need the `-X+T` option, as you're running the rest of the program in normal JRuby.
-
-    import 'truffelize'
-    
-    truffelize :my_method
-
-At the moment we only support passing scalar objects between a truffelized method and normal JRuby execution.
+The [bench9000](https://github.com/jruby/bench9000) repository includes benchmarks and a harness to run them and generate reports.
 
 Truffle Options
 ===========
@@ -128,7 +100,7 @@ Use Truffle as the ‘compile mode’. Turns off loading the Ruby kernel and imp
 
 Print the name of the Truffle runtime that you are using. ‘Default’ means Truffle running as a normal Java library - which will be about as slow as the normal JRuby AST interpreter. ‘Graal’ means that you are using Graal VM to compile the Truffle interpreter to native code, and should be significantly faster.
 
-There are more Truffle options - find them listed by running `--properties`.
+There are more Truffle options - find them listed by running `-Xtruffle...`.
 
 FAQ
 ===
