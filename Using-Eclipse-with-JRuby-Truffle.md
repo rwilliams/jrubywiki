@@ -1,6 +1,8 @@
 This is an experiment, mainly to have a much better feedback from the Truffle annotation processor.  
 (and ideally much faster compile time!)
 
+## Old technique not using Maven support
+
 Be sure to have the project built before with `mvn`.
 
 Maven can be used to generate Eclipse project files:
