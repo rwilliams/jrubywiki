@@ -26,6 +26,8 @@ You shall be set!
 It is possible to run JRuby with a run configuration for `org.jruby.Main.main()`.
 Further integration is under investigation.
 
+***
+
 #### Old technique not using Maven support
 
 Be sure to have the project built before with `mvn`.
