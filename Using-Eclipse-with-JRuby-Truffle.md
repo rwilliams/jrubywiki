@@ -21,6 +21,10 @@ And now enable the Truffle annotation processor:
 * Click on `Enable project specific settings`, then `OK`
 * Click `Yes` to rebuild the project.
 
+You shall be set!
+
+It is possible to run JRuby with a run configuration for Main.main().
+Further integration is under investigation.
 
 #### Old technique not using Maven support
 
