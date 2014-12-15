@@ -2,7 +2,7 @@ This is an experiment, mainly to have a much better feedback from the Truffle an
 
 ## Using integrated Maven support
 
-Create a new workspace in Eclipse.
+Create a new workspace in Eclipse (>= Luna).
 
 Start by ensuring there is no leftover configuration:
 ```bash
