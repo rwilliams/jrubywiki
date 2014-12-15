@@ -4,6 +4,11 @@ This is an experiment, mainly to have a much better feedback from the Truffle an
 
 Create a new workspace in Eclipse.
 
+Start by ensuring there is no leftover configuration:
+```bash
+$ rm -rf core/.classpath core/.settings core/.project
+```
+
 We can now import the project:
 * From the main menu bar, select `File` > `Import...`
 * Select `Maven` > `Existing Maven Projects`
