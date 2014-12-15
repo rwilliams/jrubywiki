@@ -1,5 +1,4 @@
-This is an experiment, mainly to have a much better feedback from the Truffle annotation processor.  
-(and ideally much faster compile time!)
+This is an experiment, mainly to have a much better feedback from the Truffle annotation processor (and ideally much faster compile time!)
 
 ## Using integrated Maven support
 
