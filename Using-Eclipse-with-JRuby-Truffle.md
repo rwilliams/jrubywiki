@@ -19,7 +19,7 @@ We can now import the project:
 
 
 
-## Old technique not using Maven support
+### Old technique not using Maven support
 
 Be sure to have the project built before with `mvn`.
 
