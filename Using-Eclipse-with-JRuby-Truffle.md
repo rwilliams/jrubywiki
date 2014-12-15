@@ -6,16 +6,16 @@ This is an experiment, mainly to have a much better feedback from the Truffle an
 Create a new workspace in Eclipse.
 
 We need to set the path to your Maven repository:
-* From the menu, select `Window` > `Preferences`.
-* In the search field type `Classpath Variables`.
-* Click on `New` and enter the variable name: `M2_REPO`.
-* Click on `Folder...` and select your home, then `.m2` then `repository`.
+* From the menu, select `Window` > `Preferences`
+* In the search field type `Classpath Variables`
+* Click on `New` and enter the variable name: `M2_REPO`
+* Click on `Folder...` and select your home, then `.m2` then `repository`
 
 We can now import the project:
 * From the main menu bar, select `File` > `Import...`
 * Select `Maven` > `Existing Maven Projects`
-* Select `jruby/core` directory as root directory (NOT just jruby).
-* Click `Finish`.
+* Select `jruby/core` directory as root directory (NOT just jruby)
+* Click `Finish`
 
 
 
