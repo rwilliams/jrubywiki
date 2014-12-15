@@ -36,6 +36,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
 * [Build Server](http://ci.jruby.org) - Not updated frequently. Refer Travis instead for now
 * [JRuby on Travis CI](https://travis-ci.org/jruby/jruby)
+* [JRuby on CloudBees](https://projectodd.ci.cloudbees.com/view/JRuby/)
 * [[Design/Internals|Internals]]
 * [[Distributions|JRubyDistributions]]
 * [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
