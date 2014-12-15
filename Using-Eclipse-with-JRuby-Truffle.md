@@ -15,6 +15,11 @@ We can now import the project:
 * Select `jruby/core` directory as root directory (NOT just jruby)
 * Click `Finish`
 
+And now enable the Truffle annotation processor:
+* From the main menu bar, select `Project` > `Properties`
+* Select `Java Compiler` > `Annotation Processing`
+* Click on `Enable project specific settings`, then `OK`
+* Click `Yes` to rebuild the project.
 
 
 #### Old technique not using Maven support
