@@ -23,7 +23,7 @@ And now enable the Truffle annotation processor:
 
 You shall be set!
 
-It is possible to run JRuby with a run configuration for Main.main().
+It is possible to run JRuby with a run configuration for `org.jruby.Main.main()`.
 Further integration is under investigation.
 
 #### Old technique not using Maven support
