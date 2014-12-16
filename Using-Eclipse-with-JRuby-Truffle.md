@@ -23,6 +23,8 @@ And now enable the Truffle annotation processor:
 
 You shall be set!
 
+You might want to change the `Output folder` in `Java Build Path` so it is better separated from the Maven compilation process.
+
 It is possible to run JRuby with a run configuration for `org.jruby.Main.main()`.  
 Further integration is under investigation.
 
