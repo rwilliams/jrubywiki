@@ -1,25 +1,24 @@
+# Truffle
+
 The Truffle runtime of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the 1.7 AST interpreter, the bytecode backend, and the new 9000 IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
 
 This wiki page is a collection of notes about the runtime. For more general background information see the [announcement blog post](http://blog.jruby.org/2014/01/truffle_graal_high_performance_backend/), and the FAQ below.
 
 Most of the work for the truffle runtime is in [core/src/main/java/org/jruby/truffle](https://github.com/jruby/jruby/tree/master/core/src/main/java/org/jruby/truffle). There is some more technical discussion in [Chris Seaton's blog posts](http://www.chrisseaton.com/rubytruffle/).
 
-Current Status
-===========
+## Current Status
 
 At the start of integration, the Truffle backend was not much more than the Oracle Labs implementation of Ruby, hosted within JRuby. The runtimes, object representation and core libraries are still quite separate, but we are now focused on completeness and integrating with the excellent work the JRuby project has done to implement the full Ruby ecosystem.
 
 At the moment the Truffle backed is unlikely to work for arbitrary code without having to implement a few features here and there. Even if it does work, performance is unlikely to be good for arbitrary code without having to implement additional specialisations. However we can run several micro-benchmarks and RubySpec, where we pass about half the language specs.
 
-Running Truffle
-============
+## Running Truffle
 
 Truffle is only available in the JRuby 9000 development builds, or from source control. To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loading the Ruby kernel and implies `--disable-gems`.
 
      bin/jruby -X+T
 
-Running With Graal
-===============
+## Running With Graal
 
 The Truffle backend will run on any Java 7+ JVM, but it will only compile and optimise Ruby code when running on top of a Graal-enabled build of OpenJDK. You can get both a JRuby 9000 development build and Graal via ruby-build:
 
@@ -33,8 +32,7 @@ For example
 
     JAVACMD=../graalvm-jdk1.8.0/bin/java bin/jruby -X+T -Xtruffle.printRuntime=true
 
-Compiling
-========
+## Compiling
 
 The Truffle backend is integrated into the normal JRuby build system.
 
@@ -45,8 +43,7 @@ To test there are phases for running RubySpec for the language and the core libr
     mvn -Ptruffle-specs-language
     mvn -Ptruffle-specs-core
 
-Building Graal (Optional)
-===========
+## Building Graal (Optional)
 
 If you don't want to use a [pre-built Graal binary](http://lafo.ssw.uni-linz.ac.at/builds/) follow these instructions:
 
@@ -75,8 +72,7 @@ To make `-server` the default VM, you can edit `graal/<jvm version>/product/jre/
 
 You can use `graal/<jvm version>/product` as `JAVA_HOME`, or set `JAVACMD`, as above.
 
-Compiling Against Latest Graal
-================
+## Compiling Against Latest Graal
 
 To compile against the latest version of Graal, build it as above and then install Truffle jars in your local Maven repository:
 
@@ -84,13 +80,11 @@ To compile against the latest version of Graal, build it as above and then insta
 
 You then want JRuby from the `truffle-head` branch, and build as normal.
 
-Running Benchmarks
-================
+## Running Benchmarks
 
 The [bench9000](https://github.com/jruby/bench9000) repository includes benchmarks and a harness to run them and generate reports.
 
-Truffle Options
-===========
+## Truffle Options
 
      -X+T
 
@@ -163,8 +157,7 @@ The Truffle backend and the new IR are not related and take very different appro
 
 The assertion failures are a bug in Truffle - sorry about them. You should be able to pass `-J-da` to `javac` in preferences, but that doesn’t seem to fix the problem. Compiling in Maven works fine.
 
-Benchmarks
-==========
+## Benchmarks
 
 These benchmarks don't yet have error bars or confidence intervals. This isn't a published paper and we're not making any claims using these graphs. They're just informal runs from nightly builds, they aren't always stable, they aren't all fully optimised yet, they aren't always indicative of your workload, but you can run them yourself if you want to https://github.com/jruby/jruby/tree/master/bench/truffle (@chrisseaton will be happy to explain how).
 
@@ -173,3 +166,7 @@ These benchmarks don't yet have error bars or confidence intervals. This isn't a
 ![](http://i.imgur.com/RwuzZI4.png)
 ![](http://i.imgur.com/un0LQNF.png)
 ![](http://i.imgur.com/PJH0XEY.png)
+
+## More Topics
+
+* [[The Truffle Module|Truffle Module]] - Truffle specific methods
