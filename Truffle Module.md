@@ -1,6 +1,6 @@
 # Truffle Module
 
-The Truffle module is only available when running in Truffle mode (`-X+T`).
+The `Truffle` module is only available when running in Truffle mode (`-X+T`).
 
 ## Primitives
 
