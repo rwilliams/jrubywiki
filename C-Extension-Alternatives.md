@@ -77,3 +77,4 @@ Please add to this list with your findings.
 [jruby-memcached]: https://github.com/aurorafeint/jruby-memcached
 [TorqueBox]: http://torquebox.org/
 [jruby-ehcache]: https://github.com/dylanz/ehcache
+[oj]: https://github.com/ohler55/oj
