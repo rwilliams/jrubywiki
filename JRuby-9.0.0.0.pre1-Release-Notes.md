@@ -1,9 +1,25 @@
 **IN PROGRESS**
 
+Intro section recognizing major features:
+- MRI 2.2 support
+- New runtime (IR + interpreter + JIT + potential of new design)
+- New IO + full ported transcoding
+
+Section acknowledging that:
+* startup is a bit slower
+* memory usage is higher
+* eventual performance is a little bit slower
+With some language specifying our plans to iron these out by final release.
+
+Section on getting feedback to make sure final is solid.
+
 These are the release notes for JRuby 9.0.0.0.pre1, the first preview release of JRuby 9000.
 
-Features known to be missing or incomplete:
+Features known to be missing or incomplete (we should remove things we can never support like fork -- This list should reflect work to be done):
 
+* :"foo" (may be done by pre -- need issue number if not)
+* Refinements (may be partially landed for pre definitely include issue)
+* jirb_swing has no output (need issue number)
 * Enumerator#feed, #next_values, #prev_values missing
 * Kernel#fork
 * Kernel#spawn cloexec and chdir support
