@@ -5,7 +5,7 @@ JRuby 9000 is the new version of JRuby, representing years of effort and large-s
 Major features of JRuby 9000:
 
 * Ruby 2.2 compatibility, minus features listed below
-* A new optimizing runtime based on a traditional 3-address compiler design.
+* A new optimizing runtime based on a traditional compiler design.
 * New POSIX-friendly IO and Process
 * Fully ported encoding/transcoding logic from MRI
 
