@@ -17,16 +17,12 @@ Ruby 2.2 features yet to be implemented:
 
 * :"foo" (may be done by pre -- need issue number if not)
 * Refinements (may be partially landed for pre definitely include issue)
-* Enumerator#feed, #next_values, #peek_values missing
+* Enumerator#feed
 * Kernel#spawn cloexec support
 * ObjectSpace::WeakMap#each and Enumerable inclusion
 * ObjectSpace::count_objects
-* RubyVM namespace (specific to MRI)
 * Thread#handle_interrupt is not yet fully functional
 * POSIX-friendly IO, TTY, and Process logic is not used on Windows
-* Startup time is a bit slower.
-* Memory usage is higher.
-* Straight-line performance is a little bit slower.
 
 We also have additional work to do on the new runtime:
 
