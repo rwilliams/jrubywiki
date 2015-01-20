@@ -17,7 +17,7 @@ We hope all Ruby users will try out this release and report issues on our issue 
 
 Ruby 2.2 features yet to be implemented:
 
-* Refinements [#1062](https://github.com/jruby/jruby/issues/1062)
+* Refinements ([#1062](https://github.com/jruby/jruby/issues/1062))
 * Enumerator#feed
 * Kernel#spawn close-on-exec support
 * ObjectSpace::WeakMap#each and Enumerable inclusion
