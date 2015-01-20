@@ -29,7 +29,7 @@ We also have additional work to do on the new runtime:
 * Memory usage is higher.
 * Straight-line performance is a little bit slower.
 
-The new runtime gathers more information about Ruby code and performs more analysis and optimization than our old runtime. We will do our best to bring these on par with 1.7.x (or better) before the final release of JRuby 9000.
+The new runtime gathers more information about Ruby code and performs more analysis and optimization than our old runtime. There's great potential here to bring Ruby performance to native Java or C, but we are just starting the optimization phase of that work. We will do our best to get startup time, memory use, and performance on par with 1.7.x (or better) before the final release of JRuby 9000.
 
 ## Truffle
 
