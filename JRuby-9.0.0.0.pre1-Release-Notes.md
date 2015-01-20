@@ -11,7 +11,9 @@ Major features of JRuby 9000:
 
 ## JRuby 9.0.0.0.pre1
 
-This is a preview release, and we know there's still work to do. We are releasing now to get user feedback on Ruby 2.2 functionality and overall stability. 
+This is a preview release, and we know there's still work to do. We are releasing now to get user feedback on Ruby 2.2 functionality and overall stability.
+
+We hope all Ruby users will try out this release and report issues on our issue tracker at http://bugs.jruby.org. We also encourage users to join our Freenode #jruby IRC channel and mailing lists and follow @jruby on Twitter for updates.
 
 Ruby 2.2 features yet to be implemented:
 
