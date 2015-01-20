@@ -15,7 +15,7 @@ This is a preview release, and we know there's still work to do. We are releasin
 
 Ruby 2.2 features yet to be implemented:
 
-* Refinements (may be partially landed for pre definitely include issue)
+* Refinements [#1062](https://github.com/jruby/jruby/issues/1062)
 * Enumerator#feed
 * Kernel#spawn cloexec support
 * ObjectSpace::WeakMap#each and Enumerable inclusion
