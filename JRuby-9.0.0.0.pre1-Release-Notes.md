@@ -15,7 +15,6 @@ This is a preview release, and we know there's still work to do. We are releasin
 
 Ruby 2.2 features yet to be implemented:
 
-* :"foo" (may be done by pre -- need issue number if not)
 * Refinements (may be partially landed for pre definitely include issue)
 * Enumerator#feed
 * Kernel#spawn cloexec support
