@@ -1,34 +1,40 @@
 **IN PROGRESS**
 
-Intro section recognizing major features:
-- MRI 2.2 support
-- New runtime (IR + interpreter + JIT + potential of new design)
-- New IO + full ported transcoding
+JRuby 9000 is the new version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.
 
-Section acknowledging that:
-* startup is a bit slower
-* memory usage is higher
-* eventual performance is a little bit slower
-With some language specifying our plans to iron these out by final release.
+Major features of JRuby 9000:
 
-Section on getting feedback to make sure final is solid.
+* Ruby 2.2 compatibility, minus features listed below
+* A new optimizing runtime based on a traditional 3-address compiler design.
+* New POSIX-friendly IO and Process
+* Fully ported encoding/transcoding logic from MRI
 
-These are the release notes for JRuby 9.0.0.0.pre1, the first preview release of JRuby 9000.
+## Preview Status
 
-Features known to be missing or incomplete (we should remove things we can never support like fork -- This list should reflect work to be done):
+This is a preview release, and we know there's still work to do. We are releasing now to get user feedback on Ruby 2.2 functionality and overall stability. 
+
+Ruby 2.2 features yet to be implemented:
 
 * :"foo" (may be done by pre -- need issue number if not)
 * Refinements (may be partially landed for pre definitely include issue)
-* jirb_swing has no output (need issue number)
 * Enumerator#feed, #next_values, #peek_values missing
-* Kernel#fork
-* Kernel#spawn cloexec and chdir support
+* Kernel#spawn cloexec support
 * ObjectSpace::WeakMap#each and Enumerable inclusion
 * ObjectSpace::count_objects
-* Process::daemon, exec, getsid, and setproctitle
 * RubyVM namespace (specific to MRI)
 * Thread#handle_interrupt is not yet fully functional
 * POSIX-friendly IO, TTY, and Process logic is not used on Windows
+* Startup time is a bit slower.
+* Memory usage is higher.
+* Straight-line performance is a little bit slower.
+
+We also have additional work to do on the new runtime:
+
+* Startup time is a bit slower.
+* Memory usage is higher.
+* Straight-line performance is a little bit slower.
+
+The new runtime gathers more information about Ruby code and performs more analysis and optimization than our old runtime. We will do our best to bring these on par with 1.7.x (or better) before the final release of JRuby 9000.
 
 ## Truffle
 
