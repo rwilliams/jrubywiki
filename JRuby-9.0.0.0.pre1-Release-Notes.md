@@ -9,7 +9,7 @@ Major features of JRuby 9000:
 * New POSIX-friendly IO and Process
 * Fully ported encoding/transcoding logic from MRI
 
-## Preview Status
+## JRuby 9.0.0.0.pre1
 
 This is a preview release, and we know there's still work to do. We are releasing now to get user feedback on Ruby 2.2 functionality and overall stability. 
 
