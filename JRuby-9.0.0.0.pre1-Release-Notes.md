@@ -17,7 +17,7 @@ Ruby 2.2 features yet to be implemented:
 
 * Refinements [#1062](https://github.com/jruby/jruby/issues/1062)
 * Enumerator#feed
-* Kernel#spawn cloexec support
+* Kernel#spawn close-on-exec support
 * ObjectSpace::WeakMap#each and Enumerable inclusion
 * ObjectSpace::count_objects
 * Thread#handle_interrupt is not yet fully functional
