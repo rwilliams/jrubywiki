@@ -20,7 +20,7 @@ Features known to be missing or incomplete (we should remove things we can never
 * :"foo" (may be done by pre -- need issue number if not)
 * Refinements (may be partially landed for pre definitely include issue)
 * jirb_swing has no output (need issue number)
-* Enumerator#feed, #next_values, #prev_values missing
+* Enumerator#feed, #next_values, #peek_values missing
 * Kernel#fork
 * Kernel#spawn cloexec and chdir support
 * ObjectSpace::WeakMap#each and Enumerable inclusion
