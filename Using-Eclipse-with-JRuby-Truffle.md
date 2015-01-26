@@ -23,9 +23,15 @@ And now enable the Truffle annotation processor:
 * Click on `Enable project specific settings`, then `OK`
 * Click `Yes` to rebuild the project.
 
-You shall be set!
+Change the `Output folder` to not interfere with the Maven build:
+* Select the `core` project.
+* Right click and choose `Properties`
+* Select `Java Build Path`
+* Uncheck `Allow output folders for source folders`.
+* In `Default output folder:` enter `[PROJECT]/build.eclipse` (with `[PROJECT]` replaced by `core` here).
+* Repeat with the `truffle` project.
 
-You might want to change the `Output folder` in `Java Build Path` so it is better separated from the Maven compilation process.
+You shall be set!
 
 It is possible to run JRuby with a run configuration for `org.jruby.Main.main()`. For that you set the working directory to `${workspace_loc}` in the `Arguments` tab.
 
