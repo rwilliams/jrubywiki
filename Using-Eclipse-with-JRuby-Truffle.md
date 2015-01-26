@@ -17,19 +17,20 @@ We can now import the two projects:
 * Repeat with `jruby/truffle` as root directory.
 
 And now enable the Truffle annotation processor:
-* Select the `truffle` project.
+* Select the `truffle` project
 * Right click and choose `Properties`
 * Select `Java Compiler` > `Annotation Processing`
 * Click on `Enable project specific settings`, then `OK`
-* Click `Yes` to rebuild the project.
+* Click `Yes` to rebuild the project
 
 Change the `Output folder` to not interfere with the Maven build for each project:
-* Select the `core` project.
+* Select the `core` project
 * Right click and choose `Properties`
 * Select `Java Build Path`
-* Uncheck `Allow output folders for source folders`.
-* In `Default output folder:` enter `[PROJECT]/build.eclipse` (with `[PROJECT]` replaced by `core` here).
-* Repeat with the `truffle` project.
+* Uncheck `Allow output folders for source folders`
+* In `Default output folder:` enter `[PROJECT]/build.eclipse` (with `[PROJECT]` replaced by `core` here)
+* Select `Yes` when asked about removing generated resources in the old location
+* Repeat with the `truffle` project
 
 You shall be set!
 
