@@ -14,7 +14,7 @@ We can now import the two projects:
 * Select `Maven` > `Existing Maven Projects`
 * Select `jruby/core` directory as root directory (NOT just jruby)
 * Click `Finish`
-* Repeat with `jruby/truffle` as root directory.
+* Repeat with `jruby/truffle` as root directory
 
 And now enable the Truffle annotation processor:
 * Select the `truffle` project
