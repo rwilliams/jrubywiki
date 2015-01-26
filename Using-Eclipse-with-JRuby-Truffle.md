@@ -23,7 +23,7 @@ And now enable the Truffle annotation processor:
 * Click on `Enable project specific settings`, then `OK`
 * Click `Yes` to rebuild the project.
 
-Change the `Output folder` to not interfere with the Maven build:
+Change the `Output folder` to not interfere with the Maven build for each project:
 * Select the `core` project.
 * Right click and choose `Properties`
 * Select `Java Build Path`
