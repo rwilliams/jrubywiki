@@ -10,7 +10,7 @@ Most of the work for the truffle runtime is in [core/src/main/java/org/jruby/tru
 
 At the start of integration, the Truffle backend was not much more than the Oracle Labs implementation of Ruby, hosted within JRuby. The runtimes, object representation and core libraries are still quite separate, but we are now focused on completeness and integrating with the excellent work the JRuby project has done to implement the full Ruby ecosystem.
 
-At the moment the Truffle backed is unlikely to work for arbitrary code without having to implement a few features here and there. Even if it does work, performance is unlikely to be good for arbitrary code without having to implement additional specialisations. However we can run several micro-benchmarks and RubySpec, where we pass about half the language specs.
+At the moment the Truffle backed is unlikely to work for arbitrary code without having to implement a few features here and there. Even if it does work, performance is unlikely to be good for arbitrary code without having to implement additional specializations. However we run several micro-benchmarks, support all of the Ruby language and about a quarter of the core library according to RubySpec"
 
 ## Running Truffle
 
