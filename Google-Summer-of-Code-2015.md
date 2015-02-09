@@ -52,3 +52,7 @@ Some directions:
 * Target a different backend (ex: Dalvik): Investigate what it would take to compile IR to the Dalvik platform, and implement it within the constraints of a 3-month project.
 
 * Performance optimizations: The JRuby IR provides a great opportunity to optimize the Ruby language. The next major version of JRuby is intended to run entirely atop the IR compiler, and so we are looking for compiler and optimization folks to help us layer incremental improvements on top of the base IR logic we have today. Some of these could be static analyses, but a lot of these would be profile-based runtime optimizations and there is lot of interesting territory to explore for interested students. For example, JRuby currently has simple and crude approaches for moving from interpreted to JIT code. It would be interesting to monitor code changes in the runtime and detect when changes settle down and use that to guide more aggressive optimizations.
+
+### Truffle
+
+JRuby has a backend to use the Truffle language implementation framework from Oracle Labs. There are multiple projects to improve the implementation of Ruby using Truffle, or to develop new tools using Truffle. Students would need to have some experience in language development and would need to learn enough about Truffle to submit their own proposal. Contacts are chrisseaton, eregon and nirvdrum.
