@@ -43,14 +43,6 @@ The goal of this project would be to implement a Celluloid `ActorSystem` which i
 * ***[LinkedTransferQueue](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedTransferQueue.html)***: Introduced in Java 7, LinkedTransferQueues are one of the most adaptable concurrency primitives available on the JVM today.
 * ***[Fork/Join](http://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html)***: a framework introduced in Java 7 for abstracting multicore execution on the JVM
 
-### Truffle
-
-JRuby now has a work-in-progress [Truffle](Truffle) backend, to use two powerful new JVM technologies - the Truffle AST interpreter framework, and the new Graal JIT compiler. Together these are achieving peak performance well beyond anything currently possible with the JVM.
-
-There is plenty of low hanging fruit in the Truffle backend to make good GSoC projects, and you will be working on genuinely research-level technology that may be the future of all JVM languages. The team working on Truffle are enthusiastic about mentoring and we can help an enthusiastic person get going right now if they want, so they have their own ideas and a track record when it comes to GSoC.
-
-Talk to chrisseaton or lucasallan.
-
 ### JRuby IR-based projects
 
 JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands. This IR will be the basis of an updated JRuby VM. There are lots of opportunities for improving on these and implementing additional optimizations. A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include new performance optimizations (offline or profile-guided runtime), implementing new backends (ex: Dalvik).
