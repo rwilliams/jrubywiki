@@ -24,6 +24,26 @@ JRuby has a backend to use the Truffle language implementation framework from Or
 
 * Concurrency improvement of standard libraries and popular gems: The existing Ruby standard libraries have never received a good thread-safety analysis, and most thread-safety testing has only happened via other libraries and applications. This project would work down the list of standard libraries and do hand-analysis, tool-driven analysis, purpose-built concurrency tests, and changes necessary to be usable in highly-concurrent environments. Given time, this could also expand into popular gems.
 
+### Utilizing new JVM features ###
+
+* Java 8 lambdas and streams: Java 8 included features for lambdas (Java-based closures) and streaming closure-based algorithms transparently parallelized across threads using fork/join. A student could explore how best to expose Java 8's collections and streams APIs to Ruby and how best to leverage Ruby's libraries and features on a Java 8 platform.
+
+* Java 9 modularity (jigsaw): Project Jigsaw will bring modularity to the JVM. This includes the ability to package a Java application with only the JVM/JDK bits it needs, pre-compile a Java application into some binary format (ideally speeding startup and warmup), and interesting opportunities for JRuby's Java integration (isolation of subsystems, modularity support within JRuby itself). This project would explore how Jigsaw could be leveraged in JRuby.
+
+* Azul's Zing VM: The Zing VM is an OpenJDK-based JVM that includes various compiler and GC optimizations not found in the stock codebase. It is a commercial VM, but free copies are available for testing and exploration in development and on open-source projects. This project would be to explore Zing's unique features on JRuby and prepare a report examining performance, garbage collection, and tooling opportunities for Ruby users running JRuby on Zing.
+
+* Oracle's Graal VM: In addition to enabling the Truffle language framework, the 100%-Java Graal compiler may provide a better VM going forward (e.g. optimizations missing in Hotspot), an interesting target for our IR (skipping JVM bytecode and going straight to JIT), and other useful features for optimizing Ruby code and applications.
+
+### Better Android and Mobile Support ###
+
+JRuby has worked on Android for a long time, but we've never been happy with the performance, runtime size, and level of integration with the rest of the Android platform. There are multiple possible projects here.
+
+* JRuby 9000 on Android: Explore what we can do to shrink the JRuby runtime (now that it only supports one language mode) and improve performance and startup time of JRuby 9000 on Android.
+
+* The Android Runtime: Android 5+ replaces the old Dalvik VM with the new "ART" (Android Runtime) VM that compiles code to native when it is installed. If we could leverage this better in JRuby, it could lead to smaller applications and better performance and startupt time. Explore how ART precompiles Dalvik bytecode and how we can do a better job of leveraging that in JRuby.
+
+* iOS support via RoboVM: RoboVM is a project to make JVM-based apps run on iOS by including a runtime and precompiling as much as possible to native. This has great potential for JRuby, since we are a full-featured Ruby implementation...we could bring all Ruby libraries out there to iOS developers. This project would explore getting JRuby to run on RoboVM and study how effective it would be to write Ruby-based applications on iOS this way.
+
 ### Celluloid "Turbo Mode" for JRuby
 
 [Celluloid](http://celluloid.io) is an actor-based concurrent object framework (somewhat similar to Akka) written in pure Ruby. It presently uses Ruby Mutexes and ConditionVariables for synchronization. However, the JVM has many, many other options which could provide better performance.
