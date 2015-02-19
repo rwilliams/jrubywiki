@@ -7,16 +7,16 @@ Ideas
 
 Areas of study:
 
-* (Optimizing compiler and JRuby runtime performance work)[#jruby-ir-projects]
-* (JRuby+Truffle work)[#truffle] (Truffle is an AST-based optimizing language framework)
-* (Concurrency improvements in standard libraries and popular gems)[#improving-rubys-concurrency-features]
-* (Utilize newer JVM features better)[#utilizing-new-jvm-features]
-* (Build better tools for profiling, analysis)[#improving-jruby-tools]
-* (JRuby on mobile devices)[#better-android-and-mobile-support]
-* (Enhanced Celluloid and nio4r support for JRuby/JVM)[#celluloid-turbo-mode-for-jruby]
-* (Port popular or important Ruby C extensions to JRuby)[#ports-of-popular-c-extensions]
-* (True coroutine support for e.g. Fiber)[#native-coroutine-support]
-* (Modern rack and servlet features for jruby-rack)[#jruby-rack]
+* [Optimizing compiler and JRuby runtime performance work](#jruby-ir-projects)
+* [JRuby+Truffle work](#truffle) (Truffle is an AST-based optimizing language framework)
+* [Concurrency improvements in standard libraries and popular gems](#improving-rubys-concurrency-features)
+* [Utilize newer JVM features better](#utilizing-new-jvm-features)
+* [Build better tools for profiling, analysis](#improving-jruby-tools)
+* [JRuby on mobile devices](#better-android-and-mobile-support)
+* [Enhanced Celluloid and nio4r support for JRuby/JVM](#celluloid-turbo-mode-for-jruby)
+* [Port popular or important Ruby C extensions to JRuby](#ports-of-popular-c-extensions)
+* [True coroutine support for e.g. Fiber](#native-coroutine-support)
+* [Modern rack and servlet features for jruby-rack](#jruby-rack)
 
 Note that there's also a [general "Ruby" GSoC ideas page](https://github.com/rubygsoc/rubygsoc/wiki/Ideas-List), many/most of which are relevant to JRuby.
 
