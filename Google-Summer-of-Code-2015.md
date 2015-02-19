@@ -36,6 +36,18 @@ JRuby has a backend to use the Truffle language implementation framework from Or
 
 * Oracle's Graal VM: In addition to enabling the Truffle language framework, the 100%-Java Graal compiler may provide a better VM going forward (e.g. optimizations missing in Hotspot), an interesting target for our IR (skipping JVM bytecode and going straight to JIT), and other useful features for optimizing Ruby code and applications.
 
+### Improving JRuby Tools ###
+
+There are many tools for the JVM and a few for Ruby. We can do better...we need profilers (performance and memory), leak detectors, thread-safety analyzers, system analyzers. Many possible projects here:
+
+* Visualize code or program execution: This could be accomplished by instrumenting our new IR runtime or by leveraging JVM tools, but with the new IR runtime we also have the ability to gather type and branch profiles, full-system call maps, and more.
+
+* Analyze and profile memory use. This would involve improving or enhancing tools like JVisualVM, jhat, [Alienist](https://github.com/enebo/alienist) to make memory profiling, leak detection, object race detection and more possible on JRuby.
+
+* Better utilization of JVM security subsystem: Many unsecure environments use JRuby because of the JVM security model, which is difficult to provide in C Ruby. However JRuby does not take good advantage of this subsystem by providing its own permissions and configuation. Improve JRuby's integation with the JVM security model.
+
+* Startup mitigation projects: We have been promoting Drip as a way to mitigate JRuby's startup, but it's only a half measure. This project would work to analyze exactly what is slow during JRuby's startup (and warmup, perhaps) and explore tools like Drip, Nailgun, Project Jigsaw, alternative JVMs, and others (along with JRuby improvements) to make JRuby a more useful command-line tool.
+
 ### Better Android and Mobile Support ###
 
 JRuby has worked on Android for a long time, but we've never been happy with the performance, runtime size, and level of integration with the rest of the Android platform. There are multiple possible projects here.
