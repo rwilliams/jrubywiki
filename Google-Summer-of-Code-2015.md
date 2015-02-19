@@ -12,8 +12,11 @@ Note that there's also a [general "Ruby" GSoC ideas page](https://github.com/rub
 JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands. This IR will be the basis of an updated JRuby VM. There are lots of opportunities for improving on these and implementing additional optimizations. A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include new performance optimizations (offline or profile-guided runtime), implementing new backends (ex: Android VM or native compilation, other languages).
 
 * Small optimizations: There are many small optimizations in the old (JRuby 1.7) JIT compiler that have not yet been added to the new IR runtime. Some examples: constant-time homoegeneous case/when, fast numeric operators, allocation reduction for unused arrays/hashes, etc. Most of these would be changes to the IR compiler or could be added to a post-compile pass.
+
 * Inlining: We have an old working prototype of IR inlining, that can inline Ruby methods and blocks. A good summer project would be to get it updated and working again in both the interpreter and the JIT.
+
 * Gradual and implicit typing: We also have a working prototype of a numeric unboxing pass, which optimistically converts dynamic Fixnum and Float operations into low-level long and double operations. This project would be to get the pass working and explore specializing code to more types.
+
 * Prototype type specialization using Nashorn, vmboiler, or other projects: Nashorn is an invokedynamic-based JavaScript that has a very rich JVM bytecode specialization framework. They are working to make it live indepedently of Nashorn, so we can use it for JRuby. vmboiler is a similar framework that lives atop the ASM bytecode library and makes it possible to generate specialized logic with fallback to general types. This project would be to explore these libraries and attempt to wire them into JRuby's JIT.
 
 ### Truffle
@@ -78,8 +81,11 @@ Many Ruby libraries are only available as C extensions, and as a result they're 
 This list is not all-inclusive, but these are some C extension-only gems that are in common use and which represent frequent migration stumbling blocks:
 
 * https://github.com/brianmario/mysql2 - MySQL bindings.
+
 * https://github.com/taf2/curb - A libcurl wrapper. Could be redone in FFI or as an API-compatible wrapper around a Java HTTP client.
+
 * https://github.com/ohler55/oj - A very fast JSON parser. The standard 'json' library uses a Ragel-generated parser that's not as fast as it could be.
+
 * https://github.com/nixme/pry-debugger/issues/26 - pry-debugger. Step in/over debugging with Pry.
 
 ### Rsense
