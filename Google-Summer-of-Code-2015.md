@@ -5,9 +5,13 @@ This page hosts the ideas for Google Summer of Code 2015! Add your ideas here, i
 Ideas
 =====
 
+* [JRuby IR-related Projects (new compiler and runtime)](#JRuby-IR-projects)
+
 Note that there's also a [general "Ruby" GSoC ideas page](https://github.com/rubygsoc/rubygsoc/wiki/Ideas-List), many/most of which are relevant to JRuby.
 
-### JRuby IR-based projects (Compilers, optimization, JVM bytecode)
+### JRuby IR projects ###
+
+***(Compilers, optimization, JVM bytecode)***
 
 JRuby currently has an intermediate representation (IR) that attempts to capture high-level Ruby semantics via instructions and operands. This IR will be the basis of an updated JRuby VM. There are lots of opportunities for improving on these and implementing additional optimizations. A student interested in interpreters, compilers, virtual machines would work with the JRuby team to expand on the capabilities of this VM -- projects could include new performance optimizations (offline or profile-guided runtime), implementing new backends (ex: Android VM or native compilation, other languages).
 
