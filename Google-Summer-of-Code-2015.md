@@ -5,6 +5,19 @@ This page hosts the ideas for Google Summer of Code 2015! Add your ideas here, i
 Ideas
 =====
 
+Areas of study:
+
+* (Optimizing compiler and JRuby runtime performance work)[#jruby-ir-projects]
+* (JRuby+Truffle work)[#truffle] (Truffle is an AST-based optimizing language framework)
+* (Concurrency improvements in standard libraries and popular gems)[#improving-rubys-concurrency-features]
+* (Utilize newer JVM features better)[#utilizing-new-jvm-features]
+* (Build better tools for profiling, analysis)[#improving-jruby-tools]
+* (JRuby on mobile devices)[#better-android-and-mobile-support]
+* (Enhanced Celluloid and nio4r support for JRuby/JVM)[#celluloid-turbo-mode-for-jruby]
+* (Port popular or important Ruby C extensions to JRuby)[#ports-of-popular-c-extensions]
+* (True coroutine support for e.g. Fiber)[#native-coroutine-support]
+* (Modern rack and servlet features for jruby-rack)[#jruby-rack]
+
 Note that there's also a [general "Ruby" GSoC ideas page](https://github.com/rubygsoc/rubygsoc/wiki/Ideas-List), many/most of which are relevant to JRuby.
 
 ### JRuby IR projects ###
@@ -53,6 +66,8 @@ There are many tools for the JVM and a few for Ruby. We can do better...we need 
 
 * Startup mitigation projects: We have been promoting Drip as a way to mitigate JRuby's startup, but it's only a half measure. This project would work to analyze exactly what is slow during JRuby's startup (and warmup, perhaps) and explore tools like Drip, Nailgun, Project Jigsaw, alternative JVMs, and others (along with JRuby improvements) to make JRuby a more useful command-line tool.
 
+* Rsense and Rsense-based tools: Rsense is an awesome type-inference tool for ruby source code, built on top of JRuby-Parser.  A lot of work went into it as part of a previous GSoC, and for small projects its working.  Take it to the next level and implement caching so that it works with those mono-rail projects so many of us work with. Build the Vim and Emacs plugins. Make awesome tooling on top of it.  The sky is the limit.
+
 ### Better Android and Mobile Support ###
 
 JRuby has worked on Android for a long time, but we've never been happy with the performance, runtime size, and level of integration with the rest of the Android platform. There are multiple possible projects here.
@@ -76,6 +91,12 @@ The goal of this project would be to implement a Celluloid `ActorSystem` which i
 * ***[LinkedTransferQueue](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedTransferQueue.html)***: Introduced in Java 7, LinkedTransferQueues are one of the most adaptable concurrency primitives available on the JVM today.
 * ***[Fork/Join](http://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html)***: a framework introduced in Java 7 for abstracting multicore execution on the JVM
 
+#### Java ByteBuffer support for nio4r ####
+
+Ruby has no native ByteArray or ByteBuffer types, [unlike Java](http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html). While it'd be great to have something like this in core Ruby, the next best place would be in the [New IO for Ruby](https://github.com/celluloid/nio4r) project, which provides a thin wrapper around Java NIO.
+
+The goal of this project would be to wrap Java ByteBuffers (particularly direct ByteBuffers) in a Ruby class that can also be implemented in pure Ruby which hooks into nio4r and can be used directly with nio4r's Java NIO backend.
+
 ### Ports of popular C extensions ###
 
 Many Ruby libraries are only available as C extensions, and as a result they're not usable on JRuby. The more of these libraries we have ports for, the less pain JRuby users suffer during migration.
@@ -90,10 +111,6 @@ This list is not all-inclusive, but these are some C extension-only gems that ar
 
 * https://github.com/nixme/pry-debugger/issues/26 - pry-debugger. Step in/over debugging with Pry.
 
-### Rsense
-
-Rsense is an awesome type-inference tool for ruby source code, built on top of JRuby-Parser.  A lot of work went into it as part of a previous GSoC, and for small projects its working.  Take it to the next level and implement caching so that it works with those mono-rail projects so many of us work with. Build the Vim and Emacs plugins. Make awesome tooling on top of it.  The sky is the limit.
-
 ### Native coroutine support
 
 Implement some kind of native coroutine support for JRuby. Bonus points for an implementation which is compatible with the Fiber API. One potential approach:
@@ -103,12 +120,6 @@ The [Continuations Library](http://www.matthiasmann.de/content/view/24/26/) by M
 It would be great if this library could be leveraged from JRuby, either with a proprietary API, or with an implementation of Fibers which is backed by this library.
 
 Note that this project has run into challenges before due to these frameworks' requirement of static typing throughout the coroutine call path. This complicates things for us because of Ruby's dynamic nature.
-
-### Java ByteBuffer support for nio4r
-
-Ruby has no native ByteArray or ByteBuffer types, [unlike Java](http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html). While it'd be great to have something like this in core Ruby, the next best place would be in the [New IO for Ruby](https://github.com/celluloid/nio4r) project, which provides a thin wrapper around Java NIO.
-
-The goal of this project would be to wrap Java ByteBuffers (particularly direct ByteBuffers) in a Ruby class that can also be implemented in pure Ruby which hooks into nio4r and can be used directly with nio4r's Java NIO backend.
 
 ### JRuby-Rack
 
