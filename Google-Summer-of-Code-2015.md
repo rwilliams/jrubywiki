@@ -54,6 +54,8 @@ JRuby has a backend to use the Truffle language implementation framework from Or
 
 * Oracle's Graal VM: In addition to enabling the Truffle language framework, the 100%-Java Graal compiler may provide a better VM going forward (e.g. optimizations missing in Hotspot), an interesting target for our IR (skipping JVM bytecode and going straight to JIT), and other useful features for optimizing Ruby code and applications.
 
+* Waratek's true multitenant JVM: Waratek builds a version of OpenJDK that supports true memory and security isolation for multiple in-process applications. This could be a way to host JRuby applications that require process isolation, or a way to mitigate JRuby startup time. Your project would be to explore Waratek's unique features and utilize them from JRuby.
+
 ### Improving JRuby Tools ###
 
 There are many tools for the JVM and a few for Ruby. We can do better...we need profilers (performance and memory), leak detectors, thread-safety analyzers, system analyzers. Many possible projects here:
