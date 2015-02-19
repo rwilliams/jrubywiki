@@ -109,3 +109,19 @@ Note that this project has run into challenges before due to these frameworks' r
 Ruby has no native ByteArray or ByteBuffer types, [unlike Java](http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html). While it'd be great to have something like this in core Ruby, the next best place would be in the [New IO for Ruby](https://github.com/celluloid/nio4r) project, which provides a thin wrapper around Java NIO.
 
 The goal of this project would be to wrap Java ByteBuffers (particularly direct ByteBuffers) in a Ruby class that can also be implemented in pure Ruby which hooks into nio4r and can be used directly with nio4r's Java NIO backend.
+
+### JRuby-Rack
+
+[`JRuby::Rack`](https://github.com/jruby/jruby-rack) is a lightweight adapter for the Java Servlet environment that allows any (Ruby) Rack-based application (including Rails) to run unmodified in a Java Servlet container.
+
+It's been around and is used in production, it is the back-bone of all [Warbler](https://github.com/jruby/warbler) generated applications as well as servers such as [Trinidad](https://github.com/trinidad/trinidad). Still it's performance is not what we're capable of and there's also more features we can bridge and expose such as asynchronous request handling and web-sockets.
+
+There's an [internal task list](https://github.com/jruby/jruby-rack/issues/168) and some work (refactoring Ruby code into "native" for performance) has already landed. The list is far from complete and should be taken lightly, some areas of interest besides optimization work : 
+
+* support the Rack hijacking API http://blog.phusion.nl/2013/01/23/the-new-rack-socket-hijacking-api/
+
+* presenting `javax.websocket` APIs in a Ruby friendly way (possibly related to Rack hijacking)
+
+* emulating Rails' `ActionController::Live` with asynchronous Servlet 3.0 (later possibly changing the Rails code to allow the details of thread spawning be hidden behind curtains)
+
+Special bonus points for getting a recent version deploy and perform well on Google AppEngine [again](http://jruby-rack.appspot.com/snoop).
