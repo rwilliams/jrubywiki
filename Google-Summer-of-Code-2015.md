@@ -40,7 +40,7 @@ JRuby has a backend to use the Truffle language implementation framework from Or
 
 ### Improving Ruby's concurrency features ###
 
-* concurrent-ruby: Many contributors have been working on the concurrent-ruby library, a collection of concurrency utilities like futures, actors, and atomic references. There's always more to add and improvements to be made to the existing features. This project would involve testing, benchmarking, and studying other threading libraries to continue improving the concurrent-ruby toolbox. It could also include working with ruby-core (MRI) developers to push some low-level features emulated by the library into Ruby's standard features.
+* concurrent-ruby: Many contributors have been working on the [concurrent-ruby library](https://github.com/ruby-concurrency/concurrent-ruby), a collection of concurrency utilities like futures, actors, and atomic references. There's always more to add and improvements to be made to the existing features. This project would involve testing, benchmarking, and studying other threading libraries to continue improving the concurrent-ruby toolbox. It could also include working with ruby-core (MRI) developers to push some low-level features emulated by the library into Ruby's standard features.
 
 * Concurrency improvement of standard libraries and popular gems: The existing Ruby standard libraries have never received a good thread-safety analysis, and most thread-safety testing has only happened via other libraries and applications. This project would work down the list of standard libraries and do hand-analysis, tool-driven analysis, purpose-built concurrency tests, and changes necessary to be usable in highly-concurrent environments. Given time, this could also expand into popular gems.
 
