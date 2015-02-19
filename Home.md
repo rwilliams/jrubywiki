@@ -5,7 +5,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **[JRuby Downloads]** ([Nightly Builds] (http://ci.jruby.org/snapshots/master))
 
-**[[Google Summer of Code 2014|Google-Summer-of-Code-2014]]**
+**[[Google Summer of Code 2015|Google-Summer-of-Code-2015]]**
 
 **JRuby Basics**
 
