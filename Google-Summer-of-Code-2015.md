@@ -5,8 +5,6 @@ This page hosts the ideas for Google Summer of Code 2015! Add your ideas here, i
 Ideas
 =====
 
-* [JRuby IR-related Projects (new compiler and runtime)](#JRuby-IR-projects)
-
 Note that there's also a [general "Ruby" GSoC ideas page](https://github.com/rubygsoc/rubygsoc/wiki/Ideas-List), many/most of which are relevant to JRuby.
 
 ### JRuby IR projects ###
