@@ -226,18 +226,10 @@ This happens if you require ActiveRecord-JDBC in your environment, but you haven
 How do I avoid installing the Rails gem twice for both CRuby and JRuby?
 -----------------------------------------------------------------------
 
+It is possible to set the GEM_HOME directory to a common one, but numerous users reporting weird behavior makes us recommend not setting a common GEM_HOME.  DO NOT DO IT :) 
+
+The main problem arises that various gems have dependences on native gems.  If you install with MRI it will install the c-extension version and not work with JRuby.  If you install with JRuby it will not work with MRI.  Hitting one of these gems, like Nokogiri, is much too common for this to be worth it.
 You just need to set GEM_HOME to point to your CRuby's gem directory.  For example, in tcsh:
-
-```tcsh
-    setenv GEM_HOME /usr/local/lib/ruby/gems/1.8
-```
-
-Note that on Windows, you should specify the path using unix-style directory separators. For example, if ruby is installed in `C:\ruby`:
-
-```bat
-    set GEM_HOME=c:/ruby/lib/ruby/gems/1.8
-```
-
 
 I get the error "undefined method 'cattr_accessor' for ActiveRecord::Base:Class (NoMethodError)" after configuring activerecord-jdbc-adapter.  What is wrong?
 -----------------------------------------------------------------------------------------------------------------------------------------------------
