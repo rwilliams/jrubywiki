@@ -1,107 +1,32 @@
-# Truffle
+# JRuby+Truffle - a High-Performance Truffle Backend for JRuby
 
-The Truffle runtime of JRuby is an experimental implementation of an interpreter for JRuby using the Truffle AST interpreting framework and the Graal compiler. It’s a potential alternative to the 1.7 AST interpreter, the bytecode backend, and the new 9000 IR. The goal is to be both significantly faster and simpler than other high performance implementations of Ruby.
+The Truffle runtime of JRuby is an experimental implementation of an interpreter
+for JRuby using the Truffle AST interpreting framework and the Graal compiler.
+It’s an alternative to the IR interpreter and bytecode compiler. The goal is to
+be significantly faster, simpler and to have more functionality than other
+implementations of Ruby.
 
-This wiki page is a collection of notes about the runtime. For more general background information see the [announcement blog post](http://blog.jruby.org/2014/01/truffle_graal_high_performance_backend/), and the FAQ below.
+JRuby+Truffle is a project of [Oracle Labs](https://labs.oracle.com) and
+academic collaborators at the [Institut für Systemsoftware at Johannes Kepler
+University Linz](http://ssw.jku.at).
 
-Most of the work for the truffle runtime is in [core/src/main/java/org/jruby/truffle](https://github.com/jruby/jruby/tree/master/core/src/main/java/org/jruby/truffle). There is some more technical discussion in [Chris Seaton's blog posts](http://www.chrisseaton.com/rubytruffle/).
+## Documentation
+
+Documentation for JRuby+Truffle is at http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/doc/. This includes project outline, how to use Truffle and how to use Truffle-specific functionality.
+
+This wiki page includes status information and FAQs.
 
 ## Current Status
 
-At the start of integration, the Truffle backend was not much more than the Oracle Labs implementation of Ruby, hosted within JRuby. The runtimes, object representation and core libraries are still quite separate, but we are now focused on completeness and integrating with the excellent work the JRuby project has done to implement the full Ruby ecosystem.
+## RubySpec
 
-At the moment the Truffle backed is unlikely to work for arbitrary code without having to implement a few features here and there. Even if it does work, performance is unlikely to be good for arbitrary code without having to implement additional specializations. However we run several micro-benchmarks, support all of the Ruby language and track progress of RubySpec completion:
+We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding.
 
 * [Language Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-language-report/html/)
 * [Core Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-core-report/html/)
 * [Stdlib Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-rubysl-report/html/)
 
-## Running Truffle
-
-Truffle is only available in the JRuby 9000 development builds, or from source control. To enable the Truffle backend use the `-X+T` option. `-X+T` also turns off loading the Ruby kernel and implies `--disable-gems`.
-
-     bin/jruby -X+T
-
-## Running With Graal
-
-The Truffle backend will run on any Java 7+ JVM, but it will only compile and optimise Ruby code when running on top of a Graal-enabled build of OpenJDK. You can get both a JRuby 9000 development build and Graal via ruby-build:
-
-    rbenv install jruby-9000+graal-dev
-
-This will run using Graal instead of your system JVM.
-
-You can also download [Graal builds for 64-bit Linux, Mac and Windows](http://lafo.ssw.uni-linz.ac.at/builds/). The binary releases of Graal looks like a normal JVM install. To ask JRuby to use it instead of your system JVM, set JAVACMD to the path of `java` in your `graalvm-jdk1.8.0` directory.
-
-For example
-
-    JAVACMD=../graalvm-jdk1.8.0/bin/java bin/jruby -X+T -Xtruffle.printRuntime=true
-
-## Compiling
-
-The Truffle backend is integrated into the normal JRuby build system.
-
-    mvn package
-
-To test there are phases for running RubySpec for the language and the core library.
-
-    mvn -Ptruffle-specs-language
-    mvn -Ptruffle-specs-core
-
-## Building Graal (Optional)
-
-If you don't want to use a [pre-built Graal binary](http://lafo.ssw.uni-linz.ac.at/builds/) follow these instructions:
-
-Graal is a fork of OpenJDK. Compiling it isn’t too complicated, but it isn’t part of the JRuby build system so you’ll have to do it separately.
-
-If you are on Windows, follow the instructions [on the Graal Wiki](https://wiki.openjdk.java.net/display/Graal/Windows) first.
-
-If you are on OS X Mavericks you will need to set these variables:
-
-    export COMPILER_WARNINGS_FATAL=false
-    export USE_PRECOMPILED_HEADER=0
-    export USE_CLANG=true
-    export LFLAGS="-Xlinker -lstdc++"
-
-You will need a system and C/C++ compiler toolchain supported by OpenJDK, as well as Mercurial, Ant and Python 2.7.
-
-     hg clone http://hg.openjdk.java.net/graal/graal
-     cd graal
-     ./mx.sh --vm server --vmbuild product build
-
-This gives you a copy of the JDK in `graal/<jvm version>/product` containing:
-* the default VM of the bootstrap JDK (launched with `java` or `java -original`). **Does not contain Graal**.
-* a Server VM which is Graal enabled (launched with `java -server`).
-
-To make `-server` the default VM, you can edit `graal/<jvm version>/product/jre/lib/jvm.cfg` (MacOSX) / `graal/<jvm version>/product/jre/lib/amd64/jvm.cfg` (Other), such that the line with `-server` is the first uncommented line.
-
-You can use `graal/<jvm version>/product` as `JAVA_HOME`, or set `JAVACMD`, as above.
-
-## Compiling Against Latest Graal
-
-To compile against the latest version of Graal, build it as above and then install Truffle jars in your local Maven repository:
-
-    ./mx.sh maven-install-truffle
-
-You then want JRuby from the `truffle-head` branch, and build as normal.
-
-## Running Benchmarks
-
-The [bench9000](https://github.com/jruby/bench9000) repository includes benchmarks and a harness to run them and generate reports.
-
-## Truffle Options
-
-     -X+T
-
-Use Truffle as the ‘compile mode’. Turns off loading the Ruby kernel and implies `--disable-gems`.
-
-     -Xtruffle.printRuntime=true
-
-Print the name of the Truffle runtime that you are using. ‘Default’ means Truffle running as a normal Java library - which will be about as slow as the normal JRuby AST interpreter. ‘Graal’ means that you are using Graal VM to compile the Truffle interpreter to native code, and should be significantly faster.
-
-There are more Truffle options - find them listed by running `-Xtruffle...`.
-
-FAQ
-===
+## FAQ
 
 **What is Truffle?**
 
@@ -160,17 +85,3 @@ The Truffle backend and the new IR are not related and take very different appro
 **Why are there are assertion failures while processing annotations during compilation under IntelliJ IDEA?**
 
 The assertion failures are a bug in Truffle - sorry about them. You should be able to pass `-J-da` to `javac` in preferences, but that doesn’t seem to fix the problem. Compiling in Maven works fine.
-
-## Benchmarks
-
-These benchmarks don't yet have error bars or confidence intervals. This isn't a published paper and we're not making any claims using these graphs. They're just informal runs from nightly builds, they aren't always stable, they aren't all fully optimised yet, they aren't always indicative of your workload, but you can run them yourself if you want to https://github.com/jruby/jruby/tree/master/bench/truffle (@chrisseaton will be happy to explain how).
-
-![](http://i.imgur.com/9oKglpN.png)
-![](http://i.imgur.com/5zGPdG4.png)
-![](http://i.imgur.com/RwuzZI4.png)
-![](http://i.imgur.com/un0LQNF.png)
-![](http://i.imgur.com/PJH0XEY.png)
-
-## More Topics
-
-* [[The Truffle Module|Truffle Module]] - Truffle specific methods
