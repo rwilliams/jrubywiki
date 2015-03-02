@@ -18,9 +18,9 @@ This wiki page includes status information and FAQs.
 
 ## Current Status
 
-## RubySpec
+### RubySpec
 
-We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding.
+We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support over 93% of the language and over 44% of the core library. Work on the standard library is still more limited.
 
 * [Language Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-language-report/html/)
 * [Core Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-core-report/html/)
@@ -38,7 +38,7 @@ For more information Truffle see the [publications](https://wiki.openjdk.java.ne
 
 **What is Graal?**
 
-Graal is a new implementation of a JIT compiler in the OpenJDK Java Virtual Machine. Unlike the current compilers, Graal is written in Java, and exposes a Java API to the running program. This means that instead of emitting bytecode a JVM language can directly control the compiler. However this is complicated, so normally Truffle uses Graal on your behalf.
+Graal is a new implementation of a JIT compiler in the OpenJDK Java Virtual Machine. Unlike the current compilers, Graal is written in Java, and exposes a Java API to the running program. This means that instead of emitting bytecode a JVM language can directly control the compiler. However this is complicated, so normally Truffle uses Graal on your behalf to *partially evaluate* your AST interpreter into machine code.
 
 For more information about Graal see the [publications](https://wiki.openjdk.java.net/display/Graal/Publications+and+Presentations) and [API documentation](http://lafo.ssw.uni-linz.ac.at/javadoc/graalvm/all/index.html).
 
@@ -54,11 +54,11 @@ When running on a VM with the Graal compiler, Truffle can use the API exposed by
 
 **Where did this code come from?**
 
-[Chris Seaton](https://github.com/chrisseaton) wrote an implementation of Ruby on Truffle and Graal as part of an internship at Oracle Labs in the first half of 2013. The code in the `org.jruby.truffle` package is that open source code merged into JRuby.
+[Chris Seaton](https://github.com/chrisseaton) wrote an implementation of Ruby on Truffle and Graal as part of an internship at Oracle Labs in the first half of 2013. The code was merged into JRuby in early 2014. Benoit Daloze and Kevin Menard joined as researchers in the second half of 2014. Since then we have also accepted contributions from people outside Oracle Labs.
 
 **Who do I ask about the Truffle backend?**
 
-[Chris Seaton](https://github.com/chrisseaton) is the point of contact, or discuss on the JRuby developer’s mailing list. General Graal and Truffle issues can be discussed on the [Graal mailing list](http://mail.openjdk.java.net/mailman/listinfo/graal-dev).
+Ask about Truffle in the `#jruby` Freenode IRC room. We'll get notified if you mention *truffle* so your question won't be missed.
 
 **How do I know if I’m using a Graal VM?**
 
@@ -66,7 +66,7 @@ Use `-Xtruffle.printRuntime=true`. This should print the name of the Truffle run
 
 **Why doesn’t the Truffle backend work for my application or gem?**
 
-The Truffle backend is not yet mature and doesn’t support all of Ruby. It passes about half of the RubySpec language specs, so is unlikely to work for arbitrary code.
+The Truffle backend implements almost all of the language but only about half the core library.
 
 **Why doesn’t the Truffle backend perform well for my benchmark?**
 
@@ -78,10 +78,6 @@ Also, check that you are using a Graal VM (see above).
 
 The Truffle backend doesn’t use `invokedynamic`, as it doesn't emit bytecode. However it does have an optimising method dispatch mechanism that achieves a similar result - see the [method dispatch nodes](https://github.com/jruby/jruby/tree/master/core/src/main/java/org/jruby/truffle/nodes/call).
 
-**How is this related to the new IR?**
+**How is this related to the JRuby IR?**
 
-The Truffle backend and the new IR are not related and take very different approaches. They are mutually exclusive backends - you can’t use both of them at the same time.
-
-**Why are there are assertion failures while processing annotations during compilation under IntelliJ IDEA?**
-
-The assertion failures are a bug in Truffle - sorry about them. You should be able to pass `-J-da` to `javac` in preferences, but that doesn’t seem to fix the problem. Compiling in Maven works fine.
+The Truffle backend and the JRuby IR are not related and take very different approaches. They are mutually exclusive backends - you can’t use both of them at the same time.
