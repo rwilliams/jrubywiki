@@ -1,3 +1,1 @@
-The Ruby bibliography has been moved to RubySpec.
-
-http://rubyspec.org/bibliography/
+The Ruby bibliography has moved to http://rubybib.org/
