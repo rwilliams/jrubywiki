@@ -8,13 +8,15 @@ JRuby can also be embedded directly using JRuby's own APIs. The interfaces in Ja
 ===Instantiating the JRuby interpreter===
 The most direct method of running JRuby in Java is as follows (works for JRuby 1.1+):
 
-<pre>
+```java
+import java.util.*;
 import org.jruby.Ruby;
 import org.jruby.RubyRuntimeAdapter;
 import org.jruby.javasupport.JavaEmbedUtils;  
 {...}
 // Create runtime instance
-Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
+List<String> loadPaths = new ArrayList<String>();
+Ruby runtime = JavaEmbedUtils.initialize(loadPaths);
 RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
 
 {...}
@@ -23,32 +25,32 @@ evaler.eval(runtime, "puts 1+2");
 
 // Shutdown and terminate instance
 JavaEmbedUtils.terminate(runtime);
-</pre>
+```
 
-You could also instantiate it using even deeper "raw" API's--check the source to Main.java and ScriptingContainer.java to see how they do it (RubyConfigAdapter et al), but it's pretty complex, and using "some other way" (embedutils, or ScriptingContainer RedBridge) will get you a runtime running more simply.
+You could also instantiate it using even deeper "raw" API's--check the source to [[Main.java|https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/Main.java]] and [[ScriptingContainer.java|https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/embed/ScriptingContainer.java]] to see how they do it (RubyConfigAdapter et al), but it's pretty complex, and using "some other way" (embedutils, or ScriptingContainer RedBridge) will get you a runtime running more simply.
 
 ===Raw Example===
 
 In mirah, here's a somewhat low-level example. See below for others that use "eval" or the like.
 
-<pre>
+```Mirah
 import org.jruby.*
 import org.jruby.javasupport.JavaEmbedUtils
-import java.util.ArrayList
+import java.util.Collections
 
-runtime = JavaEmbedUtils.initialize(ArrayList.new)
+runtime = JavaEmbedUtils.initialize(Collections.emptyList())
 longy = RubyFixnum.new(runtime, 35) # type RubyFixnum
 puts longy # 35
 yo = longy.op_plus(runtime.getCurrentContext, RubyFixnum.new(runtime, 35)) # type RubyIObject since op_plus returns one of those.  The result value happens to be another RubyFixnum, which descends from RubyIObject
 puts yo # 70
 ...
-</pre>
+```
 
 ===Subclassing a Java class===
 
 Here is another raw example, using eval et al.
 
-<pre>
+```java
 /*
 This is run using
 java -cp .:/path/to/jruby.jar  RubyFromJava
@@ -106,11 +108,11 @@ public class RubyFromJava {
                  evaler.eval(runtime, script); // outputs fooBAR
 	}
 }
-</pre>
+```
 
 ===Using a Ruby subclass by casting it to its Java superclass -- from Java!===
 
-<pre>
+```java
 /*
 This is run using
 java -cp .:/path/to/jruby.jar  RubyFromJava
@@ -154,7 +156,7 @@ public class RubyFromJava {
 		System.out.println("Local: " + ((RubyFromJava) rfj).fooString() + "\n"); // outputs Local: fooBAR!
 	}
 }
-</pre>
+```
 
 ----
 
@@ -162,48 +164,48 @@ public class RubyFromJava {
 1. Write a Java class X (here in example RubyFromJava.java) which should be subclassed into a Ruby class Y. Let be fooString() be a method which you would like to overwrite in Ruby. This method will be called directly from Java, yet execute Ruby code.
 
 2. Get Ruby runtime instance via
-<pre>
-   Ruby runtime = Ruby.getDefaultInstance();
-   // 
-   Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
-</pre>
+```java
+  Ruby runtime = Ruby.getDefaultInstance();
+  // 
+  Ruby runtime = JavaEmbedUtils.initialize(new ArrayList());
+```
 
 3. Parse your script with Ruby class Y which overwrites fooString(). Assuming that the script is contained in the String "script", you do this via
-<pre>
-    RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
-    evaler.eval(runtime, script);
-    // or IRubyObject rubyObject = evaler.parse(runtime, script_string, filename, line).run());
-</pre>
+```java
+  RubyRuntimeAdapter evaler = JavaEmbedUtils.newRuntimeAdapter();
+  evaler.eval(runtime, script);
+  // or IRubyObject rubyObject = evaler.parse(runtime, script_string, filename, line).run());
+```
 
 4. Intantiate Ruby class Y and cast (?) it to Java class X via
-<pre>
-   IRubyObject y = evaler.eval(runtime, "Y.new()");
-   X y2 = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, y, X.class);
-</pre>
+```java
+  IRubyObject y = evaler.eval(runtime, "Y.new()");
+  X y2 = org.jruby.javasupport.JavaEmbedUtils.rubyToJava(runtime, y, X.class);
+```
 
 5. Now call the method fooString() of the object y - Ruby code is executed!
-<pre>
-   y2.fooString();
-</pre>
+```java
+  y2.fooString();
+```
 
 '''Remark 1''': 
 
 The overwritten method can also take parameters (at least Java objects, not sure about Ruby objects). So fooString() can be changed into:
-<pre>
-   public String fooString(String myArg) {
-	return "foo " + myArg;
-   }
-</pre>
+```java
+  public String fooString(String myArg) {
+      return "foo " + myArg;
+  }
+```
 and the Ruby overwriting method then might look like this:
-<pre>
-   def fooString (myArg)
-	return 'BAR!' + myArg
-   end
-</pre>
+```ruby
+  def fooString (myArg)
+    return 'BAR!' + myArg
+  end
+```
 You call then the method as:
-<pre>
-   y2.fooString("Argument");
-</pre>
+```java
+  y2.fooString("Argument");
+```
 
 '''Remark 2''': 
 
@@ -211,25 +213,25 @@ Be aware that the Ruby object y (in the code above) has been created from "scrat
 
 === Passing Java parameters to a Ruby object's new method ===
 
-<pre>
+```java
 IRubyObject rubyClass = evaler.eval(runtime, "MyRubyClass");
 Object[] parameters = {javaObject, otherJavaObject};
 JavaEmbedUtils.invokeMethod(runtime, rubyClass, "new", parameters, IRubyObject.class);
-</pre>
+```
 
 If your Ruby subclass is extending or implementing a Java type, you can set the return type parameter and cast the return value of invokeMethod to the appropriate type.
 
-<pre>
+```java
 IRubyObject rubyClass = evaler.eval(runtime, "MyRubyClass");
 Object[] parameters = {javaObject, otherJavaObject};
 MyJavaType rubyObject = (MyJavaType)JavaEmbedUtils.invokeMethod(runtime, rubyClass "new", parameters, MyJavaType.class);
-</pre>
+```
 
 
 ===Ruby code in your classpath, Mixed with java===
 For those who don't want BSF, and want to have lots of their application code in ruby files on their classpath, the following very simple utility can be useful (feel free to re-use as is):
 
-<pre>
+```java
 package ruby.utils;
 
 import java.util.ArrayList;
@@ -306,25 +308,25 @@ public class RubyLauncher {
         return url.getPath();
     }
 }
-</pre>
+```
 
 To use this is simple, you create a "root" ruby object in a .rb file on your classpath, and pass the name/path of that file into the constructor (as well as the initial method to pass the root java object into).
 Note that you can require code that lives elsewhere on your classpath, just as if it is on the filesystem.
 
 For example:
-<pre>
+```java
   Map<String, Object> root = new HashMap<String, Object>();
   root.put("name", "david");
 
   RubyLauncher launcher = new RubyLauncher("c:/ruby/myscripts/ruby_root.rb", "RubyRoot", "start");
   launcher.call(root);
-</pre>
+```
 
 NOTE: I was unable to get the RubyLauncher to find the Ruby script on my classpath. So I hardcoded the path.
 
 "RubyRoot" is the name of a ruby class in ruby_root.rb, and "start" is the name of a method that will take the "nae" object when "call" is invoked. Note that the initial Ruby script can <i>require</i> other .rb files from the classpath (just use the path, like you would on the filesystem) relative to where the "ruby_root.rb" file is.
 
-<pre>
+```ruby
 class RubyRoot
   
   def start( root )
@@ -332,6 +334,6 @@ class RubyRoot
   end
   
 end
-</pre>
+```
 
 Easy ! And no extra dependencies. This way you can just have minimal java bootstrap code, fire up the RubyLauncher once, and away you go.
