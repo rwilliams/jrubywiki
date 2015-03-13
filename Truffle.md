@@ -18,7 +18,7 @@ This wiki page includes installation instructions, more informal status informat
 
 ## Installation
 
-JRuby+Truffle comes as part of most configurations of JRuby - the notable exception is the standard Maven artefacts if you are embedding JRuby.
+JRuby+Truffle comes as part of most configurations of JRuby - the notable exception is the standard Maven artefacts if you are embedding JRuby. The documentation explains how to use Truffle from within the source tree.
 
 When JRuby is installed with Truffle, `-X+T` will which to Truffle mode.
 
