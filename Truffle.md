@@ -14,7 +14,24 @@ University Linz](http://ssw.jku.at).
 
 Documentation for JRuby+Truffle is at http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/doc/. This includes project outline, how to use Truffle and how to use Truffle-specific functionality.
 
-This wiki page includes status information and FAQs.
+This wiki page includes installation instructions, more informal status information and FAQs.
+
+## Installation
+
+JRuby+Truffle comes as part of most configurations of JRuby - the notable exception is the standard Maven artefacts if you are embedding JRuby.
+
+When JRuby is installed with Truffle, `-X+T` will which to Truffle mode.
+
+### rbenv
+
+Using `rbenv` and `ruby-build` you can install `jruby-9.0.0.0+graal-dev` which includes the GraalVM, so no separate configuration is needed.
+
+```
+$ rbenv install jruby-9.0.0.0+graal-dev
+$ rbenv shell jruby-9.0.0.0+graal-dev
+$ ruby -X+T -e 'puts Truffle.graal?'
+true
+```
 
 ## Current Status
 
