@@ -37,11 +37,11 @@ true
 
 ### RubySpec
 
-We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support over 93% of the language and over 44% of the core library. Work on the standard library is still more limited.
+We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support over 92% of the language and over 60% of the core library. Work on the standard library is still more limited.
 
 * [Language Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-language-report/html/)
 * [Core Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-core-report/html/)
-* [Stdlib Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-rubysl-report/html/)
+* [Library Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-library-report/html/)
 
 ## FAQ
 
