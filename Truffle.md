@@ -12,9 +12,9 @@ University Linz](http://ssw.jku.at).
 
 ## Documentation
 
-Documentation for JRuby+Truffle is at http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/doc/. This includes project outline, how to use Truffle and how to use Truffle-specific functionality.
+Developer documentation for JRuby+Truffle is at http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/doc/. This includes project outline, how to use Truffle and how to use Truffle-specific functionality.
 
-This wiki page includes installation instructions, more informal status information and FAQs.
+This wiki page includes more informal installation instructions, status information and FAQs.
 
 ## Installation
 
