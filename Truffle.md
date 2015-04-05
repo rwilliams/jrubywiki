@@ -45,6 +45,27 @@ $ ruby -X+T -e 'puts Truffle.graal?'
 true
 ```
 
+### Demonstrating Truffle
+
+However you install JRuby+Truffle, you may want to immediately demonstrate to yourself that Truffle is actually doing something. Put this program into `test.rb`:
+
+```ruby
+loop do
+  14 + 2
+end
+```
+
+Then run JRuby+Truffle (`jruby-master/bin/jruby` if via the nightly or `ruby` if via `rbenv`), with the `-X+T` option to use Truffle, and we'll also use the `-J-G:+TraceTruffleCompilation` to ask Truffle to tell us when it compiles something.
+
+
+```
+$ jruby-master/bin/jruby -X+T -J-G:+TraceTruffleCompilation test.rb
+[truffle] opt done         BasicObject#equal?(core):core: BasicObject#equal? <opt>     |ASTSize       8/    8 |Time   408( 307+100 )ms |DirectCallNodes I    0/D    0 |GraalNodes    64/  137 |CodeSize          402 |Source core: BasicObject#equal? 
+[truffle] opt done         block in loop:test.rb:1 <opt> <split-0-U>                |ASTSize      13/   20 |Time   256( 254+3   )ms |DirectCallNodes I    1/D    0 |GraalNodes    18/    3 |CodeSize           66 |Source   test.rb:1
+```
+
+Here you can see that Truffle has decided to compile the body of that loop to machine code - just 66 bytes of machine code in all. Along the way, it also decided to compile `BasicObject#equal?` - this is because that method is used enough times while we load the core library for the compiler to realise that it is hot and also compile it.
+
 ## Current Status
 
 ### RubySpec
