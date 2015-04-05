@@ -18,13 +18,25 @@ This wiki page includes installation instructions, more informal status informat
 
 ## Installation
 
-JRuby+Truffle comes as part of most configurations of JRuby - the notable exception is the standard Maven artefacts if you are embedding JRuby. The documentation explains how to use Truffle from within the source tree.
+JRuby+Truffle comes as part of most configurations of JRuby - the notable exception is the standard Maven artefacts if you are embedding JRuby. When JRuby is installed with Truffle, `-X+T` will which to Truffle mode.
 
-When JRuby is installed with Truffle, `-X+T` will which to Truffle mode.
+### Nightly Builds
+
+You can download a single tarball for Mac or Linux that includes JRuby and the GraalVM - so you don't even need a JVM installed on your system.
+
+* http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-macosx-x86_64-bin.tar.gz
+* http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-linux-x86_64-bin.tar.gz
+
+```
+$ wget http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-macosx-x86_64-bin.tar.gz
+$ tar -zxf jruby-dist-master+graal-macosx-x86_64-bin.tar.gz
+$ jruby-master/bin/jruby -X+T -e 'puts Truffle.graal?'
+true
+```
 
 ### rbenv
 
-Using `rbenv` and `ruby-build` you can install `jruby-9.0.0.0+graal-dev` which includes the GraalVM, so no separate configuration is needed.
+Using `rbenv` and `ruby-build` you can install `jruby-9.0.0.0+graal-dev`. Like the nightly builds, this includes both JRuby and the Graal VM so you don't need a separate JVM.
 
 ```
 $ rbenv install jruby-9.0.0.0+graal-dev
