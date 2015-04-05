@@ -126,7 +126,7 @@ Also, check that you are using a Graal VM (see above).
 
 **How is this related to `invokedynamic`?**
 
-The Truffle backend doesn’t use `invokedynamic`, as it doesn't emit bytecode. However it does have an optimising method dispatch mechanism that achieves a similar result - see the [method dispatch nodes](https://github.com/jruby/jruby/tree/master/core/src/main/java/org/jruby/truffle/nodes/call).
+The Truffle backend doesn’t use `invokedynamic`, as it doesn't emit bytecode. However it does have an optimising method dispatch mechanism that achieves a similar result - see the [method dispatch nodes](https://github.com/jruby/jruby/tree/master/truffle/src/main/java/org/jruby/truffle/nodes/dispatch).
 
 **How is this related to the JRuby IR?**
 
