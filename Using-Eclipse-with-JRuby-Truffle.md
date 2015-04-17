@@ -1,4 +1,6 @@
-This is an experiment, mainly to have a much better feedback from the Truffle DSL annotation processor and ideally much faster compile time!
+Eclipse is an alternative IDE for editing JRuby+Truffle. It provides much better feedback from the Truffle DSL annotation processor and actually keep the project built at all times.
+
+However the build is not shared with Maven to avoid conflicts when Maven builds. Also, as normal JRuby runs from a jar it is not trivial to run from Eclipse compiled .class files.
 
 ## Using integrated Maven support
 
