@@ -45,6 +45,17 @@ $ ruby -X+T -e 'puts Truffle.graal?'
 true
 ```
 
+### rvm
+
+Use `rvm` you can mount the nightly builds listed above. For example, on the Mac:
+
+```
+$ rvm mount -r http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-macosx-x86_64-bin.tar.gz -n jruby-dev-graal
+$ rvm use jruby-dev-graal
+$ ruby -X+T -e 'puts Truffle.graal?'
+true
+```
+
 ### Demonstrating Truffle
 
 However you install JRuby+Truffle, you may want to immediately demonstrate to yourself that Truffle is actually doing something. Put this program into `test.rb`:
