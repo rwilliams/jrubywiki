@@ -29,7 +29,7 @@ If we call become_java! on this class, we get a ```java.lang.Class``` object rep
 ```
 cls = Foo.become_java!
 cls.declared_methods.each do |method|
-  puts method.simple_name
+  puts method.name
 end
 # =>
 # public static void rubyobj.Foo.clinit(org.jruby.Ruby,org.jruby.RubyClass)
