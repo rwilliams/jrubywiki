@@ -849,7 +849,7 @@ Related Articles
 * [[FAQs#Calling_Into_Java]] Other useful examples
 * [Java Integration in JRuby](http://mikiobraun.blogspot.com/2008/11/java-integration-in-jruby.html) Short overview article on JRuby and Java integration
 * [JRuby/Ruby Arrays to Hash](http://kenai.com/projects/jruby/pages/CallingJavaFromJRuby) Review on Converting Arrays to Hash in JRuby/Ruby
-* [Java Integration: JavaScript, Groovy and JRuby](http://blogs.sun.com/sundararajan/entry/java_integration_javascript_groovy_and) Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
+* [Java Integration: JavaScript, Groovy and JRuby](https://blogs.oracle.com/sundararajan/entry/java_integration_javascript_groovy_and) Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
 * [Spicing up Java with Ruby (a Rhino Story)](http://log.kares.org/2012/09/spicing-up-java-with-ruby-rhino-story.html) Using Java integration to bring Rhino into Ruby.
 * [JtestR](http://jtestr.codehaus.org/) A testing framework for Java based on JRuby.
 * [Sparrow](http://github.com/leandrosilva/sparrow) A JMS client for messaging based on JRuby.
