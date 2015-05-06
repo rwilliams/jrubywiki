@@ -20,7 +20,7 @@ Via issues like jruby/jruby#1896, we have learned that some Linux users run into
 
 When JRuby boots up, the JDK libraries responsible for random number generation go to /dev/random for (at least) initial entropy. After this point, more recent versions of JRuby will use a PRNG for subsequent random numbers, but older versions will continue to return to /dev/random. Unfortunately /dev/random can "run out" of "good" random numbers, providing a guarantee that reads from it will not return until the entropy pool is restored. On some systems -- especially virtualized -- the entropy pool can be small enough that this slows down JRuby's startup time or execution time significantly.
 
-You may be able to solve these issues by supplying more entropy to the Linux kernel or by configuring it to maintain a larger entropy pool on its own. Here's a good article on [setting up additional sources of entropy].
+You may be able to solve these issues by supplying more entropy to the Linux kernel or by configuring it to maintain a larger entropy pool on its own. Here's a good article on [setting up additional sources of entropy](https://www.digitalocean.com/community/tutorials/how-to-setup-additional-entropy-for-cloud-servers-using-haveged).
 
 Use the "client" mode of the JVM
 ================================
