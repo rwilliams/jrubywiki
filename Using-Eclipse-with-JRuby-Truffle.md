@@ -28,7 +28,7 @@ And now enable the Truffle annotation processor:
 Change the `Output folder` to not interfere with the Maven build for each project:
 * Select the `core` project
 * Right click and choose `Properties`
-* Select `Java Build Path`
+* Select `Java Build Path` and the `Source` tab.
 * Uncheck `Allow output folders for source folders`
 * In `Default output folder:` enter `[PROJECT]/build.eclipse` (with `[PROJECT]` replaced by `core` here)
 * Select `Yes` when asked about removing generated resources in the old location
