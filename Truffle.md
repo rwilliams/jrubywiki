@@ -20,6 +20,8 @@ This wiki page includes more informal installation instructions, status informat
 
 JRuby+Truffle comes as part of most configurations of JRuby - the notable exception is the standard Maven artefacts if you are embedding JRuby. When JRuby is installed with Truffle, `-X+T` will switch to Truffle mode.
 
+There are instructions for how to setup a working [Eclipse](Using-Eclipse-with-JRuby-Truffle) environment.
+
 ### Nightly Builds
 
 You can download a single tarball for Mac or Linux that includes JRuby and the GraalVM - so you don't even need a JVM installed on your system.
