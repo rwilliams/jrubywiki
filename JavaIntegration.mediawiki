@@ -108,7 +108,7 @@ If you declare a bean using BSF, make sure you undeclare it when you are done us
 
 ==See also==
 * [https://github.com/jruby/jruby/wiki/CallingJavaFromJRuby Calling Java from JRuby]
-* [[Accessing JRuby Object in Java]]
+* [https://github.com/jruby/jruby/wiki/AccessingJRubyObjectInJava Accessing JRuby Object in Java]
 
 ==Related Articles==
 * [http://leandrosilva.com.br/2008/08/14/executar-jruby-a-partir-do-java Executar JRuby a partir do Java (pt_BR)] Article about integration of Java with JRuby, showing how to run JRuby code from Java.
