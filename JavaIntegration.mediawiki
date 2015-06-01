@@ -107,7 +107,7 @@ These settings are specific to my system. Make sure the paths are correct for yo
 If you declare a bean using BSF, make sure you undeclare it when you are done using it, ''even if you declare another bean using the same name''. BSF internally adds declared beans to a vector, and only removes them once they are undeclared.  Or, as an alternative, you can call <tt>registerBean</tt> and access the object from JRuby using the global $bsh reference.
 
 ==See also==
-* [Calling Java from JRuby]:https://github.com/jruby/jruby/wiki/CallingJavaFromJRuby
+* [https://github.com/jruby/jruby/wiki/CallingJavaFromJRuby Calling Java from JRuby]
 * [[Accessing JRuby Object in Java]]
 
 ==Related Articles==
