@@ -49,7 +49,7 @@ The <tt>-Djruby.home</tt> part is necessary so the system can find the ruby libr
 See [http://wiki.jruby.org/wiki/Walkthroughs_and_Tutorials#JSR_223_scripting Walkthroughs and Tutorials: JSR 223 scripting] for more information.
 
 ===Embedding with Bean Scripting Framework (BSF) ===
-The [[Bean Scripting Framework]], when used with JRuby, will allow you to conveniently to pass your own Java objects to your JRuby script. You can then use these objects in JRuby, and changes will affect your Java program directly. To run a JRuby script using BSF, you must first copy the <tt>BSF.jar</tt> file into your <tt>JAVA_HOME/lib/ext/</tt> folder. Then, try the following:
+The [https://github.com/jruby/jruby/wiki/BeanScriptingFramework Bean Scripting Framework], when used with JRuby, will allow you to conveniently to pass your own Java objects to your JRuby script. You can then use these objects in JRuby, and changes will affect your Java program directly. To run a JRuby script using BSF, you must first copy the <tt>BSF.jar</tt> file into your <tt>JAVA_HOME/lib/ext/</tt> folder. Then, try the following:
 <pre name="java">
 import org.jruby.Ruby.*;
 import org.jruby.*;
