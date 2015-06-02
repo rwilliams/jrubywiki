@@ -23,7 +23,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 * [[Concurrency in JRuby]]
 * [[Gems known to be threadsafe]]
-* [https://github.com/jruby/jruby/wiki/Gems-known-not-to-be-threadsafe Gems known not to be threadsafe]
+* [[Gems known not to be threadsafe]]
 * [[LoadService loading mechanism]]
 * [[EnhancedSecurity]]
 * [[Truffle]]
