@@ -2,7 +2,12 @@ Eclipse is an alternative IDE for editing JRuby+Truffle. It provides much better
 
 However the build is not shared with Maven to avoid conflicts when Maven builds. Also, as normal JRuby runs from a jar it is not trivial to run from Eclipse compiled .class files.
 
-## Using integrated Maven support
+First, make sure the project is already built from the command line:
+```bash
+$ mvn
+```
+
+### Using integrated Maven support
 
 Create a new workspace in Eclipse (>= Luna).
 
