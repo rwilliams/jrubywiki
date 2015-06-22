@@ -144,3 +144,7 @@ The Truffle backend doesn’t use `invokedynamic`, as it doesn't emit bytecode. 
 ### How is this related to the JRuby IR?
 
 The Truffle backend and the JRuby IR are not related and take very different approaches. They are mutually exclusive backends - you can’t use both of them at the same time.
+
+### Why isn't JRuby switching to Truffle now?
+
+Truffle is a research project, there is no expected release date, and it does not perform well on a standard JVM. The JRuby+Truffle team aren't recommending that JRuby switch to Truffle. IR is what you want to be using today. Truffle is what you might want to run in the future, but not yet.
