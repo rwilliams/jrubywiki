@@ -41,6 +41,6 @@ Change the `Output folder` to not interfere with the Maven build for each projec
 
 You shall be set!
 
-It is possible to run JRuby with a run configuration for `org.jruby.Main.main()`. For that you set the working directory to `${workspace_loc}` in the `Arguments` tab.
+It is possible to run JRuby with a run configuration for `org.jruby.Main.main()`. For that, set the working directory to `${workspace_loc}` in the `Arguments` tab.
 
 Further integration is under investigation.
