@@ -1,7 +1,5 @@
 Eclipse is an alternative IDE for editing JRuby+Truffle. It provides much better feedback from the Truffle DSL annotation processor and actually keeps the project built at all times.
 
-However the build is not shared with Maven to avoid conflicts when Maven builds. Also, as normal JRuby runs from a jar it is not trivial to run from Eclipse compiled .class files.
-
 First, make sure the project is already built from the command line:
 ```bash
 $ mvn
@@ -41,6 +39,16 @@ Change the `Output folder` to not interfere with the Maven build for each projec
 
 You shall be set!
 
-It is possible to run JRuby with a run configuration for `org.jruby.Main.main()`. For that, set the working directory to `${workspace_loc}` in the `Arguments` tab.
+### Running from the Eclipse files directly
 
-Further integration is under investigation.
+Use the `tool/jruby_eclipse` script to run directly from Eclipse .class files.  
+Any change in truffle Java or Ruby files will be available as soon as Eclipse finishes compiling.
+
+```bash
+$ tool/jruby_eclipse -X+T -e 'p RUBY_ENGINE'
+"jruby+truffle"
+```
+
+The [jt workflow tool](https://github.com/jruby/jruby/tree/master/truffle#workflow-tool)
+automatically picks up that script over `bin/jruby` if you have  
+`export JRUBY_ECLIPSE=true` in your environment.
