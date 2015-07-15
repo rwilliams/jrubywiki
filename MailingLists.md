@@ -1,4 +1,4 @@
-Communicate: Mailing Lists, IRC
+Communicate: Mailing Lists
 ============================================
 
 JRuby's mailing list is maintained alongside MRI's lists on ruby-lang.org.
