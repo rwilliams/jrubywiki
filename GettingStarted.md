@@ -82,7 +82,7 @@ If it installed correctly, JRuby will return the current version.
 
 **Note:** If you're using RVM to install JRuby, you may need to remove the `--conservative` option from (your optional rubygems configuration file) ~/.gemrc. With `--conservative`, the older rubygems (at this writing, 1.8.9) currently used by JRuby fails to begin gem executables with #!/usr/bin/env, and that doesn't work on most systems (e.g. Linux earlier than 2.6.27.9, per http://www.in-ulm.de/~mascheck/various/shebang/#interpreter-script).
 
-How Do I Run rake, gem, etc?
+Running rake, gem, rails, etc
 ----------------------------
 The recommended way to run these commands (known as _system-level executable commands_) in JRuby is to **always** use `jruby -S`.
 
@@ -96,7 +96,7 @@ The recommended way to run these commands (known as _system-level executable com
 
 The `-S` parameter tells JRuby to use **its** version of the installed binary, as opposed to some other version (such as an MRI version) that might be on your `PATH`.
 
-How Do I Run a Ruby Program?
+Running a Ruby Program
 ----------------------------
 To run any other ruby program by using JRuby, run it using the `jruby` command in a command window. For example,
 
