@@ -1,66 +1,86 @@
 Getting Started with JRuby
 ==========================
 
-To get JRuby on your system, install the most recent JRuby binary file for your system, extract it, and then work with it from the command line in a terminal window or command window
+In this guide, you'll learn how to install JRuby, run a JRuby console, install Gem dependencies, and run some sample code.
 
 Installing JRuby
 ----------------
-The easiest way to get up and running with JRuby is to download the latest binary, extract it, and add the directory to your PATH environment variable.
 
-**Note:** It's best to avoid using a package manager because of issues with keeping the downloaded versions current.
+For all platforms, make sure you have [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed. You can test this by running the command `java -version`. 
 
-If you prefer to build your own JRuby, see [[Downloading JRuby Source and Building It Yourself|DownloadAndBuildJRuby]].
+### Microsoft Windows
 
-To download and install JRuby: [Download a JRuby binary file](http://jruby.org/download) 
+In your browser, navigate to the [JRuby Downloads page](http://jruby.org/download). Select the "Windows Executable" link for your system (either standard or x64). Run the installer after it has finished downloading. This will extract the runtime and put the `jruby` command on your `%PATH%` (meaning it will be available from the command-line).
 
-* For OSX, Linux, BSD, Solaris, and other UNIX varieties, get the most recent `jruby-bin-X.Y.Z.tar.gz` file.
-* If you're on Microsoft Windows, get the most recent `jruby-bin-X.Y.Z.zip` file.
-* Extract JRuby into a directory.
-* Add that directory's bin subdirectory to the ''end'' of your `PATH` environment variable.
-* On OSX, Linux, BSD, Solaris, and other UNIXes, the variable is `$PATH`, and a sample JRuby path is `/opt/jruby/bin`.
-* On Microsoft Windows, the variable is `%PATH%`, and a sample JRuby path is `C:\JRuby\jruby-1.5.0\bin`. Also, make sure your `JAVA_HOME` environment variable points to your Java installation. For example, `C:\Program Files\Java\jdk1.6.0_14\`.
+You can confirm that it was installed by opening a command prompt and running:
+
+```
+C:\> jruby -version
+```
+
+If it installed correctly, JRuby will return the current version. You may be prompted with a security warning the first time you run the `jruby` command. This is expected.
+
+### Linux and Mac OS X
+
+On Linux and Max, you can either install the JRuby binaries or use a Ruby version manager such as [RVM](https://rvm.io/). However, it's best to avoid using a package manager because of issues with keeping the downloaded versions current. If you prefer to build your own JRuby, see [[Downloading JRuby Source and Building It Yourself|DownloadAndBuildJRuby]].
 
 **Note:** On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRuby With Wrong Java|JRubyOnUbuntu]].
 
 **Note:** If you're on HP-UX, see [[Using JRuby on HPUX|JRubyOnHPUX11_23]].
 
-**Note:** If you're using RVM to install JRuby, remove these options from (your optional rubygems configuration file) ~/.gemrc: --conservative --local.
+#### Installing Binaries
 
-With `--local', (at this writing) RVM fails to obtain the jruby-launcher gem required by jruby.
+In your browser, navigate to the [JRuby Downloads page](http://jruby.org/download). Select the "Binary" package in either `.tar.gz` or `.zip` format. When it's finished downloading, extract it's contents to a `jruby` directory under your home directory. From your home directory, it should look something like this:
 
-With `--conservative', the older rubygems (at this writing, 1.8.9) currently used by JRuby fails to begin gem executables with #!/usr/bin/env, and that doesn't work on most systems (e.g. Linux earlier than 2.6.27.9, per http://www.in-ulm.de/~mascheck/various/shebang/#interpreter-script).
+```
+$ tree -L 1 jruby/
+jruby/
+├── COPYING
+├── LICENSE.RUBY
+├── bin
+├── lib
+├── samples
+└── tool
 
-Then: rvm install jruby ; rvm use jruby
+4 directories, 2 files
+```
 
-### Linux and OSX Installation Example
-Once you've downloaded or built a JRuby installation and it is located in the directory `/opt/jruby`, you'll need to add `/opt/jruby/bin` to the end of your `$PATH` environment variable.
+Next put the `bin` directory on your `$PATH`. You can do this temporarily by running the following command:
 
-On Mac OS X and Linux, you can add to the `PATH` variable with the export command
+```
+$ export PATH=~/jruby/bin:$PATH
+```
 
-    export PATH=$PATH:/opt/jruby/bin
+Or you can make it permenant by putting that statement in a `.profile` file in your home directory.
 
-### Microsoft Windows XP Installation Example
-Once you've downloaded or built a JRuby installation and it is located in the directory `C:\JRuby\jruby1.5.0\`, you'll need to add `C:\JRuby\jruby1.5.0\bin` to the end of your `%PATH%` environment variable. You'll also need to ensure that your `JAVA_HOME` variable is set to the location of your current Java installation, for example, `C:\Program Files\Java\jdk1.6.0_14\`.
+Now that JRuby is on your path, you can test that it's working by running:
 
-* In Windows XP, choose Start > Control Panel > System to open the System Properties window.
-* Click the Advanced tab, then click the Environment Variables button at the bottom of the window.
-* In the System Variables section, scroll down to `Path`, select it, and click Edit.
-* Add the path to the JRuby bin directory to the end of the Path. For example, add:<br/>;`C:\JRuby\jruby1.5.0\bin`
-* Look for `JAVA_HOME` in both the User Variables section and the System Variables section and make sure it points to your current Java installation. If necessary, create a new JAVA_HOME variable as follows:
-* Under the User Variables section, click New.
-* **Variable name:** enter `JAVA_HOME`
-* **Variable value:** enter the actual path. For example, <br/> `C:\Program Files\Java\jdk1.6.0_14\`.
-* Click OK to add the variable.
-* Click OK at the bottom of the Environment Variables window.
-* Click OK to close the System Properties window.
-
-Did It Work?
------------
-To test whether JRuby installed correctly, open a command window or terminal window and run:
-
-    jruby --version
+```
+$ jruby -version
+```
 
 If it installed correctly, JRuby will return the current version.
+
+#### Using RVM
+
+First, make sure you have [RVM installed as outlined in the documentation](https://rvm.io/rvm/install). Then run the following command:
+
+```
+$ rvm install jruby
+```
+
+If you would like to install a specific version of JRuby, you can replace `jruby` with `jruby-X.Y.Z`, where `X.Y.Z` is a version such as `1.7.21` or `9.0.0.0`. 
+
+Once the install process is finished, you can ensure that JRuby is being used like this:
+
+```
+$ rvm use jruby
+$ jruby -version
+```
+
+If it installed correctly, JRuby will return the current version.
+
+**Note:** If you're using RVM to install JRuby, you may need to remove the `--conservative` option from (your optional rubygems configuration file) ~/.gemrc. With `--conservative`, the older rubygems (at this writing, 1.8.9) currently used by JRuby fails to begin gem executables with #!/usr/bin/env, and that doesn't work on most systems (e.g. Linux earlier than 2.6.27.9, per http://www.in-ulm.de/~mascheck/various/shebang/#interpreter-script).
 
 How Do I Run rake, gem, etc?
 ----------------------------
@@ -74,7 +94,7 @@ The recommended way to run these commands (known as _system-level executable com
     jruby -S rake db:create
     jruby -S rake db:migrate
 
-The `-S` parameter tells JRuby to use **its** version of the installed binary.
+The `-S` parameter tells JRuby to use **its** version of the installed binary, as opposed to some other version (such as an MRI version) that might be on your `PATH`.
 
 How Do I Run a Ruby Program?
 ----------------------------
