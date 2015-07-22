@@ -15,7 +15,7 @@ In your browser, navigate to the [JRuby Downloads page](http://jruby.org/downloa
 You can confirm that it was installed by opening a command prompt and running:
 
 ```
-C:\> jruby -version
+C:\> jruby --version
 ```
 
 If it installed correctly, JRuby will return the current version. You may be prompted with a security warning the first time you run the `jruby` command. This is expected.
@@ -56,7 +56,7 @@ Or you can make it permenant by putting that statement in a `.profile` file in y
 Now that JRuby is on your path, you can test that it's working by running:
 
 ```
-$ jruby -version
+$ jruby --version
 ```
 
 If it installed correctly, JRuby will return the current version.
@@ -75,7 +75,7 @@ Once the install process is finished, you can ensure that JRuby is being used li
 
 ```
 $ rvm use jruby
-$ jruby -version
+$ jruby --version
 ```
 
 If it installed correctly, JRuby will return the current version.
