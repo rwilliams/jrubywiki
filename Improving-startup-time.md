@@ -16,7 +16,7 @@ The `--dev` flag combines several tips from below, as noted.
 Ensure your system has adequate entropy
 =======================================
 
-Via issues like jruby/jruby#1896, we have learned that some Linux users run into startup and execution bottlenecks due to exhausting the random number entropy pool.
+Via issues like [jruby/jruby#1896](https://github.com/jruby/jruby/issues/1896), we have learned that some Linux users run into startup and execution bottlenecks due to exhausting the random number entropy pool.
 
 When JRuby boots up, the JDK libraries responsible for random number generation go to /dev/random for (at least) initial entropy. After this point, more recent versions of JRuby will use a PRNG for subsequent random numbers, but older versions will continue to return to /dev/random. Unfortunately /dev/random can "run out" of "good" random numbers, providing a guarantee that reads from it will not return until the entropy pool is restored. On some systems -- especially virtualized -- the entropy pool can be small enough that this slows down JRuby's startup time or execution time significantly.
 
