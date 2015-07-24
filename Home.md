@@ -70,8 +70,8 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [The Redcar Editor](http://redcareditor.com/) (built with SWT)
 
 **Get Creative**
-* [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (create processing sketches with ruby)
-* [JRubyArt](https://github.com/ruby-processing/JRubyArt) (an alternative implementation of processing in ruby)
+* [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (create processing-2.2.1 sketches with ruby)
+* [JRubyArt](https://github.com/ruby-processing/JRubyArt) (create processing-3.0+ sketches with ruby)
 
 **Evangelism**
 
