@@ -1,6 +1,63 @@
-first note unless you use a **Jarfile** with jbundler you can just use the regular ruby buildPack to run JRuby application on heroku. this here is show an alternative way where you have both a **Gemfile** and a **Jarfile** needs a slighly different approach (or maybe a custom buildPack).
+*Note:* unless you use a `Jarfile` you can just use the regular Ruby buildPack to run a JRuby application on Heroku. This article describes how to have both a `Gemfile` and a `Jarfile` in the same project.
 
-the way to go is to deploy the application as java application on heroku. the bridge between the java, jruby and heroku is **Ruby-Maven** which will use the **Gemfile**, the **Jarfile** and produce a **pom.xml** which allows to deploy the application on heroku.
+## Using the Ruby Buildpack
+
+Most apps will want to use the standard Ruby buildpack. To do so, you must create a `Rakefile` and add an `assets:precompile` task that executes JBundler:
+
+```ruby
+task "assets:precompile" do
+  `jbundle install`
+  `jbundle install --vendor`
+end
+```
+
+Add this file to Git along with your `Jarfile` and `Jarfile.lock`, like so:
+
+```
+$ git add Rakefile Jarfile Jarfile.lock
+$ git commit -m "Added jbundler config"
+```
+
+Then deploy to Heroku as normal:
+
+```
+$ git push heroku master
+...
+remote:        Gems in the groups development and test were not installed.
+remote:        Bundled gems are installed into ./vendor/bundle.
+remote:        Bundle completed (17.52s)
+remote:        Cleaning up the bundler cache.
+remote: -----> Precompiling assets
+remote:        Running: rake assets:precompile
+remote:        Picked up JAVA_TOOL_OPTIONS: -Xmx768m -Djava.rmi.server.useCodebaseOnly=true
+remote:        Picked up JAVA_TOOL_OPTIONS: -Xmx768m -Djava.rmi.server.useCodebaseOnly=true
+remote:        Picked up JAVA_TOOL_OPTIONS: -Xmx768m -Djava.rmi.server.useCodebaseOnly=true
+remote:        jbundler provided classpath:
+remote:        ----------------
+remote:        jbundler runtime classpath:
+remote:        ---------------------------
+remote:        /app/.m2/repository/io/netty/netty-all/4.0.28.Final/netty-all-4.0.28.Final.jar
+remote:        jbundler test classpath:
+remote:        ------------------------
+remote:        --- empty ---
+remote:        Picked up JAVA_TOOL_OPTIONS: -Xmx768m -Djava.rmi.server.useCodebaseOnly=true
+remote:        Picked up JAVA_TOOL_OPTIONS: -Xmx768m -Djava.rmi.server.useCodebaseOnly=true
+remote:        complete classpath:
+remote:        file:/tmp/build_32bb67a007294c97b4d2c688fc600f50/vendor/ruby-2.2.2-jruby-9.0.0.0/lib/ruby/stdlib/jline/jline/2.11/jline-2.11.jar
+remote:        file:/tmp/build_32bb67a007294c97b4d2c688fc600f50/vendor/ruby-2.2.2-jruby-9.0.0.0/lib/ruby/stdlib/readline.jar
+remote:        file:/tmp/build_32bb67a007294c97b4d2c688fc600f50/vendor/ruby-2.2.2-jruby-9.0.0.0/lib/ruby/stdlib/psych.jar
+remote:        file:/tmp/build_32bb67a007294c97b4d2c688fc600f50/vendor/ruby-2.2.2-jruby-9.0.0.0/lib/ruby/stdlib/org/yaml/snakeyaml/1.14/snakeyaml-1.14.jar
+remote:        file:/app/.m2/repository/io/netty/netty-all/4.0.28.Final/netty-all-4.0.28.Final.jar
+remote:        Asset precompilation completed (228.80s)
+...
+remote: Verifying deploy..... done.
+```
+
+You will see JBundler run during the pre-compilation step.
+
+## Using the Java Buildpack
+
+This describes how to deploy your JRuby app as a Java application on Heroku. the bridge between the java, jruby and heroku is **Ruby-Maven** which will use the **Gemfile**, the **Jarfile** and produce a **pom.xml** which allows to deploy the application on heroku.
 
 the starting point is the **Mavenfile** from [Rack-Application-with-Ruby-Maven](Rack-Application-with-Ruby-Maven) where you need to add three more declarations for heroku.
 
