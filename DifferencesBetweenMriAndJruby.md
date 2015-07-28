@@ -12,7 +12,7 @@ JRuby cannot run native C extensions.  Popular libraries have all generally been
 Continuations and Fibers
 ------------------------
 
-JRuby does not support [continuations](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_c_continuation.html) ([Kernel.callcc](http://www.ruby-doc.org/docs/ProgrammingRuby/html/ref_m_kernel.html#Kernel.callcc)).
+JRuby does not support [continuations](http://ruby-doc.com/docs/ProgrammingRuby/html/ref_c_continuation.html) ([Kernel.callcc](http://ruby-doc.com/docs/ProgrammingRuby/html/ref_m_kernel.html#Kernel.callcc)).
 
 Fibers (a form of delimited continuation) are supported on JRuby, but each fiber is backed by a native thread. This can lead to resource issues when attempting to use more fibers than the system allows threads in a given process.
 
