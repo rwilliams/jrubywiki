@@ -67,6 +67,6 @@ now you can use like this:
         <dependency>
           <groupId>org.jruby</groupId>
           <artifactId>jruby</artifactId>
-          <version>9000.dev-SNAPSHOT</version>
+          <version>9.0.1.0-SNAPSHOT</version>
           <type>pom</type>
         </dependency>
