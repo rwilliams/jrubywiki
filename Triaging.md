@@ -2,7 +2,7 @@ For those people interested in helping to triage JRuby issues, then this page wi
 
 # Initial Triage
 
-First thing to consider is the quality of the issue (see JRubyBugReportingStyleGuide).  If someone is not providing enough info or their reproduction is too large then you can follow up as a comment and ask them for more info.  PLEASE NOTE:  Every issue report we receive we should treat as a gift.  Please treat the reporter in as pleasant of a way as possible.  We want them to keep reporting issues and potentially get more involved in our project.
+First thing to consider is the quality of the issue (see [[JRubyBugReportingStyleGuide]]).  If someone is not providing enough info or their reproduction is too large then you can follow up as a comment and ask them for more info.  PLEASE NOTE:  Every issue report we receive we should treat as a gift.  Please treat the reporter in as pleasant of a way as possible.  We want them to keep reporting issues and potentially get more involved in our project.
 
 Another important aspect of triaging an issue is which compatibility level is the issue for?  Is someone reporting a Ruby 2.2 issue against JRuby 1.7.22 in Ruby 1.9.3 mode?  Are they reporting against 2.2 and JRuby 9k, but the compatibility issue has existed since Ruby 1.8.7?  Narrow down which Ruby release the bug is valid for and then mark the labels 'JRuby 1.7' and/or 'JRuby 9000'.  In a comment specify which versions you tracked the problem back to (e.g. "I can confirm this behavior changed in 1.8.7").
 
