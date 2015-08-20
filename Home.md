@@ -40,6 +40,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Design/Internals|Internals]]
 * [[Distributions|JRubyDistributions]]
 * [[JRuby Bug Reporting Style Guide|JRubyBugReportingStyleGuide]]
+* [[Triaging]]
 * [[JRuby Style Guide|JRubyStyleGuide]]
 * [[JRuby and RubySpecs|JRubyAndRubySpecs]]
 * [[Ruby 1.9 Support|Ruby1_9Support]] - Remaining work to be done and how to contribute
