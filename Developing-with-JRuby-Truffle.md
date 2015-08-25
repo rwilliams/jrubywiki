@@ -6,8 +6,8 @@ See truffle/[README](https://github.com/jruby/jruby/tree/master/truffle).
 
 ### Where to allocate helper nodes (a node used in another node)
 
-* If the node does not use the DSL, either allocate eagerly if the node is always used, or lazily if it is only used in some cases.
-* If the node is used by every specialization: allocate the helper node eagerly as a @Child.
+* If the node does not use the DSL, either allocate eagerly if the helper node is always used, or lazily if it is only used in some cases.
+* If the helper node is used by every specialization: allocate the helper node eagerly as a @Child.
 ```java
 public abstract class MyNode extends RubyNode {
     @Child MetaClassNode metaClassNode;
@@ -18,7 +18,7 @@ public abstract class MyNode extends RubyNode {
     }
 ...
 ```
-* If the node is used by only one specialization: use @Cached.
+* If the helper node is used by only one specialization: use @Cached.
 ```java
         @Specialization
         public long objectID(DynamicObject object,
@@ -31,10 +31,10 @@ public abstract class MyNode extends RubyNode {
             return new ReadHeadObjectFieldNode(Layouts.OBJECT_ID_IDENTIFIER);
         }
 ```
-However, if the nodes already uses @Cached *and there are guards on the @Cached values*,
-consider whether you want one node per Specialization instantiation or only one for the whole node.
+However, if the node already uses @Cached *and there are guards on the @Cached values*,
+consider whether you want one helper node per Specialization instantiation or only one for the whole node.
 
-* Otherwise use the lazy pattern which *includes* the call on the node.
+* Otherwise use the lazy pattern which *includes* the call on the helper node.
 ```java
         @Child ToStrNode toStrNode;
         ...
@@ -47,4 +47,4 @@ consider whether you want one node per Specialization instantiation or only one 
             return toStrNode.executeToStr(frame, object);
         }
 ```
-If you want to call different methods on a node, then use a `getStrNode()` helper which returns the node.
+If you want to call different methods on a helper node, then use a `getStrNode()` helper which returns the helper node.
