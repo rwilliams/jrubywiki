@@ -2,7 +2,7 @@
 
 ## Where to allocate helper nodes (a node used in another node)
 
-* If the node does not use the DSL, either allocate eagerly if the node is always used, or lazily if it is sometimes used.
+* If the node does not use the DSL, either allocate eagerly if the node is always used, or lazily if it is only used in some cases.
 * If the node is used by every specialization: allocate the helper node eagerly as a @Child.
 ```java
 public abstract class MyNode extends RubyNode {
