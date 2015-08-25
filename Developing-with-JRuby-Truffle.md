@@ -1,0 +1,46 @@
+# Code patterns
+
+## Where to allocate helper nodes (a node used in another node)
+
+* If the node does not use the DSL, either allocate eagerly if the node is always used, or lazily if it is sometimes used.
+* If the node is used by every specialization: allocate the helper node eagerly as a @Child.
+```java
+public abstract class MyNode extends RubyNode {
+    @Child MetaClassNode metaClassNode;
+
+    public MyNode(RubyContext context, SourceSection sourceSection) {
+        super(context, sourceSection);
+        metaClassNode = MetaClassNodeGen.create(context, sourceSection, null);
+    }
+...
+```
+* If the node is used by only one specialization: use @Cached.
+```java
+        @Specialization
+        public long objectID(DynamicObject object,
+                @Cached("createReadObjectIDNode()") ReadHeadObjectFieldNode readObjectIdNode) {
+            final Object id = readObjectIdNode.execute(object);
+            ...
+        }
+
+        protected ReadHeadObjectFieldNode createReadObjectIDNode() {
+            return new ReadHeadObjectFieldNode(Layouts.OBJECT_ID_IDENTIFIER);
+        }
+```
+However, if the nodes already uses @Cached *and there are guards on the @Cached values*,
+consider whether you want one node per Specialization instantiation or only one for the whole node.
+
+* Otherwise use the lazy pattern which *includes* the call on the node.
+```java
+        @Child ToStrNode toStrNode;
+        ...
+
+        protected DynamicObject toStr(VirtualFrame frame, Object object) {
+            if (toStrNode == null) {
+                CompilerDirectives.transferToInterpreterAndInvalidate();
+                toStrNode = insert(ToStrNodeGen.create(getContext(), getSourceSection(), null));
+            }
+            return toStrNode.executeToStr(frame, object);
+        }
+```
+If you want to call different methods on a node, then use a `getStrNode()` helper which returns the node.
