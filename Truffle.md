@@ -18,13 +18,6 @@ This wiki page includes more informal installation instructions, status informat
 
 ## Installation
 
-JRuby+Truffle comes as part of most configurations of JRuby - the notable exception is the standard Maven artefacts if you are embedding JRuby. When JRuby is installed with Truffle, `-X+T` will switch to Truffle mode.
-
-
-## Developing with JRuby+Truffle
-There are instructions for how to setup a working [Eclipse](Using-Eclipse-with-JRuby-Truffle) environment.  
-A few recommendations are also available in [Developing with JRuby+Truffle](Developing-with-JRuby-Truffle).
-
 ### Nightly Builds
 
 You can download a single tarball for Mac or Linux that includes JRuby and the GraalVM - so you don't even need a JVM installed on your system.
@@ -61,6 +54,38 @@ $ ruby -X+T -e 'puts Truffle.graal?'
 true
 ```
 
+### From Source
+
+If you build JRuby from source you will also get JRuby+Truffle. You will need to download a release of Graal, and use this instead of your system Java, in order to get high performance.
+
+* http://lafo.ssw.uni-linz.ac.at/graalvm/openjdk-8-graalvm-b132-linux-x86_64-0.7.tar.gz
+* http://lafo.ssw.uni-linz.ac.at/graalvm/openjdk-8-graalvm-b132-macosx-x86_64-0.7.tar.gz
+
+```
+./mvnw
+JAVA_CMD=graalvm-jdk1.8.0/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
+```
+
+#### Latest Graal
+
+You can also build against the latest version of Truffle and Graal if you use the `truffle-head` branch. Here you will need to build Graal for yourself.
+
+https://wiki.openjdk.java.net/display/Graal/Instructions
+
+```
+$ hg clone https://bitbucket.org/allr/mx
+$ export PATH=$PWD/mx:$PATH
+$ mkdir graal
+$ cd graal
+$ mx sclone http://hg.openjdk.java.net/graal/graal-compiler
+$ cd graal-compiler
+$ mx build
+```
+
+```
+JAVA_CMD=graal/jvmci/jdk1.8.0_51/product/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
+```
+
 ### Demonstrating Truffle
 
 However you install JRuby+Truffle, you may want to immediately demonstrate to yourself that Truffle is actually doing something. Put this program into `test.rb`:
@@ -91,6 +116,11 @@ We track completeness against the suite of specs formerly known as RubySpec. The
 * [Language Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-language-report/html/)
 * [Core Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-core-report/html/)
 * [Library Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-library-report/html/)
+
+## Developing JRuby+Truffle
+
+There are instructions for how to setup a working [Eclipse](Using-Eclipse-with-JRuby-Truffle) environment.  
+A few recommendations are also available in [Developing with JRuby+Truffle](Developing-with-JRuby-Truffle).
 
 ## FAQ
 
