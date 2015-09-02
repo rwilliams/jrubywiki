@@ -62,8 +62,8 @@ If you build JRuby from source you will also get JRuby+Truffle. You will need to
 * http://lafo.ssw.uni-linz.ac.at/graalvm/openjdk-8-graalvm-b132-macosx-x86_64-0.7.tar.gz
 
 ```
-./mvnw
-JAVA_CMD=graalvm-jdk1.8.0/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
+$ ./mvnw
+$ JAVA_CMD=graalvm-jdk1.8.0/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
 ```
 
 #### Latest Graal
@@ -83,7 +83,7 @@ $ mx build
 ```
 
 ```
-JAVA_CMD=graal/jvmci/jdk1.8.0_51/product/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
+$ JAVA_CMD=graal/jvmci/jdk1.8.0_51/product/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
 ```
 
 ### Demonstrating Truffle
