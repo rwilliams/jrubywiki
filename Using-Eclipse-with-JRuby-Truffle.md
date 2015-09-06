@@ -52,3 +52,6 @@ $ tool/jruby_eclipse -X+T -e 'p RUBY_ENGINE'
 The [jt workflow tool](https://github.com/jruby/jruby/tree/master/truffle#workflow-tool)
 automatically picks up that script over `bin/jruby` if you have  
 `export JRUBY_ECLIPSE=true` in your environment.
+
+### Ruby support
+You can use Aptana Rails to be able to edit ruby files inside Eclipse. See http://stackoverflow.com/questions/12366924/how-to-use-eclipse-for-ruby-on-rails-ror
