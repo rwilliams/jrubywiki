@@ -14,11 +14,13 @@ This page lists common C extensions and non-C alternatives you can use to replac
 **Update:** As of May 2012, Typheous [works under JRuby](https://github.com/typhoeus/typhoeus/issues/135).
 (I would delete this item from the list, but taking the conservative path.)
 
-* **mysql** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-mysql`.
+* **mysql** - Use [activerecord-jdbcmysql-adapter][] instead.
 
-* **mysql2** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-mysql`.
+* **mysql2** - Use [activerecord-jdbcmysql-adapter][] instead.
 
-* **sqlite3** - Use [activerecord-jdbc-adapter][] instead along with `jdbc-sqlite3`.
+* **sqlite3** - Use [activerecord-jdbcsqlite3-adapter][] instead.
+
+* **pg** - Use [activerecord-jdbcpostgresql-adapter][] instead.
 
 * **[Nokogiri][]** - For best results, use the pure-Java version of Nokogiri (default after v1.5).
 
