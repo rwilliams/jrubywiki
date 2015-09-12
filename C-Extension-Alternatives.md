@@ -10,10 +10,6 @@ This page lists common C extensions and non-C alternatives you can use to replac
 
 * **[Thin][]** - Thin might compile and run but is not recommended. Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [TorqueBox][] or [Puma][].
 
-* **[Typhoeus][]** - The C extension [doesn't currently compile](https://github.com/dbalatero/typhoeus/issues/65). There's no equivalent library for JRuby, but you might try any of the pure-Ruby HTTP clients (`net/http`, httpclient, etc.). There are also several Java HTTP client libraries that will work ([Apache HttpClient][], [HttpURLConnection][], etc).
-**Update:** As of May 2012, Typheous [works under JRuby](https://github.com/typhoeus/typhoeus/issues/135).
-(I would delete this item from the list, but taking the conservative path.)
-
 * **mysql** - Use [activerecord-jdbcmysql-adapter][] instead.
 
 * **mysql2** - Use [activerecord-jdbcmysql-adapter][] instead.
