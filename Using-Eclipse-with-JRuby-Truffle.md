@@ -25,7 +25,10 @@ And now enable the Truffle annotation processor:
 * Select the `truffle` project
 * Right click and choose `Properties`
 * Select `Java Compiler` > `Annotation Processing`
-* Click on `Enable project specific settings`, then `OK`
+* Click on `Enable project specific settings`,
+* Add `lib/jruby-truffle.jar` using `Add External JARs`, on the submenu `Factory Path`
+
+ then `OK`
 * Click `Yes` to rebuild the project
 
 Change the `Output folder` to not interfere with the Maven build for each project:
