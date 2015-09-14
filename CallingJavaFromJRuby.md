@@ -89,7 +89,7 @@ Note that loading jar-files via `require` searches along the `$LOAD_PATH` for th
 
 ### From .class files
 
-If you need to load from an existing .class file (or one that's not camelcase), the following has examples: [[http://www.ruby-forum.com/topic/216572#939791]]
+If you need to load from an existing .class file (or one that's not camel-case), the following has examples: [[http://www.ruby-forum.com/topic/216572#939791]]
 
 Basically it's `$CLASSPATH << "target/classes"; java_import org.asdf.ClassName` where "target/classes/org/asdf/ClassName.class" exists.
 
@@ -114,7 +114,7 @@ That is:
 
 This also means that, just as in Java, packages are not nested, but are each associated with their own unique module name.
 
-* Second way: for the top-level Java packages `java`, `javax`, `javafx`, `org`, and `com` you can type in a fully qualified class name basically as in Java, for example, `java.lang.System` or `org.abc.def.className`
+* Second way: for the top-level Java packages `java`, `javax`, `javafx`, `org`, and `com` you can type in a fully qualified class name basically as in Java, for example, `java.lang.System` or `org.abc.def.ClassName`
 You can get the same effect for your own (custom) top-level packages, as follows. Let's assume that your packages are called `edu.school.department.Class`. Then, you define
 
 ```ruby
@@ -131,7 +131,7 @@ Using a Java Class Without The Full Path Name
 
 You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the `java_import` statement or `import` statement, you can make the Java class available only by its class name, just as in Java.
 
-**Example**: java_import and use the `java.lang.System` class.
+**Example**: `java_import` and use the `java.lang.System` class.
 ```ruby
   require 'java'
   java_import java.lang.System
@@ -161,7 +161,7 @@ Use include_package within a Ruby Module to import a Java Package's classes on c
 
 Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to Java's `package xxx.yyy.zzz;` format.  It is also legal to use `import "package_name"`, that is similar to `import package_name.*`.
 
-"Example 1": 
+**Example**: using `include_package` in a module
 
 ```ruby
 module MyApp
