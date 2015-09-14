@@ -776,21 +776,33 @@ JRuby classes can now implement more than one Java interface. Since Java interfa
   end
 ```
 
-Closure conversion
+Closure Conversion
 ------------------
 
-JRuby sports a feature called _closure conversion_, where a Ruby block or closure is converted to an appropriate Java interface. For example:
+JRuby sports a _closure conversion_ feature (a.k.a. proc-to-interface conversion), where a Ruby block (closure) is converted to an appropriate Java interface. For example:
 
 ```ruby
   button = javax.swing.JButton.new "Press me!"
   button.add_action_listener {|event| event.source.text = "You did it!"}
 ```
 
-In this example, the `JButton`'s `addActionListener` method takes one parameter, a `java.awt.event.ActionListener`. The block is converted to a `Proc` object, which is then decorated with a java interface proxy that invokes the block for any method called on the interface.
+In this example, `JButton`'s `addActionListener` method takes one parameter, a `java.awt.event.ActionListener`. The block is converted to a `Proc` object, which is then decorated with a java interface proxy that invokes the block for any method called on the interface.
 
-This not only works for event listeners or `Runnable`, but basically for any interface. When calling a method that expects an interface, JRuby checks if a block is passed and automatically converts the block to an object implementing the interface.
+This works for any interface, but fits best when implementing functional-style interfaces (those that contain one method to be implemented).
 
- 
+In (rare) cases where there are multiple matching Java methods with different interface last parameters, the block arity is taken into consideration. Here's an example of the [overloaded](http://docs.oracle.com/javase/7/docs/api/java/io/File.html#listFiles%28java.io.FilenameFilter%29) `java.io.File#listFiles` method:
+```ruby
+# listFiles( FileFilter#accept(File) )
+java.io.File.new('.').listFiles do |pathname|
+  pathname.file? && pathname.can_read
+end
+```
+```ruby
+# listFiles( FilenameFilter#accept(File, String) )
+java.io.File.new('.').listFiles do |dir, name|
+  java.io.File.new(dir, name).can_read
+end
+```
 
 Java classes can't inherit from a JRuby class
 ---------------------------------------------
