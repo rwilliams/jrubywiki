@@ -143,7 +143,7 @@ You could also do it with just straight import, as well.
   import java.lang.System
   version = System.getProperties["java.runtime.version"]
 ```
-**Note:** As noted in [this bug report](http://jira.codehaus.org/browse/JRUBY-3171), `java_import` is the newer and safer, way to import Java classes. If you are getting `uninitialized constant exception` errors, you need to change `import` to `java_import`.
+**Note:** `java_import` is the newer and safer, way to import Java classes. If you are getting *uninitialized constant exception* errors, you need to change `import` to `java_import`.
 
 After this point, the `System` constant will be available in the global name space (i.e. available to any script).
 The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
@@ -159,34 +159,33 @@ You can also get the same effect by reassigning a Java class to a new constant, 
 Use include_package within a Ruby Module to import a Java Package's classes on const_missing
 -----------------------------------------
 
-Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to java's `package xxx.yyy.zzz;` format.  It is also legal to use `import "package_name"`, that is similar to `import package_name.*`.
-
+Use `include_package "package_name"` in a Ruby Module to support namespaced access to the Java classes in the package. This is similar to Java's `package xxx.yyy.zzz;` format.  It is also legal to use `import "package_name"`, that is similar to `import package_name.*`.
 
 "Example 1": 
 
 ```ruby
-module M
- include_package "org.xxx.yyy"
- # now any class within "org.xxx.yyy" will be available within
- # this module, ex if "org.xxx.yyy.MyClass" exists
- # a = MyClass.new
+module MyApp
+ include_package 'org.apache.logging.log4j'
+ # now any class from "org.apache.logging.log4j" will be available within
+ # this module, ex if "org.apache.logging.log4j.LogManager" exists ...
+ Logger = LogManager.getLogger('MyApp')
 end
 ```
 
 **Example**: create a Ruby Module called `JavaLang` that includes the classes in the Java package `java.lang`.
 ```ruby
   module JavaLangDemo
-    include_package "java.lang"
+    include_package 'java.lang'
     # alternately, use the #import method
-    import "java.lang"
+    #import 'java.lang'
   end
 ```
 
 Now you can prefix the desired Java Class name with `JavaLangDemo::` to access the included Classes:
 
 ```ruby
-  version = JavaLangDemo::System.getProperties["java.runtime.version"]
-  => "1.5.0_13-b05-237"
+  version = JavaLangDemo::System.out # java.lang.System.out
+  => #<Java::JavaIo::PrintStream:0x30a7202>
 
   processors = JavaLangDemo::Runtime.getRuntime.availableProcessors
   => 2
@@ -234,7 +233,7 @@ You can now create a new instance of the Java class File without shadowing the R
 And the Ruby File class is still accessible:
 
 ```ruby
-  File.open('README', 'r') {|f| puts f.readline }
+  File.open('README.md', 'r') {|f| puts f.readline }
   JRuby -  A Java implementation of the Ruby language
   => nil
 ```
@@ -270,7 +269,7 @@ or
 Gotchas
 -------
 
-JRuby automatically binds the following names in the context of a class to the top-level Java packages: com, org, java, javax, javafx. This means that you can reference these packages without having to explicitly require or import them. This takes effect for all Ruby classes in an application where a `require 'java'` appears. This binding takes place in precedence to the classes *method_missing* handling.
+JRuby automatically binds the following names in the context of a class to the top-level Java packages: `com`, `org`, `java`, `javax`, `javafx`. This means that you can reference these packages without having to explicitly require or import them. This takes effect for all Ruby classes in an application where a `require 'java'` appears. This binding takes place in precedence to the classes *method_missing* handling.
 
 If you do not want this behaviour for a specific class, you can undefine it for that class. Here's an example that will execute identically under Ruby and JRuby:
 
