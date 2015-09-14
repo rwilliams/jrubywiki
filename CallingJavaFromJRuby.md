@@ -792,17 +792,19 @@ This works for any interface, but fits best when implementing functional-style i
 
 In (rare) cases where there are multiple matching Java methods with different interface last parameters, the block arity is taken into consideration. Here's an example of the [overloaded](http://docs.oracle.com/javase/7/docs/api/java/io/File.html#listFiles%28java.io.FilenameFilter%29) `java.io.File#listFiles` method:
 ```ruby
-# listFiles( FileFilter#accept(File) )
 java.io.File.new('.').listFiles do |pathname|
-  pathname.file? && pathname.can_read
+  # matches listFiles( FileFilter#accept(File) )
 end
 ```
 ```ruby
 # listFiles( FilenameFilter#accept(File, String) )
 java.io.File.new('.').listFiles do |dir, name|
-  java.io.File.new(dir, name).can_read
+  # calls listFiles( FilenameFilter#accept(File, String) )
 end
 ```
+**Note**: This [feature](http://jewelruby.kares.org/an-obvious-java-dispatch) is available since JRuby **1.7.22** and **9.0.1.0**.
+
+
 
 Java classes can't inherit from a JRuby class
 ---------------------------------------------
