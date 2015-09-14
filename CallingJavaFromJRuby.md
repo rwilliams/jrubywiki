@@ -114,7 +114,7 @@ That is:
 
 This also means that, just as in Java, packages are not nested, but are each associated with their own unique module name.
 
-* Second way: for the top-level Java packages `java`, `javax`, `javafx`, `org`, and `com` you can type in a fully qualified class name basically as in Java, for example, `java.lang.System` or `org.abc.def.ClassName`
+* Second way: for the top-level Java packages `java`, `javax`, `org`, and `com` you can type in a fully qualified class name basically as in Java, for example, `java.lang.System` or `org.abc.def.ClassName`
 You can get the same effect for your own (custom) top-level packages, as follows. Let's assume that your packages are called `edu.school.department.Class`. Then, you define
 
 ```ruby
@@ -287,7 +287,7 @@ or
 Gotchas
 -------
 
-JRuby automatically binds the following names in the context of a class to the top-level Java packages: `com`, `org`, `java`, `javax`, `javafx`. This means that you can reference these packages without having to explicitly require or import them. This takes effect for all Ruby classes in an application where a `require 'java'` appears. This binding takes place in precedence to the classes *method_missing* handling.
+JRuby automatically binds the following names in the context of a class to the top-level Java packages: `com`, `org`, `java`, `javax` and `javafx`. This means that you can reference these packages without having to explicitly require or import them. This takes effect for all Ruby classes in an application where a `require 'java'` appears. This binding takes place in precedence to the classes *method_missing* handling.
 
 If you do not want this behaviour for a specific class, you can undefine it for that class. Here's an example that will execute identically under Ruby and JRuby:
 
