@@ -360,8 +360,8 @@ JRuby defines a number of additional methods for Java objects.
 * `java_class` returns the Java class of an object.
 * `java_kind_of?` works like the `instanceof` operator.
 * `java_object` returns the underlying Java object. This is useful for reflection.
-* `java_send` overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as `initialize`, with names that conflict with built-in Ruby methods. More below. _Added in JRuby 1.4_
-* `java_method` retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`. More below. _Added in JRuby 1.4_
+* `java_send` overrides JRuby's dispatch rules and forces the execution of a named Java method on a Java object. This is useful for Java methods, such as `initialize`, with names that conflict with built-in Ruby methods (more on `java_send` bellow).
+* `java_method` retrieves a bound or unbound handle for a Java method to avoid the reflection inherent in `java_send`  (more on `java_method` bellow).
 * `java_alias` aliases a specific method name and signature to a new Ruby method name
 
 Calling masked or unreachable Java methods with `java_send`
