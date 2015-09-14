@@ -246,7 +246,25 @@ You can set `const_missing` to make them accessible in more than just a module. 
 Using within classes within module
 ----------------------------------
 
-NB that currently this `include_package` lookup doesn't work within any sub-modules or sub-classes.  See [[http://jira.codehaus.org/browse/JRUBY-5107]]
+Currently, `include_package` lookup doesn't work within any sub-modules or sub-classes e.g. running : 
+
+```ruby
+  module GUI
+    include_package 'javax.swing'
+    include_package 'java.awt.image' # BufferedImage
+    # bellow won't work without accessing BufferedImage before :
+    class ShowImage < JFrame
+      BufferedImage.new(10, 20, BufferedImage::TYPE_BYTE_BINARY)
+    end
+  end
+```
+```
+  NameError: uninitialized constant GUI::ShowImage::BufferedImage
+	from org/jruby/RubyModule.java:2743:in `const_missing'
+	from (irb):6:in `ShowImage'
+	from (irb):5:in `GUI'
+	from (irb):1:in `evaluate'
+```
 
 You could override `const_missing`, though (see above), if you wanted that behavior.
 
