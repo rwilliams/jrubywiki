@@ -94,11 +94,16 @@ JRuby uses the JVM's implementation of volatility for some features, and leaves 
 
 The following operations are not volatile, and there is potential for threads to see inconsistent views of memory.
 
-* Updating an instance variable.
 * Modifying any of the non-threadsafe core data structures.
 * Modifying local variables across threads, as in a closure used in a parallel-execution setting.
 
-If you wish to ensure you are making volatile updates to a reference, we recommend using the ```atomic``` gem to hold that reference. It is described in more detail below.
+Instance variables in JRuby are currently volatile, but we have been reluctant to make that a hard guarantee. Volatility is guaranteed in one of three ways:
+
+1. On JVMs that do not have or do not allow access to sun.misc.Unsafe, we use full JVM-level synchronization. This synch is only around the actual access of the instance variable, and ideally should not be a major choke point.
+2. On Java 6 and 7, we use Unsafe.putOrderedObject and putObjectVolatile to update the variable table and table entries.
+3. On Java 8, we use Unsafe.fullFence to insert an explicit memory barrier after updates.
+
+Note that volatility does not guarantee atomicity; two threads updating a variable and a third observing them may see the writes in any order. If you need atomicity (or if you need volatility for a reference that is not otherwise guaranteed to be volatile), we recommend using the ```concurrent-ruby``` gem, which provides explicit reference types that provide both volatility and atomic operations. Atomicity is described in more detail below.
 
 <a name="atomicity">
 Atomicity
@@ -108,7 +113,7 @@ Atomicity refers to the ability to perform a write to memory based on some view 
 
 Very few operations in JRuby have any guaranteed atomicity. Usually, this is expected; most operations are done as simple reads or unconditional writes, like constant initialization, method definition, and so on. A few operations, however, are done atomically:
 
-* Growing an instance variable table. This generally only comes into play early in execution, or if new instance variables are defined for the first time under concurrent execution.
+* Growing an instance variable table. This generally only comes into play early in execution, or if new instance variables are defined for the first time under concurrent execution. See above for a description of how we make this guarantee.
 * Updates of `LOADED_FEATURES` ($") in response to concurrent requires. If a feature appears in `LOADED_FEATURES`, you know it has successfully completed loading in exactly one thread.
 * (from JRuby 1.7.x) The state of an autoloaded constant. Autoloads will only run and complete in exactly one thread.
 
