@@ -23,22 +23,21 @@ JRuby maps Ruby threads to Java threads, which are usually mapped directly to na
 
 JRuby provides the same concurrency primitives as standard Ruby in the 'thread' library (loaded by default in 1.9 mode). Mutex, ConditionVariable, Queue, and friends all work as they do in MRI, but they are often crucial to writing threadsafe code in JRuby.
 
-In general, the safest path to concurrency in JRuby is the same as on any other platform:
+In general, the safest path to writing concurrent code in JRuby is the same as on any other platform:
 
-1. Don't do it.
+1. Don't do it, if you can avoid it.
 2. If you must do it, don't share data across threads.
 3. If you must share data across threads, don't share mutable data.
 4. If you must share mutable data across threads, synchronize access to that data.
 
 Outside the Ruby specifics described below, JRuby operates within the confines of the
-[Java Memory Model](http://www.cs.umd.edu/users/pugh/java/memoryModel/jsr-133-faq.html).
+[Java Memory Model](http://www.cs.umd.edu/users/pugh/java/memoryModel/jsr-133-faq.html), and this document uses the same terminology.
 
 <a name="thread_safety">
 Thread Safety
 -------------
 
-Thread Safety refers to the ability to perform operations against a shared structure across multiple threads
-and know there will be no resulting errors or data integrity issues.
+Thread Safety refers to the ability to perform operations against a shared structure across multiple threads and know there will be no resulting errors or data integrity issues.
 
 ### Language Features and the JRuby Runtime
 
@@ -81,7 +80,7 @@ Volatility
 
 Volatility refers to the visibility of changes across threads on multi-core systems that may have thread or core-specific views of system memory.
 
-Modern CPUs use multi-level caches to avoid reads and writes to main memory, which are considerably slower than reads and writes to on-die memory. In multi-core systems, these caches can often become inconsistent across cores. Volatility is a way to specify to the runtime or the CPU that a given memory operation should be synchronized across caches.
+Modern CPUs use multi-level caching to reduce main memory accesses, since reads and writes to main memory are orders of magnitude slower than reads and writes to on-chip caches. In multi-core systems, these caches may become inconsistent across cores, or runtimes and compilers may take liberties with the ordering of those reads and writes. Volatility is a way to specify to the runtime or the CPU that a given memory operation should be synchronized across caches and that those reads and writes must happen in an explicit order.
 
 JRuby uses the JVM's implementation of volatility for some features, and leaves others nonvolatile. Specifically, the following operations are volatile:
 
@@ -95,13 +94,15 @@ JRuby uses the JVM's implementation of volatility for some features, and leaves 
 The following operations are not volatile, and there is potential for threads to see inconsistent views of memory.
 
 * Modifying any of the non-threadsafe core data structures.
-* Modifying local variables across threads, as in a closure used in a parallel-execution setting.
+* Modifying local variables across threads, as in a closure-captured local variable used in a parallel-execution setting.
 
-Instance variables in JRuby are currently volatile, but we have been reluctant to make that a hard guarantee. Volatility is guaranteed in one of three ways:
+Instance variables in JRuby are currently volatile, but we have been reluctant to make that a hard guarantee. Volatility is achieved in one of three ways:
 
-1. On JVMs that do not have or do not allow access to sun.misc.Unsafe, we use full JVM-level synchronization. This synch is only around the actual access of the instance variable, and ideally should not be a major choke point.
-2. On Java 6 and 7, we use Unsafe.putOrderedObject and putObjectVolatile to update the variable table and table entries.
-3. On Java 8, we use Unsafe.fullFence to insert an explicit memory barrier after updates.
+1. On JVMs that do not have or do not allow access to sun.misc.Unsafe, we use full JVM-level synchronization. This synchronization is only around the actual access of the instance variable, and generally should not be a major choke point.
+2. On Java 6 and 7, we use Unsafe.putOrderedObject and putObjectVolatile to update the variable table reference and the table entries, respectively.
+3. On Java 8, we use Unsafe.putOrderedObject to update the variable table reference and Unsafe.fullFence to insert an explicit memory barrier after table writes.
+
+Both (2) and (3) above also use a volatile numeric stamp to ensure variable table reference changes are done atomically.
 
 Note that volatility does not guarantee atomicity; two threads updating a variable and a third observing them may see the writes in any order. If you need atomicity (or if you need volatility for a reference that is not otherwise guaranteed to be volatile), we recommend using the ```concurrent-ruby``` gem, which provides explicit reference types that provide both volatility and atomic operations. Atomicity is described in more detail below.
 
