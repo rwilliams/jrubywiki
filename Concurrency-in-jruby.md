@@ -138,4 +138,4 @@ Because JRuby is on the JVM, you also have access to all that the JVM offers in 
 
 JRuby also provides a non-standard way to convert any object or class into a fully-synchronized data structure: the `JRuby::Synchronized` module. You can simply require `require 'jruby/synchronized'` and then `include JRuby::Synchronized` into any class or `obj.extend(JRuby::Synchronized)` any object. The result is that all methods on that class or object will be wrapped in simple synchronization; that is, a reentrant lock against the object itself.
 
-`JRuby::Synchronized` is used to provide the [`thread_safe`](https://rubygems.org/gems/thread_safe) gem, which provides `ThreadSafe::Array` and `ThreadSafe::Hash` for use in JRuby (and MRI, though in MRI they're just aliases to `Array` and `Hash`).
+`JRuby::Synchronized` is used to within the [`concurrent-ruby`](https://github.com/ruby-concurrency/concurrent-ruby) gem, which provides `Synchronization::Object`, `Concurrent::Array`, `Concurrent::Hash`, and many other concurrency abstractions for use in JRuby (and MRI).
