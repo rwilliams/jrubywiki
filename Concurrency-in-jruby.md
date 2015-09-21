@@ -123,7 +123,7 @@ A number of common Ruby features, however, are *not* guaranteed atomic, even tho
 * Conditional updates of the form `||=` or `&&=`. These are not actually atomic in any version of Ruby, and expand logically to a read followed by a test and potentially a write. Additionally, there's no guarantee the right-hand side (the value expression) will only execute once.
 * Updates with modification, as in `+=`, `-=` and friends. These expand to a read, method call, and write. Under concurrency, the write may wipe out another thread's update.
 
-If you need atomic operations, we recommend using the `atomic` gem. The `atomic` gem provides a number of operations for doing atomic updates:
+If you need atomic operations, we recommend using the `concurrent-ruby` gem. The [concurrent-ruby](https://github.com/ruby-concurrency/concurrent-ruby) gem provides several atomic classes supporting a number of operations for doing atomic updates:
 
 * compare_and_set - only set the value if it is currently set to some and expected value.
 * get_and_set - get the current value and set a new one in a single operation.
