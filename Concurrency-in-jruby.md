@@ -56,10 +56,8 @@ More specifically, the following operations are thread-safe in JRuby:
 
 Note that thread safety in this context only means that concurrent updates to the same runtime data structure managed by the JRuby runtime are serialized in some order -- JRuby cannot guarantee a specific order in which those updates will be performed across threads (Ex: [Opening a class](https://github.com/jruby/jruby/wiki/Concurrency in JRuby%3A Opening a class)).  User code is responsible for enforcing specific ordering requirements where such ordering is important for the program's correct execution.  For example, two libraries required at the same time that try to define the same methods or constants -- will still update the relevant class, but the specific order in which those updates are performed will determine the final state of that class.  JRuby does not (and cannot) make any specific ordering guarantees for such concurrent modifications (or for any non-atomic concurrent modifications throughout your code).
 
-You should take care in the following situations:
+You should take care in the following situations: concurrent requires, or lazy requires that may happen at runtime in a parallel thread. If objects are in flight while classes are being modified, or constants/globals/class variables are set before their referrents are completely initialized, other threads could have problems.
 
-* Concurrent requires, or lazy requires that may happen at runtime in a parallel thread. If objects are in flight while classes are being modified, or constants/globals/class variables are set before their referrents are completely initialized, other threads could have problems.
-* Instance variable updates for the first time for a given class/name pair. Because of the way JRuby lazily allocates space for instance variables, early in execution the instance variable table may be replaced when grown. If this happens under concurrent load, one thread's updates might disappear. This should only happen when a *new* class/name pair is being set, which should be rare after the application has booted. You can avoid this situation completely by initializing all variables you will use in the ```initialize``` method, though this adds a bit of additional overhead to object initialization.
 
 <a name="core_classes_standard_library">
 ### Core Classes and Standard Library
