@@ -91,16 +91,9 @@ JRuby uses the JVM's implementation of volatility for some features, and leaves 
 
 The following operations are not volatile, and there is potential for threads to see inconsistent views of memory.
 
+* Modifying an instance variable.
 * Modifying any of the non-threadsafe core data structures.
 * Modifying local variables across threads, as in a closure-captured local variable used in a parallel-execution setting.
-
-Instance variables in JRuby are currently volatile, but we have been reluctant to make that a hard guarantee. Volatility is achieved in one of three ways:
-
-1. On JVMs that do not have or do not allow access to sun.misc.Unsafe, we use full JVM-level synchronization. This synchronization is only around the actual access of the instance variable, and generally should not be a major choke point.
-2. On Java 6 and 7, we use Unsafe.putOrderedObject and putObjectVolatile to update the variable table reference and the table entries, respectively.
-3. On Java 8, we use Unsafe.putOrderedObject to update the variable table reference and Unsafe.fullFence to insert an explicit memory barrier after table writes.
-
-Both (2) and (3) above also use a volatile numeric stamp to ensure variable table reference changes are done atomically.
 
 Note that volatility does not guarantee atomicity; two threads updating a variable and a third observing them may see the writes in any order. If you need atomicity (or if you need volatility for a reference that is not otherwise guaranteed to be volatile), we recommend using the ```concurrent-ruby``` gem, which provides explicit reference types that provide both volatility and atomic operations. Atomicity is described in more detail below.
 
