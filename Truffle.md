@@ -158,7 +158,7 @@ Ask about Truffle in the `#jruby` Freenode IRC room. We'll get notified if you m
 
 ### How do I know if I’m using a Graal VM?
 
-Use `-Xtruffle.printRuntime=true`. This should print the name of the Truffle runtime that you are using. ‘Default’ means Truffle running as a normal Java library - which will be about as slow as the normal JRuby AST interpreter. ‘Graal’ means that you are using Graal VM to compile the Truffle interpreter to native code, and should be significantly faster.
+`defined? Truffle` will tell you if you are running with Truffle, and `Truffle.graal?` will tell you if you are also running with the Graal dynamic compiler.
 
 ### Why doesn’t the Truffle backend work for my application or gem?
 
