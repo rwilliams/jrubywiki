@@ -107,6 +107,12 @@ $ jruby-master/bin/jruby -X+T -J-G:+TraceTruffleCompilation test.rb
 
 Here you can see that Truffle has decided to compile the body of that loop to machine code - just 66 bytes of machine code in all. Along the way, it also decided to compile `BasicObject#equal?` - this is because that method is used enough times while we load the core library for the compiler to realise that it is hot and also compile it.
 
+### Trying a gem or an application on Truffle
+
+JRuby+Truffle does not support RubyGems yet, therefore there is a small gem `jruby+truffle_runner` to make testing of gems and applications on JRuby+Truffle easy. After the tool is installed just two commands have to be executed in the gems's or the application's directory: `jruby+truffle setup`, `jruby+truffle run a_file.rb`.
+
+Please see [the documentation](https://github.com/jruby/jruby/blob/master/tool/truffle/jruby_truffle_runner/README.md) of `jruby+truffle_runner` tool.
+
 ## Current Status
 
 ### RubySpec
