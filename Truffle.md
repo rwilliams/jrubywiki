@@ -34,6 +34,8 @@ true
 
 ### rbenv
 
+> Outdated, please use rvm temporary until https://github.com/sstephenson/ruby-build/pull/807 is merged.
+
 Using `rbenv` and `ruby-build` you can install `jruby-9.0.0.0+graal-dev`. Like the nightly builds, this includes both JRuby and the Graal VM so you don't need a separate JVM.
 
 ```
