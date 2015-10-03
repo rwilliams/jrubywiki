@@ -156,7 +156,7 @@ When running on a VM with the Graal compiler, Truffle can use the API exposed by
 
 ### Where did this code come from?
 
-[Chris Seaton](https://github.com/chrisseaton) wrote an implementation of Ruby on Truffle and Graal as part of an internship at Oracle Labs in the first half of 2013. The code was merged into JRuby in early 2014. Benoit Daloze and Kevin Menard joined as researchers in the second half of 2014. Since then we have also accepted contributions from people outside Oracle Labs.
+[Chris Seaton](https://github.com/chrisseaton) wrote an implementation of Ruby on Truffle and Graal as part of an internship at Oracle Labs in the first half of 2013. The code was merged into JRuby in early 2014. Benoit Daloze and Kevin Menard joined as researchers in the second half of 2014, and then Petr Chalupa in 2015. Since then we have also accepted contributions from people outside Oracle Labs.
 
 ### Who do I ask about the Truffle backend?
 
