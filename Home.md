@@ -1,6 +1,6 @@
 JRuby
 =====
- 
+
 This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](http://www.ruby-lang.org/en) programming language atop the Java Virtual Machine (JVM).
 
 **[JRuby Downloads]** ([Nightly Builds] (http://ci.jruby.org/))
