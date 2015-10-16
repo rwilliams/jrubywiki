@@ -42,7 +42,7 @@ _**on truffle-head**_
 
 We must now import the layout generated files.  
 * Select the `truffle` project
-* Expand in the file hierarchy until `truffle/target/generated-sources`.
+* Expand in the file hierarchy: `truffle` then inside `target` and `generated-sources`.
 * Right click on the `generated-sources` folder and select `Build Path` > `Use as Source Folder`  
 Then,
 * Select the `truffle` project
@@ -53,7 +53,7 @@ Then,
 * Click `Edit` on the right side.
 * Click the `Add` button on the right side of `Inclusion patterns`
 * Click `Browse...`
-* Expand the file hierarchy until `org/jruby/truffle/runtime`
+* Expand the file hierarchy: `org` then `jruby`, then `truffle` and `runtime`
 * Select the `runtime` folder and click `OK`, `OK` again and `Finish` and a final `OK`.
 
 Change the `Output folder` to not interfere with the Maven build for each project:
