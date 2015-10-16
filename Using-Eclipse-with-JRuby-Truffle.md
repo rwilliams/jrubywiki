@@ -43,7 +43,7 @@ _**on truffle-head**_
 We must now import the layout generated files.  
 * Select the `truffle` project
 * Expand in the file hierarchy until `truffle/target/generated-sources`.
-* Right click on the `generated-sources` folder and select `Build Path` > `Use as Source Folder`
+* Right click on the `generated-sources` folder and select `Build Path` > `Use as Source Folder`  
 Then,
 * Select the `truffle` project
 * Right click and choose `Properties`
