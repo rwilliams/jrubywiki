@@ -24,7 +24,7 @@ We can now import the two projects:
 And now enable the Truffle annotation processor:
 
 This depends on your branch:
-_on master_
+### on master
 * Select the `truffle` project
 * Right click and choose `Properties`
 * Select `Java Compiler` > `Annotation Processing`
@@ -32,7 +32,7 @@ _on master_
 * Add `lib/jruby-truffle.jar` using `Add External JARs`, on the submenu `Factory Path`
 * Click `Ok` and `Yes` to rebuild the project
 
-_on truffle-head_
+### on truffle-head
 * Install the [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt) plugin.
 * Select the `truffle` project
 * Right click and choose `Properties`
