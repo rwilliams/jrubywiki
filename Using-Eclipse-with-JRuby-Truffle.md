@@ -21,7 +21,7 @@ We can now import the two projects:
 * Click `Finish`
 * Repeat with `jruby/truffle` as root directory
 
-And now enable the Truffle annotation processor:  
+And now enable the Truffle annotation processor.  
 This depends on your branch:  
 _**on master**_
 * Select the `truffle` project
@@ -39,6 +39,22 @@ _**on truffle-head**_
 * Click on `Enable project specific settings`,
 * Select the first option: "Automatically configure the JDT APT"
 * Click `Ok` and `Yes` to rebuild the project
+
+We must now import the layout generated files.  
+* Select the `truffle` project
+* Expand in the file hierarchy until `truffle/target/generated-sources`.
+* Right click on the `generated-sources` folder and select `Build Path` > `Use as Source Folder`
+Then,
+* Select the `truffle` project
+* Right click and choose `Properties`
+* Select `Java Build Path` and the `Source` tab.
+* In the list find `truffle/target/generated-sources`
+* Select two lines below `Included: (All)`
+* Click `Edit` on the right side.
+* Click the `Add` button on the right side of `Inclusion patterns`
+* Click `Browse...`
+* Expand the file hierarchy until `org/jruby/truffle/runtime`
+* Select the `runtime` folder and click `OK`, `OK` again and `Finish` and a final `OK`.
 
 Change the `Output folder` to not interfere with the Maven build for each project:
 * Select the `core` project
