@@ -49,7 +49,7 @@ Then,
 * Right click and choose `Properties`
 * Select `Java Build Path` and the `Source` tab.
 * In the list find `truffle/target/generated-sources`
-* Select two lines below `Included: (All)`
+* Select `Included: (All)` just below
 * Click `Edit` on the right side.
 * Click the `Add` button on the right side of `Inclusion patterns`
 * Click `Browse...`
