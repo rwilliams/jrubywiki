@@ -127,15 +127,21 @@ Many Gems will work fine in JRuby; however, some Gems build native C libraries a
 
 Mongrel and Hpricot are two examples of Gems that build their native library in a platform independent manner. Each of them specify a parsing library using the Ragel language and a Ragel program can be automatically converted into either C or Java as part of the compile process.
 
-Also, keep in mind that installing gems from behind a firewall will require setting the `HTTP_PROXY`. For example:
+Also, keep in mind that installing gems from behind a firewall will require setting the `HTTP_PROXY` or passing the `http-proxy` argument. For example:
 
 Not authenticated:
 
     export http_proxy=http://${http-proxy-host}:${http-proxy-port}/
+or
+    
+    gem install --http-proxy http://${server}:${port} ${gemname} 
 
 Authenticated:
 
     export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/
+or
+
+    gem install --http-proxy http://${user}:${password}@${server}:${port} ${gemname} 
 
 See also [[JRuby Frequently Asked Questions (FAQs)|FAQs]].
 
