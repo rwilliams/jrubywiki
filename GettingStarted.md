@@ -134,14 +134,14 @@ Not authenticated:
     export http_proxy=http://${http-proxy-host}:${http-proxy-port}/
 or
     
-    gem install --http-proxy http://${server}:${port} ${gemname} 
+    jruby -S gem install --http-proxy http://${server}:${port} ${gemname} 
 
 Authenticated:
 
     export http_proxy=http://{your_user_id}:{your_password}@${http-proxy-host}:${http-proxy-port}/
 or
 
-    gem install --http-proxy http://${user}:${password}@${server}:${port} ${gemname} 
+    jruby -S gem install --http-proxy http://${user}:${password}@${server}:${port} ${gemname} 
 
 See also [[JRuby Frequently Asked Questions (FAQs)|FAQs]].
 
