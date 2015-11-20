@@ -14,6 +14,7 @@ JRuby release preparation
 * export MAVEN_OPTS=-XX:MaxPermSize=768m
 * On 1.7.x
     * mvn versions:set -DnewVersion=1.7.9 -Pall
+    * edit maven/jruby-jars/pom.xml and manually remove '.dev' from finalName
 * On master
     * update VERSION
     * ./mvnw
