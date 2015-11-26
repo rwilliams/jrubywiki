@@ -79,3 +79,4 @@ Please add to this list with your findings.
 [activerecord-jdbcmysql-adapter]: https://rubygems.org/gems/activerecord-jdbcmysql-adapter
 [activerecord-jdbcsqlite3-adapter]: https://rubygems.org/gems/activerecord-jdbcsqlite3-adapter
 [activerecord-jdbcpostgresql-adapter]: https://rubygems.org/gems/activerecord-jdbcpostgresql-adapter
+[pg_jruby]: https://rubygems.org/gems/pg_jruby
