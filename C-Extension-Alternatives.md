@@ -16,7 +16,7 @@ This page lists common C extensions and non-C alternatives you can use to replac
 
 * **sqlite3** - Use [activerecord-jdbcsqlite3-adapter][] instead.
 
-* **pg** - Use [activerecord-jdbcpostgresql-adapter][] instead.
+* **pg** - Use [activerecord-jdbcpostgresql-adapter][] instead or [pg_jruby][] (drop-in replacement).
 
 * **[Nokogiri][]** - For best results, use the pure-Java version of Nokogiri (default after v1.5).
 
