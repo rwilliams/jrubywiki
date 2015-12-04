@@ -10,10 +10,11 @@ __TOC__
 ===Getting Started===
 Get started with these tutorials:
 
-*[http://blog.rubyrockers.com/2011/03/rails3-application-jruby Rails3 application with Jruby]
-*[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a Deploying a Rails application in Tomcat with JRuby: A concise tutorial]
-* [[JRuby on Rails with Spring|JRuby on Rails with Spring]] - zero to <code>.war</code> file with Spring and Maven.
-* "Porting" the Depot Application To Jruby, [http://tompurl.com/2010/03/02/running-the-depot-application-with-jruby/ Parts 1] and [http://tompurl.com/2010/03/25/running-depot-on-tomcat/ 2]: These tutorials show you how to make the Depot application from "[http://www.pragprog.com/titles/rails3/agile-web-development-with-rails-third-edition Agile Web Development with Rails, Third Edition]" work with Jruby.
+* [http://deployingjruby.blogspot.com/2014/12/using-puma-with-rails-4-on-heroku.html Using Puma, Rails 4 and JRuby on Heroku] - Simple well explained tutorial (Up to date-ish. Written on December 4, 2014).
+* Outdated(404): <strike>[http://blog.rubyrockers.com/2011/03/rails3-application-jruby Rails3 application with Jruby]</strike>
+* Outdated(JRuby Version 1.3.1): <strike>[http://thenice.tumblr.com/post/133345213/deploying-a-rails-application-in-tomcat-with-jruby-a Deploying a Rails application in Tomcat with JRuby: A concise tutorial]</strike>
+* Empty Wiki: <strike>[[JRuby on Rails with Spring|JRuby on Rails with Spring]] - zero to <code>.war</code> file with Spring and Maven.</strike>
+* Outdated (Page says 'This book is obsolete') <strike>"Porting" the Depot Application To Jruby, [http://tompurl.com/2010/03/02/running-the-depot-application-with-jruby/ Parts 1] and [http://tompurl.com/2010/03/25/running-depot-on-tomcat/ 2]: These tutorials show you how to make the Depot application from "[http://www.pragprog.com/titles/rails3/agile-web-development-with-rails-third-edition Agile Web Development with Rails, Third Edition]" work with Jruby.</strike>
 
 === Deployment ===
 
