@@ -54,7 +54,8 @@ Then,
 * Click the `Add` button on the right side of `Inclusion patterns`
 * Click `Browse...`
 * Expand the file hierarchy: `org` then `jruby`, then `truffle` and `runtime`
-* Select the `runtime` folder and click `OK`, `OK` again and `Finish` and a final `OK`.
+* Select the `runtime` folder and click `OK`, `OK` again, `Finish` and a final `OK`.
+* Click `Yes` if a pop up asks about updating the `mvn-apt` configuration.
 
 Change the `Output folder` to not interfere with the Maven build for each project:
 * Select the `core` project
