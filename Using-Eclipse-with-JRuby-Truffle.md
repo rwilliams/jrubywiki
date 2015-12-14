@@ -32,7 +32,7 @@ _**on master**_
 * Click `Ok` and `Yes` to rebuild the project
 
 _**on truffle-head**_
-* Install the [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt) plugin.
+* Install the [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt) plugin (drag and drop the `Install` button).
 * Select the `truffle` project
 * Right click and choose `Properties`
 * Select `Maven` > `Annotation Processing`
