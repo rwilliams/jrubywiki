@@ -31,6 +31,8 @@ _**on master**_
 * Add `lib/jruby-truffle.jar` using `Add External JARs`, on the submenu `Factory Path`
 * Click `Ok` and `Yes` to rebuild the project
 
+Follow the *common steps* below.
+
 _**on truffle-head**_
 * Install the [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt) plugin (drag and drop the `Install` button).
 * Select the `truffle` project
@@ -56,6 +58,8 @@ Then,
 * Expand the file hierarchy: `org` then `jruby`, then `truffle` and `runtime`
 * Select the `runtime` folder and click `OK`, `OK` again, `Finish` and a final `OK`.
 * Click `Yes` if a pop up asks about updating the `mvn-apt` configuration.
+
+_**common steps**_
 
 Change the `Output folder` to not interfere with the Maven build for each project:
 * Select the `core` project
