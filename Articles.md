@@ -11,3 +11,5 @@ Articles
 * [ Trampoline Systems Weblog -- Wiring up Spring with JRuby](http://www.trampolinesystems.com/weblog/wiring-up-spring-with-jruby/)
 * Try [running the JRuby interactive shell as an applet in your browser!](http://kessel.ilrt.bris.ac.uk/~pldms/2006/12/jruby-applet.html)
 * [Polyglotte Bohnen - Java-6-Scripting mit JRuby (German)](http://www.heise.de/developer/artikel/Java-6-Scripting-mit-JRuby-920124.html)
+
+Few of these links are not working anymore <not available>, for example one `Glassfish`, `introduction to jruby`. 
