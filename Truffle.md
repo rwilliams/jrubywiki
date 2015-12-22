@@ -54,38 +54,6 @@ $ ruby -X+T -e 'puts Truffle.graal?'
 true
 ```
 
-### From Source
-
-If you build JRuby from source you will also get JRuby+Truffle. You will need to download a release of Graal, and use this instead of your system Java, in order to get high performance.
-
-* http://lafo.ssw.uni-linz.ac.at/graalvm/openjdk-8-graalvm-b132-linux-x86_64-0.7.tar.gz
-* http://lafo.ssw.uni-linz.ac.at/graalvm/openjdk-8-graalvm-b132-macosx-x86_64-0.7.tar.gz
-
-```
-$ ./mvnw
-$ JAVACMD=graalvm-jdk1.8.0/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
-```
-
-#### Latest Graal
-
-You can also build against the latest version of Truffle and Graal if you use the `truffle-head` branch. Here you will need to build Graal for yourself.
-
-https://wiki.openjdk.java.net/display/Graal/Instructions
-
-```
-$ hg clone https://bitbucket.org/allr/mx
-$ export PATH=$PWD/mx:$PATH
-$ mkdir graal
-$ cd graal
-$ mx sclone http://hg.openjdk.java.net/graal/graal-compiler
-$ cd graal-compiler
-$ mx build
-```
-
-```
-$ JAVACMD=graal/jvmci/jdk1.8.0_51/product/bin/java bin/jruby -X+T -e 'puts Truffle.graal?'
-```
-
 ### Demonstrating Truffle
 
 However you install JRuby+Truffle, you may want to immediately demonstrate to yourself that Truffle is actually doing something. Put this program into `test.rb`:
