@@ -1,4 +1,4 @@
-JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is by downloading the [GraalVM](Downloading GraalVM), but if you are using the `truffle-head` branch this may not be compatible with the version of the Truffle API used, and you may need to build and JVM with Graal for yourself.
+JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is by downloading the [GraalVM](Downloading GraalVM), but if you are using the `truffle-head` branch this may not be compatible with the version of the Truffle API used, and you may need to build a JVM with Graal for yourself.
 
 https://wiki.openjdk.java.net/display/Graal/Instructions
 
