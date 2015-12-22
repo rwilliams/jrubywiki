@@ -26,7 +26,12 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Gems known not to be threadsafe]]
 * [[LoadService loading mechanism]]
 * [[EnhancedSecurity]]
+
+**JRuby+Truffle**
+
 * [[Truffle]]
+* [[Downloading GraalVM]]
+* [[Building Graal]]
 
 **Getting Involved**
 
