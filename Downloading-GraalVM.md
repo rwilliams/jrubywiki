@@ -10,6 +10,6 @@ To use GraalVM to run JRuby+Truffle, set the `JAVACMD` environment variable.
 $ JAVACMD=GraalVM-0.9/jre/bin/javao bin/jruby -X+T ...
 ```
 
-Note that we are using the `javao` command, rather than `java`, due to a bug in GraalVM.
+Note that we are using the `javao` command, rather than `java`, due to a bug in GraalVM related to the `JAVACMD` variable.
 
 If you are using the `truffle-head` branch, you may need to [build Graal yourself](Building Graal).
