@@ -30,9 +30,30 @@ When running on a VM with the Graal compiler, Truffle can use the API exposed by
 
 Ask about Truffle in the `#jruby` Freenode IRC room. We'll get notified if you mention *truffle* so your question won't be missed.
 
-### How do I know if I’m using a Graal VM?
+### How do I know if I’m using a VM that has Graal?
 
 `defined? Truffle` will tell you if you are running with Truffle, and `Truffle.graal?` will tell you if you are also running with the Graal dynamic compiler.
+
+### How can I see that Truffle and Graal are working?
+
+Put this program into `test.rb`:
+
+```ruby
+loop do
+  14 + 2
+end
+```
+
+Set the `JAVACMD` variable to whatever version of Java you've got with Graal. Then run JRuby+Truffle with the `-X+T` option to use Truffle, and we'll also use the `-J-G:+TraceTruffleCompilation` to ask Truffle to tell us when it compiles something.
+
+
+```
+$ JAVACMD=... bin/jruby -X+T -J-G:+TraceTruffleCompilation test.rb
+[truffle] opt done         BasicObject#equal?(core):core: BasicObject#equal? <opt>     |ASTSize       8/    8 |Time   408( 307+100 )ms |DirectCallNodes I    0/D    0 |GraalNodes    64/  137 |CodeSize          402 |Source core: BasicObject#equal? 
+[truffle] opt done         block in loop:test.rb:1 <opt> <split-0-U>                |ASTSize      13/   20 |Time   256( 254+3   )ms |DirectCallNodes I    1/D    0 |GraalNodes    18/    3 |CodeSize           66 |Source   test.rb:1
+```
+
+Here you can see that Truffle has decided to use Graal to compile the body of that loop to machine code - just 66 bytes of machine code in all. Along the way, it also decided to compile `BasicObject#equal?` - this is because that method is used enough times while we load the core library for the compiler to realise that it is hot and also compile it.
 
 ### Why doesn’t the Truffle backend work for my application or gem?
 
