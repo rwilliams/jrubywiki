@@ -12,7 +12,7 @@ $ cd graal-compiler
 $ mx --vm server build
 ```
 
-We can use Graal to run JRuby+Truffle by setting the JAVACMD environment variable.
+To use your build of Graal to run JRuby+Truffle, set the JAVACMD environment variable.
 
 ```
 $ JAVACMD=graal/jvmci/jdk1.8.0_66/product/bin/java bin/jruby -X+T ...
