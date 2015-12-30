@@ -28,7 +28,7 @@ When running on a VM with the Graal compiler, Truffle can use the API exposed by
 
 ### Who do I ask about the Truffle backend?
 
-Ask about Truffle in the `#jruby` Freenode IRC room. We'll get notified if you mention *truffle* so your question won't be missed.
+Ask about Truffle in the `#jruby` Freenode IRC room. We'll get notified if you mention *truffle* so your question won't be missed. You can also email chris.seaton@oracle.com.
 
 ### How do I know if I’m using a VM that has Graal?
 
