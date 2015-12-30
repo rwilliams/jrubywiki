@@ -14,46 +14,6 @@ University Linz](http://ssw.jku.at).
 
 Developer documentation for JRuby+Truffle is at http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/doc/. This includes project outline, how to use Truffle and how to use Truffle-specific functionality.
 
-This wiki page includes more informal installation instructions, status information and FAQs.
-
-## Installation
-
-### Nightly Builds
-
-You can download a single tarball for Mac or Linux that includes JRuby and the GraalVM - so you don't even need a JVM installed on your system.
-
-* http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-macosx-x86_64-bin.tar.gz
-* http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-linux-x86_64-bin.tar.gz
-
-```
-$ wget http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-macosx-x86_64-bin.tar.gz
-$ tar -zxf jruby-dist-master+graal-macosx-x86_64-bin.tar.gz
-$ jruby-master/bin/jruby -X+T -e 'puts Truffle.graal?'
-true
-```
-
-### rbenv
-
-Using `rbenv` and `ruby-build` you can install `jruby-master+graal-dev`. Like the nightly builds, this includes both JRuby and the Graal VM so you don't need a separate JVM.
-
-```
-$ rbenv install jruby-master+graal-dev
-$ rbenv shell jruby-master+graal-dev
-$ ruby -X+T -e 'puts Truffle.graal?'
-true
-```
-
-### rvm
-
-Use `rvm` you can mount the nightly builds listed above. For example, on the Mac:
-
-```
-$ rvm mount -r http://lafo.ssw.uni-linz.ac.at/graalvm/jruby-dist-master+graal-macosx-x86_64-bin.tar.gz -n jruby-dev-graal
-$ rvm use jruby-dev-graal
-$ ruby -X+T -e 'puts Truffle.graal?'
-true
-```
-
 ### Trying a gem or an application on Truffle
 
 JRuby+Truffle does not support RubyGems yet, therefore there is a small gem `jruby+truffle_runner` to make testing of gems and applications on JRuby+Truffle easy. After the tool is installed just two commands have to be executed in the gems's or the application's directory: `jruby+truffle setup`, `jruby+truffle run a_file.rb`.
