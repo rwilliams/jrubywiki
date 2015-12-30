@@ -12,6 +12,14 @@ Graal is a new implementation of a JIT compiler in the OpenJDK Java Virtual Mach
 
 For more information about Graal see the [publications](https://wiki.openjdk.java.net/display/Graal/Publications+and+Presentations) and [API documentation](http://lafo.ssw.uni-linz.ac.at/javadoc/graalvm/all/index.html).
 
+### How do I get JRuby+Truffle?
+
+The same way you would normally get JRuby, such as from http://jruby.org/download, rvm, ruby-build, or ruby-install, but we recommend a recent build or building yourself. You then need a JVM with the Graal compiler. There are three options for this:
+
+* [[Downloading GraalVM]]
+* [[Using Graal in JDK 9 EA Builds]]
+* [[Building Graal]]
+
 ### Why is the Truffle backend slow on a standard JVM?
 
 When running on a standard JVM, Truffle runs about as fast as the JRuby AST interpreter. By default JRuby compiles to bytecode, which is faster than interpreting an AST, so you may not be used to the performance of a simple AST interpreter and it may seem unusually slow.
