@@ -29,7 +29,7 @@ Please see [the documentation](https://github.com/jruby/jruby/blob/master/tool/t
 
 ## RubySpec
 
-We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support over 92% of the language and over 89% of the core library. Work on the standard library is more limited.
+We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support 93% of the language and over 90% of the core library.
 
 * [Language Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-language-report/html/)
 * [Core Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-core-report/html/)
@@ -37,5 +37,5 @@ We track completeness against the suite of specs formerly known as RubySpec. The
 
 ## Developing JRuby+Truffle
 
-There are instructions for how to setup a working [Eclipse](Using-Eclipse-with-JRuby-Truffle) environment.  
-A few recommendations are also available in [Developing with JRuby+Truffle](Developing-with-JRuby-Truffle).
+* [[Using Eclipse with JRuby Truffle]]
+* [[Developing with JRuby Truffle]]
