@@ -25,7 +25,7 @@ Developer documentation for JRuby+Truffle is at http://lafo.ssw.uni-linz.ac.at/g
 
 JRuby+Truffle does not support RubyGems yet, therefore there is a small gem `jruby+truffle_runner` to make testing of gems and applications on JRuby+Truffle easy. After the tool is installed just two commands have to be executed in the gems's or the application's directory: `jruby+truffle setup`, `jruby+truffle run a_file.rb`.
 
-Please see [the documentation](https://github.com/jruby/jruby/blob/master/tool/truffle/jruby_truffle_runner/README.md) of `jruby+truffle_runner` tool.
+Please see [the documentation](https://github.com/jruby/jruby/blob/master/lib/ruby/truffle/jruby%2Btruffle/README.md) of `jruby+truffle_runner` tool.
 
 ## RubySpec
 
