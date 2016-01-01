@@ -34,7 +34,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Using Graal in JDK 9 EA Builds]]
 * [[Building Graal]]
 * [[Truffle FAQ]]
-* [[JRuby+Truffle and Ruby Version Managers]]
+* [[Truffle and Ruby Version Managers]]
 
 **Getting Involved**
 
