@@ -44,3 +44,4 @@ JRuby release preparation
 * Send out to all known packagers [[JRubyDistributions]]
    * Change URLs to have SHA256 after file url#SHA256
    * Send PR to https://github.com/sstephenson/ruby-build with PR like: https://github.com/olleolleolle/ruby-build/commit/3b14690ddec4f90cbc264c54af16d617f845c94a
+   * Send PR to https://github.com/postmodern/ruby-versions with file checksums and version numbers as detailed here: https://github.com/postmodern/ruby-versions/blob/master/CONTRIBUTING.md
