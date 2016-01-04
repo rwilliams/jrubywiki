@@ -39,3 +39,4 @@ We track completeness against the suite of specs formerly known as RubySpec. The
 
 * [[Using Eclipse with JRuby Truffle]]
 * [[Developing with JRuby Truffle]]
+* [Other resources](https://gist.github.com/smarr/d1f8f2101b5cc8e14e12)
