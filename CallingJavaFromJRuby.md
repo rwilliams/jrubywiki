@@ -877,7 +877,7 @@ The expression evaluates to the result of the block, e.g.,
 Related Articles
 ----------------
 
-* [[FAQs#Calling_Into_Java]] Other useful examples
+* [[FAQs#calling-into-java]] Other useful examples
 * [Java Integration in JRuby](http://mikiobraun.blogspot.com/2008/11/java-integration-in-jruby.html) Short overview article on JRuby and Java integration
 * [JRuby/Ruby Arrays to Hash](http://kenai.com/projects/jruby/pages/CallingJavaFromJRuby) Review on Converting Arrays to Hash in JRuby/Ruby
 * [Java Integration: JavaScript, Groovy and JRuby](https://blogs.oracle.com/sundararajan/entry/java_integration_javascript_groovy_and) Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
