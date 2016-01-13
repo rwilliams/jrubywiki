@@ -19,3 +19,5 @@ $ JAVACMD=graal/jvmci/jdk1.8.0_66/product/bin/java bin/jruby -X+T ...
 ```
 
 You may need to update the `1.8.0_66` part of that depending on your system's version of Java.
+
+Some more help on building on different distributions of Linux is available at http://mail.openjdk.java.net/pipermail/graal-dev/2015-December/004050.html.
