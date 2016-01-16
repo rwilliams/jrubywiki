@@ -29,7 +29,7 @@ Please see [the documentation](https://github.com/jruby/jruby/blob/master/lib/ru
 
 ## RubySpec
 
-We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support 93% of the language and over 90% of the core library.
+We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support all of the language and over 90% of the core library.
 
 * [Language Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-language-report/html/)
 * [Core Specs Report](http://lafo.ssw.uni-linz.ac.at/graalvm/jruby/specs-core-report/html/)
