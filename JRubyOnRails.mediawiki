@@ -18,6 +18,8 @@ Get started with these tutorials:
 
 === Deployment ===
 
+==== This page is outdated, you'll find more up-to-date info on our [[Servers]] page ====
+
 ==== War File Deployment ====
 If you don't use a traditional Ruby application server like [http://mongrel.rubyforge.org/ Mongrel], you can use a Java application server.  To deploy to a Java app server, you can use the tool <a href="https://github.com/jruby/warbler">Warbler</a> to bundle your Rails application in a Java Web Application Archive (<tt>.war</tt> file). (Warbler is a minimal, flexible, Ruby-like way to create a <tt>.war</tt> file.) Once you have a <tt>.war</tt> file, you can deploy to any Java app server using its war deployment mechanism.  
 
@@ -30,10 +32,7 @@ If you don't use a traditional Ruby application server like [http://mongrel.ruby
 * [http://oddthesis.org/theses/jboss-rails JBoss]
 
 ==== Glassfish v3 Deployment ====
-The Glassfish gem by Vivek Pandey enables you to easily deploy a JRuby on Rails application to the Glassfish v3 modularized Java application server. The Glassfish gem wraps the essential technologies in 3 MB and allows you to run your application using a traditional approach, as if you were running Mongrel, Rack, and so on. A brief tutorial can be found here:<br/> [[JRuby on Rails with Glassfish Gem]].
-
-See also:
-* [[JRuby on Rails in GlassFish|JRuby on Rails in Glassfish]]
+The Glassfish gem by Vivek Pandey enables you to easily deploy a JRuby on Rails application to the Glassfish v3 modularized Java application server. The Glassfish gem wraps the essential technologies in 3 MB and allows you to run your application using a traditional approach, as if you were running Mongrel, Rack, and so on.
 
 ==== Traditional Rails Deployment ====
 
@@ -52,6 +51,3 @@ See also:
 * [http://blarg.slackworks.com/posts/jndi-with-rails Blog entry on setting up JNDI]
 * [[RailsJSR286Portlets|Write Portlets using Rails]]
 * [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
-* [[Running Rails with Firebird]]
-* [[Rails AOT|Compiling Rails' controllers and models AOT]]
-* [[Rails Eclipse Jetty Maven|Rails on Eclipse + Run Jetty Run + Maven]]
