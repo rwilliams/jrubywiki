@@ -36,24 +36,22 @@ See also:
 * [[JRuby on Rails in GlassFish|JRuby on Rails in Glassfish]]
 
 ==== Traditional Rails Deployment ====
-* [http://glassfishgem.rubyforge.org/ Glassfish Gem on Rubyforge]
-* [http://weblogs.java.net/blog/vivekp/archive/2009/03/new_features_in.html New features in GlassFish 0.9.3 gem]
-* [http://mongrel.rubyforge.org/ Mongrel web site]
+
+* [http://puma.io/ PUMA] (works with MRI as well as JRuby)
+* [https://github.com/trinidad/trinidad Trinidad] (based on Tomcat)
+* [http://torquebox.org TorqueBox] (based on JBoss)
+* [http://modrails.com Passenger]
 * [http://en.wikipedia.org/wiki/Mongrel_(web_server) Mongrel Web Server entry on Wikipedia]
 * [http://swiftiply.swiftcore.org/mongrel.html Swiftiply with Mongrel]
 * [http://www.webrick.org/ WEBrick website]
 * [http://en.wikipedia.org/wiki/WEBrick WEBrick entry on Wikipedia]
 * [http://microjet.ath.cx/WebWiki/WEBrick.html Gnome's Guide to WEBrick]
-* [http://modrails.com Passenger]
-* [http://torquebox.org TorqueBox] (based on JBoss)
-* [https://github.com/trinidad/trinidad Trinidad] (based on Tomcat)
 
 === Miscellaneous Rails Topics ===
-* '''''[[Rails_2_3_2|Important note about Rails 2.3.2]]'''''
+
 * [http://blarg.slackworks.com/posts/jndi-with-rails Blog entry on setting up JNDI]
 * [[RailsJSR286Portlets|Write Portlets using Rails]]
 * [http://blarg.slackworks.com/posts/jruby-service-in-rails JRuby Services in Rails]
 * [[Running Rails with Firebird]]
 * [[Rails AOT|Compiling Rails' controllers and models AOT]]
 * [[Rails Eclipse Jetty Maven|Rails on Eclipse + Run Jetty Run + Maven]]
-* [http://kofno.wordpress.com/2008/04/23/writing-an-activerecord-jdbc-adapter/ Writing an ActiveRecord-JDBC adapter]
