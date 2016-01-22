@@ -18,7 +18,7 @@ Get started with these tutorials:
 
 === Deployment ===
 
-==== This page is outdated, you'll find more up-to-date info on our [[Servers]] page ====
+==== This page is outdated, more up-to-date info on our [[Servers]] page ====
 
 ==== War File Deployment ====
 If you don't use a traditional Ruby application server like [http://mongrel.rubyforge.org/ Mongrel], you can use a Java application server.  To deploy to a Java app server, you can use the tool <a href="https://github.com/jruby/warbler">Warbler</a> to bundle your Rails application in a Java Web Application Archive (<tt>.war</tt> file). (Warbler is a minimal, flexible, Ruby-like way to create a <tt>.war</tt> file.) Once you have a <tt>.war</tt> file, you can deploy to any Java app server using its war deployment mechanism.  
