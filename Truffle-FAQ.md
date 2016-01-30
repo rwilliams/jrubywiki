@@ -22,7 +22,7 @@ The same way you would normally get JRuby, such as from http://jruby.org/downloa
 
 However you have gotten the required JVM, you can then run JRuby with the `JAVACMD` environment variable passing at the `java` binary, and passing the `-X+T` option.
 
-For example, with `rbenv` and `ruby-build` (note that JRuby 9.0.5.0 isn't released yet):
+For example, with `rbenv` and `ruby-build`:
 
 ```
 rbenv install jruby-9.0.5.0
