@@ -4,14 +4,14 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 !OS
 !Package
 !Maintainer
-!Current version (1.7.18)
+!Current versions (1.7.24, 9.0.5.0)
 !Notes
 |-
 |POSIX
-|[https://github.com/sstephenson/rbenv rbenv]
-| Sam Stephenson
-| 1.6.7, 1.7.11
-| see also [https://github.com/sstephenson/ruby-build ruby-build] (available Ruby interpreters: ruby-build --definitions)
+|[https://github.com/rbenv/rbenv rbenv]
+| Mislav Marohnić
+| 1.7.24, 9.0.5.0
+| see also [https://github.com/rbenv/ruby-build ruby-build] (available Ruby interpreters: ruby-build --definitions)
 |-
 |POSIX
 |[http://rvm.io/ RVM]
