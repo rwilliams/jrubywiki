@@ -110,7 +110,7 @@ This list is not all-inclusive, but these are some C extension-only gems that ar
 
 * https://github.com/sparklemotion/sqlite3-ruby - SQLite3 bindings. There is a JDBC driver, but a direct FFI driver would have better feature support and likely better performance.
 
-* https://github.com/ruby/ruby/tree/trunk/ext/bigdecimal - BigDecial ext from CRuby. You could either port this or build a feature-compatible version around a fast BigDecimal Java libraries. The BigDecimal built into the JDK has many performance issues.
+* https://github.com/ruby/ruby/tree/trunk/ext/bigdecimal - BigDecimal ext from CRuby. You could either port this or build a feature-compatible version around a fast BigDecimal Java libraries. The BigDecimal built into the JDK has many performance issues.
 
 * https://github.com/brianmario/mysql2 - MySQL bindings.
 
