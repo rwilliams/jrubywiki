@@ -15,7 +15,6 @@ Areas of study:
 * [Enhanced Celluloid and nio4r support for JRuby/JVM](#celluloid-turbo-mode-for-jruby)
 * [Port popular or important Ruby C extensions to JRuby](#ports-of-popular-c-extensions)
 * [True coroutine support for e.g. Fiber](#native-coroutine-support)
-* [Modern rack and servlet features for jruby-rack](#jruby-rack)
 
 Note that there's also a [general "Ruby" GSoC ideas page](https://github.com/rubygsoc/rubygsoc/wiki/Ideas-List), many/most of which are relevant to JRuby.
 
@@ -129,19 +128,3 @@ The [Continuations Library](http://www.matthiasmann.de/content/view/24/26/) by M
 It would be great if this library could be leveraged from JRuby, either with a proprietary API, or with an implementation of Fibers which is backed by this library.
 
 Note that this project has run into challenges before due to these frameworks' requirement of static typing throughout the coroutine call path. This complicates things for us because of Ruby's dynamic nature.
-
-### JRuby-Rack
-
-[`JRuby::Rack`](https://github.com/jruby/jruby-rack) is a lightweight adapter for the Java Servlet environment that allows any (Ruby) Rack-based application (including Rails) to run unmodified in a Java Servlet container.
-
-It's been around and is used in production, it is the back-bone of all [Warbler](https://github.com/jruby/warbler) generated applications as well as servers such as [Trinidad](https://github.com/trinidad/trinidad). Still it's performance is not what we're capable of and there's also more features we can bridge and expose such as asynchronous request handling and web-sockets.
-
-There's an [internal task list](https://github.com/jruby/jruby-rack/issues/168) and some work (refactoring Ruby code into "native" for performance) has already landed. The list is far from complete and should be taken lightly, some areas of interest besides optimization work : 
-
-* support the Rack hijacking API http://blog.phusion.nl/2013/01/23/the-new-rack-socket-hijacking-api/
-
-* presenting `javax.websocket` APIs in a Ruby friendly way (possibly related to Rack hijacking)
-
-* emulating Rails' `ActionController::Live` with asynchronous Servlet 3.0 (later possibly changing the Rails code to allow the details of thread spawning be hidden behind curtains)
-
-Special bonus points for getting a recent version deploy and perform well on Google AppEngine [again](http://jruby-rack.appspot.com/snoop).
