@@ -18,12 +18,12 @@ __TOC__
 ===Default load path includes===
 # Current dir (implicit, during searches).
 # The &lt;JRuby lib&gt; dir (as specified by <tt>jruby.lib</tt> system property).
-#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby/1.8</tt> (note this and subsequent paths are using <tt>jruby.home</tt> property, not <tt>jruby.lib</tt> property).
-#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby/1.8/java</tt>
-#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby</tt>
-#<tt><nowiki><JRuby home></nowiki>/lib/ruby/1.8</tt>
-#<tt><nowiki><JRuby home></nowiki>/lib/ruby/site_ruby/1.8/java</tt>
-#<tt><nowiki><JRuby home></nowiki>/lib/ruby</tt>
+#/lib/ruby/site_ruby/1.8(note this and subsequent paths are using <tt>jruby.home</tt> property, not <tt>jruby.lib</tt> property).
+#/lib/ruby/site_ruby/1.8/java
+#<tt>/lib/ruby/site_ruby</tt>
+#<tt>/lib/ruby/1.8</tt>
+#<tt>/lib/ruby/site_ruby/1.8/java</tt>
+#<tt>/lib/ruby</tt>
 #<tt>'.'</tt>
 
 ===findLibrary===
