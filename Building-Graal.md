@@ -3,12 +3,12 @@ JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The 
 https://wiki.openjdk.java.net/display/Graal/Instructions
 
 ```
-$ hg clone https://bitbucket.org/allr/mx
+$ git clone https://github.com/graalvm/mx.git
 $ export PATH=$PWD/mx:$PATH
 $ mkdir graal
 $ cd graal
-$ mx sclone http://hg.openjdk.java.net/graal/graal-compiler
-$ cd graal-compiler
+$ git clone https://github.com/graalvm/graal-core.git
+$ cd graal-core
 $ mx --vm server build
 ```
 
