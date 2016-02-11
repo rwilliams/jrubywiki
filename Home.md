@@ -40,7 +40,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
 * Setting up an IDE: [[IntelliJ|DevelopingWithIntelliJ]]
 * [[Building JRuby|DownloadAndBuildJRuby]]
-* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [JRUBY JIRA (bugs)](http://jira.codehaus.org/browse/JRUBY)
+* Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [Project Bugtracker](https://github.com/jruby/jruby/issues)
 * [Build Server](http://ci.jruby.org) - Not updated frequently. Refer Travis instead for now
 * [JRuby on Travis CI](https://travis-ci.org/jruby/jruby)
 * [JRuby on CloudBees](https://projectodd.ci.cloudbees.com/view/JRuby/)
