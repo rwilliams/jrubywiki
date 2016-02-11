@@ -3,7 +3,7 @@ Calling Java from JRuby
 
 All the following examples can be "run" either from the command line, or by using **jirb_swing**, the Swing-based IRB console that comes with JRuby.  You can start jirb_swing like `$ jruby -S jirb_swing`.
 
-A special `require 'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  However, this will _not_ give you access to any non-bundled libraries. A bit more is needed for that, which will be discussed later.
+A special `require 'java'` directive in your file will give you access to any bundled Java libraries (classes within your java class path).  If you need to access Java libraries not contained with the Java class path we will show you how to do that in a later section.
 
 The following code shows typical use. It should pop up a small window showing "Hello" on your screen.
 
