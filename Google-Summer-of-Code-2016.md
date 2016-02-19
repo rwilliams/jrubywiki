@@ -32,6 +32,8 @@ JRuby currently has an intermediate representation (IR) that attempts to capture
 
 There are many small optimizations in the old (JRuby 1.7) JIT compiler that have not yet been added to the new IR runtime. Some examples: constant-time homoegeneous case/when, fast numeric operators, allocation reduction for unused arrays/hashes, etc. Most of these would be changes to the IR compiler or could be added to a post-compile pass.
 
+**Difficulty: Med**
+
 ##### Prerequisites #####
 
 * Knowledge of JVM bytecode and the ASM library.
@@ -43,6 +45,8 @@ There are many small optimizations in the old (JRuby 1.7) JIT compiler that have
 
 We have an working prototype of IR inlining, that can inline Ruby methods and blocks. A good summer project would be to improve how we inline, when we choose to inline, and what optimizations we apply after inlining.
 
+**Difficulty: Med-Hi**
+
 ##### Prerequisites #####
 
 * Knowledge of compiler design (three address form, SSA, control/data flow graphs, compiler optimizations)
@@ -51,6 +55,8 @@ We have an working prototype of IR inlining, that can inline Ruby methods and bl
 #### Idea: Numeric specialization ####
 
 We also have a working prototype of a numeric unboxing pass, which optimistically converts dynamic Fixnum and Float operations into low-level long and double operations. This project would be to get the pass working and explore specializing code to more types.
+
+**Difficulty: Med-Hi**
 
 ##### Prerequisites #####
 
@@ -65,6 +71,8 @@ vmboiler is a similar framework that lives atop the ASM bytecode library and mak
 
 This project would be to explore these libraries and attempt to wire them into JRuby's JIT.
 
+**Difficulty: Med-Hi**
+
 ##### Prerequisites #####
 
 * Knowledge of compiler design (three address form, SSA, control/data flow graphs, compiler optimizations)
@@ -73,6 +81,8 @@ This project would be to explore these libraries and attempt to wire them into J
 ## Truffle ##
 
 JRuby has a backend to use the Truffle language implementation framework from Oracle Labs. There are multiple projects to improve the implementation of Ruby using Truffle, or to develop new tools using Truffle. Students would need to have some experience in language development and would need to learn enough about Truffle to submit their own proposal.
+
+**Difficulty: Low-Hi**
 
 ##### Mentors for these projects #####
 
@@ -96,6 +106,8 @@ Ruby has only recently gained true parallel threading via JRuby, and there's man
 
 Many contributors have been working on the [concurrent-ruby library](https://github.com/ruby-concurrency/concurrent-ruby), a collection of concurrency utilities like futures, actors, and atomic references. There's always more to add and improvements to be made to the existing features. This project would involve testing, benchmarking, and studying other threading libraries to continue improving the concurrent-ruby toolbox. It could also include working with ruby-core (MRI) developers to push some low-level features emulated by the library into Ruby's standard features.
 
+**Difficulty: Low-Med**
+
 ##### Prerequisites #####
 
 * Experience working with parallel-threaded systems
@@ -105,6 +117,8 @@ Many contributors have been working on the [concurrent-ruby library](https://git
 #### Concurrency improvement of standard libraries and popular gems ####
 
 The existing Ruby standard libraries have never received a good thread-safety analysis, and most thread-safety testing has only happened via other libraries and applications. This project would work down the list of standard libraries and do hand-analysis, tool-driven analysis, purpose-built concurrency tests, and changes necessary to be usable in highly-concurrent environments. Given time, this could also expand into popular gems.
+
+**Difficulty: Med**
 
 ##### Prerequisites #####
 
@@ -116,6 +130,8 @@ The existing Ruby standard libraries have never received a good thread-safety an
 #### Native async-io support ####
 
 JRuby could have native async-io support. Something like https://github.com/celluloid/nio4r, but at runtime level.
+
+**Difficulty: Med**
 
 ##### Prerequisites #####
 
@@ -137,6 +153,8 @@ Explore new and upcoming JVMs and work to apply their features to JRuby.
 
 Java 8 included features for lambdas (Java-based closures) and streaming closure-based algorithms transparently parallelized across threads using fork/join. A student could explore how best to expose Java 8's collections and streams APIs to Ruby and how best to leverage Ruby's libraries and features on a Java 8 platform.
 
+**Difficulty: Med**
+
 ##### Prerequisites #####
 
 * Knowledge of Java 8 lambdas, both at the Java and JVM bytecode levels
@@ -146,6 +164,8 @@ Java 8 included features for lambdas (Java-based closures) and streaming closure
 
 Project Jigsaw will bring modularity to the JVM. This includes the ability to package a Java application with only the JVM/JDK bits it needs, pre-compile a Java application into some binary format (ideally speeding startup and warmup), and interesting opportunities for JRuby's Java integration (isolation of subsystems, modularity support within JRuby itself). This project would explore how Jigsaw could be leveraged in JRuby.
 
+**Difficulty: Med-Hi**
+
 ##### Prerequisites #####
 
 * Knowledge of Project Jigsaw, how it works at the JVM/JDK level, and how to use the related tools
@@ -153,6 +173,8 @@ Project Jigsaw will bring modularity to the JVM. This includes the ability to pa
 #### Idea: Azul's Zing VM ####
 
 The Zing VM is an OpenJDK-based JVM that includes various compiler and GC optimizations not found in the stock codebase. It is a commercial VM, but free copies are available for testing and exploration in development and on open-source projects. This project would be to explore Zing's unique features on JRuby and prepare a report examining performance, garbage collection, and tooling opportunities for Ruby users running JRuby on Zing.
+
+**Difficulty: Med**
 
 ##### Prerequisites #####
 
@@ -165,6 +187,8 @@ In addition to enabling the Truffle language framework, the 100%-Java Graal comp
 
 You will explore the features that make Graal optimize code better and work with the JRuby team and the Graal team to investigate ways to improve JRuby's performance.
 
+**Difficulty: Med-Hi**
+
 ##### Prerequisites #####
 
 * Knowledge of performance measurement on JVM
@@ -174,6 +198,8 @@ You will explore the features that make Graal optimize code better and work with
 #### Idea: Waratek's true multitenant JVM ####
 
 Waratek builds a version of OpenJDK that supports true memory and security isolation for multiple in-process applications. This could be a way to host JRuby applications that require process isolation, or a way to mitigate JRuby startup time. Your project would be to explore Waratek's unique features and utilize them from JRuby.
+
+**Difficulty: Med**
 
 ##### Prerequisites #####
 
@@ -195,6 +221,8 @@ There are many tools for the JVM and a few for Ruby. We can do better...we need 
 
 This could be accomplished by instrumenting our new IR runtime or by leveraging JVM tools, but with the new IR runtime we also have the ability to gather type and branch profiles, full-system call maps, and more.
 
+**Difficulty: Med-Hi**
+
 ##### Prerequisites #####
 
 * Knowledge of compiler design (three address form, SSA, control/data flow graphs, compiler optimizations)
@@ -203,6 +231,8 @@ This could be accomplished by instrumenting our new IR runtime or by leveraging 
 #### Idea: Analyze and profile memory use ####
 
 This would involve improving or enhancing tools like JVisualVM, jhat, [Alienist](https://github.com/enebo/alienist) to make memory profiling, leak detection, object race detection and more possible on JRuby.
+
+**Difficulty: Med**
 
 ##### Prerequisites #####
 
@@ -213,6 +243,8 @@ This would involve improving or enhancing tools like JVisualVM, jhat, [Alienist]
 
 Many unsecure environments use JRuby because of the JVM security model, which is difficult to provide in C Ruby. However JRuby does not take good advantage of this subsystem by providing its own permissions and configuation. Improve JRuby's integation with the JVM security model.
 
+**Difficulty: Med-Hi**
+
 ##### Prerequisites #####
 
 * Familiarity with the JVM security model
@@ -222,6 +254,8 @@ Many unsecure environments use JRuby because of the JVM security model, which is
 
 We have been promoting Drip as a way to mitigate JRuby's startup, but it's only a half measure. This project would work to analyze exactly what is slow during JRuby's startup (and warmup, perhaps) and explore tools like Drip, Nailgun, Project Jigsaw, alternative JVMs, and others (along with JRuby improvements) to make JRuby a more useful command-line tool.
 
+**Difficulty: Med**
+
 ##### Prerequisites #####
 
 * Familiarity with tools like Drip or Nailgun for improving startup, or with preforking systems on other runtimes
@@ -230,6 +264,8 @@ We have been promoting Drip as a way to mitigate JRuby's startup, but it's only 
 #### Idea: Rsense and Rsense-based tools ####
 
 Rsense is an awesome type-inference tool for ruby source code, built on top of JRuby-Parser.  A lot of work went into it as part of a previous GSoC, and for small projects its working.  Take it to the next level and implement caching so that it works with those mono-rail projects so many of us work with. Build the Vim and Emacs plugins. Make awesome tooling on top of it.  The sky is the limit.
+
+**Difficulty: Med**
 
 ##### Prerequisites #####
 
@@ -249,6 +285,8 @@ JRuby has worked on Android for a long time, but we've never been happy with the
 
 Explore what we can do to shrink the JRuby runtime (now that it only supports one language mode) and improve performance and startup time of JRuby 9000 on Android. We also need to mitigate the fact that JRuby 9000 makes heavy use of invokedynamic "method handles" which are not available on Android.
 
+**Difficulty: High**
+
 ##### Prerequisites #####
 
 * Familiarity with current Android API
@@ -259,6 +297,8 @@ Explore what we can do to shrink the JRuby runtime (now that it only supports on
 
 Android 5+ replaces the old Dalvik VM with the new "ART" (Android Runtime) VM that compiles code to native when it is installed. If we could leverage this better in JRuby, it could lead to smaller applications and better performance and startupt time. Explore how ART precompiles Dalvik bytecode and how we can do a better job of leveraging that in JRuby.
 
+**Difficulty: Med-High**
+
 ##### Prerequisites #####
 
 * Experience with Android profiling, debugging, monitoring (for examining the running ART runtime)
@@ -268,6 +308,8 @@ Android 5+ replaces the old Dalvik VM with the new "ART" (Android Runtime) VM th
 #### Idea: Mobile support via RoboVM ###
 
 RoboVM is a project to make Java-based apps run on Android and iOS by including a runtime and precompiling as much as possible to native. This has great potential for JRuby, since we are a full-featured Ruby implementation...we could bring all Ruby libraries out there to iOS developers. This project would explore getting JRuby to run on RoboVM and study how effective it would be to write Ruby-based applications on iOS this way.
+
+**Difficulty: Med-High**
 
 ##### Prerequisites #####
 
@@ -294,11 +336,15 @@ The goal of this project would be to implement a Celluloid `ActorSystem` which i
 * ***[LinkedTransferQueue](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedTransferQueue.html)***: Introduced in Java 7, LinkedTransferQueues are one of the most adaptable concurrency primitives available on the JVM today.
 * ***[Fork/Join](http://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html)***: a framework introduced in Java 7 for abstracting multicore execution on the JVM
 
+**Difficulty: Med-Hi**
+
 #### Idea: Java ByteBuffer support for nio4r ####
 
 Ruby has no native ByteArray or ByteBuffer types, [unlike Java](http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html). While it'd be great to have something like this in core Ruby, the next best place would be in the [New IO for Ruby](https://github.com/celluloid/nio4r) project, which provides a thin wrapper around Java NIO.
 
 The goal of this project would be to wrap Java ByteBuffers (particularly direct ByteBuffers) in a Ruby class that can also be implemented in pure Ruby which hooks into nio4r and can be used directly with nio4r's Java NIO backend.
+
+**Difficulty: Med**
 
 ##### Prerequisites #####
 
@@ -321,29 +367,36 @@ This list is not all-inclusive, but these are some C extension-only gems that ar
 
 * A good knowledge of C will be required
 * Experience with C to Java ports is a BIG plus
+* Experience with Ruby's FFI API is a plus
 * Experience with JVM libraries related to each area (databases, numerics, etc)
 
 #### Idea: https://github.com/sparklemotion/sqlite3-ruby - SQLite3 bindings ####
 
 There is a JDBC driver, but a direct FFI driver would have better feature support and likely better performance.
 
+**Difficulty: Med**
+
 #### Idea: https://github.com/ruby/ruby/tree/trunk/ext/bigdecimal - BigDecimal ext from CRuby ####
 
 You could either port this or build a feature-compatible version around a fast BigDecimal Java libraries. The BigDecimal built into the JDK has many performance issues.
 
+**Difficulty: High**
+
 #### Idea: https://github.com/brianmario/mysql2 - MySQL bindings ####
+
+**Difficulty: Med-High**
 
 #### Idea: https://github.com/taf2/curb - A libcurl wrapper ####
 
 Could be redone in FFI or as an API-compatible wrapper around a Java HTTP client.
 
-#### Idea: https://github.com/ohler55/oj - A very fast JSON parser ####
-
-The standard 'json' library uses a Ragel-generated parser that's not as fast as it could be.
+**Difficulty: Med**
 
 #### Idea: https://github.com/nixme/pry-debugger/issues/26 - pry-debugger
 
 Step in/over debugging with Pry.
+
+**Difficulty: Med-High**
 
 ## Coroutines ##
 
@@ -359,6 +412,8 @@ Ruby makes use of coroutines for fibers and cursor-based resumable enumerators. 
 
 True native coroutines have been prototyped for JVM in the MLVM project, but that implementation has sat on a shelf for several years. Get it updated and working, rewrite JVM support for it, and begin the process of verifying it as a safe JVM feature.
 
+**Difficulty: High**
+
 ##### Prerequisites #####
 
 * Knowledge of C++
@@ -373,6 +428,8 @@ Example libraries:
 
 * The [Continuations Library](http://www.matthiasmann.de/content/view/24/26/) by Matthias Mann provides the basis for lightweight coroutines on the JVM used by the other projects listed here.
 * [Pulsar](https://github.com/puniverse/pulsar) and [Quasar](https://github.com/puniverse/quasar) are libraries to achieve feats like [10,000 actors on the JVM](http://blog.paralleluniverse.co/post/64210769930/spaceships2).
+
+**Difficulty: High**
 
 ##### Prerequisites #####
 
