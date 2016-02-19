@@ -28,11 +28,24 @@ JRuby currently has an intermediate representation (IR) that attempts to capture
 * @enebo
 * @subbuss
 
+#### Idea: Binary Interpreter ####
+
+In JRuby 9k, we implemented IR persistence as an experimental feature.  We ended up using it for AOT compilation but our original intention was to speed up startup time.  Although persisted IR was faster than not using it the overhead of instantiating all of the IR data ended up reducing the startup time gains to the point that the gain was not worth the extra complexity.  A newer idea is to change our persistence data format in such a way that we can directly walk the binary file and interpret the file directly without having to construct most of the IR data structures we have today.  This should end up being a much more substantial startup time gain.
+
+** Difficulty: Medium **
+
+##### Prerequisites #####
+
+* Strong familiarity with Java and Ruby
+* Some knowledge of compilers
+* Familiarity with Parsing
+* Knowledge of Java NIO a plus
+
 #### Idea: Small optimizations in JVM bytecode ####
 
 There are many small optimizations in the old (JRuby 1.7) JIT compiler that have not yet been added to the new IR runtime. Some examples: constant-time homoegeneous case/when, fast numeric operators, allocation reduction for unused arrays/hashes, etc. Most of these would be changes to the IR compiler or could be added to a post-compile pass.
 
-**Difficulty: Med**
+**Difficulty: Medium **
 
 ##### Prerequisites #####
 
