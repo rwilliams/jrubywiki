@@ -6,7 +6,7 @@ See truffle/[README](https://github.com/jruby/jruby/tree/master/truffle).
 
 ### Where to allocate helper nodes (a node used in another node)
 
-* If the node does not use the DSL, you should allocate the helper node lazily (see the last case).
+* If the node does not use the DSL, you should allocate the helper node lazily (see the [lazy pattern](#the-lazy-pattern)).
 * If the helper node is used by every specialization: allocate the helper node eagerly as a @Child.
 ```java
 public abstract class MyNode extends RubyNode {
@@ -33,6 +33,8 @@ public abstract class MyNode extends RubyNode {
 ```
 However, if the node already uses @Cached *and there are guards on the @Cached values*,
 consider whether you want one helper node per Specialization instantiation or only one for the whole node.
+
+#### The lazy pattern
 
 * Otherwise use the lazy pattern which __*includes*__ the call on the helper node.
 ```java
