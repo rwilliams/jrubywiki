@@ -6,7 +6,7 @@ See truffle/[README](https://github.com/jruby/jruby/tree/master/truffle).
 
 ### Where to allocate helper nodes (a node used in another node)
 
-* If the node does not use the DSL, you should allocate the helper node lazily (see the [lazy pattern](#the-lazy-pattern)).
+* If the node does not use the DSL, you should allocate the helper node [lazily](#the-lazy-pattern).
 * If the helper node is used by every specialization: allocate the helper node eagerly as a @Child.
 ```java
 public abstract class MyNode extends RubyNode {
