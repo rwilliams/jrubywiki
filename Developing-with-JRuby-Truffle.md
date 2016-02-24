@@ -18,7 +18,7 @@ public abstract class MyNode extends RubyNode {
     }
 ...
 ```
-* If the helper node is used by only one specialization: use @Cached.
+* If the helper node is used by only one specialization: use `@Cached`.
 ```java
         @Specialization
         public long objectID(DynamicObject object,
