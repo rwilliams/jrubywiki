@@ -23,7 +23,7 @@ public abstract class MyNode extends RubyNode {
         @Specialization
         public long objectID(DynamicObject object,
                 @Cached("createReadObjectIDNode()") ReadObjectFieldNode readObjectIDNode) {
-            final Object id = readObjectIDNode.execute(object);
+            final Object id = readObjectIDNode.executeRead(object);
             ...
         }
 
