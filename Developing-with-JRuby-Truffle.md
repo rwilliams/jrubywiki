@@ -31,7 +31,7 @@ public abstract class MyNode extends RubyNode {
             return new ReadObjectFieldNode(Layouts.OBJECT_ID_IDENTIFIER);
         }
 ```
-However, if the node already uses @Cached *and there are guards on the @Cached values*,
+However, if the node already uses `@Cached` *and there are guards on the @Cached values*,
 consider whether you want one helper node per Specialization instantiation or only one for the whole node.
 
 #### The lazy pattern
