@@ -34,7 +34,7 @@ public abstract class MyNode extends RubyNode {
 However, if the node already uses @Cached *and there are guards on the @Cached values*,
 consider whether you want one helper node per Specialization instantiation or only one for the whole node.
 
-* Otherwise use the lazy pattern which *includes* the call on the helper node.
+* Otherwise use the lazy pattern which __*includes*__ the call on the helper node.
 ```java
         @Child ToStrNode toStrNode;
         ...
