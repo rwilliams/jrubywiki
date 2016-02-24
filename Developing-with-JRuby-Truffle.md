@@ -51,4 +51,4 @@ If you want to call different methods on a helper node, then use a `getStrNode()
 
 ## Polymorphic inline caches
 
-When you use `@Cached` to create a PIC you should add a `limit` property to set the maximum size of the cache, and add a corresponding entry to `Options`. For examples see https://github.com/jruby/jruby/commit/cbacdd5a2be32d74ed152a1c306beaa927e80e4e.
+When you use `@Cached` to create a Polymorphic Inline Cache you should add a `limit` property to set the maximum size of the cache, and add a corresponding entry to `Options`. For examples see https://github.com/jruby/jruby/commit/cbacdd5a2be32d74ed152a1c306beaa927e80e4e.
