@@ -36,7 +36,7 @@ consider whether you want one helper node per Specialization instantiation or on
 
 #### The lazy pattern
 
-* Otherwise use the lazy pattern which __*includes*__ the call on the helper node.
+* Otherwise use the lazy pattern which __*includes*__ the `execute*` call on the helper node.
 ```java
         @Child ToStrNode toStrNode;
         ...
