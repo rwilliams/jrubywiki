@@ -22,13 +22,13 @@ public abstract class MyNode extends RubyNode {
 ```java
         @Specialization
         public long objectID(DynamicObject object,
-                @Cached("createReadObjectIDNode()") ReadHeadObjectFieldNode readObjectIdNode) {
+                @Cached("createReadObjectIDNode()") ReadObjectFieldNode readObjectIdNode) {
             final Object id = readObjectIdNode.execute(object);
             ...
         }
 
-        protected ReadHeadObjectFieldNode createReadObjectIDNode() {
-            return new ReadHeadObjectFieldNode(Layouts.OBJECT_ID_IDENTIFIER);
+        protected ReadObjectFieldNode createReadObjectIDNode() {
+            return new ReadObjectFieldNode(Layouts.OBJECT_ID_IDENTIFIER);
         }
 ```
 However, if the node already uses @Cached *and there are guards on the @Cached values*,
