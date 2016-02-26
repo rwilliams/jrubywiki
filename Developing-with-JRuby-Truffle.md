@@ -50,7 +50,21 @@ consider whether you want one helper node per Specialization instantiation or on
             return toStrNode.executeToStr(frame, object);
         }
 ```
-If you want to call different methods on a helper node, then use a `getStrNode()` helper which returns the helper node.
+
+If you want to call different methods on a helper node, then use a `getToStrNode()` helper which returns the helper node:
+```java
+        @Child ToStrNode toStrNode;
+        ...
+
+        protected ToStrNode getToStrNode() {
+            if (toStrNode == null) {
+                CompilerDirectives.transferToInterpreter();
+                toStrNode = insert(ToStrNodeGen.create(getContext(), getSourceSection(), null));
+            }
+
+            return toStrNode;
+        }
+```
 
 ## Polymorphic inline caches
 
