@@ -46,6 +46,7 @@ consider whether you want one helper node per Specialization instantiation or on
                 CompilerDirectives.transferToInterpreter();
                 toStrNode = insert(ToStrNodeGen.create(getContext(), getSourceSection(), null));
             }
+
             return toStrNode.executeToStr(frame, object);
         }
 ```
