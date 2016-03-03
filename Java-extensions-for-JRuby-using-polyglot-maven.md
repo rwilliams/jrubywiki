@@ -2,7 +2,7 @@ Maven has become the _de-facto_ standard for managing java dependencies on java
 projects and thanks to [polyglot maven][] it can now do the same for jruby projects 
 with java extensions. Over at [jruby-examples][] we have created a simple project that 
 outlines the necessary steps.
-You can get the latest release of maven (apache-maven-3.3.9 [here][], you need at least 
+You can get the latest release of maven (apache-maven-3.3.9) [here][], you need at least 
 version-3.3.1 for polyglot maven.
 
 In you project directory create a `.mvn` folder and create `extensions.xml`
