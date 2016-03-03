@@ -5,10 +5,9 @@ outlines the necessary steps.
 You can get the latest release of maven (apache-maven-3.3.9 you need at least 
 version-3.3.1 for polyglot maven) [here][].
 
-
 In you project directory create a `.mvn` folder and create `extensions.xml`
 in that folder (this lets maven know that it should expect a `pom.rb` file, for
-polyglot-ruby rather than a `pom.xml` for regular maven).
+polyglot-ruby rather than a `pom.xml` for regular maven). Before you do this you should probably clone and build our example project (navigate to extensions/basic/jruby-ext and `rake`  to compile and test).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
