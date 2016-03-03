@@ -54,6 +54,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Release Documentation|ReleaseDocumentation]]
 * [[RoadMap]]
 * [[Testing JRuby and InvokeDynamic|TestingJRubyInvokeDynamic]]
+* [Add JRuby Examples](https://github.com/jruby/jruby-examples)
 
 **Web Applications (Rails, servers, others)**
 
