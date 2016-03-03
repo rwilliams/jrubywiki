@@ -20,7 +20,7 @@ polyglot-ruby rather than a `pom.xml` for regular maven). Before you do this you
 </extensions>
 ```
 
-Here is the complete `pom.rb` which as you see is just ruby (we generate the `pom.xml` for completeness but iy does not get used in the build)
+Here is the complete `pom.rb` which as you see is just ruby (we generate the `pom.xml` for completeness but it does not get used in the build)
 
 ```ruby
 project 'jruby-ext' do
