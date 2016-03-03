@@ -26,6 +26,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Gems known not to be threadsafe]]
 * [[LoadService loading mechanism]]
 * [[EnhancedSecurity]]
+* [[Java-extensions-for-JRuby-using-polyglot-maven]]
 
 **JRuby+Truffle**
 
