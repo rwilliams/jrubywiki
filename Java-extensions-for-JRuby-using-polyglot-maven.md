@@ -21,7 +21,7 @@ polyglot-ruby rather than a `pom.xml` for regular maven).
 </extensions>
 ```
 
-Here is the complete `pom.rb` which as you see is just ruby (we generate the pom.xml for completeness but is does not get used in the build)
+Here is the complete `pom.rb` which as you see is just ruby (we generate the `pom.xml` for completeness but iy does not get used in the build)
 
 ```ruby
 project 'jruby-ext' do
@@ -85,9 +85,6 @@ project 'jruby-ext' do
   end
 end
 ```
-
-
-
 [polyglot maven]:https://github.com/takari/polyglot-maven
 [here]:https://maven.apache.org/download.cgi
 [jruby-examples]:https://github.com/jruby/jruby-examples
