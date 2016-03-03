@@ -85,13 +85,16 @@ project 'jruby-ext' do
 end
 ```
 
-This build contain a couple of advanced features (including a `MANIFEST.MF` file that we generate in our Rakefile, and javadoc, including the jruby-api (without which it would be useless).
+This build contain a couple of advanced features (including a `MANIFEST.MF` file that we generate in our Rakefile, and javadoc, including the jruby-api, without which it would be useless).
 
 To generate the javadoc:
 
 ```bash
 mvn javadoc:javadoc
-``` 
+```
+
+The beauty of the maven build system is that it readily manage other jar dependencies, especially if they are available a maven central. See for example [ruby-processing][] that depends on processing-2.2.1 `core` and `video` jars.
 [polyglot maven]:https://github.com/takari/polyglot-maven
 [here]:https://maven.apache.org/download.cgi
 [jruby-examples]:https://github.com/jruby/jruby-examples
+[ruby-processing]:https://github.com/jashkenas/ruby-processing/blob/master/pom.rb
