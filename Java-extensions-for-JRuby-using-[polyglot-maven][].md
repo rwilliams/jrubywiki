@@ -1,5 +1,3 @@
-###Java extensions for JRuby using [polyglot maven][].
-
 Maven has become the de-facto standard for managing java dependencies on java
 projects and thanks to [polyglot maven][] it can now do the same for jruby projects 
 with java extensions. Over at [jruby-examples][] we have created a simple project that 
