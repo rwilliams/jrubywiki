@@ -93,7 +93,7 @@ To generate the javadoc:
 mvn javadoc:javadoc
 ```
 
-The beauty of the maven build system is that it readily manage other jar dependencies, especially if they are available a maven central. See for example [ruby-processing][] that depends on processing-2.2.1 `core` and `video` jars.
+The beauty of the maven build system is that it readily manage other jar dependencies, especially if they are available from maven central. See for example [ruby-processing][] that depends on processing-2.2.1 `core` and `video` jars.
 [polyglot maven]:https://github.com/takari/polyglot-maven
 [here]:https://maven.apache.org/download.cgi
 [jruby-examples]:https://github.com/jruby/jruby-examples
