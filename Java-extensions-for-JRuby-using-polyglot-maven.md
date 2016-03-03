@@ -84,6 +84,14 @@ project 'jruby-ext' do
   end
 end
 ```
+
+This build contain a couple of advanced features (including a `MANIFEST.MF` file that we generate in our Rakefile, and javadoc, including the jruby-api (without which it would be useless).
+
+To generate the javadoc:
+
+```bash
+mvn javadoc:javadoc
+``` 
 [polyglot maven]:https://github.com/takari/polyglot-maven
 [here]:https://maven.apache.org/download.cgi
 [jruby-examples]:https://github.com/jruby/jruby-examples
