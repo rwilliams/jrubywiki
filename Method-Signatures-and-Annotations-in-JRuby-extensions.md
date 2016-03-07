@@ -1,4 +1,4 @@
-Or how to create ruby methods using java see jruby-examples
+Or how to create ruby methods using java see [jruby-examples][]
 
 ## Class method signatures 
 ```ruby
@@ -151,3 +151,5 @@ public static IRubyObject buildString(ThreadContext context, IRubyObject recv) {
     return runtime.newString("This is a new String");
 }
 ```
+
+[jruby-examples]:https://github.com/jruby/jruby-examples
