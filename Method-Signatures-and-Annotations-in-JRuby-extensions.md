@@ -1,4 +1,4 @@
-## Class method signatures (see below for Module method signatures)
+## Class method signatures 
 ```ruby
 # in ruby
 
@@ -122,5 +122,29 @@ void init(ThreadContext context, IRubyObject[] args) {
         jx = (Double) args[0].toJava(Double.class);
         jy = (Double) args[1].toJava(Double.class);
     }
+}
+```
+
+## Module method signatures
+```ruby
+module Foo 
+  def build_string
+     return 'This is a new String' 
+     end alias_method :build_string :new_string
+  end
+end
+```
+Note in java the module method is a static method, and requires a receiver, also illustrated below is how to create an alias (there is an alias option in jruby annotations but it is not required just `name` the method as below
+```java
+/**
+*
+* @param context ThreadContext
+* @param recv the receiver
+* @return A RubyString.
+*/
+@JRubyMethod(name = {"build_string", "new_string"}, module = true)
+public static IRubyObject buildString(ThreadContext context, IRubyObject recv) {
+    Ruby runtime = context.getRuntime();
+    return runtime.newString("This is a new String");
 }
 ```
