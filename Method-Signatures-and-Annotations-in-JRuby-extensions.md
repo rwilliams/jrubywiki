@@ -151,5 +151,28 @@ public static IRubyObject buildString(ThreadContext context, IRubyObject recv) {
     return runtime.newString("This is a new String");
 }
 ```
+Should you with to create a module class method (as below) 
+```ruby
+module Foo 
+  def self.build_string
+     return 'This is a new String' 
+     end
+  end
+end
+```
+We create the class method using the @JRubyMethod annotation `meta = true` which directs that this method should be defined on the metaclass.
+```java
+/**
+*
+* @param context ThreadContext
+* @param recv the receiver
+* @return A RubyString.
+*/
+@JRubyMethod(name = {"build_string", "new_string"}, module = true, meta = true)
+public static IRubyObject buildString(ThreadContext context, IRubyObject recv) {
+    Ruby runtime = context.getRuntime();
+    return runtime.newString("This is a new String");
+}
+```
 
 [jruby-examples]:https://github.com/jruby/jruby-examples
