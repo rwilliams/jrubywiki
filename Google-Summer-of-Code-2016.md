@@ -375,6 +375,7 @@ This list is not all-inclusive, but these are some C extension-only gems that ar
 * @headius
 * @enebo
 * Owners of the original C gems would likely be primary mentors
+  - @mohawkjohn from [SciRuby](www.github.com/sciruby) for [NMatrix](www.github.com/sciruby/nmatrix).
 
 ##### Prerequisites for these projects #####
 
@@ -394,6 +395,16 @@ There is a JDBC driver, but a direct FFI driver would have better feature suppor
 You could either port this or build a feature-compatible version around a fast BigDecimal Java libraries. The BigDecimal built into the JDK has many performance issues.
 
 **Difficulty: High**
+
+#### Idea: https://github.com/SciRuby/nmatrix - NMatrix port to JRuby
+
+**Difficulty: Med** | Mentor - John Woods (@mohawkjohn)
+
+* NMatrix is a linear algebra library for Ruby written mostly in C.
+* SciRuby is looking forward to porting nmatrix to JRuby and creating a common Ruby interface for both C and Java extensions.
+* Links:
+  - Detailed idea: https://github.com/SciRuby/sciruby/wiki/Google-Summer-of-Code-2016-Ideas#port-nmatrix-to-jruby
+  - Mailing List discussion: https://groups.google.com/forum/#!topic/sciruby-dev/tqtVFVvdyjU
 
 #### Idea: https://github.com/brianmario/mysql2 - MySQL bindings ####
 
