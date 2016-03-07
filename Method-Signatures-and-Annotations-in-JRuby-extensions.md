@@ -133,8 +133,8 @@ void init(ThreadContext context, IRubyObject[] args) {
 module Foo 
   def build_string
      return 'This is a new String' 
-     end alias_method :build_string :new_string
-  end
+  end 
+  alias_method :build_string :new_string
 end
 ```
 Note in java the module method is a static method, and requires a receiver, also illustrated below is how to create an alias (there is an alias option in jruby annotations but it is not required just `name` the method as below
@@ -156,7 +156,6 @@ Should you with to create a module class method (as below)
 module Foo 
   def self.build_string
      return 'This is a new String' 
-     end
   end
 end
 ```
