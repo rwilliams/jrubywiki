@@ -93,7 +93,7 @@ def initialize(*args)
   end
 end
 ```
-Note the "new" method should be a class method, so it is a static method in Java. Also it is `meta` method that should be defined on the metaclass (hence `meta = true` in the @JRubyMethod annotation). The convention is to name the java method `rbNew`, this is perhaps one the trickiest methods to implement correctly, where you will most likely create some helper methods as we have below.
+Note the `new` method should be a class method, so it is a static method in Java. Also it is `meta` method that should be defined on the metaclass (hence `meta = true` in the @JRubyMethod annotation). The convention is to name the java method `rbNew`, this is perhaps one the trickiest methods to implement correctly, where you will most likely create some helper methods as we have below.
 ```java
 // java where meta = true mean this method should be defined on the metaclass
 
