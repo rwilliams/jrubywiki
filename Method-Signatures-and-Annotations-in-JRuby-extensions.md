@@ -151,7 +151,7 @@ public static IRubyObject buildString(ThreadContext context, IRubyObject recv) {
     return runtime.newString("This is a new String");
 }
 ```
-Should you with to create a module class method (as below) 
+Should you wish to create a module class method (as below) 
 ```ruby
 module Foo 
   def self.build_string
