@@ -53,7 +53,7 @@ If you are creating your own objects it not a bad idea to create a String repres
     return context.getRuntime().newString(String.format("Vec3D(x = %4.4f, y = %4.4f, z = %4.4f)", jx, jy, jz));
   }
 ```
-In the above case had we not been aliasing the `to_s` to `inspect`, we could have omitted name from the @JRubyMethod annotation.
+In the above case had we not been aliasing the `to_s` to `inspect`, we could have omitted name from the @JRubyMethod annotation and the ruby method name would be taken from the name of the java method.
 
 ### rest arguments
 ```ruby
