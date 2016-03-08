@@ -44,8 +44,6 @@ public IRubyObject norm_bang(ThreadContext context) {
 If you are creating your own objects it not a bad idea to create a String representation that can be used by inspect for example (regular ruby will do something sensible for this) eg:-
 ```java
   /**
-  * For jruby-9000 we alias to inspect
-  *
   * @param context ThreadContext
   * @return IRubyObject to_s
   */
