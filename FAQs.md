@@ -488,3 +488,17 @@ One common error caused by having two conflicting versions of the same class on 
 * `java.lang.VerifyError: class org.bouncycastle.asn1.ASN1Primitive overrides final method equals`
 
 To resolve the issue, either remove the conflicting .jar from the `Extensions` directory, or swap it for a version that is compatible with the version used by JRuby.
+
+<a name="slow_rvm_install_entropy">
+Why is JRuby so slow to install via RVM?
+----------------------------------------
+
+On some Linux systems, notably including Travis CI's Ubuntu "Trusty" image, the gemset import portion of RVM's build can proceed very slowly. This may be due to `/dev/random` entropy being too low; once exhausted, reads from `/dev/random` may block while waiting for more entropy. In a virtualized environment, this can be much slower than on direct hardware, depending on how random number generation is virtualized.
+
+One solution is to install and enable a source of entropy like (haveged)[http://www.issihosts.com/haveged/]:
+
+```
+$ sudo apt-get install haveged
+...
+$ sudo service haveged start
+```
