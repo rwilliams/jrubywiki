@@ -41,6 +41,21 @@ end
 public IRubyObject norm_bang(ThreadContext context) {
 }
 ```
+If you are creating your own objects it not a bad idea to create a String representation that can be used by inspect for example (regular ruby will do something sensible for this) eg:-
+```java
+  /**
+  * For jruby-9000 we alias to inspect
+  *
+  * @param context ThreadContext
+  * @return IRubyObject to_s
+  */
+  @JRubyMethod(name = {"to_s", "inspect"})
+  
+  public IRubyObject to_s(ThreadContext context) {
+    return context.getRuntime().newString(String.format("Vec3D(x = %4.4f, y = %4.4f, z = %4.4f)", jx, jy, jz));
+  }
+```
+In the above case had we not been aliasing the `to_s` to `inspect`, we could have omitted name from the @JRubyMethod annotation.
 
 ### rest arguments
 ```ruby
