@@ -187,4 +187,4 @@ public static IRubyObject buildString(ThreadContext context, IRubyObject recv) {
 }
 ```
 
-[jruby-examples]:https://github.com/jruby/jruby-examples/extensions/basic
+[jruby-examples]:https://github.com/jruby/jruby-examples/tree/master/extensions/basic
