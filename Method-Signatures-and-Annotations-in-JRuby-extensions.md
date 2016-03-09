@@ -55,7 +55,7 @@ If you are creating your own objects it not a bad idea to create a human-readabl
 ```
 In the above case had we not been aliasing the `to_s` to `inspect`, we could have omitted name from the @JRubyMethod annotation and the ruby method name would be taken from the name of the java method. In general less is better for the annotations, there are some obscure annotations that are probably well left alone or for the experts.
 
-**Implementing equals**, here is how you might implement `==` for a custom Fraction Class (in this case based on the Apache Commons Math Fraction class, which has its own equals method) note: the convention for naming the java method involving a operator, stick to it and people will more readily understand your code. Also features the creation of a RubyBoolean from a java boolean.
+**Implementing equals**, here is how you might implement `==` for a custom Fraction Class (in this case based on the Apache Commons Math Fraction class, which has its own equals method) note: the convention for naming the java method involving a operator, stick to it and people will find it easier to read your code. Also featured is the creation of a RubyBoolean from a java boolean.
 ```java
 @JRubyMethod(name = "==")
 @Override
@@ -68,7 +68,7 @@ public IRubyObject op_equal(ThreadContext context, IRubyObject other) {
     return RubyBoolean.newBoolean(context.getRuntime(), result);
 }
 ```
-Here is how you might implement `eql?` for a custom Fraction Class (based Apache Commons Math) note: the convention for naming the java method for a query, stick to it and people will more readily understand your code.
+Here is how you might implement `eql?` for a custom Fraction Class (based Apache Commons Math) note: the convention for naming the java method for a query, stick to it and people will find it easier to read your code.
 ```java
 @JRubyMethod(name = "eql?")
 @Override
