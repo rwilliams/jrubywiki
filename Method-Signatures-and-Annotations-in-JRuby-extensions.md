@@ -1,5 +1,4 @@
-Or how to create ruby methods using java see [jruby-examples][]
-
+Or how to create ruby methods using java, well at least some guidance, for a working library jar see [jruby-examples][].
 ## Class method signatures 
 ```ruby
 # in ruby
