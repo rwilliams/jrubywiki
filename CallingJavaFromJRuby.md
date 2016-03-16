@@ -129,26 +129,40 @@ Note also that you must use the right capitalization, though see below for how y
 Using a Java Class Without The Full Path Name
 ---------------------------------------------
 
-You can always access any Java class that has been loaded or is in the classpath by specifying its full name. With the `java_import` statement or `import` statement, you can make the Java class available only by its class name, just as in Java.
+You can always access any Java class that has been loaded or is in the classpath by specifying its full name (e.g. java.lang.System). With the `java_import` statement, you can access the Java class via a constant that java_import creates in the current namespace.  Let's consider how to make using `java.lang.System` easier to use:
 
-**Example**: `java_import` and use the `java.lang.System` class.
 ```ruby
   require 'java'
   java_import java.lang.System
   version = System.getProperties["java.runtime.version"]
 ```
-You could also do it with just straight import, as well.
+
+**Note:** For older scripts where `import` was used we have deprecated that for `java_import` to not conflict with rake.
+
+In this script when java_import executes it will make a new constant for you called 'System'.  As this is happening in a top-level script it will be put into ::Object.  Note: As this is just a constant you need to be wary of redefining or papering over other constants.  Consider an example like this:
+
 ```ruby
-  require 'java'
-  import java.lang.System
-  version = System.getProperties["java.runtime.version"]
+require 'set'
+java_import java.util.Set
 ```
-**Note:** `java_import` is the newer and safer, way to import Java classes. If you are getting *uninitialized constant exception* errors, you need to change `import` to `java_import`.
 
-After this point, the `System` constant will be available in the global name space (i.e. available to any script).
-The import keyword allows you to copy and paste (and re-use) imports from your Java code straight into Ruby.
+In this case you defined the constant `Set` on ::Object from Ruby's set library and then you overwrote the constant `Set` on ::Object.  Luckily, in this case you will see a warning telling you that you changed a constant definition.  A more confusing example is when you unintentionally wallpaper over a constant:
 
-You can also get the same effect by reassigning a Java class to a new constant, like
+```ruby
+require 'set'
+
+module MyClass
+  java_import java.util.Set
+
+  Set # 1. ???
+end
+
+Set # 2. ???
+```
+
+The `java_import` will define a `Set` on `MyClass` (e.g. `MyClass::Set`).  If you access `Set` at 1 you will get this new constant.  If you access `Set` at 2 you will get `Object::Set`.  This is just normal Ruby name-spacing but the implicit constant creation of constants via java_import can trip programmers up. 
+
+Some people do not like the implicit side-effect nature of java_import, so you can also get the same effect by reassigning a Java class to a new constant, like
 
 ```ruby
   require 'java'
