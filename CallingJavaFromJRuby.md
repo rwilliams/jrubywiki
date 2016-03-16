@@ -129,7 +129,7 @@ Note also that you must use the right capitalization, though see below for how y
 Using a Java Class Without The Full Path Name
 ---------------------------------------------
 
-You can always access any Java class that has been loaded or is in the classpath by specifying its full name (e.g. java.lang.System). With the `java_import` statement, you can access the Java class via a constant that java_import creates in the current namespace.  Let's consider how to make using `java.lang.System` easier to use:
+You can always access any Java class that has been loaded or is in the classpath by specifying its full name (e.g. java.lang.System). With the `java_import` statement, you can access the Java class via a constant that java_import creates for you in the current namespace.  Let's consider how to make using `java.lang.System` easier to use:
 
 **Note:** For older scripts where `import` was used we have deprecated that for `java_import` to not conflict with rake.
 
