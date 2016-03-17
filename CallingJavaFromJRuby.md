@@ -148,7 +148,9 @@ require 'set'
 java_import java.util.Set
 ```
 
-In this case you defined the constant `Set` on ::Object from Ruby's set library and then you overwrote the constant `Set` on ::Object by calling java_import.  Luckily, in this case you will see a warning telling you that you changed a constant definition.  A more confusing example is when you unintentionally wallpaper over a constant:
+In this case you defined the constant `Set` on ::Object from Ruby's set library and then you overwrote the constant `Set` on ::Object by calling java_import.  Luckily, in this case you will see a warning telling you that you changed a constant definition.  This example also gives a cautionary tale.  Java and Ruby classes have an overlap on naming.  So if you include a Java Class at a top-level scope it can mess up the world of Ruby since what you thought was a Ruby set suddenly becomes a Java one.  Ruby's constant resolution is much more tricky than it seems so reviewing an article on [constant resolution](http://valve.github.io/blog/2013/10/26/constant-resolution-in-ruby/) may help you to better understand how constants work.  Our recommendation is to namespace your java_imports into the non-top-level namespace in a Ruby program of any size.
+
+A more confusing example is when you unintentionally wallpaper over a constant:
 
 ```ruby
 require 'set'
