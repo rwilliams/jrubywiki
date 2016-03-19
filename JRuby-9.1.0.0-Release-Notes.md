@@ -23,6 +23,10 @@ Major features of JRuby 9000:
 
 * Java stack-trace filtering was tuned to not exclude everything under the `org.jruby` package prefix, we still avoid the additional noise from the stack-trace but no longer filter potentially unknown packages (e.g. `org.jruby.rack`) or extension stacks (`org.jruby.ext`). This change also affects `backtrace` information on the Ruby side which might now include more *.java* parts.
 
-* Warbler has had issues with pre-compiled .rb files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
+* Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
+
+* **jrubyc** `--jdk5` and `-5` switches were removed (Java 5 has not been supported for a while)
+
+* **jrubyc** `--dir` option now handles absolute paths correctly with the `--target` option
 
 ### [Issues/Features Resolved in 9.1.0.0](https://github.com/jruby/jruby/issues?q=milestone%3A%22JRuby+9.1.0.0%22+is%3Aclosed)
