@@ -1,4 +1,4 @@
-<!-- **IN PROGRESS** -->
+**IN PROGRESS**
 
 JRuby 9000 is the new major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.
 
@@ -20,6 +20,8 @@ Major features of JRuby 9000:
 * `Thread.new` and others spawning threads (`Fiber`, `Enumerator`) should be a bit faster to start, most importantly they no longer possibly slow-down due low entropy sources on *nix systems due a Java `SecureRandom` instantiation on JRuby's `ThreadContext`. https://github.com/jruby/jruby/pull/3723
 
 #### Java Integration
+
+* Java stack-trace filtering was tuned to not exclude everything under the `org.jruby` package prefix, we still avoid the additional noise from the stack-trace but no longer filter potentially unknown packages (e.g. `org.jruby.rack`) or extension stacks (`org.jruby.ext`). This change also affects `backtrace` information on the Ruby side which might now include more *.java* parts.
 
 * Warbler has had issues with pre-compiled .rb files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
