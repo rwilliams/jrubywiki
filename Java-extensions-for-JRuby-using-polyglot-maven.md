@@ -1,4 +1,4 @@
-Maven has become the _de-facto_ standard for managing java dependencies on java
+Maven has become the _de-facto_ standard for managing jar dependencies on java
 projects and thanks to [polyglot maven][] it can now do the same for jruby projects 
 with java extensions. Over at [jruby-examples][] we have created a simple project that 
 outlines the necessary steps.
