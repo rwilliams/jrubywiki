@@ -39,7 +39,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **Getting Involved**
 
-* Code: [Main Repository](http://jruby.org/git), [Github mirror](http://github.com/jruby/jruby/tree/master)
+* Code: [Main Repository](http://github.com/jruby/jruby/tree/master)
 * Setting up an IDE: [[IntelliJ|DevelopingWithIntelliJ]]
 * [[Building JRuby|DownloadAndBuildJRuby]]
 * Communicate: [[Mailing Lists|MailingLists]], [[IRC]], [Project Bugtracker](https://github.com/jruby/jruby/issues)
