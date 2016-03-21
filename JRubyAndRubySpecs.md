@@ -1,4 +1,4 @@
-JRuby uses the [Ruby][spec] project for compatibility testing, along with our own (somewhat dated) suites of tests.
+JRuby uses the [ruby][spec] project for compatibility testing, along with our own (somewhat dated) suites of tests.
 
 To run the tests 
 
