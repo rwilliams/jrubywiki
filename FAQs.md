@@ -139,11 +139,14 @@ You have two options:
 
 * Always invoke JRuby with e.g., `jruby -S gem`.
 * Put a handy bash snippet like this in your .bashrc to create `j` aliases to all the available commands (`rails` becomes `jrails`, `rake` becomes `jrake`, etc.)
+
+```
     for f in $JRUBY_HOME/bin/*; do
       f=$(basename $f)
       case $f in jruby*|jirb*|*.bat|*.rb|_*) continue ;; esac
       eval "alias j$f='jruby -S $f'"
     done
+```
 
 Why can't JRuby find my installed gems?
 ---------------------------------------
