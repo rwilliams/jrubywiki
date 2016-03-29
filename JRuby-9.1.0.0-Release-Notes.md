@@ -29,6 +29,8 @@ Major features of JRuby 9000:
 
 * `singleton_class` (as well as hook methods such as `singleton_method_added`, `singleton_method_removed`) is no longer allowed as a package-name using the method ('.') format (`org.jruby.singleton_class` will return the Ruby meta-class)
 
+* `pkg.to_s` now returns package-name opposed to "module name" e.g. `java.lang.to_s == 'java.lang'` (note that `inspect` still behaves the same as before: `java.lang.inspect == 'Java::JavaLang'`)
+
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
 * **jrubyc** `--jdk5` and `-5` switches were removed (Java 5 has not been supported for a while)
