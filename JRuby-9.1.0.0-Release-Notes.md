@@ -23,6 +23,12 @@ Major features of JRuby 9000:
 
 * Java stack-trace filtering was tuned to not exclude everything under the `org.jruby` package prefix, we still avoid the additional noise from the stack-trace but no longer filter potentially unknown packages (e.g. `org.jruby.rack`) or extension stacks (`org.jruby.ext`). This change also affects `backtrace` information on the Ruby side which might now include more *.java* parts.
 
+* the internal `JavaPackageModuleTemplate` has been refactored into a standalone module-like class, all package stubs `org.kares.jruby` now return a `JavaPackage` instance (which is a `Module`)
+
+* names `throw` and `catch` are no longer allowed as package names using the method format (org.jruby.catch will now dispatch to `Kernel.catch`) - those are not valid Java package names anyways
+
+* `singleton_class` (as well as hook methods such as `singleton_method_added`, `singleton_method_removed`) is no longer allowed as a package-name using the method ('.') format (`org.jruby.singleton_class` will return the Ruby meta-class)
+
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
 * **jrubyc** `--jdk5` and `-5` switches were removed (Java 5 has not been supported for a while)
