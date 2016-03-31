@@ -31,6 +31,10 @@ Major features of JRuby 9000:
 
 * `pkg.to_s` now returns package-name opposed to "module name" e.g. `java.lang.to_s == 'java.lang'` (note that `inspect` still behaves the same as before: `java.lang.inspect == 'Java::JavaLang'`)
 
+* previously `java.util.Map` did not handle equality (`==`, `eql?`) with other map/hash instances 100% correctly
+
+* `java.util.Map` proxies now support all of `Hash` methods (including new ones such as `dig`, `fetch_values` and comparison operators e.g. `<=`)
+
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
 * **jrubyc** `--jdk5` and `-5` switches were removed (Java 5 has not been supported for a while)
