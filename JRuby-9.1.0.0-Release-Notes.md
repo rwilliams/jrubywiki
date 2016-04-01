@@ -35,6 +35,8 @@ Major features of JRuby 9000:
 
 * `java.util.Map` proxies now support all of `Hash` methods (including new ones such as `dig`, `fetch_values` and comparison operators e.g. `<=`)
 
+* Java arrays now handle value equality `==` with Ruby arrays (use `eql?` if types need to match as well). this also affects `===` with native arrays.
+
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
 * **jrubyc** `--jdk5` and `-5` switches were removed (Java 5 has not been supported for a while)
