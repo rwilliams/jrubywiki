@@ -32,7 +32,7 @@ Todo
 
 ### `IS_NULL`
 
-Todo
+Returns true only for the `nil` object.
 
 ### `READ`
 
