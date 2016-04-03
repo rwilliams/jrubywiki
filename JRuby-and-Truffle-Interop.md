@@ -24,7 +24,7 @@ Call `size` on the object.
 
 ### `IS_BOXED`
 
-Todo
+Returns true only for instances of `String` with a length of 1, which allows them to be unboxed as a character.
 
 ### `UNBOX`
 
