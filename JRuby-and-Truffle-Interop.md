@@ -40,9 +40,9 @@ If the label is a Java `String`, or a Ruby `String` or `Symbol`, and starts with
 
 Otherwise, if the receiver is a Ruby `String` and the label is an integer, read a byte from the string, ignoring the encoding.
 
-Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]`, call `[]` with the label as the argument.
+Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]`, call `[]` with the label as the argument (which can be anything).
 
-Otherwise, perform a method call using the label as the called method name.
+Otherwise, perform a method call using the label (which can be a Java `String`, or a Ruby `String` or `Symbol`) as the called method name.
 
 In all cases where a call is made no block is passed.
 
@@ -52,7 +52,7 @@ If the label is a Java `String`, or a Ruby `String` or `Symbol`, and starts with
 
 Otherwise, if the receiver is a Ruby `String` and the label is an integer, write a byte from the string, ignoring the encoding.
 
-Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]=`, call `[]=` with the label as the argument.
+Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]=`, call `[]=` with the label as the argument (which can be anything).
 
 Otherwise, perform a method call using the label, appended with `=`, as the called method name.
 
