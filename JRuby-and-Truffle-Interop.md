@@ -12,7 +12,7 @@ Calls either a `Method` or `Proc`, passing the arguments as you'd expect. Doesn'
 
 ### `INVOKE`
 
-Todo
+Calls the method with the name you provided, passing the arguments as you'd expect. Doesn't pass a block.
 
 ### `HAS_SIZE`
 
