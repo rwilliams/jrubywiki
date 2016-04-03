@@ -20,7 +20,7 @@ Todo
 
 ### `GET_SIZE`
 
-Todo
+Call `size` on the object.
 
 ### `IS_BOXED`
 
