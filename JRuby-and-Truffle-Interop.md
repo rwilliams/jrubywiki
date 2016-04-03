@@ -28,7 +28,7 @@ Returns true only for instances of `String` with a length of 1, which allows the
 
 ### `UNBOX`
 
-For a `String`, returns the first character. If the string is empty, returns `\0`. For all other objects returns the object.
+For a `String`, returns the first character. Unboxing empty strings is not supported and will cause an `UnsupportedMessageException`. For all other objects returns the object.
 
 ### `IS_NULL`
 
