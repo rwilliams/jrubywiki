@@ -16,7 +16,7 @@ Todo
 
 ### `HAS_SIZE`
 
-Todo
+Returns true only for instances of `Array`, `Hash` and `String`.
 
 ### `GET_SIZE`
 
