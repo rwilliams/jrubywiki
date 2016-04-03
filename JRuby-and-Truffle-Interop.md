@@ -8,7 +8,7 @@ Returns true only for instances of `Method` and `Proc`.
 
 ### `EXECUTE`
 
-Todo
+Calls either a `Method` or `Proc`, passing the arguments as you'd expect. Doesn't pass a block.
 
 ### `INVOKE`
 
