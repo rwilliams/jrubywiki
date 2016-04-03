@@ -36,7 +36,7 @@ Returns true only for the `nil` object.
 
 ### `READ`
 
-If the label is a Java `String`, or a Ruby `String` or `Symbol`, and starts with `@`, read it as an instance variable.
+If the label is a Java `String`, or a Ruby `String` or `Symbol`, and starts with `@`, read it as an instance variable. For Ruby `String` or `Symbol`, the encoding must be ASCII compatible.
 
 Otherwise, if the receiver is a Ruby `String` and the label is an integer, read a byte from the string, ignoring the encoding.
 
@@ -48,7 +48,7 @@ In all cases where a call is made no block is passed.
 
 ### `WRITE`
 
-If the label is a Java `String`, or a Ruby `String` or `Symbol`, and starts with `@`, write it as an instance variable.
+If the label is a Java `String`, or a Ruby `String` or `Symbol`, and starts with `@`, write it as an instance variable. For Ruby `String` or `Symbol`, the encoding must be ASCII compatible.
 
 Otherwise, if the receiver is a Ruby `String` and the label is an integer, write a byte from the string, ignoring the encoding.
 
