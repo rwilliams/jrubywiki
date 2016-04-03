@@ -4,7 +4,7 @@ JRuby supports standard Truffle interop messages. This document explains what it
 
 ### `IS_EXECUTABLE`
 
-Todo
+Returns true only for instances of `Method`.
 
 ### `EXECUTE`
 
