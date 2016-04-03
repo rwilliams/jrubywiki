@@ -28,7 +28,7 @@ Returns true only for instances of `String` with a length of 1, which allows the
 
 ### `UNBOX`
 
-Todo
+For a `String`, returns the first character. For all other objects returns the object.
 
 ### `IS_NULL`
 
