@@ -38,7 +38,7 @@ Returns true only for the `nil` object.
 
 The label must be a Java `int` or `String`, or a Ruby `String` or `Symbol`.
 
-If the receiver is a Ruby `String` and the label is an integer, read a byte from the string, ignoring the encoding. If the index is out of range you'll get the character `\0`.
+If the receiver is a Ruby `String` and the label is an integer, read a byte from the string, ignoring the encoding. If the index is out of range you'll get 0.
 
 For the following conditions the label cannot be a Java `int`.
 
