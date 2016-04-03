@@ -1,6 +1,6 @@
 JRuby supports standard Truffle interop messages. This document explains what it does when it receives them, how to get it to explicitly send them, how to get it to send them using more idiomatic Ruby, and how what messages it sends for normal Ruby operations on foreign objects.
 
-## How does JRuby respond to messages
+## How JRuby responds to messages
 
 ### `IS_EXECUTABLE`
 
