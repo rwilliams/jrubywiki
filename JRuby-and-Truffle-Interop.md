@@ -42,7 +42,7 @@ Todo
 
 Todo
 
-## How to explicitly send messages
+## How to explicitly send messages from JRuby
 
 ### `IS_EXECUTABLE`
 
