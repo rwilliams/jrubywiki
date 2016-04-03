@@ -126,6 +126,6 @@ Todo
 
 Todo
 
-## What messages are send for operations on foreign objects
+## What messages are sent for Ruby syntax on foreign objects
 
 Todo
