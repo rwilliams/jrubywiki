@@ -158,11 +158,11 @@ Not supported.
 
 ## What messages are sent for Ruby syntax on foreign objects
 
-`object[name]` sends `READ`
+`object[name]` (`#[](name)`) sends `READ`
 
-`object[name] = value` sends `WRITE`
+`object[name] = value` (`#[]=(name, value)`) sends `WRITE`
 
-`object.name = value` sends `WRITE`
+`object.name = value` (`#name=(value)`) sends `WRITE`
 
 `object.call(*args)` sends `EXECUTE`
 
@@ -170,7 +170,7 @@ Not supported.
 
 `object.name(*args)` sends `INVOKE`
 
-`object.name` is the same thing as the above, so also sends `INVOKE`
+`object.name` is of course the same thing as the above just with zero arguments, so also sends `INVOKE`
 
 ## Import and export
 
