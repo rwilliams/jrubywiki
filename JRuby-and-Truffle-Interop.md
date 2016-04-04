@@ -76,15 +76,15 @@ In all cases where a call is made no block is passed.
 
 ### `INVOKE`
 
-Todo
+Not supported.
 
 ### `HAS_SIZE`
 
-Todo
+`Truffle::Interop.size?(value)`
 
 ### `GET_SIZE`
 
-Todo
+`Truffle::Interop.size(value)`
 
 ### `IS_BOXED`
 
@@ -92,7 +92,7 @@ Todo
 
 ### `UNBOX`
 
-Todo
+`Truffle::Interop.unbox(value)`
 
 ### `IS_NULL`
 
