@@ -116,44 +116,56 @@ If `label` is a `String` or `Symbol` it will be converted into a Java `String`.
 
 ### `IS_EXECUTABLE`
 
-Todo
+Not supported.
 
 ### `EXECUTE`
 
-Todo
+`object.call(*args)`
 
 ### `INVOKE`
 
-Todo
+`object.name(*args)`
 
 ### `HAS_SIZE`
 
-Todo
+Not supported.
 
 ### `GET_SIZE`
 
-Todo
+Not supported.
 
 ### `IS_BOXED`
 
-Todo
+Not supported.
 
 ### `UNBOX`
 
-Todo
+Not supported.
 
 ### `IS_NULL`
 
-Todo
+`value.nil?`
 
 ### `READ`
 
-Todo
+`object[name]`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else.
 
 ### `WRITE`
 
-Todo
+`object[name] = value`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else.
+
+`object.name = value`
 
 ## What messages are sent for Ruby syntax on foreign objects
 
-Todo
+`object[name]` sends `READ`
+
+`object[name] = value` sends `WRITE`
+
+`object.name = value` sends `WRITE`
+
+`object.call(*args)` sends `EXECUTE`
+
+`object.nil?` sends `IS_NIL`
+
+`object.name(*args)` sends `INVOKE`
