@@ -76,7 +76,9 @@ In all cases where a call is made no block is passed.
 
 ### `INVOKE`
 
-Not supported.
+`Truffle::Interop.invoke(receiver, identifier, *args)`
+
+`identifier` can be a `String` or `Symbol`.
 
 ### `HAS_SIZE`
 
