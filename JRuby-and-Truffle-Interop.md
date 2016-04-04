@@ -169,3 +169,13 @@ Not supported.
 `object.nil?` sends `IS_NIL`
 
 `object.name(*args)` sends `INVOKE`
+
+## Import and export
+
+`Truffle::Interop.export(:name, value)`
+
+`Truffle::Interop.export_method(:name)` (looks for `name` in `Object`)
+
+`value = Truffle::Interop.import(:name)`
+
+`Truffle::Interop.import_method(:name)` (defines `name` in `Object`)
