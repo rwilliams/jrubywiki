@@ -72,7 +72,7 @@ In all cases where a call is made no block is passed.
 
 ### `EXECUTE`
 
-Todo
+`Truffle::Interop.execute(receiver, *args)`
 
 ### `INVOKE`
 
