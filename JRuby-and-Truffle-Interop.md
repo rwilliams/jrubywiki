@@ -100,11 +100,15 @@ Not supported.
 
 ### `READ`
 
-Todo
+`Truffle::Interop.read(object, label)`
+
+If `label` is a `String` or `Symbol` it will be converted into a Java `String`.
 
 ### `WRITE`
 
-Todo
+`Truffle::Interop.read(object, label, value)`
+
+If `label` is a `String` or `Symbol` it will be converted into a Java `String`.
 
 ## How to send messages using idiomatic Ruby
 
