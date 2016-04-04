@@ -46,7 +46,7 @@ For the following conditions the label cannot be a Java `int`.
 
 Otherwise, if the label starts with `@`, read it as an instance variable.
 
-Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]`, call `[]` with the label as the argument.
+Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]`, call `[]` with the label and value as the two arguments.
 
 Otherwise, perform a method call using the label as the called method name.
 
