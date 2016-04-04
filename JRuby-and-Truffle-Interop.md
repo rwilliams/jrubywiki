@@ -46,7 +46,7 @@ For the following conditions the label cannot be a Java `int`.
 
 Otherwise, if the label starts with `@`, read it as an instance variable.
 
-Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]`, call `[]` with the label and value as the two arguments.
+Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]`, call `[]` with the label as the argument.
 
 Otherwise, perform a method call using the label as the called method name.
 
@@ -58,9 +58,9 @@ The label must be a Java `String`, or a Ruby `String` or `Symbol`.
 
 If the label starts with `@`, write it as an instance variable.
 
-Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]=`, call `[]=` with the label as the argument.
+Otherwise, if there isn't a method defined on the object with the same name as the label, and there is a method defined on the object called `[]=`, call `[]=` with the label and value as the two arguments.
 
-Otherwise, perform a method call using the label, appended with `=`, as the called method name.
+Otherwise, perform a method call using the label appended with `=` as the called method name, and the value as the argument.
 
 In all cases where a call is made no block is passed.
 
