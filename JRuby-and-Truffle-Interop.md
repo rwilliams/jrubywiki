@@ -170,6 +170,8 @@ Not supported.
 
 `object.name(*args)` sends `INVOKE`
 
+`object.name` is the same thing as the above, so also sends `INVOKE`
+
 ## Import and export
 
 `Truffle::Interop.export(:name, value)`
