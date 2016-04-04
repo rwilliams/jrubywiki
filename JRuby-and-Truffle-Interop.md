@@ -96,7 +96,7 @@ Not supported.
 
 ### `IS_NULL`
 
-Todo
+`Truffle::Interop.null?(value)`
 
 ### `READ`
 
