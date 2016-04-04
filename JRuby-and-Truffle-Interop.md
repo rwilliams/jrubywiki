@@ -68,7 +68,7 @@ In all cases where a call is made no block is passed.
 
 ### `IS_EXECUTABLE`
 
-Todo
+`Truffle::Interop.executable?(value)`
 
 ### `EXECUTE`
 
