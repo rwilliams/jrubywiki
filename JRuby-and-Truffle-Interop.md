@@ -88,7 +88,7 @@ Not supported.
 
 ### `IS_BOXED`
 
-Todo
+`Truffle::Interop.boxed?(value)`
 
 ### `UNBOX`
 
