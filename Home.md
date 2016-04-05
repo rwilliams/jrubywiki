@@ -28,6 +28,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[EnhancedSecurity]]
 * [[Method Signatures and Annotations in JRuby extensions]]
 * [[Java extensions for JRuby using polyglot maven]]
+* [[Signal Handling]]
 
 **JRuby+Truffle**
 
