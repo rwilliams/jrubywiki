@@ -2,6 +2,12 @@ JRuby supports standard Truffle interop messages. This document explains what it
 
 Interop ignores visibility entirely.
 
+* [How JRuby responds to messages](#how-jruby-responds-to-messages)
+* [How to explicitly send messages from JRuby](#how-to-explicitly-send-messages-from-jruby)
+* [How to send messages using idiomatic Ruby](#how-to-send-messages-using-idiomatic-ruby)
+* [What messages are sent for Ruby syntax on foreign objects](#what-messages-are-sent-for-ruby-syntax-on-foreign-objects)
+* [Import and export](#import-and-export)
+
 ## How JRuby responds to messages
 
 ### `IS_EXECUTABLE`
