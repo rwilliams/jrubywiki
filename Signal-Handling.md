@@ -1,3 +1,13 @@
+Threading of Signal handlers
+----------------------------
+
+JRuby leverages the JVM's own signal-handling APIs, and most JVMs will route those signal traps to a single thread. This differs from MRI in that signals are not handled on the current thread, and any exceptions raised in them will not propagate out any normal user thread.
+
+If you wish for exceptions raised inside Ruby signal handlers to propagate through the main Ruby thread, you will need to have your signal handler use `Thread#raise` against `Thread.main`.
+
+JVM-occupied Signals
+--------------------
+
 JRuby supports the same `Signal` API that CRuby does, but there will be differences due to how various JVMs use those signals internally. Signals that are captured by the JVM will generally not be available for JRuby programs.
 
 In some cases, as with Hotspot (OpenJDK/OracleJDK) there may be ways to reduce JVM signal usage (e.g. the `-Xrs` flag for Hotspot).
