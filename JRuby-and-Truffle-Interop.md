@@ -126,6 +126,8 @@ Not supported.
 
 `object.name(*args)`
 
+`object.name!` if there are no arguments (otherwise it is a `READ`)
+
 ### `HAS_SIZE`
 
 Not supported.
@@ -148,19 +150,21 @@ Not supported.
 
 ### `READ`
 
-`object[name]`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else.
+`object.name`
 
-`object.name` won't work, as that's an `INVOKE`.
+`object[name]`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else
 
 ### `WRITE`
 
-`object[name] = value`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else.
-
 `object.name = value`
+
+`object[name] = value`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else
 
 ## What messages are sent for Ruby syntax on foreign objects
 
 `object[name]` (`#[](name)`) sends `READ`
+
+`object.name` with no arguments send `READ`
 
 `object[name] = value` (`#[]=(name, value)`) sends `WRITE`
 
@@ -170,9 +174,9 @@ Not supported.
 
 `object.nil?` sends `IS_NIL`
 
-`object.name(*args)` sends `INVOKE`
+`object.name(*args)` sends `INVOKE` (with no arguments it sends `READ`)
 
-`object.name` is of course the same thing as the above just with zero arguments, so also sends `INVOKE`
+`object.name!` sends `INVOKE`
 
 ## Import and export
 
