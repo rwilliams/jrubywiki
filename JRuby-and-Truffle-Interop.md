@@ -150,6 +150,8 @@ Not supported.
 
 `object[name]`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else.
 
+`object.name` won't work, as that's an `INVOKE`.
+
 ### `WRITE`
 
 `object[name] = value`, where name is a `String` or `Symbol` in most cases, or an integer, or anything else.
