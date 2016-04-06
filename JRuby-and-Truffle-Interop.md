@@ -48,7 +48,7 @@ The label must be a Java `int` or `String`, or a Ruby `String` or `Symbol`.
 
 If the receiver is a Ruby `String` and the label is an integer, read a byte from the string, ignoring the encoding. If the index is out of range you'll get 0:
 
-`READ(string, integer)` → `string[integer]`
+`READ(string, integer)` → `string.get_byte(integer)`
 
 For the following conditions the label cannot be a Java `int`.
 
