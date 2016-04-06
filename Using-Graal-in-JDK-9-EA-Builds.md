@@ -9,7 +9,7 @@ http://lafo.ssw.uni-linz.ac.at/nexus/content/repositories/snapshots/com/oracle/g
 To use the EA build of Java to run JRuby+Truffle, set the JAVACMD environment variable. You will also need to pass several other command line options.
 
 ```
-$ JAVACMD=path/to/jdk9/bin/java bin/jruby -X+T \
+$ JAVACMD=path/to/jdk9/bin/java bin/jruby.bash -X+T \
   -J-XX:+UnlockExperimentalVMOptions -J-XX:+EnableJVMCI \
   -J-Djvmci.compiler=graal \
   -J-Xbootclasspath/p:graal.jar \
