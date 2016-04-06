@@ -2,13 +2,13 @@ JRuby supports standard Truffle interop messages. This document explains what it
 
 Interop ignores visibility entirely.
 
-* [How JRuby responds to messages](#how-jruby-responds-to-messages)
-* [How to explicitly send messages from JRuby](#how-to-explicitly-send-messages-from-jruby)
+* [How Ruby responds to messages](#how-ruby-responds-to-messages)
+* [How to explicitly send messages from Ruby](#how-to-explicitly-send-messages-from-ruby)
 * [How to send messages using idiomatic Ruby](#how-to-send-messages-using-idiomatic-ruby)
 * [What messages are sent for Ruby syntax on foreign objects](#what-messages-are-sent-for-ruby-syntax-on-foreign-objects)
 * [Import and export](#import-and-export)
 
-## How JRuby responds to messages
+## How Ruby responds to messages
 
 ### `IS_EXECUTABLE`
 
@@ -70,7 +70,7 @@ Otherwise, perform a method call using the label appended with `=` as the called
 
 In all cases where a call is made no block is passed.
 
-## How to explicitly send messages from JRuby
+## How to explicitly send messages from Ruby
 
 ### `IS_EXECUTABLE`
 
