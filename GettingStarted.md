@@ -28,6 +28,8 @@ On Linux and Mac, you can either install the JRuby binaries or use a Ruby versio
 
 **Note:** If you're on HP-UX, see [[Using JRuby on HPUX|JRubyOnHPUX11_23]].
 
+**Note:** If you're on Alpine Linux (or other Linux that _doesn’t_ use glibc), see [[JRuby on Alpine Linux]].
+
 #### Installing Binaries
 
 In your browser, navigate to the [JRuby Downloads page](http://jruby.org/download). Select the "Binary" package in either `.tar.gz` or `.zip` format. When it's finished downloading, extract it's contents to a `jruby` directory under your home directory. From your home directory, it should look something like this:
