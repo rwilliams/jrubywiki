@@ -14,7 +14,7 @@ apk add jruby-irb jruby-maven jruby-minitest jruby-rdoc jruby-rake jruby-testuni
 
 == Learn about limitations
 
-http://alpinelinux.org[Alpine Linux] doesn’t use https://www.gnu.org/software/libc[GNU C library] (glibc) as conventional distributions like Debian, RedHat or Gentoo.
+http://alpinelinux.org[Alpine Linux] doesn’t use https://www.gnu.org/software/libc[GNU C library] (glibc) as conventional distributions like Debian, Red Hat or Gentoo.
 Instead, it uses http://www.musl-libc.org[musl libc], a lightweight, fast, simple and standards-conform C library.
 
 The problem is that musl is just partially binary compatible to glibc.
