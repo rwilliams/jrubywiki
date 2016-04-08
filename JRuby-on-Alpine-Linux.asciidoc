@@ -1,0 +1,108 @@
+== tl;dr
+
+Install JRuby from the Alpine repository, don’t use Oracle JDK and beware of JARs with bundled native binaries (JNI); check out <<List of Java libraries with JNI>>.
+
+[source, sh]
+----
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+apk update
+apk add jruby
+# install optional subpackages, if you need them
+apk add jruby-irb jruby-maven jruby-minitest jruby-rdoc jruby-rake jruby-testunit
+----
+
+
+== Learn about limitations
+
+http://alpinelinux.org[Alpine Linux] doesn’t use https://www.gnu.org/software/libc[GNU C library] (glibc) as conventional distributions like Debian, RedHat or Gentoo.
+Instead, it uses http://www.musl-libc.org[musl libc], a lightweight, fast, simple and standards-conform C library.
+
+The problem is that musl is just partially binary compatible to glibc.
+If you download some strange binaries from somewhere, there’s a great chance that they will not work on the Alpine Linux.
+
+This is not just about Alpine Linux, the same applies to all Linux distributions that use any other C library but glibc.
+
+=== Java Runtime
+
+You cannot run Oracle JDK on the Alpine Linux; it’s built for glibc and incompatible with musl libc.
+That’s not a problem, just install https://pkgs.alpinelinux.org/package/community/x86_64/openjdk8[OpenJDK] from the Alpine repository.
+Don’t worry about compatibility, Oracle JDK 8 is just branded distribution of OpenJDK 8, the code base is nearly identical.
+
+=== JNI (aka native extensions)
+
+Maybe you’ve never heard about “native extensions” (Java Native Interface) in Java / JVM.
+They are (fortunately) very rarely used/needed.
+This also implies that there’s no such good support in tools and knowledge about them like in Ruby, Python or Lua.
+
+When you install a Ruby gem with native extensions (written usually in C or C++), there are compiled and built directly on your machine, against C library you use.
+
+Not so in Java and JRuby.
+In Java land, “native extensions” are precompiled for various platforms and bundled directly in JARs.
+And that’s very bad practice.
+You often even don’t know that there are some native binaries in the JAR.
+The problem is that most people wrongly assume that Linux == glibc, so they build and test native binaries only against glibc.
+Sometimes the binaries built for glibc work even on musl, sometimes don’t.
+
+==== What to do about it?
+
+Well written libraries tries to load their native library from the system first (location is specified by `java.library.path`, by default it includes `LD_LIBRARY_PATH`, e.g. /lib, /usr/lib, …) and fallbacks to the bundled binaries.
+Some libraries (e.g. https://github.com/xerial/snappy-java[snappy-java]) ignores system-provided libraries by default, but you can change this using an environment property.
+
+Then you can simply compile the native library yourself, install it into /usr/lib and don’t touch the JAR at all.
+
+What to do if the library insists on loading the bundled natives?
+Well, then you can build the JAR including native code and replace the original one.
+However, the better way is to patch the library (it’s actually https://github.com/jpountz/lz4-java/pull/83/files[very easy]).
+
+Actually, the first thing you should do is to look in the https://pkgs.alpinelinux.org/packages[Alpine repository], maybe there’s already a package for it!
+If it’s not, you can also http://bugs.alpinelinux.org/projects/alpine/issues/new[fill a request] or try to ping https://twitter.com/JakubJirutka[@JakubJirutka].
+
+==== How do I know that some JAR contains natives?
+
+Look for files named `*.so`:
+
+[source, sh]
+----
+unzip -l some.jar '*.so'
+----
+
+==== What about JRuby itself?
+
+JRuby itself uses two “native extensions” – https://github.com/jnr/jffi[jffi] and https://github.com/fusesource/jansi-native[jansi-native].
+There are packages with correct native binaries for both of them in the https://pkgs.alpinelinux.org/packages[Alpine repository].
+These are automatically installed and used when you install JRuby from the Alpine package.
+So no problem here, JRuby should work well on the Alpine Linux.
+If not, please http://bugs.alpinelinux.org/projects/alpine/issues/new[fill a bug].
+
+
+== List of Java libraries with JNI
+
+// Please keep this list sorted by name!
+
+[cols="4*", options="header"]
+|===
+| Name
+| Alpine package
+| Patched JAR footnote:[If the library requires a patched JAR, then you **must** replace the original (upstream’s) JAR with the one from the Alpine package. Otherwise it’s sufficient to just install the “native extension” from the Alpine package.]
+| Comment
+
+| lz4-java
+| https://pkgs.alpinelinux.org/package/testing/x86_64/java-lz4[java-lz4]
+| yes
+| You must use patched JAR installed by the package (https://github.com/jpountz/lz4-java/pull/83[PR #83]).
+
+| jansi-native
+| https://pkgs.alpinelinux.org/package/testing/x86_64/java-jansi-native[java-jansi-native]
+| no
+|
+
+| jffi
+| https://pkgs.alpinelinux.org/package/testing/x86_64/java-jffi-native[java-jffi-native]
+| no
+| Neeeds https://pkgs.alpinelinux.org/package/main/x86_64/libc6-compat[libc6-compat].
+
+| snappy-java
+| https://pkgs.alpinelinux.org/package/testing/x86_64/java-snappy-native[java-snappy-native]
+| no*
+| If you use upstream’s JAR, then loading of system-provided library must be enabled using `-Dorg.xerial.snappy.use.systemlib=true`. This is set by default in Alpine’s jruby launch script.
+|===
