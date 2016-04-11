@@ -31,11 +31,13 @@ Major features of JRuby 9000:
 
 * `pkg.to_s` now returns package-name opposed to "module name" e.g. `java.lang.to_s == 'java.lang'` (note that `inspect` still behaves the same as before: `java.lang.inspect == 'Java::JavaLang'`)
 
-* previously `java.util.Map` did not handle equality (`==`, `eql?`) with other map/hash instances 100% correctly
+* improved `java.util.Map` equality (`==`, `eql?`) to other map/hash instances - previously wasn't 100% correct
 
 * `java.util.Map` proxies now support all of `Hash` methods (including new ones such as `dig`, `fetch_values` and comparison operators e.g. `<=`)
 
 * Java arrays now handle value equality `==` with Ruby arrays (use `eql?` if types need to match as well). this also affects `===` with native arrays.
+
+* Java's exception hierarchy `java.lang.Throwable` no longer provides a `to_str` method, we feel like this unintentionally slipped probably due misunderstanding the difference between Ruby's `to_s` and `to_str`
 
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
