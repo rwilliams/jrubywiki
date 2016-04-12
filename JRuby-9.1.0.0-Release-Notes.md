@@ -39,6 +39,8 @@ Major features of JRuby 9000:
 
 * Java's exception hierarchy `java.lang.Throwable` no longer provides a `to_str` method, we feel like this unintentionally slipped probably due misunderstanding the difference between Ruby's `to_s` and `to_str`
 
+* `java.util.Collection` instances are no longer `to_ary` (Array-like) convertible, please note that `to_a` still exists and (for compatibility) `java.util.List` provides `to_ary` as well.
+
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
 * **jrubyc** `--jdk5` and `-5` switches were removed (Java 5 has not been supported for a while)
