@@ -41,6 +41,8 @@ Major features of JRuby 9000:
 
 * `java.util.Collection` instances are no longer `to_ary` (Array-like) convertible, please note that `to_a` still exists and (for compatibility) `java.util.List` provides `to_ary` as well.
 
+* method arities for generated Java methods (on Ruby class' `become_java!`) have been improved so that when a Ruby method has fixed arity (e.g. `foo(arg)`) it will map to a correct Java method signature (`foo(IRubyObject arg)`) instead of always generating a generic var-args `(IRubyObject[] args)` method.
+
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
 
 * **jrubyc** `--jdk5` and `-5` switches were removed (Java 5 has not been supported for a while)
