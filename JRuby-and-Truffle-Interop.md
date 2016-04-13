@@ -122,15 +122,15 @@ In all cases where a call is made no block is passed.
 
 ### `READ`
 
-`Truffle::Interop.read(object, label)`
+`Truffle::Interop.read(object, name)`
 
-If `label` is a `String` or `Symbol` it will be converted into a Java `String`.
+If `name` is a `String` or `Symbol` it will be converted into a Java `String`.
 
 ### `WRITE`
 
-`Truffle::Interop.read(object, label, value)`
+`Truffle::Interop.read(object, name, value)`
 
-If `label` is a `String` or `Symbol` it will be converted into a Java `String`.
+If `name` is a `String` or `Symbol` it will be converted into a Java `String`.
 
 ## How to send messages using idiomatic Ruby
 
