@@ -96,9 +96,9 @@ In all cases where a call is made no block is passed.
 
 ### `INVOKE`
 
-`Truffle::Interop.invoke(receiver, identifier, *args)`
+`Truffle::Interop.invoke(receiver, name, *args)`
 
-`identifier` can be a `String` or `Symbol`.
+`name` can be a `String` or `Symbol`.
 
 ### `HAS_SIZE`
 
