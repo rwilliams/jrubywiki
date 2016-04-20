@@ -892,7 +892,7 @@ The expression evaluates to the result of the block, e.g.,
  obj.synchronized { 99 }  # => 99
 ```
 
-Converting java Object to a non primitive class
+Converting a java Object to a non primitive class
 -----------------------------------------------
 There can be instances (in closures for example) where you need to convert a java Object to a specific class/interface you can do this using a custom `to_java` eg 
 ```ruby
