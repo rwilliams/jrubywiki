@@ -898,7 +898,7 @@ There can be instances (in closures for example) where you need to convert a jav
 ```ruby
 { |obj| d = obj.to_java(Java::Hype::HDrawable); d.stroke(100) ..etc }
 ```
-
+You may find that this may be preferable to creating an anonymous class for implementing an interface.
 
 Related Articles
 ----------------
