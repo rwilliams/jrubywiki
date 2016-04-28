@@ -101,6 +101,11 @@ If not, please http://bugs.alpinelinux.org/projects/alpine/issues/new[fill a bug
 | no :smile_cat:
 | Neeeds https://pkgs.alpinelinux.org/package/main/x86_64/libc6-compat[libc6-compat].
 
+| jna
+| https://pkgs.alpinelinux.org/package/edge/testing/x86_64/java-jna-native[java-jna-native]
+| no :smile_cat:
+|
+
 | snappy-java
 | https://pkgs.alpinelinux.org/package/testing/x86_64/java-snappy-native[java-snappy-native]
 | no* :smiley_cat:
