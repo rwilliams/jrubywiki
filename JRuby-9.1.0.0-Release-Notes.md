@@ -75,6 +75,8 @@ Major features of JRuby 9000:
 * JRuby now provides *ruby_xxx* names for potentially conflicting methods e.g. `java.util.List#sort` on Java 8
   `java.util.ArrayList.class_eval { alias sort ruby_sort }` will make all array lists `sort` the Ruby way while the instance is being used in Ruby scripts.
 
+* Java interfaces no longer provide the (useless) `new` method (e.g. `java.lang.Runnable.new`)
+
 * method arities for generated Java methods (on Ruby class' `become_java!`) have been improved so that when a Ruby method has fixed arity (e.g. `foo(arg)`) it will map to a correct Java method signature (`foo(IRubyObject arg)`) instead of always generating a generic var-args `(IRubyObject[] args)` method.
 
 * Warbler has had issues with pre-compiled *.rb* files due broken IR de-serialization logic, we expect all issues to be fixed and added specs to cover previously failing issues.
