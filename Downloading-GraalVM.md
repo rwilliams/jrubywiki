@@ -1,3 +1,5 @@
+**JRuby+Truffle is temporarily incompatible with GraalVM - you'll need to [build Graal yourself](Building Graal) for now.**
+
 JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is via the GraalVM, available from the Oracle Technology Network.
 
 http://www.oracle.com/technetwork/oracle-labs/program-languages/
