@@ -1,18 +1,11 @@
-**IN PROGRESS**
-
-JRuby 9000 is the new major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.
-
-Major features of JRuby 9000:
-**IN PROGRESS**
-
 JRuby 9000 is the new major version of JRuby, representing years of effort and large-scale reboots of several JRuby subsystems.
 
 Major features of JRuby 9000:
 
-* **Ruby 2.3 compatibility**, minus features listed below https://github.com/jruby/jruby/issues/3479
-* A new optimizing runtime based on a traditional compiler design
-* New POSIX-friendly IO and Process
-* Fully ported encoding/transcoding logic from MRI
+  -  Ruby 2.x compatibility
+  -  A new optimizing runtime based on a traditional compiler design
+  -  New POSIX-friendly IO and Process
+  -  Fully ported encoding/transcoding logic from MRI
 
 ## JRuby 9.1.0.0
 
@@ -20,9 +13,19 @@ Major features of JRuby 9000:
 
 ### Notable changes since 9.0.5.0
 
+  -  Ruby 2.3 Compatible (language and standard library) (i)
+  -  Fixed performance and behavior regressions from 9.0.5.0
+  -  Added several JIT optimizations missed in initial 9k release
+  -  Fixed most of the outstanding parser bugs
+  -  RubyGems updated to 2.6.4
+  -  Many improvements to our Java Integration
+  -  114 issues fixed for 9.1.0.0
+
+(i) We have a large majority of Ruby 2.3 features but we are not completely done. You can follow our remaining work by tracking this issue.
+
 * removing default `-Xmx` (500MB) setting from jruby.bash. Most users that get JRuby will end up using the bash script. https://github.com/jruby/jruby/issues/3739
 
-* `Thread.new` and others spawning threads (`Fiber`, `Enumerator`) should be a bit faster to start, most importantly they no longer possibly slow-down due low entropy sources on *nix systems due a Java `SecureRandom` instantiation on JRuby's `ThreadContext`. https://github.com/jruby/jruby/pull/3723
+* `Thread.new` and others spawning threads (`Fiber`, `Enumerator`) should be a bit faster to boot, most importantly they no longer possibly slow-down due low entropy sources on *nix systems due a Java `SecureRandom` instantiation on JRuby's `ThreadContext`. https://github.com/jruby/jruby/pull/3723
 
 #### Java Integration
 
