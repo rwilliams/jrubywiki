@@ -2,7 +2,7 @@ Eclipse is an alternative IDE for editing JRuby+Truffle. It provides much better
 
 First, make sure the project is already built from the command line:
 ```bash
-$ mvn
+$ ./mvnw
 ```
 
 ### Using integrated Maven support
@@ -29,7 +29,7 @@ _**on master**_
 * Select `Java Compiler` > `Annotation Processing`
 * Click on `Enable project specific settings`,
 * Add `lib/jruby-truffle.jar` using `Add External JARs`, on the submenu `Factory Path`
-* Click `Ok` and `Yes` to rebuild the project
+* Click `OK` and `Yes` to rebuild the project
 
 Follow the *common steps* below.
 
@@ -41,23 +41,6 @@ _**on truffle-head**_
 * Click on `Enable project specific settings`,
 * Select the first option: "Automatically configure the JDT APT"
 * Click `Ok` and `Yes` to rebuild the project
-
-We must now import the layout generated files.  
-* Select the `truffle` project
-* Expand in the file hierarchy: `truffle` then inside `target` and `generated-sources`.
-* Right click on the `generated-sources` folder and select `Build Path` > `Use as Source Folder`  
-Then,
-* Select the `truffle` project
-* Right click and choose `Properties`
-* Select `Java Build Path` and the `Source` tab.
-* In the list find `truffle/target/generated-sources`
-* Select `Included: (All)` just below
-* Click `Edit` on the right side.
-* Click the `Add` button on the right side of `Inclusion patterns`
-* Click `Browse...`
-* Expand the file hierarchy: `org` then `jruby`, then `truffle` and `runtime`
-* Select the `runtime` folder and click `OK`, `OK` again, `Finish` and a final `OK`.
-* Click `Yes` if a pop up asks about updating the `mvn-apt` configuration.
 
 _**common steps**_
 
