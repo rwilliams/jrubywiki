@@ -27,8 +27,7 @@ _**on master**_
 * Select the `truffle` project
 * Right click and choose `Properties`
 * Select `Java Compiler` > `Annotation Processing`
-* Click on `Enable project specific settings`,
-* Add `lib/jruby-truffle.jar` using `Add External JARs`, on the submenu `Factory Path`
+* Click on `Enable project specific settings`
 * Click `OK` and `Yes` to rebuild the project
 
 Follow the *common steps* below.
