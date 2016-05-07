@@ -54,6 +54,14 @@ Don't enable ObjectSpace
 ------------------------
 ObjectSpace has been disabled by default since version 1.1b1. Some users reenable ObjectSpace, using the `-X+O` flag (previously `+O`), without realizing what a massive performance hit this is. If you are running with ObjectSpace enabled, do not expect any sort of performance.
 
+JRuby can be told to run without ObjectSpace by specifying the -O flag as follows:
+
+    jruby -O
+
+There is also a property you can use to disable ObjectSpace:
+
+    jruby -J-Djruby.objectspace.enabled=false
+
 Check the OpenJDK/SunJDK/OracleJDK Code Cache Size
 --------------------------------------------------
 The "Hotspot" VM that runs all the above-mentioned JVMs has a hard upper limit on how much native (i.e. JIT-compiled) code it will load before disabling JIT completely. If this disabling happens before the meat of your application has been compiled, it will never compile and your performance will suffer.
