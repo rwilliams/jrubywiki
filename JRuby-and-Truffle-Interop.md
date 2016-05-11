@@ -50,8 +50,6 @@ If the receiver is a Ruby `String` and the name is an integer, read a byte from 
 
 `READ(string, integer)` → `string.get_byte(integer)`
 
-For the following conditions the name cannot be a Java `int`.
-
 Otherwise, if the name starts with `@`, read it as an instance variable:
 
 `READ(object, "@name")` → `object.instance_variable_get("name")`
