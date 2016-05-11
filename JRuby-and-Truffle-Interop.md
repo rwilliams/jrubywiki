@@ -58,7 +58,7 @@ Otherwise, if the name starts with `@`, read it as an instance variable:
 
 Otherwise, if there isn't a method defined on the object with the same name as the name, and there is a method defined on the object called `[]`, call `[]` with the name as the argument:
 
-`READ(object, name)` → `object[name]` if `!object.responds_to?(name)`
+`READ(object, name)` → `object[name]` unless `object.responds_to?(name)`
 
 Otherwise, perform a method call using the name as the called method name:
 
@@ -76,7 +76,7 @@ If the name starts with `@`, write it as an instance variable:
 
 Otherwise, if there isn't a method defined on the object with the same name as the name, and there is a method defined on the object called `[]=`, call `[]=` with the name and value as the two arguments:
 
-`WRITE(object, name, value)` → `object[name] = value` if `!object.responds_to?(name)`
+`WRITE(object, name, value)` → `object[name] = value` unless `object.responds_to?(name)`
 
 Otherwise, perform a method call using the name appended with `=` as the called method name, and the value as the argument:
 
