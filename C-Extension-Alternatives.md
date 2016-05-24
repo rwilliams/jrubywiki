@@ -4,9 +4,11 @@ This page lists common C extensions and non-C alternatives you can use to replac
 
 * **[RDiscount][]** - Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)
 
+* **[RedCarpet][]** - Same as with **RDiscount** use alternatives such as [kramdown][], [Maruku][] or [markdown_j][]
+
 * **[RMagick][]** - Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][]. You can also use Java's Graphics2D.
 
-* **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [mobile][] or [Puma][] (though make sure to use the JRuby-native version of the [gem](http://rubygems.org/gems/puma/versions/2.0.0.b7-java)).
+* **[Unicorn][]** - Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][] or [Puma][] (though make sure to use the JRuby-native version of the [gem](http://rubygems.org/gems/puma/versions/2.0.0.b7-java)).
 
 * **[Thin][]** - Thin might compile and run but is not recommended. Try any one of the following [[JRuby-based servers|Servers]]: [Trinidad][], [Mizuno][], [Kirk][], [TorqueBox][] or [Puma][].
 
@@ -30,7 +32,7 @@ This page lists common C extensions and non-C alternatives you can use to replac
 
 * **[curb][]** - [Rurl][] is an example how to implement _some_ of curb's functionality using [Apache HttpClient][]
 
-* **[therubyracer][]** - Try using [therubyrhino][] instead.
+* **[therubyracer][]** - Try using [therubyrhino][] instead (or [dienashorner][] on Java 8+).
 
 * **[kyotocabinet][]** - Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.
 
@@ -40,7 +42,8 @@ Please add to this list with your findings.
 
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
 
-[RDiscount]: https://github.com/rtomayko/rdiscount
+[RDiscount]: http://dafoster.net/projects/rdiscount/
+[RedCarpet]: https://github.com/vmg/redcarpet
 [kramdown]: https://github.com/gettalong/kramdown
 [Maruku]:https://github.com/bhollis/maruku
 [markdown_j]: https://github.com/nate/markdown_j
@@ -53,7 +56,6 @@ Please add to this list with your findings.
 [Trinidad]: https://github.com/trinidad/trinidad
 [Mizuno]: https://github.com/matadon/mizuno
 [Kirk]: https://github.com/strobecorp/kirk
-[mobile]: http://mobile.www.monde.org/?L=0
 [Puma]: http://puma.io/
 [Thin]: http://code.macournoyer.com/thin/
 [Typhoeus]: https://github.com/dbalatero/typhoeus
@@ -69,6 +71,7 @@ Please add to this list with your findings.
 [curb]: https://github.com/taf2/curb
 [therubyracer]: https://github.com/cowboyd/therubyracer
 [therubyrhino]: https://github.com/cowboyd/therubyrhino
+[dienashorner]: https://github.com/kares/dienashorner
 [kyotocabinet]: http://fallabs.com/kyotocabinet/
 [kyotocabinet-java]: https://github.com/csw/kyotocabinet-java
 [memcached]: https://github.com/evan/memcached
