@@ -1,6 +1,4 @@
-**JRuby+Truffle is temporarily incompatible with GraalVM - you'll need to [build Graal yourself](Building Graal) for now.**
-
-JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is via the GraalVM, available from the Oracle Technology Network.
+JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is via the GraalVM, available from the Oracle Technology Network. You can get either the runtime environment (RE) or development kit (DK).
 
 http://www.oracle.com/technetwork/oracle-labs/program-languages/
 
@@ -9,9 +7,7 @@ The GraalVM actually already includes JRuby+Truffle, as a `ruby` command, but th
 To use GraalVM to run JRuby+Truffle, set the `JAVACMD` environment variable.
 
 ```
-$ JAVACMD=GraalVM-0.10/jre/bin/javao bin/jruby.bash -X+T ...
+$ graalvm-0.11-re/bin/java bin/jruby.bash -X+T ...
 ```
-
-Note that we are using the `javao` command, rather than `java`, due to a bug in GraalVM related to the `JAVACMD` variable.
 
 If you are using the `truffle-head` branch, you may need to [build Graal yourself](Building Graal).
