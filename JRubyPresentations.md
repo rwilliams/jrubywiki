@@ -1,7 +1,7 @@
 There are JRuby presentations at almost every Ruby event and many of the major Java events.
 
-Recent Videos
-=============
+Videos
+======
 
 RubyConf India 2012 - March 24-25 in Pune, India
 ------------------------------------------------
