@@ -41,8 +41,8 @@ Welcome to the JRuby Community!
 * [Mario Octavio](http://cr.linkedin.com/pub/mario-octavio-jim%C3%A9nez/37/377/52)- Uses JRuby at work for custom developments and enhancements.
 
 ##Czech Republic##
+* [Karol Bucek](http://kares.org) - yet another "Java 2 Ruby" migrant that ended up a JRuby committer, maintains (integration) gems such as [AR-JDBC](https://github.com/jruby/activerecord-jdbc-adapter), [JRuby-OpenSSL](https://github.com/jruby/jruby-openssl), [JRuby-Rack](https://github.com/jruby/jruby-rack), [Trinidad](https://github.com/trinidad/trinidad/), [therubyrhino](https://github.com/cowboyd/therubyrhino) and more. Located in Prague.
 * [Marek Jelen](http://www.marekjelen.cz) - uses JRuby for private and commercial projects, has some JRuby related gems, provides JRuby training and consultancy, leads [Brno Ruby Users Group](http://www.brug.cz).
-* [Karol Bucek](http://kares.org) - yet another "Java 2 Ruby" migrant that naturally ended up with JRuby, maintains some JRuby gems e.g. [Trinidad](https://github.com/trinidad/trinidad/), [JRuby-Rack](https://github.com/jruby/jruby-rack) and [therubyrhino](https://github.com/cowboyd/therubyrhino) gem. Currently located in Prague.
 
 ##France##
 
