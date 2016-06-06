@@ -16,7 +16,7 @@ You can output the results of profiling to a file by specifying ```--profile.out
 Profiling an entire application
 -------------------------------
 
-If you want to profile all of your application's code, simply using `--profile`, `--profile.flat`, or `--profile.graph` will do a great job for you.  This is generally best if most of the code that executes in your application is yours, or if you want to take a look at what is consuming most of the time in your application.  Once you have isolated an area that you think could use improvement, either through results in load or performance tests, or through broad profiling as above, you'll likely want to get more specific.
+If you want to profile all of your application's code, simply using `--profile`, `--profile.flat`, `--profile.graph` or `--profile.html` will do a great job for you.  This is generally best if most of the code that executes in your application is yours, or if you want to take a look at what is consuming most of the time in your application.  Once you have isolated an area that you think could use improvement, either through results in load or performance tests, or through broad profiling as above, you'll likely want to get more specific.
 
 
 Profiling specific code in an application
