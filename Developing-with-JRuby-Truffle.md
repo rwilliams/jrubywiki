@@ -58,7 +58,7 @@ If you want to call different methods on a helper node, then use a `getToStrNode
 
         protected ToStrNode getToStrNode() {
             if (toStrNode == null) {
-                CompilerDirectives.transferToInterpreter();
+                CompilerDirectives.transferToInterpreterAndInvalidate();
                 toStrNode = insert(ToStrNodeGen.create(getContext(), getSourceSection(), null));
             }
 
