@@ -4,6 +4,8 @@
 
 [[Improving Startup Time]] - tips and tricks for improving startup time.
 
+[[Troubleshooting Performance]] - for investigating bottlenecks in your application (or in JRuby itself).
+
 ## Running JRuby embedded on Solaris
 There is [a report](http://bugs.jruby.org/6090) that GC may not work correctly. Set `-Djruby.native.enabled=false` to avoid this problem.
 
