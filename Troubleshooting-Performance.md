@@ -2,7 +2,7 @@ Because JRuby lives on the JVM, there's a wide array of both Ruby and JVM-level 
 
 1. Use the JVM sampling profiler with `--sample`.
 
-   JRuby provides a convenience flag `--sample` that enables a JVM-level sampling profiler. Because it is sampled, the results are not super accurate, but serious problems often show up in this output. Each thread will get its own sampling profile, dumped to the console when the thread ends. Here's some [[sample output]].
+   JRuby provides a convenience flag `--sample` that enables a JVM-level sampling profiler. Because it is sampled, the results are not super accurate, but serious problems often show up in this output. Each thread will get its own sampling profile, dumped to the console when the thread ends. See [[Output of JVM Sampling Profiler]] for an example.
 
    Alternatively, you can enable the "hprof" sampling profiler (shipped with all OpenJDK builds and possibly other JVMs as well) by passing `-J-Xrunhprof:cpu=samples` to JRuby. This version will build a single report at exit aggregating all threads' samples, and output the result to a file named `java.hprof.txt` in the current directory. The samples will be at the bottom of the file, and the top of the file will contain stack traces for the sampled results.
 
