@@ -16,7 +16,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Integrating with JVM languages and libraries|Integration-With-JVM-Languages]]
 * [[Performance Tuning|PerformanceTuning]]
 * [[C extension alternatives]]
-* [[Troubleshooting]] - Improving Startup Time, Memory Use, etc.
+* [[Troubleshooting]] - Improving startup time, memory use, performance, etc.
 * [[FAQs]]
 
 **JRuby Specifics**
