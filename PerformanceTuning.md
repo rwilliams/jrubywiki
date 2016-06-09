@@ -1,6 +1,8 @@
 Performance Tuning
 ==================
-JRuby supports a number of options to help you tune performance. They range from turning on experimental features to turning off inefficient emulations of Ruby features.This document describes these options and their effects.<br/><br/>
+JRuby supports a number of options to help you tune performance. They range from turning on experimental features to turning off inefficient emulations of Ruby features.This document describes these options and their effects.
+
+Note that before exploring these options, you should spend some time [[Troubleshooting Performance]] to eliminate application or library-level bugs.
 
 Enabling invokedynamic
 ----------------------
