@@ -10,6 +10,9 @@ A few things to note:
 
 * The `native` column in each section indicates the number of samples spent servicing a native call from the method shown. These numbers usually will not be very high and usually will not be important.
 
+* Ruby file and method names are used to produce a mangled internal name for the JVM. In this case, we ran the file as `../rubybench/time/bench_red_black.rb`, which gets mangled into `$_dot_dot_.rubybench.time.bench_red_black.RUBY$method$<method name>`. Only methods that JRuby has jitted will show up in this profile, so you may want to force JIT to happen with `-Xjit.threshold=0`.
+
+```
 Flat profile of 25.21 secs (1948 total ticks): main
 
   Interpreted + native   Method                        
@@ -98,3 +101,4 @@ Global summary of 25.21 seconds:
   0.7%    13             Received GC ticks
  63.4%  1244             Compilation
   0.9%    18             Class loader
+```
