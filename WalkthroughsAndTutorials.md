@@ -45,7 +45,7 @@ NetBeans Ruby Support
 JSR 223 scripting
 -----------------
 
-* [Scripting for the Java Platform](https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/) (Sun Microsystems)
+* [Scripting for the Java Platform](https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/) (Oracle)
 * [Scripting for the Java Platform (presentation at JavaOne 2006)](http://gceclub.sun.com.cn/java_one_online/2006/TS-1382/TS-1382.pdf) (PDF) (Sun Microsystems)
 * [Invoke dynamic languages dynamically, Part 1: Introducing the Java scripting API](http://www.ibm.com/developerworks/java/library/j-javascripting1/) (developerWorks)
 * [Invoke dynamic languages dynamically, Part 2: Find, execute, and change scripts at run time](http://www.ibm.com/developerworks/java/library/j-javascripting2/) (developerWorks)
