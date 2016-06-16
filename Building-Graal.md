@@ -12,10 +12,11 @@ $ cd graal-core
 $ mx --vm server build
 ```
 
-To use your build of Graal to run JRuby+Truffle, set the JAVACMD environment variable.
+To use your build of Graal to run JRuby+Truffle, set the `JAVACMD` environment variable and enable the `graal` compiler in JVMCI.
 
 ```
-$ JAVACMD=graal/jvmci/jdk1.8.0_72/product/bin/java bin/jruby.bash -X+T ...
+$ JAVACMD=graal/jvmci/jdk1.8.0_72/product/bin/java \
+    bin/jruby.bash -J-Djvmci.Compiler=graal -X+T ...
 ```
 
 You may need to update the `1.8.0_72` part of that depending on your system's version of Java.
