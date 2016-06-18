@@ -7,7 +7,7 @@ The GraalVM actually already includes JRuby+Truffle, as a `ruby` command, but th
 To use GraalVM to run JRuby+Truffle, set the `JAVACMD` environment variable.
 
 ```
-$ graalvm-0.11-re/bin/java bin/jruby.bash -X+T ...
+$ graalvm-0.12-re/bin/java bin/jruby.bash -X+T ...
 ```
 
 If you are using the `truffle-head` branch, you may need to [build Graal yourself](Building Graal).
