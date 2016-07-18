@@ -13,7 +13,9 @@ Another quick statement about one our goals.  We really want this format to be r
 
 We basically have two choices for encoding instructions.  Parameterizing all state of an instruction, but leaving the instruction name as part of the serialization format. We can also take those parameters and encode them into 'special' names for that particular type of instruction.  Let's consider these two trivially:
 
-```text Parameterizing
+Parameterizing:
+
+```
 %v_1 = Call(self, functional, "require", [%v_2], %cl_1)
 1    2 3   45   6 7         8 9        0 12   34 5    6   Tokens
 1                             1           2      3        Allocs
@@ -21,7 +23,7 @@ We basically have two choices for encoding instructions.  Parameterizing all sta
 
 And instruction encoding:
 
-```text Instruction encoding
+```
 %v_1 = sfcall&("require", [%v_2], %cl_1)
 1    2 3      45        6 78   90 1    2  Tokens (same allocs)
 ```
