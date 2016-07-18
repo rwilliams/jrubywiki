@@ -19,7 +19,7 @@ errno.backtrace=true
 
 Most properties should be documented in the ```jruby --properties``` output, but for a complete listing look at src/org/jruby/RubyInstanceConfig.java.
 
-A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6.x.
+A listing from JRuby 9.1.2.0 follows. Some of these are not available in previous ruby versions.
 
 ```
 # These properties can be used to alter runtime behavior for perf or compatibility.
@@ -31,11 +31,56 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # settings to customize.
 
 ################################################################################
+# parser
+################################################################################
+
+# Warn about ambiguous arguments.
+# Options: [true, false], Default: true.
+
+#parser.warn.ambiguous_argument=true
+
+# Warn about splat operators being interpreted as argument prefixes.
+# Options: [true, false], Default: true.
+
+#parser.warn.argument_prefix=true
+
+# Warn about ignored regex flags being ignored.
+# Options: [true, false], Default: true.
+
+#parser.warn.flags_ignored=true
+
+# Warn about interpreting (...) as a grouped expression.
+# Options: [true, false], Default: true.
+
+#parser.warn.grouped_expressions=true
+
+# Warn about statements that can never be reached.
+# Options: [true, false], Default: true.
+
+#parser.warn.not_reached=true
+
+# Warn about regex literals in conditions.
+# Options: [true, false], Default: true.
+
+#parser.warn.regex_condition=true
+
+# Warn about shadowing local variables.
+# Options: [true, false], Default: true.
+
+#parser.warn.shadowing_local=true
+
+# Warn about potentially useless expressions in void contents.
+# Options: [true, false], Default: true.
+
+#parser.warn.useless_use_of=true
+
+
+################################################################################
 # compiler
 ################################################################################
 
 # Set the number of lines at which compiled bodies are "chained".
-# Options: [Integer], Default: 500.
+# Default: 500.
 
 #compile.chainsize=500
 
@@ -64,18 +109,13 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 
 #compile.fastsend=false
 
-# Use invokedynamic for optimizing Ruby code
+# Use invokedynamic for optimizing Ruby code.
 # Options: [true, false], Default: false.
 
 #compile.invokedynamic=false
 
-# Generate method bindings (handles) for compiled methods lazily.
-# Options: [true, false], Default: false.
-
-#compile.lazyHandles=false
-
 # Set compilation mode. JIT = at runtime; FORCE = before execution.
-# Options: [JIT, FORCE, OFF, OFFIR], Default: JIT.
+# Options: [JIT, FORCE, OFF, TRUFFLE], Default: JIT.
 
 #compile.mode=JIT
 
@@ -83,6 +123,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # Options: [true, false], Default: false.
 
 #compile.noguards=false
+
+# Outline when bodies when number of cases exceeds this value.
+# Default: 50.
+
+#compile.outline.casecount=50
 
 # Enable or disable peephole optimizations.
 # Options: [true, false], Default: true.
@@ -130,7 +175,7 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #invokedynamic.class.values=false
 
 # Maximum global cache failures after which to use slow path.
-# Options: [Integer], Default: 100.
+# Default: 100.
 
 #invokedynamic.global.maxfail=100
 
@@ -144,7 +189,7 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 
 #invokedynamic.invocation=true
 
-# Bind Ruby attribue invocations directly to invokedynamic.
+# Bind Ruby attribute invocations directly to invokedynamic.
 # Options: [true, false], Default: true.
 
 #invokedynamic.invocation.attr=true
@@ -153,6 +198,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # Options: [true, false], Default: true.
 
 #invokedynamic.invocation.fastops=true
+
+# Bind Ruby FFI invocations directly to invokedynamic.
+# Options: [true, false], Default: true.
+
+#invokedynamic.invocation.ffi=true
 
 # Also bind indirect method invokers to invokedynamic.
 # Options: [true, false], Default: true.
@@ -163,11 +213,6 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # Options: [true, false], Default: true.
 
 #invokedynamic.invocation.java=true
-
-# Use SwitchPoint for class modification guards on invocations.
-# Options: [true, false], Default: true.
-
-#invokedynamic.invocation.switchpoint=true
 
 # Log binding of invokedynamic call sites.
 # Options: [true, false], Default: false.
@@ -185,12 +230,12 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #invokedynamic.log.globals=false
 
 # Maximum call site failures after which to inline cache.
-# Options: [Integer], Default: 1000.
+# Default: 1000.
 
 #invokedynamic.maxfail=1000
 
 # Maximum polymorphism of PIC binding.
-# Options: [Integer], Default: 6.
+# Default: 6.
 
 #invokedynamic.maxpoly=6
 
@@ -204,18 +249,18 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # jit
 ################################################################################
 
-# Run the JIT compiler in a background thread.
+# Run the JIT compiler in a background thread. Off if jit.threshold=0.
 # Options: [true, false], Default: true.
 
 #jit.background=true
 
-# Cache jitted method in-memory bodies across runtimes and loads.
+# (DEPRECATED) Cache jitted method in-memory bodies across runtimes and loads.
 # Options: [true, false], Default: true.
 
 #jit.cache=true
 
 # Save jitted methods to <dir> as they're compiled, for future runs.
-# Options: [dir], Default: null.
+# Options: [dir].
 
 #jit.codeCache=
 
@@ -229,13 +274,18 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 
 #jit.dumping=false
 
-# Exclude methods from JIT. Comma delimited.
-# Options: [ClsOrMod, ClsOrMod::method_name, -::method_name], Default: .
+# Exclude methods from JIT. <ModClsName or '-'>::<method_name>, comma-delimited.
+# Default: .
 
 #jit.exclude=
 
+# Run the JIT compiler while the pure-Ruby kernel is booting.
+# Options: [true, false], Default: false.
+
+#jit.kernel=false
+
 # Log a message every n methods JIT compiled.
-# Options: [Integer], Default: 0.
+# Default: 0.
 
 #jit.logEvery=0
 
@@ -250,17 +300,17 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #jit.logging.verbose=false
 
 # Set the max count of active methods eligible for JIT-compilation.
-# Options: [Integer], Default: 4096.
+# Default: 4096.
 
 #jit.max=4096
 
-# Set the maximum full-class byte size allowed for jitted methods.
-# Options: [Integer], Default: 30000.
+# Set the max size (in IR instructions) for a method to be eligible to JIT.
+# Default: 2000.
 
-#jit.maxsize=30000
+#jit.maxsize=2000
 
 # Set the JIT threshold to the specified method invocation count.
-# Options: [Integer], Default: 50.
+# Default: 50.
 
 #jit.threshold=50
 
@@ -280,34 +330,395 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #ir.debug=false
 
 # Specify comma delimeted list of passes to run after inlining a method.
-# Options: [String], Default: null.
 
 #ir.inline_passes=
 
+# Specify comma delimeted list of passes to run before JIT.
+
+#ir.jit.passes=
+
 # Specify comma delimeted list of passes to run.
-# Options: [String], Default: null.
 
 #ir.passes=
+
+# Print the final IR to be run before starting to execute each body of code.
+# Options: [true, false], Default: false.
+
+#ir.print=false
+
+# Print the final IR with color highlighting.
+# Options: [true, false], Default: false.
+
+#ir.print.color=false
 
 # [EXPT]: Profile IR code during interpretation.
 # Options: [true, false], Default: false.
 
 #ir.profile=false
 
+# Read JRuby IR file.
+# Options: [true, false], Default: false.
+
+#ir.reading=false
+
+# Debug reading JRuby IR file.
+# Options: [true, false], Default: false.
+
+#ir.reading.debug=false
+
+# Implement unboxing opts.
+# Options: [true, false], Default: false.
+
+#ir.unboxing=false
+
 # Visualization of JRuby IR.
 # Options: [true, false], Default: false.
 
 #ir.visualizer=false
 
+# Write JRuby IR file.
+# Options: [true, false], Default: false.
+
+#ir.writing=false
+
+# Debug writing JRuby IR file.
+# Options: [true, false], Default: false.
+
+#ir.writing.debug=false
+
+
+################################################################################
+# truffle
+################################################################################
+
+# Allocation size class cache size.
+# Default: 8.
+
+#truffle.allocate_class.cache=8
+
+# Maximum size of an Array to consider small for optimisations.
+# Default: 3.
+
+#truffle.array.small=3
+
+# How large an Array to allocate when we have no other information to go on.
+# Default: 32.
+
+#truffle.array.uninitialized_size=32
+
+# Hide core source files in backtraces, like MRI does.
+# Options: [true, false], Default: true.
+
+#truffle.backtraces.hide_core_files=true
+
+# Interleave Java stacktraces into the Ruby backtrace.
+# Options: [true, false], Default: false.
+
+#truffle.backtraces.interleave_java=false
+
+# Limit the size of Ruby backtraces.
+# Default: 9999.
+
+#truffle.backtraces.limit=9999
+
+# Omit backtraces that should be unused as they have pure rescue expressions.
+# Options: [true, false], Default: true.
+
+#truffle.backtraces.omit_unused=true
+
+# Cache size of test for being able to bind a method to a module.
+# Default: 8.
+
+#truffle.bind.cache=8
+
+# Binding#local_variable_get/set cache size.
+# Default: 8.
+
+#truffle.binding_local_variable.cache=8
+
+# Maintain a call graph.
+# Options: [true, false], Default: false.
+
+#truffle.callgraph=false
+
+# File to write the call garph to on exit.
+
+#truffle.callgraph.write=
+
+# .class and .metaclass cache size.
+# Default: 8.
+
+#truffle.class.cache=8
+
+# Default option for cloning.
+# Options: [true, false], Default: true.
+
+#truffle.clone.default=true
+
+# Constant cache size.
+# Default: 8.
+
+#truffle.constant.cache=8
+
+# Always clone built-in core methods.
+# Options: [true, false], Default: true.
+
+#truffle.core.always_clone=true
+
+# Location to load the Truffle core library from.
+# Default: truffle:/jruby-truffle.
+
+#truffle.core.load_path=truffle:/jruby-truffle
+
+# Run coverage for all code and print results on exit.
+# Options: [true, false], Default: false.
+
+#truffle.coverage.global=false
+
+# Default size for caches.
+# Default: 8.
+
+#truffle.default_cache=8
+
+# Dispatch (various forms of method call) cache size.
+# Default: 8.
+
+#truffle.dispatch.cache=8
+
+# Encoding.compatible? cache size.
+# Default: 8.
+
+#truffle.encoding_compatible_query.cache=8
+
+# eval cache size.
+# Default: 8.
+
+#truffle.eval.cache=8
+
+# Print Java exceptions at the point of translating them to Ruby exceptions.
+# Options: [true, false], Default: false.
+
+#truffle.exceptions.print_java=false
+
+# Print uncaught Java exceptions at the point of translating them to Ruby exceptions.
+# Options: [true, false], Default: false.
+
+#truffle.exceptions.print_uncaught_java=false
+
+# Store the Java exception with the Ruby backtrace
+# Options: [true, false], Default: false.
+
+#truffle.exceptions.store_java=false
+
+# Warn unless the JVM has the Graal compiler.
+# Options: [true, false], Default: true.
+
+#truffle.graal.warn_unless=true
+
+# Maximum size of a Hash to consider using the packed array storage strategy for.
+# Default: 3.
+
+#truffle.hash.packed_array.max=3
+
+# Default option for inlining.
+# Options: [true, false], Default: true.
+
+#truffle.inline.default=true
+
+# Inline methods that need their caller frame.
+# Options: [true, false], Default: true.
+
+#truffle.inline_needs_caller_frame=true
+
+# Instance variable cache size.
+# Default: 8.
+
+#truffle.instance_variable.cache=8
+
+# Port number to run an HTTP server on that provides instrumentation services
+# Default: 0.
+
+#truffle.instrumentation_server_port=0
+
+# Cache size for converting values for interop.
+# Default: 8.
+
+#truffle.interop.convert.cache=8
+
+# Cache size for interop EXECUTE messages.
+# Default: 8.
+
+#truffle.interop.execute.cache=8
+
+# Cache size for interop INVOKE messages.
+# Default: 8.
+
+#truffle.interop.invoke.cache=8
+
+# Cache size for interop READ messages.
+# Default: 8.
+
+#truffle.interop.read.cache=8
+
+# Cache size for interop WRITE messages.
+# Default: 8.
+
+#truffle.interop.write.cache=8
+
+# Kernel#is_a? and #kind_of? cache size.
+# Default: 8.
+
+#truffle.is_a.cache=8
+
+# Method lookup cache size.
+# Default: 8.
+
+#truffle.method_lookup.cache=8
+
+# Always clone #method_missing.
+# Options: [true, false], Default: true.
+
+#truffle.method_missing.always_clone=true
+
+# Always inline #method_missing.
+# Options: [true, false], Default: true.
+
+#truffle.method_missing.always_inline=true
+
+# Print the size of heap memory in use on exit.
+# Options: [true, false], Default: false.
+
+#truffle.metrics.memory_used_on_exit=false
+
+# Print the time at various stages of VM operation.
+# Options: [true, false], Default: false.
+
+#truffle.metrics.time=false
+
+# Array#pack cache size.
+# Default: 8.
+
+#truffle.pack.cache=8
+
+# If a pack or unpack expression is longer than this, attempt to recover loops.
+# Default: 32.
+
+#truffle.pack.recover=32
+
+# If a pack or unpack expression has a loop less than this many iterations, unroll it.
+# Default: 4.
+
+#truffle.pack.unroll=4
+
+# Default value for the safety of all operations.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe=true
+
+# Treat #at_exit as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.at_exit=true
+
+# Treat #exit! (hard exiting the VM) as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.exit=true
+
+# Treat any methods that deal with IO as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.io=true
+
+# Treat loading, requiring and autoloading as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.load=true
+
+# Treat any methods that deal with unmanaged memory as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.memory=true
+
+# Treat any methods that deal with processes as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.processes=true
+
+# Treat any methods that deal with signals as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.siganls=true
+
+# Treat any methods that deal with threads as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe.threads=true
+
+# Treat Truffle.safe_puts as safe.
+# Options: [true, false], Default: true.
+
+#truffle.platform.safe_puts=true
+
+# Use a pure-Java platform, so no native POSIX.
+# Options: [true, false], Default: false.
+
+#truffle.platform.use_java=false
+
+# Indicates whether a substring operation on a rope should be performed lazily.
+# Options: [true, false], Default: true.
+
+#truffle.rope.lazy_substrings=true
+
+# Print interned rope stats at application exit.
+# Options: [true, false], Default: false.
+
+#truffle.rope.print_intern_stats=false
+
+# Cache size for rope operations that depend on a concrete rope implementation to avoid virtual calls.
+# Default: 6.
+
+#truffle.rope_class.cache=6
+
+# Symbol#to_proc cache size.
+# Default: 8.
+
+#truffle.symbol_to_proc.cache=8
+
+# Cache size of operations that depend on a particular thread.
+# Default: 8.
+
+#truffle.thread.cache=8
+
+# Method#to_proc cache size.
+# Default: 8.
+
+#truffle.to_proc.cache=8
+
+# String#unpack cache size.
+# Default: 8.
+
+#truffle.unpack.cache=8
+
+# Always clone yields.
+# Options: [true, false], Default: true.
+
+#truffle.yield.always_clone=true
+
+# Always inline yields.
+# Options: [true, false], Default: true.
+
+#truffle.yield.always_inline=true
+
+# Yield cache size.
+# Default: 8.
+
+#truffle.yield.cache=8
+
 
 ################################################################################
 # native
 ################################################################################
-
-# Enable or disable C extension support.
-# Options: [true, false], Default: false.
-
-#cext.enabled=false
 
 # Dump bytecode-generated FFI stubs to console.
 # Options: [true, false], Default: false.
@@ -325,7 +736,7 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #ffi.compile.reify=false
 
 # Number of FFI invocations before generating a bytecode stub.
-# Options: [Integer], Default: 100.
+# Default: 100.
 
 #ffi.compile.threshold=100
 
@@ -344,30 +755,25 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # thread pooling
 ################################################################################
 
-# Enable reuse of native threads via a thread pool.
-# Options: [true, false], Default: false.
+# The maximum number of seconds to keep alive a pooled fiber thread.
+# Default: 60.
 
-#thread.pool.enabled=false
+#fiber.thread.pool.ttl=60
 
 # The maximum number of threads to allow in the pool.
-# Options: [Integer], Default: 2147483647.
+# Default: 2147483647.
 
 #thread.pool.max=2147483647
 
 # The minimum number of threads to keep alive in the pool.
-# Options: [Integer], Default: 0.
+# Default: 0.
 
 #thread.pool.min=0
 
 # The maximum number of seconds to keep alive an idle thread.
-# Options: [Integer], Default: 60.
+# Default: 60.
 
 #thread.pool.ttl=60
-
-# The maximum number of threads to allow in the timeout pool.
-# Options: [Integer], Default: 4.
-
-#timeout.thread.pool.max=4
 
 
 ################################################################################
@@ -390,14 +796,14 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #backtrace.style=normal
 
 # Specify the major Java bytecode version.
-# Options: [1.5, 1.6, 1.7], Default: 1.7.
+# Options: [1.6, 1.7, 1.8], Default: 1.8.
 
-#bytecode.version=1.7
+#bytecode.version=1.8
 
-# Specify the major Ruby version to be compatible with.
-# Options: [1.8, 1.9, 2.0], Default: 1.9.
+# In some cases of classloader conflicts it might help not to delegate first to the parent classloader but to load first from the jruby-classloader.
+# Options: [true, false], Default: true.
 
-#compat.version=1.9
+#classloader.delegate=true
 
 # Generate consistent object hashes across JVMs
 # Options: [true, false], Default: false.
@@ -413,6 +819,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # Options: [true, false], Default: false.
 
 #fiber.coroutines=false
+
+# Use fcntl rather than flock for File#flock
+# Options: [true, false], Default: true.
+
+#file.flock.fcntl=true
 
 # Use a single global lock for requires.
 # Options: [true, false], Default: false.
@@ -459,6 +870,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 
 #process.noUnwrap=false
 
+# Maintain children static scopes to support scope dumping.
+# Options: [true, false], Default: false.
+
+#record.lexical.hierarchy=false
+
 # Use reflection for binding methods, not generated bytecode.
 # Options: [true, false], Default: false.
 
@@ -475,9 +891,9 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #reify.logErrors=false
 
 # Attempt to expand instance vars into Java fields
-# Options: [true, false], Default: false.
+# Options: [true, false], Default: true.
 
-#reify.variables=false
+#reify.variables=true
 
 # Enable or disable SipHash for String hash function.
 # Options: [true, false], Default: false.
@@ -488,6 +904,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # Options: [USR1, USR2, etc], Default: USR2.
 
 #thread.dump.signal=USR2
+
+# Always ensure volatile semantics for instance variables.
+# Options: [true, false], Default: true.
+
+#volatile.variables=true
 
 
 ################################################################################
@@ -555,9 +976,14 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #log.warnings=false
 
 # Use specified class for logging.
-# Options: [class name], Default: org.jruby.util.log.JavaUtilLoggingLogger.
+# Options: [class name], Default: org.jruby.util.log.StandardErrorLogger.
 
-#logger.class=org.jruby.util.log.JavaUtilLoggingLogger
+#logger.class=org.jruby.util.log.StandardErrorLogger
+
+# Rewrite stack traces from exceptions raised in Java calls.
+# Options: [true, false], Default: true.
+
+#rewrite.java.trace=true
 
 # Generate backtraces for heavily-used Errno exceptions (EAGAIN).
 # Options: [true, false], Default: false.
@@ -568,6 +994,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 ################################################################################
 # java integration
 ################################################################################
+
+# Look for .class before .rb to load AOT-compiled code
+# Options: [true, false], Default: false.
+
+#aot.loadClasses=false
 
 # Use java.lang.reflect.Proxy for interface impl.
 # Options: [true, false], Default: false.
@@ -590,12 +1021,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #ji.newStyleExtension=false
 
 # Cache Java object wrappers between calls.
-# Options: [true, false], Default: true.
+# Options: [true, false], Default: false.
 
-#ji.objectProxyCache=true
+#ji.objectProxyCache=false
 
 # Allow external envs to replace JI proxy class factory
-# Options: [String], Default: null.
 
 #ji.proxyClassFactory=
 
@@ -604,7 +1034,7 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 
 #ji.setAccessible=true
 
-# Allow Capitalized Java pacakge names.
+# Allow Capitalized Java package names.
 # Options: [true, false], Default: false.
 
 #ji.upper.case.package.name.allowed=false
@@ -615,7 +1045,7 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 ################################################################################
 
 # Maximum number of methods to consider for profiling.
-# Options: [Integer], Default: 100000.
+# Default: 100000.
 
 #profile.max.methods=100000
 
@@ -640,12 +1070,10 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #cli.autosplit=false
 
 # Set autosplit separator. Same as -F.
-# Options: [String], Default: null.
 
 #cli.autosplit.separator=
 
 # Backup extension for in-place ARGV files. Same as -i.
-# Options: [String], Default: null.
 
 #cli.backup.extension=
 
@@ -669,15 +1097,22 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 
 #cli.debug=false
 
+# Enable/disable did_you_mean.
+# Options: [true, false], Default: false.
+
+#cli.did_you_mean.enable=false
+
 # Encoding name to treat external data.
-# Options: [String], Default: null.
 
 #cli.encoding.external=
 
 # Encoding name to use internally.
-# Options: [String], Default: null.
 
 #cli.encoding.internal=
+
+# Encoding name to treat source code.
+
+#cli.encoding.source=
 
 # Print command-line usage. Same as --help but runs script.
 # Options: [true, false], Default: false.
@@ -705,7 +1140,7 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #cli.process.line.ends=false
 
 # Enable instrumented profiling modes.
-# Options: [OFF, API, FLAT, GRAPH, HTML, JSON], Default: OFF.
+# Options: [OFF, API, FLAT, GRAPH, HTML, JSON, SERVICE], Default: OFF.
 
 #cli.profiling.mode=OFF
 
@@ -715,7 +1150,7 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 #cli.properties=false
 
 # Default record separator.
-# Options: [String], Default: "\n".
+# Default: "\n".
 
 #cli.record.separator="\n"
 
@@ -723,6 +1158,11 @@ A listing from JRuby 1.7.5 follows. Some of these are not available on JRuby 1.6
 # Options: [true, false], Default: true.
 
 #cli.rubygems.enable=true
+
+# Enable/disable RUBYOPT processing at start.
+# Options: [true, false], Default: true.
+
+#cli.rubyopt.enable=true
 
 # Strip text before shebang in script. Same as -x.
 # Options: [true, false], Default: false.
