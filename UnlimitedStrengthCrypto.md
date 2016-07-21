@@ -16,7 +16,7 @@ These files enable unlimited strength crypto. Download the "Java Cryptography Ex
 Disable the crypto restriction programmatically
 -----------------------------------------------
 
-(This may apply to Java 7+ only)
+(This may apply to Java 7+ only. Does NOT work on Java8 u102!)
 
 The policy files above are loaded once at startup and used to set an "isRestricted" field on the javax.crypto.JceSecurity class. Using JRuby's Java integration, this field can be modified.
 
