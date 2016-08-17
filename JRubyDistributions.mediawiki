@@ -62,10 +62,10 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 | [http://packages.gentoo.org/package/dev-java/jruby gentoo portage]
 |-
 |Alpine Linux
-|APK (testing/jruby)
+|APK (community/jruby)
 | Jakub Jirutka
-| 9.0.5.0
-| [https://pkgs.alpinelinux.org/package/edge/testing/x86_64/jruby package]
+| 9.1.2.0
+| [https://pkgs.alpinelinux.org/package/edge/community/x86_64/jruby package]
 |-
 |Archlinux
 |pacman (community/jruby)
