@@ -82,7 +82,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [The Redcar Editor](http://redcareditor.com/) (built with SWT)
 
 **Get Creative**
-* [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (create processing-2.2.1 sketches with ruby)
+* [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (ruby wrapper for processing-2.2.1)
 * [propane](https://ruby-processing.github.io/propane/) (standalone ruby-processing for processing-3.1.1)
 * [JRubyArt](https://ruby-processing.github.io/propane/) (ruby wrapper for processing-3.1+)
 
