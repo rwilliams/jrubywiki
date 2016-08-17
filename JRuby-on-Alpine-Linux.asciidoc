@@ -4,7 +4,7 @@ Install JRuby from the Alpine repository, don’t use Oracle JDK and beware of J
 
 [source, sh]
 ----
-echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 apk update
 apk add jruby
 # install optional subpackages, if you need them
@@ -87,27 +87,27 @@ If not, please http://bugs.alpinelinux.org/projects/alpine/issues/new[fill a bug
 | Comment
 
 | lz4-java
-| https://pkgs.alpinelinux.org/package/testing/x86_64/java-lz4[java-lz4]
+| https://pkgs.alpinelinux.org/package/edge/community/x86_64/java-lz4[java-lz4]
 | yes :disappointed:
 | You must use patched JAR installed by the package (https://github.com/jpountz/lz4-java/pull/83[PR #83]).
 
 | jansi-native
-| https://pkgs.alpinelinux.org/package/testing/x86_64/java-jansi-native[java-jansi-native]
+| https://pkgs.alpinelinux.org/package/edge/community/x86_64/java-jansi-native[java-jansi-native]
 | no :smile_cat:
 |
 
 | jffi
-| https://pkgs.alpinelinux.org/package/testing/x86_64/java-jffi-native[java-jffi-native]
+| https://pkgs.alpinelinux.org/package/edge/community/x86_64/java-jffi-native[java-jffi-native]
 | no :smile_cat:
 | Neeeds https://pkgs.alpinelinux.org/package/main/x86_64/libc6-compat[libc6-compat].
 
 | jna
-| https://pkgs.alpinelinux.org/package/edge/testing/x86_64/java-jna-native[java-jna-native]
+| https://pkgs.alpinelinux.org/package/edge/community/x86_64/java-jna-native[java-jna-native]
 | no :smile_cat:
 |
 
 | snappy-java
-| https://pkgs.alpinelinux.org/package/testing/x86_64/java-snappy-native[java-snappy-native]
+| https://pkgs.alpinelinux.org/package/edge/community/x86_64/java-snappy-native[java-snappy-native]
 | no* :smiley_cat:
 | If you use upstream’s JAR, then loading of system-provided library must be enabled using `-Dorg.xerial.snappy.use.systemlib=true`. This is set by default in Alpine’s jruby launch script.
 |===
