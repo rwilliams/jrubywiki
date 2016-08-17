@@ -83,7 +83,8 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **Get Creative**
 * [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (create processing-2.2.1 sketches with ruby)
-* [JRubyArt](https://ruby-processing.github.io/) (create processing-3.0+ sketches with ruby)
+* [propane](https://ruby-processing.github.io/propane/) (standalone ruby-processing for processing-3.1.1)
+* [JRubyArt](https://ruby-processing.github.io/propane/) (ruby wrapper for processing-3.1+)
 
 **Evangelism**
 
