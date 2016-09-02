@@ -602,6 +602,7 @@ Arrays
 There are two ways of constructing Java arrays. One is to use the `to_java` method of the class Array. The other is to use the `[]` method for the primitive Java types.
 
 Converting a Ruby Array to a Java Array
+
 The `to_java` method constructs a Java array from a Ruby array:
 
 ```ruby
