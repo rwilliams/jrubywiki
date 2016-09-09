@@ -13,7 +13,7 @@ University Linz](http://ssw.jku.at).
 ## Wiki Pages
 
 * [[Downloading GraalVM]]
-* [[Using Graal in JDK-9 EA Builds]]
+* [[Using Graal in JDK 9 EA Builds]]
 * [[Building Graal]]
 * [[JRuby and Truffle Interop]]
 * [[Truffle FAQ]]
