@@ -1,24 +1,13 @@
-JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is by downloading the [GraalVM](Downloading GraalVM), but if you are using the `truffle-head` branch this may not be compatible with the version of the Truffle API used, and you may need to build a JVM with Graal for yourself.
+JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is by downloading the [GraalVM](Downloading GraalVM), but for some special cases you may want to build Graal yourself.
 
-https://wiki.openjdk.java.net/display/Graal/Instructions
+Follow the instructions in the Graal core repository.
 
-```
-$ git clone https://github.com/graalvm/mx.git
-$ export PATH=$PWD/mx:$PATH
-$ mkdir graal
-$ cd graal
-$ git clone https://github.com/graalvm/graal-core.git
-$ cd graal-core
-$ mx --vm server build
-```
+https://github.com/graalvm/graal-core
 
-To use your build of Graal to run JRuby+Truffle, set the `JAVACMD` environment variable and enable the `graal` compiler in JVMCI.
+The easiest way to run with the version of Graal that you've just build is using the `jt` tool and the `GRAAL_HOME` environment variable.
 
 ```
-$ JAVACMD=graal/jvmci/jdk1.8.0_72/product/bin/java \
-    bin/jruby.bash -J-Djvmci.Compiler=graal -X+T ...
+$ GRAAL_HOME=.... jt run --graal ...normal Ruby arguments here...
 ```
-
-You may need to update the `1.8.0_72` part of that depending on your system's version of Java.
 
 Some more help on building on different distributions of Linux is available at http://mail.openjdk.java.net/pipermail/graal-dev/2015-December/004050.html.
