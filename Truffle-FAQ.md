@@ -4,7 +4,7 @@ Truffle is a Java framework for writing AST interpreters. To implement a languag
 
 Truffle also has the concept of specialisation. In most AST interpreters the nodes are megamorphic - they handle all possible types and other possible conditions. In Truffle you write several different nodes for the same semantic action but for different types and conditions. As runtime conditions change, you switch which nodes you are using. After the program has warmed up you should end up with an AST that is precisely tailored for the types and conditions that you are actually using. If these conditions change, you can just switch nodes again.
 
-For more information Truffle see the [publications](https://wiki.openjdk.java.net/display/Graal/Publications+and+Presentations), [API documentation](http://lafo.ssw.uni-linz.ac.at/javadoc/graalvm/all/com/oracle/truffle/api/package-summary.html), and [FAQ](https://wiki.openjdk.java.net/display/Graal/Truffle+FAQ+and+Guidelines).
+For more information Truffle see the [publications](https://github.com/graalvm/graal-core/blob/master/docs/Publications.md), [API documentation](http://lafo.ssw.uni-linz.ac.at/javadoc/graalvm/all/com/oracle/truffle/api/package-summary.html), and [FAQ](https://wiki.openjdk.java.net/display/Graal/Truffle+FAQ+and+Guidelines).
 
 ### What is Graal?
 
