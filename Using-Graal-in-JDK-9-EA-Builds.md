@@ -4,9 +4,7 @@ The JDK EA builds lag behind Graal development a bit so the interfaces are not a
 
 https://jdk9.java.net/download/
 
-You will also need to download a snapshot of `graal.jar` from our academic collaborators at JKU Linz.
-
-http://lafo.ssw.uni-linz.ac.at/nexus/content/repositories/snapshots/com/oracle/graal/graal/
+You will also need a copy of `graal.jar`. You can [build this yourself](Building Graal) or get it from [a download of GraalVM](Downloading GraalVM).
 
 To use the EA build of Java to run JRuby+Truffle, set the JAVACMD environment variable. You will also need to pass several other command line options.
 
