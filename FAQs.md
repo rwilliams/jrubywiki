@@ -1,11 +1,11 @@
 Sections
 ========
-<a href="#execution_environments">Execution Environments</a>
-<a href="#general">General</a>
-<a href="#running_rails">Running Rails</a>
-<a href="#calling_into_java">Calling Into Java</a>
-<a href="#java_and_jruby_interop">Java and JRuby Interoperation</a>
-<a href="#troubleshooting">Troubleshooting</a>
+* <a href="#execution_environments">Execution Environments</a>
+* <a href="#general">General</a>
+* <a href="#running_rails">Running Rails</a>
+* <a href="#calling_into_java">Calling Into Java</a>
+* <a href="#java_and_jruby_interop">Java and JRuby Interoperation</a>
+* <a href="#troubleshooting">Troubleshooting</a>
 
 <a name="execution_environments"/>
 Execution Environments
