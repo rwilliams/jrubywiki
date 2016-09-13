@@ -6,6 +6,7 @@ Sections
 * <a href="#calling_into_java">Calling Into Java</a>
 * <a href="#java_and_jruby_interop">Java and JRuby Interoperation</a>
 * <a href="#troubleshooting">Troubleshooting</a>
+* <a href="#networking">Networking</a>
 
 <a name="execution_environments"/>
 Execution Environments
@@ -520,6 +521,7 @@ $ sudo apt-get install haveged
 $ sudo service haveged start
 ```
 
+<a name="networking"/>
 Networking
 ==========
 
