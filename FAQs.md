@@ -519,3 +519,15 @@ $ sudo apt-get install haveged
 ...
 $ sudo service haveged start
 ```
+
+Networking
+==========
+
+Why can't I connect to some (IPv4, IPv6, remote, localhost) address?
+---------------------------------------------------------------
+
+Sometimes you will have trouble connecting to a remote or local address you know is accessible and which is connectable by other means. Usually this is due to the Java runtime choosing the wrong IP version.
+
+Most current JVMs/JDKs/JREs will try to prefer IPv6 addresses before they try IPv4 addresses. This sometimes causes trouble for JRuby applications, since they may fail trying to connect to an IPv6 address that is visible but does not expose the service you're hoping to reach. Sometimes it will be the reverse situation.
+
+You can force OpenJDK-based runtimes (including Oracle's JDK/JRE) to prefer IPv4 by passing `-Djava.net.preferIPv4Stack` to the JVM, `-J-Djava.net.preferIPv4Stack` to JRuby, or otherwise setting the `java.net.preferIPv4Stack` property in the target JVM. The equivalent property for IPv6 `java.net.preferIPv6Stack`, but most JVMs should be doing this by default.
