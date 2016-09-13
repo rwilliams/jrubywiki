@@ -1,3 +1,13 @@
+Sections
+========
+<a href="#execution_environments">Execution Environments</a>
+<a href="#general">General</a>
+<a href="#running_rails">Running Rails</a>
+<a href="#calling_into_java">Calling Into Java</a>
+<a href="#java_and_jruby_interop">Java and JRuby Interoperation</a>
+<a href="#troubleshooting">Troubleshooting</a>
+
+<a name="execution_environments"/>
 Execution Environments
 ======================
 
@@ -95,6 +105,7 @@ the same process, rather than launching an external process using the `java.exe`
 Because we have no way of knowing what options are or are not supported by the DLL, we provide a flag for the
 `jruby.exe` command to force using `java.exe` and spinning an external process: `-Xfork-java`. Passing this flag to the `jruby` command line will allow those other `java.exe`-only flags to work correctly.
 
+<a name="general"/>
 General
 =======
 
@@ -218,6 +229,7 @@ How do I check which version of the JVM JRuby is running on?
     % jruby -rjava -e "puts java.lang.System.get_property('java.version')"
 ```
 
+<a name="running_rails"/>
 Running Rails
 =============
 
@@ -285,6 +297,7 @@ Now, because `ResourceBundle.getBundle` doesn't seem to use the JRuby class load
 
 Now you just need to put your `i18n[_*].properties` files in `config/`, et voilà!
 
+<a name="calling_into_java"/>
 Calling Into Java
 =================
 
@@ -312,6 +325,7 @@ Whereas in JRuby, you can get at that using the following:
     >> ShutdownType = JavaUtilities.get_proxy_class('com.sun.enterprise.ee.cms.core.GMSConstants$shutdownType')
 ```
 
+<a name="java_and_jruby_interop"/>
 Java and JRuby Interoperation
 =============================
 
