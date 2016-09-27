@@ -6,7 +6,7 @@ Because JRuby lives on the JVM, there's a wide array of both Ruby and JVM-level 
 
    Alternatively, you can enable the "hprof" sampling profiler (shipped with all OpenJDK builds and possibly other JVMs as well) by passing `-J-Xrunhprof:cpu=samples` to JRuby. This version will build a single report at exit aggregating all threads' samples, and output the result to a file named `java.hprof.txt` in the current directory. The samples will be at the bottom of the file, and the top of the file will contain stack traces for the sampled results.
 
-2. Use JRuby's built-in Ruby profiler with `--profile`.
+2. Use JRuby's [built-in Ruby profiler](https://github.com/jruby/jruby/wiki/Profiling-jruby) with `--profile`.
 
    JRuby ships with a built-in profiler that works at a Ruby level. Enable it with --profile. The output will be a listing of all methods called with call counts and timings for each. This works well to find a single Ruby method that's consuming too much time.
 
