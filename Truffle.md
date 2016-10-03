@@ -28,9 +28,11 @@ JRuby+Truffle does not support RubyGems yet, therefore there is a small tool `jr
 
 Please see [the documentation](https://github.com/jruby/jruby/blob/master/lib/ruby/truffle/jruby%2Btruffle/README.md) of `jruby+truffle_runner` tool.
 
-## RubySpec
+## ruby/spec
 
-We track completeness against the suite of specs formerly known as RubySpec. These generated reports show overall completeness and work outstanding. We support all of the language and over 95% of the core library.
+We track completeness against [the Ruby Spec Suite](https://github.com/ruby/spec).
+These generated reports show overall completeness and work outstanding.
+We support all of the language and over 95% of the core library.
 
 ## Developing JRuby+Truffle
 
