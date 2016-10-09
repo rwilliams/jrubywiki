@@ -42,6 +42,18 @@ For a `String`, returns the first character. Unboxing empty strings is not suppo
 
 Returns true only for the `nil` object.
 
+### `KEYS`
+
+If the receiver is a Ruby `Hash`, return the hash keys.
+
+`KEYS(hash)` → `hash.keys`
+
+Otherwise, return the instance variable names, without the leading `@`.
+
+`KEYS(other)` → `other.instance_variables.map { |key| key[1..-1 }`
+
+In both cases the keys are returned as a Ruby `Array` containing Java `String` objects.
+
 ### `READ`
 
 The name must be a Java `int` or `String`, or a Ruby `String` or `Symbol`.
@@ -118,6 +130,12 @@ In all cases where a call is made no block is passed.
 
 `Truffle::Interop.null?(value)`
 
+### `KEYS`
+
+`Truffle::Interop.keys(value)`
+
+JRuby will convert the returned value from a foreign object of Java `String` objects, to a Ruby `Array` of Ruby `String` objects.
+
 ### `READ`
 
 `Truffle::Interop.read(object, name)`
@@ -165,6 +183,10 @@ Not supported.
 ### `IS_NULL`
 
 `value.nil?`
+
+### `KEYS`
+
+Not supported.
 
 ### `READ`
 
