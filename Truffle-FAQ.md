@@ -21,7 +21,7 @@ The same way you would normally get JRuby, such as from http://jruby.org/downloa
 Then you can run JRuby setting the `JAVACMD` environment variable and use Truffle by specifying `-X+T`.
 
 ```
-JAVACMD=graalvm-0.16-re/bin/java jruby -X+T ....
+JAVACMD=graalvm-0.17-re/bin/java jruby -X+T ....
 ```
 
 ### Why is the Truffle backend slow on a standard JVM?
