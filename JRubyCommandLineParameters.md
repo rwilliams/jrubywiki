@@ -1,6 +1,8 @@
-==JRuby Command Line Parameters==
+# JRuby Command Line Parameters
 
 These JRuby commands are entered in a terminal window or command window, depending on your operating system.
+
+Note: when you run `jruby` from a terminal or command window, you’re running a script that invokes `java` with the proper arguments to start JRuby as specified, for example [`jruby.bash`](https://github.com/jruby/jruby/blob/master/bin/jruby.bash) or [`jruby.bat`](https://github.com/jruby/jruby/blob/master/bin/jruby.bat). Note that some of the below switches apply only to those scripts; they will not work when running JRuby as a JAR file (for example, one created with [Warbler](https://github.com/jruby/warbler)).
 
 ```
 $ jruby --help
