@@ -15,7 +15,7 @@ polyglot-ruby rather than a `pom.xml` for regular maven). Before you do this you
   <extension>
     <groupId>io.takari.polyglot</groupId>
     <artifactId>polyglot-ruby</artifactId>
-    <version>0.1.15</version>
+    <version>0.1.19</version>
   </extension>
 </extensions>
 ```
@@ -54,23 +54,23 @@ project 'jruby-ext' do
     'jruby.api' => 'http://jruby.org/apidocs/',
   )
 
-  jar 'org.jruby:jruby:9.0.5.0'
+  jar 'org.jruby:jruby:9.1.5.0'
   
   plugin_management do
     plugin :resources, '2.6'
     plugin :dependency, '2.8'
     plugin(
-      :compiler, '3.3',
+      :compiler, '3.5.1',
       source: '${maven.compiler.source}',
       target: '${maven.compiler.target}'
     )
     plugin(
-      :javadoc, '2.10.3',
+      :javadoc, '2.10.4',
       detect_offline_links: 'false',
       links: ['${jruby.api}']
     )
     plugin(
-      :jar, '2.6',      
+      :jar, '3.0.2',      
       archive: {
         manifestFile: 'MANIFEST.MF' # camel case reqd
       }    
