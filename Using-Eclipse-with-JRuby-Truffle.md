@@ -2,7 +2,13 @@ Eclipse is an alternative IDE for editing JRuby+Truffle. It provides much better
 
 First, make sure the project is already built from the command line:
 ```bash
-$ ./mvnw
+$ mx build
+```
+
+### Generate the project files
+
+```bash
+$ mx eclipseinit
 ```
 
 ### Using integrated Maven support
