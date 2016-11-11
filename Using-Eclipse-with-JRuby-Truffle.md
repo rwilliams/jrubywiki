@@ -11,16 +11,11 @@ $ mx build
 $ mx eclipseinit
 ```
 
-### Using integrated Maven support
+### Import the projects
 
 Create a new workspace in Eclipse (>= Luna).
 
-Start by ensuring there is no leftover configuration:
-```bash
-$ rm -rf {core,truffle}/{.classpath,.settings,.project}
-```
-
-We can now import the two projects:
+We can now import the projects:
 * From the main menu bar, select `File` > `Import...`
 * Select `Maven` > `Existing Maven Projects`
 * Select `jruby/core` directory as root directory (NOT just jruby)
