@@ -15,7 +15,7 @@ $ export PATH="../mx:$PATH"
 First, make sure the project is already built from the command line:
 ```bash
 $ mx update
-# Consider truffle API as a binary dependency
+# Consider the truffle framework as a binary dependency
 $ echo MX_BINARY_SUITES=truffle >> mx.jruby/env
 $ mx build
 ```
