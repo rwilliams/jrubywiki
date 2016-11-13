@@ -41,8 +41,8 @@ You shall be set!
 There should be now 4 projects in your workspace:
 * `jruby-truffle`
 * `jruby-truffle-test`
+* `RUBY-TEST.dist`
 * `RUBY.dist`
-* `RUBY-TEST.dist`.
 
 ### Running from the Eclipse files directly
 
