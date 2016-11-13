@@ -23,20 +23,15 @@ We can now import the projects:
 * *Unselect* `jruby-jars` and `test`.
 
 You shall be set!
+There should be now 4 projects in your workspace:
+`jruby-truffle`, `jruby-truffle-test`, `RUBY.dist`, `RUBY-TEST.dist`.
 
 ### Running from the Eclipse files directly
 
-Use the `tool/jruby_eclipse` script to run directly from Eclipse .class files.  
-Any change in truffle Java or Ruby files will be available as soon as Eclipse finishes compiling.
+The [jt workflow tool](https://github.com/jruby/jruby/tree/master/truffle#workflow-tool)
+automatically picks up the version compiled by mx and Eclipse oven Maven-compiled files.
 
 ```bash
-$ tool/jruby_eclipse -X+T -e 'p RUBY_ENGINE'
+$ tool/jt.rb ruby -e 'p RUBY_ENGINE'
 "jruby+truffle"
 ```
-
-The [jt workflow tool](https://github.com/jruby/jruby/tree/master/truffle#workflow-tool)
-automatically picks up that script over `bin/jruby` if you have  
-`export JRUBY_ECLIPSE=true` in your environment.
-
-### Ruby support
-You can use Aptana Rails to be able to edit ruby files inside Eclipse. See http://stackoverflow.com/questions/12366924/how-to-use-eclipse-for-ruby-on-rails-ror
