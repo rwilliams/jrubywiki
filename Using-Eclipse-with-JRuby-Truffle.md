@@ -23,8 +23,8 @@ We can now import the projects:
 * From the main menu bar, select `File` > `Import...`
 * Select `General` > `Existing Projects into Workspace`
 * Select `jruby` directory as root directory
+* **Unselect** `jruby-jars` and `test`
 * Click `Finish`
-* **Unselect** `jruby-jars` and `test`.
 
 You shall be set!
 There should be now 4 projects in your workspace:
