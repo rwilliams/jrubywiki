@@ -4,6 +4,8 @@ and actually keeps the project built at all times by rebuilding it incrementally
 
 First, make sure the project is already built from the command line:
 ```bash
+# Consider truffle API as a binary dependency
+$ echo MX_BINARY_SUITES=truffle >> mx.jruby/env
 $ mx build
 ```
 
