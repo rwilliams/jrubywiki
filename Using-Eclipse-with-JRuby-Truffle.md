@@ -1,4 +1,6 @@
-Eclipse is an alternative IDE for editing JRuby+Truffle. It provides much better feedback from the Truffle DSL annotation processor and actually keeps the project built at all times.
+Eclipse is one of the best supported IDE for editing JRuby+Truffle.
+It provides excellent feedback from the Truffle DSL annotation processor
+and actually keeps the project built at all times by rebuilding it incrementally.
 
 First, make sure the project is already built from the command line:
 ```bash
