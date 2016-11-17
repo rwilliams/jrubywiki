@@ -36,4 +36,4 @@ JRuby+Truffle does not support RubyGems fully yet, therefore the `bundler-workar
 
 The environment variables may also be exported for convenience `export JRUBY_OPTS='-X+T' RUBYOPT='-r bundler-workarounds` to be able to run just `bundle install`.
 
-There is also a tool (`jruby-truffle-tool`) which helps to manage patches when needed, see its [documentation](https://github.com/jruby/jruby/blob/master/lib/ruby/truffle/jruby%2Btruffle/README.md).
+There is also a tool (`jruby-truffle-tool`) which helps to manage patches when needed, see its [documentation](https://github.com/jruby/jruby/blob/truffle-head/lib/ruby/truffle/jruby-truffle-tool/README.md).
