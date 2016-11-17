@@ -1,10 +1,10 @@
 # JRuby+Truffle - a High-Performance Implementation of Ruby using Truffle and Graal
 
-The Truffle runtime of JRuby is an experimental implementation of an interpreter
-for JRuby using the Truffle AST interpreting framework and the Graal compiler.
-It’s an alternative to the IR interpreter and bytecode compiler. The goal is to
-be significantly faster, simpler and to have more functionality than other
-implementations of Ruby.
+The JRuby+Truffle runtime is an experimental implementation of Ruby
+using the Truffle AST interpreting framework and the Graal compiler.
+It’s an alternative to the JRuby IR interpreter and bytecode compiler.
+The goal is to be significantly faster, simpler and
+to have more functionality than other implementations of Ruby.
 
 JRuby+Truffle is a project of [Oracle Labs](https://labs.oracle.com) and
 academic collaborators at the [Institut für Systemsoftware at Johannes Kepler
