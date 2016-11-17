@@ -69,7 +69,7 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **Builds/tooling**
 
-* [Rake and Ant Together: A Pick It n’ Stick It Approach](http://www.engineyard.com/blog/2010/rake-and-ant-together-a-pick-it-n-stick-it-approach/)
+* [Rake and Ant Together: A Pick It n’ Stick It Approach](https://web.archive.org/web/20160314093203/https://blog.engineyard.com/2010/rake-and-ant-together-a-pick-it-n-stick-it-approach)
 * [JRuby Rake vs. Ant](http://watchitlater.com/blog/2011/03/jruby-rake-vs-ant/)
 * [[Getting Ruby Backtraces on a Running Program|JMXBeans]]
 * [[Profiling Object Allocations]]
