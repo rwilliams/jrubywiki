@@ -1,4 +1,4 @@
-JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is by downloading the [GraalVM](Downloading GraalVM), but it also possible to use Graal with JDK 9 EA (early access) builds.
+JRuby+Truffle is designed to be run with a JVM that has the interface that the Graal compiler uses. The easiest way to get this is by downloading the [GraalVM](Downloading GraalVM), but it also possible to use Graal with JDK 9 EA (early access) builds.
 
 https://jdk9.java.net/download/
 
