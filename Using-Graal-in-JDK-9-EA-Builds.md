@@ -1,21 +1,17 @@
 JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The easiest way to get this is by downloading the [GraalVM](Downloading GraalVM), but it also possible to use Graal with JDK 9 EA (early access) builds.
 
-The JDK EA builds lag behind Graal development a bit so the interfaces are not always compatible. This will stabilise over time. I believe at the moment they are unfortunately incompatible. When they are compatible in the future, this is how it should work. You'll need to download a JDK 9 EA build.
-
 https://jdk9.java.net/download/
 
-You will also need a copy of `graal.jar`. You can [build this yourself](Building Graal) or get it from [a download of GraalVM](Downloading GraalVM).
+You will also need a copy of the Graal and Truffle JARs, and these also need to be built using JDK 9. You can [build this yourself](Building Graal).
 
 To use the EA build of Java to run JRuby+Truffle, set the JAVACMD environment variable. You will also need to pass several other command line options.
 
 ```
-$ JAVACMD=path/to/jdk9/bin/java bin/jruby.bash -X+T \
-  -J-XX:+UnlockExperimentalVMOptions -J-XX:+EnableJVMCI \
-  -J-Djvmci.compiler=graal \
-  -J-Xbootclasspath/p:graal.jar \
-  ...
+$ JAVACMD=.../jdk-9-ea+143_osx-x64_bin/Contents/Home/bin/java \
+    bin/jruby -X+T \
+    -J-XX:+UnlockExperimentalVMOptions \
+    -J-XX:+EnableJVMCI \
+    -J--add-exports=java.base/jdk.internal.module=com.oracle.graal.graal_core \
+    -J--module-path=.../truffle/mxbuild/modules/com.oracle.truffle.truffle_api.jar:.../graal-core/mxbuild/modules/com.oracle.graal.graal_core.jar \
+    --no-bootclasspath -e 14
 ```
-
-* `-J-XX:+UnlockExperimentalVMOptions -J-XX:+EnableJVMCI` enables JVMCI - the interface that Graal uses
-* `-J-Djvmci.compiler=graal` tells JVMCI to use Graal
-* `-J-Xbootclasspath/p:graal.jar` puts Graal on the boot classpath, where it needs to be in order to be used by JVMCI
