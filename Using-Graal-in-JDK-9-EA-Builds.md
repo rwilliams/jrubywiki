@@ -2,7 +2,7 @@ JRuby+Truffle is designed to be run with a JVM that has the Graal compiler. The 
 
 https://jdk9.java.net/download/
 
-You will also need a copy of the Graal and Truffle JARs, and these also need to be built using JDK 9. You can [build this yourself](Building Graal).
+You will also need a copy of the Graal and Truffle JARs, and these also need to be built using JDK 9. You can [build this yourself](Building Graal) for now.
 
 To use the EA build of Java to run JRuby+Truffle, set the JAVACMD environment variable. You will also need to pass several other command line options.
 
