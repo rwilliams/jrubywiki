@@ -1,4 +1,4 @@
-# JRuby+Truffle - a High-Performance Truffle Backend for JRuby
+# JRuby+Truffle - a High-Performance Implementation of Ruby using Truffle and Graal
 
 The Truffle runtime of JRuby is an experimental implementation of an interpreter
 for JRuby using the Truffle AST interpreting framework and the Graal compiler.
