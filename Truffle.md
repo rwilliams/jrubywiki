@@ -28,6 +28,12 @@ Developer documentation for JRuby+Truffle is at https://github.com/jruby/jruby/b
 
 ## Workaround for RubyGems
 
-JRuby+Truffle does not support RubyGems yet, therefore there is a small tool `jruby+truffle` to make testing of gems and applications on JRuby+Truffle easy. The tool is bundled in JRuby. To install dependencies run `jruby+truffle setup` in the gems's or the application's directory, then`jruby+truffle run a_file.rb` to try the gem or application.
+JRuby+Truffle does not support RubyGems fully yet, therefore the `bundler-workarounds` file should be required to make it work. The file is part of JRuby+Truffle and can be always required.
 
-Please see [the documentation](https://github.com/jruby/jruby/blob/master/lib/ruby/truffle/jruby%2Btruffle/README.md) of `jruby+truffle_runner` tool.
+* Installing a gem: `JRUBY_OPTS='-X+T' RUBYOPT='-r bundler-workarounds' gem install rake`
+* Running bundler: `JRUBY_OPTS='-X+T' RUBYOPT='-r bundler-workarounds' bundle install`
+* Executing in bundle: `JRUBY_OPTS='-X+T' RUBYOPT='-r bundler-workarounds' bundle exec rake db:create db:migrate`
+
+The environment variables may also be exported for convenience `export JRUBY_OPTS='-X+T' RUBYOPT='-r bundler-workarounds` to be able to run just `bundle install`.
+
+There is also a tool (`jruby-truffle-tool`) which helps to manage patches when needed, see its [documentation](https://github.com/jruby/jruby/blob/master/lib/ruby/truffle/jruby%2Btruffle/README.md).
