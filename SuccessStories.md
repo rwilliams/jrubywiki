@@ -107,8 +107,8 @@ collaboration with ThoughtWorks.
 Yes
 
 
-## [Ruby-Processing](https://github.com/jashkenas/ruby-processing/wiki)
-[Ruby-Processing](https://github.com/jashkenas/ruby-processing) is a wrapper for Processing, a visual coding sketchbook (includes audio, 3D graphics, export to 3D printers etc...).
+## [JRubyArt](https://ruby-processing.github.io/JRubyArt/)
+[JRubyArt](https://ruby-processing.github.io/JRubyArt/) is a wrapper for Processing-3.0, a visual coding sketchbook (includes audio, 3D graphics, export to 3D printers etc...).
 
 ### Why jruby?
 It just works, and the performance hit (vs vanilla processing) isn't too bad!
@@ -117,7 +117,7 @@ It just works, and the performance hit (vs vanilla processing) isn't too bad!
 To access the Processing core and other java libraries, and to integrate ruby gems into processing sketches.
 
 ### Java integration?
-Yes, there is very little of the processing environment that can't be accessed in ruby, including all the java libraries. This includes JOGL/OPENGL access to GLSL shaders (which interestingly will only run with jruby-complete).
+Yes, there is very little of the processing environment that can't be accessed in ruby, including all the java libraries. This includes JOGL/OPENGL access to GLSL shaders, and contributed libraries.
 
 
 ## [Desktop Application Development in JRuby](http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby)
