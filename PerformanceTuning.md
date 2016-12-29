@@ -74,15 +74,6 @@ The JVM flags of interest are -XX:ReservedCodeCacheSize=### where the default is
 
 The folks at Atlassian have published a good article on [code cache effects and flushing](http://blogs.atlassian.com/2012/05/codecache-is-full-compiler-has-been-disabled/).
 
-Enable coroutine-based Fibers
------------------------------
-
-_Note: Support for coroutine backed fibers has been removed and may be added when a future JVM version supports coroutines. See [Differences Between MRI And JRuby](https://github.com/jruby/jruby/wiki/DifferencesBetweenMriAndJruby#continuations-and-fibers). The steps below will not have any effect and are for historic reference._
-
-Enables coroutine support for Ruby 1.9 [Fibers](http://www.ruby-doc.org/core-1.9/Fiber.html). This requires JRuby 1.6.5 or later and a JVM with the coroutine [MLVM](http://openjdk.java.net/projects/mlvm/) patch applied. Binary builds (for Linux) are [available](http://ssw.jku.at/General/Staff/LS/coro/) from the patch author. 
-
-    jruby -J-Djruby.fiber.coroutines=true myscript.rb
-
 Java Virtual Machine (JVM) Settings
 -----------------------------------
 Except for the JRuby convenience parameter `--server`, all JVM runtime parameters use the `-J` option, followed by the specific JVM setting. For example:
