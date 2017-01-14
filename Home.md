@@ -30,15 +30,6 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 * [[Java extensions for JRuby using polyglot maven]]
 * [[Signal Handling]]
 
-**JRuby+Truffle**
-
-* [[Truffle]]
-* [[Downloading GraalVM]]
-* [[Using Graal in JDK 9 EA Builds]]
-* [[Building Graal]]
-* [[JRuby and Truffle Interop]]
-* [[Truffle FAQ]]
-
 **Getting Involved**
 
 * [Code](http://github.com/jruby/jruby/tree/master)
