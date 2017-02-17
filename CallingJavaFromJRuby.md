@@ -168,7 +168,9 @@ end
 Set # 2. ???
 ```
 
-The `java_import` will define a `Set` on `MyClass` (e.g. `MyClass::Set`).  If you access `Set` at 1 you will get this new constant.  If you access `Set` at 2 you will get `Object::Set`.  Both of these examples are just cases how constants in Ruby work but the implicit constant creation of java_import can trip programmers up. 
+The `java_import` will define a `Set` on `MyClass` (e.g. `MyClass::Set`).  If you access `Set` at 1 you will get this new constant.  If you access `Set` at 2 you will get `Object::Set`.  Both of these examples are just cases how constants in Ruby work but the implicit constant creation of java_import can trip programmers up.
+
+It is also possible to call java_import from within methods and the rules for java_import is intended to add the constant to the class it is being called on (class method is self and instance method is self.class).  We however recommend against doing this as it is not as intuitive as we had hoped.  Try and import in module or class bodies like in the examples above.
 
 Some people do not like the implicit side-effect nature of `java_import`, so you can also get the same effect by reassigning a Java class to a new constant, like
 
