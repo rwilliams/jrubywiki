@@ -53,7 +53,7 @@ Next put the `bin` directory on your `$PATH`. You can do this temporarily by run
 $ export PATH=~/jruby/bin:$PATH
 ```
 
-Or you can make it permenant by putting that statement in a `.profile` file in your home directory.
+Or you can make it permanent by putting that statement in a `.profile` file in your home directory.
 
 Now that JRuby is on your path, you can test that it's working by running:
 
