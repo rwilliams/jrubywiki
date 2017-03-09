@@ -85,11 +85,14 @@ It's a fairly common idiom for Rubyists to spawn a Ruby subprocess using `Kernel
 Running sub-rubies in the same JVM
 ----------------------------------
 
-When JRuby sees a `#system`, `#exec`, or backquote starting with `ruby`, we will attempt to run it in the same JVM using a new JRuby instance *if* you pass the flag -J-Djruby.launch.inproc=true.  Because we have always supported "multi-VM" execution (where multiple isolated Ruby environments share a single process), this can make spawning sub-Rubies considerably faster. This is, in fact, how JRuby's Nailgun support (more on that later) keeps each Jruby JVM "clean" with multiple JRuby command executions. But even though this can improve performance, there's still a cost for starting up those JRuby instances, since they need to have fresh, clean core classes and a clean runtime.
+If you need to run simple scripts or utilities as JRuby subprocesses (or simply as embedded JRuby instances in any JVM application), you can avoid the cost of shelling out and launching an entirely new JVM and JRuby by simply using JRuby's embedding API, [RedBridge](RedBridge) to run it as an isolated JRuby on the same JVM.
 
-The worst-case scenario is when we detect that we can't spin up a JRuby instance in the same process, such as if you have shell redirection characters in the command line (e.g. `system 'ruby -e blah > /dev/null'`). In those cases, we have no choice but to launch an entirely new JRuby process, complete with a new JVM, and you'll be paying the full zero-to-running cost.  This is also default behavior.
+```ruby
+container = org.jruby.embed.ScriptingContainer.new
+container.run_scriptlet(some_ruby_code)
+```
 
-If you're able, try to limit how often you spawn "sub-rubies" or use tools like Nailgun or spec-server to reuse a given process for multiple hits.
+See the article above for more detailed information. RedBridge is a Java API, but of course you can call it from Ruby code as in this example.
 
 bundle exec
 -----------
