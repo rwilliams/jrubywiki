@@ -9,11 +9,7 @@ Enabling invokedynamic
 
 Java 7 brings with it an important new feature called invokedynamic, which greatly improves JRuby's performance on VMs that support it.
 
-However, current released versions of OpenJDK 7 sometimes error out or fail to optimize code as well as they should. In order to provide a consistent JRuby experience, the use of invokedynamic is off by default on Java 7.
-
-The use of invokedynamic is enabled by default when running on OpenJDK 8 builds, since the issues from OpenJDK 7 have been resolved. However, current builds (b55) have not yet had optimization work, putting their performance usually ahead of non-invokedynamic but behind OpenJDK 7 invokedynamic. This will improve over time.
-
-For applications that do not run into the errors or degraded performance, invokedynamic is recommended for maximum performance. It can be forcibly enabled by passing `-Xcompile.invokedynamic=true` to JRuby (or in JRUBY_OPTS) or by setting the jruby.compile.invokedynamic=true property at the JVM level. We recommend testing your application thoroughly with invokedynamic enabled before enabling it in production settings.
+Internally, we use invokedynamic in various ways to enable better performance. We limit how much we use it by default because for some users applications the warmup time ends up being longer than they want.  If you want to try and get more performance you can try passing in the options `-Xcompile.invokedynamic=true` to JRuby (or in JRUBY_OPTS) or by setting the jruby.compile.invokedynamic=true property at the JVM level.  This will make more heavy use of invokedynamic and you may see a substantial increase in eventual performance in your application.  We recommend testing your application thoroughly with and without compile.invokedynamic and seeing how your application performs.
 
 Profiling an application
 ------------------------
