@@ -143,4 +143,4 @@ in such situations the gems needs to packed differently. there is an experimenta
 
 note also the gems are using the **provided** scope, since the packed jar does not need those gem dependencies anymore.
 
-another way is to adjust the **LOAD_PATH** before using any gems like in [Pack-a-Rack-Application-with-Ruby-Maven](Pack-a-Rack-Application-with-Ruby-Maven)
+another way is to adjust the **LOAD_PATH** before using any gems like in [Rack-Application-with-Ruby-Maven](Rack-Application-with-Ruby-Maven)
