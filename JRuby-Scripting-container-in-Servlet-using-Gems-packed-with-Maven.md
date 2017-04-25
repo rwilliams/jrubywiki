@@ -97,4 +97,4 @@ with some classloaders it could help to unwrap the gems (but that depends on the
             </executions>
           </plugin>
 
-or use the **$LOAD_PATH** trick from [Pack-a-Rack-Application-with-Ruby-Maven]( Pack-a-Rack-Application-with-Ruby-Maven).
+or use the **$LOAD_PATH** trick from [Rack-Application-with-Ruby-Maven](Rack-Application-with-Ruby-Maven).
