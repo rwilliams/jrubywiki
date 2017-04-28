@@ -13,7 +13,7 @@ This page provides some tips on how to improve the performance of calling Java m
 Avoiding Java Integration altogether
 ------------------------------------
 
-The "nuclear option" to improve Java Integration performance is to not use it. Calls from Ruby to Ruby have less overhead than calls from Ruby to Java, and if you wrap a Java library in a purpose-built JRuby extension (itself probably written in Java to JRuby's extension API), that will also avoid Java Integration overhead. However you can, by using the tips below, achieve the same level of performance with Java Integration in JRuby 1.7 and higher on Java 7 (where invokedynamic helps a lot).
+The "nuclear option" to improve Java Integration performance is to not use it. Calls from Ruby to Ruby have less overhead than calls from Ruby to Java, and if you wrap a Java library in a purpose-built [JRuby extension][extension] (itself probably written in Java to JRuby's extension API), that will also avoid Java Integration overhead. However you can, by using the tips below, achieve the same level of performance with Java Integration in JRuby 1.7 and higher on Java 7 (where invokedynamic helps a lot).
 
 The rest of this article will focus on improving Java Integration perf, rather than avoiding it.
 
@@ -150,3 +150,5 @@ Measure string appends (via normal Ruby)
 ```
 
 (Note: Minor variation in these numbers is expected; the important detail is that both runs are now roughly equivalent speed)
+
+[extension]:https://github.com/jruby/jruby-examples/tree/master/extensions/basic
