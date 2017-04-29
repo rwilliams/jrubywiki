@@ -15,7 +15,9 @@ Table of Contents
 * [Atomicity](#atomicity)
 * [Additional Support](#additional_support)
 
+
 <a name="concurrency_basics">
+
 Concurrency Basics
 ------------------
 
@@ -34,6 +36,7 @@ Outside the Ruby specifics described below, JRuby operates within the confines o
 [Java Memory Model](http://www.cs.umd.edu/users/pugh/java/memoryModel/jsr-133-faq.html), and this document uses the same terminology.
 
 <a name="thread_safety">
+
 Thread Safety
 -------------
 
@@ -60,6 +63,7 @@ You should take care in the following situations: concurrent requires, or lazy r
 
 
 <a name="core_classes_standard_library">
+
 ### Core Classes and Standard Library
 
 JRuby does not, however, make thread-safety guarantees about several core classes, primarily because introducing thread-safety (through locking) would negatively impact all non-threaded use of these structures.
@@ -73,6 +77,7 @@ JRuby reuses the same standard library (the .rb files we ship but which you must
 Notable exceptions are libraries which we have rewritten or replaced with pure-Java versions: ```thread```, ```weakref```, ```generator```, ```timeout```, and ```fcntl``` have been partially or completely rewritten, and are expected to be thread-safe.
 
 <a name="volatility">
+
 Volatility
 ----------
 
@@ -98,6 +103,7 @@ The following operations are not volatile, and there is potential for threads to
 Note that volatility does not guarantee atomicity; two threads updating a variable and a third observing them may see the writes in any order. If you need atomicity (or if you need volatility for a reference that is not otherwise guaranteed to be volatile), we recommend using the ```concurrent-ruby``` gem, which provides explicit reference types that provide both volatility and atomic operations. Atomicity is described in more detail below.
 
 <a name="atomicity">
+
 Atomicity
 ---------
 
@@ -122,6 +128,7 @@ If you need atomic operations, we recommend using the `concurrent-ruby` gem. The
 In addition, there are simple get and set operations for achieving simple volatility, as well as block-receiving forms of compare_and_set that will use the block's value -- retrying it as necessary -- until the update is successful.
 
 <a name="additional_support">
+
 Additional Support
 ------------------
 
