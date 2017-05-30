@@ -74,8 +74,8 @@ hlo every one
 
 **Get Creative**
 * [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (ruby wrapper for processing-2.2.1)
-* [propane](https://ruby-processing.github.io/propane/) (batteries included ruby-processing for processing-3.2.2)
-* [JRubyArt](https://ruby-processing.github.io/propane/) (ruby wrapper for processing-3.2.1+)
+* [propane](https://ruby-processing.github.io/propane/) (batteries included ruby-processing for processing-3.3.3)
+* [JRubyArt](https://ruby-processing.github.io/propane/) (ruby wrapper for processing-3.3.3+)
 
 **Evangelism**
 
