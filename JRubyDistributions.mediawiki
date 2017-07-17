@@ -70,7 +70,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 |Archlinux
 |pacman (community/jruby)
 | [https://www.archlinux.org/packages/?maintainer=heftig Jan Steffens]
-| 9.0.5.0
+| 9.1.12.0
 | [https://www.archlinux.org/packages/community/any/jruby/ package]
 |-
 |Windows
@@ -82,6 +82,6 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 | Windows, Linux, Mac OS X, Virtual Appliance and Amazon Cloud Images
 | BitNami
 | BitNami
-| 9.0.5.0 (frequently updated)
+| 9.1.12.0 (frequently updated)
 | [http://bitnami.org/stack/jrubystack download]
 |}
