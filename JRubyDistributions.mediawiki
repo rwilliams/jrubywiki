@@ -64,7 +64,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 |Alpine Linux
 |APK (community/jruby)
 | Jakub Jirutka
-| 9.1.2.0
+| 9.1.12.0
 | [https://pkgs.alpinelinux.org/package/edge/community/x86_64/jruby package]
 |-
 |Archlinux
