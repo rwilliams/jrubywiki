@@ -1,8 +1,8 @@
-#Overview
+## Overview
 [drip](https://github.com/flatland/drip) is a command line tool that can be used to dramatically lower perceived JVM startup time.  It does this by preloading an entirely new JVM process\instance in the background and allowing you to simply use the preloaded environment.  This can improve startup of JRuby-based applications significantly.
 
 
-#Install Drip
+## Install Drip
 Install drip if you haven't already (see https://github.com/ninjudd/drip)
 
 You can check out drip directly and build it, or use Homebrew on OS X.
@@ -11,7 +11,7 @@ You can check out drip directly and build it, or use Homebrew on OS X.
 brew update && brew install drip
 ```
 
-#Environment Setup
+## Environment Setup
 jruby uses the JAVACMD environment variable (if present) as its executable (usually `which java`). 
 drip uses the DRIP\_INIT\_CLASS environment variable to determine the main class to load.  jruby has a native java class already setup for this purpose: [org.jruby.main.DripMain](https://github.com/jruby/jruby/blob/master/src/org/jruby/main/DripMain.java).
 
@@ -25,7 +25,7 @@ On Drip versions earlier than [820f869](https://github.com/ninjudd/drip/commit/8
 export DRIP_INIT=""
 ```
 
-#Project Setup
+## Project Setup
 Put any project specific initialization code (ruby code) in CWD/dripmain.rb. This file is automatically called by the special org.jruby.main.DripMain class when intializing the standby JVM process.
 
 Rails Example:
@@ -38,7 +38,7 @@ require 'bundler/setup'
 Bundler.require
 ```
 
-#rvm integration
+## rvm integration
 If you would like to use drip automatically whenever you switch to jruby with rvm you will need to add a new hook file at $rvm\_path/hooks/after\_use\_jruby\_drip with the following content:
 
 ```bash
