@@ -37,8 +37,8 @@ Next, you'll want to use one of the profile printers to format the data in a way
 * FlatProfilePrinter
 
 If you wanted to replicate the behavior of the `--profile.graph`, but focused only on the block you wrapped above, you could output it in this manner, printing to STDOUT:
-profile_printer = JRuby::Profiler::HtmlProfilePrinter.new(profile_data)
 
+    profile_printer = JRuby::Profiler::HtmlProfilePrinter.new(profile_data)
     ps = java.io.PrintStream.new(STDOUT.to_outputstream)
     printer.printHeader(ps)
     printer.printProfile(ps)
