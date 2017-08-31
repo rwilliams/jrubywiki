@@ -905,12 +905,21 @@ There can be instances (in closures for example) where you need to convert a jav
 ```
 You may find that this is preferable to creating an anonymous class when implementing a simple (one method) interface, especially since jdk8 has lambda support, and even java people have seen the light.
 
+
+[Java Integration **changes in JRuby 9.1**](JRuby-9.1.0.0-Release-Notes#java-integration)
+
+[Java Integration **changes in JRuby 9.2**](JRuby-9.2.0.0-Release-Notes#java-integration)
+
+
 Related Articles
 ----------------
 
 * [[FAQs#calling-into-java]] Other useful examples
 * [Java Integration in JRuby](http://mikiobraun.blogspot.com/2008/11/java-integration-in-jruby.html) Short overview article on JRuby and Java integration
 * [JRuby/Ruby Arrays to Hash](http://kenai.com/projects/jruby/pages/CallingJavaFromJRuby) Review on Converting Arrays to Hash in JRuby/Ruby
+* [Ruby Arrays and Java Lists](http://jewelruby.kares.org/java-streams-meet-enumerator)
+* [Java Streams Meet Enumerator](http://jewelruby.kares.org/ruby-arrays-and-java-lists)
+* [Better Closures for (Functional) Java](http://jewelruby.kares.org/better-closures-for-functional-java)
 * [Java Integration: JavaScript, Groovy and JRuby](https://blogs.oracle.com/sundararajan/entry/java_integration_javascript_groovy_and) Side-by-side comparison of Java integration in JavaScript, Groovy and JRuby.
 * [Spicing up Java with Ruby (a Rhino Story)](http://log.kares.org/2012/09/spicing-up-java-with-ruby-rhino-story.html) Using Java integration to bring Rhino into Ruby.
 * [JtestR](http://jtestr.codehaus.org/) A testing framework for Java based on JRuby.
