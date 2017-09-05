@@ -45,14 +45,14 @@ this one has a few artifacts embedded and relocated the package of org.ow2.asm t
 
 ## using snapshot version of jruby ##
 
-there is maven repository [ci.jruby.org/snapshots/maven](http://ci.jruby.org/snapshots/maven/) which offers the latest snapshots of jruby-1.7.x and jruby-9000.dev. for this you need to add the snapshot repo to your pom.xml (or settings.xml).
+there is maven repository [ci.jruby.org/snapshots](http://ci.jruby.org/snapshots) which offers the latest snapshots of current and previous release lines for JRuby. for this you need to add the snapshot repo to your pom.xml (or settings.xml).
 
 TODO ivy and friends
 
      <repositories>
        <repository>
          <id>jruby-snapshots</id>
-         <url>http://ci.jruby.org/snapshots/maven/</url>
+         <url>http://ci.jruby.org/snapshots/current/</url>
          <releases>
            <enabled>false</enabled>
          </releases>
@@ -67,6 +67,6 @@ now you can use like this:
         <dependency>
           <groupId>org.jruby</groupId>
           <artifactId>jruby</artifactId>
-          <version>9.0.1.0-SNAPSHOT</version>
+          <version>9.2.0.0-SNAPSHOT</version>
           <type>pom</type>
         </dependency>
