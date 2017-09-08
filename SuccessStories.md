@@ -117,7 +117,7 @@ It just works, and the performance hit (vs vanilla processing) isn't too bad!
 To access the Processing core and other java libraries, and to integrate ruby gems into processing sketches.
 
 ### Java integration?
-Yes, there is very little of the processing environment that can't be accessed in ruby, including all the java libraries. This includes JOGL/OPENGL access to GLSL shaders, and contributed libraries.
+Yes, including the dynamic loading of native binaries using a custom library loader.
 
 
 ## [Desktop Application Development in JRuby](http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby)
