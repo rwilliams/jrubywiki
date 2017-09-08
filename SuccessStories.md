@@ -117,7 +117,7 @@ It just works, and the performance hit (vs vanilla processing) isn't too bad!
 To access the Processing core and other java libraries, and to integrate ruby gems into processing sketches.
 
 ### Java integration?
-Yes, including the dynamic loading of native binaries using a custom library loader.
+Yes, projects include custom jruby extensions (compiled using polyglot maven). But also includes the dynamic loading of native binaries (required at runtime) using a custom library loader when needed.
 
 
 ## [Desktop Application Development in JRuby](http://spin.atomicobject.com/2007/11/12/desktop-application-development-in-jruby)
