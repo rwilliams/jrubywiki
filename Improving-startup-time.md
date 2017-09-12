@@ -118,9 +118,9 @@ Try using Theine for Rails apps
 
 Try using Drip
 ==================================================
-[drip](https://github.com/flatland/drip) is a command line tool that can be used to lower perceived JVM startup time. It does this by preloading an entirely new JVM process\instance and allowing you to simply use the preloaded environment.  A few resources to get you started using drip with JRuby:
+[drip](https://github.com/ninjudd/drip) is a command line tool that can be used to lower perceived JVM startup time. It does this by preloading an entirely new JVM process/instance and allowing you to simply use the preloaded environment. 
 
-[[Using Drip with JRuby]]
+See also: [[Using Drip with JRuby]]
 
 Try using Nailgun
 =================
