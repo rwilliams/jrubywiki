@@ -109,6 +109,7 @@ Because we have no way of knowing what options are or are not supported by the D
 `jruby.exe` command to force using `java.exe` and spinning an external process: `-Xfork-java`. Passing this flag to the `jruby` command line will allow those other `java.exe`-only flags to work correctly.
 
 <a name="general"/>
+
 General
 =======
 
@@ -233,6 +234,7 @@ How do I check which version of the JVM JRuby is running on?
 ```
 
 <a name="running_rails"/>
+
 Running Rails
 =============
 
@@ -301,6 +303,7 @@ Now, because `ResourceBundle.getBundle` doesn't seem to use the JRuby class load
 Now you just need to put your `i18n[_*].properties` files in `config/`, et voilà!
 
 <a name="calling_into_java"/>
+
 Calling Into Java
 =================
 
@@ -329,6 +332,7 @@ Whereas in JRuby, you can get at that using the following:
 ```
 
 <a name="java_and_jruby_interop"/>
+
 Java and JRuby Interoperation
 =============================
 
@@ -373,8 +377,8 @@ There are two separate ways:
    button.add_action_listener { |event|  button.text = "I have been pressed" }
 ```
 
- Compiler-related questions
-===========================
+Compiler-related questions
+==========================
 
 How can I compile my Ruby into Java?
 ------------------------------------
@@ -524,6 +528,7 @@ $ sudo service haveged start
 ```
 
 <a name="networking"/>
+
 Networking
 ==========
 
