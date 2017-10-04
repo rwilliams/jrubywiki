@@ -513,11 +513,14 @@ One common error caused by having two conflicting versions of the same class on 
 
 To resolve the issue, either remove the conflicting .jar from the `Extensions` directory, or swap it for a version that is compatible with the version used by JRuby.
 
-<a name="slow_rvm_install_entropy">
-Why is JRuby so slow to install via RVM?
-----------------------------------------
+<a name="slow_rvm_install_entropy"/>
 
-On some Linux systems, notably including [Travis CI](http://travis-ci.org)'s Ubuntu "Trusty" image, the gemset import portion of RVM's build can proceed very slowly. This may be due to `/dev/random` entropy being too low; once exhausted, reads from `/dev/random` may block while waiting for more entropy. In a virtualized environment, this can be much slower than on direct hardware, depending on how random number generation is virtualized.
+Why is JRuby so slow to install? Why does JRuby take so long to make secure connections?
+----------------------------------------------------------------------------------------
+
+On some Linux systems, notably including [Travis CI](http://travis-ci.org)'s Ubuntu "Trusty" image, gem installs (such as the default gemsets from RVM) may proceed very slowly. This may be due to `/dev/random` entropy being too low; once exhausted, reads from `/dev/random` may block while waiting for more entropy. In a virtualized environment, this can be much slower than on direct hardware, depending on how random number generation is virtualized.
+
+JRuby tries to use random number sources that will not block when entropy is depleted, but the JDK keeps changing its defaults.
 
 One solution is to install and enable a source of entropy like [haveged](http://www.issihosts.com/haveged/):
 
