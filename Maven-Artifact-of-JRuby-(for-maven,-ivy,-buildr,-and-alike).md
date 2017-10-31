@@ -6,7 +6,7 @@ adding the jruby-core artifact to your project
         <dependency>
           <groupId>org.jruby</groupId>
           <artifactId>jruby</artifactId>
-          <version>1.7.12</version>
+          <version>9.1.13.0</version>
           <type>pom</type>
         </dependency>
     ...
@@ -37,7 +37,7 @@ it is possible that the version resolution will pick the wrong version of org.ow
         <dependency>
           <groupId>org.jruby</groupId>
           <artifactId>jruby-noasm</artifactId>
-          <version>1.7.11</version>
+          <version>9.1.13.0</version>
           <type>pom</type>
         </dependency>
 
