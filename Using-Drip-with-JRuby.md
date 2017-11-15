@@ -15,7 +15,7 @@ brew update && brew install drip
 ## Environment Setup
 
 JRuby uses the `JAVACMD` environment variable (if present) as its executable (usually `which java`). 
-drip uses the `DRIP_INIT_CLASS` environment variable to determine the main class to load. JRuby has a native Java class already setup for this purpose: [org.jruby.main.DripMain](https://github.com/jruby/jruby/blob/master/src/org/jruby/main/DripMain.java).
+drip uses the `DRIP_INIT_CLASS` environment variable to determine the main class to load. JRuby has a native Java class already setup for this purpose: [org.jruby.main.DripMain](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/main/DripMain.java).
 
 ```bash
 export JAVACMD=`which drip`
