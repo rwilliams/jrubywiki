@@ -119,6 +119,7 @@ All these properties can be used to alter runtime behavior for performance or co
     jruby -J-Djruby.thread.pool.enabled=true myscript.rb
 
 <a name="compiler_rt_props"/>
+
 ### Compiler Runtime Properties
 JRuby 1.3.1 properties. Specify these properties by passing `-J-Dproperty=value` on the command line.
 
