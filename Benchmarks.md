@@ -5,7 +5,7 @@ How to Benchmark JRuby
 
 Know your Java VM
 -----------------
-The first thing to know is what version of Java you're running. Usually running `java -version` at the command line will show you. As of this writing, Java 6 is the recommended version of Java (also called Java 1.6), using the Hotspot JVM (underlying Sun's JDK, OpenJDK, Apple's JDK, and the "IcedTea" JDK on RPM-based systems.
+The first thing to know is what version of Java you're running. Usually running `java -version` at the command line will show you. As of this writing, Java 6 is the recommended version of Java (also called Java 1.6), using the Hotspot JVM (underlying Sun's JDK, OpenJDK, Apple's JDK, and the "IcedTea" JDK on RPM-based systems).
 
 On 32-bit systems, Java 6 Hotspot will support running in two different modes: "client" and "server". The "client" mode is intended for desktop and command-line apps that need to start up quickly and may not run long enough to need deeper optimizations. The "server" mode takes a bit longer to start up and warm up, but provides the best long-run performance. On 64-bit systems. Hotspot generally only runs in "server" mode.
 
