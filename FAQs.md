@@ -108,6 +108,18 @@ the same process, rather than launching an external process using the `java.exe`
 Because we have no way of knowing what options are or are not supported by the DLL, we provide a flag for the
 `jruby.exe` command to force using `java.exe` and spinning an external process: `-Xfork-java`. Passing this flag to the `jruby` command line will allow those other `java.exe`-only flags to work correctly.
 
+How can I make JRuby on Windows use `javaw.exe` instead of `java.exe`?
+----------------------------------------------------------------------
+
+JRuby's launchers will use `java.exe` by default for the Java command. However this requires a command prompt to be present, and if launched as a shortcut it will open up such a prompt in the background.
+
+You can change the Java command used with the `JAVACMD` environment variable:
+
+```
+C:\somedir> set JAVACMD=javaw.exe
+C:\somedir> jruby myscript ; launches in background without blocking the terminal
+```
+
 <a name="general"/>
 
 General
