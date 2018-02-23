@@ -5,8 +5,6 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **[JRuby Downloads](http://jruby.org/download)**
 
-**[[Google Summer of Code 2016|Google-Summer-of-Code-2016]]**
-hlo every one
 **JRuby Basics**
 
 * [[About JRuby|AboutJRuby]]
