@@ -26,3 +26,7 @@ this will vendor all jars from the requirements and its transitive dependencies 
 the test jars are install into the local maven repository and can be used for tests.
 
 `jar-dependency` is a default gem in jruby and thus there is no need to have an explicit dependency on it.
+
+## example project ##
+
+See [gem-with-jar-dependencies](https://github.com/mkristian/jar-dependencies/tree/master/examples/gem-with-jar-dependencies) for working example.
