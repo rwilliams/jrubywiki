@@ -70,4 +70,8 @@ all in all vendoring jars within the gem is the recommended way of doing things,
 - any problem with installing the jars during gem install is very hard to debug
 - any restricted access to the rubygems respository server needs to be accompanied by maven-repository server with the same access rights.
 - proxy support for downloading jar might be buggy
+- the first time a jar gets installed has following steps:
+  - download ruby-maven and install
+  - execute maven to install the jars and on its first run it downloads a huge amount of plugins/jars for maven itself.
+  - so overall it feels like have the internet gets downloaded and nothing happens on the gem installation or bundle install
 
