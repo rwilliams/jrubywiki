@@ -2,7 +2,7 @@ JRuby versions prior to 1.6 did not support Ruby C extensions, and even in 1.6 t
 
 This page lists common C extensions and non-C alternatives you can use to replace them.
 
-If you are interested in helping us port an extension to JRuby, this article is helpful: [Your first Ruby native extension: Java](https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/)
+If you are interested in helping us port an extension to JRuby, this article is helpful: [Your first Ruby native extension: Java](https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/) see also [JRuby examples](https://github.com/jruby/jruby-examples) for a maven build.
 
 * **[RDiscount][]** - Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)
 
