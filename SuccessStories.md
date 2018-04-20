@@ -322,5 +322,5 @@ NikaMail is built on top of [Mireka](http://mireka.org/) and [SubEtha](https://g
 Developers w/o java experience need time to understand some patterns.
 
 ### Project Metrics
-Active deployment handles ~1500 Excel and PDF reports and sends ~6000 emails and notifications per day. 
+~1500 Excel and PDF reports per day, ~6000 outbound emails and notifications per day. 
 
