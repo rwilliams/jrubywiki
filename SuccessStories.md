@@ -301,3 +301,26 @@ I'd recommend not starting with Torquebox from day 1 and only adding it when nee
 
 ### Project Metrics
 ~150,000 visitors per month / 140 users (admins, healthcare professionals, editors)
+
+
+## [NikaMail](https://nika.run)
+Portable, extendable, zero-config email server for JVM and Ruby. *NikaMail* is a SMTP and POP3 server with management interface and e-mail automation capabilities.
+
+### Why JRuby?
+Software written in JRuby is portable. 
+
+### How is JRuby Used?
+1. NikaMail debug console is actual IRB. 
+2. Web interface is written with Sinatra. 
+3. MTA is written in pure Ruby. 
+4. Email post-processing, parsing, relaying.
+
+### Java Integration
+NikaMail is built on top of [Mireka](http://mireka.org/) and [SubEtha](https://github.com/voodoodyne/subetha). Some extensions are written in Java. More than 85% of NikaMail code interacts with Java libraries.
+
+### Regrets and Recommendations
+Developers w/o java experience need time to understand some patterns.
+
+### Project Metrics
+Active deployment handles ~1500 Excel and PDF reports and sends ~6000 emails and notifications per day. 
+
