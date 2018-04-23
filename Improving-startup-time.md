@@ -147,7 +147,7 @@ Here's a few JRuby flags that might help you investigate:
 Use a splashscreen
 ===================
 
-If yours is an end user app with a GUI, you can instruct java to display a splash screen while it loads the JVM.  This can help alleviate the pain (to end users) of the startup time.  The jruby parameter is something like  -J-splash=XXX
+If yours is an end user app with a GUI, you can instruct java to display a splash screen while it loads the JVM.  This can help alleviate the pain (to end users) of the startup time.  The jruby parameter is something like  -J-splash:filename.png
 
 When all else fails
 ===================
