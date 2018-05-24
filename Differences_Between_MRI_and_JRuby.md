@@ -1,4 +1,4 @@
-Differences Between MRI And JRuby
+Differences Between MRI and JRuby
 =================================
 Although ideally [MRI](http://en.wikipedia.org/wiki/Ruby_MRI) and JRuby would behave 100% the same in all situations, there are some minor differences. Some differences are due to bugs, and those are not reported here. This page is for differences that are not bugs.
 
@@ -39,36 +39,27 @@ Since the JVM presents a _compatible_ CPU to JRuby, the _native_ endianness of J
 Time precision
 --------------
 
-Since it is not possible to obtain `usec` precision under a JVM, `Time.now.usec` cannot return values with microsecond precision.
+Since it is not possible to obtain `usec` precision under a JVM, ~~`Time.now.usec` cannot return values with nanosecond precision~~. This is no longer the case under a POSIX platform (since JRuby 9.1).
 
-*Example:*
+    irb(main):004:0> Time.now.usec
+    => 815414
+
+On Windows a native system call isn't implemented and thus there's the JVM millisecond precision fallback. 
+Keep this in mind when counting on `usec` precision in your code.
 
     > Time.now.usec
     => 582000
-
-Keep this in mind when counting on `usec` precision in your code.
-
-Regular expressions
--------------------
-
-JRuby only has one regular expression engine, which matches Onigurama's behavior. It is not changed in --1.8 mode, so code depending on regular expressions behaving precisely as on MRI 1.8.n may fail on JRuby in --1.8 mode. For instance:
-
-    ruby-1.8.7-p302 > "a".match(/^(.*)+$/)[1]
-    => "a"
-
-    jruby-head > "a".match(/^(.*)+$/)[1]
-    => ""
 
 Thread priority
 ---------------
 
 NOTE: from at least as early as JRuby 1.7.6, Ruby thread priorities are mapped to Java thread priorities, so this section isn't accurate -- you can use the same priority for MRI and JRuby.
 
-In MRI, the Thread priority can be set to any value in Fixnum (if native threads are enabled) or -3..3 (if not). The default value is 0.
+~~In MRI, the Thread priority can be set to any value in Fixnum (if native threads are enabled) or -3..3 (if not). The default value is 0.~~
 
 In JRuby, Threads are backed by Java threads, and the priority ranges from 1 to 10, with a default of 5. If you pass a value outside of this range to `Thread#priority=`, the priority will be set to 1 or 10.
 
-(See http://bugs.jruby.org/5289 and http://bugs.jruby.org/5290.)
+NOTE: that the JVM might ignore priorities, it really depends on the target OS and with (older) Java you need to pass the extra `-XX:UseThreadPriorities` for them to be used.
 
 SystemStackError
 ----------------
