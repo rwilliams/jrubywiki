@@ -1,5 +1,3 @@
-Differences Between MRI and JRuby
-=================================
 Although ideally [MRI](http://en.wikipedia.org/wiki/Ruby_MRI) and JRuby would behave 100% the same in all situations, there are some minor differences. Some differences are due to bugs, and those are not reported here. This page is for differences that are not bugs.
 
 ****
