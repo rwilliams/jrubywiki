@@ -70,7 +70,7 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 |Archlinux
 |pacman (community/jruby)
 | [https://www.archlinux.org/packages/?maintainer=heftig Jan Steffens]
-| 9.1.15.0
+| 9.2.0.0
 | [https://www.archlinux.org/packages/community/any/jruby/ package]
 |-
 |Windows
