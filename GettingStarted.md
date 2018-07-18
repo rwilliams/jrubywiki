@@ -24,7 +24,7 @@ If it installed correctly, JRuby will return the current version. You may be pro
 
 On Linux and Mac, you can either install the JRuby binaries or use a Ruby version manager such as [RVM](https://rvm.io/). However, it's best to avoid using a package manager because of issues with keeping the downloaded versions current. If you prefer to build your own JRuby, see [[Downloading JRuby Source and Building It Yourself|DownloadAndBuildJRuby]].
 
-**Note:** On some versions of Linux, you'll need to get the right version of Java installed. For more infomation, see [[JRuby With Wrong Java|JRubyOnUbuntu]].
+**Note:** On some versions of Linux, you'll need to get the right version of Java installed.
 
 **Note:** If you're on HP-UX, see [[Using JRuby on HPUX|JRubyOnHPUX11_23]].
 
