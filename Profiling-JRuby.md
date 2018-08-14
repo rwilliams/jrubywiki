@@ -40,9 +40,9 @@ If you wanted to replicate the behavior of the `--profile.graph`, but focused on
 
     profile_printer = JRuby::Profiler::HtmlProfilePrinter.new(profile_data)
     ps = java.io.PrintStream.new(STDOUT.to_outputstream)
-    printer.printHeader(ps)
-    printer.printProfile(ps)
-    printer.printFooter(ps)
+    profile_printer.printHeader(ps)
+    profile_printer.printProfile(ps)
+    profile_printer.printFooter(ps)
 
 You could also write it to a file, or any IO stream.  One example of this can be found at: https://gist.github.com/872355
 
