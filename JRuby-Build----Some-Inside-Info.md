@@ -2,11 +2,6 @@
   * artifacts:
     * org.jruby:jruby-core (maven-central) (use any profile to build it locally and to get the asm classes shaded and repackage - -Pmain or -Pcomplete)
     * lib/jruby.jar (only local)
-* truffle/
-  * depends: org.jruby:jruby-core
-  * artifacts:
-    * org.jruby:jruby-truffle (maven-central)
-    * lib/jruby-truffle.jar (only local)
 * lib/
   * artifacts:
     * org.jruby:jruby-stdlib (maven-central)
