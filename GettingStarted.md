@@ -10,7 +10,7 @@ For all platforms, make sure you have [Java SE](http://www.oracle.com/technetwor
 
 ### Microsoft Windows
 
-In your browser, navigate to the [JRuby Downloads page](http://jruby.org/download). Select the "Windows Executable" link for your system (either standard or x64). Run the installer after it has finished downloading. This will extract the runtime and put the `jruby` command on your `%PATH%` (meaning it will be available from the command-line).
+In your browser, navigate to the [JRuby Downloads page](http://jruby.org/download). Select the "Windows Executable" link for your system (you likely want x64 unless you have a 32-bit Windows installation). Run the installer after it has finished downloading. This will extract the runtime and put the `jruby` command on your `%PATH%` (meaning it will be available from the command-line).
 
 You can confirm that it was installed by opening a command prompt and running:
 
@@ -18,7 +18,7 @@ You can confirm that it was installed by opening a command prompt and running:
 C:\> jruby --version
 ```
 
-If it installed correctly, JRuby will return the current version. You may be prompted with a security warning the first time you run the `jruby` command. This is expected.
+If installed correctly, JRuby will return the current version. You may be prompted with a security warning the first time you run the `jruby` command. This is expected.
 
 ### Linux and Mac OS X
 
@@ -61,7 +61,7 @@ Now that JRuby is on your path, you can test that it's working by running:
 $ jruby --version
 ```
 
-If it installed correctly, JRuby will return the current version.
+If set-up properly, JRuby will return the current version.
 
 #### Using RVM
 
@@ -71,7 +71,7 @@ First, make sure you have [RVM installed as outlined in the documentation](https
 $ rvm install jruby
 ```
 
-If you would like to install a specific version of JRuby, you can replace `jruby` with `jruby-X.Y.Z`, where `X.Y.Z` is a version such as `1.7.21` or `9.0.0.0`. 
+If you would like to install a specific version of JRuby, you can replace `jruby` with `jruby-X.Y.Z`, where `X.Y.Z` is a version such as `1.7.27` or `9.1.17.0`. 
 
 Once the install process is finished, you can ensure that JRuby is being used like this:
 
@@ -82,36 +82,34 @@ $ jruby --version
 
 If it installed correctly, JRuby will return the current version.
 
-**Note:** If you're using RVM to install JRuby, you may need to remove the `--conservative` option from (your optional rubygems configuration file) ~/.gemrc. With `--conservative`, the older rubygems (at this writing, 1.8.9) currently used by JRuby fails to begin gem executables with #!/usr/bin/env, and that doesn't work on most systems (e.g. Linux earlier than 2.6.27.9, per http://www.in-ulm.de/~mascheck/various/shebang/#interpreter-script).
-
 Running rake, gem, rails, etc
-----------------------------
-The recommended way to run these commands (known as _system-level executable commands_) in JRuby is to **always** use `jruby -S`.
+-----------------------------
+
+The recommended way to run these commands (known as _system-level executable commands_) in JRuby is to **always** use `jruby -S` (it's a standard feature also available with MRI e.g. `ruby -S gem`).
 
     jruby -S gem list --local
-    jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
-    jruby -S rails blog ##(for rails3 we should use: jruby -S rails new blog)
+    jruby -S gem install rails activerecord-jdbcmysql-adapter
+    jruby -S rails new blog
     cd blog
     jruby -S rake -T
-    jruby -S rake db:create
-    jruby -S rake db:migrate
+    jruby -S rake db:create db:migrate
 
-The `-S` parameter tells JRuby to use **its** version of the installed binary, as opposed to some other version (such as an MRI version) that might be on your `PATH`.
+The `-S` parameter tells (J)Ruby to use **its** version of the installed binary, as opposed to some other version (such as an MRI version) that might be on your `PATH`.
 
 Running a Ruby Program
 ----------------------------
 To run any other ruby program by using JRuby, run it using the `jruby` command in a command window. For example,
 
-    jruby script/server ##(for rails3 you should use: jruby script/rails server)
+    jruby rails server
     jruby my_ruby_script.rb
 
 **See Also:** [[JRuby Command Line Parameters|JRubyCommandLineParameters]]
 
 jirb: Ruby Interactive Console
 -----------------------------
-One of the few standard Ruby utilities that has a different name in JRuby than in C Ruby is the command for the interactive Ruby console: `jirb`. In C Ruby this utility is simply called `irb`.
+One of the few standard Ruby utilities that has a different name in JRuby than in MRI is the command for the interactive Ruby console: `jirb`. In C Ruby this utility is simply called `irb`. You could also use `jruby -S irb` as described before.
 
-To enable tab completion within jirb, add the following line to the configuration file `.irbrc`
+To enable tab completion within *jirb*, add the following line to the configuration file `.irbrc`
 
     require 'irb/completion'
 
@@ -121,13 +119,14 @@ To enable tab completion within jirb, add the following line to the configuratio
 
 Installing and Using Ruby Gems
 ------------------------------
+
 The RubyGems can be easily installed with JRuby with the following command:
 
-    jruby -S gem install rails mongrel jdbc-mysql activerecord-jdbcmysql-adapter
+    jruby -S gem install rails activerecord-jdbcpostgresql-adapter
 
 Many Gems will work fine in JRuby; however, some Gems build native C libraries as part of their install process. These Gems will not work in JRuby unless the Gem has also provided a Java equivalent to the native library.
 
-Mongrel and Hpricot are two examples of Gems that build their native library in a platform independent manner. Each of them specify a parsing library using the Ragel language and a Ragel program can be automatically converted into either C or Java as part of the compile process.
+Mongrel and [JSON](http://flori.github.io/json/) are two examples of gems that build their native library in a platform independent manner. Each of them specify a parsing library using the Ragel language and a Ragel program can be automatically converted into either C or Java as part of the compile process.
 
 Also, keep in mind that installing gems from behind a firewall will require setting the `HTTP_PROXY` or passing the `http-proxy` argument. For example:
 
