@@ -1,23 +1,24 @@
 Configuring JRuby
 =================
 
-As of version 1.6.5, JRuby now supports a .jrubyrc file in either the current directory or the user's home directory. The format of this file is a series of key/value pairs, with the key being the property name from ```--properties``` and the value being the value you'd pass on the command line for the same property.
+JRuby (since 1.6.5) supports a *.jrubyrc* file in either the current directory or the user's home directory. The format of this file is a series of key/value pairs, with the key being the property name from ```--properties``` and the value being the value you'd pass on the command line for the same property.
 
-For example, to set the default Ruby version mode to 1.9, you'd use the following line:
-
-```
-compat.version=1.9
-```
-
-A configuration file that sets 1.9 mode, disables C extensions, and generates full backtraces for the EAGAIN errno would look like:
+For example, to log all Ruby exceptions occurring within the runtime, you'd use the following line:
 
 ```
-compat.version=1.9
-cext.enabled=false
+log.exceptions=true
+```
+
+A configuration file that logs all internal back-trace generation and generates full backtraces for the EAGAIN errno would look like:
+
+```
+log.exceptions=true
+log.backtraces=true
+log.callers=true
 errno.backtrace=true
 ```
 
-Most properties should be documented in the ```jruby --properties``` output, but for a complete listing look at src/org/jruby/RubyInstanceConfig.java.
+Most properties should be documented in the ```jruby --properties``` output, but for a complete listing look at [org/jruby/util/cli/Options.java](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/util/cli/Options.java).
 
 A listing from JRuby 9.1.2.0 follows. Some of these are not available in previous ruby versions.
 
