@@ -10,10 +10,15 @@ See [[Differences Between MRI And JRuby|Differences-Between-MRI-and-JRuby]] for 
 Development Team
 ----------------
 
-JRuby's current core development team consists of nine developers:
+JRuby's current core development team consists of:
 
-* Charles Oliver Nutter (Red Hat) aka headius
-* Thomas Enebo (Red Hat) aka enebo
+* Charles Oliver Nutter (Red Hat) aka [@headius](https://github.com/headius)
+* Thomas Enebo (Red Hat) aka [@enebo](https://github.com/enebo)
+* Marcin Mielzynski aka [@lopex](https://github.com/lopex)
+
+There are also many past contributors who still help out from time to time:
+
+* Ola Bini (Thoughtworks)
 * Nick Sieger (LivingSocial)
 * Hiro Asari (Red Hat)
 * David Calavera
@@ -21,11 +26,6 @@ JRuby's current core development team consists of nine developers:
 * Hiroshi Nakamura aka NaHi
 * Wayne Meissner
 * MenTaLguY
-
-There are also many past contributors who still help out from time to time:
-
-* Ola Bini (Thoughtworks)
-* Marcin Mielzynski aka lopex
 * Bill Dortch
 * Many more...check out the JRuby commit logs!
 
@@ -33,7 +33,8 @@ Links
 -----
 
 * [[Articles on JRuby internals|Internals]]
+* [JRuby's Sporadic Blog](http://blog.jruby.org/)
 * [Charles Oliver Nutter's blog](http://headius.blogspot.com)
-* [Thomas Enebo's blog](http://www.bloglines.com/blog/ThomasEEnebo)
-* [Ola Bini's blog](http://olabini.com/blog)
-* [Nick Sieger's blog](http://blog.nicksieger.com)
+* [Thomas Enebo's blog](http://blog.enebo.com/)
+* [Ola Bini's blog](https://olabini.com/blog/)
+* [Nick Sieger's blog](http://blog.nicksieger.com/)
