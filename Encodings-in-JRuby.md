@@ -2,7 +2,7 @@
 * For now this a small wrap-up of usage and semantics of MRI's character length function plenitude
 ```c
 
-// used by Onigmo internals (parsing, compiling, execution, some encodings)
+// used by Onigmo internals (parsing, compiling, execution, some encoding)
 #define enclen(enc,p,e) ((enc->max_enc_len == enc->min_enc_len) ? enc->min_enc_len : ONIGENC_MBC_ENC_LEN(enc,p,e))
 
 // encoding.c, regenc.c (this is **the** central function on each encodings)
