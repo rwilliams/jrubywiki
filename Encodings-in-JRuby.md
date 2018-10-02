@@ -5,7 +5,7 @@
 // used by Onigmo internals (parsing, compiling, execution, some encodings)
 #define enclen(enc,p,e) ((enc->max_enc_len == enc->min_enc_len) ? enc->min_enc_len : ONIGENC_MBC_ENC_LEN(enc,p,e))
 
-// encoding.c, regenc.c (this is **the** central function on each encoding)
+// encoding.c, regenc.c
 #define ONIGENC_MBC_ENC_LEN(enc,p,e)           onigenc_mbclen_approximate(p,e,enc)
 
 // regenc.c only
@@ -18,7 +18,7 @@ extern int onigenc_mbclen_approximate(const OnigUChar* p,const OnigUChar* e, Oni
   return 1;
 }
 
-// used by unicode.c, encoding.c, regenc.c
+// used by unicode.c, encoding.c, regenc.c (this is **the** central function on each encoding)
 #define ONIGENC_PRECISE_MBC_ENC_LEN(enc,p,e)   (enc)->precise_mbc_enc_len(p,e,enc)
 
 // used in re.c
