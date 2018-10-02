@@ -25,8 +25,15 @@ extern int onigenc_mbclen_approximate(const OnigUChar* p,const OnigUChar* e, Oni
 #define mbclen(p,e,enc)  rb_enc_mbclen((p),(e),(enc))
 
 // used by core and exts
-int rb_enc_precise_mbclen(const char *p, const char *e, rb_encoding *enc); /* -> chlen, invalid or needmore */
-
+int rb_enc_precise_mbclen(const char *p, const char *e, rb_encoding *enc) { /* -> chlen, invalid or needmore */
+    int n;
+    if (e <= p)
+        return ONIGENC_CONSTRUCT_MBCLEN_NEEDMORE(1);
+    n = ONIGENC_PRECISE_MBC_ENC_LEN(enc, (UChar*)p, (UChar*)e);
+    if (e-p < n)
+        return ONIGENC_CONSTRUCT_MBCLEN_NEEDMORE(n-(int)(e-p));
+    return n;
+}
 
 // used by core and exts
 int rb_enc_mbclen(const char *p, const char *e, rb_encoding *enc) {
@@ -37,17 +44,6 @@ int rb_enc_mbclen(const char *p, const char *e, rb_encoding *enc) {
         int min = rb_enc_mbminlen(enc);
         return min <= e-p ? min : (int)(e-p);
     }
-}
-
-// used by unicode.c, encoding.c, regenc.c
-int rb_enc_precise_mbclen(const char *p, const char *e, rb_encoding *enc) {
-    int n;
-    if (e <= p)
-        return ONIGENC_CONSTRUCT_MBCLEN_NEEDMORE(1);
-    n = ONIGENC_PRECISE_MBC_ENC_LEN(enc, (UChar*)p, (UChar*)e);
-    if (e-p < n)
-        return ONIGENC_CONSTRUCT_MBCLEN_NEEDMORE(n-(int)(e-p));
-    return n;
 }
 
 // used by parser
