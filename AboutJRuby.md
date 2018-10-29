@@ -18,9 +18,9 @@ JRuby's current core development team consists of:
 
 There are also many past contributors who still help out from time to time:
 
-* Ola Bini (Thoughtworks)
-* Nick Sieger (LivingSocial)
-* Hiro Asari (Red Hat)
+* Ola Bini
+* Nick Sieger
+* Hiro Asari
 * David Calavera
 * Yoko Harada
 * Hiroshi Nakamura aka NaHi
