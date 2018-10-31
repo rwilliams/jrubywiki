@@ -12,13 +12,8 @@ JRuby release preparation
     * Does jruby-complete work with rubygems (especially on windows)
     * email good env testers (Ben, Terrence)
 * export MAVEN_OPTS=-XX:MaxPermSize=768m
-* On 1.7.x
-    * mvn versions:set -DnewVersion=1.7.9 -Pall
-    * update VERSION
-    * edit maven/jruby-jars/pom.xml and manually remove '.dev' from finalName
-* On master
-    * update VERSION
-    * ./mvnw
+* update VERSION
+* ./mvnw
 * commit and tag
 * cd .. && rm -rf release && git clone jruby release && cd release
 * mvn clean deploy -Psonatype-oss-release -Prelease
