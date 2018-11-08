@@ -72,8 +72,9 @@ This is a community wiki dedicated to [JRuby], an implementation of the [Ruby](h
 
 **Get Creative**
 * [Ruby Processing](https://github.com/jashkenas/ruby-processing/wiki) (ruby wrapper for processing-2.2.1)
-* [propane](https://ruby-processing.github.io/propane/) (batteries included ruby-processing for processing-3.3.7)
-* [JRubyArt](https://ruby-processing.github.io/propane/) (ruby wrapper for processing-3.3.7+)
+* [propane](https://ruby-processing.github.io/propane/) (batteries included ruby-processing for processing-3.4)
+* [JRubyArt](https://ruby-processing.github.io/propane/) (ruby wrapper for processing-3.4+)
+* [PiCrate](https://ruby-processing.github.io/PiCrate/) (batteries included ruby-processing for processing-3.4 on RaspberryPI)
 
 **Evangelism**
 
