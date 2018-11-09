@@ -27,10 +27,9 @@ JRuby release preparation
     * edit config.yml
     * edit www/downloads.html
     * add www/_posts/2013-12-06-jruby-1-7-9.markdown
-        * JRUBY_VERSION=1.7.9 rake issues to get issues list
-        * rake index to update our download index files
-    * LANG="en_US.UTF-8" LC_ALL="en_US.UTF-8" mri22 -S rake deploy
-    * LANG="en_US.UTF-8" LC_ALL="en_US.UTF-8" mri22 -S rake deploy
+    * JRUBY_VERSION=1.7.9 rake issues to get issues list
+    * ```rake index``` to update our download index files
+    * ```rake server``` and check all links 
 
 * Send emails to ruby-talk@ruby-lang.org, jruby@ruby-lang.org
 * tweet
