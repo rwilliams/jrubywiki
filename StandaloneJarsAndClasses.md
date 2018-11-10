@@ -10,7 +10,7 @@ Standalone Executable Jar Files
 
 You may also want to bundle JRuby plus your own Ruby code  into a single .jar file that when run launches your application. Starting with JRuby 1.6, you can do this by changing the `Main-Class` for the jar file to point at `org.jruby.JarBootstrapMain` and adding your own jar-bootstrap.rb to the root of the jar file. This file will be loaded and launched as though it were specified on the command line.
 
-Assuming you downloaded a package from https://jruby.org/download and expanded it into `~/projects/jruby`, you can follow these instructions:
+Assuming you downloaded a package from https://www.jruby.org/download and expanded it into `~/projects/jruby`, you can follow these instructions:
 
     ~/projects/jruby $ cp lib/jruby.jar myapp.jar
     
