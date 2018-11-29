@@ -3,12 +3,12 @@ Generating Java Classes
 
 Sometimes it's not enough to be able to call Java classes from Ruby, embed Ruby via a scripting API, or implement Java interfaces or extend Java classes at runtime. There are many APIs and services that require you to have a real Java .class file on disk, callable from Java code, visible to Java compilers, and/or configurable in various types of configuration files. To participate in these services, you need a "real" Java class.
 
-There are two mechanisms for accomplishing this.
+There are two (currently incompatible) mechanisms for accomplishing this.
 
 Generating Java Classes at Runtime using become_java!
 -----------------------------------------------------
 
-If you ```require 'jruby/core_ext'```, All Ruby classes gain a new method: become_java!. become_java! examines the class's methods and generates a real Java class for it. Subsequent instantiations of the Ruby class will actually be instances of that generated Java class, allowing it to show up to Java tools and be reflectively accessible by Java APIs.
+If you ```require 'jruby/core_ext'```, All Ruby classes gain a new method: become_java!. become_java! examines the class's methods and generates a real Java class for it. Subsequent instantiations of the Ruby class will actually be instances of that generated Java class, allowing it to show up to Java tools and be reflectively accessible by Java APIs. Note that if you do not ```require 'jruby/core_ext'```, `become_java!` will silently fail.
 
 Here's a simple example:
 
@@ -38,6 +38,8 @@ end
 ```
 
 The resulting Java class has an instance method named ```some_method``` and a static method named ```class_method```.
+
+`become_java!` accepts up to two optional parameters. The meaning of the parameters is determined by the arguments type rather than their position. A boolean value will control the selection of the classloader; the default behavior is to use the a new instance of OneShotClassLoader to load the class; pass `false` to load using a shared classloader. A String value will be interpreted as a destination directory for outputting the .class file. 
 
 Generating Java Classes Ahead-of-time
 -------------------------------------
@@ -179,6 +181,8 @@ To put the Java class in a package, use java_package:
 
  class Foo; end
 ```
+
+**IMPORTANT NOTE:** `java_package` only works in conjunction with `jrubyc`. It is silently ignored by `become_java!`, which creates all classes in the package `rubyobj`
 
 Java fields
 -----------
