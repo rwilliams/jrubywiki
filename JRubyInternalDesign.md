@@ -56,15 +56,6 @@ Compiler
 * The resulting bytecode does not decompile to anything very Java-like. As a result, Java decompilers will either produce garbage or produce code that's largely unintelligible.
 * 1.8 and 1.9 modes share most of the same compiler, with 1.9 mode overriding a few key areas like multiple assignment, method/block arguments, and 1.9-specific features like "stabby lamda" (the ->(){} block form).
 
-Compatibility
--------------
-
-* JRuby 1.6 has achieved a very high level of compatibility with Ruby 1.8.7. We run nearly as many [http://rubyspec.org RubySpec] specs as MRI 1.8.7, with differences largely restricted to things the JVM can't do (like fork, true exec, other low-level system functions).
-* JRuby 1.6 is also the first release where we are recommend users try 1.9 mode and report issues. Key applications and libraries like RubyGems, Rake, Rails, and RSpec all work properly in 1.9 mode.
-* JRuby passes 100% of the Rails test suites, and we maintain a continuous integration build to watch for incompatible changes. In production, "JRuby on Rails" generally performs better than MRI 1.8.7, and usually on par with or better than MRI 1.9.2.
-* A number of C-based extensions have been ported to JRuby, such as for database accessor JSON parsing.
-* JRuby 1.6 ships experimental C extension support, to aid migration. We do not, however, recommend heavy use of C extensions, since the call boundaries are much slower than Java-based extensions and C extensions are necessarily forced to run single-threaded. There are also deployment concerns; C extensions maintain process-global state, making it impossible to run multiple JRuby instances in the same process.
-
 Future areas for improvement
 ----------------------------
 
