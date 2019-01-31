@@ -15,7 +15,7 @@ Runtime layout
 --------------
 
 * The "Ruby" class is the main entry point for the runtime. All objects created have a reference to the runtime, and do not / will not migrate across runtimes without marshalling.
-* Every thread using a given runtime is assigned a *ThreadContext* object, stored in a *threadlocal*. We minimize *threadlocal* lookup by frequently passing the *ThreadContext* on the call stack as a parameter.
+* Every thread using a given runtime is assigned a *ThreadContext* object, stored in a *threadlocal*. We minimize *threadlocal* lookup by frequently passing the *ThreadContext* on the call stack as a parameter.  *ThreadContext* also has fields to *Ruby*, tru(e), fals(e), and nil making it a common default param over passing *Ruby*.
 * The *ThreadContext* contains thread-local and call-stack information for the thread, like our artificial call frames and variable scopes, throw/catch markers, a reference to the current in-flight exception, and so on. It also governs logic for generating backtraces.
 * Interpreted Ruby calls always push/pop a *Backtrace* on a stack in *ThreadContext*. Compiled calls do not, storing all backtrace information necessary in their compiled Java class/method name. Backtrace generation, then, is a matter of walking the Java backtrace, mining out interpreted and compiled Ruby markers, and aggregating them.
 
