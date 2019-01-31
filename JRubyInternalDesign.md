@@ -7,8 +7,8 @@ Parsing/lexing
 --------------
 
 * JRuby has a YACC/BISON-based parser, basically Ruby's parser ported to Java and using the Jay parser generated.
-  * We ship two parsers, in fact, one for 1.8 mode and one for 1.9 mode.
-* The lexer is hand-written, as in Ruby. A single lexer is shared between the two parsers, with a few version-specific tweaks.
+  * We ship two parsers, in fact, one for evaluating Ruby and one for Ripper.
+* The lexer is hand-written, as in Ruby.
 * The resulting AST has positioning information for start/end lines. We forked off the JRubyParser project to handle the needs of IDE developers, which additionally stores byte offsets and comments.
 
 Runtime layout
