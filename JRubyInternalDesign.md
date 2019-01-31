@@ -28,13 +28,13 @@ More on threading
   * Criticalization is implemented with a shared global mutex, only protecting critical sections from concurrent execution. It does not stop other threads that are not attempting to run critical section.
   * kill and raise both require that the target thread eventually reach a thread checkpoint, or in pthread parlance a *cancellation point*. They work by sending "mail" to the target thread, which must eventually pick up that mail and propagate the event. Mail is checked periodically (at various language constructs, in many core methods, and every so many calls) by calling *ThreadContext.pollThreadEvents*.
 
-Interpreter
------------
+IR - Internal Representation
+----------------------------
 
-* Interpretation proceeds by calling *interpret* on the AST *Node* subclasses. As we walk the nodes of the AST, Ruby behavior is expressed. This performs better than using a "big switch" as in earlier versions of JRuby, likely because virtual dispatch is often faster than doing a large switch-based dispatch.
-* There's a shared set of AST nodes for 1.8 and 1.9 modes. A few nodes are specific to one version or the other.
-* There are five primary entry points into interpretation: executing an interpreted method or block, evaluating a string containing Ruby code, entering a class body, and executing the toplevel of a script.
-* In general, files loaded via load or require are interpreted at first, allowing only methods called many times to JIT (Just-In-Time) compile to JVM bytecode.
+AST is converted into IRScopes containing IR instrs and operands.  These scopes are interpreted and compiler passes are run over them.  Once it is decided that a scope should be compiled it is passed off to the bytecode generation piece of IR.
+
+* IRSCopes of Ruby: methods (IRMethod), blocks (IRClosure), evals (IREvalScript), class/module body (IRClass/IRModule), script body (IRScriptBody), and for (IRFor).  Note: for is not really an execution context but merely a convenience for analysis (e.g. we don't run an interpreter against instrs in IRFor).
+* In general, files loaded via load or require are interpreted at first, allowing only methods called many times to JIT (Just-In-Time) compile to JVM bytecode.  This typically means things like script/module/method bodies never will JIT although for things like the main script file we do AOT.
 
 Methods and dynamic dispatch
 ----------------------------
