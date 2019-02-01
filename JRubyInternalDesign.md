@@ -1,7 +1,7 @@
 JRuby Internal Design
 =====================
 
-This page is a quick writeup for those interested. The details here will certainly change over time, but this reflects the state of the world as of JRuby 1.6.
+This page is a quick writeup for those interested. The details here will certainly change over time, but this reflects the state of the world as of JRuby 9K.
 
 Parsing/lexing
 --------------
