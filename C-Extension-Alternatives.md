@@ -34,7 +34,7 @@ If you are interested in helping us port an extension to JRuby, this article is 
 
 Please add to this list with your findings.
 
-*Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the `gem_name - instructions` format.*
+*Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the table format above and the links to projects below (in the source for this page).
 
 [RDiscount]: http://dafoster.net/projects/rdiscount/
 [RedCarpet]: https://github.com/vmg/redcarpet
