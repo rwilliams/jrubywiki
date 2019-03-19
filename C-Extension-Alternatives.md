@@ -31,7 +31,7 @@ If you are interested in helping us port an extension to JRuby, this article is 
 |[therubyracer][]|Try using [therubyrhino][] instead (or [dienashorner][] on Java 8+).|
 |[kyotocabinet][]|Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.|
 |[memcached][]|Try using [jruby-memcached][] instead. Alternatively you can use [jruby-ehcache][], a JRuby interface to Java's (JSR-107 compliant) Ehcache.|
-<!-- suggestions end -->w
+<!-- suggestions end -->
 
 Please add to this list with your findings.
 
