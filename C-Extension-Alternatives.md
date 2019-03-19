@@ -11,7 +11,7 @@ This page lists common C extensions and JRuby-friendly alternatives you can use 
 
 If you are interested in helping us port an extension to JRuby, this article is helpful: [Your first Ruby native extension: Java](https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/) see also [JRuby examples](https://github.com/jruby/jruby-examples) for a maven build.
 
-
+<!-- suggestions start -->
 | Gem | Suggestions |
 |-----|-------------|
 |[RDiscount][]|Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)|
@@ -31,11 +31,13 @@ If you are interested in helping us port an extension to JRuby, this article is 
 |[therubyracer][]|Try using [therubyrhino][] instead (or [dienashorner][] on Java 8+).|
 |[kyotocabinet][]|Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.|
 |[memcached][]|Try using [jruby-memcached][] instead. Alternatively you can use [jruby-ehcache][], a JRuby interface to Java's (JSR-107 compliant) Ehcache.|
+<!-- suggestions end -->w
 
 Please add to this list with your findings.
 
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the table format above and the links to projects below (in the source for this page).
 
+<!-- links start -->
 [RDiscount]: http://dafoster.net/projects/rdiscount/
 [RedCarpet]: https://github.com/vmg/redcarpet
 [kramdown]: https://github.com/gettalong/kramdown
@@ -73,3 +75,4 @@ Please add to this list with your findings.
 [activerecord-jdbcsqlite3-adapter]: https://rubygems.org/gems/activerecord-jdbcsqlite3-adapter
 [activerecord-jdbcpostgresql-adapter]: https://rubygems.org/gems/activerecord-jdbcpostgresql-adapter
 [pg_jruby]: https://rubygems.org/gems/pg_jruby
+<!-- links start -->
