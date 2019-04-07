@@ -32,6 +32,7 @@ If you are interested in helping us port an extension to JRuby, this article is 
 |[kyotocabinet][]|Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.|
 |[memcached][]|Try using [jruby-memcached][] instead. Alternatively you can use [jruby-ehcache][], a JRuby interface to Java's (JSR-107 compliant) Ehcache.|
 |[charlock_holmes][]|Use [charlock_holmes-jruby][] instead.|
+|[fast_xor][]|use [xorcist][] instead or roll slower but pure ruby equivalent.|
 <!-- suggestions end -->
 
 Please add to this list with your findings.
@@ -78,4 +79,6 @@ Please add to this list with your findings.
 [pg_jruby]: https://rubygems.org/gems/pg_jruby
 [charlock_holmes]: https://github.com/brianmario/charlock_holmes
 [charlock_holmes-jruby]: https://github.com/siuying/charlock_holmes-jruby
+[fast_xor]: https://github.com/CodeMonkeySteve/fast_xor
+[xorcist]: https://github.com/fny/xorcist
 <!-- links start -->
