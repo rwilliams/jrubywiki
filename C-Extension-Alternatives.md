@@ -1,4 +1,4 @@
-JRuby does not support native C extensions, but it does have it's own Java native extensions API.  Several gems have implementations of both Java and C extensions rolled into the same gem and those will not be listed here since they will just work.  In some cases there is a JRuby version with a slightly different name or possibly even a totally different name and we list these here so you can update your Gemfile:
+JRuby does not support native C extensions, but it does have its own Java native extensions API.  Several gems have implementations of both Java and C extensions rolled into the same gem and those will not be listed here since they will just work.  In some cases there is a JRuby version with a slightly different name or possibly even a totally different name and we list these here so you can update your Gemfile:
 
 ```ruby
 gem 'therubyracer', platform: :mri
