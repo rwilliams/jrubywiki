@@ -19,6 +19,7 @@ If you are interested in helping us port an extension to JRuby, this article is 
 |[curb][]|[Rurl][] is an example how to implement _some_ of curb's functionality using [Apache HttpClient][]|
 |[curses][]|Use [ffi-ncurses][].  ncurses is literal API and lower level than curses|
 |[fast_xor][]|use [xorcist][] instead or roll slower but pure ruby equivalent.|
+|[image_science][]|Use [image_voodoo][] instead.|
 |[kyotocabinet][]|Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.|
 |[memcached][]|Try using [jruby-memcached][] instead. Alternatively you can use [jruby-ehcache][], a JRuby interface to Java's (JSR-107 compliant) Ehcache.|
 |mysql|Use [activerecord-jdbcmysql-adapter][].|
@@ -84,4 +85,5 @@ Please add to this list with your findings.
 [charlock_holmes-jruby]: https://github.com/siuying/charlock_holmes-jruby
 [fast_xor]: https://github.com/CodeMonkeySteve/fast_xor
 [xorcist]: https://github.com/fny/xorcist
+[image_science]: https://github.com/seattlerb/image_science
 <!-- links start -->
