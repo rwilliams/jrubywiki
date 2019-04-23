@@ -14,26 +14,26 @@ If you are interested in helping us port an extension to JRuby, this article is 
 <!-- suggestions start -->
 | Gem | Suggestions |
 |-----|-------------|
+|[bson_ext][]|`bson_ext` isn't used with JRuby. Instead, some native Java extensions are bundled with the `bson` gem.|
+|[charlock_holmes][]|Use [charlock_holmes-jruby][] instead.|
+|[curb][]|[Rurl][] is an example how to implement _some_ of curb's functionality using [Apache HttpClient][]|
 |[curses][]|Use [ffi-ncurses][].  ncurses is literal API and lower level than curses|
+|[fast_xor][]|use [xorcist][] instead or roll slower but pure ruby equivalent.|
+|[kyotocabinet][]|Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.|
+|[memcached][]|Try using [jruby-memcached][] instead. Alternatively you can use [jruby-ehcache][], a JRuby interface to Java's (JSR-107 compliant) Ehcache.|
+|mysql|Use [activerecord-jdbcmysql-adapter][].|
+|mysql2|Use [activerecord-jdbcmysql-adapter][].|
+|[oj][]|Try `gson`, `json` or `json_pure` instead.|
+|pg|Use [activerecord-jdbcpostgresql-adapter][] instead or [pg_jruby][] (drop-in replacement).|
 |[RDiscount][]|Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)|
 |[RedCarpet][]|Same as with **RDiscount** use alternatives such as [kramdown][], [Maruku][] or [markdown_j][]|
 |[RMagick][]|Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][]. You can also use Java's Graphics2D.|
-|[Unicorn][]| Use [Puma][].|
-|[Thin][]| Use [Puma][].|
-|mysql|Use [activerecord-jdbcmysql-adapter][].|
-|mysql2|Use [activerecord-jdbcmysql-adapter][].|
 |sqlite3|Use [activerecord-jdbcsqlite3-adapter][].|
-|pg|Use [activerecord-jdbcpostgresql-adapter][] instead or [pg_jruby][] (drop-in replacement).|
-|[yajl-ruby][]|Try `json` or `json_pure` instead. Unfortunately there is no known equivalent JSON stream parser.|
-|[oj][]|Try `gson`, `json` or `json_pure` instead.|
-|[bson_ext][]|`bson_ext` isn't used with JRuby. Instead, some native Java extensions are bundled with the `bson` gem.|
-|[win32ole][]|Use the `jruby-win32ole` gem (preinstalled in JRuby's Windows installer).|
-|[curb][]|[Rurl][] is an example how to implement _some_ of curb's functionality using [Apache HttpClient][]|
 |[therubyracer][]|Try using [therubyrhino][] instead (or [dienashorner][] on Java 8+).|
-|[kyotocabinet][]|Try using [kyotocabinet-java][] instead. This isn't 100% complete yet, but it covers most of the API.|
-|[memcached][]|Try using [jruby-memcached][] instead. Alternatively you can use [jruby-ehcache][], a JRuby interface to Java's (JSR-107 compliant) Ehcache.|
-|[charlock_holmes][]|Use [charlock_holmes-jruby][] instead.|
-|[fast_xor][]|use [xorcist][] instead or roll slower but pure ruby equivalent.|
+|[Thin][]| Use [Puma][].|
+|[Unicorn][]| Use [Puma][].|
+|[win32ole][]|Use the `jruby-win32ole` gem (preinstalled in JRuby's Windows installer).|
+|[yajl-ruby][]|Try `json` or `json_pure` instead. Unfortunately there is no known equivalent JSON stream parser.|
 <!-- suggestions end -->
 
 Please add to this list with your findings.
