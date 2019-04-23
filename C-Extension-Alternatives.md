@@ -14,6 +14,7 @@ If you are interested in helping us port an extension to JRuby, this article is 
 <!-- suggestions start -->
 | Gem | Suggestions |
 |-----|-------------|
+|[curses][]|Use [ffi-ncurses][].  ncurses is literal API and lower level than curses|
 |[RDiscount][]|Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)|
 |[RedCarpet][]|Same as with **RDiscount** use alternatives such as [kramdown][], [Maruku][] or [markdown_j][]|
 |[RMagick][]|Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][]. You can also use Java's Graphics2D.|
@@ -40,6 +41,8 @@ Please add to this list with your findings.
 *Note that the [JRuby-Lint][] gem parses the contents of the list above to use for its Ruby gem checker. In order for JRuby-Lint to use the information, please adhere to the table format above and the links to projects below (in the source for this page).
 
 <!-- links start -->
+[curses]: https://github.com/ruby/curses
+[ffi-ncurses]: https://github.com/seanohalpin/ffi-ncurses
 [RDiscount]: http://dafoster.net/projects/rdiscount/
 [RedCarpet]: https://github.com/vmg/redcarpet
 [kramdown]: https://github.com/gettalong/kramdown
