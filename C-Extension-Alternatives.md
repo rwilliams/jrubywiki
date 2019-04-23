@@ -26,6 +26,7 @@ If you are interested in helping us port an extension to JRuby, this article is 
 |mysql2|Use [activerecord-jdbcmysql-adapter][].|
 |[oj][]|Try `gson`, `json` or `json_pure` instead.|
 |pg|Use [activerecord-jdbcpostgresql-adapter][] instead or [pg_jruby][] (drop-in replacement).|
+|[pry-byebug][]|Use [pry-debugger-jruby][] instead.|
 |[RDiscount][]|Use [kramdown][], [Maruku][] (pure Ruby) or [markdown_j][] (wrapper around a Java library)|
 |[RedCarpet][]|Same as with **RDiscount** use alternatives such as [kramdown][], [Maruku][] or [markdown_j][]|
 |[RMagick][]|Try [RMagick4J][] (implements ImageMagick functionality in Java) or preferably use alternatives [mini_magick][] & [quick_magick][]. For simple resizing, cropping, greyscaling, etc look at [image_voodoo][]. You can also use Java's Graphics2D.|
@@ -55,6 +56,8 @@ Please add to this list with your findings.
 [quick_magick]: https://github.com/aseldawy/quick_magick
 [image_voodoo]: https://github.com/jruby/image_voodoo
 [Unicorn]: http://unicorn.bogomips.org/
+[pry-byebug]: https://github.com/deivid-rodriguez/pry-byebug
+[pry-debugger-jruby]: https://gitlab.com/ivoanjo/pry-debugger-jruby
 [Puma]: http://puma.io/
 [Thin]: http://code.macournoyer.com/thin/
 [Typhoeus]: https://github.com/dbalatero/typhoeus
