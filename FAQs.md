@@ -535,7 +535,7 @@ Why Can't JRuby (or MRI) connect to my MRI (or JRuby) based server?
 Why do I get "connection refused" when connecting with JRuby
 ------------------------------------------------------------
 
-MRI/CRuby and JRuby appear to have some differences in how they resolve "localhost". On JRuby, sometimes we will resolve it as an IPv4 address and sometimes as an IPv6 address, and CRuby seems to sometimes choose the opposite. As a result, using "localhost" on both ends may result in failed connections, usually with a "connection refused" or a family/protocol error. Specifying the exact IPv4 or IPv6 address on each end is often the easiest workaround.
+MRI/CRuby and JRuby appear to have some differences in how they resolve "localhost". On JRuby, sometimes we will resolve it as an IPv4 address and sometimes as an IPv6 address, and CRuby seems to sometimes choose the opposite. As a result, using "localhost" on both ends may result in failed connections, usually with a "connection refused" or a family/protocol error. Specifying the exact IPv4 or IPv6 address on each end (e.g. `http://[::1]:4567` or `http://0.0.0.0:4567` vs `http://localhost:4567`) is often the easiest workaround.
 
 Additionally, some JDKs (like OpenJDK/Sun/Oracle/Hotspot) try to use IPv6 addresses for e.g. "localhost" when possible. If using only similar JDKs to connect, this isn't a problem. However, some tools usually prefer one protocol or the other and may have trouble connecting.
 
