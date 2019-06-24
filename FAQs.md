@@ -452,27 +452,6 @@ You tried the performance tuning option --server but received an error like "Err
 On windows the Java Runtime Environment (JRE) inclues the client VM by default but does not include the server VM. You should download an install the Java Development Kit (JDK). 
 If you want to use the server VM with the JRE, you can copy JDK's jre\bin\server folder to a bin\server directory in the Java SE Runtime Environment.
 
-How can I make JRuby always use IPv4 addresses, rather than trying to use IPv6
-------------------------------------------------------------------------------
-
-Some JDKs (like OpenJDK/Sun/Oracle/Hotspot) try to use IPv6 addresses for e.g. "localhost" when possible.
-If using only similar JDKs to connect, this isn't a problem. However, other tools usually prefer IPv4 addresses and may have trouble connecting.
-
-You can adjust how the JDK (at least OpenJDK/Sun/Oracle/Hotspot) decides to use IPv6 versus IPv4 addresses
-via these [networking properties](http://download.oracle.com/javase/1.4.2/docs/guide/net/properties.html).
-You can add them to the Java startup options like this:
-
-```
-export JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
-jruby ...
-```
-
-Or pass directly to JRuby using -J-D like this:
-
-```
-jruby -J-Djava.net.preferIPv4Stack=true ...
-```
-
 I am seeing an error like "InvalidKeyException" or "Invalid key length". How can I fix it?
 ------------------------------------------------------------------------------------------
 
@@ -549,9 +528,30 @@ Networking
 
 Why can't I connect to some (IPv4, IPv6, remote, localhost) address?
 ---------------------------------------------------------------
+How can I make JRuby always use IPv4 addresses, rather than trying to use IPv6
+------------------------------------------------------------------------------
+Why Can't JRuby (or MRI) connect to my MRI (or JRuby) based server?
+-------------------------------------------------------------------
+Why do I get "connection refused" when connecting with JRuby
+------------------------------------------------------------
 
-Sometimes you will have trouble connecting to a remote or local address you know is accessible and which is connectable by other means. Usually this is due to the Java runtime choosing the wrong IP version.
+MRI/CRuby and JRuby appear to have some differences in how they resolve "localhost". On JRuby, sometimes we will resolve it as an IPv4 address and sometimes as an IPv6 address, and CRuby seems to sometimes choose the opposite. As a result, using "localhost" on both ends may result in failed connections, usually with a "connection refused" or a family/protocol error. Specifying the exact IPv4 or IPv6 address on each end is often the easiest workaround.
 
-Most current JVMs/JDKs/JREs will try to prefer IPv6 addresses before they try IPv4 addresses. This sometimes causes trouble for JRuby applications, since they may fail trying to connect to an IPv6 address that is visible but does not expose the service you're hoping to reach. Sometimes it will be the reverse situation.
+Additionally, some JDKs (like OpenJDK/Sun/Oracle/Hotspot) try to use IPv6 addresses for e.g. "localhost" when possible. If using only similar JDKs to connect, this isn't a problem. However, some tools usually prefer one protocol or the other and may have trouble connecting.
 
-You can force OpenJDK-based runtimes (including Oracle's JDK/JRE) to prefer IPv4 by passing `-Djava.net.preferIPv4Stack` to the JVM, `-J-Djava.net.preferIPv4Stack` to JRuby, or otherwise setting the `java.net.preferIPv4Stack` property in the target JVM. The equivalent property for IPv6 `java.net.preferIPv6Stack`, but most JVMs should be doing this by default.
+You can adjust how the JDK (at least OpenJDK/Sun/Oracle/Hotspot) decides to use IPv6 versus IPv4 addresses
+via these [networking properties](http://download.oracle.com/javase/1.4.2/docs/guide/net/properties.html).
+You can add them to the Java startup options like this:
+
+```
+export JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
+jruby ...
+```
+
+Or pass directly to JRuby using -J-D like this:
+
+```
+jruby -J-Djava.net.preferIPv4Stack=true ...
+```
+
+The equivalent property for IPv6 `java.net.preferIPv6Stack`, but some JVMs may do this by default.
