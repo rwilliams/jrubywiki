@@ -63,3 +63,8 @@ SystemStackError
 ----------------
 
 JRuby is not able to rescue from `SystemStackError`. If your code rely on this, you should rather try to catch a `Java::JavaLang::StackOverflowError`. See [this ticket](https://github.com/jruby/jruby/issues/1099) for further information.
+
+Argumentless 'proc'
+-------------------
+
+If you supply ```proc``` with no arguments and the method happens to have been passed a block then Ruby will end up capturing the passed in block.  Some people discover this and it leads to a rare pattern of ```proc.call```.  We do not support this behavior.  The problem is proc as a function is relatively common but it forces us to deoptimize all uses of proc like ```proc { #some code }```.  The recommended work around is to declare the block explicitly using an ampersand ```def foo(&my_proc)...```.  If you want analogue behavior to proc we also allow ```Proc.new``` which will work exactly the same as a bare proc call.
