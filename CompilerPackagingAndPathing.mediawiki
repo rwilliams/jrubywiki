@@ -14,7 +14,7 @@ This is the packaging and pathing specification for JRuby compiler.
 
 So assume <tt>baz.class</tt> contains a class named <tt>foo.bar.baz</tt>, existing under <tt><nowiki><home>/foo/bar</nowiki></tt>.
 
-* Load path contains <tt>&lt;home&gt;</tt>.
+* Load path contains <tt><home></tt>.
 * Executing <tt>require 'foo/bar/baz'</tt> should pick up the class file and load it.
 * Executing <tt>jruby foo/bar/baz.class</tt> should execute it correctly.
 * Executing <tt>jruby -e "require 'baz'"</tt> from within <tt>&lt;home&gt;/foo/bar</tt> should pick it up correctly.
