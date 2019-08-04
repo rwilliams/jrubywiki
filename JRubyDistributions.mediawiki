@@ -82,6 +82,6 @@ JRuby is available at our [http://www.jruby.org/download website], but it is als
 | Windows, Linux, Mac OS X, Virtual Appliance and Amazon Cloud Images
 | BitNami
 | BitNami
-| 9.1.15.0 (frequently updated)
+| 9.2.7.0 (frequently updated)
 | [http://bitnami.org/stack/jrubystack download]
 |}
