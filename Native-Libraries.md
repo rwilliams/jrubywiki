@@ -5,7 +5,7 @@ JRuby uses an FFI subsystem (built atop the [jnr](https://github.com/jnr) family
 First Steps
 ===========
 
-The first line of attack is to pass `-Xnative.verbose=true` to JRuby itself so it will log errors that occur during startup of our FFI subsystem.
+The first line of attack is to pass `-Xnative.verbose=true` to JRuby itself so it will log errors that occur during startup of our FFI subsystem.  Or if you're using it in its jar form: `java -Djruby.native.verbose=true -jar jrubycomplete.jar ...`
 
 Setting Library Paths
 =====================
