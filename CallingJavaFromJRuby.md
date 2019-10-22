@@ -123,7 +123,7 @@ def edu
 end
 ```
 
-And then you can use use usual Java package names like `edu.abc.def.ClassName`
+And then you can use usual Java package names like `edu.school.department.Class`
 Note also that you must use the right capitalization, though see below for how you can change and assign it to your own liking.
 
 Using a Java Class Without The Full Path Name
