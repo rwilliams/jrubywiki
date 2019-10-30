@@ -1,3 +1,6 @@
+JRuby Options and .jrubyrc
+==========================
+
 JRuby uses a number of JVM properties to help users configure the way it should operate. Most of these properties can be written in a shorthand command-line form using `-Xproperty.name=value`.
 
 You can also put these shorthand properties into a `.jrubyrc` file located either in your home directory or in the current directory (with current directory overriding the version from your home directory).
