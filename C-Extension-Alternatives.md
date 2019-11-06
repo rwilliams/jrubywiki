@@ -36,6 +36,7 @@ If you are interested in helping us port an extension to JRuby, this article is 
 |[Unicorn][]| Use [Puma][].|
 |[win32ole][]|Use the `jruby-win32ole` gem (preinstalled in JRuby's Windows installer).|
 |[yajl-ruby][]|Try `json` or `json_pure` instead. Unfortunately there is no known equivalent JSON stream parser.|
+|[rugged]| Try using [rjgit]. Not a drop-in replacement, but API is pretty similar|
 <!-- suggestions end -->
 
 Please add to this list with your findings.
@@ -89,4 +90,6 @@ Please add to this list with your findings.
 [fast_xor]: https://github.com/CodeMonkeySteve/fast_xor
 [xorcist]: https://github.com/fny/xorcist
 [image_science]: https://github.com/seattlerb/image_science
-<!-- links start -->
+[rugged]: https://github.com/libgit2/rugged
+[rjgit]: https://github.com/repotag/rjgit
+<!-- links end -->
