@@ -143,6 +143,7 @@ Here's a few JRuby flags that might help you investigate:
 * `-J-Xrunhprof:cpu=times` turns on the JVM's instrumented profiler, saving profile results to java.hprof.txt. This slows down execution tremendously, but can give you more accurate low-level timings for JRuby and JDK code.
 * `-J-Djruby.debug.loadService.timing=true` turns on timing of all requires, showing fairly accurately where boot-time load costs are heaviest. If there are files that take especially long, there may be a good reason for it.
 * On Windows, where you may not have a "time" command, pass `-b` to JRuby (as in `jruby -b ...`) to print out a timing of your command's runtime execution (excluding JVM boot time).
+* On Windows, in PowerShell you can use `Measure-Command {start-process somecommand -Wait}` as an alternative to "time".
 
 Use a splashscreen
 ===================
