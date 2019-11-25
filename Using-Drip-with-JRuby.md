@@ -67,7 +67,6 @@ chmod +x $rvm_path/hooks/after_use_jruby_drip
 
 See also:
 
-* [One result using drip](http://crashruby.com/2013/01/21/drip-with-jruby)
 * [Drip Experiments (testing by Charles Nutter)](https://gist.github.com/4156388)
 * [JRuby Drip Initial Class](https://github.com/jruby/jruby/blob/master/core/src/main/java/org/jruby/main/DripMain.java)
 * [ninjudd's drip README](https://github.com/ninjudd/drip)
