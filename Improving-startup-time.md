@@ -114,7 +114,7 @@ It may seem like delaying the inevitable, but doing less at startup can have sur
 
 Try using Theine for Rails apps
 ==================================================
-[theine](https://github.com/mrbrdo/theine) is a Rails application pre-loader designed for JRuby. It spawns processes in the background that load your Rails application, and when you need to run a supported command (rails console, server, rspec, rake), you can run it in one of these background process. In combination with allowing you to use a different Ruby for the Theine client (such as Ruby 2.0), this can decrease the startup time to around half a second. Theine will automatically manage a pool of these processes, and there are configuration settings for the pool size. Generally, it works similarly to pry-remote and Spork.
+[theine](https://github.com/mrbrdo/theine) is a Rails application pre-loader designed for JRuby. It spawns processes in the background that load your Rails application, and when you need to run a supported command (rails console, server, rspec, rake), you can run it in one of these background process. In combination with allowing you to use a different Ruby for the Theine client (such as Ruby 2.0), this can decrease the startup time to around half a second. Theine will automatically manage a pool of these processes, and there are configuration settings for the pool size. Generally, it works similarly to pry-remote and Spork. Here's a [sample](https://github.com/rwilliams/theine/wiki/Theine-with-JRUBY,-Rails-6-and-Docker) of theine used with Rails 6 in a docker development workflow.
 
 Try using Drip
 ==================================================
