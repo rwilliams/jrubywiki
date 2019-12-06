@@ -122,8 +122,8 @@ Try using Drip
 
 See also: [[Using Drip with JRuby]]
 
-Try using Nailgun
-=================
+Try using Nailgun (Not supported in JRuby >= 9.2.9.0)
+=====================================================
 
 In JRuby 1.3, we officially shipped support for Nailgun. Nailgun is a small library and client-side tool that reuses a single JVM for multiple invocations. With Nailgun, small JRuby command-line invocations can be orders of magnitude faster.
 
