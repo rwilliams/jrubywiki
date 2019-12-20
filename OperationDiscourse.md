@@ -12,9 +12,7 @@ To date there are 2 gems which we are working on:
  1. https://github.com/enebo/oj.git (nearly done)
  1. https://github.com/enebo/mini_racer.git
 
-Mini_sql is actually merged but no gem currently has been released for -java architecture:
-
- 1. https://github.com/enebo/mini_sql.git 
+Mini_sql is released but only will work with postgresql.  Making it work with mysql/sqlite3 is future work...
 
 Once that is released I will remove the above git: reference from the Gemfile.
 
