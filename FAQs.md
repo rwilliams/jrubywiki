@@ -521,6 +521,51 @@ $ sudo apt-get install haveged
 $ sudo service haveged start
 ```
 
+Why does the Psych YAML extension fail to load in my environment?
+-----------------------------------------------------------------
+
+Some misconfigured environments may see the following errors when the Psych YAML library
+tries to load:
+
+```
+% jruby -S bundle install
+/home/enebo/work/jruby/lib/ruby/stdlib/psych.rb:7: warning: already initialized constant SNAKEYAML_VERSION
+/home/enebo/work/jruby/lib/ruby/stdlib/psych.rb:7: warning: already initialized constant ANY
+/home/enebo/work/jruby/lib/ruby/stdlib/psych.rb:7: warning: already initialized constant UTF8
+/home/enebo/work/jruby/lib/ruby/stdlib/psych.rb:7: warning: already initialized constant UTF16LE
+/home/enebo/work/jruby/lib/ruby/stdlib/psych.rb:7: warning: already initialized constant UTF16BE
+org/jruby/RubyKernel.java:984: warning: It seems your ruby installation is missing psych (for YAML output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+LoadError: load error: psych -- java.lang.NoClassDefFoundError: Could not initialize class org.jruby.ext.psych.PsychEmitter
+LoadError: load error: psych -- java.lang.NoClassDefFoundError: Could not initialize class org.jruby.ext.psych.PsychEmitter
+...
+```
+
+or...
+
+```
+% jruby -d -S bundle install
+java.lang.NoSuchMethodError: org.yaml.snakeyaml.error.Mark.<init>(Ljava/lang/String;III[II)V
+...
+```
+
+JRuby's implementation of the Psych YAML extension uses a Java library called SnakeYAML.
+An incompatible API change in the 1.1x versions was reverted in 1.21. However the broken
+versions are still out there and sometimes creep into user environments via default CLASSPATH
+or transitive dependencies in larger JRuby/Java apps. The broken API will trigger the errors
+above.
+
+To fix this, you must make sure we are able to load the version of SnakeYAML that ships with
+JRuby (at least 1.21 or higher). Check your environment for CLASSPATH variables, or check your
+Java dependencies for transitive dependency on an older version of SnakeYAML.
+
+Related issues:
+
+* https://github.com/bundler/bundler/issues/6878
+* https://github.com/jruby/jruby/issues/6023
+* https://github.com/actions/virtual-environments/issues/242
+* https://github.com/ruby/psych/issues/428
+
 <a name="networking"/>
 
 Networking
