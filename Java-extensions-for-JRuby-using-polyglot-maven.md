@@ -93,12 +93,12 @@ To generate the javadoc:
 mvn javadoc:javadoc
 ```
 
-The beauty of the maven build system is that it readily manages other jar dependencies, especially if they are available from maven central. See for example [ruby-processing][] that depends on processing-2.2.1 `core` and `video` jars as well as jruby. Until we fill out our [documentation][] you may be interested in these two guides by [James Coglan][] and [Richard Huang][] to building jruby-extensions (further they are also real world examples using `BasicLibraryService`, smart arses like the JRuby team use a slightly different approach, but wish to promote a single method for general use).
+The beauty of the maven build system is that it readily manages other jar dependencies, especially if they are available from maven central. See for example [JRubyArt][] that depends on `video` jars as well as jruby. Until we fill out our [documentation][] you may be interested in these two guides by [James Coglan][] and [Richard Huang][] to building jruby-extensions (further they are also real world examples using `BasicLibraryService`, smart arses like the JRuby team use a slightly different approach, but wish to promote a single method for general use).
 
 [polyglot maven]:https://github.com/takari/polyglot-maven
 [here]:https://maven.apache.org/download.cgi
 [jruby-examples]:https://github.com/jruby/jruby-examples
-[ruby-processing]:https://github.com/jashkenas/ruby-processing/blob/master/pom.rb
+[JRubyArt]:https://github.com/ruby-processing/JRubyArt/blob/master/pom.rb
 [Richard Huang]:http://blog.huangzhimin.com/2012/08/23/how-to-write-a-jruby-gem-part-2/
 [James Coglan]:https://blog.jcoglan.com/2012/08/02/your-first-ruby-native-extension-java/
 [documentation]:https://github.com/jruby/jruby/wiki/Method-Signatures-and-Annotations-in-JRuby-extensions
