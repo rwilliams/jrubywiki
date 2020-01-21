@@ -2,7 +2,7 @@ Maven has become the _de-facto_ standard for managing jar dependencies on java
 projects and thanks to [polyglot maven][] it can now do the same for jruby projects 
 with java extensions. Over at [jruby-examples][] we have created a simple project that 
 outlines the necessary steps.
-You can get the latest release of maven (apache-maven-3.5.3) [here][], you need at least 
+You can get the latest release of maven (apache-maven-3.6.3) [here][], you need at least 
 version-3.3.1 for polyglot maven.
 
 In your project directory create a `.mvn` folder and create `extensions.xml`
@@ -15,7 +15,7 @@ polyglot-ruby rather than a `pom.xml` for regular maven). Before you do this you
   <extension>
     <groupId>io.takari.polyglot</groupId>
     <artifactId>polyglot-ruby</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.4</version>
   </extension>
 </extensions>
 ```
@@ -26,7 +26,7 @@ Here is the complete `pom.rb` which as you see is just ruby (we generate the `po
 project 'jruby-ext' do
 
   model_version '4.0.0'
-  id 'com.purbon:jruby-ext:1.0'
+  id 'com.purbon:jruby-ext:1.1'
   packaging 'jar'
   
   description 'example JRuby extension'
@@ -54,7 +54,7 @@ project 'jruby-ext' do
     'jruby.api' => 'http://jruby.org/apidocs/',
   )
 
-  jar 'org.jruby:jruby:9.1.5.0'
+  jar 'org.jruby:jruby:9.2.9.0'
   
   plugin_management do
     plugin :resources, '2.6'
