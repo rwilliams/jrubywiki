@@ -71,7 +71,7 @@ First, make sure you have [RVM installed as outlined in the documentation](https
 $ rvm install jruby
 ```
 
-If you would like to install a specific version of JRuby, you can replace `jruby` with `jruby-X.Y.Z`, where `X.Y.Z` is a version such as `1.7.27` or `9.1.17.0`. 
+If you would like to install a specific version of JRuby, you can replace `jruby` with `jruby-X.Y.Z`, where `X.Y.Z` is a version such as `9.2.9.0` or just `9.2`. 
 
 Once the install process is finished, you can ensure that JRuby is being used like this:
 
