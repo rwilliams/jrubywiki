@@ -2,6 +2,19 @@ Although ideally [MRI](http://en.wikipedia.org/wiki/Ruby_MRI) and JRuby would be
 
 ****
 
+Stack Trace Differences
+-----------------------
+
+Because JRuby is a JVM-based language, you may see some differences in how Ruby stack traces ("backtraces") are rendered. A partial list of such cases is below:
+
+* The "new" frame from constructing an object may not be present due to optimizations.
+* Core class methods implemented in Java will show a .java file and line number where CRuby would just show the calling .rb line twice. This should not affect `caller` and `caller_locations` output.
+* There may be more or fewer frames due to how we reconstruct a stack trace from the JVM stack.
+* Nested blocks will not show the level of nesting.
+* Top-level frames may show a different names where CRuby shows "<main>".
+
+In general, code should not rely on exception backtraces matching CRuby exactly, but when there's a questionable difference please open a bug. We try to match CRuby as closely as possible.
+
 Native C Extensions
 -------------------
 
