@@ -23,6 +23,7 @@ JRuby release preparation
 * close and release snapshot repo on sonatype (https://oss.sonatype.org - snapshot repos)
 * (broken currently) `jruby -S applet:dist`
     * upload resulting jruby-complete-signedjar to http://jruby.org.s3.amazonaws.com/tryjruby/jruby-complete-signed.jar
+* `git push --tags` to propagate tag once release artifacts are out
 * Add news item to www.jruby.org page 
     * edit config.yml
     * edit www/downloads.html
