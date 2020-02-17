@@ -14,7 +14,7 @@ JRuby release preparation
 * export MAVEN_OPTS=-XX:MaxPermSize=768m
 * update VERSION
 * ./mvnw
-* commit and tag
+* commit and `tag -a` with release notes 
 * cd .. && rm -rf release && git clone jruby release && cd release
 * mvn clean deploy -Psonatype-oss-release -Prelease
 * jrake post_process_artifacts (puts s3 stuff in release subdir)
